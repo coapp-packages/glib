@@ -1,5 +1,5 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+# Visual C++ Express 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glib", "glib.vcxproj", "{12BCA020-EABF-429E-876A-A476BC9C10C0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gmodule", "gmodule.vcxproj", "{4214047C-F5C1-40B3-8369-5DCED8C32770}"
@@ -225,6 +225,7 @@ Global
 		{2093D218-190E-4194-9421-3BA7CBF33B10}.Release_ExtPCRE|x64.ActiveCfg = Release|x64
 		{2093D218-190E-4194-9421-3BA7CBF33B10}.Release_ExtPCRE|x64.Build.0 = Release|x64
 		{2093D218-190E-4194-9421-3BA7CBF33B10}.Release|Win32.ActiveCfg = Release|Win32
+		{2093D218-190E-4194-9421-3BA7CBF33B10}.Release|Win32.Build.0 = Release|Win32
 		{2093D218-190E-4194-9421-3BA7CBF33B10}.Release|x64.ActiveCfg = Release|x64
 		{2093D218-190E-4194-9421-3BA7CBF33B10}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
