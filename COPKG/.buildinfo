@@ -9,26 +9,26 @@
 
 x86 {
     compiler: vc10;
-    
-    uses:default=@"..\gettext";
-    uses:x86=@"..\zlib";
+
+	requires: "zlib-dev[vc10]-1.2.5-x86-1e373a58e25250cb";
+    /* requires: libintl-dev */
 
     targets: { 
-        "build\win32\vs10\Release\Win32\bin\gio-2-vs10.dll",
-        "build\win32\vs10\Release\Win32\bin\gio-2.0.lib",
-        "build\win32\vs10\Release\Win32\bin\glib-2-vs10.dll",
-        "build\win32\vs10\Release\Win32\bin\glib-2.0.lib",
-        "build\win32\vs10\Release\Win32\bin\glib-compile-schemas.exe",
-        "build\win32\vs10\Release\Win32\bin\glib-genmarshal.exe",
-        "build\win32\vs10\Release\Win32\bin\gmodule-2-vs10.dll",
-        "build\win32\vs10\Release\Win32\bin\gmodule-2.0.lib",
-        "build\win32\vs10\Release\Win32\bin\gobject-2-vs10.dll",
-        "build\win32\vs10\Release\Win32\bin\gobject-2.0.lib",
-        "build\win32\vs10\Release\Win32\bin\gsettings.exe",
-        "build\win32\vs10\Release\Win32\bin\gspawn-win32-helper-console.exe",
-        "build\win32\vs10\Release\Win32\bin\gspawn-win64-helper.exe",
-        "build\win32\vs10\Release\Win32\bin\gthread-2-vs10.dll",
-        "build\win32\vs10\Release\Win32\bin\gthread-2.0.lib",
+        "vs10\Win32\bin\gio-2-vs10.dll",
+        "vs10\Win32\lib\gio-2.0.lib",
+        "vs10\Win32\bin\glib-2-vs10.dll",
+        "vs10\Win32\lib\glib-2.0.lib",
+        "vs10\Win32\bin\glib-compile-schemas.exe",
+        "vs10\Win32\bin\glib-genmarshal.exe",
+        "vs10\Win32\bin\gmodule-2-vs10.dll",
+        "vs10\Win32\lib\gmodule-2.0.lib",
+        "vs10\Win32\bin\gobject-2-vs10.dll",
+        "vs10\Win32\lib\gobject-2.0.lib",
+        "vs10\Win32\bin\gsettings.exe",
+        "vs10\Win32\bin\gspawn-win32-helper-console.exe",
+        "vs10\Win32\bin\gspawn-win32-helper.exe",
+        "vs10\Win32\bin\gthread-2-vs10.dll",
+        "vs10\Win32\lib\gthread-2.0.lib",
     };
      
     build-command:@"
