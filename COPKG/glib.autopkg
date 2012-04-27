@@ -1,0 +1,133 @@
+@import "version.inc";
+@import "common.inc";
+@import "outercurve.inc";
+@import "compat.inc";
+
+#define { 
+    flavor: "${comp??vc10}"; 
+    arch : "${plat??x86}";
+}
+
+package {
+    name: "glib[${flavor}]";
+    version: "${package-version}";
+    arch : "${arch}";
+
+    display-name: "GLib";
+}
+
+requires {
+	package: "libintl[${flavor}]-${libintl-version}-${arch}-${libintl-publickeytoken}";
+}
+
+metadata {  
+    summary: "GLib"; // or a more user-friendly name
+    description: @"${general-description}";
+    stability : "0";
+    licenses : {
+        lgpl
+    };
+}
+
+signing {
+    attributes : {
+        company="Outercurve Foundation",
+        description="${general-description}",
+        product-name="GLib",
+        product-version="${package-version}",
+        file-version="${package-version}",
+    };
+
+    replace-signature: true; 
+    include: { 
+        files-to-sign
+    };    
+}
+
+manifest[libintl] {
+	assembly : {
+		"libintl[${flavor}]",
+	};
+
+	include : {
+		dlls
+	};
+}
+
+manifest[glib] {
+	assembly : {
+		"glib[${flavor}]",
+	};
+
+	include : {
+		gspawnhelper
+	};
+}
+
+manifest[glibandlibintl] {
+	assembly : {
+		"libintl[${flavor}]",
+		"glib[${flavor}]",
+	};
+
+	include : {
+		exes
+	};
+}
+
+assembly[glib[${flavor}]] {
+	include : {
+		dlls,
+		gspawnhelper
+	};
+}
+
+application {
+	include : {
+		exes
+	};
+}
+
+package-composition {
+    symlinks : { 
+        exes => @"${bin}\${each.Name}" = @"${packagedir}\${each.Name}";
+    };
+}
+
+files[files-to-sign] {
+    include: { 
+        dlls,
+        exes,
+        gspawnhelper,
+    };    
+}
+
+files[dlls] {
+    root: @"..\vs10\Win32\bin";
+
+    include: {
+        "*.dll",
+    };
+
+    trim-path: all;
+};
+
+files[exes] {
+    root: @"..\vs10\Win32\bin";
+
+    include: {
+        "gsettings.exe",
+    };
+
+    trim-path: all;
+};
+
+files[gspawnhelper] {
+    root: @"..\vs10\Win32\bin";
+
+    include: {
+        "gspawn-*.exe",
+    };
+
+    trim-path: all;
+};
