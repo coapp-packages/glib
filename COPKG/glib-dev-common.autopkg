@@ -1,0 +1,40 @@
+@import "version.inc";
+@import "common.inc";
+@import "outercurve.inc";
+@import "compat.inc";
+
+package {
+    name: "glib-dev-common";
+    version: "${package-version}";
+    arch : "any";
+
+    display-name: "GLib Dev Library-common";
+}
+
+metadata {  
+    summary: "GLib Dev Library-common"; // or a more user-friendly name
+    description: @"${general-description}";
+    stability : "0";
+    licenses : {
+        lgpl
+    };
+}
+
+developer-library[glib] {
+    headers: { 
+        headers
+    };
+}
+
+files[headers] {
+    root: @"..\vs10\Win32\include";
+    include: {
+        "gio-win32-2.0\gio\*.h",
+		"glib-2.0\*.h",
+		"glib-2.0\gio\*.h",
+		"glib-2.0\glib\*.h",
+		"glib-2.0\gobject\*.h",
+    };
+
+    trim-path:none;
+}
