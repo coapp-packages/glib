@@ -22,7 +22,8 @@ metadata {
 
 developer-library[glib] {
     headers: { 
-        headers
+        headers,
+		configheader
     };
 }
 
@@ -34,6 +35,15 @@ files[headers] {
 		"glib-2.0\gio\*.h",
 		"glib-2.0\glib\*.h",
 		"glib-2.0\gobject\*.h",
+    };
+
+    trim-path:none;
+}
+
+files[configheader] {
+    root: @"..\vs10\Win32\lib\glib-2.0\include";
+    include: {
+        "*.h",
     };
 
     trim-path:none;
