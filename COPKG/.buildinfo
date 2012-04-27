@@ -47,3 +47,20 @@ x86 {
         if exist docs\reference\gobject\templ rmdir /s /q docs\reference\gobject\templ > nul 2> nul
     ";
 };
+
+test
+{
+}
+
+package
+{
+	uses: x86;
+
+	build-command: @"
+		cd COPKG
+		autopackage glib.autopkg glib-dev-common.autopkg|| goto failed
+        autopackage glib-dev.autopkg || goto failed
+	";
+
+	clean-command: @"del COPKG\*.msi COPKG\*.wixpdb";
+}
