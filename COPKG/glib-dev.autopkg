@@ -1,0 +1,97 @@
+@import "version.inc";
+@import "common.inc";
+@import "outercurve.inc";
+@import "compat.inc";
+
+#define { 
+    flavor: "${comp??vc10}"; 
+    arch : "${plat??x86}";
+}
+
+package {
+    name: "glib-dev[${flavor}]";
+    version: "${package-version}";
+    arch : "${arch}";
+
+    display-name: "GLib Dev Library";
+}
+
+metadata {  
+    summary: "GLib Dev Library"; // or a more user-friendly name
+    description: @"${general-description}";
+    stability : "0";
+    licenses : {
+        lgpl
+    };
+}
+
+requires {
+	package: "libintl[${flavor}]-${libintl-version}-${arch}-${libintl-publickeytoken}";
+	package: "glib[${flavor}]-${package-version}-${arch}-${Package.PublicKeyToken}";
+	package: "glib-dev-common-${package-version}-any-${Package.PublicKeyToken}";
+}
+
+signing {
+    attributes : {
+        company="Outercurve Foundation",
+        description="${general-description}",
+        product-name="GLib",
+        product-version="${package-version}",
+        file-version="${package-version}",
+    };
+
+    replace-signature: true; 
+    include: { 
+        exes
+    };    
+}
+
+manifest[glibandlibintl] {
+	assembly : {
+		"libintl[${flavor}]",
+		"glib[${flavor}]",
+	};
+
+	include : {
+		exes
+	};
+}
+
+application {
+	include : {
+		exes
+	};
+}
+
+package-composition {
+    symlinks : { 
+        exes => @"${bin}\${each.Name}" = @"${packagedir}\${each.Name}";
+    };
+}
+
+developer-library[glib[${flavor}]] {
+    libraries : {
+        libs,
+    };
+}
+
+files[exes] {
+    root: @"..\vs10\Win32\bin";
+
+    include: {
+        "glib-genmarshal.exe",
+		"glib-compile-schemas.exe",
+    };
+
+    trim-path: all;
+};
+
+files[libs] {
+    root: @"..\vs10\Win32\lib";
+
+    include: {
+        "*.lib",
+    };
+
+    trim-path: all;
+};
