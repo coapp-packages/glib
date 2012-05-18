@@ -11,10 +11,3 @@ metadata {
     bug-tracker: "https://github.com/coapp-packages/glib/issues";
     stability : "0";
 }
-
-/* To use self-built dependencies, use ${Package.PublicKeyToken} instead of ${outercurve-publickeytoken} */
-#define { outercurve-publickeytoken: "1e373a58e25250cb"; }
-
-#define { libintl-version: 0.18.1.3; }
-
-#define { libintl-publickeytoken: "${outercurve-publickeytoken}"; }

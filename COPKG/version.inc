@@ -1,5 +1,11 @@
-#define { package-version: 2.28.8.2; }
+#define { package-version: 2.28.8.3; }
 
-#define { upstream-version: 2.28.8; }
+#define { author-version: "2.28.8-2"; }
 
-#define { author-version: "${package-version}-1"; }
+#define { outercurve-publickeytoken: "1e373a58e25250cb"; }
+
+#define { deps-publickeytoken: "${outercurve-publickeytoken}"; }
+
+#define { libintl-dep-version: "0.18.1"; }
+
+#define { libintl-dep-publickeytoken: "${deps-publickeytoken}"; }

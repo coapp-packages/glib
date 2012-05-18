@@ -13,8 +13,7 @@
 x86 {
     compiler: vc10;
 
-	/* requires: "zlib-dev[vc10]-1.2.5-x86-1e373a58e25250cb"; */
-    /* requires: "libintl-dev[vc10]-${libintl-version}-x86-${libintl-publickeytoken}"; */
+    requires: "libintl-dev[vc10]-${libintl-dep-version}-x86-${libintl-dep-publickeytoken}";
 
     targets: { 
         "vs10\Win32\bin\gio-2-vs10.dll",

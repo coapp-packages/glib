@@ -26,7 +26,7 @@ metadata {
 }
 
 requires {
-	package: "libintl[${flavor}]-${libintl-version}-${arch}-${libintl-publickeytoken}";
+	package: "libintl[${flavor}]-${libintl-dep-version}-${arch}-${libintl-dep-publickeytoken}";
 	package: "glib[${flavor}]-${package-version}-${arch}-${Package.PublicKeyToken}";
 	package: "glib-dev-common-${package-version}-any-${Package.PublicKeyToken}";
 }
