@@ -2,12 +2,12 @@
 .\"     Title: glib-genmarshal
 .\"    Author: [see the "Author" section]
 .\" Generator: DocBook XSL Stylesheets v1.76.1 <http://docbook.sf.net/>
-.\"      Date: 06/05/2011
+.\"      Date: 05/14/2012
 .\"    Manual: User Commands
 .\"    Source: User Commands
 .\"  Language: English
 .\"
-.TH "GLIB\-GENMARSHAL" "1" "06/05/2011" "User Commands" "User Commands"
+.TH "GLIB\-GENMARSHAL" "1" "05/14/2012" "User Commands" "User Commands"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -68,6 +68,21 @@ Skip source location remarks in generated comments\&.
 Do not use the standard marshallers of the GObject library, and skip
 gmarshal\&.h
 include directive in generated header files\&.
+.RE
+.PP
+\fB\-\-internal\fR
+.RS 4
+Mark generated functions as internal, using G_GNUC_INTERNAL\&.
+.RE
+.PP
+\fB\-\-valist\-marshallers\fR
+.RS 4
+Generate valist marshallers, for use with g_signal_set_va_marshaller()\&.
+.RE
+.PP
+\fB\-v\fR, \fB\-\-version\fR
+.RS 4
+Print version information\&.
 .RE
 .PP
 \fB\-\-g\-fatal\-warnings\fR

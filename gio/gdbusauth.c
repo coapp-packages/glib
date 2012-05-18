@@ -115,8 +115,7 @@ _g_dbus_auth_finalize (GObject *object)
 
   if (auth->priv->stream != NULL)
     g_object_unref (auth->priv->stream);
-  g_list_foreach (auth->priv->available_mechanisms, (GFunc) mechanism_free, NULL);
-  g_list_free (auth->priv->available_mechanisms);
+  g_list_free_full (auth->priv->available_mechanisms, (GDestroyNotify) mechanism_free);
 
   if (G_OBJECT_CLASS (_g_dbus_auth_parent_class)->finalize != NULL)
     G_OBJECT_CLASS (_g_dbus_auth_parent_class)->finalize (object);
@@ -612,7 +611,7 @@ _g_dbus_auth_run_client (GDBusAuth     *auth,
   g_data_input_stream_set_newline_type (dis, G_DATA_STREAM_NEWLINE_TYPE_CR_LF);
 
 #ifdef G_OS_UNIX
-  if (G_IS_UNIX_CONNECTION (auth->priv->stream) && g_unix_credentials_message_is_supported ())
+  if (G_IS_UNIX_CONNECTION (auth->priv->stream))
     {
       credentials = g_credentials_new ();
       if (!g_unix_connection_send_credentials (G_UNIX_CONNECTION (auth->priv->stream),
@@ -989,13 +988,13 @@ _g_dbus_auth_run_server (GDBusAuth              *auth,
 
   /* first read the NUL-byte (TODO: read credentials if using a unix domain socket) */
 #ifdef G_OS_UNIX
-  if (G_IS_UNIX_CONNECTION (auth->priv->stream) && g_unix_credentials_message_is_supported ())
+  if (G_IS_UNIX_CONNECTION (auth->priv->stream))
     {
       local_error = NULL;
       credentials = g_unix_connection_receive_credentials (G_UNIX_CONNECTION (auth->priv->stream),
                                                            cancellable,
                                                            &local_error);
-      if (credentials == NULL)
+      if (credentials == NULL && !g_error_matches (local_error, G_IO_ERROR, G_IO_ERROR_NOT_SUPPORTED))
         {
           g_propagate_error (error, local_error);
           goto out;
@@ -1005,6 +1004,7 @@ _g_dbus_auth_run_server (GDBusAuth              *auth,
     {
       local_error = NULL;
       byte = g_data_input_stream_read_byte (dis, cancellable, &local_error);
+      byte = byte; /* To avoid -Wunused-but-set-variable */
       if (local_error != NULL)
         {
           g_propagate_error (error, local_error);

@@ -11,7 +11,7 @@
 #define WAIT                5    /* seconds */
 #define MAX_THREADS         10
 
-/* if > 0 the test will run continously (since the test ends when
+/* if > 0 the test will run continuously (since the test ends when
  * thread count is 0), if -1 it means no limit to unused threads
  * if 0 then no unused threads are possible */
 #define MAX_UNUSED_THREADS -1
@@ -81,24 +81,6 @@ test_thread_functions (void)
 }
 
 static void
-test_count_threads_foreach (GThread *thread,
-			    guint   *count)
-{
-   ++*count;
-}
-
-static guint
-test_count_threads (void)
-{
-  guint count = 0;
-
-  g_thread_foreach ((GFunc) test_count_threads_foreach, &count);
-
-  /* Exclude main thread */
-  return count - 1;
-}
-
-static void
 test_thread_stop_unused (void)
 {
    GThreadPool *pool;
@@ -118,22 +100,23 @@ test_thread_stop_unused (void)
    /* Wait for the threads to migrate. */
    g_usleep (G_USEC_PER_SEC);
 
-   DEBUG_MSG (("[unused] current threads %d",
-	       test_count_threads()));
-
    DEBUG_MSG (("[unused] stopping unused threads"));
    g_thread_pool_stop_unused_threads ();
 
-   DEBUG_MSG (("[unused] waiting ONE second for threads to die"));
+   for (i = 0; i < 5; i++)
+     {
+       if (g_thread_pool_get_num_unused_threads () == 0)
+         break;
 
-   /* Some time for threads to die. */
-   g_usleep (G_USEC_PER_SEC);
+       DEBUG_MSG (("[unused] waiting ONE second for threads to die"));
 
-   DEBUG_MSG (("[unused] stopped idle threads, %d remain, %d threads still exist",
-	       g_thread_pool_get_num_unused_threads (),
-	       test_count_threads ()));
+       /* Some time for threads to die. */
+       g_usleep (G_USEC_PER_SEC);
+     }
 
-   g_assert (g_thread_pool_get_num_unused_threads () == test_count_threads ());
+   DEBUG_MSG (("[unused] stopped idle threads, %d remain",
+	       g_thread_pool_get_num_unused_threads ()));
+
    g_assert (g_thread_pool_get_num_unused_threads () == 0);
 
    g_thread_pool_set_max_unused_threads (MAX_THREADS);
@@ -269,7 +252,7 @@ test_thread_sort (gboolean sort)
   }
 
   /* It is important that we only have a maximum of 1 thread for this
-   * test since the results can not be guranteed to be sorted if > 1.
+   * test since the results can not be guaranteed to be sorted if > 1.
    *
    * Threads are scheduled by the operating system and are executed at
    * random. It cannot be assumed that threads are executed in the
@@ -459,10 +442,6 @@ test_check_start_and_stop (gpointer user_data)
 int
 main (int argc, char *argv[])
 {
-  /* Only run the test, if threads are enabled and a default thread
-     implementation is available */
-
-#if defined(G_THREADS_ENABLED) && ! defined(G_THREADS_IMPL_NONE)
   g_thread_init (NULL);
 
   DEBUG_MSG (("Starting... (in one second)"));
@@ -470,7 +449,6 @@ main (int argc, char *argv[])
 
   main_loop = g_main_loop_new (NULL, FALSE);
   g_main_loop_run (main_loop);
-#endif
 
   return 0;
 }

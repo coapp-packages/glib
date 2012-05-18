@@ -50,28 +50,6 @@
 #define O_BINARY 0
 #endif
 
-#if defined(HAVE_STATFS) && defined(HAVE_STATVFS)
-/* Some systems have both statfs and statvfs, pick the
-   most "native" for these */
-# if !defined(HAVE_STRUCT_STATFS_F_BAVAIL)
-   /* on solaris and irix, statfs doesn't even have the
-      f_bavail field */
-#  define USE_STATVFS
-# else
-  /* at least on linux, statfs is the actual syscall */
-#  define USE_STATFS
-# endif
-
-#elif defined(HAVE_STATFS)
-
-# define USE_STATFS
-
-#elif defined(HAVE_STATVFS)
-
-# define USE_STATVFS
-
-#endif
-
 #include "gfileattribute.h"
 #include "glocalfile.h"
 #include "glocalfileinfo.h"
@@ -600,7 +578,7 @@ g_local_file_get_child_for_display_name (GFile        *file,
   return new_file;
 }
 
-#ifdef USE_STATFS
+#if defined(USE_STATFS) && !defined(HAVE_STRUCT_STATFS_F_FSTYPENAME)
 static const char *
 get_fs_type (long f_type)
 {
@@ -922,14 +900,15 @@ g_local_file_query_filesystem_info (GFile         *file,
   int statfs_result = 0;
   gboolean no_size;
 #ifndef G_OS_WIN32
-  guint64 block_size;
   const char *fstype;
 #ifdef USE_STATFS
+  guint64 block_size;
   struct statfs statfs_buffer;
 #elif defined(USE_STATVFS)
+  guint64 block_size;
   struct statvfs statfs_buffer;
-#endif
-#endif
+#endif /* USE_STATFS */
+#endif /* G_OS_WIN32 */
   GFileAttributeMatcher *attribute_matcher;
 	
   no_size = FALSE;
@@ -941,24 +920,24 @@ g_local_file_query_filesystem_info (GFile         *file,
 #elif STATFS_ARGS == 4
   statfs_result = statfs (local->filename, &statfs_buffer,
 			  sizeof (statfs_buffer), 0);
-#endif
+#endif /* STATFS_ARGS == 2 */
   block_size = statfs_buffer.f_bsize;
   
   /* Many backends can't report free size (for instance the gvfs fuse
      backend for backend not supporting this), and set f_bfree to 0,
-     but it can be 0 for real too. We treat the availible == 0 and
+     but it can be 0 for real too. We treat the available == 0 and
      free == 0 case as "both of these are invalid".
    */
 #ifndef G_OS_WIN32
   if (statfs_result == 0 &&
       statfs_buffer.f_bavail == 0 && statfs_buffer.f_bfree == 0)
     no_size = TRUE;
-#endif
+#endif /* G_OS_WIN32 */
   
 #elif defined(USE_STATVFS)
   statfs_result = statvfs (local->filename, &statfs_buffer);
   block_size = statfs_buffer.f_frsize; 
-#endif
+#endif /* USE_STATFS */
 
   if (statfs_result == -1)
     {
@@ -989,7 +968,9 @@ g_local_file_query_filesystem_info (GFile         *file,
         g_file_info_set_attribute_uint64 (info, G_FILE_ATTRIBUTE_FILESYSTEM_FREE, (guint64)li.QuadPart);
       g_free (wdirname);
 #else
+#if defined(USE_STATFS) || defined(USE_STATVFS)
       g_file_info_set_attribute_uint64 (info, G_FILE_ATTRIBUTE_FILESYSTEM_FREE, block_size * statfs_buffer.f_bavail);
+#endif
 #endif
     }
   if (!no_size &&
@@ -1006,26 +987,54 @@ g_local_file_query_filesystem_info (GFile         *file,
         g_file_info_set_attribute_uint64 (info, G_FILE_ATTRIBUTE_FILESYSTEM_SIZE,  (guint64)li.QuadPart);
       g_free (wdirname);
 #else
+#if defined(USE_STATFS) || defined(USE_STATVFS)
       g_file_info_set_attribute_uint64 (info, G_FILE_ATTRIBUTE_FILESYSTEM_SIZE, block_size * statfs_buffer.f_blocks);
 #endif
+#endif /* G_OS_WIN32 */
     }
+
+  if (!no_size &&
+      g_file_attribute_matcher_matches (attribute_matcher,
+                                        G_FILE_ATTRIBUTE_FILESYSTEM_USED))
+    {
+#ifdef G_OS_WIN32
+      gchar *localdir = g_path_get_dirname (local->filename);
+      wchar_t *wdirname = g_utf8_to_utf16 (localdir, -1, NULL, NULL, NULL);
+      ULARGE_INTEGER li_free;
+      ULARGE_INTEGER li_total;
+
+      g_free (localdir);
+      if (GetDiskFreeSpaceExW (wdirname, &li_free, &li_total, NULL))
+        g_file_info_set_attribute_uint64 (info, G_FILE_ATTRIBUTE_FILESYSTEM_USED,  (guint64)li_total.QuadPart - (guint64)li_free.QuadPart);
+      g_free (wdirname);
+#else
+      g_file_info_set_attribute_uint64 (info, G_FILE_ATTRIBUTE_FILESYSTEM_USED, block_size * (statfs_buffer.f_blocks - statfs_buffer.f_bfree));
+#endif /* G_OS_WIN32 */
+    }
+
+#ifndef G_OS_WIN32
 #ifdef USE_STATFS
 #if defined(HAVE_STRUCT_STATFS_F_FSTYPENAME)
-  fstype = g_strdup(statfs_buffer.f_fstypename);
+  fstype = g_strdup (statfs_buffer.f_fstypename);
 #else
   fstype = get_fs_type (statfs_buffer.f_type);
 #endif
 
-#elif defined(USE_STATVFS) && defined(HAVE_STRUCT_STATVFS_F_BASETYPE)
-  fstype = g_strdup(statfs_buffer.f_basetype); 
+#elif defined(USE_STATVFS)
+#if defined(HAVE_STRUCT_STATVFS_F_FSTYPENAME)
+  fstype = g_strdup (statfs_buffer.f_fstypename);
+#elif defined(HAVE_STRUCT_STATVFS_F_BASETYPE)
+  fstype = g_strdup (statfs_buffer.f_basetype);
+#else
+  fstype = NULL;
 #endif
+#endif /* USE_STATFS */
 
-#ifndef G_OS_WIN32
   if (fstype &&
       g_file_attribute_matcher_matches (attribute_matcher,
 					G_FILE_ATTRIBUTE_FILESYSTEM_TYPE))
     g_file_info_set_attribute_string (info, G_FILE_ATTRIBUTE_FILESYSTEM_TYPE, fstype);
-#endif  
+#endif /* G_OS_WIN32 */
 
   if (g_file_attribute_matcher_matches (attribute_matcher,
 					G_FILE_ATTRIBUTE_FILESYSTEM_READONLY))
@@ -1034,7 +1043,7 @@ g_local_file_query_filesystem_info (GFile         *file,
       get_filesystem_readonly (info, local->filename);
 #else
       get_mount_info (info, local->filename, attribute_matcher);
-#endif
+#endif /* G_OS_WIN32 */
     }
   
   g_file_attribute_matcher_unref (attribute_matcher);
@@ -1133,7 +1142,7 @@ g_local_file_set_display_name (GFile         *file,
     {
       g_set_error_literal (error, G_IO_ERROR,
                            G_IO_ERROR_EXISTS,
-                           _("Can't rename file, filename already exist"));
+                           _("Can't rename file, filename already exists"));
       return NULL;
     }
 
@@ -1297,13 +1306,27 @@ g_local_file_read (GFile         *file,
 		   GError       **error)
 {
   GLocalFile *local = G_LOCAL_FILE (file);
-  int fd;
-  struct stat buf;
+  int fd, ret;
+  GLocalFileStat buf;
   
   fd = g_open (local->filename, O_RDONLY|O_BINARY, 0);
   if (fd == -1)
     {
       int errsv = errno;
+
+#ifdef G_OS_WIN32
+      if (errsv == EACCES)
+	{
+	  ret = _stati64 (local->filename, &buf);
+	  if (ret == 0 && S_ISDIR (buf.st_mode))
+	    {
+	      g_set_error_literal (error, G_IO_ERROR,
+				   G_IO_ERROR_IS_DIRECTORY,
+				   _("Can't open directory"));
+	      return NULL;
+	    }
+	}
+#endif
 
       g_set_error (error, G_IO_ERROR,
 		   g_io_error_from_errno (errsv),
@@ -1312,7 +1335,13 @@ g_local_file_read (GFile         *file,
       return NULL;
     }
 
-  if (fstat(fd, &buf) == 0 && S_ISDIR (buf.st_mode))
+#ifdef G_OS_WIN32
+  ret = _fstati64 (fd, &buf);
+#else
+  ret = fstat (fd, &buf);
+#endif
+
+  if (ret == 0 && S_ISDIR (buf.st_mode))
     {
       close (fd);
       g_set_error_literal (error, G_IO_ERROR,

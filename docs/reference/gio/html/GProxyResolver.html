@@ -8,7 +8,7 @@
 <link rel="up" href="resolver.html" title="DNS resolution">
 <link rel="prev" href="GResolver.html" title="GResolver">
 <link rel="next" href="GSocketConnectable.html" title="GSocketConnectable">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -48,19 +48,19 @@
 struct              <a class="link" href="GProxyResolver.html#GProxyResolverInterface" title="struct GProxyResolverInterface">GProxyResolverInterface</a>;
 #define             <a class="link" href="GProxyResolver.html#G-PROXY-RESOLVER-EXTENSION-POINT-NAME:CAPS" title="G_PROXY_RESOLVER_EXTENSION_POINT_NAME">G_PROXY_RESOLVER_EXTENSION_POINT_NAME</a>
 <a class="link" href="GProxyResolver.html" title="GProxyResolver"><span class="returnvalue">GProxyResolver</span></a> *    <a class="link" href="GProxyResolver.html#g-proxy-resolver-get-default" title="g_proxy_resolver_get_default ()">g_proxy_resolver_get_default</a>        (<em class="parameter"><code><span class="type">void</span></code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GProxyResolver.html#g-proxy-resolver-is-supported" title="g_proxy_resolver_is_supported ()">g_proxy_resolver_is_supported</a>       (<em class="parameter"><code><a class="link" href="GProxyResolver.html" title="GProxyResolver"><span class="type">GProxyResolver</span></a> *resolver</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **            <a class="link" href="GProxyResolver.html#g-proxy-resolver-lookup" title="g_proxy_resolver_lookup ()">g_proxy_resolver_lookup</a>             (<em class="parameter"><code><a class="link" href="GProxyResolver.html" title="GProxyResolver"><span class="type">GProxyResolver</span></a> *resolver</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+<a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GProxyResolver.html#g-proxy-resolver-is-supported" title="g_proxy_resolver_is_supported ()">g_proxy_resolver_is_supported</a>       (<em class="parameter"><code><a class="link" href="GProxyResolver.html" title="GProxyResolver"><span class="type">GProxyResolver</span></a> *resolver</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **            <a class="link" href="GProxyResolver.html#g-proxy-resolver-lookup" title="g_proxy_resolver_lookup ()">g_proxy_resolver_lookup</a>             (<em class="parameter"><code><a class="link" href="GProxyResolver.html" title="GProxyResolver"><span class="type">GProxyResolver</span></a> *resolver</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GProxyResolver.html#g-proxy-resolver-lookup-async" title="g_proxy_resolver_lookup_async ()">g_proxy_resolver_lookup_async</a>       (<em class="parameter"><code><a class="link" href="GProxyResolver.html" title="GProxyResolver"><span class="type">GProxyResolver</span></a> *resolver</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **            <a class="link" href="GProxyResolver.html#g-proxy-resolver-lookup-finish" title="g_proxy_resolver_lookup_finish ()">g_proxy_resolver_lookup_finish</a>      (<em class="parameter"><code><a class="link" href="GProxyResolver.html" title="GProxyResolver"><span class="type">GProxyResolver</span></a> *resolver</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **            <a class="link" href="GProxyResolver.html#g-proxy-resolver-lookup-finish" title="g_proxy_resolver_lookup_finish ()">g_proxy_resolver_lookup_finish</a>      (<em class="parameter"><code><a class="link" href="GProxyResolver.html" title="GProxyResolver"><span class="type">GProxyResolver</span></a> *resolver</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *result</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
 </pre>
 </div>
 <div class="refsect1">
@@ -74,13 +74,13 @@ struct              <a class="link" href="GProxyResolver.html#GProxyResolverInte
 <a name="GProxyResolver.prerequisites"></a><h2>Prerequisites</h2>
 <p>
 GProxyResolver requires
- <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>.</p>
+ <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>.</p>
 </div>
 <div class="refsect1">
 <a name="GProxyResolver.description"></a><h2>Description</h2>
 <p>
 <a class="link" href="GProxyResolver.html" title="GProxyResolver"><span class="type">GProxyResolver</span></a> provides synchronous and asynchronous network proxy
-resolution. <a class="link" href="GProxyResolver.html" title="GProxyResolver"><span class="type">GProxyResolver</span></a> is used within <span class="type">GClientSocket</span> through
+resolution. <a class="link" href="GProxyResolver.html" title="GProxyResolver"><span class="type">GProxyResolver</span></a> is used within <a class="link" href="GSocketClient.html" title="GSocketClient"><span class="type">GSocketClient</span></a> through
 the method <a class="link" href="GSocketConnectable.html#g-socket-connectable-proxy-enumerate" title="g_socket_connectable_proxy_enumerate ()"><code class="function">g_socket_connectable_proxy_enumerate()</code></a>.
 </p>
 </div>
@@ -90,7 +90,7 @@ the method <a class="link" href="GSocketConnectable.html#g-socket-connectable-pr
 <a name="GProxyResolver-struct"></a><h3>GProxyResolver</h3>
 <pre class="programlisting">typedef struct _GProxyResolver GProxyResolver;</pre>
 <p>
-Interface that can be used to resolve proxy address.
+A helper class to enumerate proxies base on URI.
 </p>
 <p class="since">Since 2.26</p>
 </div>
@@ -119,8 +119,6 @@ Interface that can be used to resolve proxy address.
 			      GError              **error);
 };
 </pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -152,11 +150,11 @@ Gets the default <a class="link" href="GProxyResolver.html" title="GProxyResolve
 <hr>
 <div class="refsect2">
 <a name="g-proxy-resolver-is-supported"></a><h3>g_proxy_resolver_is_supported ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_proxy_resolver_is_supported       (<em class="parameter"><code><a class="link" href="GProxyResolver.html" title="GProxyResolver"><span class="type">GProxyResolver</span></a> *resolver</code></em>);</pre>
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_proxy_resolver_is_supported       (<em class="parameter"><code><a class="link" href="GProxyResolver.html" title="GProxyResolver"><span class="type">GProxyResolver</span></a> *resolver</code></em>);</pre>
 <p>
 Checks if <em class="parameter"><code>resolver</code></em> can be used on this system. (This is used
 internally; <a class="link" href="GProxyResolver.html#g-proxy-resolver-get-default" title="g_proxy_resolver_get_default ()"><code class="function">g_proxy_resolver_get_default()</code></a> will only return a proxy
-resolver that returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> for this method.)
+resolver that returns <a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> for this method.)
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -169,7 +167,7 @@ resolver that returns <a href="http://library.gnome.org/devel/glib/unstable/glib
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>resolver</code></em> is supported.</td>
+<a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>resolver</code></em> is supported.</td>
 </tr>
 </tbody>
 </table></div>
@@ -178,10 +176,10 @@ resolver that returns <a href="http://library.gnome.org/devel/glib/unstable/glib
 <hr>
 <div class="refsect2">
 <a name="g-proxy-resolver-lookup"></a><h3>g_proxy_resolver_lookup ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **            g_proxy_resolver_lookup             (<em class="parameter"><code><a class="link" href="GProxyResolver.html" title="GProxyResolver"><span class="type">GProxyResolver</span></a> *resolver</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **            g_proxy_resolver_lookup             (<em class="parameter"><code><a class="link" href="GProxyResolver.html" title="GProxyResolver"><span class="type">GProxyResolver</span></a> *resolver</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Looks into the system proxy configuration to determine what proxy,
 if any, to use to connect to <em class="parameter"><code>uri</code></em>. The returned proxy URIs are of the
@@ -215,19 +213,19 @@ returned array of proxies.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>a <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a>, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>a <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a>, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>return location for a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<td>return location for a <a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>A
 NULL-terminated array of proxy URIs. Must be freed
-with <a href="http://library.gnome.org/devel/glib/unstable/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span>
+with <a href="./../glib/glib/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span>
 </td>
 </tr>
 </tbody>
@@ -238,10 +236,10 @@ with <a href="http://library.gnome.org/devel/glib/unstable/glib-String-Utility-F
 <div class="refsect2">
 <a name="g-proxy-resolver-lookup-async"></a><h3>g_proxy_resolver_lookup_async ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_proxy_resolver_lookup_async       (<em class="parameter"><code><a class="link" href="GProxyResolver.html" title="GProxyResolver"><span class="type">GProxyResolver</span></a> *resolver</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <p>
 Asynchronous lookup of proxy. See <a class="link" href="GProxyResolver.html#g-proxy-resolver-lookup" title="g_proxy_resolver_lookup ()"><code class="function">g_proxy_resolver_lookup()</code></a> for more
 details.
@@ -260,7 +258,7 @@ details.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>a <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a>, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>a <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a>, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -280,9 +278,9 @@ details.
 <hr>
 <div class="refsect2">
 <a name="g-proxy-resolver-lookup-finish"></a><h3>g_proxy_resolver_lookup_finish ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **            g_proxy_resolver_lookup_finish      (<em class="parameter"><code><a class="link" href="GProxyResolver.html" title="GProxyResolver"><span class="type">GProxyResolver</span></a> *resolver</code></em>,
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **            g_proxy_resolver_lookup_finish      (<em class="parameter"><code><a class="link" href="GProxyResolver.html" title="GProxyResolver"><span class="type">GProxyResolver</span></a> *resolver</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *result</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Call this function to obtain the array of proxy URIs when
 <a class="link" href="GProxyResolver.html#g-proxy-resolver-lookup-async" title="g_proxy_resolver_lookup_async ()"><code class="function">g_proxy_resolver_lookup_async()</code></a> is complete. See
@@ -303,14 +301,14 @@ Call this function to obtain the array of proxy URIs when
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>return location for a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<td>return location for a <a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>A
 NULL-terminated array of proxy URIs. Must be freed
-with <a href="http://library.gnome.org/devel/glib/unstable/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span>
+with <a href="./../glib/glib/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span>
 </td>
 </tr>
 </tbody>
@@ -321,6 +319,6 @@ with <a href="http://library.gnome.org/devel/glib/unstable/glib-String-Utility-F
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

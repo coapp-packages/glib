@@ -2,12 +2,12 @@
 .\"     Title: gtester
 .\"    Author: [FIXME: author] [see http://docbook.sf.net/el/author]
 .\" Generator: DocBook XSL Stylesheets v1.76.1 <http://docbook.sf.net/>
-.\"      Date: 06/05/2011
+.\"      Date: 05/14/2012
 .\"    Manual: User Commands
 .\"    Source: User Commands
 .\"  Language: English
 .\"
-.TH "GTESTER" "1" "06/05/2011" "User Commands" "User Commands"
+.TH "GTESTER" "1" "05/14/2012" "User Commands" "User Commands"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -74,12 +74,24 @@ list paths of available test cases
 \fB\-m=\fR\fB\fIMODE\fR\fR
 .RS 4
 run test cases in
-\fIMODE\fR, which can be perf, slow, thorough or quick\&. The default mode is quick\&.
+\fIMODE\fR, which can be one of:
+<term>\fBperf\fR</term><listitem>run performance tests
+</listitem><term>\fBslow\fR, \fBthorough\fR</term><listitem>run slow tests, or repeat non\-deterministic tests more often
+</listitem><term>\fBquick\fR</term><listitem>do not run slow or performance tests, or do extra repeats of non\-deterministic tests (default)
+</listitem><term>\fBundefined\fR</term><listitem>run test cases that deliberately provoke checks or assertion failures, if implemented (default)
+</listitem><term>\fBno\-undefined\fR</term><listitem>do not run test cases that deliberately provoke checks or assertion failures
+</listitem>.sp
 .RE
 .PP
 \fB\-p=\fR\fB\fITESTPATH\fR\fR
 .RS 4
 only run test cases matching
+\fITESTPATH\fR
+.RE
+.PP
+\fB\-s=\fR\fB\fITESTPATH\fR\fR
+.RS 4
+skip test cases matching
 \fITESTPATH\fR
 .RE
 .PP

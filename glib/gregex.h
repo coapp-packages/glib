@@ -19,7 +19,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#if defined(G_DISABLE_SINGLE_INCLUDES) && !defined (__GLIB_H_INSIDE__) && !defined (GLIB_COMPILATION)
+#if !defined (__GLIB_H_INSIDE__) && !defined (GLIB_COMPILATION)
 #error "Only <glib.h> can be included directly."
 #endif
 
@@ -338,7 +338,7 @@ typedef struct _GMatchInfo	GMatchInfo;
  * @user_data: user data passed to g_regex_replace_eval()
  *
  * Specifies the type of the function passed to g_regex_replace_eval().
- * It is called for each occurance of the pattern in the string passed
+ * It is called for each occurrence of the pattern in the string passed
  * to g_regex_replace_eval(), and it should append the replacement to
  * @result.
  *
@@ -363,6 +363,8 @@ gint		  g_regex_get_capture_count	(const GRegex        *regex);
 gint		  g_regex_get_string_number	(const GRegex        *regex, 
 						 const gchar         *name);
 gchar		 *g_regex_escape_string		(const gchar         *string,
+						 gint                 length);
+gchar		 *g_regex_escape_nul		(const gchar         *string,
 						 gint                 length);
 
 GRegexCompileFlags g_regex_get_compile_flags    (const GRegex        *regex);
@@ -443,6 +445,8 @@ gboolean	  g_regex_check_replacement	(const gchar         *replacement,
 GRegex		 *g_match_info_get_regex	(const GMatchInfo    *match_info);
 const gchar      *g_match_info_get_string       (const GMatchInfo    *match_info);
 
+GMatchInfo       *g_match_info_ref              (GMatchInfo          *match_info);
+void              g_match_info_unref            (GMatchInfo          *match_info);
 void		  g_match_info_free		(GMatchInfo          *match_info);
 gboolean	  g_match_info_next		(GMatchInfo          *match_info,
 						 GError             **error);

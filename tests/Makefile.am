@@ -2,8 +2,9 @@ include $(top_srcdir)/Makefile.decl
 
 SUBDIRS=gobject refcount
 
-AM_CPPFLAGS = 				\
-	$(gmodule_INCLUDES) 		\
+AM_CPPFLAGS = \
+	$(gmodule_INCLUDES)			\
+	-DGLIB_DISABLE_DEPRECATION_WARNINGS	\
 	$(GLIB_DEBUG_FLAGS)
 
 AM_CFLAGS = -g
@@ -62,8 +63,8 @@ noinst_PROGRAMS = $(TEST_PROGS)	\
 	unicode-normalize 	\
 	unicode-collate 	\
 	$(timeloop) 		\
-	errorcheck-mutex-test	\
-	assert-msg-test
+	assert-msg-test		\
+	datetime
 
 TEST_PROGS		+= testglib
 testglib_SOURCES         = testglib.c
@@ -73,12 +74,13 @@ testglib_LDADD		 = $(libglib)
 testgdate_LDADD = $(libglib)
 testgdateparser_LDADD = $(libglib)
 unicode_normalize_LDADD = $(libglib)
-errorcheck_mutex_test_LDADD = $(libglib) $(libgthread) $(G_THREAD_LIBS) 
+unicode_collate_LDADD = $(libglib)
 assert_msg_test_LDADD = $(libglib)
 if ENABLE_TIMELOOP
 timeloop_LDADD = $(libglib)
 timeloop_closure_LDADD = $(libglib) $(libgobject)
 endif
+datetime_LDADD = $(libglib)
 
 test_programs =					\
 	atomic-test				\
@@ -130,13 +132,11 @@ atomic_test_LDADD = $(progs_ldadd)
 bit_test_LDADD = $(progs_ldadd)
 child_test_LDADD = $(thread_ldadd)
 completion_test_LDADD = $(progs_ldadd)
-date_test_LDADD = $(progs_ldadd)
 dirname_test_LDADD = $(progs_ldadd)
 file_test_LDADD = $(progs_ldadd)
 env_test_LDADD = $(progs_ldadd)
 gio_test_LDADD = $(progs_ldadd)
 iochannel_test_LDADD = $(progs_ldadd)
-list_test_LDADD = $(progs_ldadd)
 mainloop_test_LDADD = $(thread_ldadd)
 mapping_test_LDADD = $(progs_ldadd)
 module_test_LDADD = $(module_ldadd) $(module_test_exp)
@@ -159,7 +159,6 @@ threadpool_test_LDADD = $(thread_ldadd)
 type_test_LDADD = $(progs_ldadd)
 unicode_encoding_LDADD = $(progs_ldadd)
 unicode_caseconv_LDADD = $(progs_ldadd)
-unicode_collate_LDADD = $(progs_ldadd)
 
 noinst_LTLIBRARIES = libmoduletestplugin_a.la libmoduletestplugin_b.la
 

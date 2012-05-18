@@ -6,43 +6,43 @@
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="tools.html" title="GIO Tools">
-<link rel="prev" href="glib-compile-schemas.html" title="glib-compile-schemas">
-<link rel="next" href="migrating.html" title="Part III. Migrating to GIO">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="prev" href="glib-compile-resources.html" title="glib-compile-resources">
+<link rel="next" href="gdbus-codegen.html" title="gdbus-codegen">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
-<td><a accesskey="p" href="glib-compile-schemas.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="p" href="glib-compile-resources.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="tools.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">GIO Reference Manual</th>
-<td><a accesskey="n" href="migrating.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="gdbus-codegen.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr></table>
 <div lang="en" class="refentry">
 <a name="gdbus"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle">gdbus</span></h2>
-<p>gdbus — Introspect and call remote objects</p>
+<p>gdbus — Tool for working with D-Bus objects</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsynopsisdiv">
 <h2>Synopsis</h2>
-<div class="cmdsynopsis"><p><code class="command">gdbus</code>   introspect  [ --system  |   --session  |   --address <em class="replaceable"><code>address</code></em> ]  --dest <em class="replaceable"><code>bus_name</code></em>   --object-path <em class="replaceable"><code>/path/to/object</code></em>   --xml </p></div>
+<div class="cmdsynopsis"><p><code class="command">gdbus</code>   introspect  [ --system  |   --session  |   --address <em class="replaceable"><code>address</code></em> ]  --dest <em class="replaceable"><code>bus_name</code></em>   --object-path <em class="replaceable"><code>/path/to/object</code></em>  [ --xml ] [ --recurse ] [ --only-properties ]</p></div>
 <div class="cmdsynopsis"><p><code class="command">gdbus</code>   monitor  [ --system  |   --session  |   --address <em class="replaceable"><code>address</code></em> ]  --dest <em class="replaceable"><code>bus_name</code></em>  [ --object-path <em class="replaceable"><code>/path/to/object</code></em> ]</p></div>
-<div class="cmdsynopsis"><p><code class="command">gdbus</code>   call  [ --system  |   --session  |   --address <em class="replaceable"><code>address</code></em> ]  --dest <em class="replaceable"><code>bus_name</code></em>   --object-path <em class="replaceable"><code>/path/to/object</code></em>   --method <em class="replaceable"><code>org.project.InterfaceName.MethodName</code></em>   ARG1   ARG2... </p></div>
+<div class="cmdsynopsis"><p><code class="command">gdbus</code>   call  [ --system  |   --session  |   --address <em class="replaceable"><code>address</code></em> ]  --dest <em class="replaceable"><code>bus_name</code></em>   --object-path <em class="replaceable"><code>/path/to/object</code></em>   --method <em class="replaceable"><code>org.project.InterfaceName.MethodName</code></em>  [ --timeout <em class="replaceable"><code>seconds</code></em> ]  ARG1   ARG2... </p></div>
+<div class="cmdsynopsis"><p><code class="command">gdbus</code>   emit  [ --system  |   --session  |   --address <em class="replaceable"><code>address</code></em> ]  --object-path <em class="replaceable"><code>/path/to/object</code></em>   --signal <em class="replaceable"><code>org.project.InterfaceName.SignalName</code></em>  [ --dest <em class="replaceable"><code>unique_bus_name</code></em> ]  ARG1   ARG2... </p></div>
 <div class="cmdsynopsis"><p><code class="command">gdbus</code>   help </p></div>
 </div>
 <div class="refsect1">
-<a name="id696362"></a><h2>Description</h2>
+<a name="id543700"></a><h2>Description</h2>
 <p>
-    <span class="command"><strong>gdbus</strong></span> offers a simple commandline utility for
-    introspecting and calling methods on remote objects.
+    <span class="command"><strong>gdbus</strong></span> is a simple tool for working with D-Bus objects.
   </p>
 <div class="refsect2">
-<a name="id584801"></a><h3>Commands</h3>
+<a name="id884507"></a><h3>Commands</h3>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -52,7 +52,14 @@
           Prints out interfaces and property values for a remote object.
           For this to work, the owner of the object needs to implement the
           <code class="literal">org.freedesktop.DBus.Introspectable</code> interface.
-        </p></td>
+          If the <code class="option">--xml</code> option is used, the returned
+          introspection XML is printed, otherwise a parsed pretty
+          representation is printed.
+          The <code class="option">--recurse</code> option can be used to
+          introspect children (and their children and so on) and the
+          <code class="option">--only-properties</code> option can be used to
+          only print the interfaces with properties.
+          </p></td>
 </tr>
 <tr>
 <td><p><span class="term"><code class="option">monitor</code></span></p></td>
@@ -66,10 +73,18 @@
 <td><p>
           Invokes a method on a remote object.  Each argument to pass to the
           method must be specified as a serialized
-          <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> except that strings do
+          <a href="./../glib/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> except that strings do
           not need explicit quotes. The return values are printed out as
-          serialized <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a>
+          serialized <a href="./../glib/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a>
           values.
+        </p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="option">emit</code></span></p></td>
+<td><p>
+          Emits a signal. Each argument to include in the signal must be specified as a serialized
+          <a href="./../glib/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> except that strings do
+          not need explicit quotes.
         </p></td>
 </tr>
 <tr>
@@ -83,7 +98,7 @@
 </div>
 </div>
 <div class="refsect1">
-<a name="id694340"></a><h2>Bash Completion</h2>
+<a name="id967616"></a><h2>Bash Completion</h2>
 <p>
     <span class="command"><strong>gdbus</strong></span> ships with a bash completion script to
     complete commands, destinations, bus names, object paths and
@@ -91,7 +106,7 @@
   </p>
 </div>
 <div class="refsect1">
-<a name="id486100"></a><h2>Examples</h2>
+<a name="id685353"></a><h2>Examples</h2>
   This shows how to introspect an object - note that the value of each
   property is displayed:
 <pre class="programlisting">
@@ -141,6 +156,40 @@ node /org/freedesktop/NetworkManager/Devices/0 {
       readonly s Driver = 'e1000e';
       readwrite s Interface = 'eth0';
       readonly s Udi = '/sys/devices/pci0000:00/0000:00:19.0/net/eth0';
+  };
+};
+</pre>
+<p>
+  The <code class="option">--recurse</code> and <code class="option">--only-properties</code> options can be useful when wanting to inspect all objects owned by a particular process:
+</p>
+<pre class="programlisting">
+$ gdbus introspect --system --dest org.freedesktop.UPower --object-path / --recurse  --only-properties 
+node / {
+  node /org {
+    node /org/freedesktop {
+      node /org/freedesktop/UPower {
+        interface org.freedesktop.UPower {
+          properties:
+            readonly b IsDocked = true;
+            readonly b LidForceSleep = false;
+            readonly b LidIsPresent = false;
+            readonly b LidIsClosed = false;
+            readonly b OnLowBattery = false;
+            readonly b OnBattery = false;
+            readonly b CanHibernate = true;
+            readonly b CanSuspend = true;
+            readonly s DaemonVersion = '0.9.10';
+        };
+        node /org/freedesktop/UPower/Policy {
+        };
+        node /org/freedesktop/UPower/Wakeups {
+          interface org.freedesktop.UPower.Wakeups {
+            properties:
+              readonly b HasCapability = true;
+          };
+        };
+      };
+    };
   };
 };
 </pre>
@@ -213,16 +262,28 @@ The name org.freedesktop.NetworkManager is owned by :1.5
 /org/freedesktop/NetworkManager/AccessPoint/4141: org.freedesktop.NetworkManager.AccessPoint.PropertiesChanged ({'Strength': &lt;byte 0x5e&gt;},)
 /org/freedesktop/NetworkManager/AccessPoint/4141: org.freedesktop.NetworkManager.AccessPoint.PropertiesChanged ({'Strength': &lt;byte 0x64&gt;},)
 </pre>
+<p>
+  Emitting a signal:
+</p>
+<pre class="programlisting">
+$ gdbus emit --session --object-path /foo --signal org.bar.Foo "['foo', 'bar', 'baz']"
+</pre>
+<p>
+  Emitting a signal to a specific process:
+</p>
+<pre class="programlisting">
+$ gdbus emit --session --object-path /bar --signal org.bar.Bar someString --dest :1.42
+</pre>
 </div>
 <div class="refsect1">
-<a name="id639867"></a><h2>AUTHOR</h2>
+<a name="id983238"></a><h2>AUTHOR</h2>
 <p>
     Written by David Zeuthen <code class="email">&lt;<a class="email" href="mailto:zeuthen@gmail.com">zeuthen@gmail.com</a>&gt;</code> with
     a lot of help from many others.
   </p>
 </div>
 <div class="refsect1">
-<a name="id361728"></a><h2>BUGS</h2>
+<a name="id538698"></a><h2>BUGS</h2>
 <p>
     Please send bug reports to either the distribution bug tracker
     or the upstream bug tracker at
@@ -230,7 +291,7 @@ The name org.freedesktop.NetworkManager is owned by :1.5
   </p>
 </div>
 <div class="refsect1">
-<a name="id574124"></a><h2>SEE ALSO</h2>
+<a name="id607169"></a><h2>SEE ALSO</h2>
 <p>
     <span class="citerefentry"><span class="refentrytitle">dbus-send</span>(1)</span>
   </p>
@@ -238,6 +299,6 @@ The name org.freedesktop.NetworkManager is owned by :1.5
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

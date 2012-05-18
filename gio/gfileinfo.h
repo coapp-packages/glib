@@ -729,6 +729,17 @@ typedef struct _GFileInfoClass   GFileInfoClass;
 #define G_FILE_ATTRIBUTE_FILESYSTEM_FREE "filesystem::free"                       /* uint64 */
 
 /**
+ * G_FILE_ATTRIBUTE_FILESYSTEM_USED:
+ *
+ * A key in the "filesystem" namespace for getting the number of bytes of used on the
+ * file system. Corresponding #GFileAttributeType is
+ * %G_FILE_ATTRIBUTE_TYPE_UINT64.
+ *
+ * Since: 2.32
+ */
+#define G_FILE_ATTRIBUTE_FILESYSTEM_USED "filesystem::used"                       /* uint64 */
+
+/**
  * G_FILE_ATTRIBUTE_FILESYSTEM_TYPE:
  *
  * A key in the "filesystem" namespace for getting the file system's type.
@@ -939,6 +950,8 @@ GType                  g_file_attribute_matcher_get_type       (void) G_GNUC_CON
 GFileAttributeMatcher *g_file_attribute_matcher_new            (const char            *attributes);
 GFileAttributeMatcher *g_file_attribute_matcher_ref            (GFileAttributeMatcher *matcher);
 void                   g_file_attribute_matcher_unref          (GFileAttributeMatcher *matcher);
+GFileAttributeMatcher *g_file_attribute_matcher_subtract       (GFileAttributeMatcher *matcher,
+                                                                GFileAttributeMatcher *subtract);
 gboolean               g_file_attribute_matcher_matches        (GFileAttributeMatcher *matcher,
 								const char            *attribute);
 gboolean               g_file_attribute_matcher_matches_only   (GFileAttributeMatcher *matcher,
@@ -946,6 +959,7 @@ gboolean               g_file_attribute_matcher_matches_only   (GFileAttributeMa
 gboolean               g_file_attribute_matcher_enumerate_namespace (GFileAttributeMatcher *matcher,
 								     const char            *ns);
 const char *           g_file_attribute_matcher_enumerate_next (GFileAttributeMatcher *matcher);
+char *                 g_file_attribute_matcher_to_string      (GFileAttributeMatcher *matcher);
 
 G_END_DECLS
 

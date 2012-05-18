@@ -18,7 +18,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-#if defined(G_DISABLE_SINGLE_INCLUDES) && !defined (__GLIB_H_INSIDE__) && !defined (GLIB_COMPILATION)
+#if !defined (__GLIB_H_INSIDE__) && !defined (GLIB_COMPILATION)
 #error "Only <glib.h> can be included directly."
 #endif
 
@@ -69,7 +69,7 @@ void                  g_checksum_free               (GChecksum       *checksum);
 void                  g_checksum_update             (GChecksum       *checksum,
                                                      const guchar    *data,
                                                      gssize           length);
-G_CONST_RETURN gchar *g_checksum_get_string         (GChecksum       *checksum);
+const gchar *         g_checksum_get_string         (GChecksum       *checksum);
 void                  g_checksum_get_digest         (GChecksum       *checksum,
                                                      guint8          *buffer,
                                                      gsize           *digest_len);

@@ -193,9 +193,9 @@ class TestService(dbus.service.Object):
     # ----------------------------------------------------------------------------------------------------
 
     @dbus.service.method("com.example.Frob",
-                          in_signature='', out_signature='')
-    def FrobInvalidateProperty(self):
-        self.frob_props["PropertyThatWillBeInvalidated"] = "OMGInvalidated"
+                          in_signature='s', out_signature='')
+    def FrobInvalidateProperty(self, new_value):
+        self.frob_props["PropertyThatWillBeInvalidated"] = new_value
         message = dbus.lowlevel.SignalMessage("/com/example/TestObject",
                                               "org.freedesktop.DBus.Properties",
                                               "PropertiesChanged")
@@ -215,6 +215,18 @@ class TestService(dbus.service.Object):
                           in_signature='so', out_signature='')
     def EmitSignal(self, str1, objpath1):
         self.TestSignal (str1 + " .. in bed!", objpath1 + "/in/bed", "a variant")
+
+    # ----------------------------------------------------------------------------------------------------
+
+    @dbus.service.signal("com.example.Frob",
+                         signature="i")
+    def TestSignal2(self, int1):
+        pass
+
+    @dbus.service.method("com.example.Frob",
+                          in_signature='', out_signature='')
+    def EmitSignal2(self):
+        self.TestSignal2 (42)
 
     # ----------------------------------------------------------------------------------------------------
 

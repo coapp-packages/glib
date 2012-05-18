@@ -52,45 +52,42 @@ opened_for_read (GObject *source, GAsyncResult *result, gpointer loop)
 static gboolean idle_start_test1_thread (gpointer loop);
 static gpointer test1_thread (gpointer user_data);
 
-static GCond *test1_cond;
-static GMutex *test1_mutex;
+static gboolean test1_done;
+static GCond test1_cond;
+static GMutex test1_mutex;
 
 static void
 test_thread_independence (void)
 {
   GMainLoop *loop;
 
-  test1_cond = g_cond_new ();
-  test1_mutex = g_mutex_new ();
-
   loop = g_main_loop_new (NULL, FALSE);
   g_idle_add (idle_start_test1_thread, loop);
   g_main_loop_run (loop);
   g_main_loop_unref (loop);
-
-  g_mutex_free (test1_mutex);
-  g_cond_free (test1_cond);
 }
 
 static gboolean
 idle_start_test1_thread (gpointer loop)
 {
-  GTimeVal time;
+  gint64 time;
   GThread *thread;
   gboolean io_completed;
 
-  g_mutex_lock (test1_mutex);
-  thread = g_thread_create (test1_thread, NULL, TRUE, NULL);
+  g_mutex_lock (&test1_mutex);
+  thread = g_thread_new ("test1", test1_thread, NULL);
 
-  g_get_current_time (&time);
-  time.tv_sec += 2;
-  io_completed = g_cond_timed_wait (test1_cond, test1_mutex, &time);
-  g_assert (io_completed);
+  time = g_get_monotonic_time () + 2 * G_TIME_SPAN_SECOND;
+  while (!test1_done)
+    {
+      io_completed = g_cond_wait_until (&test1_cond, &test1_mutex, time);
+      g_assert (io_completed);
+    }
   g_thread_join (thread);
 
-  g_mutex_unlock (test1_mutex);
+  g_mutex_unlock (&test1_mutex);
   g_main_loop_quit (loop);
-  return FALSE;
+  return G_SOURCE_REMOVE;
 }
 
 static gpointer
@@ -101,8 +98,7 @@ test1_thread (gpointer user_data)
   GFile *file;
 
   /* Wait for main thread to be waiting on test1_cond */
-  g_mutex_lock (test1_mutex);
-  g_mutex_unlock (test1_mutex);
+  g_mutex_lock (&test1_mutex);
 
   context = g_main_context_new ();
   g_assert (g_main_context_get_thread_default () == NULL);
@@ -119,7 +115,10 @@ test1_thread (gpointer user_data)
   g_main_loop_run (loop);
   g_main_loop_unref (loop);
 
-  g_cond_signal (test1_cond);
+  test1_done = TRUE;
+  g_cond_signal (&test1_cond);
+  g_mutex_unlock (&test1_mutex);
+
   return NULL;
 }
 
@@ -179,7 +178,6 @@ main (int argc, char **argv)
 {
   GError *error = NULL;
 
-  g_thread_init (NULL);
   g_type_init ();
   g_test_init (&argc, &argv, NULL);
 

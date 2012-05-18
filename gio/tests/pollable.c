@@ -44,7 +44,7 @@ poll_source_callback (GPollableInputStream *in,
   g_assert_cmpstr (buf, ==, "x");
 
   *success = TRUE;
-  return FALSE;
+  return G_SOURCE_REMOVE;
 }
 
 static gboolean
@@ -55,7 +55,7 @@ check_source_readability_callback (gpointer user_data)
 
   readable = g_pollable_input_stream_is_readable (in);
   g_assert_cmpint (readable, ==, expected);
-  return FALSE;
+  return G_SOURCE_REMOVE;
 }
 
 static gboolean
@@ -71,7 +71,7 @@ write_callback (gpointer user_data)
 
   check_source_readability_callback (GINT_TO_POINTER (TRUE));
 
-  return FALSE;
+  return G_SOURCE_REMOVE;
 }
 
 static gboolean
@@ -79,7 +79,7 @@ check_source_and_quit_callback (gpointer user_data)
 {
   check_source_readability_callback (user_data);
   g_main_loop_quit (loop);
-  return FALSE;
+  return G_SOURCE_REMOVE;
 }
 
 static void
@@ -221,6 +221,7 @@ test_pollable_socket (void)
   g_object_unref (server_conn);
   g_object_unref (client);
   g_object_unref (listener);
+  g_object_unref (effective_address);
 }
 
 int

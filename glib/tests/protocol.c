@@ -138,6 +138,8 @@ test_message (void)
   int             pipes[2];
   int             passed = 0;
   int             messages = 0;
+  const char    * line_term;
+  int             line_term_len;
 
   if (0 > pipe (pipes))
     {
@@ -164,6 +166,11 @@ test_message (void)
   g_io_channel_set_encoding (channel, NULL, NULL);
   g_io_channel_set_buffered (channel, FALSE);
   g_io_channel_set_flags (channel, G_IO_FLAG_NONBLOCK, NULL);
+  g_assert (g_io_channel_get_line_term (channel, NULL) == NULL);
+  g_io_channel_set_line_term (channel, "\n", 1);
+  line_term = g_io_channel_get_line_term (channel, &line_term_len);
+  g_assert_cmpint (*line_term, ==, '\n');
+  g_assert_cmpint (line_term_len, ==, 1);
 
   io_source = g_io_add_watch (channel, G_IO_IN, test_message_cb1, tlb);
   child_source = g_child_watch_add (pid, test_message_cb2, loop);
@@ -211,6 +218,9 @@ test_message (void)
 
   g_assert_cmpint (passed, ==, 3);
   g_assert_cmpint (messages, ==, 3);
+
+  g_free (argv[1]);
+  g_main_loop_unref (loop);
 }
 
 static void
@@ -310,6 +320,9 @@ test_error (void)
               g_error ("unexpected log message type: %s", g_test_log_type_name (msg->log_type));
             }
         }
+
+      g_free (argv[1]);
+      g_main_loop_unref (loop);
     }
 
   g_assert_cmpint (messages, ==, 3);

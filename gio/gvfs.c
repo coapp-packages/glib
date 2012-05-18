@@ -24,6 +24,7 @@
 #include <string.h>
 #include "gvfs.h"
 #include "glocalvfs.h"
+#include "gresourcefile.h"
 #include "giomodule-priv.h"
 #include "glibintl.h"
 
@@ -119,6 +120,13 @@ g_vfs_get_file_for_uri (GVfs       *vfs,
 
   class = G_VFS_GET_CLASS (vfs);
 
+  /* This is an unfortunate placement, but we really
+     need to check this before chaining to the vfs,
+     because we want to support resource uris for
+     all vfs:es, even those that predate resources. */
+  if (g_str_has_prefix (uri, "resource:"))
+    return _g_resource_file_new (uri);
+
   return (* class->get_file_for_uri) (vfs, uri);
 }
 
@@ -167,54 +175,10 @@ g_vfs_parse_name (GVfs       *vfs,
 
   class = G_VFS_GET_CLASS (vfs);
 
+  if (g_str_has_prefix (parse_name, "resource:"))
+    return _g_resource_file_new (parse_name);
+
   return (* class->parse_name) (vfs, parse_name);
-}
-
-static gpointer
-get_default_vfs (gpointer arg)
-{
-  const char *use_this;
-  GVfs *vfs;
-  GList *l;
-  GIOExtensionPoint *ep;
-  GIOExtension *extension;
-  
-
-  use_this = g_getenv ("GIO_USE_VFS");
-  
-  /* Ensure vfs in modules loaded */
-  _g_io_modules_ensure_loaded ();
-
-  ep = g_io_extension_point_lookup (G_VFS_EXTENSION_POINT_NAME);
-
-  if (use_this)
-    {
-      extension = g_io_extension_point_get_extension_by_name (ep, use_this);
-      if (extension)
-	{
-	  vfs = g_object_new (g_io_extension_get_type (extension), NULL);
-	  
-	  if (g_vfs_is_active (vfs))
-	    return vfs;
-	  
-	  g_object_unref (vfs);
-	}
-    }
-
-  for (l = g_io_extension_point_get_extensions (ep); l != NULL; l = l->next)
-    {
-      extension = l->data;
-
-      vfs = g_object_new (g_io_extension_get_type (extension), NULL);
-
-      if (g_vfs_is_active (vfs))
-	return vfs;
-
-      g_object_unref (vfs);
-    }
-  
-
-  return NULL;
 }
 
 /**
@@ -227,9 +191,9 @@ get_default_vfs (gpointer arg)
 GVfs *
 g_vfs_get_default (void)
 {
-  static GOnce once_init = G_ONCE_INIT;
-  
-  return g_once (&once_init, get_default_vfs, NULL);
+  return _g_io_module_get_default (G_VFS_EXTENSION_POINT_NAME,
+				   "GIO_USE_VFS",
+				   (GIOModuleVerifyFunc)g_vfs_is_active);
 }
 
 /**

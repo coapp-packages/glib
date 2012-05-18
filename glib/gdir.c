@@ -48,6 +48,12 @@
 #include "../build/win32/dirent/wdirent.c"
 #endif
 
+/**
+ * GDir:
+ *
+ * An opaque structure representing an opened directory.
+ */
+
 struct _GDir
 {
 #ifdef G_OS_WIN32
@@ -194,7 +200,7 @@ g_dir_open (const gchar  *path,
  *   more entries. The return value is owned by GLib and
  *   must not be modified or freed.
  **/
-G_CONST_RETURN gchar*
+const gchar *
 g_dir_read_name (GDir *dir)
 {
 #ifdef G_OS_WIN32
@@ -250,7 +256,7 @@ g_dir_read_name (GDir *dir)
 
 /* Binary compatibility version. Not for newly compiled code. */
 
-G_CONST_RETURN gchar*
+const gchar *
 g_dir_read_name (GDir *dir)
 {
   while (1)

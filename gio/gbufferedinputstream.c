@@ -361,7 +361,7 @@ g_buffered_input_stream_new_sized (GInputStream *base_stream,
  * @stream: a #GBufferedInputStream
  * @count: the number of bytes that will be read from the stream
  * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore
- * @error: location to store the error occuring, or %NULL to ignore
+ * @error: location to store the error occurring, or %NULL to ignore
  *
  * Tries to read @count bytes from the stream into the buffer.
  * Will block during this read.
@@ -566,7 +566,8 @@ g_buffered_input_stream_get_available (GBufferedInputStream *stream)
 /**
  * g_buffered_input_stream_peek:
  * @stream: a #GBufferedInputStream
- * @buffer: a pointer to an allocated chunk of memory
+ * @buffer: (array length=count) (element-type guint8): a pointer to
+ *   an allocated chunk of memory
  * @offset: a #gsize
  * @count: a #gsize
  *
@@ -841,7 +842,7 @@ g_buffered_input_stream_read (GInputStream *stream,
  * g_buffered_input_stream_read_byte:
  * @stream: a #GBufferedInputStream
  * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore
- * @error: location to store the error occuring, or %NULL to ignore
+ * @error: location to store the error occurring, or %NULL to ignore
  *
  * Tries to read a single byte from the stream or the buffer. Will block
  * during this read.

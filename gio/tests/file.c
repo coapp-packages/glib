@@ -78,6 +78,7 @@ test_type (void)
 {
   GFile *file;
   GFileType type;
+  GError *error = NULL;
 
   file = g_file_new_for_path (SRCDIR "/file.c");
   type = g_file_query_file_type (file, 0, NULL);
@@ -87,6 +88,10 @@ test_type (void)
   file = g_file_new_for_path (SRCDIR "/schema-tests");
   type = g_file_query_file_type (file, 0, NULL);
   g_assert_cmpint (type, ==, G_FILE_TYPE_DIRECTORY);
+
+  g_file_read (file, NULL, &error);
+  g_assert_error (error, G_IO_ERROR, G_IO_ERROR_IS_DIRECTORY);
+  g_error_free (error);
   g_object_unref (file);
 }
 
@@ -206,10 +211,9 @@ ipending_cb (GObject      *source,
 {
   CreateDeleteData *data = user_data;
   GError *error;
-  gssize size;
 
   error = NULL;
-  size = g_input_stream_read_finish (data->istream, res, &error);
+  g_input_stream_read_finish (data->istream, res, &error);
   g_assert_error (error, G_IO_ERROR, G_IO_ERROR_PENDING);
   g_error_free (error);
 }
@@ -334,10 +338,9 @@ opending_cb (GObject      *source,
 {
   CreateDeleteData *data = user_data;
   GError *error;
-  gssize size;
 
   error = NULL;
-  size = g_output_stream_write_finish (data->ostream, res, &error);
+  g_output_stream_write_finish (data->ostream, res, &error);
   g_assert_error (error, G_IO_ERROR, G_IO_ERROR_PENDING);
   g_error_free (error);
 }
@@ -396,7 +399,7 @@ test_create_delete (gconstpointer d)
 {
   GError *error;
   CreateDeleteData *data;
-  int tmpfd;
+  GFileIOStream *iostream;
 
   data = g_new0 (CreateDeleteData, 1);
 
@@ -404,14 +407,14 @@ test_create_delete (gconstpointer d)
   data->data = "abcdefghijklmnopqrstuvxyzABCDEFGHIJKLMNOPQRSTUVXYZ0123456789";
   data->pos = 0;
 
-  /* Using tempnam() would be easier here, but causes a compile warning */
-  tmpfd = g_file_open_tmp ("g_file_create_delete_XXXXXX",
-			   &data->monitor_path, NULL);
-  g_assert_cmpint (tmpfd, !=, -1);
-  close (tmpfd);
+  data->file = g_file_new_tmp ("g_file_create_delete_XXXXXX",
+			       &iostream, NULL);
+  g_assert (data->file != NULL);
+  g_object_unref (iostream);
+
+  data->monitor_path = g_file_get_path (data->file);
   remove (data->monitor_path);
 
-  data->file = g_file_new_for_path (data->monitor_path);
   g_assert (!g_file_query_exists  (data->file, NULL));
 
   error = NULL;
@@ -512,11 +515,10 @@ replaced_cb (GObject      *source,
              gpointer      user_data)
 {
   ReplaceLoadData *data = user_data;
-  gboolean ret;
   GError *error;
 
   error = NULL;
-  ret = g_file_replace_contents_finish (data->file, res, NULL, &error);
+  g_file_replace_contents_finish (data->file, res, NULL, &error);
   g_assert_no_error (error);
 
   g_file_load_contents_async (data->file, NULL, loaded_cb, data);
@@ -527,7 +529,7 @@ test_replace_load (void)
 {
   ReplaceLoadData *data;
   gchar *path;
-  int tmpfd;
+  GFileIOStream *iostream;
 
   data = g_new0 (ReplaceLoadData, 1);
   data->again = TRUE;
@@ -560,14 +562,14 @@ test_replace_load (void)
     " * make a backup of @file.\n"
     " **/\n";
 
-  /* Using tempnam() would be easier here, but causes a compile warning */
-  tmpfd = g_file_open_tmp ("g_file_replace_load_XXXXXX",
-			   &path, NULL);
-  g_assert_cmpint (tmpfd, !=, -1);
-  close (tmpfd);
+  data->file = g_file_new_tmp ("g_file_replace_load_XXXXXX",
+			       &iostream, NULL);
+  g_assert (data->file != NULL);
+  g_object_unref (iostream);
+
+  path = g_file_get_path (data->file);
   remove (path);
 
-  data->file = g_file_new_for_path (path);
   g_assert (!g_file_query_exists (data->file, NULL));
 
   data->loop = g_main_loop_new (NULL, FALSE);

@@ -5,7 +5,7 @@
     <sub name="Introduction" link="pr01.html"/>
     <sub name="Concepts" link="pt01.html">
       <sub name="Background" link="chapter-intro.html">
-        <sub name="Data types and programming" link="chapter-intro.html#id375787"/>
+        <sub name="Data types and programming" link="chapter-intro.html#id577272"/>
         <sub name="Exporting a C API" link="ch01s02.html"/>
       </sub>
       <sub name="The GLib Dynamic Type System" link="chapter-gtype.html">
@@ -29,7 +29,7 @@
       <sub name="Type Information" link="gobject-Type-Information.html"/>
       <sub name="GTypePlugin" link="GTypePlugin.html"/>
       <sub name="GTypeModule" link="GTypeModule.html"/>
-      <sub name="The Base Object Type" link="gobject-The-Base-Object-Type.html"/>
+      <sub name="GObject" link="gobject-The-Base-Object-Type.html"/>
       <sub name="Enumeration and Flag Types" link="gobject-Enumeration-and-Flag-Types.html"/>
       <sub name="Boxed Types" link="gobject-Boxed-Types.html"/>
       <sub name="Generic values" link="gobject-Generic-values.html"/>
@@ -86,6 +86,8 @@
     <sub name="Index of new symbols in 2.24" link="api-index-2-24.html"/>
     <sub name="Index of new symbols in 2.26" link="api-index-2-26.html"/>
     <sub name="Index of new symbols in 2.28" link="api-index-2-28.html"/>
+    <sub name="Index of new symbols in 2.30" link="api-index-2-30.html"/>
+    <sub name="Index of new symbols in 2.32" link="api-index-2-32.html"/>
     <sub name="Annotation Glossary" link="annotation-glossary.html"/>
   </chapters>
   <functions>
@@ -314,6 +316,11 @@
     <keyword type="function" name="g_object_watch_closure ()" link="gobject-The-Base-Object-Type.html#g-object-watch-closure"/>
     <keyword type="function" name="g_object_run_dispose ()" link="gobject-The-Base-Object-Type.html#g-object-run-dispose"/>
     <keyword type="macro" name="G_OBJECT_WARN_INVALID_PROPERTY_ID()" link="gobject-The-Base-Object-Type.html#G-OBJECT-WARN-INVALID-PROPERTY-ID:CAPS"/>
+    <keyword type="struct" name="GWeakRef" link="gobject-The-Base-Object-Type.html#GWeakRef"/>
+    <keyword type="function" name="g_weak_ref_init ()" link="gobject-The-Base-Object-Type.html#g-weak-ref-init" since="2.32"/>
+    <keyword type="function" name="g_weak_ref_clear ()" link="gobject-The-Base-Object-Type.html#g-weak-ref-clear" since="2.32"/>
+    <keyword type="function" name="g_weak_ref_get ()" link="gobject-The-Base-Object-Type.html#g-weak-ref-get" since="2.32"/>
+    <keyword type="function" name="g_weak_ref_set ()" link="gobject-The-Base-Object-Type.html#g-weak-ref-set" since="2.32"/>
     <keyword type="signal" name="The &quot;notify&quot; signal" link="gobject-The-Base-Object-Type.html#GObject-notify"/>
     <keyword type="struct" name="struct GEnumClass" link="gobject-Enumeration-and-Flag-Types.html#GEnumClass"/>
     <keyword type="struct" name="struct GFlagsClass" link="gobject-Enumeration-and-Flag-Types.html#GFlagsClass"/>
@@ -350,13 +357,23 @@
     <keyword type="macro" name="G_TYPE_GSTRING" link="gobject-Boxed-Types.html#G-TYPE-GSTRING:CAPS"/>
     <keyword type="macro" name="G_TYPE_STRV" link="gobject-Boxed-Types.html#G-TYPE-STRV:CAPS" since="2.4"/>
     <keyword type="macro" name="G_TYPE_REGEX" link="gobject-Boxed-Types.html#G-TYPE-REGEX:CAPS" since="2.14"/>
+    <keyword type="macro" name="G_TYPE_MATCH_INFO" link="gobject-Boxed-Types.html#G-TYPE-MATCH-INFO:CAPS" since="2.30"/>
     <keyword type="macro" name="G_TYPE_ARRAY" link="gobject-Boxed-Types.html#G-TYPE-ARRAY:CAPS" since="2.22"/>
     <keyword type="macro" name="G_TYPE_BYTE_ARRAY" link="gobject-Boxed-Types.html#G-TYPE-BYTE-ARRAY:CAPS" since="2.22"/>
     <keyword type="macro" name="G_TYPE_PTR_ARRAY" link="gobject-Boxed-Types.html#G-TYPE-PTR-ARRAY:CAPS" since="2.22"/>
+    <keyword type="macro" name="G_TYPE_BYTES" link="gobject-Boxed-Types.html#G-TYPE-BYTES:CAPS" since="2.32"/>
     <keyword type="macro" name="G_TYPE_VARIANT_TYPE" link="gobject-Boxed-Types.html#G-TYPE-VARIANT-TYPE:CAPS" since="2.24"/>
     <keyword type="macro" name="G_TYPE_ERROR" link="gobject-Boxed-Types.html#G-TYPE-ERROR:CAPS" since="2.26"/>
     <keyword type="macro" name="G_TYPE_DATE_TIME" link="gobject-Boxed-Types.html#G-TYPE-DATE-TIME:CAPS" since="2.26"/>
+    <keyword type="macro" name="G_TYPE_IO_CHANNEL" link="gobject-Boxed-Types.html#G-TYPE-IO-CHANNEL:CAPS"/>
+    <keyword type="macro" name="G_TYPE_IO_CONDITION" link="gobject-Boxed-Types.html#G-TYPE-IO-CONDITION:CAPS"/>
+    <keyword type="macro" name="G_TYPE_VARIANT_BUILDER" link="gobject-Boxed-Types.html#G-TYPE-VARIANT-BUILDER:CAPS" since="2.30"/>
+    <keyword type="macro" name="G_TYPE_KEY_FILE" link="gobject-Boxed-Types.html#G-TYPE-KEY-FILE:CAPS" since="2.32"/>
+    <keyword type="macro" name="G_TYPE_MAIN_CONTEXT" link="gobject-Boxed-Types.html#G-TYPE-MAIN-CONTEXT:CAPS" since="2.30"/>
+    <keyword type="macro" name="G_TYPE_MAIN_LOOP" link="gobject-Boxed-Types.html#G-TYPE-MAIN-LOOP:CAPS" since="2.30"/>
+    <keyword type="macro" name="G_TYPE_SOURCE" link="gobject-Boxed-Types.html#G-TYPE-SOURCE:CAPS" since="2.30"/>
     <keyword type="typedef" name="GStrv" link="gobject-Boxed-Types.html#GStrv"/>
+    <keyword type="macro" name="G_VALUE_INIT" link="gobject-Generic-values.html#G-VALUE-INIT:CAPS" since="2.30"/>
     <keyword type="macro" name="G_VALUE_HOLDS()" link="gobject-Generic-values.html#G-VALUE-HOLDS:CAPS"/>
     <keyword type="macro" name="G_VALUE_TYPE()" link="gobject-Generic-values.html#G-VALUE-TYPE:CAPS"/>
     <keyword type="macro" name="G_VALUE_TYPE_NAME()" link="gobject-Generic-values.html#G-VALUE-TYPE-NAME:CAPS"/>
@@ -365,7 +382,7 @@
     <keyword type="macro" name="G_IS_VALUE()" link="gobject-Generic-values.html#G-IS-VALUE:CAPS"/>
     <keyword type="struct" name="GValue" link="gobject-Generic-values.html#GValue"/>
     <keyword type="macro" name="G_TYPE_VALUE" link="gobject-Generic-values.html#G-TYPE-VALUE:CAPS"/>
-    <keyword type="macro" name="G_TYPE_VALUE_ARRAY" link="gobject-Generic-values.html#G-TYPE-VALUE-ARRAY:CAPS"/>
+    <keyword type="macro" name="G_TYPE_VALUE_ARRAY" link="gobject-Generic-values.html#G-TYPE-VALUE-ARRAY:CAPS" deprecated="2.32: Use #GArray instead of #GValueArray"/>
     <keyword type="function" name="g_value_init ()" link="gobject-Generic-values.html#g-value-init"/>
     <keyword type="function" name="g_value_copy ()" link="gobject-Generic-values.html#g-value-copy"/>
     <keyword type="function" name="g_value_reset ()" link="gobject-Generic-values.html#g-value-reset"/>
@@ -393,8 +410,10 @@
     <keyword type="macro" name="G_TYPE_PARAM_CHAR" link="gobject-Standard-Parameter-and-Value-Types.html#G-TYPE-PARAM-CHAR:CAPS"/>
     <keyword type="struct" name="struct GParamSpecChar" link="gobject-Standard-Parameter-and-Value-Types.html#GParamSpecChar"/>
     <keyword type="function" name="g_param_spec_char ()" link="gobject-Standard-Parameter-and-Value-Types.html#g-param-spec-char"/>
-    <keyword type="function" name="g_value_set_char ()" link="gobject-Standard-Parameter-and-Value-Types.html#g-value-set-char"/>
-    <keyword type="function" name="g_value_get_char ()" link="gobject-Standard-Parameter-and-Value-Types.html#g-value-get-char"/>
+    <keyword type="function" name="g_value_set_char ()" link="gobject-Standard-Parameter-and-Value-Types.html#g-value-set-char" deprecated="2.32: This function's input type is broken, see g_value_set_schar()"/>
+    <keyword type="function" name="g_value_get_char ()" link="gobject-Standard-Parameter-and-Value-Types.html#g-value-get-char" deprecated="2.32: This function's return type is broken, see g_value_get_schar()"/>
+    <keyword type="function" name="g_value_get_schar ()" link="gobject-Standard-Parameter-and-Value-Types.html#g-value-get-schar" since="2.32"/>
+    <keyword type="function" name="g_value_set_schar ()" link="gobject-Standard-Parameter-and-Value-Types.html#g-value-set-schar" since="2.32"/>
     <keyword type="macro" name="G_IS_PARAM_SPEC_UCHAR()" link="gobject-Standard-Parameter-and-Value-Types.html#G-IS-PARAM-SPEC-UCHAR:CAPS"/>
     <keyword type="macro" name="G_PARAM_SPEC_UCHAR()" link="gobject-Standard-Parameter-and-Value-Types.html#G-PARAM-SPEC-UCHAR:CAPS"/>
     <keyword type="macro" name="G_VALUE_HOLDS_UCHAR()" link="gobject-Standard-Parameter-and-Value-Types.html#G-VALUE-HOLDS-UCHAR:CAPS"/>
@@ -543,9 +562,9 @@
     <keyword type="macro" name="G_TYPE_PARAM_UNICHAR" link="gobject-Standard-Parameter-and-Value-Types.html#G-TYPE-PARAM-UNICHAR:CAPS"/>
     <keyword type="struct" name="struct GParamSpecUnichar" link="gobject-Standard-Parameter-and-Value-Types.html#GParamSpecUnichar"/>
     <keyword type="function" name="g_param_spec_unichar ()" link="gobject-Standard-Parameter-and-Value-Types.html#g-param-spec-unichar"/>
-    <keyword type="macro" name="G_IS_PARAM_SPEC_VALUE_ARRAY()" link="gobject-Standard-Parameter-and-Value-Types.html#G-IS-PARAM-SPEC-VALUE-ARRAY:CAPS"/>
-    <keyword type="macro" name="G_PARAM_SPEC_VALUE_ARRAY()" link="gobject-Standard-Parameter-and-Value-Types.html#G-PARAM-SPEC-VALUE-ARRAY:CAPS"/>
-    <keyword type="macro" name="G_TYPE_PARAM_VALUE_ARRAY" link="gobject-Standard-Parameter-and-Value-Types.html#G-TYPE-PARAM-VALUE-ARRAY:CAPS"/>
+    <keyword type="macro" name="G_IS_PARAM_SPEC_VALUE_ARRAY()" link="gobject-Standard-Parameter-and-Value-Types.html#G-IS-PARAM-SPEC-VALUE-ARRAY:CAPS" deprecated="2.32: Use #GArray instead of #GValueArray"/>
+    <keyword type="macro" name="G_PARAM_SPEC_VALUE_ARRAY()" link="gobject-Standard-Parameter-and-Value-Types.html#G-PARAM-SPEC-VALUE-ARRAY:CAPS" deprecated="2.32: Use #GArray instead of #GValueArray"/>
+    <keyword type="macro" name="G_TYPE_PARAM_VALUE_ARRAY" link="gobject-Standard-Parameter-and-Value-Types.html#G-TYPE-PARAM-VALUE-ARRAY:CAPS" deprecated="2.32: Use #GArray instead of #GValueArray"/>
     <keyword type="struct" name="struct GParamSpecValueArray" link="gobject-Standard-Parameter-and-Value-Types.html#GParamSpecValueArray"/>
     <keyword type="function" name="g_param_spec_value_array ()" link="gobject-Standard-Parameter-and-Value-Types.html#g-param-spec-value-array"/>
     <keyword type="macro" name="G_IS_PARAM_SPEC_OVERRIDE()" link="gobject-Standard-Parameter-and-Value-Types.html#G-IS-PARAM-SPEC-OVERRIDE:CAPS" since="2.4"/>
@@ -659,6 +678,7 @@
     <keyword type="macro" name="g_signal_handlers_block_by_func()" link="gobject-Signals.html#g-signal-handlers-block-by-func"/>
     <keyword type="macro" name="g_signal_handlers_unblock_by_func()" link="gobject-Signals.html#g-signal-handlers-unblock-by-func"/>
     <keyword type="macro" name="g_signal_handlers_disconnect_by_func()" link="gobject-Signals.html#g-signal-handlers-disconnect-by-func"/>
+    <keyword type="macro" name="g_signal_handlers_disconnect_by_data()" link="gobject-Signals.html#g-signal-handlers-disconnect-by-data" since="2.32"/>
     <keyword type="function" name="g_signal_has_handler_pending ()" link="gobject-Signals.html#g-signal-has-handler-pending"/>
     <keyword type="function" name="g_signal_stop_emission ()" link="gobject-Signals.html#g-signal-stop-emission"/>
     <keyword type="function" name="g_signal_stop_emission_by_name ()" link="gobject-Signals.html#g-signal-stop-emission-by-name"/>
@@ -688,6 +708,7 @@
     <keyword type="function" name="g_cclosure_new_swap ()" link="gobject-Closures.html#g-cclosure-new-swap"/>
     <keyword type="function" name="g_cclosure_new_object ()" link="gobject-Closures.html#g-cclosure-new-object"/>
     <keyword type="function" name="g_cclosure_new_object_swap ()" link="gobject-Closures.html#g-cclosure-new-object-swap"/>
+    <keyword type="function" name="g_cclosure_marshal_generic ()" link="gobject-Closures.html#g-cclosure-marshal-generic" since="2.30"/>
     <keyword type="function" name="g_closure_new_object ()" link="gobject-Closures.html#g-closure-new-object"/>
     <keyword type="function" name="g_closure_ref ()" link="gobject-Closures.html#g-closure-ref"/>
     <keyword type="function" name="g_closure_sink ()" link="gobject-Closures.html#g-closure-sink"/>
@@ -704,8 +725,6 @@
     <keyword type="function" name="g_closure_set_meta_marshal ()" link="gobject-Closures.html#g-closure-set-meta-marshal"/>
     <keyword type="function" name="g_source_set_closure ()" link="gobject-Closures.html#g-source-set-closure"/>
     <keyword type="function" name="g_source_set_dummy_callback ()" link="gobject-Closures.html#g-source-set-dummy-callback"/>
-    <keyword type="macro" name="G_TYPE_IO_CHANNEL" link="gobject-Closures.html#G-TYPE-IO-CHANNEL:CAPS"/>
-    <keyword type="macro" name="G_TYPE_IO_CONDITION" link="gobject-Closures.html#G-TYPE-IO-CONDITION:CAPS"/>
     <keyword type="function" name="g_cclosure_marshal_VOID__VOID ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--VOID"/>
     <keyword type="function" name="g_cclosure_marshal_VOID__BOOLEAN ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--BOOLEAN"/>
     <keyword type="function" name="g_cclosure_marshal_VOID__CHAR ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--CHAR"/>
@@ -728,17 +747,19 @@
     <keyword type="function" name="g_cclosure_marshal_VOID__UINT_POINTER ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--UINT-POINTER"/>
     <keyword type="function" name="g_cclosure_marshal_BOOLEAN__FLAGS ()" link="gobject-Closures.html#g-cclosure-marshal-BOOLEAN--FLAGS"/>
     <keyword type="macro" name="g_cclosure_marshal_BOOL__FLAGS" link="gobject-Closures.html#g-cclosure-marshal-BOOL--FLAGS"/>
+    <keyword type="function" name="g_cclosure_marshal_BOOLEAN__BOXED_BOXED ()" link="gobject-Closures.html#g-cclosure-marshal-BOOLEAN--BOXED-BOXED"/>
+    <keyword type="macro" name="g_cclosure_marshal_BOOL__BOXED_BOXED" link="gobject-Closures.html#g-cclosure-marshal-BOOL--BOXED-BOXED"/>
     <keyword type="struct" name="struct GValueArray" link="gobject-Value-arrays.html#GValueArray"/>
-    <keyword type="function" name="g_value_array_get_nth ()" link="gobject-Value-arrays.html#g-value-array-get-nth"/>
-    <keyword type="function" name="g_value_array_new ()" link="gobject-Value-arrays.html#g-value-array-new"/>
-    <keyword type="function" name="g_value_array_copy ()" link="gobject-Value-arrays.html#g-value-array-copy"/>
-    <keyword type="function" name="g_value_array_free ()" link="gobject-Value-arrays.html#g-value-array-free"/>
-    <keyword type="function" name="g_value_array_append ()" link="gobject-Value-arrays.html#g-value-array-append"/>
-    <keyword type="function" name="g_value_array_prepend ()" link="gobject-Value-arrays.html#g-value-array-prepend"/>
-    <keyword type="function" name="g_value_array_insert ()" link="gobject-Value-arrays.html#g-value-array-insert"/>
-    <keyword type="function" name="g_value_array_remove ()" link="gobject-Value-arrays.html#g-value-array-remove"/>
-    <keyword type="function" name="g_value_array_sort ()" link="gobject-Value-arrays.html#g-value-array-sort"/>
-    <keyword type="function" name="g_value_array_sort_with_data ()" link="gobject-Value-arrays.html#g-value-array-sort-with-data"/>
+    <keyword type="function" name="g_value_array_get_nth ()" link="gobject-Value-arrays.html#g-value-array-get-nth" deprecated="2.32: Use g_array_index() instead."/>
+    <keyword type="function" name="g_value_array_new ()" link="gobject-Value-arrays.html#g-value-array-new" deprecated="2.32: Use #GArray and g_array_sized_new() instead."/>
+    <keyword type="function" name="g_value_array_copy ()" link="gobject-Value-arrays.html#g-value-array-copy" deprecated="2.32: Use #GArray and g_array_ref() instead."/>
+    <keyword type="function" name="g_value_array_free ()" link="gobject-Value-arrays.html#g-value-array-free" deprecated="2.32: Use #GArray and g_array_unref() instead."/>
+    <keyword type="function" name="g_value_array_append ()" link="gobject-Value-arrays.html#g-value-array-append" deprecated="2.32: Use #GArray and g_array_append_val() instead."/>
+    <keyword type="function" name="g_value_array_prepend ()" link="gobject-Value-arrays.html#g-value-array-prepend" deprecated="2.32: Use #GArray and g_array_prepend_val() instead."/>
+    <keyword type="function" name="g_value_array_insert ()" link="gobject-Value-arrays.html#g-value-array-insert" deprecated="2.32: Use #GArray and g_array_insert_val() instead."/>
+    <keyword type="function" name="g_value_array_remove ()" link="gobject-Value-arrays.html#g-value-array-remove" deprecated="2.32: Use #GArray and g_array_remove_index() instead."/>
+    <keyword type="function" name="g_value_array_sort ()" link="gobject-Value-arrays.html#g-value-array-sort" deprecated="2.32: Use #GArray and g_array_sort()."/>
+    <keyword type="function" name="g_value_array_sort_with_data ()" link="gobject-Value-arrays.html#g-value-array-sort-with-data" deprecated="2.32: Use #GArray and g_array_sort_with_data()."/>
     <keyword type="struct" name="GBinding" link="GBinding.html#GBinding-struct"/>
     <keyword type="enum" name="enum GBindingFlags" link="GBinding.html#GBindingFlags" since="2.26"/>
     <keyword type="function" name="g_binding_get_source ()" link="GBinding.html#g-binding-get-source" since="2.26"/>
@@ -755,13 +776,13 @@
     <keyword type="property" name="The &quot;source-property&quot; property" link="GBinding.html#GBinding--source-property"/>
     <keyword type="property" name="The &quot;target&quot; property" link="GBinding.html#GBinding--target"/>
     <keyword type="property" name="The &quot;target-property&quot; property" link="GBinding.html#GBinding--target-property"/>
-    <keyword type="" name="Options" link="glib-mkenums.html#id389030"/>
-    <keyword type="" name="Production text substitutions" link="glib-mkenums.html#id356308"/>
-    <keyword type="" name="Trigraph extensions" link="glib-mkenums.html#id369700"/>
-    <keyword type="" name="Options" link="glib-genmarshal.html#id388819"/>
-    <keyword type="" name="Marshaller list format" link="glib-genmarshal.html#id386968"/>
-    <keyword type="" name="Parameter types" link="glib-genmarshal.html#id421966"/>
-    <keyword type="" name="Options" link="gobject-query.html#id393583"/>
+    <keyword type="" name="Options" link="glib-mkenums.html#id583670"/>
+    <keyword type="" name="Production text substitutions" link="glib-mkenums.html#id591323"/>
+    <keyword type="" name="Trigraph extensions" link="glib-mkenums.html#id560698"/>
+    <keyword type="" name="Options" link="glib-genmarshal.html#id572390"/>
+    <keyword type="" name="Marshaller list format" link="glib-genmarshal.html#id578736"/>
+    <keyword type="" name="Parameter types" link="glib-genmarshal.html#id569403"/>
+    <keyword type="" name="Options" link="gobject-query.html#id582857"/>
     <keyword type="constant" name="G_TYPE_DEBUG_NONE" link="gobject-Type-Information.html#G-TYPE-DEBUG-NONE:CAPS"/>
     <keyword type="constant" name="G_TYPE_DEBUG_OBJECTS" link="gobject-Type-Information.html#G-TYPE-DEBUG-OBJECTS:CAPS"/>
     <keyword type="constant" name="G_TYPE_DEBUG_SIGNALS" link="gobject-Type-Information.html#G-TYPE-DEBUG-SIGNALS:CAPS"/>
@@ -789,6 +810,8 @@
     <keyword type="constant" name="G_SIGNAL_DETAILED" link="gobject-Signals.html#G-SIGNAL-DETAILED:CAPS"/>
     <keyword type="constant" name="G_SIGNAL_ACTION" link="gobject-Signals.html#G-SIGNAL-ACTION:CAPS"/>
     <keyword type="constant" name="G_SIGNAL_NO_HOOKS" link="gobject-Signals.html#G-SIGNAL-NO-HOOKS:CAPS"/>
+    <keyword type="constant" name="G_SIGNAL_MUST_COLLECT" link="gobject-Signals.html#G-SIGNAL-MUST-COLLECT:CAPS"/>
+    <keyword type="constant" name="G_SIGNAL_DEPRECATED" link="gobject-Signals.html#G-SIGNAL-DEPRECATED:CAPS"/>
     <keyword type="constant" name="G_SIGNAL_MATCH_ID" link="gobject-Signals.html#G-SIGNAL-MATCH-ID:CAPS"/>
     <keyword type="constant" name="G_SIGNAL_MATCH_DETAIL" link="gobject-Signals.html#G-SIGNAL-MATCH-DETAIL:CAPS"/>
     <keyword type="constant" name="G_SIGNAL_MATCH_CLOSURE" link="gobject-Signals.html#G-SIGNAL-MATCH-CLOSURE:CAPS"/>

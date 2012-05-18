@@ -5,16 +5,16 @@
 <title>GSocketAddress</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
-<link rel="up" href="networking.html" title="Lowlevel network support">
-<link rel="prev" href="GInetAddress.html" title="GInetAddress">
+<link rel="up" href="networking.html" title="Low-level network support">
+<link rel="prev" href="gio-GInetAddressMask.html" title="GInetAddressMask">
 <link rel="next" href="GInetSocketAddress.html" title="GInetSocketAddress">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
 <tr valign="middle">
-<td><a accesskey="p" href="GInetAddress.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="p" href="gio-GInetAddressMask.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="networking.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">GIO Reference Manual</th>
@@ -44,29 +44,25 @@ socket communication</p>
 </tr></table></div>
 <div class="refsynopsisdiv">
 <a name="GSocketAddress.synopsis"></a><h2>Synopsis</h2>
-<a name="GSocketFamily"></a><pre class="synopsis">                    <a class="link" href="GSocketAddress.html#GSocketAddress-struct" title="GSocketAddress">GSocketAddress</a>;
-enum                <a class="link" href="GSocketAddress.html#GSocketFamily">GSocketFamily</a>;
-<a class="link" href="GSocketAddress.html" title="GSocketAddress"><span class="returnvalue">GSocketAddress</span></a> *       <a class="link" href="GSocketAddress.html#g-socket-address-new-from-native" title="g_socket_address_new_from_native ()">g_socket_address_new_from_native</a> (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> native</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> len</code></em>);
-<a class="link" href="GSocketAddress.html#GSocketFamily"><span class="returnvalue">GSocketFamily</span></a>       <a class="link" href="GSocketAddress.html#g-socket-address-get-family" title="g_socket_address_get_family ()">g_socket_address_get_family</a>         (<em class="parameter"><code><a class="link" href="GSocketAddress.html" title="GSocketAddress"><span class="type">GSocketAddress</span></a> *address</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GSocketAddress.html#g-socket-address-to-native" title="g_socket_address_to_native ()">g_socket_address_to_native</a>          (<em class="parameter"><code><a class="link" href="GSocketAddress.html" title="GSocketAddress"><span class="type">GSocketAddress</span></a> *address</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> dest</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> destlen</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gssize"><span class="returnvalue">gssize</span></a>              <a class="link" href="GSocketAddress.html#g-socket-address-get-native-size" title="g_socket_address_get_native_size ()">g_socket_address_get_native_size</a>    (<em class="parameter"><code><a class="link" href="GSocketAddress.html" title="GSocketAddress"><span class="type">GSocketAddress</span></a> *address</code></em>);
+<pre class="synopsis">                    <a class="link" href="GSocketAddress.html#GSocketAddress-struct" title="GSocketAddress">GSocketAddress</a>;
+enum                <a class="link" href="GSocketAddress.html#GSocketFamily" title="enum GSocketFamily">GSocketFamily</a>;
+<a class="link" href="GSocketAddress.html" title="GSocketAddress"><span class="returnvalue">GSocketAddress</span></a> *    <a class="link" href="GSocketAddress.html#g-socket-address-new-from-native" title="g_socket_address_new_from_native ()">g_socket_address_new_from_native</a>    (<em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> native</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> len</code></em>);
+<a class="link" href="GSocketAddress.html#GSocketFamily" title="enum GSocketFamily"><span class="returnvalue">GSocketFamily</span></a>       <a class="link" href="GSocketAddress.html#g-socket-address-get-family" title="g_socket_address_get_family ()">g_socket_address_get_family</a>         (<em class="parameter"><code><a class="link" href="GSocketAddress.html" title="GSocketAddress"><span class="type">GSocketAddress</span></a> *address</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GSocketAddress.html#g-socket-address-to-native" title="g_socket_address_to_native ()">g_socket_address_to_native</a>          (<em class="parameter"><code><a class="link" href="GSocketAddress.html" title="GSocketAddress"><span class="type">GSocketAddress</span></a> *address</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> dest</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> destlen</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gssize"><span class="returnvalue">gssize</span></a>              <a class="link" href="GSocketAddress.html#g-socket-address-get-native-size" title="g_socket_address_get_native_size ()">g_socket_address_get_native_size</a>    (<em class="parameter"><code><a class="link" href="GSocketAddress.html" title="GSocketAddress"><span class="type">GSocketAddress</span></a> *address</code></em>);
 </pre>
 </div>
 <div class="refsect1">
 <a name="GSocketAddress.object-hierarchy"></a><h2>Object Hierarchy</h2>
 <pre class="synopsis">
-  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+  <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
    +----GSocketAddress
          +----<a class="link" href="GInetSocketAddress.html" title="GInetSocketAddress">GInetSocketAddress</a>
          +----<a class="link" href="GUnixSocketAddress.html" title="GUnixSocketAddress">GUnixSocketAddress</a>
-</pre>
-<pre class="synopsis">
-  GEnum
-   +----GSocketFamily
 </pre>
 </div>
 <div class="refsect1">
@@ -78,7 +74,7 @@ GSocketAddress implements
 <div class="refsect1">
 <a name="GSocketAddress.properties"></a><h2>Properties</h2>
 <pre class="synopsis">
-  "<a class="link" href="GSocketAddress.html#GSocketAddress--family" title='The "family" property'>family</a>"                   <a class="link" href="GSocketAddress.html#GSocketFamily"><span class="type">GSocketFamily</span></a>         : Read
+  "<a class="link" href="GSocketAddress.html#GSocketAddress--family" title='The "family" property'>family</a>"                   <a class="link" href="GSocketAddress.html#GSocketFamily" title="enum GSocketFamily"><span class="type">GSocketFamily</span></a>         : Read
 </pre>
 </div>
 <div class="refsect1">
@@ -105,9 +101,7 @@ or one of its subtypes.
 <a name="GSocketFamily"></a><h3>enum GSocketFamily</h3>
 <pre class="programlisting">typedef enum {
   G_SOCKET_FAMILY_INVALID,
-#ifdef GLIB_SYSDEF_AF_UNIX
   G_SOCKET_FAMILY_UNIX = GLIB_SYSDEF_AF_UNIX,
-#endif
   G_SOCKET_FAMILY_IPV4 = GLIB_SYSDEF_AF_INET,
   G_SOCKET_FAMILY_IPV6 = GLIB_SYSDEF_AF_INET6
 } GSocketFamily;
@@ -147,8 +141,8 @@ if available.)
 <hr>
 <div class="refsect2">
 <a name="g-socket-address-new-from-native"></a><h3>g_socket_address_new_from_native ()</h3>
-<pre class="programlisting"><a class="link" href="GSocketAddress.html" title="GSocketAddress"><span class="returnvalue">GSocketAddress</span></a> *       g_socket_address_new_from_native (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> native</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> len</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="GSocketAddress.html" title="GSocketAddress"><span class="returnvalue">GSocketAddress</span></a> *    g_socket_address_new_from_native    (<em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> native</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> len</code></em>);</pre>
 <p>
 Creates a <a class="link" href="GSocketAddress.html" title="GSocketAddress"><span class="type">GSocketAddress</span></a> subclass corresponding to the native
 <span class="type">struct sockaddr</span> <em class="parameter"><code>native</code></em>.
@@ -169,7 +163,7 @@ Creates a <a class="link" href="GSocketAddress.html" title="GSocketAddress"><spa
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a new <a class="link" href="GSocketAddress.html" title="GSocketAddress"><span class="type">GSocketAddress</span></a> if <em class="parameter"><code>native</code></em> could successfully be converted,
-otherwise <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
+otherwise <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -178,7 +172,7 @@ otherwise <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Ma
 <hr>
 <div class="refsect2">
 <a name="g-socket-address-get-family"></a><h3>g_socket_address_get_family ()</h3>
-<pre class="programlisting"><a class="link" href="GSocketAddress.html#GSocketFamily"><span class="returnvalue">GSocketFamily</span></a>       g_socket_address_get_family         (<em class="parameter"><code><a class="link" href="GSocketAddress.html" title="GSocketAddress"><span class="type">GSocketAddress</span></a> *address</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="GSocketAddress.html#GSocketFamily" title="enum GSocketFamily"><span class="returnvalue">GSocketFamily</span></a>       g_socket_address_get_family         (<em class="parameter"><code><a class="link" href="GSocketAddress.html" title="GSocketAddress"><span class="type">GSocketAddress</span></a> *address</code></em>);</pre>
 <p>
 Gets the socket family type of <em class="parameter"><code>address</code></em>.
 </p>
@@ -201,17 +195,17 @@ Gets the socket family type of <em class="parameter"><code>address</code></em>.
 <hr>
 <div class="refsect2">
 <a name="g-socket-address-to-native"></a><h3>g_socket_address_to_native ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_socket_address_to_native          (<em class="parameter"><code><a class="link" href="GSocketAddress.html" title="GSocketAddress"><span class="type">GSocketAddress</span></a> *address</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> dest</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> destlen</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_socket_address_to_native          (<em class="parameter"><code><a class="link" href="GSocketAddress.html" title="GSocketAddress"><span class="type">GSocketAddress</span></a> *address</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> dest</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> destlen</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Converts a <a class="link" href="GSocketAddress.html" title="GSocketAddress"><span class="type">GSocketAddress</span></a> to a native <span class="type">struct
 sockaddr</span>, which can be passed to low-level functions like
 <code class="function">connect()</code> or <code class="function">bind()</code>.
 </p>
 <p>
-If not enough space is availible, a <a class="link" href="gio-GIOError.html#G-IO-ERROR-NO-SPACE:CAPS"><code class="literal">G_IO_ERROR_NO_SPACE</code></a> error is
+If not enough space is available, a <a class="link" href="gio-GIOError.html#G-IO-ERROR-NO-SPACE:CAPS"><code class="literal">G_IO_ERROR_NO_SPACE</code></a> error is
 returned. If the address type is not known on the system
 then a <a class="link" href="gio-GIOError.html#G-IO-ERROR-NOT-SUPPORTED:CAPS"><code class="literal">G_IO_ERROR_NOT_SUPPORTED</code></a> error is returned.
 </p>
@@ -236,12 +230,12 @@ then a <a class="link" href="gio-GIOError.html#G-IO-ERROR-NOT-SUPPORTED:CAPS"><c
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
+<a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>dest</code></em> was filled in, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> on error</td>
+<a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>dest</code></em> was filled in, <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> on error</td>
 </tr>
 </tbody>
 </table></div>
@@ -250,7 +244,7 @@ then a <a class="link" href="gio-GIOError.html#G-IO-ERROR-NOT-SUPPORTED:CAPS"><c
 <hr>
 <div class="refsect2">
 <a name="g-socket-address-get-native-size"></a><h3>g_socket_address_get_native_size ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gssize"><span class="returnvalue">gssize</span></a>              g_socket_address_get_native_size    (<em class="parameter"><code><a class="link" href="GSocketAddress.html" title="GSocketAddress"><span class="type">GSocketAddress</span></a> *address</code></em>);</pre>
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gssize"><span class="returnvalue">gssize</span></a>              g_socket_address_get_native_size    (<em class="parameter"><code><a class="link" href="GSocketAddress.html" title="GSocketAddress"><span class="type">GSocketAddress</span></a> *address</code></em>);</pre>
 <p>
 Gets the size of <em class="parameter"><code>address</code></em>'s native <span class="type">struct sockaddr</span>.
 You can use this to allocate memory to pass to
@@ -278,7 +272,7 @@ You can use this to allocate memory to pass to
 <a name="GSocketAddress.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GSocketAddress--family"></a><h3>The <code class="literal">"family"</code> property</h3>
-<pre class="programlisting">  "family"                   <a class="link" href="GSocketAddress.html#GSocketFamily"><span class="type">GSocketFamily</span></a>         : Read</pre>
+<pre class="programlisting">  "family"                   <a class="link" href="GSocketAddress.html#GSocketFamily" title="enum GSocketFamily"><span class="type">GSocketFamily</span></a>         : Read</pre>
 <p>The family of the socket address.</p>
 <p>Default value: G_SOCKET_FAMILY_INVALID</p>
 </div>
@@ -286,6 +280,6 @@ You can use this to allocate memory to pass to
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

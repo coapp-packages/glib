@@ -7,8 +7,8 @@
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="failable_initialization.html" title="Failable Initialization">
 <link rel="prev" href="GInitable.html" title="GInitable">
-<link rel="next" href="networking.html" title="Lowlevel network support">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="next" href="networking.html" title="Low-level network support">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -52,34 +52,34 @@ struct              <a class="link" href="GAsyncInitable.html#GAsyncInitableIfac
                                                          <em class="parameter"><code><span class="type">int</span> io_priority</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GAsyncInitable.html#g-async-initable-init-finish" title="g_async_initable_init_finish ()">g_async_initable_init_finish</a>        (<em class="parameter"><code><a class="link" href="GAsyncInitable.html" title="GAsyncInitable"><span class="type">GAsyncInitable</span></a> *initable</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GAsyncInitable.html#g-async-initable-init-finish" title="g_async_initable_init_finish ()">g_async_initable_init_finish</a>        (<em class="parameter"><code><a class="link" href="GAsyncInitable.html" title="GAsyncInitable"><span class="type">GAsyncInitable</span></a> *initable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *res</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<span class="returnvalue">void</span>                <a class="link" href="GAsyncInitable.html#g-async-initable-new-async" title="g_async_initable_new_async ()">g_async_initable_new_async</a>          (<em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> object_type</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GAsyncInitable.html#g-async-initable-new-async" title="g_async_initable_new_async ()">g_async_initable_new_async</a>          (<em class="parameter"><code><a href="./../gobject/gobject/gobject-Type-Information.html#GType"><span class="type">GType</span></a> object_type</code></em>,
                                                          <em class="parameter"><code><span class="type">int</span> io_priority</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_property_name</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_property_name</code></em>,
                                                          <em class="parameter"><code>...</code></em>);
-<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="returnvalue">GObject</span></a> *           <a class="link" href="GAsyncInitable.html#g-async-initable-new-finish" title="g_async_initable_new_finish ()">g_async_initable_new_finish</a>         (<em class="parameter"><code><a class="link" href="GAsyncInitable.html" title="GAsyncInitable"><span class="type">GAsyncInitable</span></a> *initable</code></em>,
+<a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject"><span class="returnvalue">GObject</span></a> *           <a class="link" href="GAsyncInitable.html#g-async-initable-new-finish" title="g_async_initable_new_finish ()">g_async_initable_new_finish</a>         (<em class="parameter"><code><a class="link" href="GAsyncInitable.html" title="GAsyncInitable"><span class="type">GAsyncInitable</span></a> *initable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *res</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<span class="returnvalue">void</span>                <a class="link" href="GAsyncInitable.html#g-async-initable-new-valist-async" title="g_async_initable_new_valist_async ()">g_async_initable_new_valist_async</a>   (<em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> object_type</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_property_name</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GAsyncInitable.html#g-async-initable-new-valist-async" title="g_async_initable_new_valist_async ()">g_async_initable_new_valist_async</a>   (<em class="parameter"><code><a href="./../gobject/gobject/gobject-Type-Information.html#GType"><span class="type">GType</span></a> object_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_property_name</code></em>,
                                                          <em class="parameter"><code><span class="type">va_list</span> var_args</code></em>,
                                                          <em class="parameter"><code><span class="type">int</span> io_priority</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
-<span class="returnvalue">void</span>                <a class="link" href="GAsyncInitable.html#g-async-initable-newv-async" title="g_async_initable_newv_async ()">g_async_initable_newv_async</a>         (<em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> object_type</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_parameters</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GParameter"><span class="type">GParameter</span></a> *parameters</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GAsyncInitable.html#g-async-initable-newv-async" title="g_async_initable_newv_async ()">g_async_initable_newv_async</a>         (<em class="parameter"><code><a href="./../gobject/gobject/gobject-Type-Information.html#GType"><span class="type">GType</span></a> object_type</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_parameters</code></em>,
+                                                         <em class="parameter"><code><a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GParameter"><span class="type">GParameter</span></a> *parameters</code></em>,
                                                          <em class="parameter"><code><span class="type">int</span> io_priority</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
 </pre>
 </div>
 <div class="refsect1">
@@ -93,13 +93,13 @@ struct              <a class="link" href="GAsyncInitable.html#GAsyncInitableIfac
 <a name="GAsyncInitable.prerequisites"></a><h2>Prerequisites</h2>
 <p>
 GAsyncInitable requires
- <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>.</p>
+ <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>.</p>
 </div>
 <div class="refsect1">
 <a name="GAsyncInitable.implementations"></a><h2>Known Implementations</h2>
 <p>
 GAsyncInitable is implemented by
- <a class="link" href="GDBusConnection.html" title="GDBusConnection">GDBusConnection</a> and  <a class="link" href="GDBusProxy.html" title="GDBusProxy">GDBusProxy</a>.</p>
+ <a class="link" href="GDBusConnection.html" title="GDBusConnection">GDBusConnection</a>,  <a class="link" href="GDBusObjectManagerClient.html" title="GDBusObjectManagerClient">GDBusObjectManagerClient</a> and  <a class="link" href="GDBusProxy.html" title="GDBusProxy">GDBusProxy</a>.</p>
 </div>
 <div class="refsect1">
 <a name="GAsyncInitable.description"></a><h2>Description</h2>
@@ -116,8 +116,8 @@ Users of objects implementing this are not intended to use the interface
 method directly; instead it will be used automatically in various ways.
 For C applications you generally just call <a class="link" href="GAsyncInitable.html#g-async-initable-new-async" title="g_async_initable_new_async ()"><code class="function">g_async_initable_new_async()</code></a>
 directly, or indirectly via a <code class="function">foo_thing_new_async()</code> wrapper. This will call
-<a class="link" href="GAsyncInitable.html#g-async-initable-init-async" title="g_async_initable_init_async ()"><code class="function">g_async_initable_init_async()</code></a> under the cover, calling back with <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> and
-a set <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><code class="literal">GError</code></a> on failure.
+<a class="link" href="GAsyncInitable.html#g-async-initable-init-async" title="g_async_initable_init_async ()"><code class="function">g_async_initable_init_async()</code></a> under the cover, calling back with <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> and
+a set <a href="./../glib/glib/glib-Error-Reporting.html#GError"><code class="literal">GError</code></a> on failure.
 </p>
 <p>
 A typical implementation might look something like this:
@@ -230,7 +230,7 @@ A typical implementation might look something like this:
 
 <span class="normal">  self</span><span class="symbol">-&gt;</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">state </span><span class="symbol">=</span><span class="normal"> INITIALIZED</span><span class="symbol">;</span>
 
-<span class="normal">  </span><span class="keyword">for</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">l </span><span class="symbol">=</span><span class="normal"> self</span><span class="symbol">-&gt;</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">init_results</span><span class="symbol">;</span><span class="normal"> l </span><span class="symbol">!=</span><span class="normal"> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span><span class="normal"> l </span><span class="symbol">=</span><span class="normal"> l</span><span class="symbol">-&gt;</span><span class="normal">next</span><span class="symbol">)</span>
+<span class="normal">  </span><span class="keyword">for</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">l </span><span class="symbol">=</span><span class="normal"> self</span><span class="symbol">-&gt;</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">init_results</span><span class="symbol">;</span><span class="normal"> l </span><span class="symbol">!=</span><span class="normal"> <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span><span class="normal"> l </span><span class="symbol">=</span><span class="normal"> l</span><span class="symbol">-&gt;</span><span class="normal">next</span><span class="symbol">)</span>
 <span class="normal">    </span><span class="cbracket">{</span>
 <span class="normal">      </span><span class="usertype">GSimpleAsyncResult</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">simple </span><span class="symbol">=</span><span class="normal"> l</span><span class="symbol">-&gt;</span><span class="normal">data</span><span class="symbol">;</span>
 
@@ -238,11 +238,11 @@ A typical implementation might look something like this:
 <span class="normal">        </span><span class="function"><a href="GSimpleAsyncResult.html#g-simple-async-result-set-error">g_simple_async_result_set_error</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">simple</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">...);</span>
 
 <span class="normal">      </span><span class="function"><a href="GSimpleAsyncResult.html#g-simple-async-result-complete">g_simple_async_result_complete</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">simple</span><span class="symbol">);</span>
-<span class="normal">      </span><span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">simple</span><span class="symbol">);</span>
+<span class="normal">      </span><span class="function"><a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">simple</span><span class="symbol">);</span>
 <span class="normal">    </span><span class="cbracket">}</span>
 
-<span class="normal">  </span><span class="function"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free">g_list_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">-&gt;</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">init_results</span><span class="symbol">);</span>
-<span class="normal">  self</span><span class="symbol">-&gt;</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">init_results </span><span class="symbol">=</span><span class="normal"> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
+<span class="normal">  </span><span class="function"><a href="./../glib/glib/glib-Doubly-Linked-Lists.html#g-list-free">g_list_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">-&gt;</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">init_results</span><span class="symbol">);</span>
+<span class="normal">  self</span><span class="symbol">-&gt;</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">init_results </span><span class="symbol">=</span><span class="normal"> <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
 <span class="cbracket">}</span>
 
 <span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
@@ -255,7 +255,7 @@ A typical implementation might look something like this:
 <span class="normal">  </span><span class="usertype">Foo</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">self </span><span class="symbol">=</span><span class="normal"> </span><span class="function">FOO</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">initable</span><span class="symbol">);</span>
 <span class="normal">  </span><span class="usertype">GSimpleAsyncResult</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">simple</span><span class="symbol">;</span>
 
-<span class="normal">  simple </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GSimpleAsyncResult.html#g-simple-async-result-new">g_simple_async_result_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#G-OBJECT:CAPS">G_OBJECT</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">initable</span><span class="symbol">)</span>
+<span class="normal">  simple </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GSimpleAsyncResult.html#g-simple-async-result-new">g_simple_async_result_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#G-OBJECT:CAPS">G_OBJECT</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">initable</span><span class="symbol">)</span>
 <span class="normal">                                      callback</span><span class="symbol">,</span>
 <span class="normal">                                      user_data</span><span class="symbol">,</span>
 <span class="normal">                                      foo_init_async</span><span class="symbol">);</span>
@@ -264,12 +264,12 @@ A typical implementation might look something like this:
 <span class="normal">    </span><span class="cbracket">{</span>
 <span class="normal">      </span><span class="keyword">case</span><span class="normal"> NOT_INITIALIZED</span><span class="symbol">:</span>
 <span class="normal">        </span><span class="function">_foo_get_ready</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">);</span>
-<span class="normal">        self</span><span class="symbol">-&gt;</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">init_results </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-append">g_list_append</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">-&gt;</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">init_results</span><span class="symbol">,</span>
+<span class="normal">        self</span><span class="symbol">-&gt;</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">init_results </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="./../glib/glib/glib-Doubly-Linked-Lists.html#g-list-append">g_list_append</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">-&gt;</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">init_results</span><span class="symbol">,</span>
 <span class="normal">                                                  simple</span><span class="symbol">);</span>
 <span class="normal">        self</span><span class="symbol">-&gt;</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">state </span><span class="symbol">=</span><span class="normal"> INITIALIZING</span><span class="symbol">;</span>
 <span class="normal">        </span><span class="keyword">break</span><span class="symbol">;</span>
 <span class="normal">      </span><span class="keyword">case</span><span class="normal"> INITIALIZING</span><span class="symbol">:</span>
-<span class="normal">        self</span><span class="symbol">-&gt;</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">init_results </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-append">g_list_append</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">-&gt;</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">init_results</span><span class="symbol">,</span>
+<span class="normal">        self</span><span class="symbol">-&gt;</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">init_results </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="./../glib/glib/glib-Doubly-Linked-Lists.html#g-list-append">g_list_append</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">-&gt;</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">init_results</span><span class="symbol">,</span>
 <span class="normal">                                                  simple</span><span class="symbol">);</span>
 <span class="normal">        </span><span class="keyword">break</span><span class="symbol">;</span>
 <span class="normal">      </span><span class="keyword">case</span><span class="normal"> INITIALIZED</span><span class="symbol">:</span>
@@ -277,24 +277,24 @@ A typical implementation might look something like this:
 <span class="normal">          </span><span class="function"><a href="GSimpleAsyncResult.html#g-simple-async-result-set-error">g_simple_async_result_set_error</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">simple</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">...);</span>
 
 <span class="normal">        </span><span class="function"><a href="GSimpleAsyncResult.html#g-simple-async-result-complete-in-idle">g_simple_async_result_complete_in_idle</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">simple</span><span class="symbol">);</span>
-<span class="normal">        </span><span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">simple</span><span class="symbol">);</span>
+<span class="normal">        </span><span class="function"><a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">simple</span><span class="symbol">);</span>
 <span class="normal">        </span><span class="keyword">break</span><span class="symbol">;</span>
 <span class="normal">    </span><span class="cbracket">}</span>
 <span class="cbracket">}</span>
 
-<span class="keyword">static</span><span class="normal"> <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean">gboolean</a></span>
+<span class="keyword">static</span><span class="normal"> <a href="./../glib/glib/glib-Basic-Types.html#gboolean">gboolean</a></span>
 <span class="function">foo_init_finish</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GAsyncInitable</span><span class="normal">       </span><span class="symbol">*</span><span class="normal">initable</span><span class="symbol">,</span>
 <span class="normal">                 </span><span class="usertype">GAsyncResult</span><span class="normal">         </span><span class="symbol">*</span><span class="normal">result</span><span class="symbol">,</span>
 <span class="normal">                 </span><span class="usertype">GError</span><span class="normal">              </span><span class="symbol">**</span><span class="normal">error</span><span class="symbol">)</span>
 <span class="cbracket">{</span>
-<span class="normal">  </span><span class="function"><a href="http://library.gnome.org/devel/glib/unstable/glib-Warnings-and-Assertions.html#g-return-val-if-fail">g_return_val_if_fail</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="GSimpleAsyncResult.html#g-simple-async-result-is-valid">g_simple_async_result_is_valid</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">result</span><span class="symbol">,</span>
-<span class="normal">      </span><span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#G-OBJECT:CAPS">G_OBJECT</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">initable</span><span class="symbol">),</span><span class="normal"> foo_init_async</span><span class="symbol">),</span><span class="normal"> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="./../glib/glib/glib-Warnings-and-Assertions.html#g-return-val-if-fail">g_return_val_if_fail</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="GSimpleAsyncResult.html#g-simple-async-result-is-valid">g_simple_async_result_is_valid</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">result</span><span class="symbol">,</span>
+<span class="normal">      </span><span class="function"><a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#G-OBJECT:CAPS">G_OBJECT</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">initable</span><span class="symbol">),</span><span class="normal"> foo_init_async</span><span class="symbol">),</span><span class="normal"> <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">);</span>
 
 <span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="GSimpleAsyncResult.html#g-simple-async-result-propagate-error">g_simple_async_result_propagate_error</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">G_SIMPLE_ASYNC_RESULT</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">result</span><span class="symbol">),</span>
 <span class="normal">          error</span><span class="symbol">))</span>
-<span class="normal">    </span><span class="keyword">return</span><span class="normal"> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">;</span>
+<span class="normal">    </span><span class="keyword">return</span><span class="normal"> <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">;</span>
 
-<span class="normal">  </span><span class="keyword">return</span><span class="normal"> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">;</span>
+<span class="normal">  </span><span class="keyword">return</span><span class="normal"> <a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">;</span>
 <span class="cbracket">}</span>
 
 <span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
@@ -350,7 +350,7 @@ initialization may fail.
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GTypeInterface"><span class="type">GTypeInterface</span></a> <em class="structfield"><code><a name="GAsyncInitableIface.g-iface"></a>g_iface</code></em>;</span></p></td>
+<td><p><span class="term"><a href="./../gobject/gobject/gobject-Type-Information.html#GTypeInterface"><span class="type">GTypeInterface</span></a> <em class="structfield"><code><a name="GAsyncInitableIface.g-iface"></a>g_iface</code></em>;</span></p></td>
 <td>The parent interface.</td>
 </tr>
 <tr>
@@ -372,7 +372,7 @@ initialization may fail.
                                                          <em class="parameter"><code><span class="type">int</span> io_priority</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <p>
 Starts asynchronous initialization of the object implementing the
 interface. This must be done before any real use of the object after
@@ -386,30 +386,14 @@ initialization.
 </p>
 <p>
 Implementations may also support cancellation. If <em class="parameter"><code>cancellable</code></em> is not
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then initialization can be cancelled by triggering the cancellable
+<a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then initialization can be cancelled by triggering the cancellable
 object from another thread. If the operation was cancelled, the error
-<a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCELLED:CAPS"><code class="literal">G_IO_ERROR_CANCELLED</code></a> will be returned. If <em class="parameter"><code>cancellable</code></em> is not <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, and
+<a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCELLED:CAPS"><code class="literal">G_IO_ERROR_CANCELLED</code></a> will be returned. If <em class="parameter"><code>cancellable</code></em> is not <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, and
 the object doesn't support cancellable initialization, the error
 <a class="link" href="gio-GIOError.html#G-IO-ERROR-NOT-SUPPORTED:CAPS"><code class="literal">G_IO_ERROR_NOT_SUPPORTED</code></a> will be returned.
 </p>
 <p>
-If this function is not called, or returns with an error, then all
-operations on the object should fail, generally returning the
-error <a class="link" href="gio-GIOError.html#G-IO-ERROR-NOT-INITIALIZED:CAPS"><code class="literal">G_IO_ERROR_NOT_INITIALIZED</code></a>.
-</p>
-<p>
-Implementations of this method must be idempotent: i.e. multiple calls
-to this function with the same argument should return the same results.
-Only the first call initializes the object; further calls return the result
-of the first call. This is so that it's safe to implement the singleton
-pattern in the GObject constructor function.
-</p>
-<p>
-For classes that also support the <a class="link" href="GInitable.html" title="GInitable"><span class="type">GInitable</span></a> interface, the default
-implementation of this method will run the <a class="link" href="GInitable.html#g-initable-init" title="g_initable_init ()"><code class="function">g_initable_init()</code></a> function
-in a thread, so if you want to support asynchronous initialization via
-threads, just implement the <a class="link" href="GAsyncInitable.html" title="GAsyncInitable"><span class="type">GAsyncInitable</span></a> interface without overriding
-any interface methods.
+As with <a class="link" href="GInitable.html" title="GInitable"><span class="type">GInitable</span></a>, if the object is not initialized, or initialization
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -425,7 +409,7 @@ of the operation.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
@@ -435,6 +419,23 @@ of the operation.</td>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
 <td>the data to pass to callback function</td>
 </tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>with an error, then all operations on the object except
+<a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#g-object-ref"><code class="function">g_object_ref()</code></a> and <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a> are considered to be invalid, and
+have undefined behaviour. They will often fail with <a href="./../glib/glib/glib-Message-Logging.html#g-critical"><code class="function">g_critical()</code></a> or
+<a href="./../glib/glib/glib-Message-Logging.html#g-warning"><code class="function">g_warning()</code></a>, but this must not be relied on.
+Implementations of this method must be idempotent: i.e. multiple calls
+to this function with the same argument should return the same results.
+Only the first call initializes the object; further calls return the result
+of the first call. This is so that it's safe to implement the singleton
+pattern in the GObject constructor function.
+For classes that also support the <a class="link" href="GInitable.html" title="GInitable"><span class="type">GInitable</span></a> interface, the default
+implementation of this method will run the <a class="link" href="GInitable.html#g-initable-init" title="g_initable_init ()"><code class="function">g_initable_init()</code></a> function
+in a thread, so if you want to support asynchronous initialization via
+threads, just implement the <a class="link" href="GAsyncInitable.html" title="GAsyncInitable"><span class="type">GAsyncInitable</span></a> interface without overriding
+any interface methods.</td>
+</tr>
 </tbody>
 </table></div>
 <p class="since">Since 2.22</p>
@@ -442,9 +443,9 @@ of the operation.</td>
 <hr>
 <div class="refsect2">
 <a name="g-async-initable-init-finish"></a><h3>g_async_initable_init_finish ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_async_initable_init_finish        (<em class="parameter"><code><a class="link" href="GAsyncInitable.html" title="GAsyncInitable"><span class="type">GAsyncInitable</span></a> *initable</code></em>,
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_async_initable_init_finish        (<em class="parameter"><code><a class="link" href="GAsyncInitable.html" title="GAsyncInitable"><span class="type">GAsyncInitable</span></a> *initable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *res</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Finishes asynchronous initialization and returns the result.
 See <a class="link" href="GAsyncInitable.html#g-async-initable-init-async" title="g_async_initable_init_async ()"><code class="function">g_async_initable_init_async()</code></a>.
@@ -462,14 +463,14 @@ See <a class="link" href="GAsyncInitable.html#g-async-initable-init-async" title
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> location to store the error occuring, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to
+<td>a <a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> location to store the error occurring, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to
 ignore.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if successful. If an error has occurred, this function
-will return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> and set <em class="parameter"><code>error</code></em> appropriately if present.</td>
+<a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if successful. If an error has occurred, this function
+will return <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> and set <em class="parameter"><code>error</code></em> appropriately if present.</td>
 </tr>
 </tbody>
 </table></div>
@@ -478,16 +479,16 @@ will return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-
 <hr>
 <div class="refsect2">
 <a name="g-async-initable-new-async"></a><h3>g_async_initable_new_async ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                g_async_initable_new_async          (<em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> object_type</code></em>,
+<pre class="programlisting"><span class="returnvalue">void</span>                g_async_initable_new_async          (<em class="parameter"><code><a href="./../gobject/gobject/gobject-Type-Information.html#GType"><span class="type">GType</span></a> object_type</code></em>,
                                                          <em class="parameter"><code><span class="type">int</span> io_priority</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_property_name</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_property_name</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
-Helper function for constructing <span class="type">GAsyncInitiable</span> object. This is
-similar to <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-new"><code class="function">g_object_new()</code></a> but also initializes the object asynchronously.
+Helper function for constructing <a class="link" href="GAsyncInitable.html" title="GAsyncInitable"><span class="type">GAsyncInitable</span></a> object. This is
+similar to <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#g-object-new"><code class="function">g_object_new()</code></a> but also initializes the object asynchronously.
 </p>
 <p>
 When the initialization is finished, <em class="parameter"><code>callback</code></em> will be called. You can
@@ -499,7 +500,7 @@ for any errors.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object_type</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> supporting <a class="link" href="GAsyncInitable.html" title="GAsyncInitable"><span class="type">GAsyncInitable</span></a>.</td>
+<td>a <a href="./../gobject/gobject/gobject-Type-Information.html#GType"><span class="type">GType</span></a> supporting <a class="link" href="GAsyncInitable.html" title="GAsyncInitable"><span class="type">GAsyncInitable</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>io_priority</code></em> :</span></p></td>
@@ -508,7 +509,7 @@ of the operation.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
@@ -521,13 +522,14 @@ finished</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>first_property_name</code></em> :</span></p></td>
-<td>the name of the first property, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no
-properties</td>
+<td>the name of the first property, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no
+properties. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
 <td>the value of the first property, followed by other property
-value pairs, and ended by <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
+value pairs, and ended by <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -536,12 +538,12 @@ value pairs, and ended by <a href="http://library.gnome.org/devel/glib/unstable/
 <hr>
 <div class="refsect2">
 <a name="g-async-initable-new-finish"></a><h3>g_async_initable_new_finish ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="returnvalue">GObject</span></a> *           g_async_initable_new_finish         (<em class="parameter"><code><a class="link" href="GAsyncInitable.html" title="GAsyncInitable"><span class="type">GAsyncInitable</span></a> *initable</code></em>,
+<pre class="programlisting"><a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject"><span class="returnvalue">GObject</span></a> *           g_async_initable_new_finish         (<em class="parameter"><code><a class="link" href="GAsyncInitable.html" title="GAsyncInitable"><span class="type">GAsyncInitable</span></a> *initable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *res</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
-Finishes the async construction for the various g_async_initable_new calls,
-returning the created object or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on error.
+Finishes the async construction for the various g_async_initable_new
+calls, returning the created object or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on error.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -552,17 +554,16 @@ returning the created object or <a href="http://library.gnome.org/devel/glib/uns
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
-<td>the <span class="type">GAsyncResult.from</span> the callback</td>
+<td>the <a class="link" href="GAsyncResult.html" title="GAsyncResult"><span class="type">GAsyncResult</span></a> from the callback</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> location to store the error occuring, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to
-ignore.</td>
+<td>return location for errors, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a newly created <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on error. Free with
-<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+<td>a newly created <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on error.
+Free with <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -572,16 +573,16 @@ ignore.</td>
 <hr>
 <div class="refsect2">
 <a name="g-async-initable-new-valist-async"></a><h3>g_async_initable_new_valist_async ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                g_async_initable_new_valist_async   (<em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> object_type</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_property_name</code></em>,
+<pre class="programlisting"><span class="returnvalue">void</span>                g_async_initable_new_valist_async   (<em class="parameter"><code><a href="./../gobject/gobject/gobject-Type-Information.html#GType"><span class="type">GType</span></a> object_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_property_name</code></em>,
                                                          <em class="parameter"><code><span class="type">va_list</span> var_args</code></em>,
                                                          <em class="parameter"><code><span class="type">int</span> io_priority</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <p>
-Helper function for constructing <span class="type">GAsyncInitiable</span> object. This is
-similar to <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-new-valist"><code class="function">g_object_new_valist()</code></a> but also initializes the object
+Helper function for constructing <a class="link" href="GAsyncInitable.html" title="GAsyncInitable"><span class="type">GAsyncInitable</span></a> object. This is
+similar to <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#g-object-new-valist"><code class="function">g_object_new_valist()</code></a> but also initializes the object
 asynchronously.
 </p>
 <p>
@@ -594,12 +595,12 @@ for any errors.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object_type</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> supporting <a class="link" href="GAsyncInitable.html" title="GAsyncInitable"><span class="type">GAsyncInitable</span></a>.</td>
+<td>a <a href="./../gobject/gobject/gobject-Type-Information.html#GType"><span class="type">GType</span></a> supporting <a class="link" href="GAsyncInitable.html" title="GAsyncInitable"><span class="type">GAsyncInitable</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>first_property_name</code></em> :</span></p></td>
 <td>the name of the first property, followed by
-the value, and other property value pairs, and ended by <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
+the value, and other property value pairs, and ended by <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>var_args</code></em> :</span></p></td>
@@ -612,7 +613,7 @@ of the operation.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
@@ -630,16 +631,16 @@ finished</td>
 <hr>
 <div class="refsect2">
 <a name="g-async-initable-newv-async"></a><h3>g_async_initable_newv_async ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                g_async_initable_newv_async         (<em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> object_type</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_parameters</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GParameter"><span class="type">GParameter</span></a> *parameters</code></em>,
+<pre class="programlisting"><span class="returnvalue">void</span>                g_async_initable_newv_async         (<em class="parameter"><code><a href="./../gobject/gobject/gobject-Type-Information.html#GType"><span class="type">GType</span></a> object_type</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_parameters</code></em>,
+                                                         <em class="parameter"><code><a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GParameter"><span class="type">GParameter</span></a> *parameters</code></em>,
                                                          <em class="parameter"><code><span class="type">int</span> io_priority</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <p>
-Helper function for constructing <span class="type">GAsyncInitiable</span> object. This is
-similar to <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-newv"><code class="function">g_object_newv()</code></a> but also initializes the object asynchronously.
+Helper function for constructing <a class="link" href="GAsyncInitable.html" title="GAsyncInitable"><span class="type">GAsyncInitable</span></a> object. This is
+similar to <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#g-object-newv"><code class="function">g_object_newv()</code></a> but also initializes the object asynchronously.
 </p>
 <p>
 When the initialization is finished, <em class="parameter"><code>callback</code></em> will be called. You can
@@ -651,7 +652,7 @@ for any errors.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object_type</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> supporting <a class="link" href="GAsyncInitable.html" title="GAsyncInitable"><span class="type">GAsyncInitable</span></a>.</td>
+<td>a <a href="./../gobject/gobject/gobject-Type-Information.html#GType"><span class="type">GType</span></a> supporting <a class="link" href="GAsyncInitable.html" title="GAsyncInitable"><span class="type">GAsyncInitable</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>n_parameters</code></em> :</span></p></td>
@@ -669,7 +670,7 @@ of the operation.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
@@ -692,6 +693,6 @@ finished</td>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

@@ -51,9 +51,11 @@
  * "enumerate children" operation). If the result or error status of the
  * operation is not needed, there is no need to call the "_finish()"
  * function; GIO will take care of cleaning up the result and error
- * information after the #GAsyncReadyCallback returns. Applications may
- * also take a reference to the #GAsyncResult and call "_finish()"
- * later; however, the "_finish()" function may be called at most once.
+ * information after the #GAsyncReadyCallback returns. You can pass
+ * %NULL for the #GAsyncReadyCallback if you don't need to take any
+ * action at all after the operation completes. Applications may also
+ * take a reference to the #GAsyncResult and call "_finish()" later;
+ * however, the "_finish()" function may be called at most once.
  *
  * Example of a typical asynchronous operation flow:
  * |[
@@ -100,12 +102,6 @@
  * The callback for an asynchronous operation is called only once, and is
  * always called, even in the case of a cancelled operation. On cancellation
  * the result is a %G_IO_ERROR_CANCELLED error.
- *
- * Some asynchronous operations are implemented using synchronous calls.
- * These are run in a separate thread, if #GThread has been initialized, but
- * otherwise they are sent to the Main Event Loop and processed in an idle
- * function. So, if you truly need asynchronous operations, make sure to
- * initialize #GThread.
  **/
 
 typedef GAsyncResultIface GAsyncResultInterface;

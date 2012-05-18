@@ -27,8 +27,6 @@
 #include <locale.h>
 #include "glib.h"
 
-#ifdef ENABLE_REGEX
-
 /* U+20AC EURO SIGN (symbol, currency) */
 #define EURO "\xe2\x82\xac"
 /* U+00E0 LATIN SMALL LETTER A WITH GRAVE (letter, lowercase) */
@@ -202,7 +200,7 @@ struct _Match
 typedef struct _Match Match;
 
 static void
-free_match (gpointer data, gpointer user_data)
+free_match (gpointer data)
 {
   Match *match = data;
   if (match == NULL)
@@ -268,8 +266,7 @@ test_match_next (gconstpointer d)
     }
 
   g_regex_unref (regex);
-  g_slist_foreach (matches, free_match, NULL);
-  g_slist_free (matches);
+  g_slist_free_full (matches, free_match);
 }
 
 #define TEST_MATCH_NEXT0(_pattern, _string, _string_len, _start_position) { \
@@ -393,6 +390,7 @@ test_match_next (gconstpointer d)
   data->expected = g_slist_append (data->expected, match);              \
   path = g_strdup_printf ("/regex/match/next4/%d", ++total);            \
   g_test_add_data_func (path, data, test_match_next);                   \
+  g_free (path);                                                        \
 }
 
 typedef struct {
@@ -1125,6 +1123,31 @@ test_escape (gconstpointer d)
   data->expected = _expected;                            \
   path = g_strdup_printf ("/regex/escape/%d", ++total);  \
   g_test_add_data_func (path, data, test_escape);       \
+  g_free (path);                                        \
+}
+
+static void
+test_escape_nul (gconstpointer d)
+{
+  const TestEscapeData *data = d;
+  gchar *escaped;
+
+  escaped = g_regex_escape_nul (data->string, data->length);
+
+  g_assert_cmpstr (escaped, ==, data->expected);
+
+  g_free (escaped);
+}
+
+#define TEST_ESCAPE_NUL(_string, _length, _expected) {  \
+  TestEscapeData *data;                                 \
+  gchar *path;                                          \
+  data = g_new0 (TestEscapeData, 1);                    \
+  data->string = _string;                               \
+  data->length = _length;                               \
+  data->expected = _expected;                           \
+  path = g_strdup_printf ("/regex/escape_nul/%d", ++total);  \
+  g_test_add_data_func (path, data, test_escape_nul);   \
   g_free (path);                                        \
 }
 
@@ -2059,12 +2082,38 @@ test_recursion (void)
   g_regex_unref (regex);
 }
 
+static void
+test_multiline (void)
+{
+  GRegex *regex;
+  GMatchInfo *info;
+  gint count;
+
+  g_test_bug ("640489");
+
+  regex = g_regex_new ("^a$", G_REGEX_MULTILINE|G_REGEX_DOTALL, 0, NULL);
+
+  count = 0;
+  g_regex_match (regex, "a\nb\na", 0, &info);
+  while (g_match_info_matches (info))
+    {
+      count++;
+      g_match_info_next (info, NULL);
+    }
+  g_match_info_free (info);
+  g_regex_unref (regex);
+
+  g_assert_cmpint (count, ==, 2);
+}
+
 int
 main (int argc, char *argv[])
 {
   setlocale (LC_ALL, "");
 
   g_test_init (&argc, &argv, NULL);
+
+  g_test_bug_base ("http://bugzilla.gnome.org/");
 
   g_test_add_func ("/regex/basic", test_basic);
   g_test_add_func ("/regex/compile", test_compile);
@@ -2075,6 +2124,7 @@ main (int argc, char *argv[])
   g_test_add_func ("/regex/subpattern", test_subpattern);
   g_test_add_func ("/regex/condition", test_condition);
   g_test_add_func ("/regex/recursion", test_recursion);
+  g_test_add_func ("/regex/multiline", test_multiline);
 
   /* TEST_NEW(pattern, compile_opts, match_opts) */
   TEST_NEW("", 0, 0);
@@ -2244,6 +2294,9 @@ main (int argc, char *argv[])
   TEST_MATCH("a#\rb", G_REGEX_EXTENDED, 0, "a", -1, 0, 0, FALSE);
   TEST_MATCH("a#\nb", G_REGEX_EXTENDED, G_REGEX_MATCH_NEWLINE_CR, "a", -1, 0, 0, FALSE);
   TEST_MATCH("a#\nb", G_REGEX_EXTENDED | G_REGEX_NEWLINE_CR, 0, "a", -1, 0, 0, TRUE);
+
+  /* This failed with PCRE 7.2 (gnome bug #455640) */
+  TEST_MATCH(".*$", 0, 0, "\xe1\xbb\x85", -1, 0, 0, TRUE);
 
   /* TEST_MATCH_NEXT#(pattern, string, string_len, start_position, ...) */
   TEST_MATCH_NEXT0("a", "x", -1, 0);
@@ -2546,6 +2599,23 @@ main (int argc, char *argv[])
   TEST_GET_STRING_NUMBER("(?:a)(?P<A>.)", "A", 1);
   TEST_GET_STRING_NUMBER("(?:a)(?P<A>.)", "B", -1);
 
+  /* TEST_ESCAPE_NUL(string, length, expected) */
+  TEST_ESCAPE_NUL("hello world", -1, "hello world");
+  TEST_ESCAPE_NUL("hello\0world", -1, "hello");
+  TEST_ESCAPE_NUL("\0world", -1, "");
+  TEST_ESCAPE_NUL("hello world", 5, "hello");
+  TEST_ESCAPE_NUL("hello.world", 11, "hello.world");
+  TEST_ESCAPE_NUL("a(b\\b.$", 7, "a(b\\b.$");
+  TEST_ESCAPE_NUL("hello\0", 6, "hello\\x00");
+  TEST_ESCAPE_NUL("\0world", 6, "\\x00world");
+  TEST_ESCAPE_NUL("\0\0", 2, "\\x00\\x00");
+  TEST_ESCAPE_NUL("hello\0world", 11, "hello\\x00world");
+  TEST_ESCAPE_NUL("hello\0world\0", 12, "hello\\x00world\\x00");
+  TEST_ESCAPE_NUL("hello\\\0world", 12, "hello\\x00world");
+  TEST_ESCAPE_NUL("hello\\\\\0world", 13, "hello\\\\\\x00world");
+  TEST_ESCAPE_NUL("|()[]{}^$*+?.", 13, "|()[]{}^$*+?.");
+  TEST_ESCAPE_NUL("|()[]{}^$*+?.\\\\", 15, "|()[]{}^$*+?.\\\\");
+
   /* TEST_ESCAPE(string, length, expected) */
   TEST_ESCAPE("hello world", -1, "hello world");
   TEST_ESCAPE("hello world", 5, "hello");
@@ -2587,14 +2657,3 @@ main (int argc, char *argv[])
 
   return g_test_run ();
 }
-
-#else /* ENABLE_REGEX false */
-
-int
-main (int argc, char *argv[])
-{
-  g_print ("GRegex is disabled.\n");
-  return 0;
-}
-
-#endif /* ENABLE_REGEX */

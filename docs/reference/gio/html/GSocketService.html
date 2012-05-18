@@ -5,10 +5,10 @@
 <title>GSocketService</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
-<link rel="up" href="highlevel-socket.html" title="Highlevel network functionallity">
+<link rel="up" href="highlevel-socket.html" title="High-level network functionallity">
 <link rel="prev" href="GSocketListener.html" title="GSocketListener">
 <link rel="next" href="GThreadedSocketService.html" title="GThreadedSocketService">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -45,13 +45,13 @@
 <a class="link" href="GSocketService.html" title="GSocketService"><span class="returnvalue">GSocketService</span></a> *    <a class="link" href="GSocketService.html#g-socket-service-new" title="g_socket_service_new ()">g_socket_service_new</a>                (<em class="parameter"><code><span class="type">void</span></code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GSocketService.html#g-socket-service-start" title="g_socket_service_start ()">g_socket_service_start</a>              (<em class="parameter"><code><a class="link" href="GSocketService.html" title="GSocketService"><span class="type">GSocketService</span></a> *service</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GSocketService.html#g-socket-service-stop" title="g_socket_service_stop ()">g_socket_service_stop</a>               (<em class="parameter"><code><a class="link" href="GSocketService.html" title="GSocketService"><span class="type">GSocketService</span></a> *service</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GSocketService.html#g-socket-service-is-active" title="g_socket_service_is_active ()">g_socket_service_is_active</a>          (<em class="parameter"><code><a class="link" href="GSocketService.html" title="GSocketService"><span class="type">GSocketService</span></a> *service</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GSocketService.html#g-socket-service-is-active" title="g_socket_service_is_active ()">g_socket_service_is_active</a>          (<em class="parameter"><code><a class="link" href="GSocketService.html" title="GSocketService"><span class="type">GSocketService</span></a> *service</code></em>);
 </pre>
 </div>
 <div class="refsect1">
 <a name="GSocketService.object-hierarchy"></a><h2>Object Hierarchy</h2>
 <pre class="synopsis">
-  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+  <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
    +----<a class="link" href="GSocketListener.html" title="GSocketListener">GSocketListener</a>
          +----GSocketService
                +----<a class="link" href="GThreadedSocketService.html" title="GThreadedSocketService">GThreadedSocketService</a>
@@ -60,26 +60,26 @@
 <div class="refsect1">
 <a name="GSocketService.signals"></a><h2>Signals</h2>
 <pre class="synopsis">
-  "<a class="link" href="GSocketService.html#GSocketService-incoming" title='The "incoming" signal'>incoming</a>"                                       : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="GSocketService.html#GSocketService-incoming" title='The "incoming" signal'>incoming</a>"                                       : <a href="./../gobject/gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
 </pre>
 </div>
 <div class="refsect1">
 <a name="GSocketService.description"></a><h2>Description</h2>
 <p>
-A <a class="link" href="GSocketService.html" title="GSocketService"><span class="type">GSocketService</span></a> is an object that represents a service that is
-provided to the network or over local sockets.  When a new
-connection is made to the service the <span class="type">"incoming"</span>
+A <a class="link" href="GSocketService.html" title="GSocketService"><span class="type">GSocketService</span></a> is an object that represents a service that
+is provided to the network or over local sockets.  When a new
+connection is made to the service the <a class="link" href="GSocketService.html#GSocketService-incoming" title='The "incoming" signal'><span class="type">"incoming"</span></a>
 signal is emitted.
 </p>
 <p>
 A <a class="link" href="GSocketService.html" title="GSocketService"><span class="type">GSocketService</span></a> is a subclass of <a class="link" href="GSocketListener.html" title="GSocketListener"><span class="type">GSocketListener</span></a> and you need
-to add the addresses you want to accept connections on to the
-with the <a class="link" href="GSocketListener.html" title="GSocketListener"><span class="type">GSocketListener</span></a> APIs.
+to add the addresses you want to accept connections on with the
+<a class="link" href="GSocketListener.html" title="GSocketListener"><span class="type">GSocketListener</span></a> APIs.
 </p>
 <p>
 There are two options for implementing a network service based on
 <a class="link" href="GSocketService.html" title="GSocketService"><span class="type">GSocketService</span></a>. The first is to create the service using
-<a class="link" href="GSocketService.html#g-socket-service-new" title="g_socket_service_new ()"><code class="function">g_socket_service_new()</code></a> and to connect to the <span class="type">"incoming"</span>
+<a class="link" href="GSocketService.html#g-socket-service-new" title="g_socket_service_new ()"><code class="function">g_socket_service_new()</code></a> and to connect to the <a class="link" href="GSocketService.html#GSocketService-incoming" title='The "incoming" signal'><span class="type">"incoming"</span></a>
 signal. The second is to subclass <a class="link" href="GSocketService.html" title="GSocketService"><span class="type">GSocketService</span></a> and override the
 default signal handler implementation.
 </p>
@@ -90,9 +90,10 @@ If you are interested in writing connection handlers that contain
 blocking code then see <a class="link" href="GThreadedSocketService.html" title="GThreadedSocketService"><span class="type">GThreadedSocketService</span></a>.
 </p>
 <p>
-The socket service runs on the main loop in the main thread, and is
-not threadsafe in general. However, the calls to start and stop
-the service are threadsafe so these can be used from threads that
+The socket service runs on the main loop of the <GTKDOCLINK HREF="g-main-context-push-thread-default-context">thread-default
+context</GTKDOCLINK> of the thread it is created in, and is not
+threadsafe in general. However, the calls to start and stop the
+service are thread-safe so these can be used from threads that
 handle incoming clients.
 </p>
 </div>
@@ -134,8 +135,8 @@ Starts the service, i.e. start accepting connections
 from the added sockets when the mainloop runs.
 </p>
 <p>
-This call is threadsafe, so it may be called from a thread
-handling an incomming client request.
+This call is thread-safe, so it may be called from a thread
+handling an incoming client request.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -156,8 +157,8 @@ Stops the service, i.e. stops accepting connections
 from the added sockets when the mainloop runs.
 </p>
 <p>
-This call is threadsafe, so it may be called from a thread
-handling an incomming client request.
+This call is thread-safe, so it may be called from a thread
+handling an incoming client request.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -172,7 +173,7 @@ handling an incomming client request.
 <hr>
 <div class="refsect2">
 <a name="g-socket-service-is-active"></a><h3>g_socket_service_is_active ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_socket_service_is_active          (<em class="parameter"><code><a class="link" href="GSocketService.html" title="GSocketService"><span class="type">GSocketService</span></a> *service</code></em>);</pre>
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_socket_service_is_active          (<em class="parameter"><code><a class="link" href="GSocketService.html" title="GSocketService"><span class="type">GSocketService</span></a> *service</code></em>);</pre>
 <p>
 Check whether the service is active or not. An active
 service will accept new clients that connect, while
@@ -190,7 +191,7 @@ up until the service is started.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the service is active, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise</td>
+<a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the service is active, <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise</td>
 </tr>
 </tbody>
 </table></div>
@@ -201,30 +202,37 @@ up until the service is started.
 <a name="GSocketService.signal-details"></a><h2>Signal Details</h2>
 <div class="refsect2">
 <a name="GSocketService-incoming"></a><h3>The <code class="literal">"incoming"</code> signal</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            user_function                      (<a class="link" href="GSocketService.html" title="GSocketService"><span class="type">GSocketService</span></a>    *service,
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            user_function                      (<a class="link" href="GSocketService.html" title="GSocketService"><span class="type">GSocketService</span></a>    *service,
                                                         <a class="link" href="GSocketConnection.html" title="GSocketConnection"><span class="type">GSocketConnection</span></a> *connection,
-                                                        <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>           *source_object,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>           user_data)          : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+                                                        <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>           *source_object,
+                                                        <a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>           user_data)          : <a href="./../gobject/gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
 <p>
 The ::incoming signal is emitted when a new incoming connection
 to <em class="parameter"><code>service</code></em> needs to be handled. The handler must initiate the
 handling of <em class="parameter"><code>connection</code></em>, but may not block; in essence,
 asynchronous operations must be used.
 </p>
+<p>
+<em class="parameter"><code>connection</code></em> will be unreffed once the signal handler returns,
+so you need to ref it yourself if you are planning to use it.
+</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>service</code></em> :</span></p></td>
-<td>the <a class="link" href="GSocketService.html" title="GSocketService"><span class="type">GSocketService</span></a>.</td>
+<td>the <a class="link" href="GSocketService.html" title="GSocketService"><span class="type">GSocketService</span></a>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
-<td>a new <a class="link" href="GSocketConnection.html" title="GSocketConnection"><span class="type">GSocketConnection</span></a> object.</td>
+<td>a new <a class="link" href="GSocketConnection.html" title="GSocketConnection"><span class="type">GSocketConnection</span></a> object</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>source_object</code></em> :</span></p></td>
-<td>the source_object passed to <a class="link" href="GSocketListener.html#g-socket-listener-add-address" title="g_socket_listener_add_address ()"><code class="function">g_socket_listener_add_address()</code></a>.</td>
+<td>the source_object passed to
+<a class="link" href="GSocketListener.html#g-socket-listener-add-address" title="g_socket_listener_add_address ()"><code class="function">g_socket_listener_add_address()</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
@@ -233,7 +241,7 @@ asynchronous operations must be used.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> to stop other handlers from being called</td>
+<a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> to stop other handlers from being called</td>
 </tr>
 </tbody>
 </table></div>
@@ -247,6 +255,6 @@ asynchronous operations must be used.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

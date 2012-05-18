@@ -6,15 +6,15 @@
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-fundamentals.html" title="GLib Fundamentals">
-<link rel="prev" href="glib-Limits-of-Basic-Types.html" title="Limits of Basic Types">
+<link rel="prev" href="glib-Basic-Types.html" title="Basic Types">
 <link rel="next" href="glib-Type-Conversion-Macros.html" title="Type Conversion Macros">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
 <tr valign="middle">
-<td><a accesskey="p" href="glib-Limits-of-Basic-Types.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="p" href="glib-Basic-Types.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="glib-fundamentals.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">GLib Reference Manual</th>
@@ -31,7 +31,7 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="glib-Standard-Macros.top_of_page"></a>Standard Macros</span></h2>
-<p>Standard Macros — commonly-used macros.</p>
+<p>Standard Macros — commonly-used macros</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -76,6 +76,8 @@
 #define             <a class="link" href="glib-Standard-Macros.html#G-MEM-ALIGN:CAPS" title="G_MEM_ALIGN">G_MEM_ALIGN</a>
 
 #define             <a class="link" href="glib-Standard-Macros.html#G-CONST-RETURN:CAPS" title="G_CONST_RETURN">G_CONST_RETURN</a>
+
+#define             <a class="link" href="glib-Standard-Macros.html#G-N-ELEMENTS:CAPS" title="G_N_ELEMENTS()">G_N_ELEMENTS</a>                        (arr)
 </pre>
 </div>
 <div class="refsect1">
@@ -214,11 +216,11 @@ Calculates the minimum of <em class="parameter"><code>a</code></em> and <em clas
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
-<td>a numeric value.</td>
+<td>a numeric value</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
-<td>a numeric value.</td>
+<td>a numeric value</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -240,11 +242,11 @@ Calculates the maximum of <em class="parameter"><code>a</code></em> and <em clas
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
-<td>a numeric value.</td>
+<td>a numeric value</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
-<td>a numeric value.</td>
+<td>a numeric value</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -266,12 +268,8 @@ The absolute value is simply the number with any negative sign taken away.
 For example,
 </p>
 <div class="itemizedlist"><ul class="itemizedlist" type="disc">
-<li class="listitem"><p>
-ABS(-10) is 10.
-</p></li>
-<li class="listitem"><p>
-ABS(10) is also 10.
-</p></li>
+<li class="listitem"><p>ABS(-10) is 10.</p></li>
+<li class="listitem"><p>ABS(10) is also 10.</p></li>
 </ul></div>
 <p>
 </p>
@@ -280,7 +278,7 @@ ABS(10) is also 10.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
-<td>a numeric value.</td>
+<td>a numeric value</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -302,15 +300,9 @@ greater than <em class="parameter"><code>high</code></em> the result is undefine
 For example,
 </p>
 <div class="itemizedlist"><ul class="itemizedlist" type="disc">
-<li class="listitem"><p>
-CLAMP(5, 10, 15) is 10.
-</p></li>
-<li class="listitem"><p>
-CLAMP(15, 5, 10) is 10.
-</p></li>
-<li class="listitem"><p>
-CLAMP(20, 15, 25) is 20.
-</p></li>
+<li class="listitem"><p>CLAMP(5, 10, 15) is 10.</p></li>
+<li class="listitem"><p>CLAMP(15, 5, 10) is 10.</p></li>
+<li class="listitem"><p>CLAMP(20, 15, 25) is 20.</p></li>
 </ul></div>
 <p>
 </p>
@@ -319,19 +311,20 @@ CLAMP(20, 15, 25) is 20.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
-<td>the value to clamp.</td>
+<td>the value to clamp</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>low</code></em> :</span></p></td>
-<td>the minimum value allowed.</td>
+<td>the minimum value allowed</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>high</code></em> :</span></p></td>
-<td>the maximum value allowed.</td>
+<td>the maximum value allowed</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the value of <em class="parameter"><code>x</code></em> clamped to the range between <em class="parameter"><code>low</code></em> and <em class="parameter"><code>high</code></em>.</td>
+<td>the value of <em class="parameter"><code>x</code></em> clamped to the range between <em class="parameter"><code>low</code></em> and <em class="parameter"><code>high</code></em>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -348,19 +341,20 @@ Returns a member of a structure at a given offset, using the given type.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>member_type</code></em> :</span></p></td>
-<td>the type of the struct field.</td>
+<td>the type of the struct field</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>struct_p</code></em> :</span></p></td>
-<td>a pointer to a struct.</td>
+<td>a pointer to a struct</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>struct_offset</code></em> :</span></p></td>
-<td>the offset of the field from the start of the struct, in bytes.</td>
+<td>the offset of the field from the start of the struct,
+in bytes</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the struct member.</td>
+<td>the struct member</td>
 </tr>
 </tbody>
 </table></div>
@@ -377,15 +371,15 @@ Returns an untyped pointer to a given offset of a struct.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>struct_p</code></em> :</span></p></td>
-<td>a pointer to a struct.</td>
+<td>a pointer to a struct</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>struct_offset</code></em> :</span></p></td>
-<td>the offset from the start of the struct, in bytes.</td>
+<td>the offset from the start of the struct, in bytes</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>an untyped pointer to <em class="parameter"><code>struct_p</code></em> plus <em class="parameter"><code>struct_offset</code></em> bytes.</td>
+<td>an untyped pointer to <em class="parameter"><code>struct_p</code></em> plus <em class="parameter"><code>struct_offset</code></em> bytes</td>
 </tr>
 </tbody>
 </table></div>
@@ -402,15 +396,18 @@ Returns the offset, in bytes, of a member of a struct.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>struct_type</code></em> :</span></p></td>
-<td>a structure type, e.g. <span class="structname">GtkWidget</span>.</td>
+<td>a structure type, e.g. <span class="structname">GtkWidget</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>member</code></em> :</span></p></td>
-<td>a field in the structure, e.g. <em class="structfield"><code>window</code></em>.</td>
+<td>a field in the structure, e.g. <em class="structfield"><code>window</code></em>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the offset of <em class="parameter"><code>member</code></em> from the start of <em class="parameter"><code>struct_type</code></em>.</td>
+<td>the offset of <em class="parameter"><code>member</code></em> from the start of <em class="parameter"><code>struct_type</code></em>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -424,32 +421,53 @@ Returns the offset, in bytes, of a member of a struct.
 Indicates the number of bytes to which memory will be aligned on the
 current platform.
 </p>
-<p>
-Indicates the number of bytes to which memory will be aligned on the
-current platform.
-</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="G-CONST-RETURN:CAPS"></a><h3>G_CONST_RETURN</h3>
 <pre class="programlisting">#define G_CONST_RETURN
 </pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">G_CONST_RETURN</code> has been deprecated since version 2.30 and should not be used in newly-written code. API providers should replace all existing uses with
+    <code class="literal">const</code> and API consumers should adjust their code
+    accordingly</p>
+</div>
 <p>
-If <code class="literal">G_DISABLE_CONST_RETURNS</code> is defined, this macro expands to nothing.
-By default, the macro expands to <code class="literal">const</code>. The macro
-should be used in place of <code class="literal">const</code> for functions that
-return a value that should not be modified. The purpose of this macro is
-to allow us to turn on <code class="literal">const</code> for returned constant
-strings by default, while allowing programmers who find that annoying to
-turn it off. This macro should only be used for return values and for
-<span class="emphasis"><em>out</em></span> parameters, it doesn't make sense for
-<span class="emphasis"><em>in</em></span> parameters.
+If <code class="literal">G_DISABLE_CONST_RETURNS</code> is defined, this macro expands
+to nothing. By default, the macro expands to <code class="literal">const</code>.
+The macro should be used in place of <code class="literal">const</code> for
+functions that return a value that should not be modified. The
+purpose of this macro is to allow us to turn on <code class="literal">const</code>
+for returned constant strings by default, while allowing programmers
+who find that annoying to turn it off. This macro should only be used
+for return values and for <span class="emphasis"><em>out</em></span> parameters, it doesn't
+make sense for <span class="emphasis"><em>in</em></span> parameters.
 </p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-N-ELEMENTS:CAPS"></a><h3>G_N_ELEMENTS()</h3>
+<pre class="programlisting">#define G_N_ELEMENTS(arr)		(sizeof (arr) / sizeof ((arr)[0]))
+</pre>
+<p>
+Determines the number of elements in an array. The array must be
+declared so the compiler knows its size at compile-time; this
+macro will not work on an array allocated on the heap, only static
+arrays or arrays on the stack.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>arr</code></em> :</span></p></td>
+<td>the array</td>
+</tr></tbody>
+</table></div>
 </div>
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

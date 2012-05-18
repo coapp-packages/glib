@@ -8,7 +8,7 @@
 <link rel="up" href="streaming.html" title="Streaming I/O">
 <link rel="prev" href="GBufferedOutputStream.html" title="GBufferedOutputStream">
 <link rel="next" href="GDataOutputStream.html" title="GDataOutputStream">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -41,117 +41,117 @@
 </tr></table></div>
 <div class="refsynopsisdiv">
 <a name="GDataInputStream.synopsis"></a><h2>Synopsis</h2>
-<a name="GDataStreamByteOrder"></a><a name="GDataStreamNewlineType"></a><pre class="synopsis">
+<pre class="synopsis">
 #include &lt;gio/gio.h&gt;
 
                     <a class="link" href="GDataInputStream.html#GDataInputStream-struct" title="GDataInputStream">GDataInputStream</a>;
-enum                <a class="link" href="GDataInputStream.html#GDataStreamByteOrder">GDataStreamByteOrder</a>;
-enum                <a class="link" href="GDataInputStream.html#GDataStreamNewlineType">GDataStreamNewlineType</a>;
-<a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="returnvalue">GDataInputStream</span></a> *      <a class="link" href="GDataInputStream.html#g-data-input-stream-new" title="g_data_input_stream_new ()">g_data_input_stream_new</a>         (<em class="parameter"><code><a class="link" href="GInputStream.html" title="GInputStream"><span class="type">GInputStream</span></a> *base_stream</code></em>);
+enum                <a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder">GDataStreamByteOrder</a>;
+enum                <a class="link" href="GDataInputStream.html#GDataStreamNewlineType" title="enum GDataStreamNewlineType">GDataStreamNewlineType</a>;
+<a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="returnvalue">GDataInputStream</span></a> *  <a class="link" href="GDataInputStream.html#g-data-input-stream-new" title="g_data_input_stream_new ()">g_data_input_stream_new</a>             (<em class="parameter"><code><a class="link" href="GInputStream.html" title="GInputStream"><span class="type">GInputStream</span></a> *base_stream</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GDataInputStream.html#g-data-input-stream-set-byte-order" title="g_data_input_stream_set_byte_order ()">g_data_input_stream_set_byte_order</a>  (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="GDataInputStream.html#GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a> order</code></em>);
-<a class="link" href="GDataInputStream.html#GDataStreamByteOrder"><span class="returnvalue">GDataStreamByteOrder</span></a>  <a class="link" href="GDataInputStream.html#g-data-input-stream-get-byte-order" title="g_data_input_stream_get_byte_order ()">g_data_input_stream_get_byte_order</a>
-                                                        (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>);
+                                                         <em class="parameter"><code><a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a> order</code></em>);
+<a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder"><span class="returnvalue">GDataStreamByteOrder</span></a> <a class="link" href="GDataInputStream.html#g-data-input-stream-get-byte-order" title="g_data_input_stream_get_byte_order ()">g_data_input_stream_get_byte_order</a> (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GDataInputStream.html#g-data-input-stream-set-newline-type" title="g_data_input_stream_set_newline_type ()">g_data_input_stream_set_newline_type</a>
                                                         (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="GDataInputStream.html#GDataStreamNewlineType"><span class="type">GDataStreamNewlineType</span></a> type</code></em>);
-<a class="link" href="GDataInputStream.html#GDataStreamNewlineType"><span class="returnvalue">GDataStreamNewlineType</span></a>  <a class="link" href="GDataInputStream.html#g-data-input-stream-get-newline-type" title="g_data_input_stream_get_newline_type ()">g_data_input_stream_get_newline_type</a>
+                                                         <em class="parameter"><code><a class="link" href="GDataInputStream.html#GDataStreamNewlineType" title="enum GDataStreamNewlineType"><span class="type">GDataStreamNewlineType</span></a> type</code></em>);
+<a class="link" href="GDataInputStream.html#GDataStreamNewlineType" title="enum GDataStreamNewlineType"><span class="returnvalue">GDataStreamNewlineType</span></a> <a class="link" href="GDataInputStream.html#g-data-input-stream-get-newline-type" title="g_data_input_stream_get_newline_type ()">g_data_input_stream_get_newline_type</a>
                                                         (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="returnvalue">guchar</span></a>              <a class="link" href="GDataInputStream.html#g-data-input-stream-read-byte" title="g_data_input_stream_read_byte ()">g_data_input_stream_read_byte</a>       (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+<a href="./../glib/glib/glib-Basic-Types.html#guchar"><span class="returnvalue">guchar</span></a>              <a class="link" href="GDataInputStream.html#g-data-input-stream-read-byte" title="g_data_input_stream_read_byte ()">g_data_input_stream_read_byte</a>       (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint16"><span class="returnvalue">gint16</span></a>              <a class="link" href="GDataInputStream.html#g-data-input-stream-read-int16" title="g_data_input_stream_read_int16 ()">g_data_input_stream_read_int16</a>      (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gint16"><span class="returnvalue">gint16</span></a>              <a class="link" href="GDataInputStream.html#g-data-input-stream-read-int16" title="g_data_input_stream_read_int16 ()">g_data_input_stream_read_int16</a>      (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"><span class="returnvalue">guint16</span></a>             <a class="link" href="GDataInputStream.html#g-data-input-stream-read-uint16" title="g_data_input_stream_read_uint16 ()">g_data_input_stream_read_uint16</a>     (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#guint16"><span class="returnvalue">guint16</span></a>             <a class="link" href="GDataInputStream.html#g-data-input-stream-read-uint16" title="g_data_input_stream_read_uint16 ()">g_data_input_stream_read_uint16</a>     (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint32"><span class="returnvalue">gint32</span></a>              <a class="link" href="GDataInputStream.html#g-data-input-stream-read-int32" title="g_data_input_stream_read_int32 ()">g_data_input_stream_read_int32</a>      (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gint32"><span class="returnvalue">gint32</span></a>              <a class="link" href="GDataInputStream.html#g-data-input-stream-read-int32" title="g_data_input_stream_read_int32 ()">g_data_input_stream_read_int32</a>      (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             <a class="link" href="GDataInputStream.html#g-data-input-stream-read-uint32" title="g_data_input_stream_read_uint32 ()">g_data_input_stream_read_uint32</a>     (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             <a class="link" href="GDataInputStream.html#g-data-input-stream-read-uint32" title="g_data_input_stream_read_uint32 ()">g_data_input_stream_read_uint32</a>     (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint64"><span class="returnvalue">gint64</span></a>              <a class="link" href="GDataInputStream.html#g-data-input-stream-read-int64" title="g_data_input_stream_read_int64 ()">g_data_input_stream_read_int64</a>      (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gint64"><span class="returnvalue">gint64</span></a>              <a class="link" href="GDataInputStream.html#g-data-input-stream-read-int64" title="g_data_input_stream_read_int64 ()">g_data_input_stream_read_int64</a>      (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="returnvalue">guint64</span></a>             <a class="link" href="GDataInputStream.html#g-data-input-stream-read-uint64" title="g_data_input_stream_read_uint64 ()">g_data_input_stream_read_uint64</a>     (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#guint64"><span class="returnvalue">guint64</span></a>             <a class="link" href="GDataInputStream.html#g-data-input-stream-read-uint64" title="g_data_input_stream_read_uint64 ()">g_data_input_stream_read_uint64</a>     (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<span class="returnvalue">char</span> *                  <a class="link" href="GDataInputStream.html#g-data-input-stream-read-line" title="g_data_input_stream_read_line ()">g_data_input_stream_read_line</a>   (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="GDataInputStream.html#g-data-input-stream-read-line" title="g_data_input_stream_read_line ()">g_data_input_stream_read_line</a>       (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="GDataInputStream.html#g-data-input-stream-read-line-utf8" title="g_data_input_stream_read_line_utf8 ()">g_data_input_stream_read_line_utf8</a>  (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GDataInputStream.html#g-data-input-stream-read-line-async" title="g_data_input_stream_read_line_async ()">g_data_input_stream_read_line_async</a> (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> io_priority</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> io_priority</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
-<span class="returnvalue">char</span> *                  <a class="link" href="GDataInputStream.html#g-data-input-stream-read-line-finish" title="g_data_input_stream_read_line_finish ()">g_data_input_stream_read_line_finish</a>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="GDataInputStream.html#g-data-input-stream-read-line-finish" title="g_data_input_stream_read_line_finish ()">g_data_input_stream_read_line_finish</a>
                                                         (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *result</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<span class="returnvalue">char</span> *                  <a class="link" href="GDataInputStream.html#g-data-input-stream-read-upto" title="g_data_input_stream_read_upto ()">g_data_input_stream_read_upto</a>   (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stop_chars</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gssize"><span class="type">gssize</span></a> stop_chars_len</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="GDataInputStream.html#g-data-input-stream-read-line-finish-utf8" title="g_data_input_stream_read_line_finish_utf8 ()">g_data_input_stream_read_line_finish_utf8</a>
+                                                        (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GAsyncResult.html" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *result</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="GDataInputStream.html#g-data-input-stream-read-upto" title="g_data_input_stream_read_upto ()">g_data_input_stream_read_upto</a>       (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stop_chars</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gssize"><span class="type">gssize</span></a> stop_chars_len</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GDataInputStream.html#g-data-input-stream-read-upto-async" title="g_data_input_stream_read_upto_async ()">g_data_input_stream_read_upto_async</a> (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stop_chars</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gssize"><span class="type">gssize</span></a> stop_chars_len</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> io_priority</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stop_chars</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gssize"><span class="type">gssize</span></a> stop_chars_len</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> io_priority</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
-<span class="returnvalue">char</span> *                  <a class="link" href="GDataInputStream.html#g-data-input-stream-read-upto-finish" title="g_data_input_stream_read_upto_finish ()">g_data_input_stream_read_upto_finish</a>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="GDataInputStream.html#g-data-input-stream-read-upto-finish" title="g_data_input_stream_read_upto_finish ()">g_data_input_stream_read_upto_finish</a>
                                                         (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *result</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<span class="returnvalue">char</span> *                  <a class="link" href="GDataInputStream.html#g-data-input-stream-read-until" title="g_data_input_stream_read_until ()">g_data_input_stream_read_until</a>  (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stop_chars</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="GDataInputStream.html#g-data-input-stream-read-until" title="g_data_input_stream_read_until ()">g_data_input_stream_read_until</a>      (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stop_chars</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GDataInputStream.html#g-data-input-stream-read-until-async" title="g_data_input_stream_read_until_async ()">g_data_input_stream_read_until_async</a>
                                                         (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stop_chars</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> io_priority</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stop_chars</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> io_priority</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
-<span class="returnvalue">char</span> *                  <a class="link" href="GDataInputStream.html#g-data-input-stream-read-until-finish" title="g_data_input_stream_read_until_finish ()">g_data_input_stream_read_until_finish</a>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="GDataInputStream.html#g-data-input-stream-read-until-finish" title="g_data_input_stream_read_until_finish ()">g_data_input_stream_read_until_finish</a>
                                                         (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *result</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
 </pre>
 </div>
 <div class="refsect1">
 <a name="GDataInputStream.object-hierarchy"></a><h2>Object Hierarchy</h2>
 <pre class="synopsis">
-  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+  <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
    +----<a class="link" href="GInputStream.html" title="GInputStream">GInputStream</a>
          +----<a class="link" href="GFilterInputStream.html" title="GFilterInputStream">GFilterInputStream</a>
                +----<a class="link" href="GBufferedInputStream.html" title="GBufferedInputStream">GBufferedInputStream</a>
                      +----GDataInputStream
 </pre>
-<pre class="synopsis">
-  GEnum
-   +----GDataStreamByteOrder
-</pre>
-<pre class="synopsis">
-  GEnum
-   +----GDataStreamNewlineType
-</pre>
 </div>
 <div class="refsect1">
 <a name="GDataInputStream.properties"></a><h2>Properties</h2>
 <pre class="synopsis">
-  "<a class="link" href="GDataInputStream.html#GDataInputStream--byte-order" title='The "byte-order" property'>byte-order</a>"               <a class="link" href="GDataInputStream.html#GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a>  : Read / Write
-  "<a class="link" href="GDataInputStream.html#GDataInputStream--newline-type" title='The "newline-type" property'>newline-type</a>"             <a class="link" href="GDataInputStream.html#GDataStreamNewlineType"><span class="type">GDataStreamNewlineType</span></a>  : Read / Write
+  "<a class="link" href="GDataInputStream.html#GDataInputStream--byte-order" title='The "byte-order" property'>byte-order</a>"               <a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a>  : Read / Write
+  "<a class="link" href="GDataInputStream.html#GDataInputStream--newline-type" title='The "newline-type" property'>newline-type</a>"             <a class="link" href="GDataInputStream.html#GDataStreamNewlineType" title="enum GDataStreamNewlineType"><span class="type">GDataStreamNewlineType</span></a>  : Read / Write
 </pre>
 </div>
 <div class="refsect1">
@@ -181,7 +181,7 @@ data manipulation of arbitrary data (including binary operations).
 } GDataStreamByteOrder;
 </pre>
 <p>
-<a class="link" href="GDataInputStream.html#GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a> is used to ensure proper endianness of streaming data sources
+<a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a> is used to ensure proper endianness of streaming data sources
 across various machine architectures.
 </p>
 <div class="variablelist"><table border="0">
@@ -216,7 +216,7 @@ across various machine architectures.
 } GDataStreamNewlineType;
 </pre>
 <p>
-<a class="link" href="GDataInputStream.html#GDataStreamNewlineType"><span class="type">GDataStreamNewlineType</span></a> is used when checking for or setting the line endings for a given file.
+<a class="link" href="GDataInputStream.html#GDataStreamNewlineType" title="enum GDataStreamNewlineType"><span class="type">GDataStreamNewlineType</span></a> is used when checking for or setting the line endings for a given file.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -247,7 +247,7 @@ across various machine architectures.
 <hr>
 <div class="refsect2">
 <a name="g-data-input-stream-new"></a><h3>g_data_input_stream_new ()</h3>
-<pre class="programlisting"><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="returnvalue">GDataInputStream</span></a> *      g_data_input_stream_new         (<em class="parameter"><code><a class="link" href="GInputStream.html" title="GInputStream"><span class="type">GInputStream</span></a> *base_stream</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="returnvalue">GDataInputStream</span></a> *  g_data_input_stream_new             (<em class="parameter"><code><a class="link" href="GInputStream.html" title="GInputStream"><span class="type">GInputStream</span></a> *base_stream</code></em>);</pre>
 <p>
 Creates a new data input stream for the <em class="parameter"><code>base_stream</code></em>.
 </p>
@@ -269,7 +269,7 @@ Creates a new data input stream for the <em class="parameter"><code>base_stream<
 <div class="refsect2">
 <a name="g-data-input-stream-set-byte-order"></a><h3>g_data_input_stream_set_byte_order ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_data_input_stream_set_byte_order  (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="GDataInputStream.html#GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a> order</code></em>);</pre>
+                                                         <em class="parameter"><code><a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a> order</code></em>);</pre>
 <p>
 This function sets the byte order for the given <em class="parameter"><code>stream</code></em>. All subsequent
 reads from the <em class="parameter"><code>stream</code></em> will be read in the given <em class="parameter"><code>order</code></em>.
@@ -283,7 +283,7 @@ reads from the <em class="parameter"><code>stream</code></em> will be read in th
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>order</code></em> :</span></p></td>
-<td>a <a class="link" href="GDataInputStream.html#GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a> to set.</td>
+<td>a <a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a> to set.</td>
 </tr>
 </tbody>
 </table></div>
@@ -291,8 +291,7 @@ reads from the <em class="parameter"><code>stream</code></em> will be read in th
 <hr>
 <div class="refsect2">
 <a name="g-data-input-stream-get-byte-order"></a><h3>g_data_input_stream_get_byte_order ()</h3>
-<pre class="programlisting"><a class="link" href="GDataInputStream.html#GDataStreamByteOrder"><span class="returnvalue">GDataStreamByteOrder</span></a>  g_data_input_stream_get_byte_order
-                                                        (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder"><span class="returnvalue">GDataStreamByteOrder</span></a> g_data_input_stream_get_byte_order (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>);</pre>
 <p>
 Gets the byte order for the data input stream.
 </p>
@@ -305,7 +304,7 @@ Gets the byte order for the data input stream.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the <em class="parameter"><code>stream</code></em>'s current <a class="link" href="GDataInputStream.html#GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a>.</td>
+<td>the <em class="parameter"><code>stream</code></em>'s current <a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -315,14 +314,14 @@ Gets the byte order for the data input stream.
 <a name="g-data-input-stream-set-newline-type"></a><h3>g_data_input_stream_set_newline_type ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_data_input_stream_set_newline_type
                                                         (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="GDataInputStream.html#GDataStreamNewlineType"><span class="type">GDataStreamNewlineType</span></a> type</code></em>);</pre>
+                                                         <em class="parameter"><code><a class="link" href="GDataInputStream.html#GDataStreamNewlineType" title="enum GDataStreamNewlineType"><span class="type">GDataStreamNewlineType</span></a> type</code></em>);</pre>
 <p>
 Sets the newline type for the <em class="parameter"><code>stream</code></em>.
 </p>
 <p>
 Note that using G_DATA_STREAM_NEWLINE_TYPE_ANY is slightly unsafe. If a read
 chunk ends in "CR" we must read an additional byte to know if this is "CR" or
-"CR LF", and this might block if there is no more data availible.
+"CR LF", and this might block if there is no more data available.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -333,7 +332,7 @@ chunk ends in "CR" we must read an additional byte to know if this is "CR" or
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
-<td>the type of new line return as <a class="link" href="GDataInputStream.html#GDataStreamNewlineType"><span class="type">GDataStreamNewlineType</span></a>.</td>
+<td>the type of new line return as <a class="link" href="GDataInputStream.html#GDataStreamNewlineType" title="enum GDataStreamNewlineType"><span class="type">GDataStreamNewlineType</span></a>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -341,7 +340,7 @@ chunk ends in "CR" we must read an additional byte to know if this is "CR" or
 <hr>
 <div class="refsect2">
 <a name="g-data-input-stream-get-newline-type"></a><h3>g_data_input_stream_get_newline_type ()</h3>
-<pre class="programlisting"><a class="link" href="GDataInputStream.html#GDataStreamNewlineType"><span class="returnvalue">GDataStreamNewlineType</span></a>  g_data_input_stream_get_newline_type
+<pre class="programlisting"><a class="link" href="GDataInputStream.html#GDataStreamNewlineType" title="enum GDataStreamNewlineType"><span class="returnvalue">GDataStreamNewlineType</span></a> g_data_input_stream_get_newline_type
                                                         (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>);</pre>
 <p>
 Gets the current newline type for the <em class="parameter"><code>stream</code></em>.
@@ -356,7 +355,7 @@ Gets the current newline type for the <em class="parameter"><code>stream</code><
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a class="link" href="GDataInputStream.html#GDataStreamNewlineType"><span class="type">GDataStreamNewlineType</span></a> for the given <em class="parameter"><code>stream</code></em>.</td>
+<a class="link" href="GDataInputStream.html#GDataStreamNewlineType" title="enum GDataStreamNewlineType"><span class="type">GDataStreamNewlineType</span></a> for the given <em class="parameter"><code>stream</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -364,9 +363,9 @@ Gets the current newline type for the <em class="parameter"><code>stream</code><
 <hr>
 <div class="refsect2">
 <a name="g-data-input-stream-read-byte"></a><h3>g_data_input_stream_read_byte ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="returnvalue">guchar</span></a>              g_data_input_stream_read_byte       (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#guchar"><span class="returnvalue">guchar</span></a>              g_data_input_stream_read_byte       (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Reads an unsigned 8-bit/1-byte value from <em class="parameter"><code>stream</code></em>.
 </p>
@@ -379,13 +378,13 @@ Reads an unsigned 8-bit/1-byte value from <em class="parameter"><code>stream</co
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
+<a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -398,9 +397,9 @@ if an error occurred.</td>
 <hr>
 <div class="refsect2">
 <a name="g-data-input-stream-read-int16"></a><h3>g_data_input_stream_read_int16 ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint16"><span class="returnvalue">gint16</span></a>              g_data_input_stream_read_int16      (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gint16"><span class="returnvalue">gint16</span></a>              g_data_input_stream_read_int16      (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Reads a 16-bit/2-byte value from <em class="parameter"><code>stream</code></em>.
 </p>
@@ -417,13 +416,13 @@ see <a class="link" href="GDataInputStream.html#g-data-input-stream-get-byte-ord
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
+<a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -436,9 +435,9 @@ an error occurred.</td>
 <hr>
 <div class="refsect2">
 <a name="g-data-input-stream-read-uint16"></a><h3>g_data_input_stream_read_uint16 ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"><span class="returnvalue">guint16</span></a>             g_data_input_stream_read_uint16     (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#guint16"><span class="returnvalue">guint16</span></a>             g_data_input_stream_read_uint16     (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Reads an unsigned 16-bit/2-byte value from <em class="parameter"><code>stream</code></em>.
 </p>
@@ -455,13 +454,13 @@ see <a class="link" href="GDataInputStream.html#g-data-input-stream-get-byte-ord
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
+<a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -474,9 +473,9 @@ an error occurred.</td>
 <hr>
 <div class="refsect2">
 <a name="g-data-input-stream-read-int32"></a><h3>g_data_input_stream_read_int32 ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint32"><span class="returnvalue">gint32</span></a>              g_data_input_stream_read_int32      (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gint32"><span class="returnvalue">gint32</span></a>              g_data_input_stream_read_int32      (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Reads a signed 32-bit/4-byte value from <em class="parameter"><code>stream</code></em>.
 </p>
@@ -485,7 +484,7 @@ In order to get the correct byte order for this read operation,
 see <a class="link" href="GDataInputStream.html#g-data-input-stream-get-byte-order" title="g_data_input_stream_get_byte_order ()"><code class="function">g_data_input_stream_get_byte_order()</code></a> and <a class="link" href="GDataInputStream.html#g-data-input-stream-set-byte-order" title="g_data_input_stream_set_byte_order ()"><code class="function">g_data_input_stream_set_byte_order()</code></a>.
 </p>
 <p>
-If <em class="parameter"><code>cancellable</code></em> is not <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then the operation can be cancelled by
+If <em class="parameter"><code>cancellable</code></em> is not <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then the operation can be cancelled by
 triggering the cancellable object from another thread. If the operation
 was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCELLED:CAPS"><code class="literal">G_IO_ERROR_CANCELLED</code></a> will be returned.
 </p>
@@ -498,13 +497,13 @@ was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANC
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
+<a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -517,9 +516,9 @@ an error occurred.</td>
 <hr>
 <div class="refsect2">
 <a name="g-data-input-stream-read-uint32"></a><h3>g_data_input_stream_read_uint32 ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             g_data_input_stream_read_uint32     (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             g_data_input_stream_read_uint32     (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Reads an unsigned 32-bit/4-byte value from <em class="parameter"><code>stream</code></em>.
 </p>
@@ -528,7 +527,7 @@ In order to get the correct byte order for this read operation,
 see <a class="link" href="GDataInputStream.html#g-data-input-stream-get-byte-order" title="g_data_input_stream_get_byte_order ()"><code class="function">g_data_input_stream_get_byte_order()</code></a> and <a class="link" href="GDataInputStream.html#g-data-input-stream-set-byte-order" title="g_data_input_stream_set_byte_order ()"><code class="function">g_data_input_stream_set_byte_order()</code></a>.
 </p>
 <p>
-If <em class="parameter"><code>cancellable</code></em> is not <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then the operation can be cancelled by
+If <em class="parameter"><code>cancellable</code></em> is not <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then the operation can be cancelled by
 triggering the cancellable object from another thread. If the operation
 was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCELLED:CAPS"><code class="literal">G_IO_ERROR_CANCELLED</code></a> will be returned.
 </p>
@@ -541,13 +540,13 @@ was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANC
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
+<a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -560,9 +559,9 @@ an error occurred.</td>
 <hr>
 <div class="refsect2">
 <a name="g-data-input-stream-read-int64"></a><h3>g_data_input_stream_read_int64 ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint64"><span class="returnvalue">gint64</span></a>              g_data_input_stream_read_int64      (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gint64"><span class="returnvalue">gint64</span></a>              g_data_input_stream_read_int64      (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Reads a 64-bit/8-byte value from <em class="parameter"><code>stream</code></em>.
 </p>
@@ -571,7 +570,7 @@ In order to get the correct byte order for this read operation,
 see <a class="link" href="GDataInputStream.html#g-data-input-stream-get-byte-order" title="g_data_input_stream_get_byte_order ()"><code class="function">g_data_input_stream_get_byte_order()</code></a> and <a class="link" href="GDataInputStream.html#g-data-input-stream-set-byte-order" title="g_data_input_stream_set_byte_order ()"><code class="function">g_data_input_stream_set_byte_order()</code></a>.
 </p>
 <p>
-If <em class="parameter"><code>cancellable</code></em> is not <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then the operation can be cancelled by
+If <em class="parameter"><code>cancellable</code></em> is not <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then the operation can be cancelled by
 triggering the cancellable object from another thread. If the operation
 was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCELLED:CAPS"><code class="literal">G_IO_ERROR_CANCELLED</code></a> will be returned.
 </p>
@@ -584,13 +583,13 @@ was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANC
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
+<a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -603,9 +602,9 @@ an error occurred.</td>
 <hr>
 <div class="refsect2">
 <a name="g-data-input-stream-read-uint64"></a><h3>g_data_input_stream_read_uint64 ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="returnvalue">guint64</span></a>             g_data_input_stream_read_uint64     (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#guint64"><span class="returnvalue">guint64</span></a>             g_data_input_stream_read_uint64     (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Reads an unsigned 64-bit/8-byte value from <em class="parameter"><code>stream</code></em>.
 </p>
@@ -614,7 +613,7 @@ In order to get the correct byte order for this read operation,
 see <a class="link" href="GDataInputStream.html#g-data-input-stream-get-byte-order" title="g_data_input_stream_get_byte_order ()"><code class="function">g_data_input_stream_get_byte_order()</code></a>.
 </p>
 <p>
-If <em class="parameter"><code>cancellable</code></em> is not <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then the operation can be cancelled by
+If <em class="parameter"><code>cancellable</code></em> is not <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then the operation can be cancelled by
 triggering the cancellable object from another thread. If the operation
 was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCELLED:CAPS"><code class="literal">G_IO_ERROR_CANCELLED</code></a> will be returned.
 </p>
@@ -627,13 +626,13 @@ was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANC
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
+<a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -646,15 +645,17 @@ an error occurred.</td>
 <hr>
 <div class="refsect2">
 <a name="g-data-input-stream-read-line"></a><h3>g_data_input_stream_read_line ()</h3>
-<pre class="programlisting"><span class="returnvalue">char</span> *                  g_data_input_stream_read_line   (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
+<pre class="programlisting"><span class="returnvalue">char</span> *              g_data_input_stream_read_line       (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
-Reads a line from the data input stream.
+Reads a line from the data input stream.  Note that no encoding
+checks or conversion is performed; the input is not guaranteed to
+be UTF-8, and may in fact have embedded NUL characters.
 </p>
 <p>
-If <em class="parameter"><code>cancellable</code></em> is not <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then the operation can be cancelled by
+If <em class="parameter"><code>cancellable</code></em> is not <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then the operation can be cancelled by
 triggering the cancellable object from another thread. If the operation
 was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCELLED:CAPS"><code class="literal">G_IO_ERROR_CANCELLED</code></a> will be returned.
 </p>
@@ -667,26 +668,27 @@ was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANC
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the data read in. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+<td>a <a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the data read in. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
+<a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a string with the line that was read in
-(without the newlines).  Set <em class="parameter"><code>length</code></em> to a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the
-length of the read line.  On an error, it will return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> and
-<em class="parameter"><code>error</code></em> will be set. If there's no content to read, it will
-still return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, but <em class="parameter"><code>error</code></em> won't be set. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+<td>a
+NUL terminated byte array with the line that was read in (without
+the newlines).  Set <em class="parameter"><code>length</code></em> to a <a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the
+read line.  On an error, it will return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> and <em class="parameter"><code>error</code></em> will be
+set. If there's no content to read, it will still return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>,
+but <em class="parameter"><code>error</code></em> won't be set. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> guint8]</span>
 </td>
 </tr>
 </tbody>
@@ -694,12 +696,63 @@ still return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard
 </div>
 <hr>
 <div class="refsect2">
+<a name="g-data-input-stream-read-line-utf8"></a><h3>g_data_input_stream_read_line_utf8 ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              g_data_input_stream_read_line_utf8  (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Reads a UTF-8 encoded line from the data input stream.
+</p>
+<p>
+If <em class="parameter"><code>cancellable</code></em> is not <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then the operation can be cancelled by
+triggering the cancellable object from another thread. If the operation
+was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCELLED:CAPS"><code class="literal">G_IO_ERROR_CANCELLED</code></a> will be returned.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
+<td>a given <a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td>a <a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the data read in. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>
+<a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a NUL terminated UTF-8 string with the
+line that was read in (without the newlines).  Set <em class="parameter"><code>length</code></em> to a
+<a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the read line.  On an error, it will
+return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> and <em class="parameter"><code>error</code></em> will be set.  For UTF-8 conversion errors,
+the set error domain is <a href="./../glib/glib/glib-Character-Set-Conversion.html#G-CONVERT-ERROR:CAPS"><code class="literal">G_CONVERT_ERROR</code></a>.  If there's no content to
+read, it will still return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, but <em class="parameter"><code>error</code></em> won't be set. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.30</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="g-data-input-stream-read-line-async"></a><h3>g_data_input_stream_read_line_async ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_data_input_stream_read_line_async (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> io_priority</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> io_priority</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <p>
 The asynchronous version of <a class="link" href="GDataInputStream.html#g-data-input-stream-read-line" title="g_data_input_stream_read_line ()"><code class="function">g_data_input_stream_read_line()</code></a>.  It is
 an error to have two outstanding calls to this function.
@@ -723,7 +776,7 @@ of the request.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -743,11 +796,60 @@ of the request.</td>
 <hr>
 <div class="refsect2">
 <a name="g-data-input-stream-read-line-finish"></a><h3>g_data_input_stream_read_line_finish ()</h3>
-<pre class="programlisting"><span class="returnvalue">char</span> *                  g_data_input_stream_read_line_finish
+<pre class="programlisting"><span class="returnvalue">char</span> *              g_data_input_stream_read_line_finish
                                                         (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *result</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Finish an asynchronous call started by
+<a class="link" href="GDataInputStream.html#g-data-input-stream-read-line-async" title="g_data_input_stream_read_line_async ()"><code class="function">g_data_input_stream_read_line_async()</code></a>.  Note the warning about
+string encoding in <a class="link" href="GDataInputStream.html#g-data-input-stream-read-line" title="g_data_input_stream_read_line ()"><code class="function">g_data_input_stream_read_line()</code></a> applies here as
+well.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
+<td>a given <a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>the <a class="link" href="GAsyncResult.html" title="GAsyncResult"><span class="type">GAsyncResult</span></a> that was provided to the callback.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td>a <a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the data read in. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>
+<a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a
+NUL-terminated byte array with the line that was read in
+(without the newlines).  Set <em class="parameter"><code>length</code></em> to a <a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the
+length of the read line.  On an error, it will return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> and
+<em class="parameter"><code>error</code></em> will be set. If there's no content to read, it will
+still return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, but <em class="parameter"><code>error</code></em> won't be set. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> guint8]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-data-input-stream-read-line-finish-utf8"></a><h3>g_data_input_stream_read_line_finish_utf8 ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              g_data_input_stream_read_line_finish_utf8
+                                                        (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GAsyncResult.html" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *result</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Finish an asynchronous call started by
 <a class="link" href="GDataInputStream.html#g-data-input-stream-read-line-async" title="g_data_input_stream_read_line_async ()"><code class="function">g_data_input_stream_read_line_async()</code></a>.
@@ -765,36 +867,37 @@ Finish an asynchronous call started by
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the data read in. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+<td>a <a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the data read in. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
+<a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a string with the line that was read in
-(without the newlines).  Set <em class="parameter"><code>length</code></em> to a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the
-length of the read line.  On an error, it will return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> and
-<em class="parameter"><code>error</code></em> will be set. If there's no content to read, it will
-still return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, but <em class="parameter"><code>error</code></em> won't be set. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+(without the newlines).  Set <em class="parameter"><code>length</code></em> to a <a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length
+of the read line.  On an error, it will return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> and <em class="parameter"><code>error</code></em>
+will be set. For UTF-8 conversion errors, the set error domain is
+<a href="./../glib/glib/glib-Character-Set-Conversion.html#G-CONVERT-ERROR:CAPS"><code class="literal">G_CONVERT_ERROR</code></a>.  If there's no content to read, it will still
+return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, but <em class="parameter"><code>error</code></em> won't be set. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
 </table></div>
-<p class="since">Since 2.20</p>
+<p class="since">Since 2.30</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-data-input-stream-read-upto"></a><h3>g_data_input_stream_read_upto ()</h3>
-<pre class="programlisting"><span class="returnvalue">char</span> *                  g_data_input_stream_read_upto   (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stop_chars</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gssize"><span class="type">gssize</span></a> stop_chars_len</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
+<pre class="programlisting"><span class="returnvalue">char</span> *              g_data_input_stream_read_upto       (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stop_chars</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gssize"><span class="type">gssize</span></a> stop_chars_len</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Reads a string from the data input stream, up to the first
 occurrence of any of the stop characters.
@@ -828,41 +931,41 @@ nul-terminated</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the data read in. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+<td>a <a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the data read in. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting</td>
+<a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a string with the data that was read
 before encountering any of the stop characters. Set <em class="parameter"><code>length</code></em> to
-a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the string. This function will
-return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on an error. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+a <a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the string. This function will
+return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on an error. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
 </table></div>
-<p class="since">Since 2.24</p>
+<p class="since">Since 2.26</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-data-input-stream-read-upto-async"></a><h3>g_data_input_stream_read_upto_async ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_data_input_stream_read_upto_async (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stop_chars</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gssize"><span class="type">gssize</span></a> stop_chars_len</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> io_priority</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stop_chars</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gssize"><span class="type">gssize</span></a> stop_chars_len</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> io_priority</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <p>
 The asynchronous version of <a class="link" href="GDataInputStream.html#g-data-input-stream-read-upto" title="g_data_input_stream_read_upto ()"><code class="function">g_data_input_stream_read_upto()</code></a>.
 It is an error to have two outstanding calls to this function.
@@ -906,7 +1009,7 @@ of the request.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -921,16 +1024,16 @@ of the request.</td>
 </tr>
 </tbody>
 </table></div>
-<p class="since">Since 2.24</p>
+<p class="since">Since 2.26</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-data-input-stream-read-upto-finish"></a><h3>g_data_input_stream_read_upto_finish ()</h3>
-<pre class="programlisting"><span class="returnvalue">char</span> *                  g_data_input_stream_read_upto_finish
+<pre class="programlisting"><span class="returnvalue">char</span> *              g_data_input_stream_read_upto_finish
                                                         (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *result</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Finish an asynchronous call started by
 <a class="link" href="GDataInputStream.html#g-data-input-stream-read-upto-async" title="g_data_input_stream_read_upto_async ()"><code class="function">g_data_input_stream_read_upto_async()</code></a>.
@@ -954,20 +1057,20 @@ get it before calling <a class="link" href="GDataInputStream.html#g-data-input-s
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the data read in. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+<td>a <a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the data read in. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting</td>
+<a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a string with the data that was read
 before encountering any of the stop characters. Set <em class="parameter"><code>length</code></em> to
-a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the string. This function will
-return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on an error. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+a <a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the string. This function will
+return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on an error. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -977,11 +1080,11 @@ return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macro
 <hr>
 <div class="refsect2">
 <a name="g-data-input-stream-read-until"></a><h3>g_data_input_stream_read_until ()</h3>
-<pre class="programlisting"><span class="returnvalue">char</span> *                  g_data_input_stream_read_until  (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stop_chars</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
+<pre class="programlisting"><span class="returnvalue">char</span> *              g_data_input_stream_read_until      (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stop_chars</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Reads a string from the data input stream, up to the first
 occurrence of any of the stop characters.
@@ -1010,25 +1113,25 @@ does not consume the stop character.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the data read in. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+<td>a <a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the data read in. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
+<a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a string with the data that was read
 before encountering any of the stop characters. Set <em class="parameter"><code>length</code></em> to
-a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the string. This function will
-return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on an error. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+a <a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the string. This function will
+return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on an error. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1039,11 +1142,11 @@ return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macro
 <a name="g-data-input-stream-read-until-async"></a><h3>g_data_input_stream_read_until_async ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_data_input_stream_read_until_async
                                                         (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stop_chars</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> io_priority</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stop_chars</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> io_priority</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <p>
 The asynchronous version of <a class="link" href="GDataInputStream.html#g-data-input-stream-read-until" title="g_data_input_stream_read_until ()"><code class="function">g_data_input_stream_read_until()</code></a>.
 It is an error to have two outstanding calls to this function.
@@ -1082,7 +1185,7 @@ of the request.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -1102,11 +1205,11 @@ of the request.</td>
 <hr>
 <div class="refsect2">
 <a name="g-data-input-stream-read-until-finish"></a><h3>g_data_input_stream_read_until_finish ()</h3>
-<pre class="programlisting"><span class="returnvalue">char</span> *                  g_data_input_stream_read_until_finish
+<pre class="programlisting"><span class="returnvalue">char</span> *              g_data_input_stream_read_until_finish
                                                         (<em class="parameter"><code><a class="link" href="GDataInputStream.html" title="GDataInputStream"><span class="type">GDataInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GAsyncResult.html" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *result</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *length</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Finish an asynchronous call started by
 <a class="link" href="GDataInputStream.html#g-data-input-stream-read-until-async" title="g_data_input_stream_read_until_async ()"><code class="function">g_data_input_stream_read_until_async()</code></a>.
@@ -1124,20 +1227,20 @@ Finish an asynchronous call started by
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the data read in. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+<td>a <a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the data read in. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
+<a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> for error reporting.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a string with the data that was read
 before encountering any of the stop characters. Set <em class="parameter"><code>length</code></em> to
-a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the string. This function will
-return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on an error. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+a <a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> to get the length of the string. This function will
+return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on an error. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1149,14 +1252,14 @@ return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macro
 <a name="GDataInputStream.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GDataInputStream--byte-order"></a><h3>The <code class="literal">"byte-order"</code> property</h3>
-<pre class="programlisting">  "byte-order"               <a class="link" href="GDataInputStream.html#GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a>  : Read / Write</pre>
+<pre class="programlisting">  "byte-order"               <a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a>  : Read / Write</pre>
 <p>The byte order.</p>
 <p>Default value: G_DATA_STREAM_BYTE_ORDER_BIG_ENDIAN</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GDataInputStream--newline-type"></a><h3>The <code class="literal">"newline-type"</code> property</h3>
-<pre class="programlisting">  "newline-type"             <a class="link" href="GDataInputStream.html#GDataStreamNewlineType"><span class="type">GDataStreamNewlineType</span></a>  : Read / Write</pre>
+<pre class="programlisting">  "newline-type"             <a class="link" href="GDataInputStream.html#GDataStreamNewlineType" title="enum GDataStreamNewlineType"><span class="type">GDataStreamNewlineType</span></a>  : Read / Write</pre>
 <p>The accepted types of line ending.</p>
 <p>Default value: G_DATA_STREAM_NEWLINE_TYPE_LF</p>
 </div>
@@ -1168,6 +1271,6 @@ return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macro
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

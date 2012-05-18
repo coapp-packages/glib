@@ -101,7 +101,7 @@ typedef void (*GValueTransform) (const GValue *src_value,
  * to functions within a #GTypeValueTable structure, or implementations of
  * the g_value_*() API. That is, code portions which implement new fundamental
  * types.
- * #GValue users can not make any assumptions about how data is stored
+ * #GValue users cannot make any assumptions about how data is stored
  * within the 2 element @data union, and the @g_type member should
  * only be accessed through the G_VALUE_TYPE() macro.
  */
@@ -157,9 +157,25 @@ void	g_value_register_transform_func	(GType		 src_type,
  *
  * If passed to G_VALUE_COLLECT(), allocated data won't be copied
  * but used verbatim. This does not affect ref-counted types like
- * objects. For more details, see the #GValueTable documentation.
+ * objects.
  */
 #define G_VALUE_NOCOPY_CONTENTS (1 << 27)
+
+/**
+ * G_VALUE_INIT:
+ *
+ * A #GValue must be initialized before it can be used.
+ * This macro can be used as initializer instead of an explicit
+ * <literal>{ 0 }</literal> when declaring a variable,
+ * but it cannot be assigned to a variable.
+ *
+ * |[
+ *   GValue value = G_VALUE_INIT;
+ * ]|
+ *
+ * Since: 2.30
+ */
+#define G_VALUE_INIT  { 0, { { 0 } } }
 
 
 G_END_DECLS

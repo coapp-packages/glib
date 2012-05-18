@@ -23,10 +23,10 @@
 #include "config.h"
 
 #include "gdbusauthobserver.h"
-#include "gio-marshal.h"
 #include "gcredentials.h"
 #include "gioenumtypes.h"
 #include "giostream.h"
+#include "gdbusprivate.h"
 
 #include "glibintl.h"
 
@@ -130,22 +130,6 @@ g_dbus_auth_observer_authorize_authenticated_peer_real (GDBusAuthObserver  *obse
   return TRUE;
 }
 
-gboolean
-_g_signal_accumulator_false_handled (GSignalInvocationHint *ihint,
-                                     GValue                *return_accu,
-                                     const GValue          *handler_return,
-                                     gpointer               dummy)
-{
-  gboolean continue_emission;
-  gboolean signal_handled;
-
-  signal_handled = g_value_get_boolean (handler_return);
-  g_value_set_boolean (return_accu, signal_handled);
-  continue_emission = signal_handled;
-
-  return continue_emission;
-}
-
 static void
 g_dbus_auth_observer_class_init (GDBusAuthObserverClass *klass)
 {
@@ -159,7 +143,7 @@ g_dbus_auth_observer_class_init (GDBusAuthObserverClass *klass)
    * GDBusAuthObserver::authorize-authenticated-peer:
    * @observer: The #GDBusAuthObserver emitting the signal.
    * @stream: A #GIOStream for the #GDBusConnection.
-   * @credentials: Credentials received from the peer or %NULL.
+   * @credentials: (allow-none): Credentials received from the peer or %NULL.
    *
    * Emitted to check if a peer that is successfully authenticated
    * is authorized.
@@ -175,7 +159,7 @@ g_dbus_auth_observer_class_init (GDBusAuthObserverClass *klass)
                   G_STRUCT_OFFSET (GDBusAuthObserverClass, authorize_authenticated_peer),
                   _g_signal_accumulator_false_handled,
                   NULL, /* accu_data */
-                  _gio_marshal_BOOLEAN__OBJECT_OBJECT,
+                  NULL,
                   G_TYPE_BOOLEAN,
                   2,
                   G_TYPE_IO_STREAM,
@@ -208,7 +192,7 @@ g_dbus_auth_observer_new (void)
  * g_dbus_auth_observer_authorize_authenticated_peer:
  * @observer: A #GDBusAuthObserver.
  * @stream: A #GIOStream for the #GDBusConnection.
- * @credentials: Credentials received from the peer or %NULL.
+ * @credentials: (allow-none): Credentials received from the peer or %NULL.
  *
  * Emits the #GDBusAuthObserver::authorize-authenticated-peer signal on @observer.
  *

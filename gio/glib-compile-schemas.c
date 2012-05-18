@@ -20,7 +20,6 @@
  */
 
 /* Prologue {{{1 */
-#define _GNU_SOURCE
 #include "config.h"
 
 #include <gstdio.h>
@@ -36,6 +35,22 @@
 
 #include "gvdb/gvdb-builder.h"
 #include "strinfo.c"
+
+static void
+strip_string (GString *string)
+{
+  gint i;
+
+  for (i = 0; g_ascii_isspace (string->str[i]); i++);
+  g_string_erase (string, 0, i);
+
+  if (string->len > 0)
+    {
+      /* len > 0, so there must be at least one non-whitespace character */
+      for (i = string->len - 1; g_ascii_isspace (string->str[i]); i--);
+      g_string_truncate (string, i + 1);
+    }
+}
 
 /* Handling of <enum> {{{1 */
 typedef struct
@@ -54,7 +69,7 @@ enum_state_free (gpointer data)
   g_slice_free (EnumState, state);
 }
 
-EnumState *
+static EnumState *
 enum_state_new (gboolean is_flags)
 {
   EnumState *state;
@@ -331,6 +346,23 @@ key_state_set_range (KeyState     *state,
                      const gchar  *max_str,
                      GError      **error)
 {
+  const struct {
+    const gchar  type;
+    const gchar *min;
+    const gchar *max;
+  } table[] = {
+    { 'y',                    "0",                  "255" },
+    { 'n',               "-32768",                "32767" },
+    { 'q',                    "0",                "65535" },
+    { 'i',          "-2147483648",           "2147483647" },
+    { 'u',                    "0",           "4294967295" },
+    { 'x', "-9223372036854775808",  "9223372036854775807" },
+    { 't',                    "0", "18446744073709551615" },
+    { 'd',                 "-inf",                  "inf" },
+  };
+  gboolean type_ok = FALSE;
+  gint i;
+
   if (state->minimum)
     {
       g_set_error_literal (error, G_MARKUP_ERROR,
@@ -339,7 +371,16 @@ key_state_set_range (KeyState     *state,
       return;
     }
 
-  if (strchr ("ynqiuxtd", *(char *) state->type) == NULL)
+  for (i = 0; i < G_N_ELEMENTS (table); i++)
+    if (*(char *) state->type == table[i].type)
+      {
+        min_str = min_str ? min_str : table[i].min;
+        max_str = max_str ? max_str : table[i].max;
+        type_ok = TRUE;
+        break;
+      }
+
+  if (!type_ok)
     {
       gchar *type = g_variant_type_dup_string (state->type);
       g_set_error (error, G_MARKUP_ERROR,
@@ -438,7 +479,7 @@ key_state_start_choices (KeyState  *state,
     {
       g_set_error_literal (error, G_MARKUP_ERROR,
                            G_MARKUP_ERROR_INVALID_CONTENT,
-                           "<choices> can not be specified for keys "
+                           "<choices> cannot be specified for keys "
                            "tagged as having an enumerated type");
       return;
     }
@@ -604,6 +645,23 @@ key_state_serialise (KeyState *state)
           /* translation */
           if (state->l10n)
             {
+              /* We are going to store the untranslated default for
+               * runtime translation according to the current locale.
+               * We need to strip leading and trailing whitespace from
+               * the string so that it's exactly the same as the one
+               * that ended up in the .po file for translation.
+               *
+               * We want to do this so that
+               *
+               *   <default l10n='messages'>
+               *     ['a', 'b', 'c']
+               *   </default>
+               *
+               * ends up in the .po file like "['a', 'b', 'c']",
+               * omitting the extra whitespace at the start and end.
+               */
+              strip_string (state->unparsed_default_value);
+
               if (state->l10n_context)
                 {
                   gint len;
@@ -758,10 +816,10 @@ is_valid_keyname (const gchar  *key,
       return FALSE;
     }
 
-  if (i > 32)
+  if (i > 1024)
     {
       g_set_error (error, G_MARKUP_ERROR, G_MARKUP_ERROR_INVALID_CONTENT,
-                   _("invalid name '%s': maximum length is 32"), key);
+                   _("invalid name '%s': maximum length is 1024"), key);
       return FALSE;
     }
 
@@ -856,7 +914,7 @@ schema_state_add_key (SchemaState  *state,
     {
       g_set_error_literal (error, G_MARKUP_ERROR,
                            G_MARKUP_ERROR_INVALID_CONTENT,
-                           _("can not add keys to a 'list-of' schema"));
+                           _("cannot add keys to a 'list-of' schema"));
       return NULL;
     }
 
@@ -1146,6 +1204,12 @@ parse_state_start_schema (ParseState  *state,
       return;
     }
 
+  if (path && (g_str_has_prefix (path, "/apps/") ||
+               g_str_has_prefix (path, "/desktop/") ||
+               g_str_has_prefix (path, "/system/")))
+    g_printerr ("warning: Schema '%s' has path '%s'.  Paths starting with "
+                "'/apps/', '/desktop/' or '/system/' are deprecated.\n", id, path);
+
   state->schema_state = schema_state_new (path, gettext_domain,
                                           extends, extends_name, list_of);
 
@@ -1323,7 +1387,8 @@ start_element (GMarkupParseContext  *context,
       else if (strcmp (element_name, "range") == 0)
         {
           const gchar *min, *max;
-          if (COLLECT (STRING, "min", &min, STRING, "max", &max))
+          if (COLLECT (STRING | OPTIONAL, "min", &min,
+                       STRING | OPTIONAL, "max", &max))
             key_state_set_range (state->key_state, min, max, error);
           return;
         }
@@ -1418,9 +1483,6 @@ static void
 schema_state_end (SchemaState **state_ptr,
                   GError      **error)
 {
-  SchemaState *state;
-
-  state = *state_ptr;
   *state_ptr = NULL;
 }
 
@@ -1475,21 +1537,38 @@ text (GMarkupParseContext  *context,
       GError              **error)
 {
   ParseState *state = user_data;
-  gsize i;
 
-  for (i = 0; i < text_len; i++)
-    if (!g_ascii_isspace (text[i]))
-      {
-        if (state->string)
-          g_string_append_len (state->string, text, text_len);
+  if (state->string)
+    {
+      /* we are expecting a string, so store the text data.
+       *
+       * we store the data verbatim here and deal with whitespace
+       * later on.  there are two reasons for that:
+       *
+       *  1) whitespace is handled differently depending on the tag
+       *     type.
+       *
+       *  2) we could do leading whitespace removal by refusing to
+       *     insert it into state->string if it's at the start, but for
+       *     trailing whitespace, we have no idea if there is another
+       *     text() call coming or not.
+       */
+      g_string_append_len (state->string, text, text_len);
+    }
+  else
+    {
+      /* string is not expected: accept (and ignore) pure whitespace */
+      gsize i;
 
-        else
-          g_set_error (error, G_MARKUP_ERROR, G_MARKUP_ERROR_INVALID_CONTENT,
-                       _("text may not appear inside <%s>"),
-                       g_markup_parse_context_get_element (context));
-
-        break;
-      }
+      for (i = 0; i < text_len; i++)
+        if (!g_ascii_isspace (text[i]))
+          {
+            g_set_error (error, G_MARKUP_ERROR, G_MARKUP_ERROR_INVALID_CONTENT,
+                         _("text may not appear inside <%s>"),
+                         g_markup_parse_context_get_element (context));
+            break;
+          }
+    }
 }
 
 /* Write to GVDB {{{1 */
@@ -1508,6 +1587,13 @@ gvdb_pair_init (GvdbPair *pair)
 
 typedef struct
 {
+  GHashTable *schema_table;
+  GvdbPair root_pair;
+} WriteToFileData;
+
+typedef struct
+{
+  GHashTable *schema_table;
   GvdbPair pair;
   gboolean l10n;
 } OutputSchemaData;
@@ -1532,6 +1618,11 @@ output_key (gpointer key,
 
   if (state->l10n)
     data->l10n = TRUE;
+
+  if (state->child_schema &&
+      !g_hash_table_lookup (data->schema_table, state->child_schema))
+    g_printerr ("warning: undefined reference to <schema id='%s'/>\n",
+                state->child_schema);
 }
 
 static void
@@ -1539,6 +1630,7 @@ output_schema (gpointer key,
                gpointer value,
                gpointer user_data)
 {
+  WriteToFileData *wtf_data = user_data;
   OutputSchemaData data;
   GvdbPair *root_pair;
   SchemaState *state;
@@ -1547,8 +1639,9 @@ output_schema (gpointer key,
 
   id = key;
   state = value;
-  root_pair = user_data;
+  root_pair = &wtf_data->root_pair;
 
+  data.schema_table = wtf_data->schema_table;
   gvdb_pair_init (&data.pair);
   data.l10n = FALSE;
 
@@ -1567,7 +1660,7 @@ output_schema (gpointer key,
 
   if (state->list_of)
     gvdb_hash_table_insert_string (data.pair.table, ".list-of",
-                                   state->extends_name);
+                                   state->list_of);
 
   if (data.l10n)
     gvdb_hash_table_insert_string (data.pair.table,
@@ -1580,17 +1673,19 @@ write_to_file (GHashTable   *schema_table,
                const gchar  *filename,
                GError      **error)
 {
+  WriteToFileData data;
   gboolean success;
-  GvdbPair pair;
 
-  gvdb_pair_init (&pair);
+  data.schema_table = schema_table;
 
-  g_hash_table_foreach (schema_table, output_schema, &pair);
+  gvdb_pair_init (&data.root_pair);
 
-  success = gvdb_table_write_contents (pair.table, filename,
+  g_hash_table_foreach (schema_table, output_schema, &data);
+
+  success = gvdb_table_write_contents (data.root_pair.table, filename,
                                        G_BYTE_ORDER != G_LITTLE_ENDIAN,
                                        error);
-  g_hash_table_unref (pair.table);
+  g_hash_table_unref (data.root_pair.table);
 
   return success;
 }
@@ -1628,6 +1723,7 @@ parse_gschema_files (gchar    **files,
         }
 
       context = g_markup_parse_context_new (&parser,
+                                            G_MARKUP_TREAT_CDATA_AS_TEXT |
                                             G_MARKUP_PREFIX_ERROR_POSITION,
                                             &state, NULL);
 
@@ -1890,7 +1986,6 @@ main (int argc, char **argv)
   gchar *srcdir;
   gchar *targetdir = NULL;
   gchar *target;
-  gboolean uninstall = FALSE;
   gboolean dry_run = FALSE;
   gboolean strict = FALSE;
   gchar **schema_files = NULL;
@@ -1900,7 +1995,6 @@ main (int argc, char **argv)
     { "targetdir", 0, 0, G_OPTION_ARG_FILENAME, &targetdir, N_("where to store the gschemas.compiled file"), N_("DIRECTORY") },
     { "strict", 0, 0, G_OPTION_ARG_NONE, &strict, N_("Abort on any errors in schemas"), NULL },
     { "dry-run", 0, 0, G_OPTION_ARG_NONE, &dry_run, N_("Do not write the gschema.compiled file"), NULL },
-    { "uninstall", 0, 0, G_OPTION_ARG_NONE, &uninstall, N_("This option will be removed soon.") },
     { "allow-any-name", 0, 0, G_OPTION_ARG_NONE, &allow_any_name, N_("Do not enforce key name restrictions") },
 
     /* These options are only for use in the gschema-compile tests */
@@ -1908,7 +2002,25 @@ main (int argc, char **argv)
     { NULL }
   };
 
+#ifdef G_OS_WIN32
+  extern gchar *_glib_get_locale_dir (void);
+  gchar *tmp;
+#endif
+
   setlocale (LC_ALL, "");
+  textdomain (GETTEXT_PACKAGE);
+
+#ifdef G_OS_WIN32
+  tmp = _glib_get_locale_dir ();
+  bindtextdomain (GETTEXT_PACKAGE, tmp);
+  g_free (tmp);
+#else
+  bindtextdomain (GETTEXT_PACKAGE, GLIB_LOCALE_DIR);
+#endif
+
+#ifdef HAVE_BIND_TEXTDOMAIN_CODESET
+  bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+#endif
 
   context = g_option_context_new (N_("DIRECTORY"));
   g_option_context_set_translation_domain (context, GETTEXT_PACKAGE);

@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>The Base Object Type</title>
+<title>GObject</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="GObject Reference Manual">
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="GTypeModule.html" title="GTypeModule">
 <link rel="next" href="gobject-Enumeration-and-Flag-Types.html" title="Enumeration and Flag Types">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -34,8 +34,8 @@
 <a name="gobject-The-Base-Object-Type"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
-<h2><span class="refentrytitle"><a name="gobject-The-Base-Object-Type.top_of_page"></a>The Base Object Type</span></h2>
-<p>The Base Object Type — The base object type</p>
+<h2><span class="refentrytitle"><a name="gobject-The-Base-Object-Type.top_of_page"></a>GObject</span></h2>
+<p>GObject — The base object type</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -183,6 +183,14 @@ typedef             <a class="link" href="gobject-The-Base-Object-Type.html#GIni
 #define             <a class="link" href="gobject-The-Base-Object-Type.html#G-OBJECT-WARN-INVALID-PROPERTY-ID:CAPS" title="G_OBJECT_WARN_INVALID_PROPERTY_ID()">G_OBJECT_WARN_INVALID_PROPERTY_ID</a>   (object,
                                                          property_id,
                                                          pspec)
+
+                    <a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef">GWeakRef</a>;
+<span class="returnvalue">void</span>                <a class="link" href="gobject-The-Base-Object-Type.html#g-weak-ref-init" title="g_weak_ref_init ()">g_weak_ref_init</a>                     (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a> *weak_ref</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> object</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gobject-The-Base-Object-Type.html#g-weak-ref-clear" title="g_weak_ref_clear ()">g_weak_ref_clear</a>                    (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a> *weak_ref</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="gobject-The-Base-Object-Type.html#g-weak-ref-get" title="g_weak_ref_get ()">g_weak_ref_get</a>                      (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a> *weak_ref</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gobject-The-Base-Object-Type.html#g-weak-ref-set" title="g_weak_ref_set ()">g_weak_ref_set</a>                      (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a> *weak_ref</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> object</code></em>);
 </pre>
 </div>
 <div class="refsect1">
@@ -211,8 +219,8 @@ support.  Signals are described in detail in <a class="xref" href="gobject-Signa
 <p>
 </p>
 <p><a name="floating-ref"></a>
-<a class="link" href="gobject-The-Base-Object-Type.html#GInitiallyUnowned" title="GInitiallyUnowned"><span class="type">GInitiallyUnowned</span></a> is derived from <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. The only difference between
-the two is that the initial reference of a <a class="link" href="gobject-The-Base-Object-Type.html#GInitiallyUnowned" title="GInitiallyUnowned"><span class="type">GInitiallyUnowned</span></a> is flagged
+GInitiallyUnowned is derived from GObject. The only difference between
+the two is that the initial reference of a GInitiallyUnowned is flagged
 as a <em class="firstterm">floating</em> reference.
 This means that it is not specifically claimed to be "owned" by
 any code portion. The main motivation for providing floating references is
@@ -224,7 +232,7 @@ C convenience. In particular, it allows code to be written as:
       <tr>
         <td class="listing_lines" align="right"><pre>1
 2</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="normal">container </span><span class="symbol">=</span><span class="normal"> </span><span class="function">create_container</span><span class="symbol">();</span>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">container </span><span class="symbol">=</span><span class="normal"> </span><span class="function">create_container</span><span class="normal"> </span><span class="symbol">();</span>
 <span class="function">container_add_child</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">container</span><span class="symbol">,</span><span class="normal"> </span><span class="function">create_child</span><span class="symbol">());</span></pre></td>
       </tr>
     </tbody>
@@ -248,8 +256,8 @@ reference leaks, it would have to be written as:
 4
 5</pre></td>
         <td class="listing_code"><pre class="programlisting"><span class="usertype">Child</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">child</span><span class="symbol">;</span>
-<span class="normal">container </span><span class="symbol">=</span><span class="normal"> </span><span class="function">create_container</span><span class="symbol">();</span>
-<span class="normal">child </span><span class="symbol">=</span><span class="normal"> </span><span class="function">create_child</span><span class="symbol">();</span>
+<span class="normal">container </span><span class="symbol">=</span><span class="normal"> </span><span class="function">create_container</span><span class="normal"> </span><span class="symbol">();</span>
+<span class="normal">child </span><span class="symbol">=</span><span class="normal"> </span><span class="function">create_child</span><span class="normal"> </span><span class="symbol">();</span>
 <span class="function">container_add_child</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">container</span><span class="symbol">,</span><span class="normal"> child</span><span class="symbol">);</span>
 <span class="function"><a href="gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">child</span><span class="symbol">);</span></pre></td>
       </tr>
@@ -265,15 +273,15 @@ anymore), <a class="link" href="gobject-The-Base-Object-Type.html#g-object-ref-s
 a new reference.
 Since floating references are useful almost exclusively for C convenience,
 language bindings that provide automated reference and memory ownership
-maintenance (such as smart pointers or garbage collection) therefore don't
-need to expose floating references in their API.
+maintenance (such as smart pointers or garbage collection) should not
+expose floating references in their API.
 </p>
 <p>
 </p>
 <p>
 Some object implementations may need to save an objects floating state
-across certain code portions (an example is <a href="http://library.gnome.org/devel/gtk/GtkMenu.html"><span class="type">GtkMenu</span></a>), to achive this, the
-following sequence can be used:
+across certain code portions (an example is <a href="http://developer.gnome.org/devel/gtk/GtkMenu.html"><span class="type">GtkMenu</span></a>), to achieve this,
+the following sequence can be used:
 </p>
 <p>
 </p>
@@ -290,15 +298,15 @@ following sequence can be used:
 7
 8
 9</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="comment">// save floating state</span>
+        <td class="listing_code"><pre class="programlisting"><span class="comment">/* save floating state */</span>
 <span class="usertype">gboolean</span><span class="normal"> was_floating </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gobject-The-Base-Object-Type.html#g-object-is-floating">g_object_is_floating</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object</span><span class="symbol">);</span>
 <span class="function"><a href="gobject-The-Base-Object-Type.html#g-object-ref-sink">g_object_ref_sink</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object</span><span class="symbol">);</span>
-<span class="comment">// protected code portion</span>
+<span class="comment">/* protected code portion */</span>
 <span class="symbol">...;</span>
-<span class="comment">// restore floating state</span>
+<span class="comment">/* restore floating state */</span>
 <span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">was_floating</span><span class="symbol">)</span>
 <span class="normal">  </span><span class="function"><a href="gobject-The-Base-Object-Type.html#g-object-force-floating">g_object_force_floating</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object</span><span class="symbol">);</span>
-<span class="function">g_obejct_unref</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object</span><span class="symbol">);</span><span class="normal"> </span><span class="comment">// release previously acquired reference</span></pre></td>
+<span class="function"><a href="gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object</span><span class="symbol">);</span><span class="normal"> </span><span class="comment">/* release previously acquired reference */</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -323,7 +331,7 @@ to the <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span cl
 <pre class="programlisting">struct GObjectClass {
   GTypeClass   g_type_class;
 
-  /* seldomly overidden */
+  /* seldom overidden */
   GObject*   (*constructor)     (GType                  type,
                                  guint                  n_construct_properties,
                                  GObjectConstructParam *construct_properties);
@@ -338,7 +346,7 @@ to the <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span cl
                                          GParamSpec     *pspec);
   void       (*dispose)			(GObject        *object);
   void       (*finalize)		(GObject        *object);
-  /* seldomly overidden */
+  /* seldom overidden */
   void       (*dispatch_properties_changed) (GObject      *object,
 					     guint	   n_pspecs,
 					     GParamSpec  **pspecs);
@@ -356,7 +364,7 @@ The class structure for the <span class="structname">GObject</span> type.
 <p>
 </p>
 <div class="example">
-<a name="id408435"></a><p class="title"><b>Example 1. Implementing singletons using a constructor</b></p>
+<a name="id599746"></a><p class="title"><b>Example 1. Implementing singletons using a constructor</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -894,7 +902,7 @@ class initialization:
 
 <span class="normal">  obj_properties</span><span class="symbol">[</span><span class="normal">PROP_FOO</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span>
 <span class="normal">    </span><span class="function"><a href="gobject-Standard-Parameter-and-Value-Types.html#g-param-spec-int">g_param_spec_int</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"foo"</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"Foo"</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"Foo"</span><span class="symbol">,</span>
-<span class="normal">                      </span><span class="symbol">-</span><span class="number">1</span><span class="symbol">,</span><span class="normal"> <a href="./../glib/glib/glib-Limits-of-Basic-Types.html#G-MAXINT:CAPS">G_MAXINT</a></span><span class="symbol">,</span>
+<span class="normal">                      </span><span class="symbol">-</span><span class="number">1</span><span class="symbol">,</span><span class="normal"> <a href="./../glib/glib/glib-Basic-Types.html#G-MAXINT:CAPS">G_MAXINT</a></span><span class="symbol">,</span>
 <span class="normal">                      </span><span class="number">0</span><span class="symbol">,</span>
 <span class="normal">                      <a href="gobject-GParamSpec.html#G-PARAM-READWRITE:CAPS">G_PARAM_READWRITE</a></span><span class="symbol">);</span>
 
@@ -1464,7 +1472,7 @@ reference.
 <p>
 This function is intended for <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> implementations to re-enforce a
 <a class="link" href="gobject-The-Base-Object-Type.html#floating-ref">floating</a> object reference.
-Doing this is seldomly required: all
+Doing this is seldom required: all
 <a class="link" href="gobject-The-Base-Object-Type.html#GInitiallyUnowned" title="GInitiallyUnowned"><span class="type">GInitiallyUnowned</span></a>s are created with a floating reference which
 usually just needs to be sunken by calling <a class="link" href="gobject-The-Base-Object-Type.html#g-object-ref-sink" title="g_object_ref_sink ()"><code class="function">g_object_ref_sink()</code></a>.
 </p>
@@ -1487,7 +1495,7 @@ usually just needs to be sunken by calling <a class="link" href="gobject-The-Bas
 A <a class="link" href="gobject-The-Base-Object-Type.html#GWeakNotify" title="GWeakNotify ()"><span class="type">GWeakNotify</span></a> function can be added to an object as a callback that gets
 triggered when the object is finalized. Since the object is already being
 finalized when the <a class="link" href="gobject-The-Base-Object-Type.html#GWeakNotify" title="GWeakNotify ()"><span class="type">GWeakNotify</span></a> is called, there's not much you could do 
-with the object, apart from e.g. using its adress as hash-index or the like.
+with the object, apart from e.g. using its address as hash-index or the like.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1515,6 +1523,12 @@ used for notification when an object is finalized. They are called
 "weak references" because they allow you to safely hold a pointer
 to an object without calling <a class="link" href="gobject-The-Base-Object-Type.html#g-object-ref" title="g_object_ref ()"><code class="function">g_object_ref()</code></a> (<a class="link" href="gobject-The-Base-Object-Type.html#g-object-ref" title="g_object_ref ()"><code class="function">g_object_ref()</code></a> adds a
 strong reference, that is, forces the object to stay alive).
+</p>
+<p>
+Note that the weak references created by this method are not
+thread-safe: they cannot safely be used in one thread if the
+object's last <a class="link" href="gobject-The-Base-Object-Type.html#g-object-unref" title="g_object_unref ()"><code class="function">g_object_unref()</code></a> might happen in another thread.
+Use <a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a> if thread-safety is required.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1573,6 +1587,12 @@ Adds a weak reference from weak_pointer to <em class="parameter"><code>object</c
 the pointer located at <em class="parameter"><code>weak_pointer_location</code></em> is only valid during
 the lifetime of <em class="parameter"><code>object</code></em>. When the <em class="parameter"><code>object</code></em> is finalized,
 <em class="parameter"><code>weak_pointer</code></em> will be set to <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+</p>
+<p>
+Note that as with <a class="link" href="gobject-The-Base-Object-Type.html#g-object-weak-ref" title="g_object_weak_ref ()"><code class="function">g_object_weak_ref()</code></a>, the weak references created by
+this method are not thread-safe: they cannot safely be used in one
+thread if the object's last <a class="link" href="gobject-The-Base-Object-Type.html#g-object-unref" title="g_object_unref ()"><code class="function">g_object_unref()</code></a> might happen in another
+thread. Use <a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a> if thread-safety is required.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1677,7 +1697,7 @@ true) or weak to strong (<em class="parameter"><code>is_last_ref</code></em> fal
 </p>
 <p>
 Since a (normal) reference must be held to the object before
-calling <code class="function">g_object_toggle_ref()</code>, the initial state of the reverse
+calling <a class="link" href="gobject-The-Base-Object-Type.html#g-object-add-toggle-ref" title="g_object_add_toggle_ref ()"><code class="function">g_object_add_toggle_ref()</code></a>, the initial state of the reverse
 link is always strong.
 </p>
 <p>
@@ -1826,12 +1846,12 @@ equivalent to <code class="literal">g_signal_connect_object (..., G_CONNECT_SWAP
 7
 8</pre></td>
         <td class="listing_code"><pre class="programlisting"><span class="normal">menu</span><span class="symbol">-&gt;</span><span class="normal">toplevel </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gobject-The-Base-Object-Type.html#g-object-connect">g_object_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="gobject-The-Base-Object-Type.html#g-object-new">g_object_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">GTK_TYPE_WINDOW</span><span class="symbol">,</span>
-<span class="normal">                           </span><span class="string">"type"</span><span class="symbol">,</span><span class="normal"> <a href="http://library.gnome.org/devel/gtk/gtk3-Standard-Enumerations.html#GTK-WINDOW-POPUP:CAPS">GTK_WINDOW_POPUP</a></span><span class="symbol">,</span>
+<span class="normal">                           </span><span class="string">"type"</span><span class="symbol">,</span><span class="normal"> <a href="http://developer.gnome.org/devel/gtk/gtk3-Standard-Enumerations.html#GTK-WINDOW-POPUP:CAPS">GTK_WINDOW_POPUP</a></span><span class="symbol">,</span>
 <span class="normal">                           </span><span class="string">"child"</span><span class="symbol">,</span><span class="normal"> menu</span><span class="symbol">,</span>
 <span class="normal">                           <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">),</span>
 <span class="normal">                     </span><span class="string">"signal::event"</span><span class="symbol">,</span><span class="normal"> gtk_menu_window_event</span><span class="symbol">,</span><span class="normal"> menu</span><span class="symbol">,</span>
 <span class="normal">                     </span><span class="string">"signal::size_request"</span><span class="symbol">,</span><span class="normal"> gtk_menu_window_size_request</span><span class="symbol">,</span><span class="normal"> menu</span><span class="symbol">,</span>
-<span class="normal">                     </span><span class="string">"signal::destroy"</span><span class="symbol">,</span><span class="normal"> <a href="http://library.gnome.org/devel/gtk/GtkWidget.html#gtk-widget-destroyed">gtk_widget_destroyed</a></span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">menu</span><span class="symbol">-&gt;</span><span class="normal">toplevel</span><span class="symbol">,</span>
+<span class="normal">                     </span><span class="string">"signal::destroy"</span><span class="symbol">,</span><span class="normal"> <a href="http://developer.gnome.org/devel/gtk/GtkWidget.html#gtk-widget-destroyed">gtk_widget_destroyed</a></span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">menu</span><span class="symbol">-&gt;</span><span class="normal">toplevel</span><span class="symbol">,</span>
 <span class="normal">                     <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
@@ -1954,7 +1974,7 @@ the type, for instance by calling <a href="./../glib/glib/glib-Memory-Allocation
 <p>
 </p>
 <div class="example">
-<a name="id449602"></a><p class="title"><b>Example 2. Using g_object_get()</b></p>
+<a name="id642140"></a><p class="title"><b>Example 2. Using g_object_get()</b></p>
 <div class="example-contents">
 An example of using <a class="link" href="gobject-The-Base-Object-Type.html#g-object-get" title="g_object_get ()"><code class="function">g_object_get()</code></a> to get the contents
 of three properties - one of type <a class="link" href="gobject-Type-Information.html#G-TYPE-INT:CAPS" title="G_TYPE_INT"><span class="type">G_TYPE_INT</span></a>,
@@ -2079,18 +2099,18 @@ instead, is to store the GParamSpec used with
 <span class="normal">  PROP_LAST</span>
 <span class="cbracket">}</span><span class="symbol">;</span>
 
-<span class="keyword">static</span><span class="normal"> </span><span class="usertype">GParamSpec</span><span class="normal"> </span><span class="symbol">*</span><span class="normal"><a href="/usr/share/gtk-doc/html/libbonobo/properties.html">properties</a></span><span class="symbol">[</span><span class="normal">PROP_LAST</span><span class="symbol">];</span>
+<span class="keyword">static</span><span class="normal"> </span><span class="usertype">GParamSpec</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">properties</span><span class="symbol">[</span><span class="normal">PROP_LAST</span><span class="symbol">];</span>
 
 <span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
 <span class="function">my_object_class_init</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">MyObjectClass</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">klass</span><span class="symbol">)</span>
 <span class="cbracket">{</span>
-<span class="normal">  <a href="/usr/share/gtk-doc/html/libbonobo/properties.html">properties</a></span><span class="symbol">[</span><span class="normal">PROP_FOO</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gobject-Standard-Parameter-and-Value-Types.html#g-param-spec-int">g_param_spec_int</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"foo"</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"Foo"</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"The foo"</span><span class="symbol">,</span>
+<span class="normal">  properties</span><span class="symbol">[</span><span class="normal">PROP_FOO</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gobject-Standard-Parameter-and-Value-Types.html#g-param-spec-int">g_param_spec_int</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"foo"</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"Foo"</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"The foo"</span><span class="symbol">,</span>
 <span class="normal">                                           </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">100</span><span class="symbol">,</span>
 <span class="normal">                                           </span><span class="number">50</span><span class="symbol">,</span>
 <span class="normal">                                           <a href="gobject-GParamSpec.html#G-PARAM-READWRITE:CAPS">G_PARAM_READWRITE</a></span><span class="symbol">);</span>
 <span class="normal">  </span><span class="function"><a href="gobject-The-Base-Object-Type.html#g-object-class-install-property">g_object_class_install_property</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">gobject_class</span><span class="symbol">,</span>
 <span class="normal">                                   PROP_FOO</span><span class="symbol">,</span>
-<span class="normal">                                   <a href="/usr/share/gtk-doc/html/libbonobo/properties.html">properties</a></span><span class="symbol">[</span><span class="normal">PROP_FOO</span><span class="symbol">]);</span>
+<span class="normal">                                   properties</span><span class="symbol">[</span><span class="normal">PROP_FOO</span><span class="symbol">]);</span>
 <span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
@@ -2109,7 +2129,7 @@ and then notify a change on the "foo" property with:
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="gobject-The-Base-Object-Type.html#g-object-notify-by-pspec">g_object_notify_by_pspec</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">,</span><span class="normal"> <a href="/usr/share/gtk-doc/html/libbonobo/properties.html">properties</a></span><span class="symbol">[</span><span class="normal">PROP_FOO</span><span class="symbol">]);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="gobject-The-Base-Object-Type.html#g-object-notify-by-pspec">g_object_notify_by_pspec</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">,</span><span class="normal"> properties</span><span class="symbol">[</span><span class="normal">PROP_FOO</span><span class="symbol">]);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -2746,6 +2766,161 @@ properties in <code class="function">set_property()</code> and <code class="func
 </tbody>
 </table></div>
 </div>
+<hr>
+<div class="refsect2">
+<a name="GWeakRef"></a><h3>GWeakRef</h3>
+<pre class="programlisting">typedef struct {
+} GWeakRef;
+</pre>
+<p>
+A structure containing a weak reference to a <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>.  It can either
+be empty (i.e. point to <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>), or point to an object for as long as
+at least one "strong" reference to that object exists. Before the
+object's <a class="link" href="gobject-The-Base-Object-Type.html#GObjectClass.dispose"><span class="type">GObjectClass.dispose</span></a> method is called, every <a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a>
+associated with becomes empty (i.e. points to <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>).
+</p>
+<p>
+Like <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a>, <a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a> can be statically allocated, stack- or
+heap-allocated, or embedded in larger structures.
+</p>
+<p>
+Unlike <a class="link" href="gobject-The-Base-Object-Type.html#g-object-weak-ref" title="g_object_weak_ref ()"><code class="function">g_object_weak_ref()</code></a> and <a class="link" href="gobject-The-Base-Object-Type.html#g-object-add-weak-pointer" title="g_object_add_weak_pointer ()"><code class="function">g_object_add_weak_pointer()</code></a>, this weak
+reference is thread-safe: converting a weak pointer to a reference is
+atomic with respect to invalidation of weak pointers to destroyed
+objects.
+</p>
+<p>
+If the object's <a class="link" href="gobject-The-Base-Object-Type.html#GObjectClass.dispose"><span class="type">GObjectClass.dispose</span></a> method results in additional
+references to the object being held, any <a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a>s taken
+before it was disposed will continue to point to <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.  If
+<a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a>s are taken after the object is disposed and
+re-referenced, they will continue to point to it until its refcount
+goes back to zero, at which point they too will be invalidated.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-weak-ref-init"></a><h3>g_weak_ref_init ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_weak_ref_init                     (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a> *weak_ref</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> object</code></em>);</pre>
+<p>
+Initialise a non-statically-allocated <a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a>.
+</p>
+<p>
+This function also calls <a class="link" href="gobject-The-Base-Object-Type.html#g-weak-ref-set" title="g_weak_ref_set ()"><code class="function">g_weak_ref_set()</code></a> with <em class="parameter"><code>object</code></em> on the
+freshly-initialised weak reference.
+</p>
+<p>
+This function should always be matched with a call to
+<a class="link" href="gobject-The-Base-Object-Type.html#g-weak-ref-clear" title="g_weak_ref_clear ()"><code class="function">g_weak_ref_clear()</code></a>.  It is not necessary to use this function for a
+<a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a> in static storage because it will already be
+properly initialised.  Just use <a class="link" href="gobject-The-Base-Object-Type.html#g-weak-ref-set" title="g_weak_ref_set ()"><code class="function">g_weak_ref_set()</code></a> directly.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>weak_ref</code></em> :</span></p></td>
+<td>uninitialized or empty location for a weak
+reference. <span class="annotation">[<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>a <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.32</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-weak-ref-clear"></a><h3>g_weak_ref_clear ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_weak_ref_clear                    (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a> *weak_ref</code></em>);</pre>
+<p>
+Frees resources associated with a non-statically-allocated <a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a>.
+After this call, the <a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a> is left in an undefined state.
+</p>
+<p>
+You should only call this on a <a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a> that previously had
+<a class="link" href="gobject-The-Base-Object-Type.html#g-weak-ref-init" title="g_weak_ref_init ()"><code class="function">g_weak_ref_init()</code></a> called on it.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>weak_ref</code></em> :</span></p></td>
+<td>location of a weak reference, which
+may be empty. <span class="annotation">[<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.32</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-weak-ref-get"></a><h3>g_weak_ref_get ()</h3>
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            g_weak_ref_get                      (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a> *weak_ref</code></em>);</pre>
+<p>
+If <em class="parameter"><code>weak_ref</code></em> is not empty, atomically acquire a strong
+reference to the object it points to, and return that reference.
+</p>
+<p>
+This function is needed because of the potential race between taking
+the pointer value and <a class="link" href="gobject-The-Base-Object-Type.html#g-object-ref" title="g_object_ref ()"><code class="function">g_object_ref()</code></a> on it, if the object was losing
+its last reference at the same time in a different thread.
+</p>
+<p>
+The caller should release the resulting reference in the usual way,
+by using <a class="link" href="gobject-The-Base-Object-Type.html#g-object-unref" title="g_object_unref ()"><code class="function">g_object_unref()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>weak_ref</code></em> :</span></p></td>
+<td>location of a weak reference to a <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the object pointed to
+by <em class="parameter"><code>weak_ref</code></em>, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if it was empty. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.32</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-weak-ref-set"></a><h3>g_weak_ref_set ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_weak_ref_set                      (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a> *weak_ref</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> object</code></em>);</pre>
+<p>
+Change the object to which <em class="parameter"><code>weak_ref</code></em> points, or set it to
+<a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+</p>
+<p>
+You must own a strong reference on <em class="parameter"><code>object</code></em> while calling this
+function.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>weak_ref</code></em> :</span></p></td>
+<td>location for a weak reference</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>a <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.32</p>
+</div>
 </div>
 <div class="refsect1">
 <a name="gobject-The-Base-Object-Type.signal-details"></a><h2>Signal Details</h2>
@@ -2812,6 +2987,6 @@ detail strings for the notify signal.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

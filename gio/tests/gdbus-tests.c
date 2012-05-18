@@ -60,7 +60,7 @@ _g_assert_property_notify_run (gpointer     object,
   guint timeout_id;
   PropertyNotifyData data;
 
-  data.loop = g_main_loop_new (NULL, FALSE);
+  data.loop = g_main_loop_new (g_main_context_get_thread_default (), FALSE);
   data.timed_out = FALSE;
   s = g_strdup_printf ("notify::%s", property_name);
   handler_id = g_signal_connect (object,
@@ -111,7 +111,7 @@ _g_assert_signal_received_run (gpointer     object,
   guint timeout_id;
   SignalReceivedData data;
 
-  data.loop = g_main_loop_new (NULL, FALSE);
+  data.loop = g_main_loop_new (g_main_context_get_thread_default (), FALSE);
   data.timed_out = FALSE;
   handler_id = g_signal_connect_swapped (object,
                                          signal_name,
@@ -158,7 +158,7 @@ _g_bus_get_priv (GBusType            bus_type,
 
 /* ---------------------------------------------------------------------------------------------------- */
 
-#if 1
+#if 0
 /* toggle refs are not easy to use (maybe not even safe) when multiple
  * threads are involved so implement this by busy-waiting for now
  */

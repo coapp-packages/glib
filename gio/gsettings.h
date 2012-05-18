@@ -26,6 +26,7 @@
 #ifndef __G_SETTINGS_H__
 #define __G_SETTINGS_H__
 
+#include <gio/gsettingsschema.h>
 #include <gio/giotypes.h>
 
 G_BEGIN_DECLS
@@ -72,12 +73,15 @@ GType                   g_settings_get_type                             (void);
 
 const gchar * const *   g_settings_list_schemas                         (void);
 const gchar * const *   g_settings_list_relocatable_schemas             (void);
-GSettings *             g_settings_new                                  (const gchar        *schema);
-GSettings *             g_settings_new_with_path                        (const gchar        *schema,
+GSettings *             g_settings_new                                  (const gchar        *schema_id);
+GSettings *             g_settings_new_with_path                        (const gchar        *schema_id,
                                                                          const gchar        *path);
-GSettings *             g_settings_new_with_backend                     (const gchar        *schema,
+GSettings *             g_settings_new_with_backend                     (const gchar        *schema_id,
                                                                          GSettingsBackend   *backend);
-GSettings *             g_settings_new_with_backend_and_path            (const gchar        *schema,
+GSettings *             g_settings_new_with_backend_and_path            (const gchar        *schema_id,
+                                                                         GSettingsBackend   *backend,
+                                                                         const gchar        *path);
+GSettings *             g_settings_new_full                             (GSettingsSchema    *schema,
                                                                          GSettingsBackend   *backend,
                                                                          const gchar        *path);
 gchar **                g_settings_list_children                        (GSettings          *settings);
@@ -110,6 +114,11 @@ gint                    g_settings_get_int                              (GSettin
 gboolean                g_settings_set_int                              (GSettings          *settings,
                                                                          const gchar        *key,
                                                                          gint                value);
+guint                   g_settings_get_uint                             (GSettings          *settings,
+                                                                         const gchar        *key);
+gboolean                g_settings_set_uint                             (GSettings          *settings,
+                                                                         const gchar        *key,
+                                                                         guint               value);
 gchar *                 g_settings_get_string                           (GSettings          *settings,
                                                                          const gchar        *key);
 gboolean                g_settings_set_string                           (GSettings          *settings,
@@ -157,11 +166,12 @@ void                    g_settings_sync                                 (void);
  * @value: a #GValue containing the property value to map
  * @expected_type: the #GVariantType to create
  * @user_data: user data that was specified when the binding was created
- * @returns: a new #GVariant holding the data from @value,
- *     or %NULL in case of an error
  *
  * The type for the function that is used to convert an object property
  * value to a #GVariant for storing it in #GSettings.
+ *
+ * Returns: a new #GVariant holding the data from @value,
+ *     or %NULL in case of an error
  */
 typedef GVariant *    (*GSettingsBindSetMapping)                        (const GValue       *value,
                                                                          const GVariantType *expected_type,
@@ -172,11 +182,12 @@ typedef GVariant *    (*GSettingsBindSetMapping)                        (const G
  * @value: return location for the property value
  * @variant: the #GVariant
  * @user_data: user data that was specified when the binding was created
- * @returns: %TRUE if the conversion succeeded, %FALSE in case of an error
  *
  * The type for the function that is used to convert from #GSettings to
  * an object property. The @value is already initialized to hold values
  * of the appropriate type.
+ *
+ * Returns: %TRUE if the conversion succeeded, %FALSE in case of an error
  */
 typedef gboolean      (*GSettingsBindGetMapping)                        (GValue             *value,
                                                                          GVariant           *variant,
@@ -188,7 +199,6 @@ typedef gboolean      (*GSettingsBindGetMapping)                        (GValue 
  * @result: (out): the result of the mapping
  * @user_data: (closure): the user data that was passed to
  * g_settings_get_mapped()
- * @returns: %TRUE if the conversion succeeded, %FALSE in case of an error
  *
  * The type of the function that is used to convert from a value stored
  * in a #GSettings to a value that is useful to the application.
@@ -200,6 +210,8 @@ typedef gboolean      (*GSettingsBindGetMapping)                        (GValue 
  * If @value is %NULL then it means that the mapping function is being
  * given a "last chance" to successfully return a valid value.  %TRUE
  * must be returned in this case.
+ *
+ * Returns: %TRUE if the conversion succeeded, %FALSE in case of an error
  **/
 typedef gboolean      (*GSettingsGetMapping)                            (GVariant           *value,
                                                                          gpointer           *result,
@@ -217,7 +229,7 @@ typedef gboolean      (*GSettingsGetMapping)                            (GVarian
  *     value initially from the setting, but do not listen for changes of the setting
  * @G_SETTINGS_BIND_INVERT_BOOLEAN: When passed to g_settings_bind(), uses a pair of mapping functions that invert
  *     the boolean value when mapping between the setting and the property.  The setting and property must both
- *     be booleans.  You can not pass this flag to g_settings_bind_with_mapping().
+ *     be booleans.  You cannot pass this flag to g_settings_bind_with_mapping().
  *
  * Flags used when creating a binding. These flags determine in which
  * direction the binding works. The default is to synchronize in both
@@ -254,6 +266,9 @@ void                    g_settings_bind_writable                        (GSettin
                                                                          gboolean                 inverted);
 void                    g_settings_unbind                               (gpointer                 object,
                                                                          const gchar             *property);
+
+GAction *               g_settings_create_action                        (GSettings               *settings,
+                                                                         const gchar             *key);
 
 gpointer                g_settings_get_mapped                           (GSettings               *settings,
                                                                          const gchar             *key,

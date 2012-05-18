@@ -2,12 +2,12 @@
 .\"     Title: gsettings
 .\"    Author: [FIXME: author] [see http://docbook.sf.net/el/author]
 .\" Generator: DocBook XSL Stylesheets v1.76.1 <http://docbook.sf.net/>
-.\"      Date: 06/05/2011
+.\"      Date: 05/14/2012
 .\"    Manual: User Commands
 .\"    Source: User Commands
 .\"  Language: English
 .\"
-.TH "GSETTINGS" "1" "06/05/2011" "User Commands" "User Commands"
+.TH "GSETTINGS" "1" "05/14/2012" "User Commands" "User Commands"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -33,7 +33,7 @@ gsettings \- GSettings configuration tool
 .HP \w'\fBgsettings\fR\ 'u
 \fBgsettings\fR get \fISCHEMA\fR\ [:\fIPATH\fR]  \fIKEY\fR
 .HP \w'\fBgsettings\fR\ 'u
-\fBgsettings\fR monitor \fISCHEMA\fR\ [:\fIPATH\fR]  \fIKEY\fR
+\fBgsettings\fR monitor \fISCHEMA\fR\ [:\fIPATH\fR]  [\fIKEY\fR]
 .HP \w'\fBgsettings\fR\ 'u
 \fBgsettings\fR writable \fISCHEMA\fR\ [:\fIPATH\fR]  \fIKEY\fR
 .HP \w'\fBgsettings\fR\ 'u
@@ -43,6 +43,8 @@ gsettings \- GSettings configuration tool
 .HP \w'\fBgsettings\fR\ 'u
 \fBgsettings\fR reset \fISCHEMA\fR\ [:\fIPATH\fR]  \fIKEY\fR
 .HP \w'\fBgsettings\fR\ 'u
+\fBgsettings\fR reset\-recursively \fISCHEMA\fR\ [:\fIPATH\fR] 
+.HP \w'\fBgsettings\fR\ 'u
 \fBgsettings\fR list\-schemas
 .HP \w'\fBgsettings\fR\ 'u
 \fBgsettings\fR list\-relocatable\-schemas
@@ -51,7 +53,7 @@ gsettings \- GSettings configuration tool
 .HP \w'\fBgsettings\fR\ 'u
 \fBgsettings\fR list\-children \fISCHEMA\fR\ [:\fIPATH\fR] 
 .HP \w'\fBgsettings\fR\ 'u
-\fBgsettings\fR list\-recursively \fISCHEMA\fR\ [:\fIPATH\fR] 
+\fBgsettings\fR list\-recursively [\fISCHEMA\fR\ [:\fIPATH\fR]]
 .HP \w'\fBgsettings\fR\ 'u
 \fBgsettings\fR help [\fICOMMAND\fR]
 .SH "DESCRIPTION"
@@ -84,7 +86,9 @@ Gets the value of
 .RS 4
 Monitors
 \fIKEY\fR
-for changes and prints the changed values\&. Monitoring will continue until the process is terminated\&.
+for changes and prints the changed values\&. If no
+\fIKEY\fR
+is specified, all keys in the schema are monitored\&. Monitoring will continue until the process is terminated\&.
 .RE
 .PP
 \fBwritable\fR
@@ -116,6 +120,12 @@ Resets
 to its default value\&.
 .RE
 .PP
+\fBreset\-recursively\fR
+.RS 4
+Reset all keys under the given
+\fISCHEMA\fR\&.
+.RE
+.PP
 \fBlist\-schemas\fR
 .RS 4
 Lists the installed, non\-relocatable schemas\&. See
@@ -144,7 +154,9 @@ Lists the children of
 .PP
 \fBlist\-recursively\fR
 .RS 4
-Lists keys and values, recursively\&.
+Lists keys and values, recursively\&. If no
+\fISCHEMA\fR
+is given, list keys in all schemas\&.
 .RE
 .PP
 \fBhelp\fR
