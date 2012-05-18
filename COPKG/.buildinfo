@@ -14,6 +14,7 @@ x86 {
     compiler: vc10;
 
     requires: "libintl-dev[vc10]-${libintl-dep-version}-x86-${libintl-dep-publickeytoken}";
+    requires: "libffi-dev[vc10]-${libffi-dep-version}-x86-${libffi-dep-publickeytoken}";
 
     targets: { 
         "vs10\Win32\bin\gio-2-vs10.dll",

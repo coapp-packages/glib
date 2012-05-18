@@ -17,6 +17,7 @@ package {
 }
 
 requires {
+	package: "libffi[${flavor}]-${libffi-dep-version}-${arch}-${libffi-dep-publickeytoken}";
 	package: "libintl[${flavor}]-${libintl-dep-version}-${arch}-${libintl-dep-publickeytoken}";
 }
 
@@ -44,9 +45,10 @@ signing {
     };    
 }
 
-manifest[libintl] {
+manifest[glibdeps] {
 	assembly : {
 		"libintl[${flavor}]",
+		"libffi[${flavor}]",
 	};
 
 	include : {

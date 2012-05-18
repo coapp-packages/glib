@@ -9,3 +9,7 @@
 #define { libintl-dep-version: "0.18.1"; }
 
 #define { libintl-dep-publickeytoken: "${deps-publickeytoken}"; }
+
+#define { libffi-dep-version: "3.0.10"; }
+
+#define { libffi-dep-publickeytoken: "${deps-publickeytoken}"; }
