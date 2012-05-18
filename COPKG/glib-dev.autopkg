@@ -81,6 +81,7 @@ files[exes] {
     include: {
         "glib-genmarshal.exe",
 		"glib-compile-schemas.exe",
+		"glib-compile-resources.exe",
     };
 
     trim-path: all;

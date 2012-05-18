@@ -119,6 +119,7 @@ files[exes] {
 
     include: {
         "gsettings.exe",
+        "gresource.exe",
     };
 
     trim-path: all;
