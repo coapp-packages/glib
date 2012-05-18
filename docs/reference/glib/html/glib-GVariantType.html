@@ -6,15 +6,15 @@
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-data-types.html" title="GLib Data Types">
-<link rel="prev" href="glib-Memory-Allocators.html" title="Memory Allocators">
+<link rel="prev" href="glib-Datasets.html" title="Datasets">
 <link rel="next" href="glib-GVariant.html" title="GVariant">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
 <tr valign="middle">
-<td><a accesskey="p" href="glib-Memory-Allocators.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="p" href="glib-Datasets.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="glib-data-types.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">GLib Reference Manual</th>
@@ -64,23 +64,23 @@
 #define             <a class="link" href="glib-GVariantType.html#G-VARIANT-TYPE-DICT-ENTRY:CAPS" title="G_VARIANT_TYPE_DICT_ENTRY">G_VARIANT_TYPE_DICT_ENTRY</a>
 #define             <a class="link" href="glib-GVariantType.html#G-VARIANT-TYPE-DICTIONARY:CAPS" title="G_VARIANT_TYPE_DICTIONARY">G_VARIANT_TYPE_DICTIONARY</a>
 #define             <a class="link" href="glib-GVariantType.html#G-VARIANT-TYPE-STRING-ARRAY:CAPS" title="G_VARIANT_TYPE_STRING_ARRAY">G_VARIANT_TYPE_STRING_ARRAY</a>
+#define             <a class="link" href="glib-GVariantType.html#G-VARIANT-TYPE-OBJECT-PATH-ARRAY:CAPS" title="G_VARIANT_TYPE_OBJECT_PATH_ARRAY">G_VARIANT_TYPE_OBJECT_PATH_ARRAY</a>
 #define             <a class="link" href="glib-GVariantType.html#G-VARIANT-TYPE-BYTESTRING:CAPS" title="G_VARIANT_TYPE_BYTESTRING">G_VARIANT_TYPE_BYTESTRING</a>
 #define             <a class="link" href="glib-GVariantType.html#G-VARIANT-TYPE-BYTESTRING-ARRAY:CAPS" title="G_VARIANT_TYPE_BYTESTRING_ARRAY">G_VARIANT_TYPE_BYTESTRING_ARRAY</a>
+#define             <a class="link" href="glib-GVariantType.html#G-VARIANT-TYPE-VARDICT:CAPS" title="G_VARIANT_TYPE_VARDICT">G_VARIANT_TYPE_VARDICT</a>
 
 #define             <a class="link" href="glib-GVariantType.html#G-VARIANT-TYPE:CAPS" title="G_VARIANT_TYPE()">G_VARIANT_TYPE</a>                      (type_string)
 <span class="returnvalue">void</span>                <a class="link" href="glib-GVariantType.html#g-variant-type-free" title="g_variant_type_free ()">g_variant_type_free</a>                 (<em class="parameter"><code><a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
-<a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *                   <a class="link" href="glib-GVariantType.html#g-variant-type-copy" title="g_variant_type_copy ()">g_variant_type_copy</a>    (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
-<a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *                   <a class="link" href="glib-GVariantType.html#g-variant-type-new" title="g_variant_type_new ()">g_variant_type_new</a>     (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *type_string</code></em>);
+<a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *      <a class="link" href="glib-GVariantType.html#g-variant-type-copy" title="g_variant_type_copy ()">g_variant_type_copy</a>                 (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
+<a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *      <a class="link" href="glib-GVariantType.html#g-variant-type-new" title="g_variant_type_new ()">g_variant_type_new</a>                  (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *type_string</code></em>);
 
 <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="glib-GVariantType.html#g-variant-type-string-is-valid" title="g_variant_type_string_is_valid ()">g_variant_type_string_is_valid</a>      (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *type_string</code></em>);
 <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="glib-GVariantType.html#g-variant-type-string-scan" title="g_variant_type_string_scan ()">g_variant_type_string_scan</a>          (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *limit</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> **endptr</code></em>);
 <a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="returnvalue">gsize</span></a>               <a class="link" href="glib-GVariantType.html#g-variant-type-get-string-length" title="g_variant_type_get_string_length ()">g_variant_type_get_string_length</a>    (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
-const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                    <a class="link" href="glib-GVariantType.html#g-variant-type-peek-string" title="g_variant_type_peek_string ()">g_variant_type_peek_string</a>
-                                                        (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                          <a class="link" href="glib-GVariantType.html#g-variant-type-dup-string" title="g_variant_type_dup_string ()">g_variant_type_dup_string</a>
-                                                        (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
+const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="glib-GVariantType.html#g-variant-type-peek-string" title="g_variant_type_peek_string ()">g_variant_type_peek_string</a>          (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-GVariantType.html#g-variant-type-dup-string" title="g_variant_type_dup_string ()">g_variant_type_dup_string</a>           (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
 
 <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="glib-GVariantType.html#g-variant-type-is-definite" title="g_variant_type_is_definite ()">g_variant_type_is_definite</a>          (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
 <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="glib-GVariantType.html#g-variant-type-is-container" title="g_variant_type_is_container ()">g_variant_type_is_container</a>         (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
@@ -97,23 +97,19 @@ const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span cla
 <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="glib-GVariantType.html#g-variant-type-is-subtype-of" title="g_variant_type_is_subtype_of ()">g_variant_type_is_subtype_of</a>        (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *supertype</code></em>);
 
-<a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *                   <a class="link" href="glib-GVariantType.html#g-variant-type-new-maybe" title="g_variant_type_new_maybe ()">g_variant_type_new_maybe</a>
-                                                        (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *element</code></em>);
-<a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *                   <a class="link" href="glib-GVariantType.html#g-variant-type-new-array" title="g_variant_type_new_array ()">g_variant_type_new_array</a>
-                                                        (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *element</code></em>);
-<a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *                   <a class="link" href="glib-GVariantType.html#g-variant-type-new-tuple" title="g_variant_type_new_tuple ()">g_variant_type_new_tuple</a>
-                                                        (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> * const *items</code></em>,
+<a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *      <a class="link" href="glib-GVariantType.html#g-variant-type-new-maybe" title="g_variant_type_new_maybe ()">g_variant_type_new_maybe</a>            (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *element</code></em>);
+<a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *      <a class="link" href="glib-GVariantType.html#g-variant-type-new-array" title="g_variant_type_new_array ()">g_variant_type_new_array</a>            (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *element</code></em>);
+<a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *      <a class="link" href="glib-GVariantType.html#g-variant-type-new-tuple" title="g_variant_type_new_tuple ()">g_variant_type_new_tuple</a>            (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> * const *items</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> length</code></em>);
-<a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *                   <a class="link" href="glib-GVariantType.html#g-variant-type-new-dict-entry" title="g_variant_type_new_dict_entry ()">g_variant_type_new_dict_entry</a>
-                                                        (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *key</code></em>,
+<a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *      <a class="link" href="glib-GVariantType.html#g-variant-type-new-dict-entry" title="g_variant_type_new_dict_entry ()">g_variant_type_new_dict_entry</a>       (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *key</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *value</code></em>);
 
-const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *             <a class="link" href="glib-GVariantType.html#g-variant-type-element" title="g_variant_type_element ()">g_variant_type_element</a> (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
+const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> * <a class="link" href="glib-GVariantType.html#g-variant-type-element" title="g_variant_type_element ()">g_variant_type_element</a>             (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
 <a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="returnvalue">gsize</span></a>               <a class="link" href="glib-GVariantType.html#g-variant-type-n-items" title="g_variant_type_n_items ()">g_variant_type_n_items</a>              (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
-const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *             <a class="link" href="glib-GVariantType.html#g-variant-type-first" title="g_variant_type_first ()">g_variant_type_first</a>   (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
-const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *             <a class="link" href="glib-GVariantType.html#g-variant-type-next" title="g_variant_type_next ()">g_variant_type_next</a>    (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
-const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *             <a class="link" href="glib-GVariantType.html#g-variant-type-key" title="g_variant_type_key ()">g_variant_type_key</a>     (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
-const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *             <a class="link" href="glib-GVariantType.html#g-variant-type-value" title="g_variant_type_value ()">g_variant_type_value</a>   (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
+const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> * <a class="link" href="glib-GVariantType.html#g-variant-type-first" title="g_variant_type_first ()">g_variant_type_first</a>               (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
+const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> * <a class="link" href="glib-GVariantType.html#g-variant-type-next" title="g_variant_type_next ()">g_variant_type_next</a>                (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
+const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> * <a class="link" href="glib-GVariantType.html#g-variant-type-key" title="g_variant_type_key ()">g_variant_type_key</a>                 (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
+const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> * <a class="link" href="glib-GVariantType.html#g-variant-type-value" title="g_variant_type_value ()">g_variant_type_value</a>               (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);
 </pre>
 </div>
 <div class="refsect1">
@@ -167,7 +163,7 @@ indefinite type as its type, but values can exist that have types
 that are subtypes of indefinite types.  That is to say,
 <a class="link" href="glib-GVariant.html#g-variant-get-type" title="g_variant_get_type ()"><code class="function">g_variant_get_type()</code></a> will never return an indefinite type, but
 calling <a class="link" href="glib-GVariant.html#g-variant-is-of-type" title="g_variant_is_of_type ()"><code class="function">g_variant_is_of_type()</code></a> with an indefinite type may return
-<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>.  For example, you can not have a value that represents "an
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>.  For example, you cannot have a value that represents "an
 array of no particular type", but you can have an "array of integers"
 which certainly matches the type of "an array of no particular type",
 since "array of integers" is a subtype of "array of no particular
@@ -177,10 +173,10 @@ type".
 This is similar to how instances of abstract classes may not
 directly exist in other type systems, but instances of their
 non-abstract subtypes may.  For example, in GTK, no object that has
-the type of <a href="http://library.gnome.org/devel/gtk/GtkBin.html"><span class="type">GtkBin</span></a> can exist (since <a href="http://library.gnome.org/devel/gtk/GtkBin.html"><span class="type">GtkBin</span></a> is an abstract class),
-but a <a href="http://library.gnome.org/devel/gtk/GtkWindow.html"><span class="type">GtkWindow</span></a> can certainly be instantiated, and you would say
-that the <a href="http://library.gnome.org/devel/gtk/GtkWindow.html"><span class="type">GtkWindow</span></a> is a <a href="http://library.gnome.org/devel/gtk/GtkBin.html"><span class="type">GtkBin</span></a> (since <a href="http://library.gnome.org/devel/gtk/GtkWindow.html"><span class="type">GtkWindow</span></a> is a subclass of
-<a href="http://library.gnome.org/devel/gtk/GtkBin.html"><span class="type">GtkBin</span></a>).
+the type of <a href="http://developer.gnome.org/devel/gtk/GtkBin.html"><span class="type">GtkBin</span></a> can exist (since <a href="http://developer.gnome.org/devel/gtk/GtkBin.html"><span class="type">GtkBin</span></a> is an abstract class),
+but a <a href="http://developer.gnome.org/devel/gtk/GtkWindow.html"><span class="type">GtkWindow</span></a> can certainly be instantiated, and you would say
+that the <a href="http://developer.gnome.org/devel/gtk/GtkWindow.html"><span class="type">GtkWindow</span></a> is a <a href="http://developer.gnome.org/devel/gtk/GtkBin.html"><span class="type">GtkBin</span></a> (since <a href="http://developer.gnome.org/devel/gtk/GtkWindow.html"><span class="type">GtkWindow</span></a> is a subclass of
+<a href="http://developer.gnome.org/devel/gtk/GtkBin.html"><span class="type">GtkBin</span></a>).
 </p>
 <p>
 A detailed description of GVariant type strings is given here:
@@ -826,6 +822,15 @@ The type of an array of strings.
 </div>
 <hr>
 <div class="refsect2">
+<a name="G-VARIANT-TYPE-OBJECT-PATH-ARRAY:CAPS"></a><h3>G_VARIANT_TYPE_OBJECT_PATH_ARRAY</h3>
+<pre class="programlisting">#define G_VARIANT_TYPE_OBJECT_PATH_ARRAY    ((const GVariantType *) "ao")
+</pre>
+<p>
+The type of an array of object paths.
+</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="G-VARIANT-TYPE-BYTESTRING:CAPS"></a><h3>G_VARIANT_TYPE_BYTESTRING</h3>
 <pre class="programlisting">#define G_VARIANT_TYPE_BYTESTRING           ((const GVariantType *) "ay")
 </pre>
@@ -847,6 +852,17 @@ The type of an array of byte strings (an array of arrays of bytes).
 </div>
 <hr>
 <div class="refsect2">
+<a name="G-VARIANT-TYPE-VARDICT:CAPS"></a><h3>G_VARIANT_TYPE_VARDICT</h3>
+<pre class="programlisting">#define G_VARIANT_TYPE_VARDICT              ((const GVariantType *) "a{sv}")
+</pre>
+<p>
+The type of a dictionary mapping strings to variants (the ubiquitous
+"a{sv}" type).
+</p>
+<p class="since">Since 2.30</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="G-VARIANT-TYPE:CAPS"></a><h3>G_VARIANT_TYPE()</h3>
 <pre class="programlisting"># define G_VARIANT_TYPE(type_string)            (g_variant_type_checked_ ((type_string)))
 </pre>
@@ -857,7 +873,8 @@ to ensure that <em class="parameter"><code>string</code></em> is a valid GVarian
 </p>
 <p>
 It is always a programmer error to use this macro with an invalid
-type string.
+type string. If in doubt, use <a class="link" href="glib-GVariantType.html#g-variant-type-string-is-valid" title="g_variant_type_string_is_valid ()"><code class="function">g_variant_type_string_is_valid()</code></a> to
+check if the string is valid.
 </p>
 <p>
 Since 2.24
@@ -889,7 +906,7 @@ Since 2.24
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>a <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr></tbody>
 </table></div>
@@ -897,13 +914,10 @@ Since 2.24
 <hr>
 <div class="refsect2">
 <a name="g-variant-type-copy"></a><h3>g_variant_type_copy ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *                   g_variant_type_copy    (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *      g_variant_type_copy                 (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);</pre>
 <p>
 Makes a copy of a <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a>.  It is appropriate to call
 <a class="link" href="glib-GVariantType.html#g-variant-type-free" title="g_variant_type_free ()"><code class="function">g_variant_type_free()</code></a> on the return value.  <em class="parameter"><code>type</code></em> may not be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
-</p>
-<p>
-Since 2.24
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -915,7 +929,8 @@ Since 2.24
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a new <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+<td>a new <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a>
+Since 2.24. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -924,7 +939,7 @@ Since 2.24
 <hr>
 <div class="refsect2">
 <a name="g-variant-type-new"></a><h3>g_variant_type_new ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *                   g_variant_type_new     (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *type_string</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *      g_variant_type_new                  (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *type_string</code></em>);</pre>
 <p>
 Creates a new <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> corresponding to the type string given
 by <em class="parameter"><code>type_string</code></em>.  It is appropriate to call <a class="link" href="glib-GVariantType.html#g-variant-type-free" title="g_variant_type_free ()"><code class="function">g_variant_type_free()</code></a> on
@@ -959,9 +974,6 @@ Checks if <em class="parameter"><code>type_string</code></em> is a valid GVarian
 equivalent to calling <a class="link" href="glib-GVariantType.html#g-variant-type-string-scan" title="g_variant_type_string_scan ()"><code class="function">g_variant_type_string_scan()</code></a> and confirming
 that the following character is a nul terminator.
 </p>
-<p>
-Since 2.24
-</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -972,7 +984,8 @@ Since 2.24
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type_string</code></em> is exactly one valid type string</td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type_string</code></em> is exactly one valid type string
+Since 2.24</td>
 </tr>
 </tbody>
 </table></div>
@@ -1010,12 +1023,12 @@ see <a class="link" href="glib-GVariantType.html#g-variant-type-string-is-valid"
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>limit</code></em> :</span></p></td>
-<td>the end of <em class="parameter"><code>string</code></em>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>the end of <em class="parameter"><code>string</code></em>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>endptr</code></em> :</span></p></td>
-<td>location to store the end pointer, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>location to store the end pointer, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -1036,9 +1049,6 @@ Returns the length of the type string corresponding to the given
 <em class="parameter"><code>type</code></em>.  This function must be used to determine the valid extent of
 the memory region returned by <a class="link" href="glib-GVariantType.html#g-variant-type-peek-string" title="g_variant_type_peek_string ()"><code class="function">g_variant_type_peek_string()</code></a>.
 </p>
-<p>
-Since 2.24
-</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -1049,7 +1059,8 @@ Since 2.24
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the length of the corresponding type string</td>
+<td>the length of the corresponding type string
+Since 2.24</td>
 </tr>
 </tbody>
 </table></div>
@@ -1057,8 +1068,7 @@ Since 2.24
 <hr>
 <div class="refsect2">
 <a name="g-variant-type-peek-string"></a><h3>g_variant_type_peek_string ()</h3>
-<pre class="programlisting">const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                    g_variant_type_peek_string
-                                                        (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);</pre>
+<pre class="programlisting">const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *       g_variant_type_peek_string          (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);</pre>
 <p>
 Returns the type string corresponding to the given <em class="parameter"><code>type</code></em>.  The
 result is not nul-terminated; in order to determine its length you
@@ -1067,9 +1077,6 @@ must call <a class="link" href="glib-GVariantType.html#g-variant-type-get-string
 <p>
 To get a nul-terminated string, see <a class="link" href="glib-GVariantType.html#g-variant-type-dup-string" title="g_variant_type_dup_string ()"><code class="function">g_variant_type_dup_string()</code></a>.
 </p>
-<p>
-Since 2.24
-</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -1080,7 +1087,8 @@ Since 2.24
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the corresponding type string (not nul-terminated)</td>
+<td>the corresponding type string (not nul-terminated)
+Since 2.24</td>
 </tr>
 </tbody>
 </table></div>
@@ -1088,15 +1096,11 @@ Since 2.24
 <hr>
 <div class="refsect2">
 <a name="g-variant-type-dup-string"></a><h3>g_variant_type_dup_string ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                          g_variant_type_dup_string
-                                                        (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_variant_type_dup_string           (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);</pre>
 <p>
 Returns a newly-allocated copy of the type string corresponding to
 <em class="parameter"><code>type</code></em>.  The returned string is nul-terminated.  It is appropriate to
 call <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> on the return value.
-</p>
-<p>
-Since 2.24
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1108,7 +1112,8 @@ Since 2.24
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the corresponding type string. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+<td>the corresponding type string
+Since 2.24. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1132,9 +1137,6 @@ result in <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE
 indefinite type like <a class="link" href="glib-GVariantType.html#G-VARIANT-TYPE-ARRAY:CAPS" title="G_VARIANT_TYPE_ARRAY"><code class="literal">G_VARIANT_TYPE_ARRAY</code></a>, however, will result in
 <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> being returned.
 </p>
-<p>
-Since 2.24
-</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -1146,7 +1148,8 @@ Since 2.24
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type</code></em> is definite</td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type</code></em> is definite
+Since 2.24</td>
 </tr>
 </tbody>
 </table></div>
@@ -1167,9 +1170,6 @@ This function returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS"
 definite subtype is a container -- <a class="link" href="glib-GVariantType.html#G-VARIANT-TYPE-ARRAY:CAPS" title="G_VARIANT_TYPE_ARRAY"><code class="literal">G_VARIANT_TYPE_ARRAY</code></a>, for
 example.
 </p>
-<p>
-Since 2.24
-</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -1181,7 +1181,8 @@ Since 2.24
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type</code></em> is a container type</td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type</code></em> is a container type
+Since 2.24</td>
 </tr>
 </tbody>
 </table></div>
@@ -1204,9 +1205,6 @@ Only a basic type may be used as the key of a dictionary entry.
 This function returns <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> for all indefinite types except
 <a class="link" href="glib-GVariantType.html#G-VARIANT-TYPE-BASIC:CAPS" title="G_VARIANT_TYPE_BASIC"><code class="literal">G_VARIANT_TYPE_BASIC</code></a>.
 </p>
-<p>
-Since 2.24
-</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -1218,7 +1216,8 @@ Since 2.24
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type</code></em> is a basic type</td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type</code></em> is a basic type
+Since 2.24</td>
 </tr>
 </tbody>
 </table></div>
@@ -1236,9 +1235,6 @@ This function returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS"
 definite subtype is a maybe type -- <a class="link" href="glib-GVariantType.html#G-VARIANT-TYPE-MAYBE:CAPS" title="G_VARIANT_TYPE_MAYBE"><code class="literal">G_VARIANT_TYPE_MAYBE</code></a>, for
 example.
 </p>
-<p>
-Since 2.24
-</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -1250,7 +1246,8 @@ Since 2.24
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type</code></em> is a maybe type</td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type</code></em> is a maybe type
+Since 2.24</td>
 </tr>
 </tbody>
 </table></div>
@@ -1268,9 +1265,6 @@ This function returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS"
 definite subtype is an array type -- <a class="link" href="glib-GVariantType.html#G-VARIANT-TYPE-ARRAY:CAPS" title="G_VARIANT_TYPE_ARRAY"><code class="literal">G_VARIANT_TYPE_ARRAY</code></a>, for
 example.
 </p>
-<p>
-Since 2.24
-</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -1282,7 +1276,8 @@ Since 2.24
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type</code></em> is an array type</td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type</code></em> is an array type
+Since 2.24</td>
 </tr>
 </tbody>
 </table></div>
@@ -1301,9 +1296,6 @@ This function returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS"
 definite subtype is a tuple type -- <a class="link" href="glib-GVariantType.html#G-VARIANT-TYPE-TUPLE:CAPS" title="G_VARIANT_TYPE_TUPLE"><code class="literal">G_VARIANT_TYPE_TUPLE</code></a>, for
 example.
 </p>
-<p>
-Since 2.24
-</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -1315,7 +1307,8 @@ Since 2.24
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type</code></em> is a tuple type</td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type</code></em> is a tuple type
+Since 2.24</td>
 </tr>
 </tbody>
 </table></div>
@@ -1333,9 +1326,6 @@ This function returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS"
 definite subtype is a dictionary entry type --
 <a class="link" href="glib-GVariantType.html#G-VARIANT-TYPE-DICT-ENTRY:CAPS" title="G_VARIANT_TYPE_DICT_ENTRY"><code class="literal">G_VARIANT_TYPE_DICT_ENTRY</code></a>, for example.
 </p>
-<p>
-Since 2.24
-</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -1347,7 +1337,8 @@ Since 2.24
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type</code></em> is a dictionary entry type</td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type</code></em> is a dictionary entry type
+Since 2.24</td>
 </tr>
 </tbody>
 </table></div>
@@ -1359,9 +1350,6 @@ Since 2.24
 <p>
 Determines if the given <em class="parameter"><code>type</code></em> is the variant type.
 </p>
-<p>
-Since 2.24
-</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -1373,7 +1361,8 @@ Since 2.24
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type</code></em> is the variant type</td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type</code></em> is the variant type
+Since 2.24</td>
 </tr>
 </tbody>
 </table></div>
@@ -1390,9 +1379,6 @@ The argument type of <em class="parameter"><code>type</code></em> is only <a cla
 <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a> without function pointer casting.  A valid
 <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> must be provided.
 </p>
-<p>
-Since 2.24
-</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -1403,7 +1389,8 @@ Since 2.24
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the hash value</td>
+<td>the hash value
+Since 2.24</td>
 </tr>
 </tbody>
 </table></div>
@@ -1427,9 +1414,6 @@ The argument types of <em class="parameter"><code>type1</code></em> and <em clas
 allow use with <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a> without function pointer casting.  For
 both arguments, a valid <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> must be provided.
 </p>
-<p>
-Since 2.24
-</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -1446,7 +1430,8 @@ Since 2.24
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type1</code></em> and <em class="parameter"><code>type2</code></em> are exactly equal</td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type1</code></em> and <em class="parameter"><code>type2</code></em> are exactly equal
+Since 2.24</td>
 </tr>
 </tbody>
 </table></div>
@@ -1463,9 +1448,6 @@ Checks if <em class="parameter"><code>type</code></em> is a subtype of <em class
 This function returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type</code></em> is a subtype of <em class="parameter"><code>supertype</code></em>.  All
 types are considered to be subtypes of themselves.  Aside from that,
 only indefinite types can have subtypes.
-</p>
-<p>
-Since 2.24
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1484,7 +1466,7 @@ Since 2.24
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
 <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>type</code></em> is a subtype of <em class="parameter"><code>supertype</code></em>
-</td>
+Since 2.24</td>
 </tr>
 </tbody>
 </table></div>
@@ -1492,17 +1474,13 @@ Since 2.24
 <hr>
 <div class="refsect2">
 <a name="g-variant-type-new-maybe"></a><h3>g_variant_type_new_maybe ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *                   g_variant_type_new_maybe
-                                                        (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *element</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *      g_variant_type_new_maybe            (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *element</code></em>);</pre>
 <p>
 Constructs the type corresponding to a maybe instance containing
 type <em class="parameter"><code>type</code></em> or Nothing.
 </p>
 <p>
 It is appropriate to call <a class="link" href="glib-GVariantType.html#g-variant-type-free" title="g_variant_type_free ()"><code class="function">g_variant_type_free()</code></a> on the return value.
-</p>
-<p>
-Since 2.24
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1514,7 +1492,8 @@ Since 2.24
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a new maybe <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+<td>a new maybe <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a>
+Since 2.24. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1523,17 +1502,13 @@ Since 2.24
 <hr>
 <div class="refsect2">
 <a name="g-variant-type-new-array"></a><h3>g_variant_type_new_array ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *                   g_variant_type_new_array
-                                                        (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *element</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *      g_variant_type_new_array            (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *element</code></em>);</pre>
 <p>
 Constructs the type corresponding to an array of elements of the
 type <em class="parameter"><code>type</code></em>.
 </p>
 <p>
 It is appropriate to call <a class="link" href="glib-GVariantType.html#g-variant-type-free" title="g_variant_type_free ()"><code class="function">g_variant_type_free()</code></a> on the return value.
-</p>
-<p>
-Since 2.24
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1545,7 +1520,8 @@ Since 2.24
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a new array <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+<td>a new array <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a>
+Since 2.24. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1554,8 +1530,7 @@ Since 2.24
 <hr>
 <div class="refsect2">
 <a name="g-variant-type-new-tuple"></a><h3>g_variant_type_new_tuple ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *                   g_variant_type_new_tuple
-                                                        (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> * const *items</code></em>,
+<pre class="programlisting"><a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *      g_variant_type_new_tuple            (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> * const *items</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> length</code></em>);</pre>
 <p>
 Constructs a new tuple type, from <em class="parameter"><code>items</code></em>.
@@ -1566,9 +1541,6 @@ Constructs a new tuple type, from <em class="parameter"><code>items</code></em>.
 </p>
 <p>
 It is appropriate to call <a class="link" href="glib-GVariantType.html#g-variant-type-free" title="g_variant_type_free ()"><code class="function">g_variant_type_free()</code></a> on the return value.
-</p>
-<p>
-Since 2.24
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1584,7 +1556,8 @@ Since 2.24
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a new tuple <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+<td>a new tuple <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a>
+Since 2.24. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1593,8 +1566,7 @@ Since 2.24
 <hr>
 <div class="refsect2">
 <a name="g-variant-type-new-dict-entry"></a><h3>g_variant_type_new_dict_entry ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *                   g_variant_type_new_dict_entry
-                                                        (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *key</code></em>,
+<pre class="programlisting"><a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *      g_variant_type_new_dict_entry       (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *key</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *value</code></em>);</pre>
 <p>
 Constructs the type corresponding to a dictionary entry with a key
@@ -1602,9 +1574,6 @@ of type <em class="parameter"><code>key</code></em> and a value of type <em clas
 </p>
 <p>
 It is appropriate to call <a class="link" href="glib-GVariantType.html#g-variant-type-free" title="g_variant_type_free ()"><code class="function">g_variant_type_free()</code></a> on the return value.
-</p>
-<p>
-Since 2.24
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1621,7 +1590,8 @@ Since 2.24
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a new dictionary entry <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+<td>a new dictionary entry <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a>
+Since 2.24. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1630,15 +1600,12 @@ Since 2.24
 <hr>
 <div class="refsect2">
 <a name="g-variant-type-element"></a><h3>g_variant_type_element ()</h3>
-<pre class="programlisting">const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *             g_variant_type_element (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);</pre>
+<pre class="programlisting">const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> * g_variant_type_element             (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);</pre>
 <p>
 Determines the element type of an array or maybe type.
 </p>
 <p>
 This function may only be used with array or maybe types.
-</p>
-<p>
-Since 2.24
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1650,7 +1617,8 @@ Since 2.24
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the element type of <em class="parameter"><code>type</code></em>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+<td>the element type of <em class="parameter"><code>type</code></em>
+Since 2.24. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1673,9 +1641,6 @@ but must not be used with the generic tuple type
 In the case of a dictionary entry type, this function will always
 return 2.
 </p>
-<p>
-Since 2.24
-</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -1687,7 +1652,7 @@ Since 2.24
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the number of items in <em class="parameter"><code>type</code></em>
-</td>
+Since 2.24</td>
 </tr>
 </tbody>
 </table></div>
@@ -1695,7 +1660,7 @@ Since 2.24
 <hr>
 <div class="refsect2">
 <a name="g-variant-type-first"></a><h3>g_variant_type_first ()</h3>
-<pre class="programlisting">const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *             g_variant_type_first   (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);</pre>
+<pre class="programlisting">const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> * g_variant_type_first               (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);</pre>
 <p>
 Determines the first item type of a tuple or dictionary entry
 type.
@@ -1716,9 +1681,6 @@ the key.
 This call, together with <a class="link" href="glib-GVariantType.html#g-variant-type-next" title="g_variant_type_next ()"><code class="function">g_variant_type_next()</code></a> provides an iterator
 interface over tuple and dictionary entry types.
 </p>
-<p>
-Since 2.24
-</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -1729,7 +1691,8 @@ Since 2.24
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the first item type of <em class="parameter"><code>type</code></em>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+<td>the first item type of <em class="parameter"><code>type</code></em>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+Since 2.24. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1738,7 +1701,7 @@ Since 2.24
 <hr>
 <div class="refsect2">
 <a name="g-variant-type-next"></a><h3>g_variant_type_next ()</h3>
-<pre class="programlisting">const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *             g_variant_type_next    (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);</pre>
+<pre class="programlisting">const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> * g_variant_type_next                (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);</pre>
 <p>
 Determines the next item type of a tuple or dictionary entry
 type.
@@ -1755,9 +1718,6 @@ entry then this call returns <a class="link" href="glib-Standard-Macros.html#NUL
 <p>
 For tuples, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned when <em class="parameter"><code>type</code></em> is the last item in a tuple.
 </p>
-<p>
-Since 2.24
-</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -1767,7 +1727,8 @@ Since 2.24
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the next <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> after <em class="parameter"><code>type</code></em>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+<td>the next <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> after <em class="parameter"><code>type</code></em>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+Since 2.24. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1776,7 +1737,7 @@ Since 2.24
 <hr>
 <div class="refsect2">
 <a name="g-variant-type-key"></a><h3>g_variant_type_key ()</h3>
-<pre class="programlisting">const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *             g_variant_type_key     (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);</pre>
+<pre class="programlisting">const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> * g_variant_type_key                 (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);</pre>
 <p>
 Determines the key type of a dictionary entry type.
 </p>
@@ -1785,9 +1746,6 @@ This function may only be used with a dictionary entry type.  Other
 than the additional restriction, this call is equivalent to
 <a class="link" href="glib-GVariantType.html#g-variant-type-first" title="g_variant_type_first ()"><code class="function">g_variant_type_first()</code></a>.
 </p>
-<p>
-Since 2.24
-</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -1798,7 +1756,8 @@ Since 2.24
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the key type of the dictionary entry. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+<td>the key type of the dictionary entry
+Since 2.24. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1807,15 +1766,12 @@ Since 2.24
 <hr>
 <div class="refsect2">
 <a name="g-variant-type-value"></a><h3>g_variant_type_value ()</h3>
-<pre class="programlisting">const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> *             g_variant_type_value   (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);</pre>
+<pre class="programlisting">const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="returnvalue">GVariantType</span></a> * g_variant_type_value               (<em class="parameter"><code>const <a class="link" href="glib-GVariantType.html#GVariantType" title="GVariantType"><span class="type">GVariantType</span></a> *type</code></em>);</pre>
 <p>
 Determines the value type of a dictionary entry type.
 </p>
 <p>
 This function may only be used with a dictionary entry type.
-</p>
-<p>
-Since 2.24
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1827,7 +1783,8 @@ Since 2.24
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the value type of the dictionary entry. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+<td>the value type of the dictionary entry
+Since 2.24. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1841,6 +1798,6 @@ Since 2.24
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

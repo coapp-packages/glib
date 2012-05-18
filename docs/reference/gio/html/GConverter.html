@@ -8,7 +8,7 @@
 <link rel="up" href="conversion.html" title="Data conversion">
 <link rel="prev" href="conversion.html" title="Data conversion">
 <link rel="next" href="GCharsetConverter.html" title="GCharsetConverter">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -43,22 +43,22 @@
 </tr></table></div>
 <div class="refsynopsisdiv">
 <a name="GConverter.synopsis"></a><h2>Synopsis</h2>
-<a name="GConverterResult"></a><a name="GConverterFlags"></a><pre class="synopsis">
+<pre class="synopsis">
 #include &lt;gio/gio.h&gt;
 
                     <a class="link" href="GConverter.html#GConverter-struct" title="GConverter">GConverter</a>;
 struct              <a class="link" href="GConverter.html#GConverterIface" title="struct GConverterIface">GConverterIface</a>;
-enum                <a class="link" href="GConverter.html#GConverterResult">GConverterResult</a>;
-enum                <a class="link" href="GConverter.html#GConverterFlags">GConverterFlags</a>;
-<a class="link" href="GConverter.html#GConverterResult"><span class="returnvalue">GConverterResult</span></a>    <a class="link" href="GConverter.html#g-converter-convert" title="g_converter_convert ()">g_converter_convert</a>                 (<em class="parameter"><code><a class="link" href="GConverter.html" title="GConverter"><span class="type">GConverter</span></a> *converter</code></em>,
+enum                <a class="link" href="GConverter.html#GConverterResult" title="enum GConverterResult">GConverterResult</a>;
+enum                <a class="link" href="GConverter.html#GConverterFlags" title="enum GConverterFlags">GConverterFlags</a>;
+<a class="link" href="GConverter.html#GConverterResult" title="enum GConverterResult"><span class="returnvalue">GConverterResult</span></a>    <a class="link" href="GConverter.html#g-converter-convert" title="g_converter_convert ()">g_converter_convert</a>                 (<em class="parameter"><code><a class="link" href="GConverter.html" title="GConverter"><span class="type">GConverter</span></a> *converter</code></em>,
                                                          <em class="parameter"><code>const <span class="type">void</span> *inbuf</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> inbuf_size</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> inbuf_size</code></em>,
                                                          <em class="parameter"><code><span class="type">void</span> *outbuf</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> outbuf_size</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="GConverter.html#GConverterFlags"><span class="type">GConverterFlags</span></a> flags</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *bytes_read</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *bytes_written</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> outbuf_size</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GConverter.html#GConverterFlags" title="enum GConverterFlags"><span class="type">GConverterFlags</span></a> flags</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *bytes_read</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *bytes_written</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GConverter.html#g-converter-reset" title="g_converter_reset ()">g_converter_reset</a>                   (<em class="parameter"><code><a class="link" href="GConverter.html" title="GConverter"><span class="type">GConverter</span></a> *converter</code></em>);
 </pre>
 </div>
@@ -68,20 +68,12 @@ enum                <a class="link" href="GConverter.html#GConverterFlags">GConv
   GInterface
    +----GConverter
 </pre>
-<pre class="synopsis">
-  GEnum
-   +----GConverterResult
-</pre>
-<pre class="synopsis">
-  GFlags
-   +----GConverterFlags
-</pre>
 </div>
 <div class="refsect1">
 <a name="GConverter.prerequisites"></a><h2>Prerequisites</h2>
 <p>
 GConverter requires
- <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>.</p>
+ <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>.</p>
 </div>
 <div class="refsect1">
 <a name="GConverter.implementations"></a><h2>Known Implementations</h2>
@@ -141,7 +133,7 @@ and may fail at any place.
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GTypeInterface"><span class="type">GTypeInterface</span></a> <em class="structfield"><code><a name="GConverterIface.g-iface"></a>g_iface</code></em>;</span></p></td>
+<td><p><span class="term"><a href="./../gobject/gobject/gobject-Type-Information.html#GTypeInterface"><span class="type">GTypeInterface</span></a> <em class="structfield"><code><a name="GConverterIface.g-iface"></a>g_iface</code></em>;</span></p></td>
 <td>The parent interface.</td>
 </tr>
 <tr>
@@ -233,15 +225,15 @@ Flags used when calling a <a class="link" href="GConverter.html#g-converter-conv
 <hr>
 <div class="refsect2">
 <a name="g-converter-convert"></a><h3>g_converter_convert ()</h3>
-<pre class="programlisting"><a class="link" href="GConverter.html#GConverterResult"><span class="returnvalue">GConverterResult</span></a>    g_converter_convert                 (<em class="parameter"><code><a class="link" href="GConverter.html" title="GConverter"><span class="type">GConverter</span></a> *converter</code></em>,
+<pre class="programlisting"><a class="link" href="GConverter.html#GConverterResult" title="enum GConverterResult"><span class="returnvalue">GConverterResult</span></a>    g_converter_convert                 (<em class="parameter"><code><a class="link" href="GConverter.html" title="GConverter"><span class="type">GConverter</span></a> *converter</code></em>,
                                                          <em class="parameter"><code>const <span class="type">void</span> *inbuf</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> inbuf_size</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> inbuf_size</code></em>,
                                                          <em class="parameter"><code><span class="type">void</span> *outbuf</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> outbuf_size</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="GConverter.html#GConverterFlags"><span class="type">GConverterFlags</span></a> flags</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *bytes_read</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *bytes_written</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> outbuf_size</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GConverter.html#GConverterFlags" title="enum GConverterFlags"><span class="type">GConverterFlags</span></a> flags</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *bytes_read</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *bytes_written</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 This is the main operation used when converting data. It is to be called
 multiple times in a loop, and each time it will do some work, i.e.
@@ -273,9 +265,9 @@ data (and there might even be other data after the end of the compressed data).
 When some data has successfully been converted <em class="parameter"><code>bytes_read</code></em> and is set to
 the number of bytes read from <em class="parameter"><code>inbuf</code></em>, and <em class="parameter"><code>bytes_written</code></em> is set to indicate
 how many bytes was written to <em class="parameter"><code>outbuf</code></em>. If there are more data to output
-or consume (i.e. unless the G_CONVERTER_INPUT_AT_END is specified) then
-G_CONVERTER_CONVERTED is returned, and if no more data is to be output
-then G_CONVERTER_FINISHED is returned.
+or consume (i.e. unless the <a class="link" href="GConverter.html#G-CONVERTER-INPUT-AT-END:CAPS"><code class="literal">G_CONVERTER_INPUT_AT_END</code></a> is specified) then
+<a class="link" href="GConverter.html#G-CONVERTER-CONVERTED:CAPS"><code class="literal">G_CONVERTER_CONVERTED</code></a> is returned, and if no more data is to be output
+then <a class="link" href="GConverter.html#G-CONVERTER-FINISHED:CAPS"><code class="literal">G_CONVERTER_FINISHED</code></a> is returned.
 </p>
 <p>
 On error <a class="link" href="GConverter.html#G-CONVERTER-ERROR:CAPS"><code class="literal">G_CONVERTER_ERROR</code></a> is returned and <em class="parameter"><code>error</code></em> is set accordingly.
@@ -315,7 +307,7 @@ initial state.
 If the flag <a class="link" href="GConverter.html#G-CONVERTER-FLUSH:CAPS"><code class="literal">G_CONVERTER_FLUSH</code></a> is set then conversion is modified
 to try to write out all internal state to the output. The application
 has to call the function multiple times with the flag set, and when
-the availible input has been consumed and all internal state has
+the available input has been consumed and all internal state has
 been produced then <a class="link" href="GConverter.html#G-CONVERTER-FLUSHED:CAPS"><code class="literal">G_CONVERTER_FLUSHED</code></a> (or <a class="link" href="GConverter.html#G-CONVERTER-FINISHED:CAPS"><code class="literal">G_CONVERTER_FINISHED</code></a> if
 really at the end) is returned instead of <a class="link" href="GConverter.html#G-CONVERTER-CONVERTED:CAPS"><code class="literal">G_CONVERTER_CONVERTED</code></a>.
 This is somewhat similar to what happens at the end of the input stream,
@@ -366,7 +358,7 @@ containing the data to convert. <span class="annotation">[<acronym title="Parame
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
-<td>a <span class="type">GConvertFlags</span> controlling the conversion details</td>
+<td>a <a class="link" href="GConverter.html#GConverterFlags" title="enum GConverterFlags"><span class="type">GConverterFlags</span></a> controlling the conversion details</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bytes_read</code></em> :</span></p></td>
@@ -380,11 +372,11 @@ containing the data to convert. <span class="annotation">[<acronym title="Parame
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>location to store the error occuring, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore</td>
+<td>location to store the error occurring, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a <a class="link" href="GConverter.html#GConverterResult"><span class="type">GConverterResult</span></a>, <a class="link" href="GConverter.html#G-CONVERTER-ERROR:CAPS"><code class="literal">G_CONVERTER_ERROR</code></a> on error.</td>
+<td>a <a class="link" href="GConverter.html#GConverterResult" title="enum GConverterResult"><span class="type">GConverterResult</span></a>, <a class="link" href="GConverter.html#G-CONVERTER-ERROR:CAPS"><code class="literal">G_CONVERTER_ERROR</code></a> on error.</td>
 </tr>
 </tbody>
 </table></div>
@@ -416,6 +408,6 @@ state that would produce output then that output is lost.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

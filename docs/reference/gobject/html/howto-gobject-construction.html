@@ -8,7 +8,7 @@
 <link rel="up" href="howto-gobject.html" title="How to define and implement a new GObject">
 <link rel="prev" href="howto-gobject-code.html" title="Boilerplate code">
 <link rel="next" href="howto-gobject-destruction.html" title="Object Destruction">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -66,26 +66,73 @@ maman_bar_init (MamanBar *self)
       <a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> by setting the param spec's flag field to G_PARAM_CONSTRUCT_ONLY: this helps
       GType ensure that these properties are not set again later by malicious user code.
 </p>
-<pre class="programlisting">
-static void
-bar_class_init (MamanBarClass *klass)
-{
-  GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
-  GParamSpec *pspec;
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">enum</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">  PROP_0</span><span class="symbol">,</span>
 
-  gobject_class-&gt;set_property = bar_set_property;
-  gobject_class-&gt;get_property = bar_get_property;
+<span class="normal">  PROP_MAMAN</span><span class="symbol">,</span>
 
-  pspec = g_param_spec_string ("maman",
-                                          "Maman construct prop",
-                                          "Set maman's name",
-                                          "no-name-set" /* default value */,
-                                          G_PARAM_CONSTRUCT_ONLY | G_PARAM_READWRITE);
-  g_object_class_install_property (gobject_class,
-                                   PROP_MAMAN,
-                                   pspec);
-}
-</pre>
+<span class="normal">  N_PROPERTIES</span>
+<span class="cbracket">}</span><span class="symbol">;</span>
+
+<span class="keyword">static</span><span class="normal"> </span><span class="usertype">GParamSpec</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">obj_properties</span><span class="symbol">[</span><span class="normal">N_PROPERTIES</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> </span><span class="cbracket">{</span><span class="normal"> <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> </span><span class="cbracket">}</span><span class="symbol">;</span>
+
+<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">bar_class_init</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">MamanBarClass</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">klass</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GObjectClass</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">gobject_class </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gobject-The-Base-Object-Type.html#G-OBJECT-CLASS:CAPS">G_OBJECT_CLASS</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">klass</span><span class="symbol">);</span>
+
+<span class="normal">  gobject_class</span><span class="symbol">-&gt;</span><span class="normal">set_property </span><span class="symbol">=</span><span class="normal"> bar_set_property</span><span class="symbol">;</span>
+<span class="normal">  gobject_class</span><span class="symbol">-&gt;</span><span class="normal">get_property </span><span class="symbol">=</span><span class="normal"> bar_get_property</span><span class="symbol">;</span>
+
+<span class="normal">  obj_properties</span><span class="symbol">[</span><span class="normal">PROP_MAMAN</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span>
+<span class="normal">    </span><span class="function"><a href="gobject-Standard-Parameter-and-Value-Types.html#g-param-spec-string">g_param_spec_string</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"maman"</span><span class="symbol">,</span>
+<span class="normal">                         </span><span class="string">"Maman construct prop"</span><span class="symbol">,</span>
+<span class="normal">                         </span><span class="string">"Set maman's name"</span><span class="symbol">,</span>
+<span class="normal">                         </span><span class="string">"no-name-set"</span><span class="normal"> </span><span class="comment">/* default value */</span><span class="symbol">,</span>
+<span class="normal">                         <a href="gobject-GParamSpec.html#G-PARAM-CONSTRUCT-ONLY:CAPS">G_PARAM_CONSTRUCT_ONLY</a> </span><span class="symbol">|</span><span class="normal"> <a href="gobject-GParamSpec.html#G-PARAM-READWRITE:CAPS">G_PARAM_READWRITE</a></span><span class="symbol">);</span>
+
+<span class="normal">  </span><span class="function"><a href="gobject-The-Base-Object-Type.html#g-object-class-install-properties">g_object_class_install_properties</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">gobject_class</span><span class="symbol">,</span>
+<span class="normal">                                     N_PROPERTIES</span><span class="symbol">,</span>
+<span class="normal">                                     obj_properties</span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <p>
       If you need this, make sure you can build and run code similar to the code shown above. Make sure
       your construct properties can set correctly during construction, make sure you cannot set them 
@@ -108,6 +155,6 @@ bar_class_init (MamanBarClass *klass)
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

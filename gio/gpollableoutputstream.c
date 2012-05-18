@@ -25,7 +25,6 @@
 #include "gpollableoutputstream.h"
 #include "gasynchelper.h"
 #include "gfiledescriptorbased.h"
-#include "gio-marshal.h"
 #include "glibintl.h"
 
 /**
@@ -116,7 +115,7 @@ g_pollable_output_stream_is_writable (GPollableOutputStream *stream)
 }
 
 /**
- * g_pollable_output_stream_create_source: (skip)
+ * g_pollable_output_stream_create_source:
  * @stream: a #GPollableOutputStream.
  * @cancellable: (allow-none): a #GCancellable, or %NULL
  *

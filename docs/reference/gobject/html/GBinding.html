@@ -8,7 +8,7 @@
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="gobject-Value-arrays.html" title="Value arrays">
 <link rel="next" href="rn02.html" title="Tools Reference">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -46,9 +46,9 @@
 
                     <a class="link" href="GBinding.html#GBinding-struct" title="GBinding">GBinding</a>;
 enum                <a class="link" href="GBinding.html#GBindingFlags" title="enum GBindingFlags">GBindingFlags</a>;
-<a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="returnvalue">GObject</span></a> *              <a class="link" href="GBinding.html#g-binding-get-source" title="g_binding_get_source ()">g_binding_get_source</a>             (<em class="parameter"><code><a class="link" href="GBinding.html" title="GBinding"><span class="type">GBinding</span></a> *binding</code></em>);
+<a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="returnvalue">GObject</span></a> *           <a class="link" href="GBinding.html#g-binding-get-source" title="g_binding_get_source ()">g_binding_get_source</a>                (<em class="parameter"><code><a class="link" href="GBinding.html" title="GBinding"><span class="type">GBinding</span></a> *binding</code></em>);
 const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="GBinding.html#g-binding-get-source-property" title="g_binding_get_source_property ()">g_binding_get_source_property</a>       (<em class="parameter"><code><a class="link" href="GBinding.html" title="GBinding"><span class="type">GBinding</span></a> *binding</code></em>);
-<a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="returnvalue">GObject</span></a> *              <a class="link" href="GBinding.html#g-binding-get-target" title="g_binding_get_target ()">g_binding_get_target</a>             (<em class="parameter"><code><a class="link" href="GBinding.html" title="GBinding"><span class="type">GBinding</span></a> *binding</code></em>);
+<a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="returnvalue">GObject</span></a> *           <a class="link" href="GBinding.html#g-binding-get-target" title="g_binding_get_target ()">g_binding_get_target</a>                (<em class="parameter"><code><a class="link" href="GBinding.html" title="GBinding"><span class="type">GBinding</span></a> *binding</code></em>);
 const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="GBinding.html#g-binding-get-target-property" title="g_binding_get_target_property ()">g_binding_get_target_property</a>       (<em class="parameter"><code><a class="link" href="GBinding.html" title="GBinding"><span class="type">GBinding</span></a> *binding</code></em>);
 <a class="link" href="GBinding.html#GBindingFlags" title="enum GBindingFlags"><span class="returnvalue">GBindingFlags</span></a>       <a class="link" href="GBinding.html#g-binding-get-flags" title="g_binding_get_flags ()">g_binding_get_flags</a>                 (<em class="parameter"><code><a class="link" href="GBinding.html" title="GBinding"><span class="type">GBinding</span></a> *binding</code></em>);
 
@@ -252,7 +252,8 @@ cannot be accessed directly.
 <hr>
 <div class="refsect2">
 <a name="GBindingFlags"></a><h3>enum GBindingFlags</h3>
-<pre class="programlisting">typedef enum { /*&lt; prefix=G_BINDING &gt;*/
+<pre class="programlisting">typedef enum {
+ /*&lt; prefix=G_BINDING &gt;*/
   G_BINDING_DEFAULT        = 0,
 
   G_BINDING_BIDIRECTIONAL  = 1 &lt;&lt; 0,
@@ -306,7 +307,7 @@ This enumeration can be extended at later date.
 <hr>
 <div class="refsect2">
 <a name="g-binding-get-source"></a><h3>g_binding_get_source ()</h3>
-<pre class="programlisting"><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="returnvalue">GObject</span></a> *              g_binding_get_source             (<em class="parameter"><code><a class="link" href="GBinding.html" title="GBinding"><span class="type">GBinding</span></a> *binding</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="returnvalue">GObject</span></a> *           g_binding_get_source                (<em class="parameter"><code><a class="link" href="GBinding.html" title="GBinding"><span class="type">GBinding</span></a> *binding</code></em>);</pre>
 <p>
 Retrieves the <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> instance used as the source of the binding
 </p>
@@ -354,7 +355,7 @@ of the binding
 <hr>
 <div class="refsect2">
 <a name="g-binding-get-target"></a><h3>g_binding_get_target ()</h3>
-<pre class="programlisting"><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="returnvalue">GObject</span></a> *              g_binding_get_target             (<em class="parameter"><code><a class="link" href="GBinding.html" title="GBinding"><span class="type">GBinding</span></a> *binding</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="returnvalue">GObject</span></a> *           g_binding_get_target                (<em class="parameter"><code><a class="link" href="GBinding.html" title="GBinding"><span class="type">GBinding</span></a> *binding</code></em>);</pre>
 <p>
 Retrieves the <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> instance used as the target of the binding
 </p>
@@ -443,7 +444,7 @@ updated using the same value. For instance:
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="GBinding.html#g-object-bind-property">g_object_bind_property</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">action</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"active"</span><span class="symbol">,</span><span class="normal"> <a href="/usr/share/gtk-doc/html/goocanvas/goocanvas-architecture.html#widget">widget</a></span><span class="symbol">,</span><span class="normal"> </span><span class="string">"sensitive"</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="GBinding.html#g-object-bind-property">g_object_bind_property</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">action</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"active"</span><span class="symbol">,</span><span class="normal"> widget</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"sensitive"</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -475,7 +476,7 @@ A <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
-<td>the source <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>
+<td>the source <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
 </td>
 </tr>
 <tr>
@@ -484,7 +485,7 @@ A <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
-<td>the target <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>
+<td>the target <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
 </td>
 </tr>
 <tr>
@@ -599,7 +600,7 @@ for each transformation function, please use
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
-<td>the source <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>
+<td>the source <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
 </td>
 </tr>
 <tr>
@@ -608,7 +609,7 @@ for each transformation function, please use
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
-<td>the target <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>
+<td>the target <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
 </td>
 </tr>
 <tr>
@@ -683,7 +684,7 @@ Rename to: g_object_bind_property_full
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
-<td>the source <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>
+<td>the source <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
 </td>
 </tr>
 <tr>
@@ -692,7 +693,7 @@ Rename to: g_object_bind_property_full
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
-<td>the target <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>
+<td>the target <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
 </td>
 </tr>
 <tr>
@@ -780,6 +781,6 @@ as the target of the binding
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

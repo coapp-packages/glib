@@ -593,6 +593,7 @@ test_checksum (gconstpointer d)
 {
   const ChecksumTest *test = d;
   GChecksum *checksum;
+  GChecksum *checksum2;
   const char *p;
   int chunk_length;
 
@@ -604,9 +605,12 @@ test_checksum (gconstpointer d)
 	  g_checksum_update (checksum, (const guchar *)p,
 			     MIN (chunk_length, test->length - (p - FIXED_STR)));
 	}
-
+      checksum2 = g_checksum_copy (checksum);
       g_assert_cmpstr (g_checksum_get_string (checksum), ==, test->sum);
       g_checksum_free (checksum);
+
+      g_assert_cmpstr (g_checksum_get_string (checksum2), ==, test->sum);
+      g_checksum_free (checksum2);
     }
 }
 
@@ -615,9 +619,23 @@ hexval (const gchar c)
 {
   switch (c)
     {
-     case '0' ... '9':
+     case '0':
+     case '1':
+     case '2':
+     case '3':
+     case '4':
+     case '5':
+     case '6':
+     case '7':
+     case '8':
+     case '9':
        return c - '0';
-     case 'a' ... 'f':
+     case 'a':
+     case 'b':
+     case 'c':
+     case 'd':
+     case 'e':
+     case 'f':
        return 10 + c - 'a';
      default:
        return 0;

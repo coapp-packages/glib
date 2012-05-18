@@ -6,15 +6,15 @@
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
-<link rel="prev" href="glib-Data-Checksums.html" title="Data Checksums">
+<link rel="prev" href="glib-Data-HMACs.html" title="Secure HMAC Digests">
 <link rel="next" href="glib-Date-and-Time-Functions.html" title="Date and Time Functions">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
 <tr valign="middle">
-<td><a accesskey="p" href="glib-Data-Checksums.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="p" href="glib-Data-HMACs.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="glib-utilities.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">GLib Reference Manual</th>
@@ -52,7 +52,7 @@ const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span cla
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *msgid</code></em>);
 const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="glib-I18N.html#g-dcgettext" title="g_dcgettext ()">g_dcgettext</a>                         (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *domain</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *msgid</code></em>,
-                                                         <em class="parameter"><code><span class="type">int</span> category</code></em>);
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> category</code></em>);
 const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="glib-I18N.html#g-dngettext" title="g_dngettext ()">g_dngettext</a>                         (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *domain</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *msgid</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *msgid_plural</code></em>,
@@ -101,6 +101,8 @@ the GETTEXT_PACKAGE macro suitably for your library:
 Note that you also have to call <a class="link" href="glib-running.html#setlocale" title="Locale"><code class="function">setlocale()</code></a> and <code class="function">textdomain()</code> (as well as
 <code class="function">bindtextdomain()</code> and <code class="function">bind_textdomain_codeset()</code>) early on in your <code class="function">main()</code>
 to make <code class="function">gettext()</code> work.
+</p>
+<p>
 The gettext manual covers details of how to set up message extraction
 with xgettext.
 </p>
@@ -128,39 +130,41 @@ at runtime.
 <a name="Q-:CAPS"></a><h3>Q_()</h3>
 <pre class="programlisting">#define             Q_(String)</pre>
 <p>
-Like <a class="link" href="glib-I18N.html#gettext-macro" title="_()"><code class="function">_()</code></a>, but handles context in message ids. This has the advantage that
-the string can be adorned with a prefix to guarantee uniqueness and provide
-context to the translator.
+Like <a class="link" href="glib-I18N.html#gettext-macro" title="_()"><code class="function">_()</code></a>, but handles context in message ids. This has the advantage
+that the string can be adorned with a prefix to guarantee uniqueness
+and provide context to the translator.
 </p>
 <p>
-One use case given in the gettext manual is GUI translation, where one could
-e.g. disambiguate two "Open" menu entries as "File|Open" and "Printer|Open".
-Another use case is the string "Russian" which may have to be translated
-differently depending on whether it's the name of a character set or a
-language. This could be solved by using "charset|Russian" and
-"language|Russian".
+One use case given in the gettext manual is GUI translation, where one
+could e.g. disambiguate two "Open" menu entries as "File|Open" and
+"Printer|Open". Another use case is the string "Russian" which may
+have to be translated differently depending on whether it's the name
+of a character set or a language. This could be solved by using
+"charset|Russian" and "language|Russian".
 </p>
 <p>
 See the <a class="link" href="glib-I18N.html#C-:CAPS" title="C_()"><code class="function">C_()</code></a> macro for a different way to mark up translatable strings
 with context.
 </p>
+<p>
+</p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Note</h3>
-<p>
-If you are using the <a class="link" href="glib-I18N.html#Q-:CAPS" title="Q_()"><code class="function">Q_()</code></a> macro, you need to make sure that you
-pass <code class="option">--keyword=Q_</code> to xgettext when extracting messages.
-If you are using GNU gettext &gt;= 0.15, you can also use
+<p>If you are using the <a class="link" href="glib-I18N.html#Q-:CAPS" title="Q_()"><code class="function">Q_()</code></a> macro, you need to make sure
+that you pass <code class="option">--keyword=Q_</code> to xgettext when extracting
+messages. If you are using GNU gettext &gt;= 0.15, you can also use
 <code class="option">--keyword=Q_:1g</code> to let xgettext split the context
-string off into a msgctxt line in the po file.
-</p>
+string off into a msgctxt line in the po file.</p>
 </div>
+<p>
+</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>String</code></em> :</span></p></td>
-<td>the string to be translated, with a '|'-separated prefix which
-must not be translated</td>
+<td>the string to be translated, with a '|'-separated prefix
+which must not be translated</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -175,7 +179,7 @@ must not be translated</td>
 <a name="C-:CAPS"></a><h3>C_()</h3>
 <pre class="programlisting">#define             C_(Context,String)</pre>
 <p>
-Uses gettext to get the translation for <em class="parameter"><code>msgid</code></em>. <em class="parameter"><code>msgctxt</code></em> is
+Uses gettext to get the translation for <em class="parameter"><code>String</code></em>. <em class="parameter"><code>Context</code></em> is
 used as a context. This is mainly useful for short strings which
 may need different translations, depending on the context in which
 they are used.
@@ -195,14 +199,17 @@ they are used.
 
 <p>
 </p>
+<p>
+</p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Note</h3>
-<p>
-If you are using the <a class="link" href="glib-I18N.html#C-:CAPS" title="C_()"><code class="function">C_()</code></a> macro, you need to make sure that you
-pass <code class="option">--keyword=C_:1c,2</code> to xgettext when extracting
-messages. Note that this only works with GNU gettext &gt;= 0.15.
-</p>
+<p>If you are using the <a class="link" href="glib-I18N.html#C-:CAPS" title="C_()"><code class="function">C_()</code></a> macro, you need to make sure
+that you pass <code class="option">--keyword=C_:1c,2</code> to xgettext when
+extracting messages. Note that this only works with GNU
+gettext &gt;= 0.15.</p>
 </div>
+<p>
+</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -227,10 +234,10 @@ messages. Note that this only works with GNU gettext &gt;= 0.15.
 <a name="N-:CAPS"></a><h3>N_()</h3>
 <pre class="programlisting">#define             N_(String)</pre>
 <p>
-Only marks a string for translation.
-This is useful in situations where the translated strings can't
-be directly used, e.g. in string array initializers.
-To get the translated string, call <code class="function">gettext()</code> at runtime.
+Only marks a string for translation. This is useful in situations
+where the translated strings can't be directly used, e.g. in string
+array initializers. To get the translated string, call <code class="function">gettext()</code>
+at runtime.
 </p>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
@@ -267,6 +274,8 @@ To get the translated string, call <code class="function">gettext()</code> at ru
   </table>
 </div>
 
+<p>
+</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
@@ -283,8 +292,10 @@ To get the translated string, call <code class="function">gettext()</code> at ru
 <p>
 Only marks a string for translation, with context.
 This is useful in situations where the translated strings can't
-be directly used, e.g. in string array initializers.
-To get the translated string, you should call <a class="link" href="glib-I18N.html#g-dpgettext2" title="g_dpgettext2 ()"><code class="function">g_dpgettext2()</code></a> at runtime.
+be directly used, e.g. in string array initializers. To get the
+translated string, you should call <a class="link" href="glib-I18N.html#g-dpgettext2" title="g_dpgettext2 ()"><code class="function">g_dpgettext2()</code></a> at runtime.
+</p>
+<p>
 </p>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
@@ -302,7 +313,8 @@ To get the translated string, you should call <a class="link" href="glib-I18N.ht
 10
 11
 12
-13</pre></td>
+13
+14</pre></td>
         <td class="listing_code"><pre class="programlisting"><span class="cbracket">{</span>
 <span class="normal">  </span><span class="keyword">static</span><span class="normal"> </span><span class="keyword">const</span><span class="normal"> </span><span class="type">char</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">messages</span><span class="symbol">[]</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> </span><span class="cbracket">{</span>
 <span class="normal">    </span><span class="function"><a href="glib-I18N.html#NC-:CAPS">NC_</a></span><span class="symbol">(</span><span class="string">"some context"</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"some very meaningful message"</span><span class="symbol">),</span>
@@ -311,7 +323,8 @@ To get the translated string, you should call <a class="link" href="glib-I18N.ht
 <span class="normal">  </span><span class="keyword">const</span><span class="normal"> </span><span class="type">char</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">string</span><span class="symbol">;</span>
 <span class="normal">  </span><span class="symbol">...</span>
 <span class="normal">  string</span>
-<span class="normal">    </span><span class="symbol">=</span><span class="normal"> index </span><span class="symbol">&gt;</span><span class="normal"> </span><span class="number">1</span><span class="normal"> </span><span class="symbol">?</span><span class="normal"> </span><span class="function"><a href="glib-I18N.html#g-dpgettext2">g_dpgettext2</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> </span><span class="string">"some context"</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"a default message"</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">:</span><span class="normal"> </span><span class="function"><a href="glib-I18N.html#g-dpgettext2">g_dpgettext2</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> </span><span class="string">"some context"</span><span class="symbol">,</span><span class="normal"> messages</span><span class="symbol">[</span><span class="normal">index</span><span class="symbol">]);</span>
+<span class="normal">    </span><span class="symbol">=</span><span class="normal"> index </span><span class="symbol">&gt;</span><span class="normal"> </span><span class="number">1</span><span class="normal"> </span><span class="symbol">?</span><span class="normal"> </span><span class="function"><a href="glib-I18N.html#g-dpgettext2">g_dpgettext2</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> </span><span class="string">"some context"</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"a default message"</span><span class="symbol">)</span>
+<span class="normal">                   </span><span class="symbol">:</span><span class="normal"> </span><span class="function"><a href="glib-I18N.html#g-dpgettext2">g_dpgettext2</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> </span><span class="string">"some context"</span><span class="symbol">,</span><span class="normal"> messages</span><span class="symbol">[</span><span class="normal">index</span><span class="symbol">]);</span>
 
 <span class="normal">  </span><span class="function">fputs</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">string</span><span class="symbol">);</span>
 <span class="normal">  </span><span class="symbol">...</span>
@@ -321,15 +334,20 @@ To get the translated string, you should call <a class="link" href="glib-I18N.ht
   </table>
 </div>
 
+<p>
+</p>
+<p>
+</p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Note</h3>
-<p>
-If you are using the <a class="link" href="glib-I18N.html#NC-:CAPS" title="NC_()"><code class="function">NC_()</code></a> macro, you need to make sure that you
-pass <code class="option">--keyword=NC_:1c,2</code> to xgettext when extracting
-messages. Note that this only works with GNU gettext &gt;= 0.15.
+<p>If you are using the <a class="link" href="glib-I18N.html#NC-:CAPS" title="NC_()"><code class="function">NC_()</code></a> macro, you need to make sure
+that you pass <code class="option">--keyword=NC_:1c,2</code> to xgettext when
+extracting messages. Note that this only works with GNU gettext &gt;= 0.15.
 Intltool has support for the <a class="link" href="glib-I18N.html#NC-:CAPS" title="NC_()"><code class="function">NC_()</code></a> macro since version 0.40.1.
 </p>
 </div>
+<p>
+</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -397,7 +415,7 @@ but use the <a class="link" href="glib-I18N.html#gettext-macro" title="_()"><cod
 <tr>
 <td><p><span class="term"><em class="parameter"><code>domain</code></em> :</span></p></td>
 <td>the translation domain to use, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> to use
-the domain set with <code class="function">textdomain()</code>
+the domain set with <code class="function">textdomain()</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -417,10 +435,10 @@ the domain set with <code class="function">textdomain()</code>
 <a name="g-dcgettext"></a><h3>g_dcgettext ()</h3>
 <pre class="programlisting">const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *       g_dcgettext                         (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *domain</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *msgid</code></em>,
-                                                         <em class="parameter"><code><span class="type">int</span> category</code></em>);</pre>
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> category</code></em>);</pre>
 <p>
 This is a variant of <a class="link" href="glib-I18N.html#g-dgettext" title="g_dgettext ()"><code class="function">g_dgettext()</code></a> that allows specifying a locale
-category instead of always using <code class="literal">LC_MESSAGES</code>. See <a class="link" href="glib-I18N.html#g-dgettext" title="g_dgettext ()"><code class="function">g_dgettext()</code></a> for
+category instead of always using <code class="envar">LC_MESSAGES</code>. See <a class="link" href="glib-I18N.html#g-dgettext" title="g_dgettext ()"><code class="function">g_dgettext()</code></a> for
 more information about how this functions differs from calling
 <code class="function">dcgettext()</code> directly.
 </p>
@@ -471,7 +489,7 @@ proper.
 <tr>
 <td><p><span class="term"><em class="parameter"><code>domain</code></em> :</span></p></td>
 <td>the translation domain to use, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> to use
-the domain set with <code class="function">textdomain()</code>
+the domain set with <code class="function">textdomain()</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -510,7 +528,7 @@ trying to use the deprecated convention of using "|" as a separation
 character.
 </p>
 <p>
-This uses <a class="link" href="glib-I18N.html#g-dgettext" title="g_dgettext ()"><code class="function">g_dgettext()</code></a> internally.  See that functions for differences
+This uses <a class="link" href="glib-I18N.html#g-dgettext" title="g_dgettext ()"><code class="function">g_dgettext()</code></a> internally. See that functions for differences
 with <code class="function">dgettext()</code> proper.
 </p>
 <p>
@@ -523,7 +541,7 @@ but use the <a class="link" href="glib-I18N.html#C-:CAPS" title="C_()"><code cla
 <tr>
 <td><p><span class="term"><em class="parameter"><code>domain</code></em> :</span></p></td>
 <td>the translation domain to use, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> to use
-the domain set with <code class="function">textdomain()</code>
+the domain set with <code class="function">textdomain()</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -557,7 +575,7 @@ a disambiguating message context. GNU gettext uses the
 message id in <em class="parameter"><code>msgctxtid</code></em>.
 </p>
 <p>
-This uses <a class="link" href="glib-I18N.html#g-dgettext" title="g_dgettext ()"><code class="function">g_dgettext()</code></a> internally.  See that functions for differences
+This uses <a class="link" href="glib-I18N.html#g-dgettext" title="g_dgettext ()"><code class="function">g_dgettext()</code></a> internally. See that functions for differences
 with <code class="function">dgettext()</code> proper.
 </p>
 <p>
@@ -570,7 +588,7 @@ thus you may use non-string-literals as context and msgid arguments.
 <tr>
 <td><p><span class="term"><em class="parameter"><code>domain</code></em> :</span></p></td>
 <td>the translation domain to use, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> to use
-the domain set with <code class="function">textdomain()</code>
+the domain set with <code class="function">textdomain()</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -611,9 +629,9 @@ An auxiliary function for <code class="function">gettext()</code> support (see <
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<em class="parameter"><code>msgval</code></em>, unless <em class="parameter"><code>msgval</code></em> is identical to <em class="parameter"><code>msgid</code></em> and contains
-a '|' character, in which case a pointer to the substring of msgid after
-the first '|' character is returned.</td>
+<em class="parameter"><code>msgval</code></em>, unless <em class="parameter"><code>msgval</code></em> is identical to <em class="parameter"><code>msgid</code></em>
+and contains a '|' character, in which case a pointer to
+the substring of msgid after the first '|' character is returned.</td>
 </tr>
 </tbody>
 </table></div>
@@ -624,9 +642,9 @@ the first '|' character is returned.</td>
 <a name="g-get-language-names"></a><h3>g_get_language_names ()</h3>
 <pre class="programlisting">const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> * const * g_get_language_names              (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>
-Computes a list of applicable locale names, which can be used to 
-e.g. construct locale-dependent filenames or search paths. The returned 
-list is sorted from most desirable to least desirable and always contains 
+Computes a list of applicable locale names, which can be used to
+e.g. construct locale-dependent filenames or search paths. The returned
+list is sorted from most desirable to least desirable and always contains
 the default locale "C".
 </p>
 <p>
@@ -634,8 +652,8 @@ For example, if LANGUAGE=de:en_US, then the returned list is
 "de", "en_US", "en", "C".
 </p>
 <p>
-This function consults the environment variables <code class="envar">LANGUAGE</code>, 
-<code class="envar">LC_ALL</code>, <code class="envar">LC_MESSAGES</code> and <code class="envar">LANG</code> 
+This function consults the environment variables <code class="envar">LANGUAGE</code>,
+<code class="envar">LC_ALL</code>, <code class="envar">LC_MESSAGES</code> and <code class="envar">LANG</code>
 to find the list of locales specified by the user.
 </p>
 <div class="variablelist"><table border="0">
@@ -688,13 +706,11 @@ allocated array of newly allocated strings with the locale variants. Free with
 </div>
 <div class="refsect1">
 <a name="glib-I18N.see-also"></a><h2>See Also</h2>
-<p>
-The gettext manual.
-</p>
+the gettext manual
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <link rel="up" href="glib-core.html" title="GLib Core Application Support">
 <link rel="prev" href="glib-Warnings-and-Assertions.html" title="Message Output and Debugging Functions">
 <link rel="next" href="glib-utilities.html" title="GLib Utilities">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -31,7 +31,8 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="glib-Message-Logging.top_of_page"></a>Message Logging</span></h2>
-<p>Message Logging — versatile support for logging messages with different levels of importance</p>
+<p>Message Logging — versatile support for logging messages
+    with different levels of importance</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -83,12 +84,12 @@ enum                <a class="link" href="glib-Message-Logging.html#GLogLevelFla
 <div class="refsect1">
 <a name="glib-Message-Logging.description"></a><h2>Description</h2>
 <p>
-These functions provide support for logging error messages or messages
-used for debugging.
+These functions provide support for logging error messages
+or messages used for debugging.
 </p>
 <p>
-There are several built-in levels of messages, defined in <a class="link" href="glib-Message-Logging.html#GLogLevelFlags" title="enum GLogLevelFlags"><span class="type">GLogLevelFlags</span></a>.
-These can be extended with user-defined levels.
+There are several built-in levels of messages, defined in
+<a class="link" href="glib-Message-Logging.html#GLogLevelFlags" title="enum GLogLevelFlags"><span class="type">GLogLevelFlags</span></a>. These can be extended with user-defined levels.
 </p>
 </div>
 <div class="refsect1">
@@ -99,10 +100,13 @@ These can be extended with user-defined levels.
 </pre>
 <p>
 Defines the log domain.
-For applications, this is typically left as the default <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> (or "") domain.
-Libraries should define this so that any messages which they log can
-be differentiated from messages from other libraries and application code.
-But be careful not to define it in any public header files.
+</p>
+<p>
+For applications, this is typically left as the default <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+(or "") domain. Libraries should define this so that any messages
+which they log can be differentiated from messages from other
+libraries and application code. But be careful not to define
+it in any public header files.
 </p>
 <p>
 For example, GTK+ uses this in its Makefile.am:
@@ -118,6 +122,8 @@ For example, GTK+ uses this in its Makefile.am:
   </table>
 </div>
 
+<p>
+</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -133,9 +139,6 @@ GLib log levels that are considered fatal by default.
 <a name="G-LOG-LEVEL-USER-SHIFT:CAPS"></a><h3>G_LOG_LEVEL_USER_SHIFT</h3>
 <pre class="programlisting">#define G_LOG_LEVEL_USER_SHIFT  (8)
 </pre>
-<p>
-Log level shift offset for user defined log levels (0-7 are used by GLib).
-</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -152,20 +155,21 @@ Specifies the prototype of log handler functions.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>log_domain</code></em> :</span></p></td>
-<td>the log domain of the message.</td>
+<td>the log domain of the message</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>log_level</code></em> :</span></p></td>
-<td>the log level of the message (including the fatal and recursion
-flags).</td>
+<td>the log level of the message (including the
+fatal and recursion flags)</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>message</code></em> :</span></p></td>
-<td>the message to process.</td>
+<td>the message to process</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
-<td>user data, set in <a class="link" href="glib-Message-Logging.html#g-log-set-handler" title="g_log_set_handler ()"><code class="function">g_log_set_handler()</code></a>.</td>
+<td>user data, set in <a class="link" href="glib-Message-Logging.html#g-log-set-handler" title="g_log_set_handler ()"><code class="function">g_log_set_handler()</code></a>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -173,8 +177,7 @@ flags).</td>
 <hr>
 <div class="refsect2">
 <a name="GLogLevelFlags"></a><h3>enum GLogLevelFlags</h3>
-<pre class="programlisting">typedef enum
-{
+<pre class="programlisting">typedef enum {
   /* log flags */
   G_LOG_FLAG_RECURSION          = 1 &lt;&lt; 0,
   G_LOG_FLAG_FATAL              = 1 &lt;&lt; 1,
@@ -191,9 +194,11 @@ flags).</td>
 } GLogLevelFlags;
 </pre>
 <p>
-Flags specifying the level of log messages. It is possible to change
-how GLib treats messages of the various levels using <a class="link" href="glib-Message-Logging.html#g-log-set-handler" title="g_log_set_handler ()"><code class="function">g_log_set_handler()</code></a>
-and <a class="link" href="glib-Message-Logging.html#g-log-set-fatal-mask" title="g_log_set_fatal_mask ()"><code class="function">g_log_set_fatal_mask()</code></a>.
+Flags specifying the level of log messages.
+</p>
+<p>
+It is possible to change how GLib treats messages of the various
+levels using <a class="link" href="glib-Message-Logging.html#g-log-set-handler" title="g_log_set_handler ()"><code class="function">g_log_set_handler()</code></a> and <a class="link" href="glib-Message-Logging.html#g-log-set-fatal-mask" title="g_log_set_fatal_mask ()"><code class="function">g_log_set_fatal_mask()</code></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -210,15 +215,15 @@ and <a class="link" href="glib-Message-Logging.html#g-log-set-fatal-mask" title=
 </tr>
 <tr>
 <td><p><a name="G-LOG-LEVEL-ERROR:CAPS"></a><span class="term"><code class="literal">G_LOG_LEVEL_ERROR</code></span></p></td>
-<td>log level for errors, see <a class="link" href="glib-Message-Logging.html#g-error" title="g_error()"><code class="function">g_error()</code></a>. 
-  This level is also used for messages produced by <a class="link" href="glib-Testing.html#g-assert" title="g_assert()"><code class="function">g_assert()</code></a>.
+<td>log level for errors, see <a class="link" href="glib-Message-Logging.html#g-error" title="g_error()"><code class="function">g_error()</code></a>.
+    This level is also used for messages produced by <a class="link" href="glib-Testing.html#g-assert" title="g_assert()"><code class="function">g_assert()</code></a>.
 </td>
 </tr>
 <tr>
 <td><p><a name="G-LOG-LEVEL-CRITICAL:CAPS"></a><span class="term"><code class="literal">G_LOG_LEVEL_CRITICAL</code></span></p></td>
 <td>log level for critical messages, see <a class="link" href="glib-Message-Logging.html#g-critical" title="g_critical()"><code class="function">g_critical()</code></a>.
-  This level is also used for messages produced by <a class="link" href="glib-Warnings-and-Assertions.html#g-return-if-fail" title="g_return_if_fail()"><code class="function">g_return_if_fail()</code></a> and
-  <a class="link" href="glib-Warnings-and-Assertions.html#g-return-val-if-fail" title="g_return_val_if_fail()"><code class="function">g_return_val_if_fail()</code></a>.
+    This level is also used for messages produced by <a class="link" href="glib-Warnings-and-Assertions.html#g-return-if-fail" title="g_return_if_fail()"><code class="function">g_return_if_fail()</code></a>
+    and <a class="link" href="glib-Warnings-and-Assertions.html#g-return-val-if-fail" title="g_return_val_if_fail()"><code class="function">g_return_val_if_fail()</code></a>.
 </td>
 </tr>
 <tr>
@@ -243,7 +248,7 @@ and <a class="link" href="glib-Message-Logging.html#g-log-set-fatal-mask" title=
 </tr>
 <tr>
 <td><p><a name="G-LOG-LEVEL-MASK:CAPS"></a><span class="term"><code class="literal">G_LOG_LEVEL_MASK</code></span></p></td>
-<td>a mask including all log levels.
+<td>a mask including all log levels
 </td>
 </tr>
 </tbody>
@@ -258,6 +263,8 @@ and <a class="link" href="glib-Message-Logging.html#g-log-set-fatal-mask" title=
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
 Logs an error or debugging message.
+</p>
+<p>
 If the log level has been set as fatal, the <code class="function">abort()</code>
 function is called to terminate the program.
 </p>
@@ -266,20 +273,21 @@ function is called to terminate the program.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>log_domain</code></em> :</span></p></td>
-<td>the log domain, usually <a class="link" href="glib-Message-Logging.html#G-LOG-DOMAIN:CAPS" title="G_LOG_DOMAIN"><span class="type">G_LOG_DOMAIN</span></a>.</td>
+<td>the log domain, usually <a class="link" href="glib-Message-Logging.html#G-LOG-DOMAIN:CAPS" title="G_LOG_DOMAIN"><span class="type">G_LOG_DOMAIN</span></a>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>log_level</code></em> :</span></p></td>
-<td>the log level, either from <a class="link" href="glib-Message-Logging.html#GLogLevelFlags" title="enum GLogLevelFlags"><span class="type">GLogLevelFlags</span></a> or a user-defined level.</td>
+<td>the log level, either from <a class="link" href="glib-Message-Logging.html#GLogLevelFlags" title="enum GLogLevelFlags"><span class="type">GLogLevelFlags</span></a>
+or a user-defined level</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
-<td>the message format. See the <code class="function">printf()</code>
-documentation.</td>
+<td>the message format. See the <code class="function">printf()</code> documentation</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
-<td>the parameters to insert into the format string.</td>
+<td>the parameters to insert into the format string</td>
 </tr>
 </tbody>
 </table></div>
@@ -293,6 +301,8 @@ documentation.</td>
                                                          <em class="parameter"><code><span class="type">va_list</span> args</code></em>);</pre>
 <p>
 Logs an error or debugging message.
+</p>
+<p>
 If the log level has been set as fatal, the <code class="function">abort()</code>
 function is called to terminate the program.
 </p>
@@ -301,20 +311,19 @@ function is called to terminate the program.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>log_domain</code></em> :</span></p></td>
-<td>the log domain.</td>
+<td>the log domain</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>log_level</code></em> :</span></p></td>
-<td>the log level.</td>
+<td>the log level</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
-<td>the message format. See the <code class="function">printf()</code>
-documentation.</td>
+<td>the message format. See the <code class="function">printf()</code> documentation</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>args</code></em> :</span></p></td>
-<td>the parameters to insert into the format string.</td>
+<td>the parameters to insert into the format string</td>
 </tr>
 </tbody>
 </table></div>
@@ -330,7 +339,8 @@ A convenience function/macro to log a normal message.
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
-<td>format string, followed by parameters to insert into the format string (as with <code class="function">printf()</code>)</td>
+<td>format string, followed by parameters to insert
+into the format string (as with <code class="function">printf()</code>)</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -342,14 +352,16 @@ A convenience function/macro to log a normal message.
 A convenience function/macro to log a warning message.
 </p>
 <p>
-You can make warnings fatal at runtime by setting the <code class="literal">G_DEBUG</code> environment
-variable (see <a class="ulink" href="glib-running.html" target="_top">Running GLib Applications</a>).
+You can make warnings fatal at runtime by setting the
+<code class="envar">G_DEBUG</code> environment variable (see
+<a class="ulink" href="glib-running.html" target="_top">Running GLib Applications</a>).
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
-<td>format string, followed by parameters to insert into the format string (as with <code class="function">printf()</code>)</td>
+<td>format string, followed by parameters to insert
+into the format string (as with <code class="function">printf()</code>)</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -358,22 +370,24 @@ variable (see <a class="ulink" href="glib-running.html" target="_top">Running GL
 <a name="g-critical"></a><h3>g_critical()</h3>
 <pre class="programlisting">#define             g_critical(...)</pre>
 <p>
-Logs a "critical warning" (<a class="link" href="glib-Message-Logging.html#G-LOG-LEVEL-CRITICAL:CAPS"><span class="type">G_LOG_LEVEL_CRITICAL</span></a>). It's more or less
-application-defined what constitutes a critical vs. a regular
-warning. You could call <a class="link" href="glib-Message-Logging.html#g-log-set-always-fatal" title="g_log_set_always_fatal ()"><code class="function">g_log_set_always_fatal()</code></a> to make critical
-warnings exit the program, then use <a class="link" href="glib-Message-Logging.html#g-critical" title="g_critical()"><code class="function">g_critical()</code></a> for fatal errors, for
+Logs a "critical warning" (<a class="link" href="glib-Message-Logging.html#G-LOG-LEVEL-CRITICAL:CAPS"><span class="type">G_LOG_LEVEL_CRITICAL</span></a>).
+It's more or less application-defined what constitutes
+a critical vs. a regular warning. You could call
+<a class="link" href="glib-Message-Logging.html#g-log-set-always-fatal" title="g_log_set_always_fatal ()"><code class="function">g_log_set_always_fatal()</code></a> to make critical warnings exit
+the program, then use <a class="link" href="glib-Message-Logging.html#g-critical" title="g_critical()"><code class="function">g_critical()</code></a> for fatal errors, for
 example.
 </p>
 <p>
-You can also make critical warnings fatal at runtime by setting
-the <code class="literal">G_DEBUG</code> environment variable (see
+You can also make critical warnings fatal at runtime by
+setting the <code class="envar">G_DEBUG</code> environment variable (see
 <a class="ulink" href="glib-running.html" target="_top">Running GLib Applications</a>).
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
-<td>format string, followed by parameters to insert into the format string (as with <code class="function">printf()</code>)</td>
+<td>format string, followed by parameters to insert
+into the format string (as with <code class="function">printf()</code>)</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -383,17 +397,20 @@ the <code class="literal">G_DEBUG</code> environment variable (see
 <pre class="programlisting">#define             g_error(...)</pre>
 <p>
 A convenience function/macro to log an error message.
+</p>
+<p>
 Error messages are always fatal, resulting in a call to
-<code class="function">abort()</code> to terminate the application.
-This function will result in a core dump; don't use it for errors you
-expect. Using this function indicates a bug in your program, i.e. an
-assertion failure.
+<code class="function">abort()</code> to terminate the application. This function will
+result in a core dump; don't use it for errors you expect.
+Using this function indicates a bug in your program, i.e.
+an assertion failure.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
-<td>format string, followed by parameters to insert into the format string (as with <code class="function">printf()</code>)</td>
+<td>format string, followed by parameters to insert
+into the format string (as with <code class="function">printf()</code>)</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -408,7 +425,8 @@ A convenience function/macro to log a debug message.
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
-<td>format string, followed by parameters to insert into the format string (as with <code class="function">printf()</code>)</td>
+<td>format string, followed by parameters to insert
+into the format string (as with <code class="function">printf()</code>)</td>
 </tr></tbody>
 </table></div>
 <p class="since">Since 2.6</p>
@@ -431,8 +449,10 @@ Note that since the <a class="link" href="glib-Message-Logging.html#G-LOG-LEVEL-
 you want to set a handler for this log level you must combine it with
 <a class="link" href="glib-Message-Logging.html#G-LOG-FLAG-FATAL:CAPS"><span class="type">G_LOG_FLAG_FATAL</span></a>.
 </p>
+<p>
+</p>
 <div class="example">
-<a name="id727199"></a><p class="title"><b>Example 12. Adding a log handler for all warning messages in the default
+<a name="id582753"></a><p class="title"><b>Example 10. Adding a log handler for all warning messages in the default
 (application) domain</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
@@ -448,8 +468,12 @@ you want to set a handler for this log level you must combine it with
 </div>
 
 </div>
-<br class="example-break"><div class="example">
-<a name="id727214"></a><p class="title"><b>Example 13. Adding a log handler for all critical messages from GTK+</b></p>
+<p><br class="example-break">
+</p>
+<p>
+</p>
+<div class="example">
+<a name="id582771"></a><p class="title"><b>Example 11. Adding a log handler for all critical messages from GTK+</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -464,8 +488,12 @@ you want to set a handler for this log level you must combine it with
 </div>
 
 </div>
-<br class="example-break"><div class="example">
-<a name="id727229"></a><p class="title"><b>Example 14. Adding a log handler for <span class="emphasis"><em>all</em></span> messages from
+<p><br class="example-break">
+</p>
+<p>
+</p>
+<div class="example">
+<a name="id582790"></a><p class="title"><b>Example 12. Adding a log handler for <span class="emphasis"><em>all</em></span> messages from
 GLib</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
@@ -481,30 +509,35 @@ GLib</b></p>
 </div>
 
 </div>
-<br class="example-break"><div class="variablelist"><table border="0">
+<p><br class="example-break">
+</p>
+<div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>log_domain</code></em> :</span></p></td>
-<td>the log domain, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> for the default "" application domain.</td>
+<td>the log domain, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> for the default ""
+application domain. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>log_levels</code></em> :</span></p></td>
-<td>the log levels to apply the log handler for. To handle fatal
-and recursive messages as well, combine the log levels with the
-<a class="link" href="glib-Message-Logging.html#G-LOG-FLAG-FATAL:CAPS"><span class="type">G_LOG_FLAG_FATAL</span></a> and <a class="link" href="glib-Message-Logging.html#G-LOG-FLAG-RECURSION:CAPS"><span class="type">G_LOG_FLAG_RECURSION</span></a> bit flags.</td>
+<td>the log levels to apply the log handler for.
+To handle fatal and recursive messages as well, combine
+the log levels with the <a class="link" href="glib-Message-Logging.html#G-LOG-FLAG-FATAL:CAPS"><span class="type">G_LOG_FLAG_FATAL</span></a> and
+<a class="link" href="glib-Message-Logging.html#G-LOG-FLAG-RECURSION:CAPS"><span class="type">G_LOG_FLAG_RECURSION</span></a> bit flags.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>log_func</code></em> :</span></p></td>
-<td>the log handler function.</td>
+<td>the log handler function</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
-<td>data passed to the log handler.</td>
+<td>data passed to the log handler</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the id of the new handler.</td>
+<td>the id of the new handler</td>
 </tr>
 </tbody>
 </table></div>
@@ -522,11 +555,13 @@ Removes the log handler.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>log_domain</code></em> :</span></p></td>
-<td>the log domain.</td>
+<td>the log domain</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>handler_id</code></em> :</span></p></td>
-<td>the id of the handler, which was returned in <a class="link" href="glib-Message-Logging.html#g-log-set-handler" title="g_log_set_handler ()"><code class="function">g_log_set_handler()</code></a>.</td>
+<td>the id of the handler, which was returned
+in <a class="link" href="glib-Message-Logging.html#g-log-set-handler" title="g_log_set_handler ()"><code class="function">g_log_set_handler()</code></a>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -542,8 +577,8 @@ You can only set the levels defined by GLib to be fatal.
 <a class="link" href="glib-Message-Logging.html#G-LOG-LEVEL-ERROR:CAPS"><code class="literal">G_LOG_LEVEL_ERROR</code></a> is always fatal.
 </p>
 <p>
-You can also make some message levels
-fatal at runtime by setting the <code class="literal">G_DEBUG</code> environment variable (see
+You can also make some message levels fatal at runtime by setting
+the <code class="envar">G_DEBUG</code> environment variable (see
 <a class="ulink" href="glib-running.html" target="_top">Running GLib Applications</a>).
 </p>
 <div class="variablelist"><table border="0">
@@ -551,12 +586,12 @@ fatal at runtime by setting the <code class="literal">G_DEBUG</code> environment
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>fatal_mask</code></em> :</span></p></td>
-<td>the mask containing bits set for each level of error which is
-to be fatal.</td>
+<td>the mask containing bits set for each level
+of error which is to be fatal</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the old fatal mask.</td>
+<td>the old fatal mask</td>
 </tr>
 </tbody>
 </table></div>
@@ -575,15 +610,15 @@ Sets the log levels which are fatal in the given domain.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>log_domain</code></em> :</span></p></td>
-<td>the log domain.</td>
+<td>the log domain</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>fatal_mask</code></em> :</span></p></td>
-<td>the new fatal mask.</td>
+<td>the new fatal mask</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the old fatal mask for the log domain.</td>
+<td>the old fatal mask for the log domain</td>
 </tr>
 </tbody>
 </table></div>
@@ -598,32 +633,59 @@ Sets the log levels which are fatal in the given domain.
 <p>
 The default log handler set up by GLib; <a class="link" href="glib-Message-Logging.html#g-log-set-default-handler" title="g_log_set_default_handler ()"><code class="function">g_log_set_default_handler()</code></a>
 allows to install an alternate default log handler.
-This is used if no log handler has been set for the particular log domain
-and log level combination. It outputs the message to stderr or stdout
-and if the log level is fatal it calls <code class="function">abort()</code>.
+This is used if no log handler has been set for the particular log
+domain and log level combination. It outputs the message to stderr
+or stdout and if the log level is fatal it calls <code class="function">abort()</code>.
+</p>
+<p>
+The behavior of this log handler can be influenced by a number of
+environment variables:
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><code class="envar">G_MESSAGES_PREFIXED</code></span></p></td>
+<td>
+      A :-separated list of log levels for which messages should
+      be prefixed by the program name and PID of the aplication.
+    </td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="envar">G_MESSAGES_DEBUG</code></span></p></td>
+<td>
+      A space-separated list of log domains for which debug and
+      informational messages are printed. By default these
+      messages are not printed.
+    </td>
+</tr>
+</tbody>
+</table></div>
+<p>
 </p>
 <p>
 stderr is used for levels <a class="link" href="glib-Message-Logging.html#G-LOG-LEVEL-ERROR:CAPS"><code class="literal">G_LOG_LEVEL_ERROR</code></a>, <a class="link" href="glib-Message-Logging.html#G-LOG-LEVEL-CRITICAL:CAPS"><code class="literal">G_LOG_LEVEL_CRITICAL</code></a>,
-<a class="link" href="glib-Message-Logging.html#G-LOG-LEVEL-WARNING:CAPS"><code class="literal">G_LOG_LEVEL_WARNING</code></a> and <a class="link" href="glib-Message-Logging.html#G-LOG-LEVEL-MESSAGE:CAPS"><code class="literal">G_LOG_LEVEL_MESSAGE</code></a>. stdout is used for the rest.
+<a class="link" href="glib-Message-Logging.html#G-LOG-LEVEL-WARNING:CAPS"><code class="literal">G_LOG_LEVEL_WARNING</code></a> and <a class="link" href="glib-Message-Logging.html#G-LOG-LEVEL-MESSAGE:CAPS"><code class="literal">G_LOG_LEVEL_MESSAGE</code></a>. stdout is used for
+the rest.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>log_domain</code></em> :</span></p></td>
-<td>the log domain of the message.</td>
+<td>the log domain of the message</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>log_level</code></em> :</span></p></td>
-<td>the level of the message.</td>
+<td>the level of the message</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>message</code></em> :</span></p></td>
-<td>the message.</td>
+<td>the message</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>unused_data</code></em> :</span></p></td>
-<td>data passed from <a class="link" href="glib-Message-Logging.html#g-log" title="g_log ()"><code class="function">g_log()</code></a> which is unused.</td>
+<td>data passed from <a class="link" href="glib-Message-Logging.html#g-log" title="g_log ()"><code class="function">g_log()</code></a> which is unused</td>
 </tr>
 </tbody>
 </table></div>
@@ -644,11 +706,11 @@ and log level combination. By default, GLib uses
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>log_func</code></em> :</span></p></td>
-<td>the log handler function.</td>
+<td>the log handler function</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
-<td>data passed to the log handler.</td>
+<td>data passed to the log handler</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -662,6 +724,6 @@ and log level combination. By default, GLib uses
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

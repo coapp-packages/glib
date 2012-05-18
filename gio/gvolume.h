@@ -67,6 +67,24 @@ G_BEGIN_DECLS
  */
 #define G_VOLUME_IDENTIFIER_KIND_NFS_MOUNT "nfs-mount"
 
+/**
+ * G_VOLUME_IDENTIFIER_KIND_CLASS:
+ *
+ * The string used to obtain the volume <emphasis>class</emphasis>
+ * with g_volume_get_identifier().
+ *
+ * Known volume classes include <literal>device</literal> and
+ * <literal>network</literal>. Other classes may be added in the
+ * future.
+ *
+ * This is intended to be used by applications to classify #GVolume
+ * instances into different sections - for example a file manager or
+ * file chooser can use this information to show
+ * <literal>network</literal> volumes under a "Network" heading and
+ * <literal>device</literal> volumes under a "Devices" heading.
+ */
+#define G_VOLUME_IDENTIFIER_KIND_CLASS "class"
+
 
 #define G_TYPE_VOLUME            (g_volume_get_type ())
 #define G_VOLUME(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), G_TYPE_VOLUME, GVolume))
@@ -101,6 +119,7 @@ G_BEGIN_DECLS
  *   it is not known.
  * @eject_with_operation: Starts ejecting a #GVolume using a #GMountOperation. Since 2.22.
  * @eject_with_operation_finish: Finishes an eject operation using a #GMountOperation. Since 2.22.
+ * @get_sort_key: Gets a key used for sorting #GVolume instance or %NULL if no such key exists. Since 2.32.
  *
  * Interface for implementing operations for mountable volumes.
  **/
@@ -159,6 +178,8 @@ struct _GVolumeIface
   gboolean    (* eject_with_operation_finish) (GVolume           *volume,
                                              GAsyncResult        *result,
                                              GError             **error);
+
+  const gchar * (* get_sort_key)        (GVolume             *volume);
 };
 
 GType    g_volume_get_type              (void) G_GNUC_CONST;
@@ -180,16 +201,17 @@ void     g_volume_mount                 (GVolume              *volume,
 gboolean g_volume_mount_finish          (GVolume              *volume,
 					 GAsyncResult         *result,
 					 GError              **error);
-#ifndef G_DISABLE_DEPRECATED
+GLIB_DEPRECATED_FOR(g_volume_eject_with_operation)
 void     g_volume_eject                 (GVolume              *volume,
-					 GMountUnmountFlags    flags,
-					 GCancellable         *cancellable,
-					 GAsyncReadyCallback   callback,
-					 gpointer              user_data);
+                                         GMountUnmountFlags    flags,
+                                         GCancellable         *cancellable,
+                                         GAsyncReadyCallback   callback,
+                                         gpointer              user_data);
+
+GLIB_DEPRECATED_FOR(g_volume_eject_with_operation_finish)
 gboolean g_volume_eject_finish          (GVolume              *volume,
-					 GAsyncResult         *result,
-					 GError              **error);
-#endif
+                                         GAsyncResult         *result,
+                                         GError              **error);
 char *   g_volume_get_identifier        (GVolume              *volume,
 					 const char           *kind);
 char **  g_volume_enumerate_identifiers (GVolume              *volume);
@@ -205,6 +227,8 @@ void        g_volume_eject_with_operation     (GVolume             *volume,
 gboolean    g_volume_eject_with_operation_finish (GVolume          *volume,
                                                GAsyncResult        *result,
                                                GError             **error);
+
+const gchar *g_volume_get_sort_key            (GVolume              *volume);
 
 G_END_DECLS
 

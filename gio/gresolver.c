@@ -31,13 +31,10 @@
 #include "ginetsocketaddress.h"
 #include "gsimpleasyncresult.h"
 #include "gsrvtarget.h"
+#include "gthreadedresolver.h"
 
 #ifdef G_OS_UNIX
-#include "gunixresolver.h"
 #include <sys/stat.h>
-#endif
-#ifdef G_OS_WIN32
-#include "gwin32resolver.h"
 #endif
 
 #include <stdlib.h>
@@ -90,6 +87,7 @@ g_resolver_class_init (GResolverClass *resolver_class)
 
   /* Make sure _g_networking_init() has been called */
   type = g_inet_address_get_type ();
+  (type); /* To avoid -Wunused-but-set-variable */
 
   /* Initialize _g_resolver_addrinfo_hints */
 #ifdef AI_ADDRCONFIG
@@ -141,8 +139,7 @@ static GResolver *default_resolver;
  *
  * Gets the default #GResolver. You should unref it when you are done
  * with it. #GResolver may use its reference count as a hint about how
- * many threads/processes, etc it should allocate for concurrent DNS
- * resolutions.
+ * many threads it should allocate for concurrent DNS resolutions.
  *
  * Return value: (transfer full): the default #GResolver.
  *
@@ -152,18 +149,7 @@ GResolver *
 g_resolver_get_default (void)
 {
   if (!default_resolver)
-    {
-      if (g_thread_supported ())
-        default_resolver = g_object_new (G_TYPE_THREADED_RESOLVER, NULL);
-      else
-        {
-#if defined(G_OS_UNIX)
-          default_resolver = g_object_new (G_TYPE_UNIX_RESOLVER, NULL);
-#elif defined(G_OS_WIN32)
-          default_resolver = g_object_new (G_TYPE_WIN32_RESOLVER, NULL);
-#endif
-        }
-    }
+    default_resolver = g_object_new (G_TYPE_THREADED_RESOLVER, NULL);
 
   return g_object_ref (default_resolver);
 }
@@ -211,6 +197,36 @@ g_resolver_maybe_reload (GResolver *resolver)
 #endif
 }
 
+/* filter out duplicates, cf. https://bugzilla.gnome.org/show_bug.cgi?id=631379 */
+static void
+remove_duplicates (GList *addrs)
+{
+  GList *l;
+  GList *ll;
+  GList *lll;
+
+  /* TODO: if this is too slow (it's O(n^2) but n is typically really
+   * small), we can do something more clever but note that we must not
+   * change the order of elements...
+   */
+  for (l = addrs; l != NULL; l = l->next)
+    {
+      GInetAddress *address = G_INET_ADDRESS (l->data);
+      for (ll = l->next; ll != NULL; ll = lll)
+        {
+          GInetAddress *other_address = G_INET_ADDRESS (ll->data);
+          lll = ll->next;
+          if (g_inet_address_equal (address, other_address))
+            {
+              g_object_unref (other_address);
+              /* we never return the first element */
+              g_warn_if_fail (g_list_delete_link (addrs, ll) == addrs);
+            }
+        }
+    }
+}
+
+
 /**
  * g_resolver_lookup_by_name:
  * @resolver: a #GResolver
@@ -224,9 +240,12 @@ g_resolver_maybe_reload (GResolver *resolver)
  * a wrapper around g_inet_address_new_from_string()).
  *
  * On success, g_resolver_lookup_by_name() will return a #GList of
- * #GInetAddress, sorted in order of preference. (That is, you should
- * attempt to connect to the first address first, then the second if
- * the first fails, etc.)
+ * #GInetAddress, sorted in order of preference and guaranteed to not
+ * contain duplicates. That is, if using the result to connect to
+ * @hostname, you should attempt to connect to the first address
+ * first, then the second if the first fails, etc. If you are using
+ * the result to listen on a socket, it is appropriate to add each
+ * result using e.g. g_socket_listener_add_address().
  *
  * If the DNS resolution fails, @error (if non-%NULL) will be set to a
  * value from #GResolverError.
@@ -270,6 +289,8 @@ g_resolver_lookup_by_name (GResolver     *resolver,
   g_resolver_maybe_reload (resolver);
   addrs = G_RESOLVER_GET_CLASS (resolver)->
     lookup_by_name (resolver, hostname, cancellable, error);
+
+  remove_duplicates (addrs);
 
   g_free (ascii_hostname);
   return addrs;
@@ -353,6 +374,8 @@ g_resolver_lookup_by_name_finish (GResolver     *resolver,
                                   GAsyncResult  *result,
                                   GError       **error)
 {
+  GList *addrs;
+
   g_return_val_if_fail (G_IS_RESOLVER (resolver), NULL);
 
   if (G_IS_SIMPLE_ASYNC_RESULT (result))
@@ -372,8 +395,12 @@ g_resolver_lookup_by_name_finish (GResolver     *resolver,
         }
     }
 
-  return G_RESOLVER_GET_CLASS (resolver)->
+  addrs = G_RESOLVER_GET_CLASS (resolver)->
     lookup_by_name_finish (resolver, result, error);
+
+  remove_duplicates (addrs);
+
+  return addrs;
 }
 
 /**
@@ -858,6 +885,7 @@ _g_resolver_targets_from_res_query (const gchar      *rrname,
       GETSHORT (type, p);
       GETSHORT (qclass, p);
       GETLONG  (ttl, p);
+      ttl = ttl; /* To avoid -Wunused-but-set-variable */
       GETSHORT (rdlength, p);
 
       if (type != T_SRV || qclass != C_IN)

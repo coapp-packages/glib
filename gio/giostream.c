@@ -148,19 +148,6 @@ g_io_stream_get_property (GObject    *object,
 }
 
 static void
-g_io_stream_set_property (GObject      *object,
-			  guint         prop_id,
-			  const GValue *value,
-			  GParamSpec   *pspec)
-{
-  switch (prop_id)
-    {
-    default:
-      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-    }
-}
-
-static void
 g_io_stream_class_init (GIOStreamClass *klass)
 {
   GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
@@ -169,7 +156,6 @@ g_io_stream_class_init (GIOStreamClass *klass)
 
   gobject_class->finalize = g_io_stream_finalize;
   gobject_class->dispose = g_io_stream_dispose;
-  gobject_class->set_property = g_io_stream_set_property;
   gobject_class->get_property = g_io_stream_get_property;
 
   klass->close_fn = g_io_stream_real_close;
@@ -181,7 +167,7 @@ g_io_stream_class_init (GIOStreamClass *klass)
                                                          P_("Closed"),
                                                          P_("Is the stream closed"),
                                                          FALSE,
-                                                         G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
+                                                         G_PARAM_READABLE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (gobject_class, PROP_INPUT_STREAM,
 				   g_param_spec_object ("input-stream",
@@ -283,7 +269,7 @@ g_io_stream_has_pending (GIOStream *stream)
 /**
  * g_io_stream_set_pending:
  * @stream: a #GIOStream
- * @error: a #GError location to store the error occuring, or %NULL to
+ * @error: a #GError location to store the error occurring, or %NULL to
  *     ignore
  *
  * Sets @stream to have actions pending. If the pending flag is
@@ -362,7 +348,7 @@ g_io_stream_real_close (GIOStream     *stream,
  * g_io_stream_close:
  * @stream: a #GIOStream
  * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore
- * @error: location to store the error occuring, or %NULL to ignore
+ * @error: location to store the error occurring, or %NULL to ignore
  *
  * Closes the stream, releasing resources related to it. This will also
  * closes the individual input and output streams, if they are not already
@@ -515,7 +501,7 @@ g_io_stream_close_async (GIOStream           *stream,
  * g_io_stream_close_finish:
  * @stream: a #GIOStream
  * @result: a #GAsyncResult
- * @error: a #GError location to store the error occuring, or %NULL to
+ * @error: a #GError location to store the error occurring, or %NULL to
  *    ignore
  *
  * Closes a stream.
@@ -661,7 +647,7 @@ splice_close_cb (GObject      *iostream,
   ctx = g_simple_async_result_get_op_res_gpointer (simple);
   ctx->completed++;
 
-  /* Keep the first error that occured */
+  /* Keep the first error that occurred */
   if (error != NULL && ctx->error == NULL)
     ctx->error = error;
   else
@@ -695,7 +681,7 @@ splice_cb (GObject      *ostream,
        !g_cancellable_is_cancelled (ctx->cancellable)))
     g_clear_error (&error);
 
-  /* Keep the first error that occured */
+  /* Keep the first error that occurred */
   if (error != NULL && ctx->error == NULL)
     ctx->error = error;
   else
@@ -831,7 +817,7 @@ g_io_stream_splice_async (GIOStream            *stream1,
 /**
  * g_io_stream_splice_finish:
  * @result: a #GAsyncResult.
- * @error: a #GError location to store the error occuring, or %NULL to
+ * @error: a #GError location to store the error occurring, or %NULL to
  * ignore.
  *
  * Finishes an asynchronous io stream splice operation.

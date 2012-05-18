@@ -40,8 +40,8 @@
  * equivalent of #GnomeVFSDrive.
  *
  * Mounting a #GVolume instance is an asynchronous operation. For more
- * information about asynchronous operations, see #GAsyncReady and
- * #GSimpleAsyncReady. To mount a #GVolume, first call
+ * information about asynchronous operations, see #GAsyncResult and
+ * #GSimpleAsyncResult. To mount a #GVolume, first call
  * g_volume_mount() with (at least) the #GVolume instance, optionally
  * a #GMountOperation object and a #GAsyncReadyCallback. 
  *
@@ -75,7 +75,7 @@
  * when the gvfs hal volume monitor is in use. Other volume monitors
  * will generally be able to provide the #G_VOLUME_IDENTIFIER_KIND_UNIX_DEVICE
  * identifier, which can be used to obtain a hal device by means of
- * libhal_manger_find_device_string_match().
+ * libhal_manager_find_device_string_match().
  */
 
 typedef GVolumeIface GVolumeInterface;
@@ -343,7 +343,7 @@ g_volume_mount (GVolume             *volume,
  * @result: a #GAsyncResult
  * @error: a #GError location to store an error, or %NULL to ignore
  * 
- * Finishes mounting a volume. If any errors occured during the operation,
+ * Finishes mounting a volume. If any errors occurred during the operation,
  * @error will be set to contain the errors and %FALSE will be returned.
  *
  * If the mount operation succeeded, g_volume_get_mount() on @volume
@@ -419,7 +419,7 @@ g_volume_eject (GVolume             *volume,
  * @result: a #GAsyncResult.
  * @error: a #GError location to store an error, or %NULL to ignore
  * 
- * Finishes ejecting a volume. If any errors occured during the operation,
+ * Finishes ejecting a volume. If any errors occurred during the operation,
  * @error will be set to contain the errors and %FALSE will be returned.
  * 
  * Returns: %TRUE, %FALSE if operation failed.
@@ -454,7 +454,7 @@ g_volume_eject_finish (GVolume       *volume,
  * @mount_operation: (allow-none): a #GMountOperation or %NULL to
  *     avoid user interaction.
  * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore.
- * @callback: a #GAsyncReadyCallback, or %NULL.
+ * @callback: (allow-none): a #GAsyncReadyCallback, or %NULL.
  * @user_data: user data passed to @callback.
  *
  * Ejects a volume. This is an asynchronous operation, and is
@@ -499,7 +499,7 @@ g_volume_eject_with_operation (GVolume              *volume,
  * g_volume_eject_with_operation_finish:
  * @volume: a #GVolume.
  * @result: a #GAsyncResult.
- * @error: a #GError location to store the error occuring, or %NULL to
+ * @error: a #GError location to store the error occurring, or %NULL to
  *     ignore.
  *
  * Finishes ejecting a volume. If any errors occurred during the operation,
@@ -568,7 +568,7 @@ g_volume_get_identifier (GVolume    *volume,
  * @volume: a #GVolume
  * 
  * Gets the kinds of <link linkend="volume-identifier">identifiers</link>
- * that @volume has. Use g_volume_get_identifer() to obtain 
+ * that @volume has. Use g_volume_get_identifier() to obtain
  * the identifiers themselves.
  *
  * Returns: (array zero-terminated=1) (transfer full): a %NULL-terminated array
@@ -639,4 +639,29 @@ g_volume_get_activation_root (GVolume *volume)
     return NULL;
 
   return (* iface->get_activation_root) (volume);
+}
+
+/**
+ * g_volume_get_sort_key:
+ * @volume: A #GVolume.
+ *
+ * Gets the sort key for @volume, if any.
+ *
+ * Returns: Sorting key for @volume or %NULL if no such key is available.
+ *
+ * Since: 2.32
+ */
+const gchar *
+g_volume_get_sort_key (GVolume  *volume)
+{
+  const gchar *ret = NULL;
+  GVolumeIface *iface;
+
+  g_return_val_if_fail (G_IS_VOLUME (volume), NULL);
+
+  iface = G_VOLUME_GET_IFACE (volume);
+  if (iface->get_sort_key != NULL)
+    ret = iface->get_sort_key (volume);
+
+  return ret;
 }

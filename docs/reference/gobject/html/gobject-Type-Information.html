@@ -8,7 +8,7 @@
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="rn01.html" title="API Reference">
 <link rel="next" href="GTypePlugin.html" title="GTypePlugin">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -119,9 +119,9 @@ const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnva
 <a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="gobject-Type-Information.html#g-type-default-interface-ref" title="g_type_default_interface_ref ()">g_type_default_interface_ref</a>        (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> g_type</code></em>);
 <a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="gobject-Type-Information.html#g-type-default-interface-peek" title="g_type_default_interface_peek ()">g_type_default_interface_peek</a>       (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> g_type</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gobject-Type-Information.html#g-type-default-interface-unref" title="g_type_default_interface_unref ()">g_type_default_interface_unref</a>      (<em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> g_iface</code></em>);
-<a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="returnvalue">GType</span></a> *                 <a class="link" href="gobject-Type-Information.html#g-type-children" title="g_type_children ()">g_type_children</a>                 (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> type</code></em>,
+<a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="returnvalue">GType</span></a> *             <a class="link" href="gobject-Type-Information.html#g-type-children" title="g_type_children ()">g_type_children</a>                     (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> type</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *n_children</code></em>);
-<a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="returnvalue">GType</span></a> *                 <a class="link" href="gobject-Type-Information.html#g-type-interfaces" title="g_type_interfaces ()">g_type_interfaces</a>               (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> type</code></em>,
+<a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="returnvalue">GType</span></a> *             <a class="link" href="gobject-Type-Information.html#g-type-interfaces" title="g_type_interfaces ()">g_type_interfaces</a>                   (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> type</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *n_interfaces</code></em>);
 <a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="returnvalue">GType</span></a> *             <a class="link" href="gobject-Type-Information.html#g-type-interface-prerequisites" title="g_type_interface_prerequisites ()">g_type_interface_prerequisites</a>      (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> interface_type</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *n_prerequisites</code></em>);
@@ -177,8 +177,8 @@ enum                <a class="link" href="gobject-Type-Information.html#GTypeFun
                                                          <em class="parameter"><code><a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="type">GTypePlugin</span></a> *plugin</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gobject-Type-Information.html#g-type-interface-add-prerequisite" title="g_type_interface_add_prerequisite ()">g_type_interface_add_prerequisite</a>   (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> interface_type</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> prerequisite_type</code></em>);
-<a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="returnvalue">GTypePlugin</span></a> *	      <a class="link" href="gobject-Type-Information.html#g-type-get-plugin" title="g_type_get_plugin ()">g_type_get_plugin</a>                   (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> type</code></em>);
-<a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="returnvalue">GTypePlugin</span></a> *	      <a class="link" href="gobject-Type-Information.html#g-type-interface-get-plugin" title="g_type_interface_get_plugin ()">g_type_interface_get_plugin</a>         (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> instance_type</code></em>,
+<a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="returnvalue">GTypePlugin</span></a> *       <a class="link" href="gobject-Type-Information.html#g-type-get-plugin" title="g_type_get_plugin ()">g_type_get_plugin</a>                   (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> type</code></em>);
+<a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="returnvalue">GTypePlugin</span></a> *       <a class="link" href="gobject-Type-Information.html#g-type-interface-get-plugin" title="g_type_interface_get_plugin ()">g_type_interface_get_plugin</a>         (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> instance_type</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> interface_type</code></em>);
 <a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="returnvalue">GType</span></a>               <a class="link" href="gobject-Type-Information.html#g-type-fundamental-next" title="g_type_fundamental_next ()">g_type_fundamental_next</a>             (<em class="parameter"><code><span class="type">void</span></code></em>);
 <a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="returnvalue">GType</span></a>               <a class="link" href="gobject-Type-Information.html#g-type-fundamental" title="g_type_fundamental ()">g_type_fundamental</a>                  (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> type_id</code></em>);
@@ -301,6 +301,14 @@ structure and a <a class="link" href="gobject-Type-Information.html#GTypeFundame
 since most fundamental types are predefined rather than user-defined.
 </p>
 <p>
+Type instance and class structs are limited to a total of 64 KiB,
+including all parent types. Similarly, type instances' private data
+(as created by <a class="link" href="gobject-Type-Information.html#g-type-class-add-private" title="g_type_class_add_private ()"><code class="function">g_type_class_add_private()</code></a>) are limited to a total of
+64 KiB. If a type instance needs a large static buffer, allocate it
+separately (typically by using <a href="./../glib/glib/glib-Arrays.html#GArray"><span class="type">GArray</span></a> or <a href="./../glib/glib/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a>) and put a pointer
+to the buffer in the structure.
+</p>
+<p>
 A final word about type names.
 Such an identifier needs to be at least three characters long. There is no
 upper length limit. The first character needs to be a letter (a-z or A-Z)
@@ -312,8 +320,6 @@ any of '-_+'.
 <a name="gobject-Type-Information.details"></a><h2>Details</h2>
 <div class="refsect2">
 <a name="GType"></a><h3>GType</h3>
-<pre class="programlisting">typedef gsize                           GType;
-</pre>
 <p>
 A numerical value which represents the unique identifier of a registered
 type.
@@ -377,7 +383,7 @@ types.
 <pre class="programlisting">#define G_TYPE_IS_ABSTRACT(type)                (g_type_test_flags ((type), G_TYPE_FLAG_ABSTRACT))
 </pre>
 <p>
-Checks if <em class="parameter"><code>type</code></em> is an abstract type.  An abstract type can not be
+Checks if <em class="parameter"><code>type</code></em> is an abstract type.  An abstract type cannot be
 instantiated and is normally used as an abstract base class for
 derived classes.
 </p>
@@ -995,10 +1001,11 @@ For our above string example, we continue with:
 It should be noted, that it is generally a bad idea to follow the
 <span class="type">G_VALUE_NOCOPY_CONTENTS</span> hint for reference counted types. Due to
 reentrancy requirements and reference count assertions performed
-by the <span class="type">GSignal</span> code, reference counts should always be incremented
-for reference counted contents stored in the value-&gt;data array.
-To deviate from our string example for a moment, and taking a look
-at an exemplary implementation for <code class="function">collect_value()</code> of <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>:
+by the signal emission code, reference counts should always be
+incremented for reference counted contents stored in the value-&gt;data
+array.  To deviate from our string example for a moment, and taking
+a look at an exemplary implementation for <code class="function">collect_value()</code> of
+<a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>:
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -1572,14 +1579,16 @@ to initialize the type system and assorted other code portions
 system).
 </p>
 <p>
+This function is idempotent.
+</p>
+<p>
 Since version 2.24 this also initializes the thread system
 </p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GTypeDebugFlags"></a><h3>enum GTypeDebugFlags</h3>
-<pre class="programlisting">typedef enum /*&lt; skip &gt;*/
-{
+<pre class="programlisting">typedef enum {
   G_TYPE_DEBUG_NONE = 0,
   G_TYPE_DEBUG_OBJECTS = 1 &lt;&lt; 0,
   G_TYPE_DEBUG_SIGNALS = 1 &lt;&lt; 1,
@@ -1625,6 +1634,9 @@ Note that the messages can also be triggered by setting the
 <pre class="programlisting"><span class="returnvalue">void</span>                g_type_init_with_debug_flags        (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GTypeDebugFlags" title="enum GTypeDebugFlags"><span class="type">GTypeDebugFlags</span></a> debug_flags</code></em>);</pre>
 <p>
 Similar to <a class="link" href="gobject-Type-Information.html#g-type-init" title="g_type_init ()"><code class="function">g_type_init()</code></a>, but additionally sets debug flags.
+</p>
+<p>
+This function is idempotent.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1961,7 +1973,7 @@ structures.
 </p>
 <p>
 Note that the accumulated size of the private structures of
-a type and all its parent types cannot excced 64kB.
+a type and all its parent types cannot excced 64 KiB.
 </p>
 <p>
 This function should be called in the type's <code class="function">class_init()</code> function.
@@ -1974,6 +1986,8 @@ The following example shows attaching a private structure
 <span class="structname">MyObject</span> defined in the standard GObject
 fashion.
 type's <code class="function">class_init()</code> function.
+Note the use of a structure member "priv" to avoid the overhead
+of repeatedly calling <code class="function">MY_OBJECT_GET_PRIVATE()</code>.
 </p>
 <p>
 </p>
@@ -2014,7 +2028,11 @@ type's <code class="function">class_init()</code> function.
 31
 32
 33
-34</pre></td>
+34
+35
+36
+37
+38</pre></td>
         <td class="listing_code"><pre class="programlisting"><span class="keyword">typedef</span><span class="normal"> </span><span class="keyword">struct</span><span class="normal"> </span><span class="classname">_MyObject</span><span class="normal">        MyObject</span><span class="symbol">;</span>
 <span class="keyword">typedef</span><span class="normal"> </span><span class="keyword">struct</span><span class="normal"> </span><span class="classname">_MyObjectPrivate</span><span class="normal"> MyObjectPrivate</span><span class="symbol">;</span>
 
@@ -2045,7 +2063,11 @@ type's <code class="function">class_init()</code> function.
 <span class="keyword">static</span><span class="normal"> </span><span class="type">int</span>
 <span class="function">my_object_get_some_field</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">MyObject</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">my_object</span><span class="symbol">)</span>
 <span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">MyObjectPrivate</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">priv </span><span class="symbol">=</span><span class="normal"> my_object</span><span class="symbol">-&gt;</span><span class="normal">priv</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">MyObjectPrivate</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">priv</span><span class="symbol">;</span>
+
+<span class="normal">  </span><span class="function"><a href="./../glib/glib/glib-Warnings-and-Assertions.html#g-return-val-if-fail">g_return_val_if_fail</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">MY_IS_OBJECT</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">my_object</span><span class="symbol">),</span><span class="normal"> </span><span class="number">0</span><span class="symbol">);</span>
+
+<span class="normal">  priv </span><span class="symbol">=</span><span class="normal"> my_object</span><span class="symbol">-&gt;</span><span class="normal">priv</span><span class="symbol">;</span>
 
 <span class="normal">  </span><span class="keyword">return</span><span class="normal"> priv</span><span class="symbol">-&gt;</span><span class="normal">some_field</span><span class="symbol">;</span>
 <span class="cbracket">}</span></pre></td>
@@ -2250,7 +2272,7 @@ structure for a interface, as returned by
 <hr>
 <div class="refsect2">
 <a name="g-type-children"></a><h3>g_type_children ()</h3>
-<pre class="programlisting"><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="returnvalue">GType</span></a> *                 g_type_children                 (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> type</code></em>,
+<pre class="programlisting"><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="returnvalue">GType</span></a> *             g_type_children                     (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> type</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *n_children</code></em>);</pre>
 <p>
 Return a newly allocated and 0-terminated array of type IDs, listing the
@@ -2281,7 +2303,7 @@ and 0-terminated array of child types. <span class="annotation">[<acronym title=
 <hr>
 <div class="refsect2">
 <a name="g-type-interfaces"></a><h3>g_type_interfaces ()</h3>
-<pre class="programlisting"><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="returnvalue">GType</span></a> *                 g_type_interfaces               (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> type</code></em>,
+<pre class="programlisting"><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="returnvalue">GType</span></a> *             g_type_interfaces                   (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> type</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *n_interfaces</code></em>);</pre>
 <p>
 Return a newly allocated and 0-terminated array of type IDs, listing the
@@ -2826,8 +2848,7 @@ called, <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS"><code clas
 <hr>
 <div class="refsect2">
 <a name="GTypeFlags"></a><h3>enum GTypeFlags</h3>
-<pre class="programlisting">typedef enum    /*&lt; skip &gt;*/
-{
+<pre class="programlisting">typedef enum {
   G_TYPE_FLAG_ABSTRACT		= (1 &lt;&lt; 4),
   G_TYPE_FLAG_VALUE_ABSTRACT = (1 &lt;&lt; 5)
 } GTypeFlags;
@@ -2857,8 +2878,7 @@ Bit masks used to check or determine characteristics of a type.
 <hr>
 <div class="refsect2">
 <a name="GTypeFundamentalFlags"></a><h3>enum GTypeFundamentalFlags</h3>
-<pre class="programlisting">typedef enum    /*&lt; skip &gt;*/
-{
+<pre class="programlisting">typedef enum {
   G_TYPE_FLAG_CLASSED           = (1 &lt;&lt; 0),
   G_TYPE_FLAG_INSTANTIATABLE    = (1 &lt;&lt; 1),
   G_TYPE_FLAG_DERIVABLE         = (1 &lt;&lt; 2),
@@ -3040,10 +3060,11 @@ instances (if not abstract).  The value of <em class="parameter"><code>flags</co
                                                          <em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GTypeFlags" title="enum GTypeFlags"><span class="type">GTypeFlags</span></a> flags</code></em>);</pre>
 <p>
 Registers <em class="parameter"><code>type_id</code></em> as the predefined identifier and <em class="parameter"><code>type_name</code></em> as the
-name of a fundamental type.  The type system uses the information
-contained in the <a class="link" href="gobject-Type-Information.html#GTypeInfo" title="struct GTypeInfo"><span class="type">GTypeInfo</span></a> structure pointed to by <em class="parameter"><code>info</code></em> and the
-<a class="link" href="gobject-Type-Information.html#GTypeFundamentalInfo" title="struct GTypeFundamentalInfo"><span class="type">GTypeFundamentalInfo</span></a> structure pointed to by <em class="parameter"><code>finfo</code></em> to manage the
-type and its instances.  The value of <em class="parameter"><code>flags</code></em> determines additional
+name of a fundamental type. If <em class="parameter"><code>type_id</code></em> is already registered, or a type
+named <em class="parameter"><code>type_name</code></em> is already registered, the behaviour is undefined. The type
+system uses the information contained in the <a class="link" href="gobject-Type-Information.html#GTypeInfo" title="struct GTypeInfo"><span class="type">GTypeInfo</span></a> structure pointed to
+by <em class="parameter"><code>info</code></em> and the <a class="link" href="gobject-Type-Information.html#GTypeFundamentalInfo" title="struct GTypeFundamentalInfo"><span class="type">GTypeFundamentalInfo</span></a> structure pointed to by <em class="parameter"><code>finfo</code></em> to
+manage the type and its instances. The value of <em class="parameter"><code>flags</code></em> determines additional
 characteristics of the fundamental type.
 </p>
 <div class="variablelist"><table border="0">
@@ -3083,9 +3104,9 @@ characteristics of the fundamental type.
                                                          <em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> interface_type</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="gobject-Type-Information.html#GInterfaceInfo" title="struct GInterfaceInfo"><span class="type">GInterfaceInfo</span></a> *info</code></em>);</pre>
 <p>
-Adds the static <em class="parameter"><code>interface_type</code></em> to <em class="parameter"><code>instantiable_type</code></em>.  The information
-contained in the <span class="type">GTypeInterfaceInfo</span> structure pointed to by <em class="parameter"><code>info</code></em>
-is used to manage the relationship.
+Adds the static <em class="parameter"><code>interface_type</code></em> to <em class="parameter"><code>instantiable_type</code></em>.  The
+information contained in the <a class="link" href="gobject-Type-Information.html#GInterfaceInfo" title="struct GInterfaceInfo"><span class="type">GInterfaceInfo</span></a> structure pointed to by
+<em class="parameter"><code>info</code></em> is used to manage the relationship.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -3168,7 +3189,7 @@ at most one instantiatable prerequisite type.
 <hr>
 <div class="refsect2">
 <a name="g-type-get-plugin"></a><h3>g_type_get_plugin ()</h3>
-<pre class="programlisting"><a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="returnvalue">GTypePlugin</span></a> *	      g_type_get_plugin                   (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> type</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="returnvalue">GTypePlugin</span></a> *       g_type_get_plugin                   (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> type</code></em>);</pre>
 <p>
 Returns the <a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="type">GTypePlugin</span></a> structure for <em class="parameter"><code>type</code></em> or
 <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>type</code></em> does not have a <a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="type">GTypePlugin</span></a> structure.
@@ -3192,7 +3213,7 @@ dynamic type, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code
 <hr>
 <div class="refsect2">
 <a name="g-type-interface-get-plugin"></a><h3>g_type_interface_get_plugin ()</h3>
-<pre class="programlisting"><a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="returnvalue">GTypePlugin</span></a> *	      g_type_interface_get_plugin         (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> instance_type</code></em>,
+<pre class="programlisting"><a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="returnvalue">GTypePlugin</span></a> *       g_type_interface_get_plugin         (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> instance_type</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> interface_type</code></em>);</pre>
 <p>
 Returns the <a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="type">GTypePlugin</span></a> structure for the dynamic interface
@@ -3624,7 +3645,7 @@ separated by '_'.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>_C_</code></em> :</span></p></td>
-<td>Custom code that gets inserted in the @<code class="function">type_name_get_type()</code> function.</td>
+<td>Custom code that gets inserted in the <em class="parameter"><code><code class="function">type_name_get_type()</code></code></em> function.</td>
 </tr>
 </tbody>
 </table></div>
@@ -3826,7 +3847,7 @@ expands to
 <span class="normal">                                       </span><span class="symbol">(</span><span class="normal"><a href="gobject-Type-Information.html#GInstanceInitFunc">GInstanceInitFunc</a></span><span class="symbol">)</span><span class="normal"> gtk_gadget_init</span><span class="symbol">,</span>
 <span class="normal">                                       </span><span class="symbol">(</span><span class="normal"><a href="gobject-Type-Information.html#GTypeFlags">GTypeFlags</a></span><span class="symbol">)</span><span class="normal"> flags</span><span class="symbol">);</span>
 <span class="normal">      </span><span class="cbracket">{</span>
-<span class="normal">        </span><span class="keyword">static</span><span class="normal"> </span><span class="keyword">const</span><span class="normal"> </span><span class="usertype">GInterfaceInfo</span><span class="normal"> g_implement_interface_info </span><span class="symbol">=</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="keyword">const</span><span class="normal"> </span><span class="usertype">GInterfaceInfo</span><span class="normal"> g_implement_interface_info </span><span class="symbol">=</span><span class="normal"> </span><span class="cbracket">{</span>
 <span class="normal">          </span><span class="symbol">(</span><span class="normal"><a href="gobject-Type-Information.html#GInterfaceInitFunc">GInterfaceInitFunc</a></span><span class="symbol">)</span><span class="normal"> gtk_gadget_gizmo_init</span>
 <span class="normal">        </span><span class="cbracket">}</span><span class="symbol">;</span>
 <span class="normal">        </span><span class="function"><a href="gobject-Type-Information.html#g-type-add-interface-static">g_type_add_interface_static</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">g_define_type_id</span><span class="symbol">,</span><span class="normal"> TYPE_GIZMO</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">g_implement_interface_info</span><span class="symbol">);</span>
@@ -4279,6 +4300,6 @@ type id with <a class="link" href="gobject-Type-Information.html#G-TYPE-MAKE-FUN
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

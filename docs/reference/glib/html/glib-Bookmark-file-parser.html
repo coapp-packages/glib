@@ -8,7 +8,7 @@
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-Key-value-file-parser.html" title="Key-value file parser">
 <link rel="next" href="glib-Testing.html" title="Testing">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -304,8 +304,7 @@ enumeration. See <a class="link" href="glib-Error-Reporting.html#GError" title="
 <hr>
 <div class="refsect2">
 <a name="GBookmarkFileError"></a><h3>enum GBookmarkFileError</h3>
-<pre class="programlisting">typedef enum
-{
+<pre class="programlisting">typedef enum {
   G_BOOKMARK_FILE_ERROR_INVALID_URI,
   G_BOOKMARK_FILE_ERROR_INVALID_VALUE,
   G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED,
@@ -512,7 +511,7 @@ set to either a <a class="link" href="glib-File-Utilities.html#GFileError" title
 <tr>
 <td><p><span class="term"><em class="parameter"><code>full_path</code></em> :</span></p></td>
 <td>return location for a string containing the full path
-of the file, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+of the file, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -523,7 +522,7 @@ of the file, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if a key file could be loaded, <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> othewise</td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if a key file could be loaded, <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> otherwise</td>
 </tr>
 </tbody>
 </table></div>
@@ -548,7 +547,7 @@ This function outputs <em class="parameter"><code>bookmark</code></em> as a stri
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
-<td>return location for the length of the returned string, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>return location for the length of the returned string, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -764,7 +763,7 @@ optionally be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
-<td>return location for the number of returned URIs, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>return location for the number of returned URIs, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -802,7 +801,7 @@ In the event the URI cannot be found, <a class="link" href="glib-Standard-Macros
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
-<td>a valid URI or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>a valid URI or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -969,12 +968,12 @@ In the event the URI cannot be found, <a class="link" href="glib-Standard-Macros
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>href</code></em> :</span></p></td>
-<td>return location for the icon's location or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>return location for the icon's location or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mime_type</code></em> :</span></p></td>
-<td>return location for the icon's MIME type or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>return location for the icon's MIME type or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -1138,7 +1137,7 @@ be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
-<td>return location for the length of the returned string, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>return location for the length of the returned string, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -1184,7 +1183,7 @@ In the event the URI cannot be found, <a class="link" href="glib-Standard-Macros
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
-<td>return location of the length of the returned list, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>return location of the length of the returned list, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -1246,17 +1245,17 @@ set and <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>exec</code></em> :</span></p></td>
-<td>location for the command line of the application, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>location for the command line of the application, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>count</code></em> :</span></p></td>
-<td>return location for the registration count, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>return location for the registration count, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stamp</code></em> :</span></p></td>
-<td>return location for the last registration time, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>return location for the last registration time, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -1299,7 +1298,7 @@ If a bookmark for <em class="parameter"><code>uri</code></em> cannot be found th
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
-<td>a valid URI or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>a valid URI or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -1335,7 +1334,7 @@ If a bookmark for <em class="parameter"><code>uri</code></em> cannot be found th
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
-<td>a valid URI or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>a valid URI or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -1440,7 +1439,7 @@ If no bookmark for <em class="parameter"><code>uri</code></em> is found one is c
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>href</code></em> :</span></p></td>
-<td>the URI of the icon for the bookmark, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>the URI of the icon for the bookmark, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -1511,7 +1510,8 @@ If <em class="parameter"><code>uri</code></em> cannot be found then an item for 
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>groups</code></em> :</span></p></td>
-<td>an array of group names, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> to remove all groups</td>
+<td>an array of group names, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> to remove all groups. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
@@ -1621,9 +1621,9 @@ and <a class="link" href="glib-Bookmark-file-parser.html#g-bookmark-file-remove-
 <p>
 <em class="parameter"><code>name</code></em> can be any UTF-8 encoded string used to identify an
 application.
-<em class="parameter"><code>exec</code></em> can have one of these two modifiers: "<code class="literal">f</code>", which will
+<em class="parameter"><code>exec</code></em> can have one of these two modifiers: "%f", which will
 be expanded as the local file name retrieved from the bookmark's
-URI; "<code class="literal">u</code>", which will be expanded as the bookmark's URI.
+URI; "%u", which will be expanded as the bookmark's URI.
 The expansion is done automatically when retrieving the stored
 command line using the <a class="link" href="glib-Bookmark-file-parser.html#g-bookmark-file-get-app-info" title="g_bookmark_file_get_app_info ()"><code class="function">g_bookmark_file_get_app_info()</code></a> function.
 <em class="parameter"><code>count</code></em> is the number of times the application has registered the
@@ -1741,7 +1741,7 @@ time the application registered this bookmark.
 If <em class="parameter"><code>name</code></em> is <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>, the name of the application will be the
 same returned by <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-application-name" title="g_get_application_name ()"><code class="function">g_get_application_name()</code></a>; if <em class="parameter"><code>exec</code></em> is <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>, the
 command line will be a composition of the program name as
-returned by <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-prgname" title="g_get_prgname ()"><code class="function">g_get_prgname()</code></a> and the "<code class="literal">u</code>" modifier, which will be
+returned by <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-prgname" title="g_get_prgname ()"><code class="function">g_get_prgname()</code></a> and the "%u" modifier, which will be
 expanded to the bookmark's URI.
 </p>
 <p>
@@ -1768,12 +1768,12 @@ If no bookmark for <em class="parameter"><code>uri</code></em> is found, one is 
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
 <td>the name of the application registering the bookmark
-or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>exec</code></em> :</span></p></td>
-<td>command line to be used to launch the bookmark or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>command line to be used to launch the bookmark or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1940,7 +1940,7 @@ In the event the URI cannot be found, <a class="link" href="glib-Standard-Macros
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>new_uri</code></em> :</span></p></td>
-<td>a valid URI, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>a valid URI, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -1961,6 +1961,6 @@ In the event the URI cannot be found, <a class="link" href="glib-Standard-Macros
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

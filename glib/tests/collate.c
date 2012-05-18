@@ -14,7 +14,7 @@ typedef struct {
   const gchar *str;
 } Line;
 
-int
+static int
 compare_collate (const void *a, const void *b)
 {
   const Line *line_a = a;
@@ -23,7 +23,7 @@ compare_collate (const void *a, const void *b)
   return g_utf8_collate (line_a->str, line_b->str);
 }
 
-int
+static int
 compare_key (const void *a, const void *b)
 {
   const Line *line_a = a;
@@ -90,6 +90,7 @@ const gchar *input0[] = {
   "eer34",
   "223",
   "er1",
+  "üĠണ",
   "foo",
   "bar",
   "baz",
@@ -106,6 +107,7 @@ const gchar *sorted0[] = {
   "er1",
   "foo",
   "GTK+",
+  "üĠണ",
   "z",
   NULL
 };
@@ -119,6 +121,7 @@ const gchar *file_sorted0[] = {
   "er1",
   "foo",
   "GTK+",
+  "üĠണ",
   "z",
   NULL
 };

@@ -26,7 +26,6 @@
 
 #include "gmountoperation.h"
 #include "gioenumtypes.h"
-#include "gio-marshal.h"
 #include "glibintl.h"
 
 
@@ -201,7 +200,7 @@ reply_non_handled_in_idle (gpointer data)
   GMountOperation *op = data;
 
   g_mount_operation_reply (op, G_MOUNT_OPERATION_UNHANDLED);
-  return FALSE;
+  return G_SOURCE_REMOVE;
 }
 
 static void
@@ -276,7 +275,7 @@ g_mount_operation_class_init (GMountOperationClass *klass)
 		  G_SIGNAL_RUN_LAST,
 		  G_STRUCT_OFFSET (GMountOperationClass, ask_password),
 		  NULL, NULL,
-		  _gio_marshal_VOID__STRING_STRING_STRING_FLAGS,
+		  NULL,
 		  G_TYPE_NONE, 4,
 		  G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_ASK_PASSWORD_FLAGS);
 		  
@@ -299,7 +298,7 @@ g_mount_operation_class_init (GMountOperationClass *klass)
 		  G_SIGNAL_RUN_LAST,
 		  G_STRUCT_OFFSET (GMountOperationClass, ask_question),
 		  NULL, NULL,
-		  _gio_marshal_VOID__STRING_BOXED,
+		  NULL,
 		  G_TYPE_NONE, 2,
 		  G_TYPE_STRING, G_TYPE_STRV);
 		  
@@ -344,7 +343,8 @@ g_mount_operation_class_init (GMountOperationClass *klass)
    * GMountOperation::show-processes:
    * @op: a #GMountOperation.
    * @message: string containing a message to display to the user.
-   * @processes: an array of #GPid for processes blocking the operation.
+   * @processes: (element-type GPid): an array of #GPid for processes
+   *   blocking the operation.
    * @choices: an array of strings for each possible choice.
    *
    * Emitted when one or more processes are blocking an operation
@@ -368,7 +368,7 @@ g_mount_operation_class_init (GMountOperationClass *klass)
 		  G_SIGNAL_RUN_LAST,
 		  G_STRUCT_OFFSET (GMountOperationClass, show_processes),
 		  NULL, NULL,
-		  _gio_marshal_VOID__STRING_BOXED_BOXED,
+		  NULL,
 		  G_TYPE_NONE, 3,
 		  G_TYPE_STRING, G_TYPE_ARRAY, G_TYPE_STRV);
 
@@ -483,7 +483,7 @@ g_mount_operation_new (void)
 }
 
 /**
- * g_mount_operation_get_username
+ * g_mount_operation_get_username:
  * @op: a #GMountOperation.
  * 
  * Get the user name from the mount operation.

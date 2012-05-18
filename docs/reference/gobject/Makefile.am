@@ -10,11 +10,11 @@ DOC_MODULE=gobject
 DOC_MAIN_SGML_FILE=gobject-docs.sgml
 
 # The directory containing the source code. Relative to $(srcdir)
-DOC_SOURCE_DIR=../../../gobject
+DOC_SOURCE_DIR=$(top_srcdir)/gobject
 
 # Extra options to supply to gtkdoc-scan
 SCAN_OPTIONS=--deprecated-guards="G_DISABLE_DEPRECATED" \
-	--ignore-decorators=G_GNUC_INTERNAL
+             --ignore-decorators="G_GNUC_INTERNAL|G_GNUC_WARN_UNUSED_RESULT"
 
 # Extra options to supply to gtkdoc-mkdb
 MKDB_OPTIONS=--sgml-mode --output-format=xml --name-space=g
@@ -25,8 +25,10 @@ CFILE_GLOB=$(top_srcdir)/gobject/*.c
 
 # Headers to ignore
 IGNORE_HFILES = \
-	gobject_trace.h			\
+	tests			\
+	gobject_trace.h		\
 	gatomicarray.h
+
 
 # CFLAGS and LDFLAGS for compiling scan program. Only needed
 # if $(DOC_MODULE).types is non-empty.
@@ -95,7 +97,7 @@ MAINTAINERCLEANFILES = $(man_MANS) $(BUILT_SOURCES)
 
 EXTRA_DIST += $(man_MANS)
 
-dist-hook-local: dist-local-check-mans-enabled gobject-docs-clean all-local
+dist-hook-local: dist-local-check-mans-enabled all-local
 
 gobject-docs-clean: clean
 	cd $(srcdir) && rm -rf xml html

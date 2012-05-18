@@ -36,6 +36,7 @@
 #include "gmessages.h"
 #include "gstrfuncs.h"
 #include "gatomic.h"
+#include "gthread.h"
 
 /**
  * SECTION:gregex
@@ -135,12 +136,13 @@
 
 struct _GMatchInfo
 {
+  volatile gint ref_count;      /* the ref count */
   GRegex *regex;                /* the regex */
   GRegexMatchFlags match_opts;  /* options used at match time on the regex */
   gint matches;                 /* number of matching sub patterns */
   gint pos;                     /* position in the string where last match left off */
+  gint  n_offsets;              /* number of offsets */
   gint *offsets;                /* array of offsets paired 0,1 ; 2,3 ; 3,4 etc */
-  gint n_offsets;               /* number of offsets */
   gint *workspace;              /* workspace for pcre_dfa_exec() */
   gint n_workspace;             /* number of workspace elements */
   const gchar *string;          /* string passed to the match function */
@@ -450,6 +452,7 @@ match_info_new (const GRegex *regex,
     string_len = strlen (string);
 
   match_info = g_new0 (GMatchInfo, 1);
+  match_info->ref_count = 1;
   match_info->regex = g_regex_ref ((GRegex *)regex);
   match_info->string = string;
   match_info->string_len = string_len;
@@ -520,17 +523,36 @@ g_match_info_get_string (const GMatchInfo *match_info)
 }
 
 /**
- * g_match_info_free:
+ * g_match_info_ref:
  * @match_info: a #GMatchInfo
  *
- * Frees all the memory associated with the #GMatchInfo structure.
+ * Increases reference count of @match_info by 1.
  *
- * Since: 2.14
+ * Returns: @match_info
+ *
+ * Since: 2.30
+ */
+GMatchInfo       *
+g_match_info_ref (GMatchInfo *match_info)
+{
+  g_return_val_if_fail (match_info != NULL, NULL);
+  g_atomic_int_inc (&match_info->ref_count);
+  return match_info;
+}
+
+/**
+ * g_match_info_unref:
+ * @match_info: a #GMatchInfo
+ *
+ * Decreases reference count of @match_info by 1. When reference count drops
+ * to zero, it frees all the memory associated with the match_info structure.
+ *
+ * Since: 2.30
  */
 void
-g_match_info_free (GMatchInfo *match_info)
+g_match_info_unref (GMatchInfo *match_info)
 {
-  if (match_info)
+  if (g_atomic_int_dec_and_test (&match_info->ref_count))
     {
       g_regex_unref (match_info->regex);
       g_free (match_info->offsets);
@@ -540,9 +562,27 @@ g_match_info_free (GMatchInfo *match_info)
 }
 
 /**
+ * g_match_info_free:
+ * @match_info: (allow-none): a #GMatchInfo, or %NULL
+ *
+ * If @match_info is not %NULL, calls g_match_info_unref(); otherwise does
+ * nothing.
+ *
+ * Since: 2.14
+ */
+void
+g_match_info_free (GMatchInfo *match_info)
+{
+  if (match_info == NULL)
+    return;
+
+  g_match_info_unref (match_info);
+}
+
+/**
  * g_match_info_next:
  * @match_info: a #GMatchInfo structure
- * @error: location to store the error occuring, or %NULL to ignore errors
+ * @error: location to store the error occurring, or %NULL to ignore errors
  *
  * Scans for the next match using the same parameters of the previous
  * call to g_regex_match_full() or g_regex_match() that returned
@@ -739,9 +779,9 @@ g_match_info_is_partial_match (const GMatchInfo *match_info)
 
 /**
  * g_match_info_expand_references:
- * @match_info: a #GMatchInfo or %NULL
+ * @match_info: (allow-none): a #GMatchInfo or %NULL
  * @string_to_expand: the string to expand
- * @error: location to store the error occuring, or %NULL to ignore errors
+ * @error: location to store the error occurring, or %NULL to ignore errors
  *
  * Returns a new string containing the text in @string_to_expand with
  * references and escape sequences expanded. References refer to the last
@@ -795,8 +835,7 @@ g_match_info_expand_references (const GMatchInfo  *match_info,
   result = g_string_sized_new (strlen (string_to_expand));
   interpolate_replacement (match_info, result, list);
 
-  g_list_foreach (list, (GFunc)free_interpolation_data, NULL);
-  g_list_free (list);
+  g_list_free_full (list, (GDestroyNotify) free_interpolation_data);
 
   return g_string_free (result, FALSE);
 }
@@ -1110,7 +1149,7 @@ g_regex_unref (GRegex *regex)
 {
   g_return_if_fail (regex != NULL);
 
-  if (g_atomic_int_exchange_and_add (&regex->ref_count, -1) - 1 == 0)
+  if (g_atomic_int_dec_and_test (&regex->ref_count))
     {
       g_free (regex->pattern);
       if (regex->pcre_re != NULL)
@@ -1148,7 +1187,7 @@ g_regex_new (const gchar         *pattern,
   gint erroffset;
   gint errcode;
   gboolean optimize = FALSE;
-  static gboolean initialized = FALSE;
+  static gsize initialised;
   unsigned long int pcre_compile_options;
 
   g_return_val_if_fail (pattern != NULL, NULL);
@@ -1156,7 +1195,7 @@ g_regex_new (const gchar         *pattern,
   g_return_val_if_fail ((compile_options & ~G_REGEX_COMPILE_MASK) == 0, NULL);
   g_return_val_if_fail ((match_options & ~G_REGEX_MATCH_MASK) == 0, NULL);
 
-  if (!initialized)
+  if (g_once_init_enter (&initialised))
     {
       gint support;
       const gchar *msg;
@@ -1179,7 +1218,7 @@ g_regex_new (const gchar         *pattern,
           return NULL;
         }
 
-      initialized = TRUE;
+      g_once_init_leave (&initialised, TRUE);
     }
 
   /* G_REGEX_OPTIMIZE has the same numeric value of PCRE_NO_UTF8_CHECK,
@@ -1487,7 +1526,7 @@ g_regex_match (const GRegex      *regex,
  * @match_options: match options
  * @match_info: (out) (allow-none): pointer to location where to store
  *     the #GMatchInfo, or %NULL if you do not need it
- * @error: location to store the error occuring, or %NULL to ignore errors
+ * @error: location to store the error occurring, or %NULL to ignore errors
  *
  * Scans for a match in string for the pattern in @regex.
  * The @match_options are combined with the match options specified
@@ -1618,10 +1657,10 @@ g_regex_match_all (const GRegex      *regex,
  * @match_options: match options
  * @match_info: (out) (allow-none): pointer to location where to store
  *     the #GMatchInfo, or %NULL if you do not need it
- * @error: location to store the error occuring, or %NULL to ignore errors
+ * @error: location to store the error occurring, or %NULL to ignore errors
  *
  * Using the standard algorithm for regular expression matching only
- * the longest match in the string is retrieved, it is not possibile
+ * the longest match in the string is retrieved, it is not possible
  * to obtain all the available matches. For instance matching
  * "&lt;a&gt; &lt;b&gt; &lt;c&gt;" against the pattern "&lt;.*&gt;"
  * you get "&lt;a&gt; &lt;b&gt; &lt;c&gt;".
@@ -2022,8 +2061,7 @@ g_regex_split_full (const GRegex      *regex,
   if (tmp_error != NULL)
     {
       g_propagate_error (error, tmp_error);
-      g_list_foreach (list, (GFunc)g_free, NULL);
-      g_list_free (list);
+      g_list_free_full (list, g_free);
       match_info->pos = -1;
       return NULL;
     }
@@ -2345,8 +2383,7 @@ split_replacement (const gchar  *replacement,
           start = p = expand_escape (replacement, p, data, error);
           if (p == NULL)
             {
-              g_list_foreach (list, (GFunc)free_interpolation_data, NULL);
-              g_list_free (list);
+              g_list_free_full (list, (GDestroyNotify) free_interpolation_data);
               free_interpolation_data (data);
 
               return NULL;
@@ -2488,7 +2525,7 @@ interpolation_list_needs_match (GList *list)
  * @start_position: starting index of the string to match
  * @replacement: text to replace each match with
  * @match_options: options for the match
- * @error: location to store the error occuring, or %NULL to ignore errors
+ * @error: location to store the error occurring, or %NULL to ignore errors
  *
  * Replaces all occurrences of the pattern in @regex with the
  * replacement text. Backreferences of the form '\number' or
@@ -2577,8 +2614,7 @@ g_regex_replace (const GRegex      *regex,
   if (tmp_error != NULL)
     g_propagate_error (error, tmp_error);
 
-  g_list_foreach (list, (GFunc)free_interpolation_data, NULL);
-  g_list_free (list);
+  g_list_free_full (list, (GDestroyNotify) free_interpolation_data);
 
   return result;
 }
@@ -2600,7 +2636,7 @@ literal_replacement (const GMatchInfo *match_info,
  * @start_position: starting index of the string to match
  * @replacement: text to replace each match with
  * @match_options: options for the match
- * @error: location to store the error occuring, or %NULL to ignore errors
+ * @error: location to store the error occurring, or %NULL to ignore errors
  *
  * Replaces all occurrences of the pattern in @regex with the
  * replacement text. @replacement is replaced literally, to
@@ -2644,7 +2680,7 @@ g_regex_replace_literal (const GRegex      *regex,
  * @match_options: options for the match
  * @eval: a function to call for each match
  * @user_data: user data to pass to the function
- * @error: location to store the error occuring, or %NULL to ignore errors
+ * @error: location to store the error occurring, or %NULL to ignore errors
  *
  * Replaces occurrences of the pattern in regex with the output of
  * @eval for that occurrence.
@@ -2787,10 +2823,77 @@ g_regex_check_replacement (const gchar  *replacement,
   if (has_references)
     *has_references = interpolation_list_needs_match (list);
 
-  g_list_foreach (list, (GFunc) free_interpolation_data, NULL);
-  g_list_free (list);
+  g_list_free_full (list, (GDestroyNotify) free_interpolation_data);
 
   return TRUE;
+}
+
+/**
+ * g_regex_escape_nul:
+ * @string: the string to escape
+ * @length: the length of @string
+ *
+ * Escapes the nul characters in @string to "\x00".  It can be used
+ * to compile a regex with embedded nul characters.
+ *
+ * For completeness, @length can be -1 for a nul-terminated string.
+ * In this case the output string will be of course equal to @string.
+ *
+ * Returns: a newly-allocated escaped string
+ *
+ * Since: 2.30
+ */
+gchar *
+g_regex_escape_nul (const gchar *string,
+                    gint         length)
+{
+  GString *escaped;
+  const gchar *p, *piece_start, *end;
+  gint backslashes;
+
+  g_return_val_if_fail (string != NULL, NULL);
+
+  if (length < 0)
+    return g_strdup (string);
+
+  end = string + length;
+  p = piece_start = string;
+  escaped = g_string_sized_new (length + 1);
+
+  backslashes = 0;
+  while (p < end)
+    {
+      switch (*p)
+        {
+        case '\0':
+          if (p != piece_start)
+            {
+              /* copy the previous piece. */
+              g_string_append_len (escaped, piece_start, p - piece_start);
+            }
+          if ((backslashes & 1) == 0)
+            g_string_append_c (escaped, '\\');
+          g_string_append_c (escaped, 'x');
+          g_string_append_c (escaped, '0');
+          g_string_append_c (escaped, '0');
+          piece_start = ++p;
+          backslashes = 0;
+          break;
+        case '\\':
+          backslashes++;
+          ++p;
+          break;
+        default:
+          backslashes = 0;
+          p = g_utf8_next_char (p);
+          break;
+        }
+    }
+
+  if (piece_start < end)
+    g_string_append_len (escaped, piece_start, end - piece_start);
+
+  return g_string_free (escaped, FALSE);
 }
 
 /**

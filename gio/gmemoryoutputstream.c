@@ -329,11 +329,11 @@ g_memory_output_stream_init (GMemoryOutputStream *stream)
 
 /**
  * g_memory_output_stream_new: (skip)
- * @data: pointer to a chunk of memory to use, or %NULL
+ * @data: (allow-none): pointer to a chunk of memory to use, or %NULL
  * @size: the size of @data
- * @realloc_function: a function with realloc() semantics (like g_realloc())
+ * @realloc_function: (allow-none): a function with realloc() semantics (like g_realloc())
  *     to be called when @data needs to be grown, or %NULL
- * @destroy_function: a function to be called on @data when the stream is
+ * @destroy_function: (allow-none): a function to be called on @data when the stream is
  *     finalized, or %NULL
  *
  * Creates a new #GMemoryOutputStream.
@@ -620,20 +620,24 @@ g_memory_output_stream_write_async (GOutputStream       *stream,
                                     gpointer             data)
 {
   GSimpleAsyncResult *simple;
+  GError *error = NULL;
   gssize nwritten;
 
-  nwritten = g_memory_output_stream_write (stream,
-                                           buffer,
-                                           count,
-                                           cancellable,
-                                           NULL);
+  nwritten = G_OUTPUT_STREAM_GET_CLASS (stream)->write_fn (stream,
+							   buffer,
+							   count,
+							   cancellable,
+							   &error);
 
   simple = g_simple_async_result_new (G_OBJECT (stream),
                                       callback,
                                       data,
                                       g_memory_output_stream_write_async);
 
-  g_simple_async_result_set_op_res_gssize (simple, nwritten);
+  if (error)
+    g_simple_async_result_take_error (simple, error);
+  else
+    g_simple_async_result_set_op_res_gssize (simple, nwritten);
   g_simple_async_result_complete_in_idle (simple);
   g_object_unref (simple);
 }

@@ -43,6 +43,7 @@
 
 #include "gspawn.h"
 
+#include "genviron.h"
 #include "gmem.h"
 #include "gshell.h"
 #include "gstring.h"
@@ -50,6 +51,15 @@
 #include "gtestutils.h"
 #include "gutils.h"
 #include "glibintl.h"
+
+
+/**
+ * SECTION:spawn
+ * @Short_description: process launching
+ * @Title: Spawning Processes
+ */
+
+
 
 static gint g_execute (const gchar  *file,
                        gchar **argv,
@@ -84,13 +94,13 @@ g_spawn_error_quark (void)
 
 /**
  * g_spawn_async:
- * @working_directory: child's current working directory, or %NULL to inherit parent's
- * @argv: child's argument vector
- * @envp: child's environment, or %NULL to inherit parent's
+ * @working_directory: (allow-none): child's current working directory, or %NULL to inherit parent's
+ * @argv: (array zero-terminated=1): child's argument vector
+ * @envp: (array zero-terminated=1) (allow-none): child's environment, or %NULL to inherit parent's
  * @flags: flags from #GSpawnFlags
- * @child_setup: function to run in the child just before exec()
- * @user_data: user data for @child_setup
- * @child_pid: return location for child process reference, or %NULL
+ * @child_setup: (scope async) (allow-none): function to run in the child just before exec()
+ * @user_data: (closure): user data for @child_setup
+ * @child_pid: (out) (allow-none): return location for child process reference, or %NULL
  * @error: return location for error
  * 
  * See g_spawn_async_with_pipes() for a full description; this function
@@ -102,7 +112,7 @@ g_spawn_error_quark (void)
  * <note><para>
  * If you are writing a GTK+ application, and the program you 
  * are spawning is a graphical application, too, then you may
- * want to use gdk_spawn_on_screen() instead to ensure that 
+ * want to use gdk_spawn_on_screen() instead to ensure that
  * the spawned program opens its windows on the right screen.
  * </para></note>
  *
@@ -148,7 +158,10 @@ close_and_invalidate (gint *fd)
     return -1;
   else
     {
+    again:
       ret = close (*fd);
+      if (ret == -1 && errno == EINTR)
+	goto again;
       *fd = -1;
     }
 
@@ -170,11 +183,10 @@ read_data (GString *str,
            gint     fd,
            GError **error)
 {
-  gssize bytes;        
-  gchar buf[4096];    
+  gssize bytes;
+  gchar buf[4096];
 
  again:
-  
   bytes = read (fd, buf, 4096);
 
   if (bytes == 0)
@@ -184,9 +196,9 @@ read_data (GString *str,
       g_string_append_len (str, buf, bytes);
       return READ_OK;
     }
-  else if (bytes < 0 && errno == EINTR)
+  else if (errno == EINTR)
     goto again;
-  else if (bytes < 0)
+  else
     {
       int errsv = errno;
 
@@ -195,24 +207,22 @@ read_data (GString *str,
                    G_SPAWN_ERROR_READ,
                    _("Failed to read data from child process (%s)"),
                    g_strerror (errsv));
-      
+
       return READ_FAILED;
     }
-  else
-    return READ_OK;
 }
 
 /**
  * g_spawn_sync:
- * @working_directory: child's current working directory, or %NULL to inherit parent's
- * @argv: child's argument vector
- * @envp: child's environment, or %NULL to inherit parent's
- * @flags: flags from #GSpawnFlags 
- * @child_setup: function to run in the child just before exec()
- * @user_data: user data for @child_setup
- * @standard_output: return location for child output, or %NULL
- * @standard_error: return location for child error messages, or %NULL
- * @exit_status: return location for child exit status, as returned by waitpid(), or %NULL
+ * @working_directory: (allow-none): child's current working directory, or %NULL to inherit parent's
+ * @argv: (array zero-terminated=1): child's argument vector
+ * @envp: (array zero-terminated=1) (allow-none): child's environment, or %NULL to inherit parent's
+ * @flags: flags from #GSpawnFlags
+ * @child_setup: (scope async) (allow-none): function to run in the child just before exec()
+ * @user_data: (closure): user data for @child_setup
+ * @standard_output: (out) (array zero-terminated=1) (element-type guint8) (allow-none): return location for child output, or %NULL
+ * @standard_error: (out) (array zero-terminated=1) (element-type guint8) (allow-none): return location for child error messages, or %NULL
+ * @exit_status: (out) (allow-none): return location for child exit status, as returned by waitpid(), or %NULL
  * @error: return location for error, or %NULL
  *
  * Executes a child synchronously (waits for the child to exit before returning).
@@ -323,9 +333,12 @@ g_spawn_sync (const gchar          *working_directory,
                     NULL, NULL,
                     NULL /* no timeout */);
 
-      if (ret < 0 && errno != EINTR)
+      if (ret < 0)
         {
           int errsv = errno;
+
+	  if (errno == EINTR)
+	    continue;
 
           failed = TRUE;
 
@@ -449,16 +462,16 @@ g_spawn_sync (const gchar          *working_directory,
 
 /**
  * g_spawn_async_with_pipes:
- * @working_directory: child's current working directory, or %NULL to inherit parent's, in the GLib file name encoding
- * @argv: child's argument vector, in the GLib file name encoding
- * @envp: child's environment, or %NULL to inherit parent's, in the GLib file name encoding
+ * @working_directory: (allow-none): child's current working directory, or %NULL to inherit parent's, in the GLib file name encoding
+ * @argv: (array zero-terminated=1): child's argument vector, in the GLib file name encoding
+ * @envp: (array zero-terminated=1) (allow-none): child's environment, or %NULL to inherit parent's, in the GLib file name encoding
  * @flags: flags from #GSpawnFlags
- * @child_setup: function to run in the child just before exec()
- * @user_data: user data for @child_setup
- * @child_pid: return location for child process ID, or %NULL
- * @standard_input: return location for file descriptor to write to child's stdin, or %NULL
- * @standard_output: return location for file descriptor to read child's stdout, or %NULL
- * @standard_error: return location for file descriptor to read child's stderr, or %NULL
+ * @child_setup: (scope async) (allow-none): function to run in the child just before exec()
+ * @user_data: (closure): user data for @child_setup
+ * @child_pid: (out) (allow-none): return location for child process ID, or %NULL
+ * @standard_input: (out) (allow-none): return location for file descriptor to write to child's stdin, or %NULL
+ * @standard_output: (out) (allow-none): return location for file descriptor to read child's stdout, or %NULL
+ * @standard_error: (out) (allow-none): return location for file descriptor to read child's stderr, or %NULL
  * @error: return location for error
  *
  * Executes a child program asynchronously (your program will not
@@ -469,6 +482,10 @@ g_spawn_sync (const gchar          *working_directory,
  * course the name of the program to execute. By default, the name of
  * the program must be a full path; the <envar>PATH</envar> shell variable 
  * will only be searched if you pass the %G_SPAWN_SEARCH_PATH flag.
+ * If the program name is not a full path and %G_SPAWN_SEARCH_PATH flag is not
+ * used, then the program will be run from the current directory (or
+ * @working_directory, if specified); this might be unexpected or even
+ * dangerous in some cases when the current directory is world-writable.
  *
  * On Windows, note that all the string or string vector arguments to
  * this function and the other g_spawn*() functions are in UTF-8, the
@@ -515,16 +532,15 @@ g_spawn_sync (const gchar          *working_directory,
  * parent's environment.
  *
  * @flags should be the bitwise OR of any flags you want to affect the
- * function's behaviour. The %G_SPAWN_DO_NOT_REAP_CHILD means that 
- * the child will not automatically be reaped; you must use a
- * #GChildWatch source to be notified about the death of the child 
- * process. Eventually you must call g_spawn_close_pid() on the
- * @child_pid, in order to free resources which may be associated
- * with the child process. (On Unix, using a #GChildWatch source is
- * equivalent to calling waitpid() or handling the %SIGCHLD signal 
- * manually. On Windows, calling g_spawn_close_pid() is equivalent
- * to calling CloseHandle() on the process handle returned in 
- * @child_pid).
+ * function's behaviour. The %G_SPAWN_DO_NOT_REAP_CHILD means that the
+ * child will not automatically be reaped; you must use a child watch to
+ * be notified about the death of the child process. Eventually you must
+ * call g_spawn_close_pid() on the @child_pid, in order to free
+ * resources which may be associated with the child process. (On Unix,
+ * using a child watch is equivalent to calling waitpid() or handling
+ * the <literal>SIGCHLD</literal> signal manually. On Windows, calling g_spawn_close_pid()
+ * is equivalent to calling CloseHandle() on the process handle returned
+ * in @child_pid).  See g_child_watch_add().
  *
  * %G_SPAWN_LEAVE_DESCRIPTORS_OPEN means that the parent's open file
  * descriptors will be inherited by the child; otherwise all
@@ -606,7 +622,7 @@ g_spawn_sync (const gchar          *working_directory,
  * <note><para>
  * If you are writing a GTK+ application, and the program you 
  * are spawning is a graphical application, too, then you may
- * want to use gdk_spawn_on_screen_with_pipes() instead to ensure that 
+ * want to use gdk_spawn_on_screen_with_pipes() instead to ensure that
  * the spawned program opens its windows on the right screen.
  * </para></note>
  * 
@@ -656,9 +672,9 @@ g_spawn_async_with_pipes (const gchar          *working_directory,
 /**
  * g_spawn_command_line_sync:
  * @command_line: a command line 
- * @standard_output: return location for child output
- * @standard_error: return location for child errors
- * @exit_status: return location for child exit status, as returned by waitpid()
+ * @standard_output: (out) (array zero-terminated=1) (element-type guint8) (allow-none): return location for child output
+ * @standard_error: (out) (array zero-terminated=1) (element-type guint8) (allow-none): return location for child errors
+ * @exit_status: (out) (allow-none): return location for child exit status, as returned by waitpid()
  * @error: return location for errors
  *
  * A simple version of g_spawn_sync() with little-used parameters
@@ -781,7 +797,7 @@ exec_err_to_g_error (gint en)
 
 #ifdef E2BIG
     case E2BIG:
-      return G_SPAWN_ERROR_2BIG;
+      return G_SPAWN_ERROR_TOO_BIG;
       break;
 #endif
 
@@ -993,6 +1009,19 @@ sane_dup2 (gint fd1, gint fd2)
   return ret;
 }
 
+static gint
+sane_open (const char *path, gint mode)
+{
+  gint ret;
+
+ retry:
+  ret = open (path, mode);
+  if (ret < 0 && errno == EINTR)
+    goto retry;
+
+  return ret;
+}
+
 enum
 {
   CHILD_CHDIR_FAILED,
@@ -1071,7 +1100,7 @@ do_exec (gint                  child_err_report_fd,
     }
   else if (stdout_to_null)
     {
-      gint write_null = open ("/dev/null", O_WRONLY);
+      gint write_null = sane_open ("/dev/null", O_WRONLY);
       sane_dup2 (write_null, 1);
       close_and_invalidate (&write_null);
     }
@@ -1089,7 +1118,7 @@ do_exec (gint                  child_err_report_fd,
     }
   else if (stderr_to_null)
     {
-      gint write_null = open ("/dev/null", O_WRONLY);
+      gint write_null = sane_open ("/dev/null", O_WRONLY);
       sane_dup2 (write_null, 2);
       close_and_invalidate (&write_null);
     }
@@ -1219,6 +1248,12 @@ fork_exec_with_pipes (gboolean              intermediate_child,
       /* Immediate child. This may or may not be the child that
        * actually execs the new process.
        */
+
+      /* Reset some signal handlers that we may use */
+      signal (SIGCHLD, SIG_DFL);
+      signal (SIGINT, SIG_DFL);
+      signal (SIGTERM, SIG_DFL);
+      signal (SIGHUP, SIG_DFL);
       
       /* Be sure we crash if the parent exits
        * and we write to the err_report_pipe
@@ -1643,6 +1678,14 @@ g_execute (const gchar *file,
                * by us, in which case we want to just try the next path
                * directory.
                */
+	      break;
+
+	    case ENODEV:
+	    case ETIMEDOUT:
+	      /* Some strange filesystems like AFS return even
+	       * stranger error numbers.  They cannot reasonably mean anything
+	       * else so ignore those, too.
+	       */
 	      break;
 
 	    default:

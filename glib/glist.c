@@ -31,15 +31,14 @@
 #include "config.h"
 
 #include "glist.h"
+#include "gslice.h"
 
 #include "gtestutils.h"
 
 /**
  * SECTION:linked_lists_double
  * @title: Doubly-Linked Lists
- * @short_description: linked lists containing integer values or
- *                     pointers to data, with the ability to iterate
- *                     over the list in both directions
+ * @short_description: linked lists that can be iterated over in both directions
  *
  * The #GList structure and its associated functions provide a standard
  * doubly-linked list data structure.
@@ -48,7 +47,7 @@
  * pointers which link to the previous and next elements in the list.
  * Using these pointers it is possible to move through the list in both
  * directions (unlike the <link
- * linkend="glib-Singly-Linked-lists">Singly-Linked Lists</link> which
+ * linkend="glib-Singly-Linked-Lists">Singly-Linked Lists</link> which
  * only allows movement through the list in the forward direction).
  *
  * The data contained in each element can be either integer values, by
@@ -111,39 +110,6 @@
  *
  * A convenience macro to get the next element in a #GList.
  **/
-
-
-
-/**
- * g_list_push_allocator:
- * @allocator: the #GAllocator to use when allocating #GList elements.
- *
- * Sets the allocator to use to allocate #GList elements. Use
- * g_list_pop_allocator() to restore the previous allocator.
- *
- * Note that this function is not available if GLib has been compiled
- * with <option>--disable-mem-pools</option>
- *
- * Deprecated:2.10: It does nothing, since #GList has been converted
- *                  to the <link linkend="glib-Memory-Slices">slice
- *                  allocator</link>
- **/
-void g_list_push_allocator (gpointer dummy) { /* present for binary compat only */ }
-
-/**
- * g_list_pop_allocator:
- *
- * Restores the previous #GAllocator, used when allocating #GList
- * elements.
- *
- * Note that this function is not available if GLib has been compiled
- * with <option>--disable-mem-pools</option>
- *
- * Deprecated:2.10: It does nothing, since #GList has been converted
- *                  to the <link linkend="glib-Memory-Slices">slice
- *                  allocator</link>
- **/
-void g_list_pop_allocator  (void)           { /* present for binary compat only */ }
 
 #define _g_list_alloc()         g_slice_new (GList)
 #define _g_list_alloc0()        g_slice_new0 (GList)
@@ -342,28 +308,24 @@ g_list_insert (GList	*list,
 {
   GList *new_list;
   GList *tmp_list;
-  
+
   if (position < 0)
     return g_list_append (list, data);
   else if (position == 0)
     return g_list_prepend (list, data);
-  
+
   tmp_list = g_list_nth (list, position);
   if (!tmp_list)
     return g_list_append (list, data);
-  
+
   new_list = _g_list_alloc ();
   new_list->data = data;
   new_list->prev = tmp_list->prev;
-  if (tmp_list->prev)
-    tmp_list->prev->next = new_list;
+  tmp_list->prev->next = new_list;
   new_list->next = tmp_list;
   tmp_list->prev = new_list;
-  
-  if (tmp_list == list)
-    return new_list;
-  else
-    return list;
+
+  return list;
 }
 
 /**
@@ -1113,7 +1075,8 @@ g_list_sort_real (GList    *list,
  *     first element comes before the second, or a positive value if 
  *     the first element comes after the second.
  *
- * Sorts a #GList using the given comparison function.
+ * Sorts a #GList using the given comparison function. The algorithm 
+ * used is a stable sort.
  *
  * Returns: the start of the sorted #GList
  */

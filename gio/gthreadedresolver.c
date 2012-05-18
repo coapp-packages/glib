@@ -42,9 +42,8 @@ static void threaded_resolver_thread (gpointer thread_data, gpointer pool_data);
 static void
 g_threaded_resolver_init (GThreadedResolver *gtr)
 {
-  if (g_thread_supported ())
-    gtr->thread_pool = g_thread_pool_new (threaded_resolver_thread, gtr,
-                                          -1, FALSE, NULL);
+  gtr->thread_pool = g_thread_pool_new (threaded_resolver_thread, gtr,
+                                        -1, FALSE, NULL);
 }
 
 static void
@@ -159,10 +158,10 @@ struct _GThreadedResolverRequest {
   GCancellable *cancellable;
   GError *error;
 
-  GMutex *mutex;
+  GMutex mutex;
   guint ref_count;
 
-  GCond *cond;
+  GCond cond;
   GSimpleAsyncResult *async_result;
   gboolean complete;
 
@@ -186,10 +185,10 @@ g_threaded_resolver_request_new (GThreadedResolverResolveFunc  resolve_func,
   /* Initial refcount is 2; one for the caller and one for resolve_func */
   req->ref_count = 2;
 
-  if (g_thread_supported ())
-    req->mutex = g_mutex_new ();
+  g_mutex_init (&req->mutex);
+  g_cond_init (&req->cond);
   /* Initially locked; caller must unlock */
-  g_mutex_lock (req->mutex);
+  g_mutex_lock (&req->mutex);
 
   if (cancellable)
     {
@@ -208,16 +207,14 @@ g_threaded_resolver_request_unref (GThreadedResolverRequest *req)
 {
   guint ref_count;
 
-  g_mutex_lock (req->mutex);
+  g_mutex_lock (&req->mutex);
   ref_count = --req->ref_count;
-  g_mutex_unlock (req->mutex);
+  g_mutex_unlock (&req->mutex);
   if (ref_count > 0)
     return;
 
-  g_mutex_free (req->mutex);
-
-  if (req->cond)
-    g_cond_free (req->cond);
+  g_mutex_clear (&req->mutex);
+  g_cond_clear (&req->cond);
 
   if (req->error)
     g_error_free (req->error);
@@ -235,36 +232,34 @@ g_threaded_resolver_request_unref (GThreadedResolverRequest *req)
 
 static void
 g_threaded_resolver_request_complete (GThreadedResolverRequest *req,
-				      gboolean                  cancelled)
+				      GError                   *error)
 {
-  g_mutex_lock (req->mutex);
+  g_mutex_lock (&req->mutex);
   if (req->complete)
     {
       /* The req was cancelled, and now it has finished resolving as
        * well. But we have nowhere to send the result, so just return.
        */
-      g_mutex_unlock (req->mutex);
+      g_mutex_unlock (&req->mutex);
+      g_clear_error (&error);
       return;
     }
 
   req->complete = TRUE;
-  g_mutex_unlock (req->mutex);
+  g_mutex_unlock (&req->mutex);
+
+  if (error)
+    g_propagate_error (&req->error, error);
 
   if (req->cancellable)
     {
-      /* Possibly propagate a cancellation error */
-      if (cancelled && !req->error)
-        g_cancellable_set_error_if_cancelled (req->cancellable, &req->error);
-
       /* Drop the signal handler's ref on @req */
       g_signal_handlers_disconnect_by_func (req->cancellable, request_cancelled, req);
       g_object_unref (req->cancellable);
       req->cancellable = NULL;
     }
 
-  if (req->cond)
-    g_cond_signal (req->cond);
-  else if (req->async_result)
+  if (req->async_result)
     {
       if (req->error)
         g_simple_async_result_set_from_error (req->async_result, req->error);
@@ -276,6 +271,9 @@ g_threaded_resolver_request_complete (GThreadedResolverRequest *req,
       g_object_unref (req->async_result);
       req->async_result = NULL;
     }
+
+  else
+    g_cond_signal (&req->cond);
 }
 
 static void
@@ -283,8 +281,10 @@ request_cancelled (GCancellable *cancellable,
                    gpointer      user_data)
 {
   GThreadedResolverRequest *req = user_data;
+  GError *error = NULL;
 
-  g_threaded_resolver_request_complete (req, TRUE);
+  g_cancellable_set_error_if_cancelled (req->cancellable, &error);
+  g_threaded_resolver_request_complete (req, error);
 
   /* We can't actually cancel the resolver thread; it will eventually
    * complete on its own and call request_complete() again, which will
@@ -304,9 +304,10 @@ threaded_resolver_thread (gpointer thread_data,
                           gpointer pool_data)
 {
   GThreadedResolverRequest *req = thread_data;
+  GError *error = NULL;
 
-  req->resolve_func (req, &req->error);
-  g_threaded_resolver_request_complete (req, FALSE);
+  req->resolve_func (req, &error);
+  g_threaded_resolver_request_complete (req, error);
   g_threaded_resolver_request_unref (req);
 }
 
@@ -315,21 +316,20 @@ resolve_sync (GThreadedResolver         *gtr,
               GThreadedResolverRequest  *req,
               GError                   **error)
 {
-  if (!req->cancellable || !gtr->thread_pool)
+  if (!req->cancellable)
     {
       req->resolve_func (req, error);
-      g_mutex_unlock (req->mutex);
+      g_mutex_unlock (&req->mutex);
 
       g_threaded_resolver_request_complete (req, FALSE);
       g_threaded_resolver_request_unref (req);
       return;
     }
 
-  req->cond = g_cond_new ();
   g_thread_pool_push (gtr->thread_pool, req, &req->error);
   if (!req->error)
-    g_cond_wait (req->cond, req->mutex);
-  g_mutex_unlock (req->mutex);
+    g_cond_wait (&req->cond, &req->mutex);
+  g_mutex_unlock (&req->mutex);
 
   if (req->error)
     {
@@ -350,7 +350,7 @@ resolve_async (GThreadedResolver        *gtr,
   g_simple_async_result_set_op_res_gpointer (req->async_result, req,
                                              (GDestroyNotify)g_threaded_resolver_request_unref);
   g_thread_pool_push (gtr->thread_pool, req, NULL);
-  g_mutex_unlock (req->mutex);
+  g_mutex_unlock (&req->mutex);
 }
 
 static GThreadedResolverRequest *

@@ -39,13 +39,6 @@ G_BEGIN_DECLS
 #define G_UNIX_CONNECTION_GET_CLASS(inst)                   (G_TYPE_INSTANCE_GET_CLASS ((inst),                      \
                                                              G_TYPE_UNIX_CONNECTION, GUnixConnectionClass))
 
-/**
- * GTcpConnection:
- *
- * A #GSocketConnection for UNIX domain socket connections.
- *
- * Since: 2.22
- */
 typedef struct _GUnixConnection                             GUnixConnection;
 typedef struct _GUnixConnectionPrivate                      GUnixConnectionPrivate;
 typedef struct _GUnixConnectionClass                        GUnixConnectionClass;
@@ -74,11 +67,24 @@ gint                    g_unix_connection_receive_fd                    (GUnixCo
 gboolean                g_unix_connection_send_credentials              (GUnixConnection      *connection,
                                                                          GCancellable         *cancellable,
                                                                          GError              **error);
+void                    g_unix_connection_send_credentials_async        (GUnixConnection      *connection,
+                                                                         GCancellable         *cancellable,
+                                                                         GAsyncReadyCallback   callback,
+                                                                         gpointer              user_data);
+gboolean                g_unix_connection_send_credentials_finish       (GUnixConnection      *connection,
+                                                                         GAsyncResult         *result,
+                                                                         GError              **error);
 
 GCredentials           *g_unix_connection_receive_credentials           (GUnixConnection      *connection,
                                                                          GCancellable         *cancellable,
                                                                          GError              **error);
-
+void                    g_unix_connection_receive_credentials_async     (GUnixConnection      *connection,
+                                                                         GCancellable         *cancellable,
+                                                                         GAsyncReadyCallback   callback,
+                                                                         gpointer              user_data);
+GCredentials           *g_unix_connection_receive_credentials_finish    (GUnixConnection      *connection,
+                                                                         GAsyncResult         *result,
+                                                                         GError              **error);
 
 G_END_DECLS
 

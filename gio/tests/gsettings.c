@@ -53,7 +53,7 @@ test_basic (void)
   g_free (str);
   str = NULL;
 
-  if (!backend_set)
+  if (!backend_set && g_test_undefined ())
     {
       if (g_test_trap_fork (0, G_TEST_TRAP_SILENCE_STDERR))
         {
@@ -85,6 +85,9 @@ test_basic (void)
 static void
 test_unknown_key (void)
 {
+  if (!g_test_undefined ())
+    return;
+
   if (g_test_trap_fork (0, G_TEST_TRAP_SILENCE_STDERR))
     {
       GSettings *settings;
@@ -104,9 +107,12 @@ test_unknown_key (void)
 /* Check that we get an error when the schema
  * has not been installed
  */
-void
+static void
 test_no_schema (void)
 {
+  if (!g_test_undefined ())
+    return;
+
   if (g_test_trap_fork (0, G_TEST_TRAP_SILENCE_STDERR))
     {
       GSettings *settings;
@@ -126,6 +132,9 @@ test_no_schema (void)
 static void
 test_wrong_type (void)
 {
+  if (!g_test_undefined ())
+    return;
+
   if (g_test_trap_fork (0, G_TEST_TRAP_SILENCE_STDERR))
     {
       GSettings *settings;
@@ -156,9 +165,12 @@ test_wrong_type (void)
 static void
 test_wrong_path (void)
 {
+  if (!g_test_undefined ())
+    return;
+
   if (g_test_trap_fork (0, G_TEST_TRAP_SILENCE_STDERR))
     {
-      GSettings *settings;
+      GSettings *settings G_GNUC_UNUSED;
 
       settings = g_settings_new_with_path ("org.gtk.test", "/wrong-path/");
     }
@@ -170,9 +182,12 @@ test_wrong_path (void)
 static void
 test_no_path (void)
 {
+  if (!g_test_undefined ())
+    return;
+
   if (g_test_trap_fork (0, G_TEST_TRAP_SILENCE_STDERR))
     {
-      GSettings *settings;
+      GSettings *settings G_GNUC_UNUSED;
 
       settings = g_settings_new ("org.gtk.test.no-path");
     }
@@ -355,7 +370,7 @@ changed_cb (GSettings   *settings,
 
 /* Test that basic change notification with the changed signal works.
  */
-void
+static void
 test_changes (void)
 {
   GSettings *settings;
@@ -401,7 +416,7 @@ changed_cb2 (GSettings   *settings,
  * Also test that the has-unapplied property is properly
  * maintained.
  */
-void
+static void
 test_delay_apply (void)
 {
   GSettings *settings;
@@ -718,7 +733,7 @@ typedef struct
 
   gboolean bool_prop;
   gboolean anti_bool_prop;
-  gchar byte_prop;
+  gint8 byte_prop;
   gint int16_prop;
   guint16 uint16_prop;
   gint int_prop;
@@ -738,6 +753,7 @@ typedef struct
   GObjectClass parent_class;
 } TestObjectClass;
 
+static GType test_object_get_type (void);
 G_DEFINE_TYPE (TestObject, test_object, G_TYPE_OBJECT)
 
 static void
@@ -771,7 +787,7 @@ test_object_get_property (GObject    *object,
       g_value_set_boolean (value, test_object->anti_bool_prop);
       break;
     case PROP_BYTE:
-      g_value_set_char (value, test_object->byte_prop);
+      g_value_set_schar (value, test_object->byte_prop);
       break;
     case PROP_UINT16:
       g_value_set_uint (value, test_object->uint16_prop);
@@ -829,7 +845,7 @@ test_object_set_property (GObject      *object,
       test_object->anti_bool_prop = g_value_get_boolean (value);
       break;
     case PROP_BYTE:
-      test_object->byte_prop = g_value_get_char (value);
+      test_object->byte_prop = g_value_get_schar (value);
       break;
     case PROP_INT16:
       test_object->int16_prop = g_value_get_int (value);
@@ -954,6 +970,7 @@ test_simple_binding (void)
   gboolean b;
   gchar y;
   gint i;
+  guint u;
   gint16 n;
   guint16 q;
   gint n2;
@@ -1032,6 +1049,16 @@ test_simple_binding (void)
   i = 1111;
   g_object_get (obj, "int", &i, NULL);
   g_assert_cmpint (i, ==, 54321);
+
+  g_settings_bind (settings, "uint", obj, "uint", G_SETTINGS_BIND_DEFAULT);
+
+  g_object_set (obj, "uint", 12345, NULL);
+  g_assert_cmpuint (g_settings_get_uint (settings, "uint"), ==, 12345);
+
+  g_settings_set_uint (settings, "uint", 54321);
+  u = 1111;
+  g_object_get (obj, "uint", &u, NULL);
+  g_assert_cmpuint (u, ==, 54321);
 
   g_settings_bind (settings, "int64", obj, "int64", G_SETTINGS_BIND_DEFAULT);
 
@@ -1232,6 +1259,9 @@ test_directional_binding (void)
 static void
 test_typesafe_binding (void)
 {
+  if (!g_test_undefined ())
+    return;
+
   if (g_test_trap_fork (0, G_TEST_TRAP_SILENCE_STDERR))
     {
       TestObject *obj;
@@ -1355,18 +1385,21 @@ test_no_change_binding (void)
 static void
 test_no_read_binding (void)
 {
-  if (g_test_trap_fork (0, G_TEST_TRAP_SILENCE_STDERR))
+  if (g_test_undefined ())
     {
-      TestObject *obj;
-      GSettings *settings;
+      if (g_test_trap_fork (0, G_TEST_TRAP_SILENCE_STDERR))
+        {
+          TestObject *obj;
+          GSettings *settings;
 
-      settings = g_settings_new ("org.gtk.test.binding");
-      obj = test_object_new ();
+          settings = g_settings_new ("org.gtk.test.binding");
+          obj = test_object_new ();
 
-      g_settings_bind (settings, "string", obj, "no-read", 0);
+          g_settings_bind (settings, "string", obj, "no-read", 0);
+        }
+      g_test_trap_assert_failed ();
+      g_test_trap_assert_stderr ("*property*is not readable*");
     }
-  g_test_trap_assert_failed ();
-  g_test_trap_assert_stderr ("*property*is not readable*");
 
   if (g_test_trap_fork (0, 0))
     {
@@ -1389,18 +1422,21 @@ test_no_read_binding (void)
 static void
 test_no_write_binding (void)
 {
-  if (g_test_trap_fork (0, G_TEST_TRAP_SILENCE_STDERR))
+  if (g_test_undefined ())
     {
-      TestObject *obj;
-      GSettings *settings;
+      if (g_test_trap_fork (0, G_TEST_TRAP_SILENCE_STDERR))
+        {
+          TestObject *obj;
+          GSettings *settings;
 
-      settings = g_settings_new ("org.gtk.test.binding");
-      obj = test_object_new ();
+          settings = g_settings_new ("org.gtk.test.binding");
+          obj = test_object_new ();
 
-      g_settings_bind (settings, "string", obj, "no-write", 0);
+          g_settings_bind (settings, "string", obj, "no-write", 0);
+        }
+      g_test_trap_assert_failed ();
+      g_test_trap_assert_stderr ("*property*is not writable*");
     }
-  g_test_trap_assert_failed ();
-  g_test_trap_assert_stderr ("*property*is not writable*");
 
   if (g_test_trap_fork (0, 0))
     {
@@ -1479,17 +1515,19 @@ test_child_schema (void)
 static gboolean
 glib_translations_work (void)
 {
+  gboolean works;
   gchar *locale;
   gchar *orig = "Unnamed";
-  gchar *str;
 
   locale = g_strdup (setlocale (LC_MESSAGES, NULL));
-  setlocale (LC_MESSAGES, "de");
-  str = dgettext ("glib20", orig);
+  if (!setlocale (LC_MESSAGES, "de"))
+    works = FALSE;
+  else
+    works = dgettext ("glib20", orig) != orig;
   setlocale (LC_MESSAGES, locale);
   g_free (locale);
 
-  return str != orig;
+  return works;
 }
 
 #include "../strinfo.c"
@@ -1559,7 +1597,7 @@ test_enums (void)
   settings = g_settings_new ("org.gtk.test.enums");
   direct = g_settings_new ("org.gtk.test.enums.direct");
 
-  if (!backend_set)
+  if (g_test_undefined () && !backend_set)
     {
       if (g_test_trap_fork (0, G_TEST_TRAP_SILENCE_STDERR))
         g_settings_get_enum (direct, "test");
@@ -1617,7 +1655,7 @@ test_flags (void)
   settings = g_settings_new ("org.gtk.test.enums");
   direct = g_settings_new ("org.gtk.test.enums.direct");
 
-  if (!backend_set)
+  if (g_test_undefined () && !backend_set)
     {
       if (g_test_trap_fork (0, G_TEST_TRAP_SILENCE_STDERR))
         g_settings_get_flags (direct, "test");
@@ -1687,7 +1725,7 @@ test_range (void)
   settings = g_settings_new ("org.gtk.test.range");
   direct = g_settings_new ("org.gtk.test.range.direct");
 
-  if (!backend_set)
+  if (g_test_undefined () && !backend_set)
     {
       if (g_test_trap_fork (0, G_TEST_TRAP_SILENCE_STDERR))
         g_settings_set_int (settings, "val", 45);
@@ -1885,6 +1923,133 @@ test_get_range (void)
   g_object_unref (settings);
 }
 
+static void
+test_schema_source (void)
+{
+  GSettingsSchemaSource *parent;
+  GSettingsSchemaSource *source;
+  GSettingsBackend *backend;
+  GSettingsSchema *schema;
+  GError *error = NULL;
+  GSettings *settings;
+  gboolean enabled;
+
+  backend = g_settings_backend_get_default ();
+
+  /* make sure it fails properly */
+  parent = g_settings_schema_source_get_default ();
+  source = g_settings_schema_source_new_from_directory ("/path/that/does/not/exist", parent,  TRUE, &error);
+  g_assert (source == NULL);
+  g_assert_error (error, G_FILE_ERROR, G_FILE_ERROR_NOENT);
+  g_clear_error (&error);
+
+  /* create a source with the parent */
+  source = g_settings_schema_source_new_from_directory ("schema-source", parent, TRUE, &error);
+  g_assert_no_error (error);
+  g_assert (source != NULL);
+
+  /* check recursive lookups are working */
+  schema = g_settings_schema_source_lookup (source, "org.gtk.test", TRUE);
+  g_assert (schema != NULL);
+  g_settings_schema_unref (schema);
+
+  /* check recursive lookups for non-existent schemas */
+  schema = g_settings_schema_source_lookup (source, "org.gtk.doesnotexist", TRUE);
+  g_assert (schema == NULL);
+
+  /* check non-recursive for schema that only exists in lower layers */
+  schema = g_settings_schema_source_lookup (source, "org.gtk.test", FALSE);
+  g_assert (schema == NULL);
+
+  /* check non-recursive lookup for non-existent */
+  schema = g_settings_schema_source_lookup (source, "org.gtk.doesnotexist", FALSE);
+  g_assert (schema == NULL);
+
+  /* check non-recursive for schema that exists in toplevel */
+  schema = g_settings_schema_source_lookup (source, "org.gtk.schemasourcecheck", FALSE);
+  g_assert (schema != NULL);
+  g_settings_schema_unref (schema);
+
+  /* check recursive for schema that exists in toplevel */
+  schema = g_settings_schema_source_lookup (source, "org.gtk.schemasourcecheck", TRUE);
+  g_assert (schema != NULL);
+
+  /* try to use it for something */
+  settings = g_settings_new_full (schema, backend, g_settings_schema_get_path (schema));
+  g_settings_schema_unref (schema);
+  enabled = FALSE;
+  g_settings_get (settings, "enabled", "b", &enabled);
+  g_assert (enabled);
+  g_object_unref (settings);
+
+  g_settings_schema_source_unref (source);
+
+  /* try again, but with no parent */
+  source = g_settings_schema_source_new_from_directory ("schema-source", NULL, FALSE, NULL);
+  g_assert (source != NULL);
+
+  /* should not find it this time, even if recursive... */
+  schema = g_settings_schema_source_lookup (source, "org.gtk.test", FALSE);
+  g_assert (schema == NULL);
+  schema = g_settings_schema_source_lookup (source, "org.gtk.test", TRUE);
+  g_assert (schema == NULL);
+
+  /* should still find our own... */
+  schema = g_settings_schema_source_lookup (source, "org.gtk.schemasourcecheck", TRUE);
+  g_assert (schema != NULL);
+  g_settings_schema_unref (schema);
+  schema = g_settings_schema_source_lookup (source, "org.gtk.schemasourcecheck", FALSE);
+  g_assert (schema != NULL);
+  g_settings_schema_unref (schema);
+
+  g_settings_schema_source_unref (source);
+}
+
+static void
+test_actions (void)
+{
+  GAction *string, *toggle;
+  gboolean c1, c2, c3;
+  GSettings *settings;
+
+  settings = g_settings_new ("org.gtk.test.basic-types");
+  string = g_settings_create_action (settings, "test-string");
+  toggle = g_settings_create_action (settings, "test-boolean");
+  g_object_unref (settings); /* should be held by the actions */
+
+  g_signal_connect (settings, "changed", G_CALLBACK (changed_cb2), &c1);
+  g_signal_connect (string, "notify::state", G_CALLBACK (changed_cb2), &c2);
+  g_signal_connect (toggle, "notify::state", G_CALLBACK (changed_cb2), &c3);
+
+  c1 = c2 = c3 = FALSE;
+  g_settings_set_string (settings, "test-string", "hello world");
+  check_and_free (g_action_get_state (string), "'hello world'");
+  g_assert (c1 && c2 && !c3);
+  c1 = c2 = c3 = FALSE;
+
+  g_action_activate (string, g_variant_new_string ("hihi"));
+  check_and_free (g_settings_get_value (settings, "test-string"), "'hihi'");
+  g_assert (c1 && c2 && !c3);
+  c1 = c2 = c3 = FALSE;
+
+  g_action_change_state (string, g_variant_new_string ("kthxbye"));
+  check_and_free (g_settings_get_value (settings, "test-string"), "'kthxbye'");
+  g_assert (c1 && c2 && !c3);
+  c1 = c2 = c3 = FALSE;
+
+  g_action_change_state (toggle, g_variant_new_boolean (TRUE));
+  g_assert (g_settings_get_boolean (settings, "test-boolean"));
+  g_assert (c1 && !c2 && c3);
+  c1 = c2 = c3 = FALSE;
+
+  g_action_activate (toggle, NULL);
+  g_assert (!g_settings_get_boolean (settings, "test-boolean"));
+  g_assert (c1 && !c2 && c3);
+
+  g_object_unref (string);
+  g_object_unref (toggle);
+}
+
 int
 main (int argc, char *argv[])
 {
@@ -1917,6 +2082,13 @@ main (int argc, char *argv[])
   g_assert (g_spawn_command_line_sync ("../glib-compile-schemas --targetdir=. "
                                        "--schema-file=org.gtk.test.enums.xml "
                                        "--schema-file=" SRCDIR "/org.gtk.test.gschema.xml",
+                                       NULL, NULL, &result, NULL));
+  g_assert (result == 0);
+
+  g_remove ("schema-source/gschemas.compiled");
+  g_mkdir ("schema-source", 0777);
+  g_assert (g_spawn_command_line_sync ("../glib-compile-schemas --targetdir=schema-source "
+                                       "--schema-file=" SRCDIR "/org.gtk.schemasourcecheck.gschema.xml",
                                        NULL, NULL, &result, NULL));
   g_assert (result == 0);
 
@@ -1969,6 +2141,8 @@ main (int argc, char *argv[])
   g_test_add_func ("/gsettings/list-schemas", test_list_schemas);
   g_test_add_func ("/gsettings/mapped", test_get_mapped);
   g_test_add_func ("/gsettings/get-range", test_get_range);
+  g_test_add_func ("/gsettings/schema-source", test_schema_source);
+  g_test_add_func ("/gsettings/actions", test_actions);
 
   result = g_test_run ();
 

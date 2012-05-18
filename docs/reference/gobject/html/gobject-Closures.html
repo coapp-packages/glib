@@ -8,7 +8,7 @@
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="gobject-Signals.html" title="Signals">
 <link rel="next" href="gobject-Value-arrays.html" title="Value arrays">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -66,6 +66,12 @@ struct              <a class="link" href="gobject-Closures.html#GCClosure" title
                                                          <em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>);
 <a class="link" href="gobject-Closures.html#GClosure" title="struct GClosure"><span class="returnvalue">GClosure</span></a> *          <a class="link" href="gobject-Closures.html#g-cclosure-new-object-swap" title="g_cclosure_new_object_swap ()">g_cclosure_new_object_swap</a>          (<em class="parameter"><code><a class="link" href="gobject-Closures.html#GCallback" title="GCallback ()"><span class="type">GCallback</span></a> callback_func</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gobject-Closures.html#g-cclosure-marshal-generic" title="g_cclosure_marshal_generic ()">g_cclosure_marshal_generic</a>          (<em class="parameter"><code><a class="link" href="gobject-Closures.html#GClosure" title="struct GClosure"><span class="type">GClosure</span></a> *closure</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> *return_gvalue</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_param_values</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> *param_values</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> invocation_hint</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> marshal_data</code></em>);
 <a class="link" href="gobject-Closures.html#GClosure" title="struct GClosure"><span class="returnvalue">GClosure</span></a> *          <a class="link" href="gobject-Closures.html#g-closure-new-object" title="g_closure_new_object ()">g_closure_new_object</a>                (<em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> sizeof_closure</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>);
 <a class="link" href="gobject-Closures.html#GClosure" title="struct GClosure"><span class="returnvalue">GClosure</span></a> *          <a class="link" href="gobject-Closures.html#g-closure-ref" title="g_closure_ref ()">g_closure_ref</a>                       (<em class="parameter"><code><a class="link" href="gobject-Closures.html#GClosure" title="struct GClosure"><span class="type">GClosure</span></a> *closure</code></em>);
@@ -105,8 +111,6 @@ struct              <a class="link" href="gobject-Closures.html#GCClosure" title
 <span class="returnvalue">void</span>                <a class="link" href="gobject-Closures.html#g-source-set-closure" title="g_source_set_closure ()">g_source_set_closure</a>                (<em class="parameter"><code><a href="./../glib/glib/glib-The-Main-Event-Loop.html#GSource"><span class="type">GSource</span></a> *source</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gobject-Closures.html#GClosure" title="struct GClosure"><span class="type">GClosure</span></a> *closure</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gobject-Closures.html#g-source-set-dummy-callback" title="g_source_set_dummy_callback ()">g_source_set_dummy_callback</a>         (<em class="parameter"><code><a href="./../glib/glib/glib-The-Main-Event-Loop.html#GSource"><span class="type">GSource</span></a> *source</code></em>);
-#define             <a class="link" href="gobject-Closures.html#G-TYPE-IO-CHANNEL:CAPS" title="G_TYPE_IO_CHANNEL">G_TYPE_IO_CHANNEL</a>
-#define             <a class="link" href="gobject-Closures.html#G-TYPE-IO-CONDITION:CAPS" title="G_TYPE_IO_CONDITION">G_TYPE_IO_CONDITION</a>
 
 <span class="returnvalue">void</span>                <a class="link" href="gobject-Closures.html#g-cclosure-marshal-VOID--VOID" title="g_cclosure_marshal_VOID__VOID ()">g_cclosure_marshal_VOID__VOID</a>       (<em class="parameter"><code><a class="link" href="gobject-Closures.html#GClosure" title="struct GClosure"><span class="type">GClosure</span></a> *closure</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> *return_value</code></em>,
@@ -237,6 +241,14 @@ struct              <a class="link" href="gobject-Closures.html#GCClosure" title
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> invocation_hint</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> marshal_data</code></em>);
 #define             <a class="link" href="gobject-Closures.html#g-cclosure-marshal-BOOL--FLAGS" title="g_cclosure_marshal_BOOL__FLAGS">g_cclosure_marshal_BOOL__FLAGS</a>
+<span class="returnvalue">void</span>                <a class="link" href="gobject-Closures.html#g-cclosure-marshal-BOOLEAN--BOXED-BOXED" title="g_cclosure_marshal_BOOLEAN__BOXED_BOXED ()">g_cclosure_marshal_BOOLEAN__BOXED_BOXED</a>
+                                                        (<em class="parameter"><code><a class="link" href="gobject-Closures.html#GClosure" title="struct GClosure"><span class="type">GClosure</span></a> *closure</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> *return_value</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_param_values</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> *param_values</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> invocation_hint</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> marshal_data</code></em>);
+#define             <a class="link" href="gobject-Closures.html#g-cclosure-marshal-BOOL--BOXED-BOXED" title="g_cclosure_marshal_BOOL__BOXED_BOXED">g_cclosure_marshal_BOOL__BOXED_BOXED</a>
 </pre>
 </div>
 <div class="refsect1">
@@ -431,7 +443,7 @@ A <a class="link" href="gobject-Closures.html#GClosure" title="struct GClosure">
 <hr>
 <div class="refsect2">
 <a name="G-TYPE-CLOSURE:CAPS"></a><h3>G_TYPE_CLOSURE</h3>
-<pre class="programlisting">#define G_TYPE_CLOSURE		(g_closure_get_type ())
+<pre class="programlisting">#define G_TYPE_CLOSURE (g_closure_get_type ())
 </pre>
 <p>
 The <a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> for <a class="link" href="gobject-Closures.html#GClosure" title="struct GClosure"><span class="type">GClosure</span></a>.
@@ -484,8 +496,10 @@ The type used for marshaller functions.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>return_value</code></em> :</span></p></td>
-<td>a <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> to store the return value. May be <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the
-callback of <em class="parameter"><code>closure</code></em> doesn't return a value.</td>
+<td>a <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> to store the return
+value. May be <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the callback of <em class="parameter"><code>closure</code></em> doesn't return a
+value. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>n_param_values</code></em> :</span></p></td>
@@ -493,20 +507,22 @@ callback of <em class="parameter"><code>closure</code></em> doesn't return a val
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>param_values</code></em> :</span></p></td>
-<td>an array of <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a>s holding the arguments on
-which to invoke the callback of <em class="parameter"><code>closure</code></em>
+<td>an array of
+<a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a>s holding the arguments on which to invoke the
+callback of <em class="parameter"><code>closure</code></em>. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_param_values]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>invocation_hint</code></em> :</span></p></td>
-<td>the invocation hint given as the last argument
-to <a class="link" href="gobject-Closures.html#g-closure-invoke" title="g_closure_invoke ()"><code class="function">g_closure_invoke()</code></a>
+<td>the invocation hint given as the
+last argument to <a class="link" href="gobject-Closures.html#g-closure-invoke" title="g_closure_invoke ()"><code class="function">g_closure_invoke()</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>marshal_data</code></em> :</span></p></td>
-<td>additional data specified when registering the marshaller,
-see <a class="link" href="gobject-Closures.html#g-closure-set-marshal" title="g_closure_set_marshal ()"><code class="function">g_closure_set_marshal()</code></a> and <a class="link" href="gobject-Closures.html#g-closure-set-meta-marshal" title="g_closure_set_meta_marshal ()"><code class="function">g_closure_set_meta_marshal()</code></a>
+<td>additional data specified when
+registering the marshaller, see <a class="link" href="gobject-Closures.html#g-closure-set-marshal" title="g_closure_set_marshal ()"><code class="function">g_closure_set_marshal()</code></a> and
+<a class="link" href="gobject-Closures.html#g-closure-set-meta-marshal" title="g_closure_set_meta_marshal ()"><code class="function">g_closure_set_meta_marshal()</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -669,6 +685,55 @@ after the object is is freed.
 </div>
 <hr>
 <div class="refsect2">
+<a name="g-cclosure-marshal-generic"></a><h3>g_cclosure_marshal_generic ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_cclosure_marshal_generic          (<em class="parameter"><code><a class="link" href="gobject-Closures.html#GClosure" title="struct GClosure"><span class="type">GClosure</span></a> *closure</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> *return_gvalue</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_param_values</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> *param_values</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> invocation_hint</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> marshal_data</code></em>);</pre>
+<p>
+A generic marshaller function implemented via <a class="ulink" href="http://sourceware.org/libffi/" target="_top">libffi</a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td>A <a class="link" href="gobject-Closures.html#GClosure" title="struct GClosure"><span class="type">GClosure</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>return_gvalue</code></em> :</span></p></td>
+<td>A <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> to store the return value. May be <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+if the callback of closure doesn't return a value.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_param_values</code></em> :</span></p></td>
+<td>The length of the <em class="parameter"><code>param_values</code></em> array.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>param_values</code></em> :</span></p></td>
+<td>An array of <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a>s holding the arguments
+on which to invoke the callback of closure.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>invocation_hint</code></em> :</span></p></td>
+<td>The invocation hint given as the last argument to
+<a class="link" href="gobject-Closures.html#g-closure-invoke" title="g_closure_invoke ()"><code class="function">g_closure_invoke()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>marshal_data</code></em> :</span></p></td>
+<td>Additional data specified when registering the
+marshaller, see <a class="link" href="gobject-Closures.html#g-closure-set-marshal" title="g_closure_set_marshal ()"><code class="function">g_closure_set_marshal()</code></a> and
+<a class="link" href="gobject-Closures.html#g-closure-set-meta-marshal" title="g_closure_set_meta_marshal ()"><code class="function">g_closure_set_meta_marshal()</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.30</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="g-closure-new-object"></a><h3>g_closure_new_object ()</h3>
 <pre class="programlisting"><a class="link" href="gobject-Closures.html#GClosure" title="struct GClosure"><span class="returnvalue">GClosure</span></a> *          g_closure_new_object                (<em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> sizeof_closure</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>);</pre>
@@ -736,7 +801,7 @@ means that the initial reference count is not owned by any caller.
 <a class="link" href="gobject-Closures.html#g-closure-sink" title="g_closure_sink ()"><code class="function">g_closure_sink()</code></a> checks to see if the object is still floating, and
 if so, unsets the floating state and decreases the reference
 count. If the closure is not floating, <a class="link" href="gobject-Closures.html#g-closure-sink" title="g_closure_sink ()"><code class="function">g_closure_sink()</code></a> does
-nothing. The reason for the existance of the floating state is to
+nothing. The reason for the existence of the floating state is to
 prevent cumbersome code sequences like:
 </p>
 <div class="informalexample">
@@ -866,8 +931,10 @@ Invokes the closure, i.e. executes the callback represented by the <em class="pa
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>return_value</code></em> :</span></p></td>
-<td>a <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> to store the return value. May be <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the
-callback of <em class="parameter"><code>closure</code></em> doesn't return a value.</td>
+<td>a <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> to store the return
+value. May be <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the callback of <em class="parameter"><code>closure</code></em>
+doesn't return a value. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>n_param_values</code></em> :</span></p></td>
@@ -882,7 +949,8 @@ invoke the callback of <em class="parameter"><code>closure</code></em>. <span cl
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>invocation_hint</code></em> :</span></p></td>
-<td>a context-dependent invocation hint</td>
+<td>a context-dependent invocation hint. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -1319,24 +1387,6 @@ functions.
 <td>the source</td>
 </tr></tbody>
 </table></div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="G-TYPE-IO-CHANNEL:CAPS"></a><h3>G_TYPE_IO_CHANNEL</h3>
-<pre class="programlisting">#define G_TYPE_IO_CHANNEL (g_io_channel_get_type ())
-</pre>
-<p>
-The <a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> for <a href="./../glib/glib/glib-IO-Channels.html#GIOChannel"><span class="type">GIOChannel</span></a>.
-</p>
-</div>
-<hr>
-<div class="refsect2">
-<a name="G-TYPE-IO-CONDITION:CAPS"></a><h3>G_TYPE_IO_CONDITION</h3>
-<pre class="programlisting">#define G_TYPE_IO_CONDITION (g_io_condition_get_type ())
-</pre>
-<p>
-The <a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> for <a href="./../glib/glib/glib-IO-Channels.html#GIOCondition"><span class="type">GIOCondition</span></a>.
-</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2296,10 +2346,26 @@ to <a class="link" href="gobject-Closures.html#g-closure-invoke" title="g_closur
 Another name for <a class="link" href="gobject-Closures.html#g-cclosure-marshal-BOOLEAN--FLAGS" title="g_cclosure_marshal_BOOLEAN__FLAGS ()"><code class="function">g_cclosure_marshal_BOOLEAN__FLAGS()</code></a>.
 </p>
 </div>
+<hr>
+<div class="refsect2">
+<a name="g-cclosure-marshal-BOOLEAN--BOXED-BOXED"></a><h3>g_cclosure_marshal_BOOLEAN__BOXED_BOXED ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_cclosure_marshal_BOOLEAN__BOXED_BOXED
+                                                        (<em class="parameter"><code><a class="link" href="gobject-Closures.html#GClosure" title="struct GClosure"><span class="type">GClosure</span></a> *closure</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> *return_value</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_param_values</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> *param_values</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> invocation_hint</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> marshal_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-cclosure-marshal-BOOL--BOXED-BOXED"></a><h3>g_cclosure_marshal_BOOL__BOXED_BOXED</h3>
+<pre class="programlisting">#define             g_cclosure_marshal_BOOL__BOXED_BOXED</pre>
+</div>
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="gobject-Standard-Parameter-and-Value-Types.html" title="Parameters and Values">
 <link rel="next" href="gobject-Varargs-Value-Collection.html" title="Varargs Value Collection">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -56,10 +56,10 @@ enum                <a class="link" href="gobject-GParamSpec.html#GParamFlags" t
 #define             <a class="link" href="gobject-GParamSpec.html#G-PARAM-STATIC-STRINGS:CAPS" title="G_PARAM_STATIC_STRINGS">G_PARAM_STATIC_STRINGS</a>
 #define             <a class="link" href="gobject-GParamSpec.html#G-PARAM-MASK:CAPS" title="G_PARAM_MASK">G_PARAM_MASK</a>
 #define             <a class="link" href="gobject-GParamSpec.html#G-PARAM-USER-SHIFT:CAPS" title="G_PARAM_USER_SHIFT">G_PARAM_USER_SHIFT</a>
-<a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="returnvalue">GParamSpec</span></a> *	       <a class="link" href="gobject-GParamSpec.html#g-param-spec-ref" title="g_param_spec_ref ()">g_param_spec_ref</a>                    (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);
+<a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="returnvalue">GParamSpec</span></a> *        <a class="link" href="gobject-GParamSpec.html#g-param-spec-ref" title="g_param_spec_ref ()">g_param_spec_ref</a>                    (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gobject-GParamSpec.html#g-param-spec-unref" title="g_param_spec_unref ()">g_param_spec_unref</a>                  (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gobject-GParamSpec.html#g-param-spec-sink" title="g_param_spec_sink ()">g_param_spec_sink</a>                   (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);
-<a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="returnvalue">GParamSpec</span></a> *	       <a class="link" href="gobject-GParamSpec.html#g-param-spec-ref-sink" title="g_param_spec_ref_sink ()">g_param_spec_ref_sink</a>               (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);
+<a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="returnvalue">GParamSpec</span></a> *        <a class="link" href="gobject-GParamSpec.html#g-param-spec-ref-sink" title="g_param_spec_ref_sink ()">g_param_spec_ref_sink</a>               (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gobject-GParamSpec.html#g-param-value-set-default" title="g_param_value_set_default ()">g_param_value_set_default</a>           (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> *value</code></em>);
 <a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gobject-GParamSpec.html#g-param-value-defaults" title="g_param_value_defaults ()">g_param_value_defaults</a>              (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
@@ -73,9 +73,9 @@ enum                <a class="link" href="gobject-GParamSpec.html#GParamFlags" t
 <a href="./../glib/glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gobject-GParamSpec.html#g-param-values-cmp" title="g_param_values_cmp ()">g_param_values_cmp</a>                  (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> *value1</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> *value2</code></em>);
-const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *	      <a class="link" href="gobject-GParamSpec.html#g-param-spec-get-name" title="g_param_spec_get_name ()">g_param_spec_get_name</a>               (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);
-const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *	      <a class="link" href="gobject-GParamSpec.html#g-param-spec-get-nick" title="g_param_spec_get_nick ()">g_param_spec_get_nick</a>               (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);
-const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *	      <a class="link" href="gobject-GParamSpec.html#g-param-spec-get-blurb" title="g_param_spec_get_blurb ()">g_param_spec_get_blurb</a>              (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);
+const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="gobject-GParamSpec.html#g-param-spec-get-name" title="g_param_spec_get_name ()">g_param_spec_get_name</a>               (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);
+const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="gobject-GParamSpec.html#g-param-spec-get-nick" title="g_param_spec_get_nick ()">g_param_spec_get_nick</a>               (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);
+const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="gobject-GParamSpec.html#g-param-spec-get-blurb" title="g_param_spec_get_blurb ()">g_param_spec_get_blurb</a>              (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);
 <a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="gobject-GParamSpec.html#g-param-spec-get-qdata" title="g_param_spec_get_qdata ()">g_param_spec_get_qdata</a>              (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> quark</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gobject-GParamSpec.html#g-param-spec-set-qdata" title="g_param_spec_set_qdata ()">g_param_spec_set_qdata</a>              (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
@@ -103,14 +103,14 @@ struct              <a class="link" href="gobject-GParamSpec.html#GParamSpecType
                                                          <em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> owner_type</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gobject-GParamSpec.html#g-param-spec-pool-remove" title="g_param_spec_pool_remove ()">g_param_spec_pool_remove</a>            (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpecPool" title="GParamSpecPool"><span class="type">GParamSpecPool</span></a> *pool</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);
-<a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="returnvalue">GParamSpec</span></a> *	       <a class="link" href="gobject-GParamSpec.html#g-param-spec-pool-lookup" title="g_param_spec_pool_lookup ()">g_param_spec_pool_lookup</a>            (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpecPool" title="GParamSpecPool"><span class="type">GParamSpecPool</span></a> *pool</code></em>,
+<a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="returnvalue">GParamSpec</span></a> *        <a class="link" href="gobject-GParamSpec.html#g-param-spec-pool-lookup" title="g_param_spec_pool_lookup ()">g_param_spec_pool_lookup</a>            (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpecPool" title="GParamSpecPool"><span class="type">GParamSpecPool</span></a> *pool</code></em>,
                                                          <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *param_name</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> owner_type</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> walk_ancestors</code></em>);
-<a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="returnvalue">GParamSpec</span></a> **	      <a class="link" href="gobject-GParamSpec.html#g-param-spec-pool-list" title="g_param_spec_pool_list ()">g_param_spec_pool_list</a>              (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpecPool" title="GParamSpecPool"><span class="type">GParamSpecPool</span></a> *pool</code></em>,
+<a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="returnvalue">GParamSpec</span></a> **       <a class="link" href="gobject-GParamSpec.html#g-param-spec-pool-list" title="g_param_spec_pool_list ()">g_param_spec_pool_list</a>              (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpecPool" title="GParamSpecPool"><span class="type">GParamSpecPool</span></a> *pool</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> owner_type</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *n_pspecs_p</code></em>);
-<a href="./../glib/glib/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *		           <a class="link" href="gobject-GParamSpec.html#g-param-spec-pool-list-owned" title="g_param_spec_pool_list_owned ()">g_param_spec_pool_list_owned</a>        (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpecPool" title="GParamSpecPool"><span class="type">GParamSpecPool</span></a> *pool</code></em>,
+<a href="./../glib/glib/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="gobject-GParamSpec.html#g-param-spec-pool-list-owned" title="g_param_spec_pool_list_owned ()">g_param_spec_pool_list_owned</a>        (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpecPool" title="GParamSpecPool"><span class="type">GParamSpecPool</span></a> *pool</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> owner_type</code></em>);
 </pre>
 </div>
@@ -294,7 +294,7 @@ Retrieves the <a class="link" href="gobject-Type-Information.html#GType" title="
 <pre class="programlisting">struct GParamSpec {
   GTypeInstance  g_type_instance;
 
-  gchar         *name;
+  const gchar   *name;          /* interned string */
   GParamFlags    flags;
   GType		 value_type;
   GType		 owner_type; /* class or interface using this property */
@@ -312,8 +312,8 @@ should not be used directly.
 <td>private <a class="link" href="gobject-Type-Information.html#GTypeInstance" title="struct GTypeInstance"><span class="type">GTypeInstance</span></a> portion</td>
 </tr>
 <tr>
-<td><p><span class="term"><a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GParamSpec.name"></a>name</code></em>;</span></p></td>
-<td>name of this parameter</td>
+<td><p><span class="term">const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GParamSpec.name"></a>name</code></em>;</span></p></td>
+<td>name of this parameter: always an interned string</td>
 </tr>
 <tr>
 <td><p><span class="term"><a class="link" href="gobject-GParamSpec.html#GParamFlags" title="enum GParamFlags"><span class="type">GParamFlags</span></a> <em class="structfield"><code><a name="GParamSpec.flags"></a>flags</code></em>;</span></p></td>
@@ -383,7 +383,7 @@ up to the finalize method of the parent class.</td>
 <td><p><span class="term"><em class="structfield"><code><a name="GParamSpecClass.value-validate"></a>value_validate</code></em> ()</span></p></td>
 <td>Ensures that the contents of <em class="parameter"><code>value</code></em> comply with the
 specifications set out by this type (optional), see
-<code class="function">g_param_value_set_validate()</code>.</td>
+<a class="link" href="gobject-GParamSpec.html#g-param-value-validate" title="g_param_value_validate ()"><code class="function">g_param_value_validate()</code></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="structfield"><code><a name="GParamSpecClass.values-cmp"></a>values_cmp</code></em> ()</span></p></td>
@@ -396,8 +396,7 @@ specifications set out by this type (optional), see
 <hr>
 <div class="refsect2">
 <a name="GParamFlags"></a><h3>enum GParamFlags</h3>
-<pre class="programlisting">typedef enum
-{
+<pre class="programlisting">typedef enum {
   G_PARAM_READABLE            = 1 &lt;&lt; 0,
   G_PARAM_WRITABLE            = 1 &lt;&lt; 1,
   G_PARAM_CONSTRUCT	      = 1 &lt;&lt; 2,
@@ -480,7 +479,7 @@ can be configured.
 <td>the parameter is deprecated and will be removed
  in a future version. A warning will be generated if it is used
  while running with G_ENABLE_DIAGNOSTIC=1.
- Since: 2.26
+ Since 2.26
 </td>
 </tr>
 </tbody>
@@ -529,7 +528,7 @@ Minimum shift count to be used for user defined flags, to be stored in
 <hr>
 <div class="refsect2">
 <a name="g-param-spec-ref"></a><h3>g_param_spec_ref ()</h3>
-<pre class="programlisting"><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="returnvalue">GParamSpec</span></a> *	       g_param_spec_ref                    (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="returnvalue">GParamSpec</span></a> *        g_param_spec_ref                    (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);</pre>
 <p>
 Increments the reference count of <em class="parameter"><code>pspec</code></em>.
 </p>
@@ -589,7 +588,7 @@ count of 1 still, but is not flagged "floating" anymore).
 <hr>
 <div class="refsect2">
 <a name="g-param-spec-ref-sink"></a><h3>g_param_spec_ref_sink ()</h3>
-<pre class="programlisting"><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="returnvalue">GParamSpec</span></a> *	       g_param_spec_ref_sink               (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="returnvalue">GParamSpec</span></a> *        g_param_spec_ref_sink               (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);</pre>
 <p>
 Convenience function to ref and sink a <a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a>.
 </p>
@@ -784,9 +783,13 @@ respectively.
 <hr>
 <div class="refsect2">
 <a name="g-param-spec-get-name"></a><h3>g_param_spec_get_name ()</h3>
-<pre class="programlisting">const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *	      g_param_spec_get_name               (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);</pre>
+<pre class="programlisting">const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       g_param_spec_get_name               (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);</pre>
 <p>
 Get the name of a <a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a>.
+</p>
+<p>
+The name is always an "interned" string (as per <a href="./../glib/glib/glib-Quarks.html#g-intern-string"><code class="function">g_intern_string()</code></a>).
+This allows for pointer-value comparisons.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -806,7 +809,7 @@ Get the name of a <a class="link" href="gobject-GParamSpec.html#GParamSpec" titl
 <hr>
 <div class="refsect2">
 <a name="g-param-spec-get-nick"></a><h3>g_param_spec_get_nick ()</h3>
-<pre class="programlisting">const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *	      g_param_spec_get_nick               (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);</pre>
+<pre class="programlisting">const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       g_param_spec_get_nick               (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);</pre>
 <p>
 Get the nickname of a <a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a>.
 </p>
@@ -828,7 +831,7 @@ Get the nickname of a <a class="link" href="gobject-GParamSpec.html#GParamSpec" 
 <hr>
 <div class="refsect2">
 <a name="g-param-spec-get-blurb"></a><h3>g_param_spec_get_blurb ()</h3>
-<pre class="programlisting">const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *	      g_param_spec_get_blurb              (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);</pre>
+<pre class="programlisting">const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       g_param_spec_get_blurb              (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);</pre>
 <p>
 Get the short description of a <a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a>.
 </p>
@@ -1131,7 +1134,7 @@ does not need to be persistent across invocation of
 <td><p><span class="term"><em class="structfield"><code><a name="GParamSpecTypeInfo.value-validate"></a>value_validate</code></em> ()</span></p></td>
 <td>Ensures that the contents of <em class="parameter"><code>value</code></em> comply with the
 specifications set out by <em class="parameter"><code>pspec</code></em> (optional), see
-<code class="function">g_param_value_set_validate()</code>.</td>
+<a class="link" href="gobject-GParamSpec.html#g-param-value-validate" title="g_param_value_validate ()"><code class="function">g_param_value_validate()</code></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="structfield"><code><a name="GParamSpecTypeInfo.values-cmp"></a>values_cmp</code></em> ()</span></p></td>
@@ -1263,7 +1266,7 @@ Removes a <a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struc
 <hr>
 <div class="refsect2">
 <a name="g-param-spec-pool-lookup"></a><h3>g_param_spec_pool_lookup ()</h3>
-<pre class="programlisting"><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="returnvalue">GParamSpec</span></a> *	       g_param_spec_pool_lookup            (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpecPool" title="GParamSpecPool"><span class="type">GParamSpecPool</span></a> *pool</code></em>,
+<pre class="programlisting"><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="returnvalue">GParamSpec</span></a> *        g_param_spec_pool_lookup            (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpecPool" title="GParamSpecPool"><span class="type">GParamSpecPool</span></a> *pool</code></em>,
                                                          <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *param_name</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> owner_type</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> walk_ancestors</code></em>);</pre>
@@ -1303,7 +1306,7 @@ matching <a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct
 <hr>
 <div class="refsect2">
 <a name="g-param-spec-pool-list"></a><h3>g_param_spec_pool_list ()</h3>
-<pre class="programlisting"><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="returnvalue">GParamSpec</span></a> **	      g_param_spec_pool_list              (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpecPool" title="GParamSpecPool"><span class="type">GParamSpecPool</span></a> *pool</code></em>,
+<pre class="programlisting"><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="returnvalue">GParamSpec</span></a> **       g_param_spec_pool_list              (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpecPool" title="GParamSpecPool"><span class="type">GParamSpecPool</span></a> *pool</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> owner_type</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *n_pspecs_p</code></em>);</pre>
 <p>
@@ -1340,7 +1343,7 @@ owned by <em class="parameter"><code>owner_type</code></em> in the pool. <span c
 <hr>
 <div class="refsect2">
 <a name="g-param-spec-pool-list-owned"></a><h3>g_param_spec_pool_list_owned ()</h3>
-<pre class="programlisting"><a href="./../glib/glib/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *		           g_param_spec_pool_list_owned        (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpecPool" title="GParamSpecPool"><span class="type">GParamSpecPool</span></a> *pool</code></em>,
+<pre class="programlisting"><a href="./../glib/glib/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             g_param_spec_pool_list_owned        (<em class="parameter"><code><a class="link" href="gobject-GParamSpec.html#GParamSpecPool" title="GParamSpecPool"><span class="type">GParamSpecPool</span></a> *pool</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> owner_type</code></em>);</pre>
 <p>
 Gets an <a href="./../glib/glib/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> of all <a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a>s owned by <em class="parameter"><code>owner_type</code></em> in
@@ -1378,6 +1381,6 @@ g_object_class_install_property(), <a class="link" href="gobject-The-Base-Object
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

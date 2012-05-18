@@ -18,7 +18,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-#if defined(G_DISABLE_SINGLE_INCLUDES) && !defined (__GLIB_H_INSIDE__) && !defined (GLIB_COMPILATION)
+#if !defined (__GLIB_H_INSIDE__) && !defined (GLIB_COMPILATION)
 #error "Only <glib.h> can be included directly."
 #endif
 
@@ -98,6 +98,7 @@ void    g_test_init                     (int            *argc,
 #define g_test_perf()                   (g_test_config_vars->test_perf)
 #define g_test_verbose()                (g_test_config_vars->test_verbose)
 #define g_test_quiet()                  (g_test_config_vars->test_quiet)
+#define g_test_undefined()              (g_test_config_vars->test_undefined)
 /* run all tests under toplevel suite (path: /) */
 int     g_test_run                      (void);
 /* hook up a test functions under test path */
@@ -107,6 +108,8 @@ void    g_test_add_func                 (const char     *testpath,
 void    g_test_add_data_func            (const char     *testpath,
                                          gconstpointer   test_data,
                                          GTestDataFunc   test_func);
+/* tell about failure */
+void    g_test_fail                     (void);
 
 /* hook up a test with fixture under test path */
 #define g_test_add(testpath, Fixture, tdata, fsetup, ftest, fteardown) \
@@ -232,6 +235,7 @@ typedef struct {
   gboolean      test_perf;      /* run performance tests */
   gboolean      test_verbose;   /* extra info */
   gboolean      test_quiet;     /* reduce output */
+  gboolean      test_undefined; /* run tests that are meant to assert */
 } GTestConfig;
 GLIB_VAR const GTestConfig * const g_test_config_vars;
 

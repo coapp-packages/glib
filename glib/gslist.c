@@ -31,14 +31,14 @@
 #include "config.h"
 
 #include "gslist.h"
+
 #include "gtestutils.h"
+#include "gslice.h"
 
 /**
  * SECTION:linked_lists_single
  * @title: Singly-Linked Lists
- * @short_description: linked lists containing integer values or
- *                     pointers to data, limited to iterating over the
- *                     list in one direction
+ * @short_description: linked lists that can be iterated in one direction
  *
  * The #GSList structure and its associated functions provide a
  * standard singly-linked list data structure.
@@ -47,7 +47,7 @@
  * pointer which links to the next element in the list. Using this
  * pointer it is possible to move through the list in one direction
  * only (unlike the <link
- * linkend="glib-Doubly-Linked-lists">Doubly-Linked Lists</link> which
+ * linkend="glib-Doubly-Linked-Lists">Doubly-Linked Lists</link> which
  * allow movement in both directions).
  *
  * The data contained in each element can be either integer values, by
@@ -102,38 +102,6 @@
  *
  * A convenience macro to get the next element in a #GSList.
  **/
-
-
-/**
- * g_slist_push_allocator:
- * @dummy: the #GAllocator to use when allocating #GSList elements.
- *
- * Sets the allocator to use to allocate #GSList elements. Use
- * g_slist_pop_allocator() to restore the previous allocator.
- *
- * Note that this function is not available if GLib has been compiled
- * with <option>--disable-mem-pools</option>
- *
- * Deprecated: 2.10: It does nothing, since #GSList has been converted
- *                   to the <link linkend="glib-Memory-Slices">slice
- *                   allocator</link>
- **/
-void g_slist_push_allocator (gpointer dummy) { /* present for binary compat only */ }
-
-/**
- * g_slist_pop_allocator:
- *
- * Restores the previous #GAllocator, used when allocating #GSList
- * elements.
- *
- * Note that this function is not available if GLib has been compiled
- * with <option>--disable-mem-pools</option>
- *
- * Deprecated: 2.10: It does nothing, since #GSList has been converted
- *                   to the <link linkend="glib-Memory-Slices">slice
- *                   allocator</link>
- **/
-void g_slist_pop_allocator  (void)           { /* present for binary compat only */ }
 
 #define _g_slist_alloc0()       g_slice_new0 (GSList)
 #define _g_slist_alloc()        g_slice_new (GSList)
@@ -346,16 +314,8 @@ g_slist_insert (GSList   *list,
       tmp_list = tmp_list->next;
     }
 
-  if (prev_list)
-    {
-      new_list->next = prev_list->next;
-      prev_list->next = new_list;
-    }
-  else
-    {
-      new_list->next = list;
-      list = new_list;
-    }
+  new_list->next = prev_list->next;
+  prev_list->next = new_list;
 
   return list;
 }

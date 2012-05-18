@@ -136,8 +136,8 @@ GType g_type_register_fundamental (GType                       type_id,
 <programlisting>
 static void test_int (void)
 {
-  GValue a_value = {0, }; 
-  GValue b_value = {0, };
+  GValue a_value = G_VALUE_INIT;
+  GValue b_value = G_VALUE_INIT;
   guint64 a, b;
 
   a = 0xdeadbeaf;
@@ -160,8 +160,8 @@ static void test_int (void)
 static void test_object (void)
 {
   GObject *obj;
-  GValue obj_vala = {0, };
-  GValue obj_valb = {0, };
+  GValue obj_vala = G_VALUE_INIT;
+  GValue obj_valb = G_VALUE_INIT;
   obj = g_object_new (MAMAN_TYPE_BAR, NULL);
 
   g_value_init (&amp;obj_vala, MAMAN_TYPE_BAR);
@@ -309,7 +309,7 @@ GType maman_bar_get_type (void)
 {
   static GType type = 0;
   if (type == 0) {
-    static const GTypeInfo info = {
+    const GTypeInfo info = {
       /* You fill this structure. */
     };
     type = g_type_register_static (G_TYPE_OBJECT,
@@ -337,7 +337,7 @@ G_DEFINE_TYPE (MamanBar, maman_bar, G_TYPE_OBJECT)
         <para>
           A lot of types are not instantiable by the type system and do not have
           a class. Most of these types are fundamental trivial types such as <emphasis>gchar</emphasis>, 
-          registered in <function>g_value_types_init</function> (in <filename>gvaluetypes.c</filename>).
+          registered in <function>_g_value_types_init</function> (in <filename>gvaluetypes.c</filename>).
         </para>
 
         <para>
@@ -422,7 +422,7 @@ maman_bar_get_type (void)
 {
   static GType type = 0;
   if (type == 0) {
-    static const GTypeInfo info = {
+    const GTypeInfo info = {
       sizeof (MamanBarClass),
       NULL,           /* base_init */
       NULL,           /* base_finalize */
@@ -533,10 +533,11 @@ void           g_type_free_instance   (GTypeInstance *instance);
           </para>
 
           <para>
-            If this is the first instance of the object ever created, the type system must create
-            a class structure: it allocates a buffer to hold the object's class structure and
-            initializes it. It first copies the parent's class structure over this structure
-            (if there is no parent, it initializes it to zero). It then invokes the 
+            If this is the first instance of the object ever created, the type system must create a class structure.
+            It allocates a buffer to hold the object's class structure and initializes it. The first part of the
+            class structure (ie: the embedded parent class structure) is initialized by copying the contents from
+            the class structure of the parent class. The rest of class structure is initialized to zero.  If there
+            is no parent, the entire class structure is initialized to zero. The type system then invokes the
             base_class_initialization functions (<link linkend="GBaseInitFunc"><type>GBaseInitFunc</type></link>) from topmost 
             fundamental object to bottom-most most derived object. The object's class_init 
             (<link linkend="GClassInitFunc"><type>GClassInitFunc</type></link>) function is invoked afterwards to complete
@@ -564,7 +565,7 @@ void           g_type_free_instance   (GTypeInstance *instance);
             referred to as finalization in GType) is the symmetric process of 
             the initialization: interfaces are destroyed first. 
             Then, the most derived 
-            class_finalize (<link linkend="ClassFinalizeFunc"><type>ClassFinalizeFunc</type></link>) function is invoked. The 
+            class_finalize (<link linkend="GClassFinalizeFunc"><type>GClassFinalizeFunc</type></link>) function is invoked. The 
             base_class_finalize (<link linkend="GBaseFinalizeFunc"><type>GBaseFinalizeFunc</type></link>) functions are 
             Finally invoked from bottom-most most-derived type to top-most fundamental type and 
             the class structure is freed.
@@ -726,7 +727,7 @@ maman_baz_get_type (void)
 {
   static GType type = 0;
   if (type == 0) {
-    static const GTypeInfo info = {
+    const GTypeInfo info = {
       sizeof (MamanBazInterface),
       NULL,   /* base_init */
       NULL,   /* base_finalize */
@@ -737,7 +738,7 @@ maman_baz_get_type (void)
       0,      /* n_preallocs */
       NULL    /* instance_init */
     };
-    static const GInterfaceInfo ibaz_info = {
+    const GInterfaceInfo ibaz_info = {
       (GInterfaceInitFunc) baz_interface_init,    /* interface_init */
       NULL,               /* interface_finalize */
       NULL          /* interface_data */

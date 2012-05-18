@@ -36,6 +36,7 @@
 #include "gunixinputstream.h"
 #include "gcancellable.h"
 #include "gasynchelper.h"
+#include "gfiledescriptorbased.h"
 #include "glibintl.h"
 
 
@@ -45,9 +46,11 @@
  * @include: gio/gunixinputstream.h
  * @see_also: #GInputStream
  *
- * #GUnixInputStream implements #GInputStream for reading from a
- * UNIX file descriptor, including asynchronous operations. The file
- * descriptor must be selectable, so it doesn't work with opened files.
+ * #GUnixInputStream implements #GInputStream for reading from a UNIX
+ * file descriptor, including asynchronous operations. (If the file
+ * descriptor refers to a socket or pipe, this will use poll() to do
+ * asynchronous I/O. If it refers to a regular file, it will fall back
+ * to doing asynchronous I/O in another thread.)
  *
  * Note that <filename>&lt;gio/gunixinputstream.h&gt;</filename> belongs
  * to the UNIX-specific GIO interfaces, thus you have to use the
@@ -61,15 +64,19 @@ enum {
 };
 
 static void g_unix_input_stream_pollable_iface_init (GPollableInputStreamInterface *iface);
+static void g_unix_input_stream_file_descriptor_based_iface_init (GFileDescriptorBasedIface *iface);
 
 G_DEFINE_TYPE_WITH_CODE (GUnixInputStream, g_unix_input_stream, G_TYPE_INPUT_STREAM,
 			 G_IMPLEMENT_INTERFACE (G_TYPE_POLLABLE_INPUT_STREAM,
 						g_unix_input_stream_pollable_iface_init)
-			 );
+			 G_IMPLEMENT_INTERFACE (G_TYPE_FILE_DESCRIPTOR_BASED,
+						g_unix_input_stream_file_descriptor_based_iface_init)
+			 )
 
 struct _GUnixInputStreamPrivate {
   int fd;
-  gboolean close_fd;
+  guint close_fd : 1;
+  guint is_pipe_or_socket : 1;
 };
 
 static void     g_unix_input_stream_set_property (GObject              *object,
@@ -190,6 +197,12 @@ g_unix_input_stream_pollable_iface_init (GPollableInputStreamInterface *iface)
 }
 
 static void
+g_unix_input_stream_file_descriptor_based_iface_init (GFileDescriptorBasedIface *iface)
+{
+  iface->get_fd = (int (*) (GFileDescriptorBased *))g_unix_input_stream_get_fd;
+}
+
+static void
 g_unix_input_stream_set_property (GObject         *object,
 				  guint            prop_id,
 				  const GValue    *value,
@@ -203,6 +216,10 @@ g_unix_input_stream_set_property (GObject         *object,
     {
     case PROP_FD:
       unix_stream->priv->fd = g_value_get_int (value);
+      if (lseek (unix_stream->priv->fd, 0, SEEK_CUR) == -1 && errno == ESPIPE)
+	unix_stream->priv->is_pipe_or_socket = TRUE;
+      else
+	unix_stream->priv->is_pipe_or_socket = FALSE;
       break;
     case PROP_CLOSE_FD:
       unix_stream->priv->close_fd = g_value_get_boolean (value);
@@ -344,20 +361,27 @@ g_unix_input_stream_read (GInputStream  *stream,
 			  GError       **error)
 {
   GUnixInputStream *unix_stream;
-  gssize res;
+  gssize res = -1;
   GPollFD poll_fds[2];
+  int nfds;
   int poll_ret;
 
   unix_stream = G_UNIX_INPUT_STREAM (stream);
 
-  if (g_cancellable_make_pollfd (cancellable, &poll_fds[1]))
+  poll_fds[0].fd = unix_stream->priv->fd;
+  poll_fds[0].events = G_IO_IN;
+  if (unix_stream->priv->is_pipe_or_socket &&
+      g_cancellable_make_pollfd (cancellable, &poll_fds[1]))
+    nfds = 2;
+  else
+    nfds = 1;
+
+  while (1)
     {
-      poll_fds[0].fd = unix_stream->priv->fd;
-      poll_fds[0].events = G_IO_IN;
+      poll_fds[0].revents = poll_fds[1].revents = 0;
       do
-	poll_ret = g_poll (poll_fds, 2, -1);
+	poll_ret = g_poll (poll_fds, nfds, -1);
       while (poll_ret == -1 && errno == EINTR);
-      g_cancellable_release_fd (cancellable);
 
       if (poll_ret == -1)
 	{
@@ -365,33 +389,36 @@ g_unix_input_stream_read (GInputStream  *stream,
 
 	  g_set_error (error, G_IO_ERROR,
 		       g_io_error_from_errno (errsv),
-		       _("Error reading from unix: %s"),
+		       _("Error reading from file descriptor: %s"),
 		       g_strerror (errsv));
-	  return -1;
+	  break;
 	}
-    }
 
-  while (1)
-    {
       if (g_cancellable_set_error_if_cancelled (cancellable, error))
-	return -1;
+	break;
+
+      if (!poll_fds[0].revents)
+	continue;
+
       res = read (unix_stream->priv->fd, buffer, count);
       if (res == -1)
 	{
           int errsv = errno;
 
-	  if (errsv == EINTR)
+	  if (errsv == EINTR || errsv == EAGAIN)
 	    continue;
-	  
+
 	  g_set_error (error, G_IO_ERROR,
 		       g_io_error_from_errno (errsv),
-		       _("Error reading from unix: %s"),
+		       _("Error reading from file descriptor: %s"),
 		       g_strerror (errsv));
 	}
-      
+
       break;
     }
 
+  if (nfds == 2)
+    g_cancellable_release_fd (cancellable);
   return res;
 }
 
@@ -418,7 +445,7 @@ g_unix_input_stream_close (GInputStream  *stream,
 
           g_set_error (error, G_IO_ERROR,
                        g_io_error_from_errno (errsv),
-                       _("Error closing unix: %s"),
+                       _("Error closing file descriptor: %s"),
                        g_strerror (errsv));
         }
       break;
@@ -458,12 +485,12 @@ read_async_cb (int            fd,
 	{
           int errsv = errno;
 
-	  if (errsv == EINTR)
-	    continue;
+	  if (errsv == EINTR || errsv == EAGAIN)
+	    return TRUE;
 	  
 	  g_set_error (&error, G_IO_ERROR,
 		       g_io_error_from_errno (errsv),
-		       _("Error reading from unix: %s"),
+		       _("Error reading from file descriptor: %s"),
 		       g_strerror (errsv));
 	}
       break;
@@ -501,6 +528,14 @@ g_unix_input_stream_read_async (GInputStream        *stream,
 
   unix_stream = G_UNIX_INPUT_STREAM (stream);
 
+  if (!unix_stream->priv->is_pipe_or_socket)
+    {
+      G_INPUT_STREAM_CLASS (g_unix_input_stream_parent_class)->
+	read_async (stream, buffer, count, io_priority,
+		    cancellable, callback, user_data);
+      return;
+    }
+
   data = g_new0 (ReadAsyncData, 1);
   data->count = count;
   data->buffer = buffer;
@@ -525,8 +560,15 @@ g_unix_input_stream_read_finish (GInputStream  *stream,
 				 GAsyncResult  *result,
 				 GError       **error)
 {
+  GUnixInputStream *unix_stream = G_UNIX_INPUT_STREAM (stream);
   GSimpleAsyncResult *simple;
   gssize nread;
+
+  if (!unix_stream->priv->is_pipe_or_socket)
+    {
+      return G_INPUT_STREAM_CLASS (g_unix_input_stream_parent_class)->
+	read_finish (stream, result, error);
+    }
 
   simple = G_SIMPLE_ASYNC_RESULT (result);
   g_warn_if_fail (g_simple_async_result_get_source_tag (simple) == g_unix_input_stream_read_async);
@@ -598,7 +640,7 @@ close_async_cb (CloseAsyncData *data)
 
           g_set_error (&error, G_IO_ERROR,
                        g_io_error_from_errno (errsv),
-                       _("Error closing unix: %s"),
+                       _("Error closing file descriptor: %s"),
                        g_strerror (errsv));
         }
       break;

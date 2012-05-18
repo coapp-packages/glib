@@ -139,6 +139,13 @@
 #include <stdio.h>
 #include <errno.h>
 
+#if defined __OpenBSD__
+#include <sys/types.h>
+#include <unistd.h>
+#include <sys/param.h>
+#include <sys/sysctl.h>
+#endif
+
 #include "goption.h"
 
 #include "gprintf.h"
@@ -251,36 +258,16 @@ _g_unichar_get_width (gunichar c)
 }
 
 static glong
-_g_utf8_strwidth (const gchar *p,
-                  gssize       max)
+_g_utf8_strwidth (const gchar *p)
 {
   glong len = 0;
   const gchar *start = p;
-  g_return_val_if_fail (p != NULL || max == 0, 0);
+  g_return_val_if_fail (p != NULL, 0);
 
-  if (max < 0)
+  while (*p)
     {
-      while (*p)
-        {
-          len += _g_unichar_get_width (g_utf8_get_char (p));
-          p = g_utf8_next_char (p);
-        }
-    }
-  else
-    {
-      if (max == 0 || !*p)
-        return 0;
-
-      /* this case may not be quite correct */
-
       len += _g_unichar_get_width (g_utf8_get_char (p));
       p = g_utf8_next_char (p);
-
-      while (p - start < max && *p)
-        {
-          len += _g_unichar_get_width (g_utf8_get_char (p));
-          p = g_utf8_next_char (p);
-        }
     }
 
   return len;
@@ -356,8 +343,7 @@ void g_option_context_free (GOptionContext *context)
 {
   g_return_if_fail (context != NULL);
 
-  g_list_foreach (context->groups, (GFunc)g_option_group_free, NULL);
-  g_list_free (context->groups);
+  g_list_free_full (context->groups, (GDestroyNotify) g_option_group_free);
 
   if (context->main_group)
     g_option_group_free (context->main_group);
@@ -553,7 +539,7 @@ g_option_context_get_main_group (GOptionContext *context)
  * g_option_context_add_main_entries:
  * @context: a #GOptionContext
  * @entries: a %NULL-terminated array of #GOptionEntry<!-- -->s
- * @translation_domain: a translation domain to use for translating
+ * @translation_domain: (allow-none): a translation domain to use for translating
  *    the <option>--help</option> output for the options in @entries
  *    with gettext(), or %NULL
  *
@@ -591,13 +577,13 @@ calculate_max_length (GOptionGroup *group)
       if (entry->flags & G_OPTION_FLAG_HIDDEN)
         continue;
 
-      len = _g_utf8_strwidth (entry->long_name, -1);
+      len = _g_utf8_strwidth (entry->long_name);
 
       if (entry->short_name)
         len += 4;
 
       if (!NO_ARG (entry) && entry->arg_description)
-        len += 1 + _g_utf8_strwidth (TRANSLATE (group, entry->arg_description), -1);
+        len += 1 + _g_utf8_strwidth (TRANSLATE (group, entry->arg_description));
 
       max_length = MAX (max_length, len);
     }
@@ -630,7 +616,7 @@ print_entry (GOptionGroup       *group,
     g_string_append_printf (str, "=%s", TRANSLATE (group, entry->arg_description));
 
   g_string_append_printf (string, "%s%*s %s\n", str->str,
-                          (int) (max_length + 4 - _g_utf8_strwidth (str->str, -1)), "",
+                          (int) (max_length + 4 - _g_utf8_strwidth (str->str)), "",
                           entry->description ? TRANSLATE (group, entry->description) : "");
   g_string_free (str, TRUE);
 }
@@ -710,7 +696,7 @@ context_has_h_entry (GOptionContext *context)
  * g_option_context_get_help:
  * @context: a #GOptionContext
  * @main_help: if %TRUE, only include the main group
- * @group: the #GOptionGroup to create help for, or %NULL
+ * @group: (allow-none): the #GOptionGroup to create help for, or %NULL
  *
  * Returns a formatted, translated help text for the given context.
  * To obtain the text produced by <option>--help</option>, call
@@ -824,11 +810,11 @@ g_option_context_get_help (GOptionContext *context,
 
   list = context->groups;
 
-  max_length = _g_utf8_strwidth ("-?, --help", -1);
+  max_length = _g_utf8_strwidth ("-?, --help");
 
   if (list)
     {
-      len = _g_utf8_strwidth ("--help-all", -1);
+      len = _g_utf8_strwidth ("--help-all");
       max_length = MAX (max_length, len);
     }
 
@@ -843,7 +829,7 @@ g_option_context_get_help (GOptionContext *context,
       GOptionGroup *g = list->data;
 
       /* First, we check the --help-<groupname> options */
-      len = _g_utf8_strwidth ("--help-", -1) + _g_utf8_strwidth (g->name, -1);
+      len = _g_utf8_strwidth ("--help-") + _g_utf8_strwidth (g->name);
       max_length = MAX (max_length, len);
 
       /* Then we go through the entries */
@@ -1657,11 +1643,66 @@ free_pending_nulls (GOptionContext *context,
   context->pending_nulls = NULL;
 }
 
+/* Use a platform-specific mechanism to look up the first argument to
+ * the current process. 
+ * Note if you implement this for other platforms, also add it to
+ * tests/option-argv0.c
+ */
+static char *
+platform_get_argv0 (void)
+{
+#if defined __linux
+  char *cmdline;
+  char *base_arg0;
+  gsize len;
+
+  if (!g_file_get_contents ("/proc/self/cmdline",
+			    &cmdline,
+			    &len,
+			    NULL))
+    return NULL;
+  /* Sanity check for a NUL terminator. */
+  if (!memchr (cmdline, 0, len))
+    return NULL;
+  /* We could just return cmdline, but I think it's better
+   * to hold on to a smaller malloc block; the arguments
+   * could be large.
+   */
+  base_arg0 = g_path_get_basename (cmdline);
+  g_free (cmdline);
+  return base_arg0;
+#elif defined __OpenBSD__
+  char **cmdline = NULL;
+  char *base_arg0;
+  gsize len = PATH_MAX;
+
+  int mib[] = { CTL_KERN, KERN_PROC_ARGS, getpid(), KERN_PROC_ARGV };
+
+  cmdline = (char **) realloc (cmdline, len);
+
+  if (sysctl (mib, nitems (mib), cmdline, &len, NULL, 0) == -1)
+    {
+      g_free (cmdline);
+      return NULL;
+    }
+
+  /* We could just return cmdline, but I think it's better
+   * to hold on to a smaller malloc block; the arguments
+   * could be large.
+   */
+  base_arg0 = g_path_get_basename (*cmdline);
+  g_free (cmdline);
+  return base_arg0;
+#endif
+
+  return NULL;
+}
+
 /**
  * g_option_context_parse:
  * @context: a #GOptionContext
- * @argc: a pointer to the number of command line arguments
- * @argv: a pointer to the array of command line arguments
+ * @argc: (inout) (allow-none): a pointer to the number of command line arguments
+ * @argv: (inout) (array length=argc) (allow-none): a pointer to the array of command line arguments
  * @error: a return location for errors
  *
  * Parses the command line arguments, recognizing options
@@ -1704,16 +1745,19 @@ g_option_context_parse (GOptionContext   *context,
   /* Set program name */
   if (!g_get_prgname())
     {
-      if (argc && argv && *argc)
-        {
-          gchar *prgname;
+      gchar *prgname;
 
-          prgname = g_path_get_basename ((*argv)[0]);
-          g_set_prgname (prgname);
-          g_free (prgname);
-        }
+      if (argc && argv && *argc)
+	prgname = g_path_get_basename ((*argv)[0]);
       else
-        g_set_prgname ("<unknown>");
+	prgname = platform_get_argv0 ();
+
+      if (prgname)
+	g_set_prgname (prgname);
+      else
+	g_set_prgname ("<unknown>");
+
+      g_free (prgname);
     }
 
   /* Call pre-parse hooks */
@@ -2023,9 +2067,9 @@ g_option_context_parse (GOptionContext   *context,
  * @help_description: a description for the <option>--help-</option>@name option.
  *   This string is translated using the translation domain or translation function
  *   of the group
- * @user_data: user data that will be passed to the pre- and post-parse hooks,
+ * @user_data: (allow-none): user data that will be passed to the pre- and post-parse hooks,
  *   the error hook and to callbacks of %G_OPTION_ARG_CALLBACK options, or %NULL
- * @destroy: a function that will be called to free @user_data, or %NULL
+ * @destroy: (allow-none): a function that will be called to free @user_data, or %NULL
  *
  * Creates a new #GOptionGroup.
  *
@@ -2114,14 +2158,16 @@ g_option_group_add_entries (GOptionGroup       *group,
 
       if (c == '-' || (c != 0 && !g_ascii_isprint (c)))
         {
-          g_warning (G_STRLOC ": ignoring invalid short option '%c' (%d)", c, c);
-          group->entries[i].short_name = 0;
+          g_warning (G_STRLOC ": ignoring invalid short option '%c' (%d) in entry %s:%s",
+              c, c, group->name, group->entries[i].long_name);
+          group->entries[i].short_name = '\0';
         }
 
       if (group->entries[i].arg != G_OPTION_ARG_NONE &&
           (group->entries[i].flags & G_OPTION_FLAG_REVERSE) != 0)
         {
-          g_warning (G_STRLOC ": ignoring reverse flag on option of type %d", group->entries[i].arg);
+          g_warning (G_STRLOC ": ignoring reverse flag on option of arg-type %d in entry %s:%s",
+              group->entries[i].arg, group->name, group->entries[i].long_name);
 
           group->entries[i].flags &= ~G_OPTION_FLAG_REVERSE;
         }
@@ -2129,7 +2175,8 @@ g_option_group_add_entries (GOptionGroup       *group,
       if (group->entries[i].arg != G_OPTION_ARG_CALLBACK &&
           (group->entries[i].flags & (G_OPTION_FLAG_NO_ARG|G_OPTION_FLAG_OPTIONAL_ARG|G_OPTION_FLAG_FILENAME)) != 0)
         {
-          g_warning (G_STRLOC ": ignoring no-arg, optional-arg or filename flags (%d) on option of type %d", group->entries[i].flags, group->entries[i].arg);
+          g_warning (G_STRLOC ": ignoring no-arg, optional-arg or filename flags (%d) on option of arg-type %d in entry %s:%s",
+              group->entries[i].flags, group->entries[i].arg, group->name, group->entries[i].long_name);
 
           group->entries[i].flags &= ~(G_OPTION_FLAG_NO_ARG|G_OPTION_FLAG_OPTIONAL_ARG|G_OPTION_FLAG_FILENAME);
         }
@@ -2141,8 +2188,8 @@ g_option_group_add_entries (GOptionGroup       *group,
 /**
  * g_option_group_set_parse_hooks:
  * @group: a #GOptionGroup
- * @pre_parse_func: a function to call before parsing, or %NULL
- * @post_parse_func: a function to call after parsing, or %NULL
+ * @pre_parse_func: (allow-none): a function to call before parsing, or %NULL
+ * @post_parse_func: (allow-none): a function to call after parsing, or %NULL
  *
  * Associates two functions with @group which will be called
  * from g_option_context_parse() before the first option is parsed
@@ -2191,9 +2238,9 @@ g_option_group_set_error_hook (GOptionGroup     *group,
 /**
  * g_option_group_set_translate_func:
  * @group: a #GOptionGroup
- * @func: the #GTranslateFunc, or %NULL
- * @data: user data to pass to @func, or %NULL
- * @destroy_notify: a function which gets called to free @data, or %NULL
+ * @func: (allow-none): the #GTranslateFunc, or %NULL
+ * @data: (allow-none): user data to pass to @func, or %NULL
+ * @destroy_notify: (allow-none): a function which gets called to free @data, or %NULL
  *
  * Sets the function which is used to translate user-visible
  * strings, for <option>--help</option> output. Different
@@ -2253,9 +2300,9 @@ g_option_group_set_translation_domain (GOptionGroup *group,
 /**
  * g_option_context_set_translate_func:
  * @context: a #GOptionContext
- * @func: the #GTranslateFunc, or %NULL
- * @data: user data to pass to @func, or %NULL
- * @destroy_notify: a function which gets called to free @data, or %NULL
+ * @func: (allow-none): the #GTranslateFunc, or %NULL
+ * @data: (allow-none): user data to pass to @func, or %NULL
+ * @destroy_notify: (allow-none): a function which gets called to free @data, or %NULL
  *
  * Sets the function which is used to translate the contexts
  * user-visible strings, for <option>--help</option> output.
@@ -2312,7 +2359,7 @@ g_option_context_set_translation_domain (GOptionContext *context,
 /**
  * g_option_context_set_summary:
  * @context: a #GOptionContext
- * @summary: a string to be shown in <option>--help</option> output
+ * @summary: (allow-none): a string to be shown in <option>--help</option> output
  *  before the list of options, or %NULL
  *
  * Adds a string to be displayed in <option>--help</option> output
@@ -2346,7 +2393,7 @@ g_option_context_set_summary (GOptionContext *context,
  *
  * Since: 2.12
  */
-G_CONST_RETURN gchar *
+const gchar *
 g_option_context_get_summary (GOptionContext *context)
 {
   g_return_val_if_fail (context != NULL, NULL);
@@ -2357,7 +2404,7 @@ g_option_context_get_summary (GOptionContext *context)
 /**
  * g_option_context_set_description:
  * @context: a #GOptionContext
- * @description: a string to be shown in <option>--help</option> output
+ * @description: (allow-none): a string to be shown in <option>--help</option> output
  *   after the list of options, or %NULL
  *
  * Adds a string to be displayed in <option>--help</option> output
@@ -2390,7 +2437,7 @@ g_option_context_set_description (GOptionContext *context,
  *
  * Since: 2.12
  */
-G_CONST_RETURN gchar *
+const gchar *
 g_option_context_get_description (GOptionContext *context)
 {
   g_return_val_if_fail (context != NULL, NULL);

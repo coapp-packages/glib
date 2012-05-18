@@ -7,8 +7,8 @@
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="application.html" title="Application support">
 <link rel="prev" href="GApplication.html" title="GApplication">
-<link rel="next" href="extending.html" title="Extending GIO">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="next" href="GActionGroup.html" title="GActionGroup">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -18,7 +18,7 @@
 <td><a accesskey="u" href="application.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">GIO Reference Manual</th>
-<td><a accesskey="n" href="extending.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="GActionGroup.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
 <a href="#GApplicationCommandLine.synopsis" class="shortcut">Top</a>
@@ -42,19 +42,17 @@
 <pre class="synopsis">                    <a class="link" href="GApplicationCommandLine.html#GApplicationCommandLine-struct" title="GApplicationCommandLine">GApplicationCommandLine</a>;
 struct              <a class="link" href="GApplicationCommandLine.html#GApplicationCommandLineClass" title="struct GApplicationCommandLineClass">GApplicationCommandLineClass</a>;
 
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **                 <a class="link" href="GApplicationCommandLine.html#g-application-command-line-get-arguments" title="g_application_command_line_get_arguments ()">g_application_command_line_get_arguments</a>
+<a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **            <a class="link" href="GApplicationCommandLine.html#g-application-command-line-get-arguments" title="g_application_command_line_get_arguments ()">g_application_command_line_get_arguments</a>
                                                         (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>,
                                                          <em class="parameter"><code><span class="type">int</span> *argc</code></em>);
-const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *            <a class="link" href="GApplicationCommandLine.html#g-application-command-line-get-cwd" title="g_application_command_line_get_cwd ()">g_application_command_line_get_cwd</a>
+const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="GApplicationCommandLine.html#g-application-command-line-get-cwd" title="g_application_command_line_get_cwd ()">g_application_command_line_get_cwd</a>  (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>);
+const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> * const * <a class="link" href="GApplicationCommandLine.html#g-application-command-line-get-environ" title="g_application_command_line_get_environ ()">g_application_command_line_get_environ</a>
                                                         (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>);
-const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> * const * <a class="link" href="GApplicationCommandLine.html#g-application-command-line-get-environ" title="g_application_command_line_get_environ ()">g_application_command_line_get_environ</a>
+const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="GApplicationCommandLine.html#g-application-command-line-getenv" title="g_application_command_line_getenv ()">g_application_command_line_getenv</a>   (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GApplicationCommandLine.html#g-application-command-line-get-is-remote" title="g_application_command_line_get_is_remote ()">g_application_command_line_get_is_remote</a>
                                                         (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>);
-const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *            <a class="link" href="GApplicationCommandLine.html#g-application-command-line-getenv" title="g_application_command_line_getenv ()">g_application_command_line_getenv</a>
-                                                        (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GApplicationCommandLine.html#g-application-command-line-get-is-remote" title="g_application_command_line_get_is_remote ()">g_application_command_line_get_is_remote</a>
-                                                        (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *               <a class="link" href="GApplicationCommandLine.html#g-application-command-line-get-platform-data" title="g_application_command_line_get_platform_data ()">g_application_command_line_get_platform_data</a>
+<a href="./../glib/glib/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          <a class="link" href="GApplicationCommandLine.html#g-application-command-line-get-platform-data" title="g_application_command_line_get_platform_data ()">g_application_command_line_get_platform_data</a>
                                                         (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>);
 
 <span class="returnvalue">void</span>                <a class="link" href="GApplicationCommandLine.html#g-application-command-line-set-exit-status" title="g_application_command_line_set_exit_status ()">g_application_command_line_set_exit_status</a>
@@ -64,17 +62,17 @@ const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.htm
                                                         (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>);
 
 <span class="returnvalue">void</span>                <a class="link" href="GApplicationCommandLine.html#g-application-command-line-print" title="g_application_command_line_print ()">g_application_command_line_print</a>    (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *format</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *format</code></em>,
                                                          <em class="parameter"><code>...</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GApplicationCommandLine.html#g-application-command-line-printerr" title="g_application_command_line_printerr ()">g_application_command_line_printerr</a> (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *format</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *format</code></em>,
                                                          <em class="parameter"><code>...</code></em>);
 </pre>
 </div>
 <div class="refsect1">
 <a name="GApplicationCommandLine.object-hierarchy"></a><h2>Object Hierarchy</h2>
 <pre class="synopsis">
-  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+  <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
    +----GApplicationCommandLine
 </pre>
 </div>
@@ -94,9 +92,9 @@ commandline to this process).
 </p>
 <p>
 The GApplicationCommandLine object can provide the <em class="parameter"><code>argc</code></em> and <em class="parameter"><code>argv</code></em>
-parameters for use with the <a href="http://library.gnome.org/devel/glib/unstable/glib-Commandline-option-parser.html#GOptionContext"><span class="type">GOptionContext</span></a> command-line parsing API,
+parameters for use with the <a href="./../glib/glib/glib-Commandline-option-parser.html#GOptionContext"><span class="type">GOptionContext</span></a> command-line parsing API,
 with the <a class="link" href="GApplicationCommandLine.html#g-application-command-line-get-arguments" title="g_application_command_line_get_arguments ()"><code class="function">g_application_command_line_get_arguments()</code></a> function. See
-<a class="xref" href="GApplicationCommandLine.html#gapplication-example-cmdline3" title="Example 17. Deferred commandline handling">Example 17, “Deferred commandline handling”</a> for an example.
+<a class="xref" href="GApplicationCommandLine.html#gapplication-example-cmdline3" title="Example 19. Deferred commandline handling">Example 19, “Deferred commandline handling”</a> for an example.
 </p>
 <p>
 The exit status of the originally-invoked process may be set and
@@ -106,7 +104,7 @@ of this object (ie: the process exits when the last reference is
 dropped).
 </p>
 <p>
-The main use for <span class="type">GApplicationCommandline</span> (and the
+The main use for <a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> (and the
 <a class="link" href="GApplication.html#GApplication-command-line" title='The "command-line" signal'><span class="type">"command-line"</span></a> signal) is 'Emacs server' like use cases:
 You can set the <code class="envar">EDITOR</code> environment variable to have
 e.g. git use your favourite editor to edit commit messages, and if you
@@ -118,7 +116,7 @@ does not return until the editing is done.
 <p>
 </p>
 <div class="example">
-<a name="gapplication-example-cmdline"></a><p class="title"><b>Example 15. Handling commandline arguments with GApplication</b></p>
+<a name="gapplication-example-cmdline"></a><p class="title"><b>Example 17. Handling commandline arguments with GApplication</b></p>
 <div class="example-contents">
 <p>
 A simple example where the commandline is completely handled
@@ -180,7 +178,7 @@ main (int argc, char **argv)
 <p>
 </p>
 <div class="example">
-<a name="gapplication-example-cmdline2"></a><p class="title"><b>Example 16. Split commandline handling</b></p>
+<a name="gapplication-example-cmdline2"></a><p class="title"><b>Example 18. Split commandline handling</b></p>
 <div class="example-contents">
 <p>
 An example of split commandline handling. Options that start with
@@ -246,6 +244,7 @@ test_local_cmdline (GApplication   *application,
 typedef GApplication TestApplication;
 typedef GApplicationClass TestApplicationClass;
 
+static GType test_application_get_type (void);
 G_DEFINE_TYPE (TestApplication, test_application, G_TYPE_APPLICATION)
 
 static void
@@ -266,7 +265,7 @@ test_application_class_init (TestApplicationClass *class)
   G_APPLICATION_CLASS (class)-&gt;local_command_line = test_local_cmdline;
 }
 
-GApplication *
+static GApplication *
 test_application_new (const gchar       *application_id,
                       GApplicationFlags  flags)
 {
@@ -305,20 +304,20 @@ main (int argc, char **argv)
 <p>
 </p>
 <div class="example">
-<a name="gapplication-example-cmdline3"></a><p class="title"><b>Example 17. Deferred commandline handling</b></p>
+<a name="gapplication-example-cmdline3"></a><p class="title"><b>Example 19. Deferred commandline handling</b></p>
 <div class="example-contents">
 <p>
 An example of deferred commandline handling. Here, the commandline is
 not completely handled before the <a class="link" href="GApplication.html#GApplication-command-line" title='The "command-line" signal'><span class="type">"command-line"</span></a> handler
-returns. Instead, we keep a reference to the GApplicationCommandline
+returns. Instead, we keep a reference to the GApplicationCommandLine
 object and handle it later(in this example, in an idle). Note that it
 is necessary to hold the application until you are done with the
 commandline.
 </p>
 <p>
-This example also shows how to use <a href="http://library.gnome.org/devel/glib/unstable/glib-Commandline-option-parser.html#GOptionContext"><span class="type">GOptionContext</span></a> for parsing the
+This example also shows how to use <a href="./../glib/glib/glib-Commandline-option-parser.html#GOptionContext"><span class="type">GOptionContext</span></a> for parsing the
 commandline arguments. Note that it is necessary to disable the
-built-in help-handling of <a href="http://library.gnome.org/devel/glib/unstable/glib-Commandline-option-parser.html#GOptionContext"><span class="type">GOptionContext</span></a>, since it calls <code class="function">exit()</code>
+built-in help-handling of <a href="./../glib/glib/glib-Commandline-option-parser.html#GOptionContext"><span class="type">GOptionContext</span></a>, since it calls <code class="function">exit()</code>
 after printing help, which is not what you want to happen in
 the primary instance.
 </p>
@@ -392,7 +391,7 @@ my_cmdline_handler (gpointer data)
   /* we are done handling this commandline */
   g_object_unref (cmdline);
 
-  return FALSE;
+  return G_SOURCE_REMOVE;
 }
 
 static int
@@ -441,11 +440,6 @@ main (int argc, char **argv)
 <div class="refsect2">
 <a name="GApplicationCommandLine-struct"></a><h3>GApplicationCommandLine</h3>
 <pre class="programlisting">typedef struct _GApplicationCommandLine GApplicationCommandLine;</pre>
-<p>
-The <span class="structname">GApplicationCommandLine</span> structure contains private
-data and should only be accessed using the provided API
-</p>
-<p class="since">Since 2.28</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -454,15 +448,15 @@ data and should only be accessed using the provided API
 };
 </pre>
 <p>
-The <span class="structname">GApplicationCommandLineClass</span> structure contains
-private data only
+The <span class="structname">GApplicationCommandLineClass</span> structure
+contains private data only
 </p>
 <p class="since">Since 2.28</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-application-command-line-get-arguments"></a><h3>g_application_command_line_get_arguments ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **                 g_application_command_line_get_arguments
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **            g_application_command_line_get_arguments
                                                         (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>,
                                                          <em class="parameter"><code><span class="type">int</span> *argc</code></em>);</pre>
 <p>
@@ -472,8 +466,8 @@ Gets the list of arguments that was passed on the command line.
 The strings in the array may contain non-utf8 data.
 </p>
 <p>
-The return value is <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated and should be freed using
-<a href="http://library.gnome.org/devel/glib/unstable/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a>.
+The return value is <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated and should be freed using
+<a href="./../glib/glib/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -485,7 +479,7 @@ The return value is <a href="http://library.gnome.org/devel/glib/unstable/glib-S
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>argc</code></em> :</span></p></td>
-<td>the length of the arguments array, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+<td>the length of the arguments array, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -501,15 +495,14 @@ containing the arguments (the argv). <span class="annotation">[<acronym title="P
 <hr>
 <div class="refsect2">
 <a name="g-application-command-line-get-cwd"></a><h3>g_application_command_line_get_cwd ()</h3>
-<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *            g_application_command_line_get_cwd
-                                                        (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>);</pre>
+<pre class="programlisting">const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       g_application_command_line_get_cwd  (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>);</pre>
 <p>
 Gets the working directory of the command line invocation.
 The string may contain non-utf8 data.
 </p>
 <p>
 It is possible that the remote application did not send a working
-directory, so this may be <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+directory, so this may be <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 </p>
 <p>
 The return value should not be modified or freed and is valid for as
@@ -525,7 +518,7 @@ long as <em class="parameter"><code>cmdline</code></em> exists.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the current directory, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<td>the current directory, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 </td>
 </tr>
 </tbody>
@@ -535,12 +528,12 @@ long as <em class="parameter"><code>cmdline</code></em> exists.
 <hr>
 <div class="refsect2">
 <a name="g-application-command-line-get-environ"></a><h3>g_application_command_line_get_environ ()</h3>
-<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> * const * g_application_command_line_get_environ
+<pre class="programlisting">const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> * const * g_application_command_line_get_environ
                                                         (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>);</pre>
 <p>
 Gets the contents of the 'environ' variable of the command line
-invocation, as would be returned by <a href="http://library.gnome.org/devel/glib/unstable/glib-Miscellaneous-Utility-Functions.html#g-get-environ"><code class="function">g_get_environ()</code></a>, ie as a
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated list of strings in the form 'NAME=VALUE'.
+invocation, as would be returned by <a href="./../glib/glib/glib-Miscellaneous-Utility-Functions.html#g-get-environ"><code class="function">g_get_environ()</code></a>, ie as a
+<a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated list of strings in the form 'NAME=VALUE'.
 The strings may contain non-utf8 data.
 </p>
 <p>
@@ -568,7 +561,7 @@ in the value of a single environment variable.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the environment
-strings, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if they were not sent. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+strings, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if they were not sent. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -578,12 +571,11 @@ strings, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-
 <hr>
 <div class="refsect2">
 <a name="g-application-command-line-getenv"></a><h3>g_application_command_line_getenv ()</h3>
-<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *            g_application_command_line_getenv
-                                                        (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>);</pre>
+<pre class="programlisting">const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       g_application_command_line_getenv   (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>);</pre>
 <p>
 Gets the value of a particular environment variable of the command
-line invocation, as would be returned by <a href="http://library.gnome.org/devel/glib/unstable/glib-Miscellaneous-Utility-Functions.html#g-getenv"><code class="function">g_getenv()</code></a>.  The strings may
+line invocation, as would be returned by <a href="./../glib/glib/glib-Miscellaneous-Utility-Functions.html#g-getenv"><code class="function">g_getenv()</code></a>.  The strings may
 contain non-utf8 data.
 </p>
 <p>
@@ -610,7 +602,7 @@ long as <em class="parameter"><code>cmdline</code></em> exists.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the value of the variable, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if unset or unsent</td>
+<td>the value of the variable, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if unset or unsent</td>
 </tr>
 </tbody>
 </table></div>
@@ -619,7 +611,7 @@ long as <em class="parameter"><code>cmdline</code></em> exists.
 <hr>
 <div class="refsect2">
 <a name="g-application-command-line-get-is-remote"></a><h3>g_application_command_line_get_is_remote ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_application_command_line_get_is_remote
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_application_command_line_get_is_remote
                                                         (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>);</pre>
 <p>
 Determines if <em class="parameter"><code>cmdline</code></em> represents a remote invocation.
@@ -635,7 +627,7 @@ Determines if <em class="parameter"><code>cmdline</code></em> represents a remot
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the invocation was remote</td>
+<a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the invocation was remote</td>
 </tr>
 </tbody>
 </table></div>
@@ -644,19 +636,19 @@ Determines if <em class="parameter"><code>cmdline</code></em> represents a remot
 <hr>
 <div class="refsect2">
 <a name="g-application-command-line-get-platform-data"></a><h3>g_application_command_line_get_platform_data ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *               g_application_command_line_get_platform_data
+<pre class="programlisting"><a href="./../glib/glib/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          g_application_command_line_get_platform_data
                                                         (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>);</pre>
 <p>
 Gets the platform data associated with the invocation of <em class="parameter"><code>cmdline</code></em>.
 </p>
 <p>
-This is a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> dictionary containing information about the
-context in which the invocation occured.  It typically contains
+This is a <a href="./../glib/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> dictionary containing information about the
+context in which the invocation occurred.  It typically contains
 information like the current working directory and the startup
 notification ID.
 </p>
 <p>
-For local invocation, it will be <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+For local invocation, it will be <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -667,7 +659,7 @@ For local invocation, it will be <a href="http://library.gnome.org/devel/glib/un
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the platform data, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<td>the platform data, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -751,7 +743,7 @@ Gets the exit status of <em class="parameter"><code>cmdline</code></em>.  See
 <div class="refsect2">
 <a name="g-application-command-line-print"></a><h3>g_application_command_line_print ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_application_command_line_print    (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *format</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *format</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
 Formats a message and prints it using the stdout print handler in the
@@ -759,8 +751,8 @@ invoking process.
 </p>
 <p>
 If <em class="parameter"><code>cmdline</code></em> is a local invocation then this is exactly equivalent to
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Warnings-and-Assertions.html#g-print"><code class="function">g_print()</code></a>.  If <em class="parameter"><code>cmdline</code></em> is remote then this is equivalent to calling
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Warnings-and-Assertions.html#g-print"><code class="function">g_print()</code></a> in the invoking process.
+<a href="./../glib/glib/glib-Warnings-and-Assertions.html#g-print"><code class="function">g_print()</code></a>.  If <em class="parameter"><code>cmdline</code></em> is remote then this is equivalent to calling
+<a href="./../glib/glib/glib-Warnings-and-Assertions.html#g-print"><code class="function">g_print()</code></a> in the invoking process.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -787,7 +779,7 @@ If <em class="parameter"><code>cmdline</code></em> is a local invocation then th
 <div class="refsect2">
 <a name="g-application-command-line-printerr"></a><h3>g_application_command_line_printerr ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_application_command_line_printerr (<em class="parameter"><code><a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> *cmdline</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *format</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *format</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
 Formats a message and prints it using the stderr print handler in the
@@ -795,8 +787,8 @@ invoking process.
 </p>
 <p>
 If <em class="parameter"><code>cmdline</code></em> is a local invocation then this is exactly equivalent to
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Warnings-and-Assertions.html#g-printerr"><code class="function">g_printerr()</code></a>.  If <em class="parameter"><code>cmdline</code></em> is remote then this is equivalent to
-calling <a href="http://library.gnome.org/devel/glib/unstable/glib-Warnings-and-Assertions.html#g-printerr"><code class="function">g_printerr()</code></a> in the invoking process.
+<a href="./../glib/glib/glib-Warnings-and-Assertions.html#g-printerr"><code class="function">g_printerr()</code></a>.  If <em class="parameter"><code>cmdline</code></em> is remote then this is equivalent to
+calling <a href="./../glib/glib/glib-Warnings-and-Assertions.html#g-printerr"><code class="function">g_printerr()</code></a> in the invoking process.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -827,6 +819,6 @@ calling <a href="http://library.gnome.org/devel/glib/unstable/glib-Warnings-and-
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

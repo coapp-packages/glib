@@ -29,6 +29,7 @@
 
 #include "gmarkup.h"
 
+#include "gslice.h"
 #include "galloca.h"
 #include "gstrfuncs.h"
 #include "gstring.h"
@@ -124,6 +125,8 @@ struct _GMarkupParseContext
   gint line_number;
   gint char_number;
 
+  GMarkupParseState state;
+
   gpointer user_data;
   GDestroyNotify dnotify;
 
@@ -134,7 +137,6 @@ struct _GMarkupParseContext
   GString *partial_chunk;
   GSList *spare_chunks;
 
-  GMarkupParseState state;
   GSList *tag_stack;
   GSList *tag_stack_gstr;
   GSList *spare_list_nodes;
@@ -1039,9 +1041,6 @@ g_markup_parse_context_parse (GMarkupParseContext  *context,
   context->iter = context->current_text;
   context->start = context->iter;
 
-  if (context->current_text_len == 0)
-    goto finished;
-
   while (context->iter != context->current_text_end)
     {
       switch (context->state)
@@ -1819,7 +1818,7 @@ g_markup_parse_context_end_parse (GMarkupParseContext  *context,
  *
  * Since: 2.2
  */
-G_CONST_RETURN gchar *
+const gchar *
 g_markup_parse_context_get_element (GMarkupParseContext *context)
 {
   g_return_val_if_fail (context != NULL, NULL);
@@ -1850,7 +1849,7 @@ g_markup_parse_context_get_element (GMarkupParseContext *context)
  *
  * Since: 2.16
  */
-G_CONST_RETURN GSList *
+const GSList *
 g_markup_parse_context_get_element_stack (GMarkupParseContext *context)
 {
   g_return_val_if_fail (context != NULL, NULL);
@@ -1893,8 +1892,8 @@ g_markup_parse_context_get_position (GMarkupParseContext *context,
  * of g_markup_parse_context_push().
  *
  * Returns: the provided user_data. The returned data belongs to
- *     the markup context and will be freed when g_markup_context_free()
- *     is called.
+ *     the markup context and will be freed when
+ *     g_markup_parse_context_free() is called.
  *
  * Since: 2.18
  */
@@ -1928,7 +1927,7 @@ g_markup_parse_context_get_user_data (GMarkupParseContext *context)
  * which is why g_markup_parse_context_pop() is provided to allow "one
  * last access" to the @user_data provided to this function. In the
  * case of error, the @user_data provided here is passed directly to
- * the error callback of the subparser and g_markup_parse_context()
+ * the error callback of the subparser and g_markup_parse_context_pop()
  * should not be called. In either case, if @user_data was allocated
  * then it ought to be freed from both of these locations.
  *
@@ -2453,7 +2452,7 @@ g_markup_vprintf_escaped (const gchar *format,
 /**
  * g_markup_printf_escaped:
  * @format: printf() style format string
- * @Varargs: the arguments to insert in the format string
+ * @...: the arguments to insert in the format string
  *
  * Formats arguments according to @format, escaping
  * all string and character arguments in the fashion
@@ -2794,33 +2793,30 @@ failure:
 
       ptr = va_arg (ap, gpointer);
 
-      if (ptr == NULL)
-        continue;
-
-      switch (type & (G_MARKUP_COLLECT_OPTIONAL - 1))
+      if (ptr != NULL)
         {
-        case G_MARKUP_COLLECT_STRDUP:
-          if (written)
-            g_free (*(char **) ptr);
+          switch (type & (G_MARKUP_COLLECT_OPTIONAL - 1))
+            {
+            case G_MARKUP_COLLECT_STRDUP:
+              if (written)
+                g_free (*(char **) ptr);
 
-        case G_MARKUP_COLLECT_STRING:
-          *(char **) ptr = NULL;
-          break;
+            case G_MARKUP_COLLECT_STRING:
+              *(char **) ptr = NULL;
+              break;
 
-        case G_MARKUP_COLLECT_BOOLEAN:
-          *(gboolean *) ptr = FALSE;
-          break;
+            case G_MARKUP_COLLECT_BOOLEAN:
+              *(gboolean *) ptr = FALSE;
+              break;
 
-        case G_MARKUP_COLLECT_TRISTATE:
-          *(gboolean *) ptr = -1;
-          break;
+            case G_MARKUP_COLLECT_TRISTATE:
+              *(gboolean *) ptr = -1;
+              break;
+            }
         }
 
       type = va_arg (ap, GMarkupCollectType);
       attr = va_arg (ap, const char *);
-
-      if (written)
-        written--;
     }
   va_end (ap);
 

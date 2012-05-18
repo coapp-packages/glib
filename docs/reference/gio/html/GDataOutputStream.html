@@ -8,7 +8,7 @@
 <link rel="up" href="streaming.html" title="Streaming I/O">
 <link rel="prev" href="GDataInputStream.html" title="GDataInputStream">
 <link rel="next" href="GUnixInputStream.html" title="GUnixInputStream">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -45,49 +45,49 @@
 #include &lt;gio/gio.h&gt;
 
 struct              <a class="link" href="GDataOutputStream.html#GDataOutputStream-struct" title="struct GDataOutputStream">GDataOutputStream</a>;
-<a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="returnvalue">GDataOutputStream</span></a> *   <a class="link" href="GDataOutputStream.html#g-data-output-stream-new" title="g_data_output_stream_new ()">g_data_output_stream_new</a>          (<em class="parameter"><code><a class="link" href="GOutputStream.html" title="GOutputStream"><span class="type">GOutputStream</span></a> *base_stream</code></em>);
+<a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="returnvalue">GDataOutputStream</span></a> * <a class="link" href="GDataOutputStream.html#g-data-output-stream-new" title="g_data_output_stream_new ()">g_data_output_stream_new</a>            (<em class="parameter"><code><a class="link" href="GOutputStream.html" title="GOutputStream"><span class="type">GOutputStream</span></a> *base_stream</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GDataOutputStream.html#g-data-output-stream-set-byte-order" title="g_data_output_stream_set_byte_order ()">g_data_output_stream_set_byte_order</a> (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="GDataInputStream.html#GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a> order</code></em>);
-<a class="link" href="GDataInputStream.html#GDataStreamByteOrder"><span class="returnvalue">GDataStreamByteOrder</span></a>  <a class="link" href="GDataOutputStream.html#g-data-output-stream-get-byte-order" title="g_data_output_stream_get_byte_order ()">g_data_output_stream_get_byte_order</a>
+                                                         <em class="parameter"><code><a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a> order</code></em>);
+<a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder"><span class="returnvalue">GDataStreamByteOrder</span></a> <a class="link" href="GDataOutputStream.html#g-data-output-stream-get-byte-order" title="g_data_output_stream_get_byte_order ()">g_data_output_stream_get_byte_order</a>
                                                         (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GDataOutputStream.html#g-data-output-stream-put-byte" title="g_data_output_stream_put_byte ()">g_data_output_stream_put_byte</a>       (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> data</code></em>,
+<a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GDataOutputStream.html#g-data-output-stream-put-byte" title="g_data_output_stream_put_byte ()">g_data_output_stream_put_byte</a>       (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> data</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GDataOutputStream.html#g-data-output-stream-put-int16" title="g_data_output_stream_put_int16 ()">g_data_output_stream_put_int16</a>      (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint16"><span class="type">gint16</span></a> data</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GDataOutputStream.html#g-data-output-stream-put-int16" title="g_data_output_stream_put_int16 ()">g_data_output_stream_put_int16</a>      (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gint16"><span class="type">gint16</span></a> data</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GDataOutputStream.html#g-data-output-stream-put-uint16" title="g_data_output_stream_put_uint16 ()">g_data_output_stream_put_uint16</a>     (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"><span class="type">guint16</span></a> data</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GDataOutputStream.html#g-data-output-stream-put-uint16" title="g_data_output_stream_put_uint16 ()">g_data_output_stream_put_uint16</a>     (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint16"><span class="type">guint16</span></a> data</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GDataOutputStream.html#g-data-output-stream-put-int32" title="g_data_output_stream_put_int32 ()">g_data_output_stream_put_int32</a>      (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint32"><span class="type">gint32</span></a> data</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GDataOutputStream.html#g-data-output-stream-put-int32" title="g_data_output_stream_put_int32 ()">g_data_output_stream_put_int32</a>      (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gint32"><span class="type">gint32</span></a> data</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GDataOutputStream.html#g-data-output-stream-put-uint32" title="g_data_output_stream_put_uint32 ()">g_data_output_stream_put_uint32</a>     (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> data</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GDataOutputStream.html#g-data-output-stream-put-uint32" title="g_data_output_stream_put_uint32 ()">g_data_output_stream_put_uint32</a>     (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> data</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GDataOutputStream.html#g-data-output-stream-put-int64" title="g_data_output_stream_put_int64 ()">g_data_output_stream_put_int64</a>      (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint64"><span class="type">gint64</span></a> data</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GDataOutputStream.html#g-data-output-stream-put-int64" title="g_data_output_stream_put_int64 ()">g_data_output_stream_put_int64</a>      (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gint64"><span class="type">gint64</span></a> data</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GDataOutputStream.html#g-data-output-stream-put-uint64" title="g_data_output_stream_put_uint64 ()">g_data_output_stream_put_uint64</a>     (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> data</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GDataOutputStream.html#g-data-output-stream-put-uint64" title="g_data_output_stream_put_uint64 ()">g_data_output_stream_put_uint64</a>     (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> data</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GDataOutputStream.html#g-data-output-stream-put-string" title="g_data_output_stream_put_string ()">g_data_output_stream_put_string</a>     (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GDataOutputStream.html#g-data-output-stream-put-string" title="g_data_output_stream_put_string ()">g_data_output_stream_put_string</a>     (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code>const <span class="type">char</span> *str</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
 </pre>
 </div>
 <div class="refsect1">
 <a name="GDataOutputStream.object-hierarchy"></a><h2>Object Hierarchy</h2>
 <pre class="synopsis">
-  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+  <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
    +----<a class="link" href="GOutputStream.html" title="GOutputStream">GOutputStream</a>
          +----<a class="link" href="GFilterOutputStream.html" title="GFilterOutputStream">GFilterOutputStream</a>
                +----GDataOutputStream
@@ -96,7 +96,7 @@ struct              <a class="link" href="GDataOutputStream.html#GDataOutputStre
 <div class="refsect1">
 <a name="GDataOutputStream.properties"></a><h2>Properties</h2>
 <pre class="synopsis">
-  "<a class="link" href="GDataOutputStream.html#GDataOutputStream--byte-order" title='The "byte-order" property'>byte-order</a>"               <a class="link" href="GDataInputStream.html#GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a>  : Read / Write
+  "<a class="link" href="GDataOutputStream.html#GDataOutputStream--byte-order" title='The "byte-order" property'>byte-order</a>"               <a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a>  : Read / Write
 </pre>
 </div>
 <div class="refsect1">
@@ -119,7 +119,7 @@ data manipulation of arbitrary data (including binary operations).
 <hr>
 <div class="refsect2">
 <a name="g-data-output-stream-new"></a><h3>g_data_output_stream_new ()</h3>
-<pre class="programlisting"><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="returnvalue">GDataOutputStream</span></a> *   g_data_output_stream_new          (<em class="parameter"><code><a class="link" href="GOutputStream.html" title="GOutputStream"><span class="type">GOutputStream</span></a> *base_stream</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="returnvalue">GDataOutputStream</span></a> * g_data_output_stream_new            (<em class="parameter"><code><a class="link" href="GOutputStream.html" title="GOutputStream"><span class="type">GOutputStream</span></a> *base_stream</code></em>);</pre>
 <p>
 Creates a new data output stream for <em class="parameter"><code>base_stream</code></em>.
 </p>
@@ -142,7 +142,7 @@ Creates a new data output stream for <em class="parameter"><code>base_stream</co
 <div class="refsect2">
 <a name="g-data-output-stream-set-byte-order"></a><h3>g_data_output_stream_set_byte_order ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_data_output_stream_set_byte_order (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="GDataInputStream.html#GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a> order</code></em>);</pre>
+                                                         <em class="parameter"><code><a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a> order</code></em>);</pre>
 <p>
 Sets the byte order of the data output stream to <em class="parameter"><code>order</code></em>.
 </p>
@@ -155,7 +155,7 @@ Sets the byte order of the data output stream to <em class="parameter"><code>ord
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>order</code></em> :</span></p></td>
-<td>a <a class="link" href="GDataInputStream.html#GDataStreamByteOrder"><code class="literal">GDataStreamByteOrder</code></a>.</td>
+<td>a <a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder"><code class="literal">GDataStreamByteOrder</code></a>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -163,7 +163,7 @@ Sets the byte order of the data output stream to <em class="parameter"><code>ord
 <hr>
 <div class="refsect2">
 <a name="g-data-output-stream-get-byte-order"></a><h3>g_data_output_stream_get_byte_order ()</h3>
-<pre class="programlisting"><a class="link" href="GDataInputStream.html#GDataStreamByteOrder"><span class="returnvalue">GDataStreamByteOrder</span></a>  g_data_output_stream_get_byte_order
+<pre class="programlisting"><a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder"><span class="returnvalue">GDataStreamByteOrder</span></a> g_data_output_stream_get_byte_order
                                                         (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>);</pre>
 <p>
 Gets the byte order for the stream.
@@ -177,7 +177,7 @@ Gets the byte order for the stream.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the <a class="link" href="GDataInputStream.html#GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a> for the <em class="parameter"><code>stream</code></em>.</td>
+<td>the <a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a> for the <em class="parameter"><code>stream</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -185,10 +185,10 @@ Gets the byte order for the stream.
 <hr>
 <div class="refsect2">
 <a name="g-data-output-stream-put-byte"></a><h3>g_data_output_stream_put_byte ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_data_output_stream_put_byte       (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> data</code></em>,
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_data_output_stream_put_byte       (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> data</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Puts a byte into the output stream.
 </p>
@@ -201,21 +201,21 @@ Puts a byte into the output stream.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a>.</td>
+<td>a <a href="./../glib/glib/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
+<td>a <a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>data</code></em> was successfully added to the <em class="parameter"><code>stream</code></em>.</td>
+<a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>data</code></em> was successfully added to the <em class="parameter"><code>stream</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -223,10 +223,10 @@ Puts a byte into the output stream.
 <hr>
 <div class="refsect2">
 <a name="g-data-output-stream-put-int16"></a><h3>g_data_output_stream_put_int16 ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_data_output_stream_put_int16      (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint16"><span class="type">gint16</span></a> data</code></em>,
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_data_output_stream_put_int16      (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gint16"><span class="type">gint16</span></a> data</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Puts a signed 16-bit integer into the output stream.
 </p>
@@ -239,21 +239,21 @@ Puts a signed 16-bit integer into the output stream.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint16"><span class="type">gint16</span></a>.</td>
+<td>a <a href="./../glib/glib/glib-Basic-Types.html#gint16"><span class="type">gint16</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
+<td>a <a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>data</code></em> was successfully added to the <em class="parameter"><code>stream</code></em>.</td>
+<a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>data</code></em> was successfully added to the <em class="parameter"><code>stream</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -261,10 +261,10 @@ Puts a signed 16-bit integer into the output stream.
 <hr>
 <div class="refsect2">
 <a name="g-data-output-stream-put-uint16"></a><h3>g_data_output_stream_put_uint16 ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_data_output_stream_put_uint16     (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"><span class="type">guint16</span></a> data</code></em>,
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_data_output_stream_put_uint16     (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint16"><span class="type">guint16</span></a> data</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Puts an unsigned 16-bit integer into the output stream.
 </p>
@@ -277,21 +277,21 @@ Puts an unsigned 16-bit integer into the output stream.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"><span class="type">guint16</span></a>.</td>
+<td>a <a href="./../glib/glib/glib-Basic-Types.html#guint16"><span class="type">guint16</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
+<td>a <a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>data</code></em> was successfully added to the <em class="parameter"><code>stream</code></em>.</td>
+<a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>data</code></em> was successfully added to the <em class="parameter"><code>stream</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -299,10 +299,10 @@ Puts an unsigned 16-bit integer into the output stream.
 <hr>
 <div class="refsect2">
 <a name="g-data-output-stream-put-int32"></a><h3>g_data_output_stream_put_int32 ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_data_output_stream_put_int32      (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint32"><span class="type">gint32</span></a> data</code></em>,
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_data_output_stream_put_int32      (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gint32"><span class="type">gint32</span></a> data</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Puts a signed 32-bit integer into the output stream.
 </p>
@@ -315,21 +315,21 @@ Puts a signed 32-bit integer into the output stream.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint32"><span class="type">gint32</span></a>.</td>
+<td>a <a href="./../glib/glib/glib-Basic-Types.html#gint32"><span class="type">gint32</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
+<td>a <a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>data</code></em> was successfully added to the <em class="parameter"><code>stream</code></em>.</td>
+<a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>data</code></em> was successfully added to the <em class="parameter"><code>stream</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -337,10 +337,10 @@ Puts a signed 32-bit integer into the output stream.
 <hr>
 <div class="refsect2">
 <a name="g-data-output-stream-put-uint32"></a><h3>g_data_output_stream_put_uint32 ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_data_output_stream_put_uint32     (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> data</code></em>,
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_data_output_stream_put_uint32     (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> data</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Puts an unsigned 32-bit integer into the stream.
 </p>
@@ -353,21 +353,21 @@ Puts an unsigned 32-bit integer into the stream.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a>.</td>
+<td>a <a href="./../glib/glib/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
+<td>a <a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>data</code></em> was successfully added to the <em class="parameter"><code>stream</code></em>.</td>
+<a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>data</code></em> was successfully added to the <em class="parameter"><code>stream</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -375,10 +375,10 @@ Puts an unsigned 32-bit integer into the stream.
 <hr>
 <div class="refsect2">
 <a name="g-data-output-stream-put-int64"></a><h3>g_data_output_stream_put_int64 ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_data_output_stream_put_int64      (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint64"><span class="type">gint64</span></a> data</code></em>,
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_data_output_stream_put_int64      (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gint64"><span class="type">gint64</span></a> data</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Puts a signed 64-bit integer into the stream.
 </p>
@@ -391,21 +391,21 @@ Puts a signed 64-bit integer into the stream.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint64"><span class="type">gint64</span></a>.</td>
+<td>a <a href="./../glib/glib/glib-Basic-Types.html#gint64"><span class="type">gint64</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
+<td>a <a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>data</code></em> was successfully added to the <em class="parameter"><code>stream</code></em>.</td>
+<a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>data</code></em> was successfully added to the <em class="parameter"><code>stream</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -413,10 +413,10 @@ Puts a signed 64-bit integer into the stream.
 <hr>
 <div class="refsect2">
 <a name="g-data-output-stream-put-uint64"></a><h3>g_data_output_stream_put_uint64 ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_data_output_stream_put_uint64     (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> data</code></em>,
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_data_output_stream_put_uint64     (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> data</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Puts an unsigned 64-bit integer into the stream.
 </p>
@@ -429,21 +429,21 @@ Puts an unsigned 64-bit integer into the stream.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a>.</td>
+<td>a <a href="./../glib/glib/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
+<td>a <a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>data</code></em> was successfully added to the <em class="parameter"><code>stream</code></em>.</td>
+<a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>data</code></em> was successfully added to the <em class="parameter"><code>stream</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -451,10 +451,10 @@ Puts an unsigned 64-bit integer into the stream.
 <hr>
 <div class="refsect2">
 <a name="g-data-output-stream-put-string"></a><h3>g_data_output_stream_put_string ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_data_output_stream_put_string     (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_data_output_stream_put_string     (<em class="parameter"><code><a class="link" href="GDataOutputStream.html" title="GDataOutputStream"><span class="type">GDataOutputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code>const <span class="type">char</span> *str</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Puts a string into the output stream.
 </p>
@@ -471,17 +471,17 @@ Puts a string into the output stream.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
-<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
+<td>a <a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>string</code></em> was successfully added to the <em class="parameter"><code>stream</code></em>.</td>
+<a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>string</code></em> was successfully added to the <em class="parameter"><code>stream</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -491,7 +491,7 @@ Puts a string into the output stream.
 <a name="GDataOutputStream.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GDataOutputStream--byte-order"></a><h3>The <code class="literal">"byte-order"</code> property</h3>
-<pre class="programlisting">  "byte-order"               <a class="link" href="GDataInputStream.html#GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a>  : Read / Write</pre>
+<pre class="programlisting">  "byte-order"               <a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a>  : Read / Write</pre>
 <p>
 Determines the byte ordering that is used when writing
 multi-byte entities (such as integers) to the stream.
@@ -506,6 +506,6 @@ multi-byte entities (such as integers) to the stream.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

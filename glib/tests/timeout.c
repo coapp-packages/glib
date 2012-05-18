@@ -8,13 +8,15 @@ stop_waiting (gpointer data)
 {
   g_main_loop_quit (loop);
 
-  return FALSE;
+  return G_SOURCE_REMOVE;
 }
 
 static gboolean
 function (gpointer data)
 {
   g_assert_not_reached ();
+
+  return G_SOURCE_REMOVE;
 }
 
 static void
@@ -41,6 +43,7 @@ test_seconds (void)
   g_timeout_add_seconds (21475, function, NULL);
 
   g_main_loop_run (loop);
+  g_main_loop_unref (loop);
 }
 
 static gint64 last_time;
@@ -69,7 +72,7 @@ test_func (gpointer data)
    */
   g_usleep (count * 10000);
 
-  if (count < 8)
+  if (count < 10)
     return TRUE;
 
   g_main_loop_quit (loop);
@@ -86,6 +89,7 @@ test_rounding (void)
   g_timeout_add_seconds (1, test_func, NULL);
 
   g_main_loop_run (loop);
+  g_main_loop_unref (loop);
 }
 
 int

@@ -185,6 +185,7 @@ g_socket_control_message_deserialize (int      level,
 #ifndef G_OS_WIN32
   a_type = g_unix_credentials_message_get_type ();
   a_type = g_unix_fd_message_get_type ();
+  (a_type); /* To avoid -Wunused-but-set-variable */
 #endif
 
   message_types = g_type_children (G_TYPE_SOCKET_CONTROL_MESSAGE, &n_message_types);
@@ -204,8 +205,15 @@ g_socket_control_message_deserialize (int      level,
 
   g_free (message_types);
 
-  if (message == NULL)
-    g_warning ("unknown control message type %d:%d", level, type);
+  /* It's not a bug if we can't deserialize the control message - for
+   * example, the control message may be be discarded if it is deemed
+   * empty, see e.g.
+   *
+   *  http://git.gnome.org/browse/glib/commit/?id=ec91ed00f14c70cca9749347b8ebc19d72d9885b
+   *
+   * Therefore, it's not appropriate to print a warning about not
+   * being able to deserialize the message.
+   */
 
   return message;
 }
