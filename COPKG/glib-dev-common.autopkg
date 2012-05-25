@@ -36,6 +36,7 @@ files[headers] {
 		"glib-2.0\glib\*.h",
 		"glib-2.0\glib\deprecated\*.h",
 		"glib-2.0\gobject\*.h",
+		"glib-2.0\gobject\*.c",
     };
 
     trim-path:none;
