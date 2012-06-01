@@ -15,6 +15,7 @@ x86 {
 
     requires: "libintl-dev[vc10]-${libintl-dep-version}-x86-${libintl-dep-publickeytoken}";
     requires: "libffi-dev[vc10]-${libffi-dep-version}-x86-${libffi-dep-publickeytoken}";
+    requires: "zlib-dev[vc10]-${zlib-dep-version}-x86-${zlib-dep-publickeytoken}";
 
     targets: { 
         "vs10\Win32\bin\gio-2-vs10.dll",
@@ -45,6 +46,7 @@ x86 {
         if exist docs\reference\gio\templ rmdir /s /q docs\reference\gio\templ > nul 2> nul
         if exist docs\reference\glib\templ rmdir /s /q docs\reference\glib\templ > nul 2> nul
         if exist docs\reference\gobject\templ rmdir /s /q docs\reference\gobject\templ > nul 2> nul
+		rd /S /Q vs10
     ";
 };
 

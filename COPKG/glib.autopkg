@@ -19,6 +19,7 @@ package {
 requires {
 	package: "libffi[${flavor}]-${libffi-dep-version}-${arch}-${libffi-dep-publickeytoken}";
 	package: "libintl[${flavor}]-${libintl-dep-version}-${arch}-${libintl-dep-publickeytoken}";
+	package: "zlib[${flavor}]-${zlib-dep-version}-${arch}-${zlib-dep-publickeytoken}";
 }
 
 metadata {  
@@ -49,6 +50,7 @@ manifest[glibdeps] {
 	assembly : {
 		"libintl[${flavor}]",
 		"libffi[${flavor}]",
+		"zlib[${flavor}]",
 	};
 
 	include : {
