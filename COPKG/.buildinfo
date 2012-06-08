@@ -1,6 +1,10 @@
 @import "version.inc";
 @import "common.inc";
 
+#define {
+    NewVersion : "${package-version++}";
+}
+
 #product-info  {
     product-name: "glib";
     version: "2.28.8";
@@ -64,11 +68,33 @@ package
 {
 	uses: release;
 
+	targets:
+	{
+        @"COPKG\glib[vc10]-${NewVersion}-x86.msi",
+        @"COPKG\glib-dev[vc10]-${NewVersion}-x86.msi",
+        @"COPKG\glib-dev-common-${NewVersion}-any.msi",
+	};
+
 	build-command: @"
+        if ""${noversion}"" neq ""true"" ptk update-version
 		cd COPKG
 		autopackage glib.autopkg glib-dev-common.autopkg|| goto failed
         autopackage glib-dev.autopkg || goto failed
 	";
 
 	clean-command: @"del COPKG\*.msi COPKG\*.wixpdb";
+}
+
+update-version {
+    default : false;
+    
+    build-command : @"
+        REM auto-increment version.inc file...
+        
+        pushd COPKG
+        setlocal EnableDelayedExpansion
+        set VERSTRING=#define { package-version: ${NewVersion}; }
+        echo !VERSTRING! > version.inc
+        popd
+    ";
 }
