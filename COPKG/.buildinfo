@@ -50,13 +50,19 @@ x86 {
     ";
 };
 
+release
+{
+	uses: x86;
+}
+
 test
 {
+	uses: release;
 }
 
 package
 {
-	uses: x86;
+	uses: release;
 
 	build-command: @"
 		cd COPKG
