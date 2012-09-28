@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GSimpleAsyncResult</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="async.html" title="Asynchronous I/O">
 <link rel="prev" href="gio-GIOScheduler.html" title="GIOScheduler">
 <link rel="next" href="conversion.html" title="Data conversion">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -457,8 +457,11 @@ A simple implementation of <a class="link" href="GAsyncResult.html" title="GAsyn
 Simple thread function that runs an asynchronous operation and
 checks for cancellation.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
@@ -496,8 +499,11 @@ probably should) then you should provide the user's cancellable to
 <a class="link" href="GSimpleAsyncResult.html#g-simple-async-result-set-check-cancellable" title="g_simple_async_result_set_check_cancellable ()"><code class="function">g_simple_async_result_set_check_cancellable()</code></a> immediately after
 this function returns.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>source_object</code></em> :</span></p></td>
@@ -538,8 +544,11 @@ this function returns.
 <p>
 Creates a new <a class="link" href="GSimpleAsyncResult.html" title="GSimpleAsyncResult"><span class="type">GSimpleAsyncResult</span></a> with a set error.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>source_object</code></em> :</span></p></td>
@@ -590,8 +599,11 @@ Creates a new <a class="link" href="GSimpleAsyncResult.html" title="GSimpleAsync
 <p>
 Creates a <a class="link" href="GSimpleAsyncResult.html" title="GSimpleAsyncResult"><span class="type">GSimpleAsyncResult</span></a> from an error condition.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>source_object</code></em> :</span></p></td>
@@ -632,8 +644,11 @@ Creates a <a class="link" href="GSimpleAsyncResult.html" title="GSimpleAsyncResu
 Creates a <a class="link" href="GSimpleAsyncResult.html" title="GSimpleAsyncResult"><span class="type">GSimpleAsyncResult</span></a> from an error condition, and takes over the
 caller's ownership of <em class="parameter"><code>error</code></em>, so the caller does not need to free it anymore.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>source_object</code></em> :</span></p></td>
@@ -690,8 +705,11 @@ already been sent as an idle to the main context to be dispatched).
 The checking described above is done regardless of any call to the
 unrelated <a class="link" href="GSimpleAsyncResult.html#g-simple-async-result-set-handle-cancellation" title="g_simple_async_result_set_handle_cancellation ()"><code class="function">g_simple_async_result_set_handle_cancellation()</code></a> function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
@@ -717,8 +735,11 @@ unrelated <a class="link" href="GSimpleAsyncResult.html#g-simple-async-result-se
 <p>
 Sets the operation result within the asynchronous result to a pointer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
@@ -743,8 +764,11 @@ Sets the operation result within the asynchronous result to a pointer.
 <p>
 Gets a pointer result as returned by the asynchronous function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
@@ -767,8 +791,11 @@ Gets a pointer result as returned by the asynchronous function.
 Sets the operation result within the asynchronous result to
 the given <em class="parameter"><code>op_res</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
@@ -789,8 +816,11 @@ the given <em class="parameter"><code>op_res</code></em>.
 <p>
 Gets a gssize from the asynchronous result.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
@@ -812,8 +842,11 @@ Gets a gssize from the asynchronous result.
 <p>
 Sets the operation result to a boolean within the asynchronous result.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
@@ -834,8 +867,11 @@ Sets the operation result to a boolean within the asynchronous result.
 <p>
 Gets the operation result boolean from within the asynchronous result.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
@@ -858,8 +894,11 @@ if the operation's result was <a href="./../glib/glib/glib-Standard-Macros.html#
 <p>
 Gets the source tag for the <a class="link" href="GSimpleAsyncResult.html" title="GSimpleAsyncResult"><span class="type">GSimpleAsyncResult</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
@@ -893,8 +932,11 @@ created by <a class="link" href="GSimpleAsyncResult.html#g-simple-async-report-e
 convention, is a pointer to the _async function corresponding to the
 _finish function from which this function is called).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
@@ -931,8 +973,11 @@ This function has nothing to do with
 <a class="link" href="GSimpleAsyncResult.html#g-simple-async-result-set-check-cancellable" title="g_simple_async_result_set_check_cancellable ()"><code class="function">g_simple_async_result_set_check_cancellable()</code></a>.  It only refers to the
 <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> passed to <a class="link" href="GSimpleAsyncResult.html#g-simple-async-result-run-in-thread" title="g_simple_async_result_run_in_thread ()"><code class="function">g_simple_async_result_run_in_thread()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
@@ -959,8 +1004,11 @@ invokes the callback directly. If you are in a different thread use
 Calling this function takes a reference to <em class="parameter"><code>simple</code></em> for as long as
 is needed to complete the call.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
 <td>a <a class="link" href="GSimpleAsyncResult.html" title="GSimpleAsyncResult"><span class="type">GSimpleAsyncResult</span></a>.</td>
@@ -981,8 +1029,11 @@ loop</GTKDOCLINK> of the thread that <em class="parameter"><code>simple</code></
 Calling this function takes a reference to <em class="parameter"><code>simple</code></em> for as long as
 is needed to complete the call.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
 <td>a <a class="link" href="GSimpleAsyncResult.html" title="GSimpleAsyncResult"><span class="type">GSimpleAsyncResult</span></a>.</td>
@@ -1005,8 +1056,11 @@ the result to the appropriate main loop.
 Calling this function takes a reference to <em class="parameter"><code>simple</code></em> for as long as
 is needed to run the job and report its completion.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
@@ -1037,8 +1091,11 @@ is needed to run the job and report its completion.
 <p>
 Sets the result from a <a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
@@ -1061,8 +1118,11 @@ Sets the result from a <a href="./../glib/glib/glib-Error-Reporting.html#GError"
 Sets the result from <em class="parameter"><code>error</code></em>, and takes over the caller's ownership
 of <em class="parameter"><code>error</code></em>, so the caller does not need to free it any more.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
@@ -1093,8 +1153,11 @@ If the <a class="link" href="GCancellable.html" title="GCancellable"><span class
 <a class="link" href="GSimpleAsyncResult.html#g-simple-async-result-set-check-cancellable" title="g_simple_async_result_set_check_cancellable ()"><code class="function">g_simple_async_result_set_check_cancellable()</code></a> is cancelled then this
 function will return <a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> with <em class="parameter"><code>dest</code></em> set appropriately.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
@@ -1124,8 +1187,11 @@ function will return <a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS
 <p>
 Sets an error within the asynchronous result without a <a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
@@ -1162,8 +1228,11 @@ Sets an error within the asynchronous result without a <a href="./../glib/glib/g
 Sets an error within the asynchronous result without a <a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>.
 Unless writing a binding, see <a class="link" href="GSimpleAsyncResult.html#g-simple-async-result-set-error" title="g_simple_async_result_set_error ()"><code class="function">g_simple_async_result_set_error()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
@@ -1203,8 +1272,11 @@ Reports an error in an asynchronous function in an idle function by
 directly setting the contents of the <a class="link" href="GAsyncResult.html" title="GAsyncResult"><span class="type">GAsyncResult</span></a> with the given error
 information.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -1251,8 +1323,11 @@ Reports an error in an idle function. Similar to
 <a class="link" href="GSimpleAsyncResult.html#g-simple-async-report-error-in-idle" title="g_simple_async_report_error_in_idle ()"><code class="function">g_simple_async_report_error_in_idle()</code></a>, but takes a <a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> rather
 than building a new one.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -1289,8 +1364,11 @@ Reports an error in an idle function. Similar to
 <a class="link" href="GSimpleAsyncResult.html#g-simple-async-report-gerror-in-idle" title="g_simple_async_report_gerror_in_idle ()"><code class="function">g_simple_async_report_gerror_in_idle()</code></a>, but takes over the caller's
 ownership of <em class="parameter"><code>error</code></em>, so the caller does not have to free it any more.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -1321,6 +1399,6 @@ ownership of <em class="parameter"><code>error</code></em>, so the caller does n
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

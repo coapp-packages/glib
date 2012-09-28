@@ -1,13 +1,13 @@
 '\" t
 .\"     Title: gobject-query
-.\"    Author: [FIXME: author] [see http://docbook.sf.net/el/author]
-.\" Generator: DocBook XSL Stylesheets v1.76.1 <http://docbook.sf.net/>
-.\"      Date: 05/14/2012
+.\"    Author: Tim Janik
+.\" Generator: DocBook XSL Stylesheets v1.77.1 <http://docbook.sf.net/>
+.\"      Date: 09/23/2012
 .\"    Manual: User Commands
-.\"    Source: User Commands
+.\"    Source: GObject
 .\"  Language: English
 .\"
-.TH "GOBJECT\-QUERY" "1" "05/14/2012" "User Commands" "User Commands"
+.TH "GOBJECT\-QUERY" "1" "" "GObject" "User Commands"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -31,20 +31,19 @@
 gobject-query \- display a tree of types
 .SH "SYNOPSIS"
 .HP \w'\fBgobject\-query\fR\ 'u
-\fBgobject\-query\fR froots [options...]
+\fBgobject\-query\fR froots [OPTION...]
 .HP \w'\fBgobject\-query\fR\ 'u
-\fBgobject\-query\fR tree [options...]
+\fBgobject\-query\fR tree [OPTION...]
 .SH "DESCRIPTION"
 .PP
 
 \fBgobject\-query\fR
 is a small utility that draws a tree of types\&.
-.SH "INVOCATION"
 .PP
 
 \fBgobject\-query\fR
 takes a mandatory argument that specifies whether it should iterate over the fundamental types or print a type tree\&.
-.SS "Options"
+.SH "COMMANDS"
 .PP
 \fBfroots\fR
 .RS 4
@@ -55,8 +54,9 @@ iterate over fundamental roots
 .RS 4
 print type tree
 .RE
+.SH "OPTIONS"
 .PP
-\fB\-r\fR \fItype\fR
+\fB\-r\fR \fITYPE\fR
 .RS 4
 specify the root type
 .RE
@@ -66,17 +66,17 @@ specify the root type
 don\*(Aqt descend type tree
 .RE
 .PP
-\fB\-b\fR \fIstring\fR
+\fB\-b\fR \fISTRING\fR
 .RS 4
 specify indent string
 .RE
 .PP
-\fB\-i\fR \fIstring\fR
+\fB\-i\fR \fISTRING\fR
 .RS 4
 specify incremental indent string
 .RE
 .PP
-\fB\-s\fR \fInumber\fR
+\fB\-s\fR \fINUMBER\fR
 .RS 4
 specify line spacing
 .RE

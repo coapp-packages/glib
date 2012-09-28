@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Quarks</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-data-types.html" title="GLib Data Types">
 <link rel="prev" href="glib-N-ary-Trees.html" title="N-ary Trees">
 <link rel="next" href="glib-Keyed-Data-Lists.html" title="Keyed Data Lists">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -42,6 +42,8 @@
 #include &lt;glib.h&gt;
 
 typedef             <a class="link" href="glib-Quarks.html#GQuark" title="GQuark">GQuark</a>;
+#define             <a class="link" href="glib-Quarks.html#G-DEFINE-QUARK:CAPS" title="G_DEFINE_QUARK()">G_DEFINE_QUARK</a>                      (QN,
+                                                         q_n)
 <a class="link" href="glib-Quarks.html#GQuark" title="GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="glib-Quarks.html#g-quark-from-string" title="g_quark_from_string ()">g_quark_from_string</a>                 (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);
 <a class="link" href="glib-Quarks.html#GQuark" title="GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="glib-Quarks.html#g-quark-from-static-string" title="g_quark_from_static_string ()">g_quark_from_static_string</a>          (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);
 const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="glib-Quarks.html#g-quark-to-string" title="g_quark_to_string ()">g_quark_to_string</a>                   (<em class="parameter"><code><a class="link" href="glib-Quarks.html#GQuark" title="GQuark"><span class="type">GQuark</span></a> quark</code></em>);
@@ -94,6 +96,35 @@ particular string. A GQuark value of zero is associated to <a class="link" href=
 </div>
 <hr>
 <div class="refsect2">
+<a name="G-DEFINE-QUARK:CAPS"></a><h3>G_DEFINE_QUARK()</h3>
+<pre class="programlisting">#define             G_DEFINE_QUARK(QN, q_n)</pre>
+<p>
+A convenience macro which defines a function returning the
+<a class="link" href="glib-Quarks.html#GQuark" title="GQuark"><span class="type">GQuark</span></a> for the name <em class="parameter"><code>QN</code></em>. The function will be named
+<em class="parameter"><code>q_n</code></em><code class="function">_quark()</code>.
+Note that the quark name will be stringified automatically in the
+macro, so you shouldn't use double quotes.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>QN</code></em> :</span></p></td>
+<td>the name to return a <a class="link" href="glib-Quarks.html#GQuark" title="GQuark"><span class="type">GQuark</span></a> for</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>q_n</code></em> :</span></p></td>
+<td>prefix for the function name</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.34</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="g-quark-from-string"></a><h3>g_quark_from_string ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Quarks.html#GQuark" title="GQuark"><span class="returnvalue">GQuark</span></a>              g_quark_from_string                 (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
 <p>
@@ -101,8 +132,11 @@ Gets the <a class="link" href="glib-Quarks.html#GQuark" title="GQuark"><span cla
 not currently have an associated <a class="link" href="glib-Quarks.html#GQuark" title="GQuark"><span class="type">GQuark</span></a>, a new <a class="link" href="glib-Quarks.html#GQuark" title="GQuark"><span class="type">GQuark</span></a> is created,
 using a copy of the string.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -136,8 +170,11 @@ statically allocated memory in dynamically loaded modules, if you
 expect to ever unload the module again (e.g. do not use this
 function in GTK+ theme engines).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -159,8 +196,11 @@ function in GTK+ theme engines).
 <p>
 Gets the string associated with the given <a class="link" href="glib-Quarks.html#GQuark" title="GQuark"><span class="type">GQuark</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>quark</code></em> :</span></p></td>
@@ -168,7 +208,8 @@ Gets the string associated with the given <a class="link" href="glib-Quarks.html
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the string associated with the <a class="link" href="glib-Quarks.html#GQuark" title="GQuark"><span class="type">GQuark</span></a>.</td>
+<td>the string associated with the <a class="link" href="glib-Quarks.html#GQuark" title="GQuark"><span class="type">GQuark</span></a>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -185,8 +226,11 @@ Gets the <a class="link" href="glib-Quarks.html#GQuark" title="GQuark"><span cla
 If you want the GQuark to be created if it doesn't already exist,
 use <a class="link" href="glib-Quarks.html#g-quark-from-string" title="g_quark_from_string ()"><code class="function">g_quark_from_string()</code></a> or <a class="link" href="glib-Quarks.html#g-quark-from-static-string" title="g_quark_from_static_string ()"><code class="function">g_quark_from_static_string()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -206,11 +250,15 @@ use <a class="link" href="glib-Quarks.html#g-quark-from-string" title="g_quark_f
 <a name="g-intern-string"></a><h3>g_intern_string ()</h3>
 <pre class="programlisting">const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *       g_intern_string                     (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
 <p>
-Returns a canonical representation for <em class="parameter"><code>string</code></em>. Interned strings can
-be compared for equality by comparing the pointers, instead of using <code class="function">strcmp()</code>.
+Returns a canonical representation for <em class="parameter"><code>string</code></em>. Interned strings
+can be compared for equality by comparing the pointers, instead of
+using <code class="function">strcmp()</code>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -230,13 +278,16 @@ be compared for equality by comparing the pointers, instead of using <code class
 <a name="g-intern-static-string"></a><h3>g_intern_static_string ()</h3>
 <pre class="programlisting">const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *       g_intern_static_string              (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
 <p>
-Returns a canonical representation for <em class="parameter"><code>string</code></em>. Interned strings can
-be compared for equality by comparing the pointers, instead of using <code class="function">strcmp()</code>.
-<a class="link" href="glib-Quarks.html#g-intern-static-string" title="g_intern_static_string ()"><code class="function">g_intern_static_string()</code></a> does not copy the string, therefore <em class="parameter"><code>string</code></em> must
-not be freed or modified.
+Returns a canonical representation for <em class="parameter"><code>string</code></em>. Interned strings
+can be compared for equality by comparing the pointers, instead of
+using <code class="function">strcmp()</code>. <a class="link" href="glib-Quarks.html#g-intern-static-string" title="g_intern_static_string ()"><code class="function">g_intern_static_string()</code></a> does not copy the string,
+therefore <em class="parameter"><code>string</code></em> must not be freed or modified.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -255,6 +306,6 @@ not be freed or modified.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

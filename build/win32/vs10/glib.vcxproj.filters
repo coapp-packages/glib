@@ -68,6 +68,7 @@
     <ClCompile Include="..\..\..\glib\gpoll.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\glib\gprimes.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\glib\gqsort.c"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\..\glib\gquark.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\glib\gqueue.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\glib\grand.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\glib\gregex.c"><Filter>Source Files</Filter></ClCompile>

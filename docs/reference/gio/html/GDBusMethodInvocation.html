@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GDBusMethodInvocation</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="gdbus-lowlevel.html" title="Lowlevel D-Bus Support">
 <link rel="prev" href="GDBusConnection.html" title="GDBusConnection">
 <link rel="next" href="GDBusServer.html" title="GDBusServer">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -133,8 +133,11 @@ should only be accessed using the provided API.
 <p>
 Gets the bus name that invoked the method.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>invocation</code></em> :</span></p></td>
@@ -156,8 +159,11 @@ Gets the bus name that invoked the method.
 <p>
 Gets the object path the method was invoked on.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>invocation</code></em> :</span></p></td>
@@ -179,8 +185,11 @@ Gets the object path the method was invoked on.
 <p>
 Gets the name of the D-Bus interface the method was invoked on.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>invocation</code></em> :</span></p></td>
@@ -202,8 +211,11 @@ Gets the name of the D-Bus interface the method was invoked on.
 <p>
 Gets the name of the method that was invoked.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>invocation</code></em> :</span></p></td>
@@ -225,8 +237,11 @@ Gets the name of the method that was invoked.
 <p>
 Gets information about the method call, if any.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>invocation</code></em> :</span></p></td>
@@ -248,8 +263,11 @@ Gets information about the method call, if any.
 <p>
 Gets the <a class="link" href="GDBusConnection.html" title="GDBusConnection"><span class="type">GDBusConnection</span></a> the method was invoked on.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>invocation</code></em> :</span></p></td>
@@ -279,8 +297,11 @@ descriptor passing, that cannot be properly expressed in the
 See <a class="xref" href="GDBusConnection.html#gdbus-server" title="Example 2. D-Bus server example">Example 2, “D-Bus server example”</a> and <a class="xref" href="GDBusConnection.html#gdbus-unix-fd-client" title="Example 4. D-Bus UNIX File Descriptor example">Example 4, “D-Bus UNIX File Descriptor example”</a> for an example of how to use this
 low-level API to send and receive UNIX file descriptors.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>invocation</code></em> :</span></p></td>
@@ -305,8 +326,11 @@ low-level API to send and receive UNIX file descriptors.
 Gets the parameters of the method invocation. If there are no input
 parameters then this will return a GVariant with 0 children rather than NULL.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>invocation</code></em> :</span></p></td>
@@ -329,8 +353,11 @@ parameters then this will return a GVariant with 0 children rather than NULL.
 <p>
 Gets the <em class="parameter"><code>user_data</code></em> <a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> passed to <a class="link" href="GDBusConnection.html#g-dbus-connection-register-object" title="g_dbus_connection_register_object ()"><code class="function">g_dbus_connection_register_object()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>invocation</code></em> :</span></p></td>
@@ -360,8 +387,11 @@ It is an error if <em class="parameter"><code>parameters</code></em> is not of t
 <p>
 This method will free <em class="parameter"><code>invocation</code></em>, you cannot use it afterwards.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>invocation</code></em> :</span></p></td>
@@ -406,8 +436,11 @@ or use <a class="link" href="GDBusMethodInvocation.html#g-dbus-method-invocation
 <p>
 This method will free <em class="parameter"><code>invocation</code></em>, you cannot use it afterwards.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>invocation</code></em> :</span></p></td>
@@ -450,8 +483,11 @@ language bindings.
 <p>
 This method will free <em class="parameter"><code>invocation</code></em>, you cannot use it afterwards.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>invocation</code></em> :</span></p></td>
@@ -493,8 +529,11 @@ Like <a class="link" href="GDBusMethodInvocation.html#g-dbus-method-invocation-r
 <p>
 This method will free <em class="parameter"><code>invocation</code></em>, you cannot use it afterwards.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>invocation</code></em> :</span></p></td>
@@ -530,8 +569,11 @@ instead of the error domain, error code and message.
 <p>
 This method will free <em class="parameter"><code>invocation</code></em>, you cannot use it afterwards.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>invocation</code></em> :</span></p></td>
@@ -559,8 +601,11 @@ Finishes handling a D-Bus method call by returning an error.
 <p>
 This method will free <em class="parameter"><code>invocation</code></em>, you cannot use it afterwards.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>invocation</code></em> :</span></p></td>
@@ -591,8 +636,11 @@ of <em class="parameter"><code>error</code></em> so the caller does not need to 
 <p>
 This method will free <em class="parameter"><code>invocation</code></em>, you cannot use it afterwards.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>invocation</code></em> :</span></p></td>
@@ -624,8 +672,11 @@ This method is only available on UNIX.
 <p>
 This method will free <em class="parameter"><code>invocation</code></em>, you cannot use it afterwards.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>invocation</code></em> :</span></p></td>
@@ -650,6 +701,6 @@ This method will free <em class="parameter"><code>invocation</code></em>, you ca
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

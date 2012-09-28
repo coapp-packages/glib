@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Value arrays</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GObject Reference Manual">
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="gobject-Closures.html" title="Closures">
 <link rel="next" href="GBinding.html" title="GBinding">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -126,8 +126,11 @@ can be replaced by:
 <p>
 A <a class="link" href="gobject-Value-arrays.html#GValueArray" title="struct GValueArray"><span class="type">GValueArray</span></a> contains an array of <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> elements.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GValueArray.n-values"></a>n_values</code></em>;</span></p></td>
@@ -152,8 +155,11 @@ A <a class="link" href="gobject-Value-arrays.html#GValueArray" title="struct GVa
 <p>
 Return a pointer to the value at <em class="parameter"><code>index_</code></em> containd in <em class="parameter"><code>value_array</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value_array</code></em> :</span></p></td>
@@ -185,8 +191,11 @@ Allocate and initialize a new <a class="link" href="gobject-Value-arrays.html#GV
 for <em class="parameter"><code>n_prealloced</code></em> elements. New arrays always contain 0 elements,
 regardless of the value of <em class="parameter"><code>n_prealloced</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>n_prealloced</code></em> :</span></p></td>
@@ -211,8 +220,11 @@ regardless of the value of <em class="parameter"><code>n_prealloced</code></em>.
 Construct an exact copy of a <a class="link" href="gobject-Value-arrays.html#GValueArray" title="struct GValueArray"><span class="type">GValueArray</span></a> by duplicating all its
 contents.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value_array</code></em> :</span></p></td>
@@ -238,8 +250,11 @@ contents.
 <p>
 Free a <a class="link" href="gobject-Value-arrays.html#GValueArray" title="struct GValueArray"><span class="type">GValueArray</span></a> including its contents.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>value_array</code></em> :</span></p></td>
 <td>
@@ -260,8 +275,11 @@ Free a <a class="link" href="gobject-Value-arrays.html#GValueArray" title="struc
 Insert a copy of <em class="parameter"><code>value</code></em> as last element of <em class="parameter"><code>value_array</code></em>. If <em class="parameter"><code>value</code></em> is
 <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, an uninitialized value is appended.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value_array</code></em> :</span></p></td>
@@ -295,8 +313,11 @@ Insert a copy of <em class="parameter"><code>value</code></em> as last element o
 Insert a copy of <em class="parameter"><code>value</code></em> as first element of <em class="parameter"><code>value_array</code></em>. If <em class="parameter"><code>value</code></em> is
 <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, an uninitialized value is prepended.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value_array</code></em> :</span></p></td>
@@ -331,8 +352,11 @@ Insert a copy of <em class="parameter"><code>value</code></em> as first element 
 Insert a copy of <em class="parameter"><code>value</code></em> at specified position into <em class="parameter"><code>value_array</code></em>. If <em class="parameter"><code>value</code></em>
 is <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, an uninitialized value is inserted.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value_array</code></em> :</span></p></td>
@@ -369,8 +393,11 @@ is <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="lit
 <p>
 Remove the value at position <em class="parameter"><code>index_</code></em> from <em class="parameter"><code>value_array</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value_array</code></em> :</span></p></td>
@@ -407,8 +434,11 @@ the semantics of <a href="./../glib/glib/glib-Doubly-Linked-Lists.html#GCompareF
 <p>
 The current implementation uses Quick-Sort as sorting algorithm.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value_array</code></em> :</span></p></td>
@@ -448,8 +478,11 @@ The current implementation uses Quick-Sort as sorting algorithm.
 <p>
 Rename to: g_value_array_sort
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value_array</code></em> :</span></p></td>
@@ -482,6 +515,6 @@ Rename to: g_value_array_sort
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

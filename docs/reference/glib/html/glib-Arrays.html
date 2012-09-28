@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Arrays</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-data-types.html" title="GLib Data Types">
 <link rel="prev" href="glib-String-Chunks.html" title="String Chunks">
 <link rel="next" href="glib-Pointer-Arrays.html" title="Pointer Arrays">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -123,7 +123,7 @@ To free an array, use <a class="link" href="glib-Arrays.html#g-array-free" title
 <p>
 </p>
 <div class="example">
-<a name="id810395"></a><p class="title"><b>Example 14. Using a <a class="link" href="glib-Arrays.html#GArray" title="struct GArray"><span class="type">GArray</span></a> to store <a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> values</b></p>
+<a name="idp34548896"></a><p class="title"><b>Example 14. Using a <a class="link" href="glib-Arrays.html#GArray" title="struct GArray"><span class="type">GArray</span></a> to store <a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> values</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -173,8 +173,11 @@ To free an array, use <a class="link" href="glib-Arrays.html#g-array-free" title
 <p>
 Contains the public fields of an <a class="link" href="glib-Arrays.html" title="Arrays">Array</a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GArray.data"></a>data</code></em>;</span></p></td>
@@ -198,8 +201,11 @@ possible terminating zero element.</td>
 <p>
 Creates a new <a class="link" href="glib-Arrays.html#GArray" title="struct GArray"><span class="type">GArray</span></a> with a reference count of 1.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>zero_terminated</code></em> :</span></p></td>
@@ -237,8 +243,11 @@ a reference count of 1. This avoids frequent reallocation, if you
 are going to add many elements to the array. Note however that the
 size of the array is still 0.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>zero_terminated</code></em> :</span></p></td>
@@ -275,8 +284,11 @@ allocation.</td>
 Atomically increments the reference count of <em class="parameter"><code>array</code></em> by one. This
 function is MT-safe and may be called from any thread.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -300,8 +312,11 @@ reference count drops to 0, all memory allocated by the array is
 released. This function is MT-safe and may be called from any
 thread.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
 <td>A <a class="link" href="glib-Arrays.html#GArray" title="struct GArray"><span class="type">GArray</span></a>.</td>
@@ -316,8 +331,11 @@ thread.
 <p>
 Gets the size of the elements in <em class="parameter"><code>array</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -349,8 +367,11 @@ literal values such as "27". You must use variables.</p>
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
@@ -376,8 +397,11 @@ literal values such as "27". You must use variables.</p>
 <p>
 Adds <em class="parameter"><code>len</code></em> elements onto the end of the array.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -421,8 +445,11 @@ literal values such as "27". You must use variables.</p>
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
@@ -453,8 +480,11 @@ This operation is slower than <a class="link" href="glib-Arrays.html#g-array-app
 existing elements in the array have to be moved to make space for
 the new elements.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -493,8 +523,11 @@ literal values such as "27". You must use variables.</p>
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
@@ -525,8 +558,11 @@ literal values such as "27". You must use variables.</p>
 <p>
 Inserts <em class="parameter"><code>len</code></em> elements into a <a class="link" href="glib-Arrays.html#GArray" title="struct GArray"><span class="type">GArray</span></a> at the given index.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -560,8 +596,11 @@ Inserts <em class="parameter"><code>len</code></em> elements into a <a class="li
 Removes the element at the given index from a <a class="link" href="glib-Arrays.html#GArray" title="struct GArray"><span class="type">GArray</span></a>. The following
 elements are moved down one place.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -589,8 +628,11 @@ element in the array is used to fill in the space, so this function
 does not preserve the order of the <a class="link" href="glib-Arrays.html#GArray" title="struct GArray"><span class="type">GArray</span></a>. But it is faster than
 <a class="link" href="glib-Arrays.html#g-array-remove-index" title="g_array_remove_index ()"><code class="function">g_array_remove_index()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -617,8 +659,11 @@ does not preserve the order of the <a class="link" href="glib-Arrays.html#GArray
 Removes the given number of elements starting at the given index
 from a <a class="link" href="glib-Arrays.html#GArray" title="struct GArray"><span class="type">GArray</span></a>.  The following elements are moved to close the gap.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -654,8 +699,11 @@ greater than second arg).
 <p>
 This is guaranteed to be a stable sort since version 2.32.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -686,8 +734,11 @@ There used to be a comment here about making the sort stable by
 using the addresses of the elements in the comparison function.
 This did not actually work, so any such code should be removed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -715,7 +766,7 @@ value is cast to the given type.
 <p>
 </p>
 <div class="example">
-<a name="id835007"></a><p class="title"><b>Example 15. Getting a pointer to an element in a <a class="link" href="glib-Arrays.html#GArray" title="struct GArray"><span class="type">GArray</span></a></b></p>
+<a name="idp48221120"></a><p class="title"><b>Example 15. Getting a pointer to an element in a <a class="link" href="glib-Arrays.html#GArray" title="struct GArray"><span class="type">GArray</span></a></b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -736,8 +787,11 @@ value is cast to the given type.
 </div>
 <p><br class="example-break">
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
@@ -767,8 +821,11 @@ value is cast to the given type.
 Sets the size of the array, expanding it if necessary. If the array
 was created with <em class="parameter"><code>clear_</code></em> set to <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>, the new elements are set to 0.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -803,8 +860,11 @@ Note that in contrast with other uses of <a class="link" href="glib-Datasets.htm
 functions, <em class="parameter"><code>clear_func</code></em> is expected to clear the contents of
 the array element it is given, but not free the element itself.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -843,8 +903,11 @@ they should be freed separately.</p>
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -866,6 +929,6 @@ they should be freed separately.</p>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

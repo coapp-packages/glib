@@ -14,6 +14,8 @@ g_application_get_type
 g_application_activate
 g_application_flags_get_type
 g_application_get_application_id
+g_application_get_dbus_connection
+g_application_get_dbus_object_path
 g_application_get_default
 g_application_get_flags
 g_application_get_inactivity_timeout
@@ -54,6 +56,7 @@ g_app_info_get_description
 g_app_info_get_executable
 g_app_info_get_commandline
 g_app_info_get_icon
+g_app_info_get_supported_types
 g_app_info_launch
 g_app_info_supports_uris
 g_app_info_supports_files
@@ -106,6 +109,7 @@ g_desktop_app_info_get_is_hidden
 g_desktop_app_info_get_keywords
 g_desktop_app_info_get_nodisplay
 g_desktop_app_info_get_show_in
+g_desktop_app_info_get_startup_wm_class
 g_desktop_app_info_get_type
 g_desktop_app_info_launch_uris_as_manager
 g_desktop_app_info_lookup_get_type
@@ -115,6 +119,8 @@ g_desktop_app_info_set_desktop_env
 g_async_result_get_type
 g_async_result_get_user_data
 g_async_result_get_source_object
+g_async_result_is_tagged
+g_async_result_legacy_propagate_error
 g_buffered_input_stream_get_type
 g_buffered_input_stream_new
 g_buffered_input_stream_new_sized
@@ -155,6 +161,10 @@ g_content_type_is_unknown
 g_content_type_get_description
 g_content_type_get_mime_type
 g_content_type_get_icon
+#ifdef G_OS_UNIX
+g_content_type_get_symbolic_icon
+g_content_type_get_generic_icon_name
+#endif
 g_content_type_can_be_executable
 g_content_type_from_mime_type
 g_content_type_guess
@@ -213,6 +223,7 @@ g_data_output_stream_put_string
 g_drive_get_type
 g_drive_get_name
 g_drive_get_icon
+g_drive_get_symbolic_icon
 g_drive_has_volumes
 g_drive_get_volumes
 g_drive_is_media_removable
@@ -297,6 +308,8 @@ g_file_set_display_name
 g_file_set_display_name_async
 g_file_set_display_name_finish
 g_file_delete
+g_file_delete_async
+g_file_delete_finish
 g_file_trash
 g_file_copy
 g_file_copy_async
@@ -413,6 +426,7 @@ g_file_info_get_name
 g_file_info_get_display_name
 g_file_info_get_edit_name
 g_file_info_get_icon
+g_file_info_get_symbolic_icon
 g_file_info_get_content_type
 g_file_info_get_size
 g_file_info_get_modification_time
@@ -428,6 +442,7 @@ g_file_info_set_name
 g_file_info_set_display_name
 g_file_info_set_edit_name
 g_file_info_set_icon
+g_file_info_set_symbolic_icon
 g_file_info_set_content_type
 g_file_info_set_size
 g_file_info_set_modification_time
@@ -495,6 +510,9 @@ g_input_stream_is_closed
 g_input_stream_has_pending
 g_input_stream_set_pending
 g_input_stream_clear_pending
+g_input_stream_read_bytes
+g_input_stream_read_bytes_async
+g_input_stream_read_bytes_finish
 g_io_stream_get_type
 g_io_stream_get_input_stream
 g_io_stream_get_output_stream
@@ -544,6 +562,8 @@ g_loadable_icon_load_finish
 g_memory_input_stream_get_type
 g_memory_input_stream_new
 g_memory_input_stream_new_from_data
+g_memory_input_stream_new_from_bytes
+g_memory_input_stream_add_bytes
 g_memory_input_stream_add_data
 g_memory_output_stream_get_type
 g_memory_output_stream_new
@@ -551,6 +571,7 @@ g_memory_output_stream_get_data
 g_memory_output_stream_get_data_size
 g_memory_output_stream_get_size
 g_memory_output_stream_steal_data
+g_memory_output_stream_steal_as_bytes
 g_mount_operation_get_type
 g_mount_operation_new
 g_mount_operation_get_username
@@ -585,6 +606,9 @@ g_output_stream_is_closing
 g_output_stream_has_pending
 g_output_stream_set_pending
 g_output_stream_clear_pending
+g_output_stream_write_bytes
+g_output_stream_write_bytes_async
+g_output_stream_write_bytes_finish
 g_seekable_get_type
 g_seekable_tell
 g_seekable_can_seek
@@ -637,6 +661,7 @@ g_unix_mount_guess_can_eject
 g_unix_mount_guess_should_display
 g_unix_mount_guess_name
 g_unix_mount_guess_icon
+g_unix_mount_guess_symbolic_icon
 g_unix_mount_point_compare
 g_unix_mount_point_get_mount_path
 g_unix_mount_point_get_device_path
@@ -648,6 +673,7 @@ g_unix_mount_point_is_loopback
 g_unix_mount_point_guess_can_eject
 g_unix_mount_point_guess_name
 g_unix_mount_point_guess_icon
+g_unix_mount_point_guess_symbolic_icon
 g_unix_mount_points_get
 g_unix_mounts_get
 g_unix_mount_at
@@ -690,6 +716,7 @@ g_mount_get_type
 g_mount_get_root
 g_mount_get_name
 g_mount_get_icon
+g_mount_get_symbolic_icon
 g_mount_get_uuid
 g_mount_get_volume
 g_mount_get_drive
@@ -716,6 +743,7 @@ g_mount_get_sort_key
 g_volume_get_type
 g_volume_get_name
 g_volume_get_icon
+g_volume_get_symbolic_icon
 g_volume_get_uuid
 g_volume_get_drive
 g_volume_get_mount
@@ -880,10 +908,12 @@ g_proxy_resolver_lookup_finish
 g_proxy_address_get_type
 g_proxy_address_new
 g_proxy_address_get_protocol
+g_proxy_address_get_destination_protocol
 g_proxy_address_get_destination_hostname
 g_proxy_address_get_destination_port
 g_proxy_address_get_username
 g_proxy_address_get_password
+g_proxy_address_get_uri
 g_proxy_address_enumerator_get_type
 g_resolver_error_quark
 g_resolver_free_addresses
@@ -1202,6 +1232,7 @@ g_dbus_address_get_stream_sync
 g_dbus_auth_observer_get_type
 g_dbus_auth_observer_new
 g_dbus_auth_observer_authorize_authenticated_peer
+g_dbus_auth_observer_allow_mechanism
 g_dbus_connection_get_type
 g_bus_get
 g_bus_get_finish
@@ -1217,6 +1248,7 @@ g_dbus_connection_get_capabilities
 g_dbus_connection_get_exit_on_close
 g_dbus_connection_get_guid
 g_dbus_connection_get_peer_credentials
+g_dbus_connection_get_last_serial
 g_dbus_connection_get_stream
 g_dbus_connection_get_unique_name
 g_dbus_connection_is_closed
@@ -1479,12 +1511,16 @@ g_pollable_input_stream_can_poll
 g_pollable_input_stream_create_source
 g_pollable_input_stream_is_readable
 g_pollable_input_stream_read_nonblocking
-g_pollable_source_new
 g_pollable_output_stream_get_type
 g_pollable_output_stream_can_poll
 g_pollable_output_stream_create_source
 g_pollable_output_stream_is_writable
 g_pollable_output_stream_write_nonblocking
+g_pollable_source_new
+g_pollable_source_new_full
+g_pollable_stream_read
+g_pollable_stream_write
+g_pollable_stream_write_all
 g_tcp_wrapper_connection_get_type
 g_tcp_wrapper_connection_get_base_io_stream
 g_tcp_wrapper_connection_new
@@ -1500,6 +1536,7 @@ g_tls_error_get_type
 g_tls_error_quark
 g_tls_certificate_get_issuer
 g_tls_certificate_get_type
+g_tls_certificate_is_same
 g_tls_certificate_list_new_from_file
 g_tls_certificate_new_from_file
 g_tls_certificate_new_from_files
@@ -1623,6 +1660,7 @@ g_dbus_object_manager_client_new_for_bus_sync
 g_dbus_object_manager_client_new_sync
 g_dbus_object_manager_server_export
 g_dbus_object_manager_server_export_uniquely
+g_dbus_object_manager_server_is_exported
 g_dbus_object_manager_server_get_connection
 g_dbus_object_manager_server_set_connection
 g_dbus_object_manager_server_get_type
@@ -1654,8 +1692,12 @@ g_menu_insert
 g_menu_insert_item
 g_menu_insert_section
 g_menu_insert_submenu
+g_menu_item_get_attribute
+g_menu_item_get_attribute_value
+g_menu_item_get_link
 g_menu_item_get_type
 g_menu_item_new
+g_menu_item_new_from_model
 g_menu_item_new_section
 g_menu_item_new_submenu
 g_menu_item_set_action_and_target
@@ -1711,3 +1753,17 @@ g_resources_unregister
 g_static_resource_fini
 g_static_resource_get_resource
 g_static_resource_init
+g_resolver_lookup_records
+g_resolver_lookup_records_async
+g_resolver_lookup_records_finish
+g_resolver_record_type_get_type
+g_test_dbus_add_service_dir
+g_test_dbus_flags_get_type
+g_test_dbus_get_bus_address
+g_test_dbus_get_flags
+g_test_dbus_get_type
+g_test_dbus_new
+g_test_dbus_down
+g_test_dbus_stop
+g_test_dbus_up
+g_test_dbus_unset

@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Error Reporting</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-core.html" title="GLib Core Application Support">
 <link rel="prev" href="glib-IO-Channels.html" title="IO Channels">
 <link rel="next" href="glib-Warnings-and-Assertions.html" title="Message Output and Debugging Functions">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -497,7 +497,7 @@ unhandled; it means to handle them by doing nothing.
 <p>
 Error domains and codes are conventionally named as follows:
 </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
 <p>
   The error domain is called
@@ -557,7 +557,7 @@ Error domains and codes are conventionally named as follows:
 <p>
 Summary of rules for use of <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>:
 </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem"><p>
   Do not report programming errors via <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>.
 </p></li>
@@ -638,8 +638,11 @@ Summary of rules for use of <a class="link" href="glib-Error-Reporting.html#GErr
 The <span class="structname">GError</span> structure contains
 information about an error that has occurred.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="glib-Quarks.html#GQuark" title="GQuark"><span class="type">GQuark</span></a> <em class="structfield"><code><a name="GError.domain"></a>domain</code></em>;</span></p></td>
@@ -669,8 +672,11 @@ information about an error that has occurred.
 Creates a new <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> with the given <em class="parameter"><code>domain</code></em> and <em class="parameter"><code>code</code></em>,
 and a message formatted with <em class="parameter"><code>format</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>domain</code></em> :</span></p></td>
@@ -708,8 +714,11 @@ not a <code class="function">printf()</code>-style format string. Use this funct
 <em class="parameter"><code>message</code></em> contains text you don't have control over,
 that could include <code class="function">printf()</code> escape sequences.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>domain</code></em> :</span></p></td>
@@ -742,8 +751,11 @@ that could include <code class="function">printf()</code> escape sequences.
 Creates a new <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> with the given <em class="parameter"><code>domain</code></em> and <em class="parameter"><code>code</code></em>,
 and a message formatted with <em class="parameter"><code>format</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>domain</code></em> :</span></p></td>
@@ -778,8 +790,11 @@ and a message formatted with <em class="parameter"><code>format</code></em>.
 <p>
 Frees a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> and associated resources.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>
@@ -794,8 +809,11 @@ Frees a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GE
 <p>
 Makes a copy of <em class="parameter"><code>error</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
@@ -821,8 +839,11 @@ Returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE">
 otherwise. In particular, when <em class="parameter"><code>error</code></em> is <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>, <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> will
 be returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
@@ -857,8 +878,11 @@ be returned.
 Does nothing if <em class="parameter"><code>err</code></em> is <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>; if <em class="parameter"><code>err</code></em> is non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>, then *<em class="parameter"><code>err</code></em>
 must be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. A new <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> is created and assigned to *<em class="parameter"><code>err</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
@@ -899,8 +923,11 @@ Unlike <a class="link" href="glib-Error-Reporting.html#g-set-error" title="g_set
 Use this function if <em class="parameter"><code>message</code></em> contains text you don't have control over,
 that could include <code class="function">printf()</code> escape sequences.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
@@ -932,8 +959,11 @@ that could include <code class="function">printf()</code> escape sequences.
 If <em class="parameter"><code>dest</code></em> is <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>, free <em class="parameter"><code>src</code></em>; otherwise, moves <em class="parameter"><code>src</code></em> into *<em class="parameter"><code>dest</code></em>.
 The error variable <em class="parameter"><code>dest</code></em> points to must be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
@@ -954,8 +984,11 @@ The error variable <em class="parameter"><code>dest</code></em> points to must b
 If <em class="parameter"><code>err</code></em> is <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>, does nothing. If <em class="parameter"><code>err</code></em> is non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>,
 calls <a class="link" href="glib-Error-Reporting.html#g-error-free" title="g_error_free ()"><code class="function">g_error_free()</code></a> on *<em class="parameter"><code>err</code></em> and sets *<em class="parameter"><code>err</code></em> to <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> return location</td>
@@ -981,8 +1014,11 @@ also do nothing.  Whether or not it makes
 sense to take advantage of this feature is up
 to you.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
@@ -1015,8 +1051,11 @@ moves <em class="parameter"><code>src</code></em> into *<em class="parameter"><c
 After the move, add a prefix as with
 <a class="link" href="glib-Error-Reporting.html#g-prefix-error" title="g_prefix_error ()"><code class="function">g_prefix_error()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
@@ -1043,6 +1082,6 @@ After the move, add a prefix as with
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

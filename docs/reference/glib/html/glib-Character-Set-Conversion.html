@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Character Set Conversion</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-String-Utility-Functions.html" title="String Utility Functions">
 <link rel="next" href="glib-Unicode-Manipulation.html" title="Unicode Manipulation">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -187,7 +187,7 @@ name encodings correctly.
 <div class="orderedlist"><ol class="orderedlist" type="1">
 <li class="listitem"><p>
 If you get a file name from the file system from a function
-such as readdir(3) or <a href="http://developer.gnome.org/devel/gtk/GtkFileChooser.html#gtk-file-chooser-get-filename"><code class="function">gtk_file_chooser_get_filename()</code></a>,
+such as readdir(3) or <a href="http://library.gnome.org/devel/gtk3/GtkFileChooser.html#gtk-file-chooser-get-filename"><code class="function">gtk_file_chooser_get_filename()</code></a>,
 you do not need to do any conversion to pass that
 file name to functions like open(2), rename(2), or
 fopen(3) — those are "raw" file names which the file
@@ -237,10 +237,13 @@ Converts a string from one character set to another.
 </p>
 <p>
 Note that you should use <a class="link" href="glib-Character-Set-Conversion.html#g-iconv" title="g_iconv ()"><code class="function">g_iconv()</code></a> for streaming 
-conversions<sup>[<a href="glib-Character-Set-Conversion.html#ftn.streaming-state" class="footnoteref">3</a>]</sup>.
+conversions<a href="glib-Character-Set-Conversion.html#ftn.streaming-state" class="footnoteref"><sup class="footnoteref">[3]</sup></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -249,7 +252,7 @@ conversions<sup>[<a href="glib-Character-Set-Conversion.html#ftn.streaming-state
 <tr>
 <td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
 <td>the length of the string, or -1 if the string is
-nul-terminated<sup>[<a name="nul-unsafe" href="#ftn.nul-unsafe" class="footnote">2</a>]</sup>.</td>
+nul-terminated<a href="#ftn.nul-unsafe" class="footnote"><sup class="footnote"><a name="nul-unsafe"></a>[2]</sup></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>to_codeset</code></em> :</span></p></td>
@@ -314,10 +317,13 @@ in which case GLib will simply return that approximate conversion.
 </p>
 <p>
 Note that you should use <a class="link" href="glib-Character-Set-Conversion.html#g-iconv" title="g_iconv ()"><code class="function">g_iconv()</code></a> for streaming 
-conversions<sup>[<a href="glib-Character-Set-Conversion.html#ftn.streaming-state" class="footnoteref">3</a>]</sup>.
+conversions<a href="glib-Character-Set-Conversion.html#ftn.streaming-state" class="footnoteref"><sup class="footnoteref">[3]</sup></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -326,7 +332,7 @@ conversions<sup>[<a href="glib-Character-Set-Conversion.html#ftn.streaming-state
 <tr>
 <td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
 <td>the length of the string, or -1 if the string is
-nul-terminated<sup>[<a href="glib-Character-Set-Conversion.html#ftn.nul-unsafe" class="footnoteref">2</a>]</sup>.</td>
+nul-terminated<a href="glib-Character-Set-Conversion.html#ftn.nul-unsafe" class="footnoteref"><sup class="footnoteref">[2]</sup></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>to_codeset</code></em> :</span></p></td>
@@ -391,10 +397,13 @@ Converts a string from one character set to another.
 </p>
 <p>
 Note that you should use <a class="link" href="glib-Character-Set-Conversion.html#g-iconv" title="g_iconv ()"><code class="function">g_iconv()</code></a> for streaming 
-conversions<sup>[<a name="streaming-state" href="#ftn.streaming-state" class="footnote">3</a>]</sup>.
+conversions<a href="#ftn.streaming-state" class="footnote"><sup class="footnote"><a name="streaming-state"></a>[3]</sup></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -403,7 +412,7 @@ conversions<sup>[<a name="streaming-state" href="#ftn.streaming-state" class="fo
 <tr>
 <td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
 <td>the length of the string, or -1 if the string is
-nul-terminated<sup>[<a href="glib-Character-Set-Conversion.html#ftn.nul-unsafe" class="footnoteref">2</a>]</sup>.</td>
+nul-terminated<a href="glib-Character-Set-Conversion.html#ftn.nul-unsafe" class="footnoteref"><sup class="footnoteref">[2]</sup></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>converter</code></em> :</span></p></td>
@@ -465,8 +474,11 @@ a native implementation.
 GLib provides <a class="link" href="glib-Character-Set-Conversion.html#g-convert" title="g_convert ()"><code class="function">g_convert()</code></a> and <a class="link" href="glib-Character-Set-Conversion.html#g-locale-to-utf8" title="g_locale_to_utf8 ()"><code class="function">g_locale_to_utf8()</code></a> which are likely
 more convenient than the raw iconv wrappers.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>to_codeset</code></em> :</span></p></td>
@@ -501,8 +513,11 @@ a native implementation.
 GLib provides <a class="link" href="glib-Character-Set-Conversion.html#g-convert" title="g_convert ()"><code class="function">g_convert()</code></a> and <a class="link" href="glib-Character-Set-Conversion.html#g-locale-to-utf8" title="g_locale_to_utf8 ()"><code class="function">g_locale_to_utf8()</code></a> which are likely
 more convenient than the raw iconv wrappers.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>converter</code></em> :</span></p></td>
@@ -549,8 +564,11 @@ you are done converting things.
 GLib provides <a class="link" href="glib-Character-Set-Conversion.html#g-convert" title="g_convert ()"><code class="function">g_convert()</code></a> and <a class="link" href="glib-Character-Set-Conversion.html#g-locale-to-utf8" title="g_locale_to_utf8 ()"><code class="function">g_locale_to_utf8()</code></a> which are likely
 more convenient than the raw iconv wrappers.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>converter</code></em> :</span></p></td>
@@ -578,8 +596,11 @@ the C runtime (usually the same as that used by the operating
 system) in the <a class="link" href="glib-running.html#setlocale" title="Locale">current locale</a> into a
 UTF-8 string.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>opsysstring</code></em> :</span></p></td>
@@ -589,7 +610,7 @@ this means the system codepage.</td>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
 <td>the length of the string, or -1 if the string is
-nul-terminated<sup>[<a href="glib-Character-Set-Conversion.html#ftn.nul-unsafe" class="footnoteref">2</a>]</sup>.</td>
+nul-terminated<a href="glib-Character-Set-Conversion.html#ftn.nul-unsafe" class="footnoteref"><sup class="footnoteref">[2]</sup></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bytes_read</code></em> :</span></p></td>
@@ -633,8 +654,11 @@ filenames into a UTF-8 string. Note that on Windows GLib uses UTF-8
 for filenames; on other platforms, this function indirectly depends on 
 the <a class="link" href="glib-running.html#setlocale" title="Locale">current locale</a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>opsysstring</code></em> :</span></p></td>
@@ -643,7 +667,7 @@ the <a class="link" href="glib-running.html#setlocale" title="Locale">current lo
 <tr>
 <td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
 <td>the length of the string, or -1 if the string is
-nul-terminated<sup>[<a href="glib-Character-Set-Conversion.html#ftn.nul-unsafe" class="footnoteref">2</a>]</sup>.</td>
+nul-terminated<a href="glib-Character-Set-Conversion.html#ftn.nul-unsafe" class="footnoteref"><sup class="footnoteref">[2]</sup></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bytes_read</code></em> :</span></p></td>
@@ -687,8 +711,11 @@ filenames. Note that on Windows GLib uses UTF-8 for filenames;
 on other platforms, this function indirectly depends on the 
 <a class="link" href="glib-running.html#setlocale" title="Locale">current locale</a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>utf8string</code></em> :</span></p></td>
@@ -762,8 +789,11 @@ Note that on Unix, regardless of the locale character set or
 <code class="envar">G_FILENAME_ENCODING</code> value, the actual file names present 
 on a system might be in any random encoding or just gibberish.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>charsets</code></em> :</span></p></td>
@@ -801,8 +831,11 @@ If you know the whole pathname of the file you should use
 <a class="link" href="glib-Character-Set-Conversion.html#g-filename-display-basename" title="g_filename_display_basename ()"><code class="function">g_filename_display_basename()</code></a>, since that allows location-based
 translation of filenames.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
@@ -842,8 +875,11 @@ translation of well known locations can be done.
 This function is preferred over <a class="link" href="glib-Character-Set-Conversion.html#g-filename-display-name" title="g_filename_display_name ()"><code class="function">g_filename_display_name()</code></a> if you know the
 whole path, as it allows translation.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
@@ -872,8 +908,11 @@ the C runtime (usually the same as that used by the operating
 system) in the <a class="link" href="glib-running.html#setlocale" title="Locale">current locale</a>. On
 Windows this means the system codepage.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>utf8string</code></em> :</span></p></td>
@@ -882,7 +921,7 @@ Windows this means the system codepage.
 <tr>
 <td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
 <td>the length of the string, or -1 if the string is
-nul-terminated<sup>[<a href="glib-Character-Set-Conversion.html#ftn.nul-unsafe" class="footnoteref">2</a>]</sup>.</td>
+nul-terminated<a href="glib-Character-Set-Conversion.html#ftn.nul-unsafe" class="footnoteref"><sup class="footnoteref">[2]</sup></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bytes_read</code></em> :</span></p></td>
@@ -927,8 +966,11 @@ errors. Any of the errors in <a class="link" href="glib-Character-Set-Conversion
 <p>
 Error codes returned by character set conversion routines.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-CONVERT-ERROR-NO-CONVERSION:CAPS"></a><span class="term"><code class="literal">G_CONVERT_ERROR_NO_CONVERSION</code></span></p></td>
@@ -990,8 +1032,11 @@ case you can perhaps avoid calling <a class="link" href="glib-Character-Set-Conv
 The string returned in <em class="parameter"><code>charset</code></em> is not allocated, and should not be
 freed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>charset</code></em> :</span></p></td>
@@ -1012,8 +1057,11 @@ freed.
 <p>
 Gets the character set for the current locale.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a newly allocated string containing the name
@@ -1023,13 +1071,13 @@ of the character set. This string must be freed with <a class="link" href="glib-
 </div>
 </div>
 <div class="footnotes">
-<br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a id="ftn.nul-unsafe" href="#nul-unsafe" class="para">2</a>] </sup>
+<br><hr style="width:100; align:left;">
+<div id="ftn.nul-unsafe" class="footnote"><p><a href="#nul-unsafe" class="para"><sup class="para">[2] </sup></a>
 Note that some encodings may allow nul bytes to
 occur inside strings. In that case, using -1 for
 the <em class="parameter"><code>len</code></em> parameter is unsafe.
 </p></div>
-<div class="footnote"><p><sup>[<a id="ftn.streaming-state" href="#streaming-state" class="para">3</a>] </sup>
+<div id="ftn.streaming-state" class="footnote"><p><a href="#streaming-state" class="para"><sup class="para">[3] </sup></a>
 Despite the fact that <em class="parameter"><code>byes_read</code></em> can return information about partial 
 characters, the <code class="literal">g_convert_...</code> functions
 are not generally suitable for streaming. If the underlying converter 
@@ -1044,6 +1092,6 @@ character.)
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Pointer Arrays</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-data-types.html" title="GLib Data Types">
 <link rel="prev" href="glib-Arrays.html" title="Arrays">
 <link rel="next" href="glib-Byte-Arrays.html" title="Byte Arrays">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -120,7 +120,7 @@ To free a pointer array, use <a class="link" href="glib-Pointer-Arrays.html#g-pt
 <p>
 </p>
 <div class="example">
-<a name="id746037"></a><p class="title"><b>Example 16. Using a <a class="link" href="glib-Pointer-Arrays.html#GPtrArray" title="struct GPtrArray"><span class="type">GPtrArray</span></a></b></p>
+<a name="idp40522256"></a><p class="title"><b>Example 16. Using a <a class="link" href="glib-Pointer-Arrays.html#GPtrArray" title="struct GPtrArray"><span class="type">GPtrArray</span></a></b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -172,8 +172,11 @@ To free a pointer array, use <a class="link" href="glib-Pointer-Arrays.html#g-pt
 <p>
 Contains the public fields of a pointer array.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> *<em class="structfield"><code><a name="GPtrArray.pdata"></a>pdata</code></em>;</span></p></td>
@@ -194,8 +197,11 @@ array grows.</td>
 <p>
 Creates a new <a class="link" href="glib-Pointer-Arrays.html#GPtrArray" title="struct GPtrArray"><span class="type">GPtrArray</span></a> with a reference count of 1.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the new <a class="link" href="glib-Pointer-Arrays.html#GPtrArray" title="struct GPtrArray"><span class="type">GPtrArray</span></a>.</td>
@@ -212,8 +218,11 @@ and a reference count of 1. This avoids frequent reallocation, if
 you are going to add many pointers to the array. Note however that
 the size of the array is still 0.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>reserved_size</code></em> :</span></p></td>
@@ -236,8 +245,11 @@ for freeing each element when the array is destroyed either via
 <a class="link" href="glib-Pointer-Arrays.html#g-ptr-array-unref" title="g_ptr_array_unref ()"><code class="function">g_ptr_array_unref()</code></a>, when <a class="link" href="glib-Pointer-Arrays.html#g-ptr-array-free" title="g_ptr_array_free ()"><code class="function">g_ptr_array_free()</code></a> is called with <em class="parameter"><code>free_segment</code></em>
 set to <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> or when removing elements.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>element_free_func</code></em> :</span></p></td>
@@ -266,8 +278,11 @@ for freeing each element when the array is destroyed either via
 <a class="link" href="glib-Pointer-Arrays.html#g-ptr-array-unref" title="g_ptr_array_unref ()"><code class="function">g_ptr_array_unref()</code></a>, when <a class="link" href="glib-Pointer-Arrays.html#g-ptr-array-free" title="g_ptr_array_free ()"><code class="function">g_ptr_array_free()</code></a> is called with <em class="parameter"><code>free_segment</code></em>
 set to <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> or when removing elements.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>reserved_size</code></em> :</span></p></td>
@@ -296,8 +311,11 @@ Sets a function for freeing each element when <em class="parameter"><code>array<
 either via <a class="link" href="glib-Pointer-Arrays.html#g-ptr-array-unref" title="g_ptr_array_unref ()"><code class="function">g_ptr_array_unref()</code></a>, when <a class="link" href="glib-Pointer-Arrays.html#g-ptr-array-free" title="g_ptr_array_free ()"><code class="function">g_ptr_array_free()</code></a> is called
 with <em class="parameter"><code>free_segment</code></em> set to <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> or when removing elements.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -317,19 +335,24 @@ with <em class="parameter"><code>free_segment</code></em> set to <a class="link"
 <a name="g-ptr-array-ref"></a><h3>g_ptr_array_ref ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Pointer-Arrays.html#GPtrArray" title="struct GPtrArray"><span class="returnvalue">GPtrArray</span></a> *         g_ptr_array_ref                     (<em class="parameter"><code><a class="link" href="glib-Pointer-Arrays.html#GPtrArray" title="struct GPtrArray"><span class="type">GPtrArray</span></a> *array</code></em>);</pre>
 <p>
-Atomically increments the reference count of <em class="parameter"><code>array</code></em> by one. This
-function is MT-safe and may be called from any thread.
+Atomically increments the reference count of <em class="parameter"><code>array</code></em> by one.
+This function is thread-safe and may be called from any thread.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
-<td>A <a class="link" href="glib-Arrays.html#GArray" title="struct GArray"><span class="type">GArray</span></a>.</td>
+<td>a <a class="link" href="glib-Pointer-Arrays.html#GPtrArray" title="struct GPtrArray"><span class="type">GPtrArray</span></a>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>The passed in <a class="link" href="glib-Pointer-Arrays.html#GPtrArray" title="struct GPtrArray"><span class="type">GPtrArray</span></a>.</td>
+<td>The passed in <a class="link" href="glib-Pointer-Arrays.html#GPtrArray" title="struct GPtrArray"><span class="type">GPtrArray</span></a>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -345,8 +368,11 @@ reference count drops to 0, the effect is the same as calling
 <a class="link" href="glib-Pointer-Arrays.html#g-ptr-array-free" title="g_ptr_array_free ()"><code class="function">g_ptr_array_free()</code></a> with <em class="parameter"><code>free_segment</code></em> set to <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>. This function
 is MT-safe and may be called from any thread.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
 <td>A <a class="link" href="glib-Pointer-Arrays.html#GPtrArray" title="struct GPtrArray"><span class="type">GPtrArray</span></a>.</td>
@@ -363,8 +389,11 @@ is MT-safe and may be called from any thread.
 Adds a pointer to the end of the pointer array. The array will grow
 in size automatically if necessary.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -392,8 +421,11 @@ removed element.
 It returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if the pointer was removed, or <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> if the
 pointer was not found.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -423,8 +455,11 @@ following elements are moved down one place. If <em class="parameter"><code>arra
 non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> <a class="link" href="glib-Datasets.html#GDestroyNotify" title="GDestroyNotify ()"><span class="type">GDestroyNotify</span></a> function it is called for the removed
 element.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -457,8 +492,11 @@ faster than <a class="link" href="glib-Pointer-Arrays.html#g-ptr-array-remove" t
 It returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if the pointer was removed, or <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> if the
 pointer was not found.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -488,8 +526,11 @@ function does not preserve the order of the array. But it is faster
 than <a class="link" href="glib-Pointer-Arrays.html#g-ptr-array-remove-index" title="g_ptr_array_remove_index ()"><code class="function">g_ptr_array_remove_index()</code></a>. If <em class="parameter"><code>array</code></em> has a non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
 <a class="link" href="glib-Datasets.html#GDestroyNotify" title="GDestroyNotify ()"><span class="type">GDestroyNotify</span></a> function it is called for the removed element.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -518,8 +559,11 @@ from a <a class="link" href="glib-Pointer-Arrays.html#GPtrArray" title="struct G
 gap. If <em class="parameter"><code>array</code></em> has a non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> <a class="link" href="glib-Datasets.html#GDestroyNotify" title="GDestroyNotify ()"><span class="type">GDestroyNotify</span></a> function it is called
 for the removed elements.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -561,8 +605,11 @@ the pointers in the array.</p>
 <p>
 This is guaranteed to be a stable sort since version 2.32.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -598,8 +645,11 @@ pointers to the pointers in the array.</p>
 <p>
 This is guaranteed to be a stable sort since version 2.32.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -627,8 +677,11 @@ newly-added elements will be set to <a class="link" href="glib-Standard-Macros.h
 if <em class="parameter"><code>array</code></em> has a non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> <a class="link" href="glib-Datasets.html#GDestroyNotify" title="GDestroyNotify ()"><span class="type">GDestroyNotify</span></a> function then it will be
 called for the removed elements.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -648,8 +701,11 @@ called for the removed elements.
 <p>
 Returns the pointer at the given index of the pointer array.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -689,8 +745,11 @@ memory, they should be freed separately if <em class="parameter"><code>free_seg<
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -717,8 +776,11 @@ The pointer array should be freed using <a class="link" href="glib-Memory-Alloca
 <p>
 Calls a function for each element of a <a class="link" href="glib-Pointer-Arrays.html#GPtrArray" title="struct GPtrArray"><span class="type">GPtrArray</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
@@ -741,6 +803,6 @@ Calls a function for each element of a <a class="link" href="glib-Pointer-Arrays
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GFileInfo</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="file_ops.html" title="File Operations">
 <link rel="prev" href="gio-GFileAttribute.html" title="GFileAttribute">
 <link rel="next" href="GFileEnumerator.html" title="GFileEnumerator">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -55,6 +55,7 @@ enum                <a class="link" href="GFileInfo.html#GFileType" title="enum 
 #define             <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-EDIT-NAME:CAPS" title="G_FILE_ATTRIBUTE_STANDARD_EDIT_NAME">G_FILE_ATTRIBUTE_STANDARD_EDIT_NAME</a>
 #define             <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-COPY-NAME:CAPS" title="G_FILE_ATTRIBUTE_STANDARD_COPY_NAME">G_FILE_ATTRIBUTE_STANDARD_COPY_NAME</a>
 #define             <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-ICON:CAPS" title="G_FILE_ATTRIBUTE_STANDARD_ICON">G_FILE_ATTRIBUTE_STANDARD_ICON</a>
+#define             <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-SYMBOLIC-ICON:CAPS" title="G_FILE_ATTRIBUTE_STANDARD_SYMBOLIC_ICON">G_FILE_ATTRIBUTE_STANDARD_SYMBOLIC_ICON</a>
 #define             <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-CONTENT-TYPE:CAPS" title="G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE">G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE</a>
 #define             <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-FAST-CONTENT-TYPE:CAPS" title="G_FILE_ATTRIBUTE_STANDARD_FAST_CONTENT_TYPE">G_FILE_ATTRIBUTE_STANDARD_FAST_CONTENT_TYPE</a>
 #define             <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-SIZE:CAPS" title="G_FILE_ATTRIBUTE_STANDARD_SIZE">G_FILE_ATTRIBUTE_STANDARD_SIZE</a>
@@ -207,6 +208,7 @@ const <span class="returnvalue">char</span> *        <a class="link" href="GFile
 const <span class="returnvalue">char</span> *        <a class="link" href="GFileInfo.html#g-file-info-get-display-name" title="g_file_info_get_display_name ()">g_file_info_get_display_name</a>        (<em class="parameter"><code><a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a> *info</code></em>);
 const <span class="returnvalue">char</span> *        <a class="link" href="GFileInfo.html#g-file-info-get-edit-name" title="g_file_info_get_edit_name ()">g_file_info_get_edit_name</a>           (<em class="parameter"><code><a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a> *info</code></em>);
 <a class="link" href="GIcon.html" title="GIcon"><span class="returnvalue">GIcon</span></a> *             <a class="link" href="GFileInfo.html#g-file-info-get-icon" title="g_file_info_get_icon ()">g_file_info_get_icon</a>                (<em class="parameter"><code><a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a> *info</code></em>);
+<a class="link" href="GIcon.html" title="GIcon"><span class="returnvalue">GIcon</span></a> *             <a class="link" href="GFileInfo.html#g-file-info-get-symbolic-icon" title="g_file_info_get_symbolic_icon ()">g_file_info_get_symbolic_icon</a>       (<em class="parameter"><code><a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a> *info</code></em>);
 const <span class="returnvalue">char</span> *        <a class="link" href="GFileInfo.html#g-file-info-get-content-type" title="g_file_info_get_content_type ()">g_file_info_get_content_type</a>        (<em class="parameter"><code><a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a> *info</code></em>);
 <a href="./../glib/glib/glib-Basic-Types.html#goffset"><span class="returnvalue">goffset</span></a>             <a class="link" href="GFileInfo.html#g-file-info-get-size" title="g_file_info_get_size ()">g_file_info_get_size</a>                (<em class="parameter"><code><a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a> *info</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GFileInfo.html#g-file-info-get-modification-time" title="g_file_info_get_modification_time ()">g_file_info_get_modification_time</a>   (<em class="parameter"><code><a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a> *info</code></em>,
@@ -230,6 +232,8 @@ const <span class="returnvalue">char</span> *        <a class="link" href="GFile
 <span class="returnvalue">void</span>                <a class="link" href="GFileInfo.html#g-file-info-set-edit-name" title="g_file_info_set_edit_name ()">g_file_info_set_edit_name</a>           (<em class="parameter"><code><a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a> *info</code></em>,
                                                          <em class="parameter"><code>const <span class="type">char</span> *edit_name</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GFileInfo.html#g-file-info-set-icon" title="g_file_info_set_icon ()">g_file_info_set_icon</a>                (<em class="parameter"><code><a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a> *info</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GIcon.html" title="GIcon"><span class="type">GIcon</span></a> *icon</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GFileInfo.html#g-file-info-set-symbolic-icon" title="g_file_info_set_symbolic_icon ()">g_file_info_set_symbolic_icon</a>       (<em class="parameter"><code><a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a> *info</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GIcon.html" title="GIcon"><span class="type">GIcon</span></a> *icon</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GFileInfo.html#g-file-info-set-content-type" title="g_file_info_set_content_type ()">g_file_info_set_content_type</a>        (<em class="parameter"><code><a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a> *info</code></em>,
                                                          <em class="parameter"><code>const <span class="type">char</span> *content_type</code></em>);
@@ -330,8 +334,11 @@ Determines if a string matches a file attribute.
 <p>
 Indicates the file's on-disk type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-FILE-TYPE-UNKNOWN:CAPS"></a><span class="term"><code class="literal">G_FILE_TYPE_UNKNOWN</code></span></p></td>
@@ -503,6 +510,18 @@ A key in the "standard" namespace for getting the icon for the file.
 Corresponding <a class="link" href="gio-GFileAttribute.html#GFileAttributeType" title="enum GFileAttributeType"><span class="type">GFileAttributeType</span></a> is <a class="link" href="gio-GFileAttribute.html#G-FILE-ATTRIBUTE-TYPE-OBJECT:CAPS"><code class="literal">G_FILE_ATTRIBUTE_TYPE_OBJECT</code></a>.
 The value for this key should contain a <a class="link" href="GIcon.html" title="GIcon"><span class="type">GIcon</span></a>.
 </p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-FILE-ATTRIBUTE-STANDARD-SYMBOLIC-ICON:CAPS"></a><h3>G_FILE_ATTRIBUTE_STANDARD_SYMBOLIC_ICON</h3>
+<pre class="programlisting">#define G_FILE_ATTRIBUTE_STANDARD_SYMBOLIC_ICON "standard::symbolic-icon"   /* object (GIcon) */
+</pre>
+<p>
+A key in the "standard" namespace for getting the symbolic icon for the file.
+Corresponding <a class="link" href="gio-GFileAttribute.html#GFileAttributeType" title="enum GFileAttributeType"><span class="type">GFileAttributeType</span></a> is <a class="link" href="gio-GFileAttribute.html#G-FILE-ATTRIBUTE-TYPE-OBJECT:CAPS"><code class="literal">G_FILE_ATTRIBUTE_TYPE_OBJECT</code></a>.
+The value for this key should contain a <a class="link" href="GIcon.html" title="GIcon"><span class="type">GIcon</span></a>.
+</p>
+<p class="since">Since 2.34</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1232,13 +1251,13 @@ Corresponding <a class="link" href="gio-GFileAttribute.html#GFileAttributeType" 
 <hr>
 <div class="refsect2">
 <a name="G-FILE-ATTRIBUTE-TRASH-ORIG-PATH:CAPS"></a><h3>G_FILE_ATTRIBUTE_TRASH_ORIG_PATH</h3>
-<pre class="programlisting">#define G_FILE_ATTRIBUTE_TRASH_ORIG_PATH "trash::orig-path"     /* string */
+<pre class="programlisting">#define G_FILE_ATTRIBUTE_TRASH_ORIG_PATH "trash::orig-path"     /* byte string */
 </pre>
 <p>
 A key in the "trash" namespace.  When requested against
 items in "trash:///", will return the original path to the file before it
 was trashed. Corresponding <a class="link" href="gio-GFileAttribute.html#GFileAttributeType" title="enum GFileAttributeType"><span class="type">GFileAttributeType</span></a> is
-<a class="link" href="gio-GFileAttribute.html#G-FILE-ATTRIBUTE-TYPE-STRING:CAPS"><code class="literal">G_FILE_ATTRIBUTE_TYPE_STRING</code></a>.
+<a class="link" href="gio-GFileAttribute.html#G-FILE-ATTRIBUTE-TYPE-BYTE-STRING:CAPS"><code class="literal">G_FILE_ATTRIBUTE_TYPE_BYTE_STRING</code></a>.
 </p>
 <p class="since">Since 2.24.</p>
 </div>
@@ -1278,8 +1297,11 @@ Corresponding <a class="link" href="gio-GFileAttribute.html#GFileAttributeType" 
 <p>
 Creates a new file info structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a <a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a>.</td>
@@ -1293,8 +1315,11 @@ Creates a new file info structure.
 <p>
 Duplicates a file info structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>other</code></em> :</span></p></td>
@@ -1317,8 +1342,11 @@ Duplicates a file info structure.
 Copies all of the <a class="link" href="gio-GFileAttribute.html" title="GFileAttribute">GFileAttribute</a>s
 from <em class="parameter"><code>src_info</code></em> to <em class="parameter"><code>dest_info</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>src_info</code></em> :</span></p></td>
@@ -1339,8 +1367,11 @@ from <em class="parameter"><code>src_info</code></em> to <em class="parameter"><
 <p>
 Checks if a file info structure has an attribute named <em class="parameter"><code>attribute</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1368,8 +1399,11 @@ Checks if a file info structure has an attribute named <em class="parameter"><co
 Checks if a file info structure has an attribute in the
 specified <em class="parameter"><code>name_space</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1397,8 +1431,11 @@ specified <em class="parameter"><code>name_space</code></em>.
 <p>
 Lists the file info structure's attributes.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1426,8 +1463,11 @@ possible attribute types for the given <em class="parameter"><code>name_space</c
 <p>
 Gets the attribute type for an attribute key.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1453,8 +1493,11 @@ Gets the attribute type for an attribute key.
 <p>
 Removes all cases of <em class="parameter"><code>attribute</code></em> from <em class="parameter"><code>info</code></em> if it exists.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1477,8 +1520,11 @@ Gets the value of a attribute, formated as a string.
 This escapes things as needed to make the string valid
 utf8.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1507,8 +1553,11 @@ When you're done with the string it must be freed with <a href="./../glib/glib/g
 <p>
 Gets the attribute type, value and status for an attribute key.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1552,8 +1601,11 @@ Gets the attribute type, value and status for an attribute key.
 <p>
 Gets the attribute status for an attribute key.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1581,8 +1633,11 @@ Gets the attribute status for an attribute key.
 Gets the value of a string attribute. If the attribute does
 not contain a string, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> will be returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1609,8 +1664,11 @@ not contain a string, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAP
 Gets the value of a stringv attribute. If the attribute does
 not contain a stringv, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> will be returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1640,8 +1698,11 @@ not contain a stringv, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CA
 Gets the value of a byte string attribute. If the attribute does
 not contain a byte string, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> will be returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1668,8 +1729,11 @@ not contain a byte string, <a href="./../glib/glib/glib-Standard-Macros.html#NUL
 Gets the value of a boolean attribute. If the attribute does not
 contain a boolean value, <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> will be returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1696,8 +1760,11 @@ Gets an unsigned 32-bit integer contained within the attribute. If the
 attribute does not contain an unsigned 32-bit integer, or is invalid,
 0 will be returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1724,8 +1791,11 @@ Gets a signed 32-bit integer contained within the attribute. If the
 attribute does not contain a signed 32-bit integer, or is invalid,
 0 will be returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1752,8 +1822,11 @@ Gets a unsigned 64-bit integer contained within the attribute. If the
 attribute does not contain an unsigned 64-bit integer, or is invalid,
 0 will be returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1780,8 +1853,11 @@ Gets a signed 64-bit integer contained within the attribute. If the
 attribute does not contain an signed 64-bit integer, or is invalid,
 0 will be returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1807,8 +1883,11 @@ attribute does not contain an signed 64-bit integer, or is invalid,
 Gets the value of a <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> attribute. If the attribute does
 not contain a <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> will be returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1838,8 +1917,11 @@ not contain a <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GO
 Sets the <em class="parameter"><code>attribute</code></em> to contain the given value, if possible. To unset the
 attribute, use <code class="literal">G_ATTRIBUTE_TYPE_INVALID</code> for <em class="parameter"><code>type</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1876,8 +1958,11 @@ or similar functions.
 The attribute must exist in <em class="parameter"><code>info</code></em> for this to work. Otherwise <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>
 is returned and <em class="parameter"><code>info</code></em> is unchanged.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1912,8 +1997,11 @@ is returned and <em class="parameter"><code>info</code></em> is unchanged.
 Sets the <em class="parameter"><code>attribute</code></em> to contain the given <em class="parameter"><code>attr_value</code></em>,
 if possible.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1943,8 +2031,11 @@ if possible.
 <p>
 Sinze: 2.22
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1973,8 +2064,11 @@ Sinze: 2.22
 Sets the <em class="parameter"><code>attribute</code></em> to contain the given <em class="parameter"><code>attr_value</code></em>,
 if possible.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2001,8 +2095,11 @@ if possible.
 Sets the <em class="parameter"><code>attribute</code></em> to contain the given <em class="parameter"><code>attr_value</code></em>,
 if possible.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2029,8 +2126,11 @@ if possible.
 Sets the <em class="parameter"><code>attribute</code></em> to contain the given <em class="parameter"><code>attr_value</code></em>,
 if possible.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2057,8 +2157,11 @@ if possible.
 Sets the <em class="parameter"><code>attribute</code></em> to contain the given <em class="parameter"><code>attr_value</code></em>,
 if possible.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2085,8 +2188,11 @@ if possible.
 Sets the <em class="parameter"><code>attribute</code></em> to contain the given <em class="parameter"><code>attr_value</code></em>,
 if possible.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2113,8 +2219,11 @@ if possible.
 Sets the <em class="parameter"><code>attribute</code></em> to contain the given <em class="parameter"><code>attr_value</code></em>,
 if possible.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2141,8 +2250,11 @@ if possible.
 Sets the <em class="parameter"><code>attribute</code></em> to contain the given <em class="parameter"><code>attr_value</code></em>,
 if possible.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2166,8 +2278,11 @@ if possible.
 <p>
 Clears the status information from <em class="parameter"><code>info</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
 <td>a <a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a>.</td>
@@ -2182,8 +2297,11 @@ Clears the status information from <em class="parameter"><code>info</code></em>.
 Gets a file's type (whether it is a regular file, symlink, etc).
 This is different from the file's content type, see <a class="link" href="GFileInfo.html#g-file-info-get-content-type" title="g_file_info_get_content_type ()"><code class="function">g_file_info_get_content_type()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2203,8 +2321,11 @@ This is different from the file's content type, see <a class="link" href="GFileI
 <p>
 Checks if a file is hidden.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2225,8 +2346,11 @@ Checks if a file is hidden.
 <p>
 Checks if a file is a backup file.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2247,8 +2371,11 @@ Checks if a file is a backup file.
 <p>
 Checks if a file is a symlink.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2269,8 +2396,11 @@ Checks if a file is a symlink.
 <p>
 Gets the name for a file.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2290,8 +2420,11 @@ Gets the name for a file.
 <p>
 Gets a display name for a file.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2311,8 +2444,11 @@ Gets a display name for a file.
 <p>
 Gets the edit name for a file.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2332,8 +2468,11 @@ Gets the edit name for a file.
 <p>
 Gets the icon for a file.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2350,13 +2489,43 @@ Gets the icon for a file.
 </div>
 <hr>
 <div class="refsect2">
+<a name="g-file-info-get-symbolic-icon"></a><h3>g_file_info_get_symbolic_icon ()</h3>
+<pre class="programlisting"><a class="link" href="GIcon.html" title="GIcon"><span class="returnvalue">GIcon</span></a> *             g_file_info_get_symbolic_icon       (<em class="parameter"><code><a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a> *info</code></em>);</pre>
+<p>
+Gets the symbolic icon for a file.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
+<td>a <a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="GIcon.html" title="GIcon"><span class="type">GIcon</span></a> for the given <em class="parameter"><code>info</code></em>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.34</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="g-file-info-get-content-type"></a><h3>g_file_info_get_content_type ()</h3>
 <pre class="programlisting">const <span class="returnvalue">char</span> *        g_file_info_get_content_type        (<em class="parameter"><code><a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a> *info</code></em>);</pre>
 <p>
 Gets the file's content type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2376,8 +2545,11 @@ Gets the file's content type.
 <p>
 Gets the file's size.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2399,8 +2571,11 @@ Gets the file's size.
 Gets the modification time of the current <em class="parameter"><code>info</code></em> and sets it
 in <em class="parameter"><code>result</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2408,7 +2583,7 @@ in <em class="parameter"><code>result</code></em>.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
-<td>a <a href="./../glib/glib/glib-Date-and-Time-Functions.html#GTimeVal"><span class="type">GTimeVal</span></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym> caller-allocates]</span>
+<td>a <a href="./../glib/glib/glib-Date-and-Time-Functions.html#GTimeVal"><span class="type">GTimeVal</span></a>. <span class="annotation">[<acronym title="Out parameter, where caller must allocate storage."><span class="acronym">out caller-allocates</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -2421,8 +2596,11 @@ in <em class="parameter"><code>result</code></em>.
 <p>
 Gets the symlink target for a given <a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2443,8 +2621,11 @@ Gets the symlink target for a given <a class="link" href="GFileInfo.html" title=
 Gets the <a class="link" href="GFile.html#gfile-etag">entity tag</a> for a given
 <a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a>. See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-ETAG-VALUE:CAPS" title="G_FILE_ATTRIBUTE_ETAG_VALUE"><code class="literal">G_FILE_ATTRIBUTE_ETAG_VALUE</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2465,8 +2646,11 @@ Gets the <a class="link" href="GFile.html#gfile-etag">entity tag</a> for a given
 Gets the value of the sort_order attribute from the <a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a>.
 See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-SORT-ORDER:CAPS" title="G_FILE_ATTRIBUTE_STANDARD_SORT_ORDER"><code class="literal">G_FILE_ATTRIBUTE_STANDARD_SORT_ORDER</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2487,8 +2671,11 @@ See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-SORT-ORDER:CA
 <p>
 Sets <em class="parameter"><code>mask</code></em> on <em class="parameter"><code>info</code></em> to match specific attribute types.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2509,8 +2696,11 @@ Sets <em class="parameter"><code>mask</code></em> on <em class="parameter"><code
 Unsets a mask set by <a class="link" href="GFileInfo.html#g-file-info-set-attribute-mask" title="g_file_info_set_attribute_mask ()"><code class="function">g_file_info_set_attribute_mask()</code></a>, if one
 is set.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
 <td>
@@ -2527,8 +2717,11 @@ is set.
 Sets the file type in a <a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a> to <em class="parameter"><code>type</code></em>.
 See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-TYPE:CAPS" title="G_FILE_ATTRIBUTE_STANDARD_TYPE"><code class="literal">G_FILE_ATTRIBUTE_STANDARD_TYPE</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2550,8 +2743,11 @@ See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-TYPE:CAPS" ti
 Sets the "is_hidden" attribute in a <a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a> according to <em class="parameter"><code>is_symlink</code></em>.
 See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-IS-HIDDEN:CAPS" title="G_FILE_ATTRIBUTE_STANDARD_IS_HIDDEN"><code class="literal">G_FILE_ATTRIBUTE_STANDARD_IS_HIDDEN</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2573,8 +2769,11 @@ See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-IS-HIDDEN:CAP
 Sets the "is_symlink" attribute in a <a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a> according to <em class="parameter"><code>is_symlink</code></em>.
 See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-IS-SYMLINK:CAPS" title="G_FILE_ATTRIBUTE_STANDARD_IS_SYMLINK"><code class="literal">G_FILE_ATTRIBUTE_STANDARD_IS_SYMLINK</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2596,8 +2795,11 @@ See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-IS-SYMLINK:CA
 Sets the name attribute for the current <a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a>.
 See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-NAME:CAPS" title="G_FILE_ATTRIBUTE_STANDARD_NAME"><code class="literal">G_FILE_ATTRIBUTE_STANDARD_NAME</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2619,8 +2821,11 @@ See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-NAME:CAPS" ti
 Sets the display name for the current <a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a>.
 See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-DISPLAY-NAME:CAPS" title="G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME"><code class="literal">G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2642,8 +2847,11 @@ See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-DISPLAY-NAME:
 Sets the edit name for the current file.
 See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-EDIT-NAME:CAPS" title="G_FILE_ATTRIBUTE_STANDARD_EDIT_NAME"><code class="literal">G_FILE_ATTRIBUTE_STANDARD_EDIT_NAME</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2665,8 +2873,11 @@ See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-EDIT-NAME:CAP
 Sets the icon for a given <a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a>.
 See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-ICON:CAPS" title="G_FILE_ATTRIBUTE_STANDARD_ICON"><code class="literal">G_FILE_ATTRIBUTE_STANDARD_ICON</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2681,6 +2892,33 @@ See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-ICON:CAPS" ti
 </div>
 <hr>
 <div class="refsect2">
+<a name="g-file-info-set-symbolic-icon"></a><h3>g_file_info_set_symbolic_icon ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_file_info_set_symbolic_icon       (<em class="parameter"><code><a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a> *info</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GIcon.html" title="GIcon"><span class="type">GIcon</span></a> *icon</code></em>);</pre>
+<p>
+Sets the symbolic icon for a given <a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a>.
+See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-SYMBOLIC-ICON:CAPS" title="G_FILE_ATTRIBUTE_STANDARD_SYMBOLIC_ICON"><code class="literal">G_FILE_ATTRIBUTE_STANDARD_SYMBOLIC_ICON</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
+<td>a <a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>a <a class="link" href="GIcon.html" title="GIcon"><span class="type">GIcon</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.34</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="g-file-info-set-content-type"></a><h3>g_file_info_set_content_type ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_file_info_set_content_type        (<em class="parameter"><code><a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a> *info</code></em>,
                                                          <em class="parameter"><code>const <span class="type">char</span> *content_type</code></em>);</pre>
@@ -2688,8 +2926,11 @@ See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-ICON:CAPS" ti
 Sets the content type attribute for a given <a class="link" href="GFileInfo.html" title="GFileInfo"><span class="type">GFileInfo</span></a>.
 See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-CONTENT-TYPE:CAPS" title="G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE"><code class="literal">G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2711,8 +2952,11 @@ See <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-CONTENT-TYPE:
 Sets the <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-SIZE:CAPS" title="G_FILE_ATTRIBUTE_STANDARD_SIZE"><code class="literal">G_FILE_ATTRIBUTE_STANDARD_SIZE</code></a> attribute in the file info
 to the given size.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2734,8 +2978,11 @@ to the given size.
 Sets the <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-TIME-MODIFIED:CAPS" title="G_FILE_ATTRIBUTE_TIME_MODIFIED"><code class="literal">G_FILE_ATTRIBUTE_TIME_MODIFIED</code></a> attribute in the file
 info to the given time value.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2757,8 +3004,11 @@ info to the given time value.
 Sets the <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-SYMLINK-TARGET:CAPS" title="G_FILE_ATTRIBUTE_STANDARD_SYMLINK_TARGET"><code class="literal">G_FILE_ATTRIBUTE_STANDARD_SYMLINK_TARGET</code></a> attribute in the file info
 to the given symlink target.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2780,8 +3030,11 @@ to the given symlink target.
 Sets the sort order attribute in the file info structure. See
 <a class="link" href="GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-SORT-ORDER:CAPS" title="G_FILE_ATTRIBUTE_STANDARD_SORT_ORDER"><code class="literal">G_FILE_ATTRIBUTE_STANDARD_SORT_ORDER</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -2816,7 +3069,7 @@ The wildcard "*" may be used to match all keys and namespaces, or
 Examples of strings to use:
 </p>
 <div class="table">
-<a name="id604125"></a><p class="title"><b>Table 3. File Attribute Matcher strings and results</b></p>
+<a name="idp12019312"></a><p class="title"><b>Table 3. File Attribute Matcher strings and results</b></p>
 <div class="table-contents"><table summary="File Attribute Matcher strings and results" border="1">
 <colgroup>
 <col>
@@ -2845,8 +3098,11 @@ all keys in the unix namespace.</td>
 </div>
 <p><br class="table-break">
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>attributes</code></em> :</span></p></td>
@@ -2866,8 +3122,11 @@ all keys in the unix namespace.</td>
 <p>
 References a file attribute matcher.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>matcher</code></em> :</span></p></td>
@@ -2897,8 +3156,11 @@ a namespace or attribute when the matcher matches everything. This
 is a limitation of the current implementation, but may be fixed
 in the future.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>matcher</code></em> :</span></p></td>
@@ -2925,8 +3187,11 @@ in the future.
 Unreferences <em class="parameter"><code>matcher</code></em>. If the reference count falls below 1,
 the <em class="parameter"><code>matcher</code></em> is automatically freed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>matcher</code></em> :</span></p></td>
 <td>a <a class="link" href="GFileInfo.html#GFileAttributeMatcher"><span class="type">GFileAttributeMatcher</span></a>.</td>
@@ -2943,8 +3208,11 @@ Checks if an attribute will be matched by an attribute matcher. If
 the matcher was created with the "*" matching string, this function
 will always return <a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>matcher</code></em> :</span></p></td>
@@ -2972,8 +3240,11 @@ will always return <a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS">
 Checks if a attribute matcher only matches a given attribute. Always
 returns <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> if "*" was used when creating the matcher.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>matcher</code></em> :</span></p></td>
@@ -3006,8 +3277,11 @@ using "*" and namespace is anything.)
 <p>
 TODO: this is awkwardly worded.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>matcher</code></em> :</span></p></td>
@@ -3034,8 +3308,11 @@ in the given <em class="parameter"><code>ns</code></em>, <a href="./../glib/glib
 <p>
 Gets the next matched attribute from a <a class="link" href="GFileInfo.html#GFileAttributeMatcher"><span class="type">GFileAttributeMatcher</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>matcher</code></em> :</span></p></td>
@@ -3059,8 +3336,11 @@ equal to the format passed to <a class="link" href="GFileInfo.html#g-file-attrib
 The output however, might not be identical, as the matcher may
 decide to use a different order or omit needless parts.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>matcher</code></em> :</span></p></td>
@@ -3084,6 +3364,6 @@ against or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code cl
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

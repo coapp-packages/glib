@@ -35,9 +35,11 @@ else
 MAYBE_PCRE = pcre 
 endif
 
-SUBDIRS = libcharset $(PRINTF_SUBDIR) $(MAYBE_PCRE) update-pcre . tests
-
+SUBDIRS = libcharset $(PRINTF_SUBDIR) $(MAYBE_PCRE) update-pcre .
 DIST_SUBDIRS = libcharset gnulib pcre update-pcre tests
+if BUILD_MODULAR_TESTS
+SUBDIRS += tests 
+endif
 
 AM_CPPFLAGS = 				\
 	$(glib_INCLUDES) 		\
@@ -82,7 +84,7 @@ EXTRA_DIST += 			\
 	gconstructor.h		\
 	$(MIRRORING_TAB_SOURCE)
 
-CLEANFILES= libglib-gdb.py
+CLEANFILES += libglib-gdb.py
 
 # These may be in the builddir too
 BUILT_EXTRA_DIST = 		\
@@ -166,6 +168,7 @@ libglib_2_0_la_SOURCES = 	\
 	gpoll.c			\
 	gprimes.c		\
 	gqsort.c		\
+	gquark.c		\
 	gqueue.c		\
 	grand.c			\
 	gregex.c		\

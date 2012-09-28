@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GInputStream</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="streaming.html" title="Streaming I/O">
 <link rel="prev" href="GSeekable.html" title="GSeekable">
 <link rel="next" href="GOutputStream.html" title="GOutputStream">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -95,6 +95,19 @@
 <a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GInputStream.html#g-input-stream-set-pending" title="g_input_stream_set_pending ()">g_input_stream_set_pending</a>          (<em class="parameter"><code><a class="link" href="GInputStream.html" title="GInputStream"><span class="type">GInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GInputStream.html#g-input-stream-clear-pending" title="g_input_stream_clear_pending ()">g_input_stream_clear_pending</a>        (<em class="parameter"><code><a class="link" href="GInputStream.html" title="GInputStream"><span class="type">GInputStream</span></a> *stream</code></em>);
+<a href="./../glib/glib/glib-Byte-Arrays.html#GBytes"><span class="returnvalue">GBytes</span></a> *            <a class="link" href="GInputStream.html#g-input-stream-read-bytes" title="g_input_stream_read_bytes ()">g_input_stream_read_bytes</a>           (<em class="parameter"><code><a class="link" href="GInputStream.html" title="GInputStream"><span class="type">GInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> count</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GInputStream.html#g-input-stream-read-bytes-async" title="g_input_stream_read_bytes_async ()">g_input_stream_read_bytes_async</a>     (<em class="parameter"><code><a class="link" href="GInputStream.html" title="GInputStream"><span class="type">GInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> count</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> io_priority</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a href="./../glib/glib/glib-Byte-Arrays.html#GBytes"><span class="returnvalue">GBytes</span></a> *            <a class="link" href="GInputStream.html#g-input-stream-read-bytes-finish" title="g_input_stream_read_bytes_finish ()">g_input_stream_read_bytes_finish</a>    (<em class="parameter"><code><a class="link" href="GInputStream.html" title="GInputStream"><span class="type">GInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GAsyncResult.html" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *result</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
 </pre>
 </div>
 <div class="refsect1">
@@ -170,8 +183,11 @@ partial result will be returned, without an error.
 <p>
 On error -1 is returned and <em class="parameter"><code>error</code></em> is set accordingly.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -228,8 +244,11 @@ If there is an error during the operation <a href="./../glib/glib/glib-Standard-
 is set to indicate the error status, <em class="parameter"><code>bytes_read</code></em> is updated to contain
 the number of bytes read into <em class="parameter"><code>buffer</code></em> before the error occurred.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -291,8 +310,11 @@ was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANC
 operation was partially finished when the operation was cancelled the
 partial result will be returned, without an error.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -354,8 +376,11 @@ was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANC
 Cancelling a close will still leave the stream closed, but some streams
 can use a faster close that doesn't block to e.g. check errors.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -418,8 +443,11 @@ The asyncronous methods have a default fallback that uses threads to implement
 asynchronicity, so they are optional for inheriting classes. However, if you
 override one you must override all.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -465,8 +493,11 @@ of the request.</td>
 <p>
 Finishes an asynchronous stream read operation.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -527,8 +558,11 @@ The asynchronous methods have a default fallback that uses threads to
 implement asynchronicity, so they are optional for inheriting classes.
 However, if you override one, you must override all.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -570,8 +604,11 @@ of the request.</td>
 <p>
 Finishes a stream skip operation.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -615,8 +652,11 @@ The asyncronous methods have a default fallback that uses threads to implement
 asynchronicity, so they are optional for inheriting classes. However, if you
 override one you must override all.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -654,8 +694,11 @@ of the request.</td>
 <p>
 Finishes closing a stream asynchronously, started from <a class="link" href="GInputStream.html#g-input-stream-close-async" title="g_input_stream_close_async ()"><code class="function">g_input_stream_close_async()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -685,8 +728,11 @@ ignore.</td>
 <p>
 Checks if an input stream is closed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -707,8 +753,11 @@ Checks if an input stream is closed.
 <p>
 Checks if an input stream has pending actions.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -732,8 +781,11 @@ Sets <em class="parameter"><code>stream</code></em> to have actions pending. If 
 already set or <em class="parameter"><code>stream</code></em> is closed, it will return <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> and set
 <em class="parameter"><code>error</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -759,18 +811,195 @@ ignore.</td>
 <p>
 Clears the pending flag on <em class="parameter"><code>stream</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
 <td>input stream</td>
 </tr></tbody>
 </table></div>
 </div>
+<hr>
+<div class="refsect2">
+<a name="g-input-stream-read-bytes"></a><h3>g_input_stream_read_bytes ()</h3>
+<pre class="programlisting"><a href="./../glib/glib/glib-Byte-Arrays.html#GBytes"><span class="returnvalue">GBytes</span></a> *            g_input_stream_read_bytes           (<em class="parameter"><code><a class="link" href="GInputStream.html" title="GInputStream"><span class="type">GInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> count</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Like <a class="link" href="GInputStream.html#g-input-stream-read" title="g_input_stream_read ()"><code class="function">g_input_stream_read()</code></a>, this tries to read <em class="parameter"><code>count</code></em> bytes from
+the stream in a blocking fashion. However, rather than reading into
+a user-supplied buffer, this will create a new <a href="./../glib/glib/glib-Byte-Arrays.html#GBytes"><span class="type">GBytes</span></a> containing
+the data that was read. This may be easier to use from language
+bindings.
+</p>
+<p>
+If count is zero, returns a zero-length <a href="./../glib/glib/glib-Byte-Arrays.html#GBytes"><span class="type">GBytes</span></a> and does nothing. A
+value of <em class="parameter"><code>count</code></em> larger than <a href="./../glib/glib/glib-Basic-Types.html#G-MAXSSIZE:CAPS"><code class="literal">G_MAXSSIZE</code></a> will cause a
+<a class="link" href="gio-GIOError.html#G-IO-ERROR-INVALID-ARGUMENT:CAPS"><code class="literal">G_IO_ERROR_INVALID_ARGUMENT</code></a> error.
+</p>
+<p>
+On success, a new <a href="./../glib/glib/glib-Byte-Arrays.html#GBytes"><span class="type">GBytes</span></a> is returned. It is not an error if the
+size of this object is not the same as the requested size, as it
+can happen e.g. near the end of a file. A zero-length <a href="./../glib/glib/glib-Byte-Arrays.html#GBytes"><span class="type">GBytes</span></a> is
+returned on end of file (or if <em class="parameter"><code>count</code></em> is zero), but never
+otherwise.
+</p>
+<p>
+If <em class="parameter"><code>cancellable</code></em> is not <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then the operation can be cancelled by
+triggering the cancellable object from another thread. If the operation
+was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCELLED:CAPS"><code class="literal">G_IO_ERROR_CANCELLED</code></a> will be returned. If an
+operation was partially finished when the operation was cancelled the
+partial result will be returned, without an error.
+</p>
+<p>
+On error <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is returned and <em class="parameter"><code>error</code></em> is set accordingly.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
+<td>a <a class="link" href="GInputStream.html" title="GInputStream"><span class="type">GInputStream</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>count</code></em> :</span></p></td>
+<td>maximum number of bytes that will be read from the stream. Common
+values include 4096 and 8192.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>location to store the error occurring, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a href="./../glib/glib/glib-Byte-Arrays.html#GBytes"><span class="type">GBytes</span></a>, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on error</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-input-stream-read-bytes-async"></a><h3>g_input_stream_read_bytes_async ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_input_stream_read_bytes_async     (<em class="parameter"><code><a class="link" href="GInputStream.html" title="GInputStream"><span class="type">GInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> count</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> io_priority</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Request an asynchronous read of <em class="parameter"><code>count</code></em> bytes from the stream into a
+new <a href="./../glib/glib/glib-Byte-Arrays.html#GBytes"><span class="type">GBytes</span></a>. When the operation is finished <em class="parameter"><code>callback</code></em> will be
+called. You can then call <a class="link" href="GInputStream.html#g-input-stream-read-bytes-finish" title="g_input_stream_read_bytes_finish ()"><code class="function">g_input_stream_read_bytes_finish()</code></a> to get the
+result of the operation.
+</p>
+<p>
+During an async request no other sync and async calls are allowed
+on <em class="parameter"><code>stream</code></em>, and will result in <a class="link" href="gio-GIOError.html#G-IO-ERROR-PENDING:CAPS"><code class="literal">G_IO_ERROR_PENDING</code></a> errors.
+</p>
+<p>
+A value of <em class="parameter"><code>count</code></em> larger than <a href="./../glib/glib/glib-Basic-Types.html#G-MAXSSIZE:CAPS"><code class="literal">G_MAXSSIZE</code></a> will cause a
+<a class="link" href="gio-GIOError.html#G-IO-ERROR-INVALID-ARGUMENT:CAPS"><code class="literal">G_IO_ERROR_INVALID_ARGUMENT</code></a> error.
+</p>
+<p>
+On success, the new <a href="./../glib/glib/glib-Byte-Arrays.html#GBytes"><span class="type">GBytes</span></a> will be passed to the callback. It is
+not an error if this is smaller than the requested size, as it can
+happen e.g. near the end of a file, but generally we try to read as
+many bytes as requested. Zero is returned on end of file (or if
+<em class="parameter"><code>count</code></em> is zero), but never otherwise.
+</p>
+<p>
+Any outstanding I/O request with higher priority (lower numerical
+value) will be executed before an outstanding request with lower
+priority. Default priority is <a href="./../glib/glib/glib-The-Main-Event-Loop.html#G-PRIORITY-DEFAULT:CAPS"><code class="literal">G_PRIORITY_DEFAULT</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
+<td>A <a class="link" href="GInputStream.html" title="GInputStream"><span class="type">GInputStream</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>count</code></em> :</span></p></td>
+<td>the number of bytes that will be read from the stream</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>io_priority</code></em> :</span></p></td>
+<td>the <a class="link" href="gio-GIOScheduler.html#io-priority">I/O priority</a>
+of the request.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> object, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>callback to call when the request is satisfied. <span class="annotation">[<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>the data to pass to callback function. <span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-input-stream-read-bytes-finish"></a><h3>g_input_stream_read_bytes_finish ()</h3>
+<pre class="programlisting"><a href="./../glib/glib/glib-Byte-Arrays.html#GBytes"><span class="returnvalue">GBytes</span></a> *            g_input_stream_read_bytes_finish    (<em class="parameter"><code><a class="link" href="GInputStream.html" title="GInputStream"><span class="type">GInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GAsyncResult.html" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *result</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Finishes an asynchronous stream read-into-<a href="./../glib/glib/glib-Byte-Arrays.html#GBytes"><span class="type">GBytes</span></a> operation.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
+<td>a <a class="link" href="GInputStream.html" title="GInputStream"><span class="type">GInputStream</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>a <a class="link" href="GAsyncResult.html" title="GAsyncResult"><span class="type">GAsyncResult</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a <a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> location to store the error occurring, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to
+ignore.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the newly-allocated <a href="./../glib/glib/glib-Byte-Arrays.html#GBytes"><span class="type">GBytes</span></a>, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on error</td>
+</tr>
+</tbody>
+</table></div>
+</div>
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

@@ -127,6 +127,8 @@ g_file_set_display_name
 g_file_set_display_name_async
 g_file_set_display_name_finish
 g_file_delete
+g_file_delete_async
+g_file_delete_finish
 g_file_trash
 g_file_copy
 g_file_copy_async
@@ -239,6 +241,7 @@ G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME
 G_FILE_ATTRIBUTE_STANDARD_EDIT_NAME
 G_FILE_ATTRIBUTE_STANDARD_COPY_NAME
 G_FILE_ATTRIBUTE_STANDARD_ICON
+G_FILE_ATTRIBUTE_STANDARD_SYMBOLIC_ICON
 G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE
 G_FILE_ATTRIBUTE_STANDARD_FAST_CONTENT_TYPE
 G_FILE_ATTRIBUTE_STANDARD_SIZE
@@ -345,6 +348,7 @@ g_file_info_get_name
 g_file_info_get_display_name
 g_file_info_get_edit_name
 g_file_info_get_icon
+g_file_info_get_symbolic_icon
 g_file_info_get_content_type
 g_file_info_get_size
 g_file_info_get_modification_time
@@ -360,6 +364,7 @@ g_file_info_set_name
 g_file_info_set_display_name
 g_file_info_set_edit_name
 g_file_info_set_icon
+g_file_info_set_symbolic_icon
 g_file_info_set_content_type
 g_file_info_set_size
 g_file_info_set_modification_time
@@ -562,6 +567,9 @@ g_input_stream_is_closed
 g_input_stream_has_pending
 g_input_stream_set_pending
 g_input_stream_clear_pending
+g_input_stream_read_bytes
+g_input_stream_read_bytes_async
+g_input_stream_read_bytes_finish
 <SUBSECTION Standard>
 GInputStreamClass
 G_INPUT_STREAM
@@ -769,6 +777,9 @@ g_output_stream_is_closed
 g_output_stream_has_pending
 g_output_stream_set_pending
 g_output_stream_clear_pending
+g_output_stream_write_bytes
+g_output_stream_write_bytes_async
+g_output_stream_write_bytes_finish
 <SUBSECTION Standard>
 GOutputStreamClass
 G_OUTPUT_STREAM
@@ -1039,6 +1050,7 @@ GMountIface
 g_mount_get_name
 g_mount_get_uuid
 g_mount_get_icon
+g_mount_get_symbolic_icon
 g_mount_get_drive
 g_mount_get_root
 g_mount_get_volume
@@ -1081,6 +1093,7 @@ GVolumeIface
 g_volume_get_name
 g_volume_get_uuid
 g_volume_get_icon
+g_volume_get_symbolic_icon
 g_volume_get_drive
 g_volume_get_mount
 g_volume_can_mount
@@ -1120,6 +1133,7 @@ GDriveStartFlags
 GDriveStartStopType
 g_drive_get_name
 g_drive_get_icon
+g_drive_get_symbolic_icon
 g_drive_has_volumes
 g_drive_get_volumes
 g_drive_can_eject
@@ -1193,6 +1207,8 @@ GAsyncResultIface
 GAsyncReadyCallback
 g_async_result_get_user_data
 g_async_result_get_source_object
+g_async_result_is_tagged
+g_async_result_legacy_propagate_error
 <SUBSECTION Standard>
 G_ASYNC_RESULT
 G_IS_ASYNC_RESULT
@@ -1275,6 +1291,8 @@ g_content_type_is_unknown
 g_content_type_get_description
 g_content_type_get_mime_type
 g_content_type_get_icon
+g_content_type_get_symbolic_icon
+g_content_type_get_generic_icon_name
 g_content_type_can_be_executable
 g_content_type_from_mime_type
 g_content_type_guess
@@ -1313,6 +1331,7 @@ g_app_info_set_as_last_used_for_type
 g_app_info_add_supports_type
 g_app_info_can_remove_supports_type
 g_app_info_remove_supports_type
+g_app_info_get_supported_types
 g_app_info_get_all
 g_app_info_get_all_for_type
 g_app_info_get_default_for_type
@@ -1415,6 +1434,7 @@ g_unix_mount_get_fs_type
 g_unix_mount_is_readonly
 g_unix_mount_is_system_internal
 g_unix_mount_guess_icon
+g_unix_mount_guess_symbolic_icon
 g_unix_mount_guess_name
 g_unix_mount_guess_can_eject
 g_unix_mount_guess_should_display
@@ -1428,6 +1448,7 @@ g_unix_mount_point_is_readonly
 g_unix_mount_point_is_user_mountable
 g_unix_mount_point_is_loopback
 g_unix_mount_point_guess_icon
+g_unix_mount_point_guess_symbolic_icon
 g_unix_mount_point_guess_name
 g_unix_mount_point_guess_can_eject
 g_unix_mount_points_get
@@ -1463,6 +1484,7 @@ g_desktop_app_info_get_show_in
 g_desktop_app_info_get_generic_name
 g_desktop_app_info_get_categories
 g_desktop_app_info_get_keywords
+g_desktop_app_info_get_startup_wm_class
 g_desktop_app_info_set_desktop_env
 GDesktopAppLaunchCallback
 g_desktop_app_info_launch_uris_as_manager
@@ -1698,6 +1720,9 @@ g_resolver_lookup_service
 g_resolver_lookup_service_async
 g_resolver_lookup_service_finish
 g_resolver_free_targets
+g_resolver_lookup_records
+g_resolver_lookup_records_async
+g_resolver_lookup_records_finish
 
 <SUBSECTION>
 G_RESOLVER_ERROR
@@ -1716,6 +1741,7 @@ G_TYPE_RESOLVER
 GResolverPrivate
 g_resolver_get_type
 g_resolver_error_quark
+g_resolver_record_type_get_type
 </SECTION>
 
 <SECTION>
@@ -2492,6 +2518,7 @@ g_dbus_gvariant_to_gvalue
 GDBusAuthObserver
 g_dbus_auth_observer_new
 g_dbus_auth_observer_authorize_authenticated_peer
+g_dbus_auth_observer_allow_mechanism
 <SUBSECTION Standard>
 G_DBUS_AUTH_OBSERVER
 G_IS_DBUS_AUTH_OBSERVER
@@ -2616,6 +2643,7 @@ g_dbus_connection_get_unique_name
 GDBusCapabilityFlags
 g_dbus_connection_get_capabilities
 g_dbus_connection_get_peer_credentials
+g_dbus_connection_get_last_serial
 GDBusCallFlags
 g_dbus_connection_call
 g_dbus_connection_call_finish
@@ -2891,6 +2919,9 @@ g_application_set_inactivity_timeout
 g_application_get_flags
 g_application_set_flags
 <SUBSECTION>
+g_application_get_dbus_connection
+g_application_get_dbus_object_path
+<SUBSECTION>
 g_application_set_action_group
 <SUBSECTION>
 g_application_get_is_registered
@@ -3148,11 +3179,13 @@ g_proxy_resolver_get_type
 <TITLE>GProxyAddress</TITLE>
 GProxyAddress
 GProxyAddressClass
+g_proxy_address_get_destination_protocol
 g_proxy_address_get_destination_hostname
 g_proxy_address_get_destination_port
 g_proxy_address_get_password
 g_proxy_address_get_protocol
 g_proxy_address_get_username
+g_proxy_address_get_uri
 g_proxy_address_new
 <SUBSECTION Standard>
 G_PROXY_ADDRESS
@@ -3196,9 +3229,6 @@ g_pollable_input_stream_can_poll
 g_pollable_input_stream_is_readable
 g_pollable_input_stream_create_source
 g_pollable_input_stream_read_nonblocking
-<SUBSECTION>
-GPollableSourceFunc
-g_pollable_source_new
 <SUBSECTION Standard>
 G_POLLABLE_INPUT_STREAM
 G_POLLABLE_INPUT_STREAM_GET_INTERFACE
@@ -3225,6 +3255,17 @@ G_IS_POLLABLE_OUTPUT_STREAM
 G_TYPE_POLLABLE_OUTPUT_STREAM
 <SUBSECTION Private>
 g_pollable_output_stream_get_type
+</SECTION>
+
+<SECTION>
+<FILE>gpollableutils</FILE>
+GPollableSourceFunc
+g_pollable_source_new
+g_pollable_source_new_full
+<SUBSECTION>
+g_pollable_stream_read
+g_pollable_stream_write
+g_pollable_stream_write_all
 </SECTION>
 
 <SECTION>
@@ -3269,6 +3310,7 @@ g_tls_certificate_new_from_files
 g_tls_certificate_list_new_from_file
 g_tls_certificate_get_issuer
 g_tls_certificate_verify
+g_tls_certificate_is_same
 <SUBSECTION Standard>
 GTlsCertificateClass
 GTlsCertificatePrivate
@@ -3625,6 +3667,7 @@ g_dbus_object_manager_server_get_connection
 g_dbus_object_manager_server_set_connection
 g_dbus_object_manager_server_export
 g_dbus_object_manager_server_export_uniquely
+g_dbus_object_manager_server_is_exported
 g_dbus_object_manager_server_unexport
 <SUBSECTION Standard>
 G_DBUS_OBJECT_MANAGER_SERVER
@@ -3711,6 +3754,7 @@ GMenuItem
 g_menu_item_new
 g_menu_item_new_section
 g_menu_item_new_submenu
+g_menu_item_new_from_model
 
 <SUBSECTION>
 g_menu_item_set_label
@@ -3721,6 +3765,9 @@ g_menu_item_set_section
 g_menu_item_set_submenu
 
 <SUBSECTION>
+g_menu_item_get_attribute_value
+g_menu_item_get_attribute
+g_menu_item_get_link
 g_menu_item_set_attribute_value
 g_menu_item_set_attribute
 g_menu_item_set_link
@@ -3855,4 +3902,22 @@ g_resource_error_get_type
 g_resource_flags_get_type
 g_resource_lookup_flags_get_type
 g_resource_error_quark
+</SECTION>
+
+<SECTION>
+<FILE>gtestdbus</FILE>
+<TITLE>GTestDBus</TITLE>
+GTestDBus
+GTestDBusFlags
+g_test_dbus_new
+g_test_dbus_get_flags
+g_test_dbus_get_bus_address
+g_test_dbus_add_service_dir
+g_test_dbus_up
+g_test_dbus_stop
+g_test_dbus_down
+g_test_dbus_unset
+<SUBSECTION Private>
+g_test_dbus_get_type
+g_test_dbus_flags_get_type
 </SECTION>

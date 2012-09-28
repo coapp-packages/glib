@@ -68,8 +68,22 @@
  * desktop login.  When your application is launched again, its
  * arguments are passed through platform communication to the already
  * running program.  The already running instance of the program is
- * called the <firstterm>primary instance</firstterm>. On Linux, the
- * D-Bus session bus is used for communication.
+ * called the <firstterm>primary instance</firstterm>; for non-unique
+ * applications this is the always the current instance.
+ * On Linux, the D-Bus session bus is used for communication.
+ *
+ * The use of #GApplication differs from some other commonly-used
+ * uniqueness libraries (such as libunique) in important ways.  The
+ * application is not expected to manually register itself and check if
+ * it is the primary instance.  Instead, the <code>main()</code>
+ * function of a #GApplication should do very little more than
+ * instantiating the application instance, possibly connecting signal
+ * handlers, then calling g_application_run().  All checks for
+ * uniqueness are done internally.  If the application is the primary
+ * instance then the startup signal is emitted and the mainloop runs.
+ * If the application is not the primary instance then a signal is sent
+ * to the primary instance and g_application_run() promptly returns.
+ * See the code examples below.
  *
  * If used, the expected form of an application identifier is very close
  * to that of of a
@@ -158,6 +172,14 @@
  * </xi:include>
  * </programlisting>
  * </example>
+ *
+ * <example id="gapplication-example-dbushooks"><title>Using extra D-Bus hooks with a GApplication</title>
+ * <programlisting>
+ * <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" parse="text" href="../../../../gio/tests/gapplication-example-dbushooks.c">
+ *   <xi:fallback>FIXME: MISSING XINCLUDE CONTENT</xi:fallback>
+ * </xi:include>
+ * </programlisting>
+ * </example>
  */
 
 /**
@@ -189,6 +211,16 @@
  *     g_application_run() if the use-count is non-zero. Since 2.32,
  *     GApplication is iterating the main context directly and is not
  *     using @run_mainloop anymore
+ * @dbus_register: invoked locally during registration, if the application is
+ *     using its D-Bus backend. You can use this to export extra objects on the
+ *     bus, that need to exist before the application tries to own the bus name.
+ *     The function is passed the #GDBusConnection to to session bus, and the
+ *     object path that #GApplication will use to export is D-Bus API.
+ *     If this function returns %TRUE, registration will proceed; otherwise
+ *     registration will abort. Since: 2.34
+ * @dbus_unregister: invoked locally during unregistration, if the application
+ *     is using its D-Bus backend. Use this to undo anything done by the
+ *     @dbus_register vfunc. Since: 2.34
  *
  * Virtual function table for #GApplication.
  *
@@ -505,6 +537,22 @@ g_application_real_add_platform_data (GApplication    *application,
 {
 }
 
+static gboolean
+g_application_real_dbus_register (GApplication    *application,
+                                  GDBusConnection *connection,
+                                  const gchar     *object_path,
+                                  GError         **error)
+{
+  return TRUE;
+}
+
+static void
+g_application_real_dbus_unregister (GApplication    *application,
+                                    GDBusConnection *connection,
+                                    const gchar     *object_path)
+{
+}
+
 /* GObject implementation stuff {{{1 */
 static void
 g_application_set_property (GObject      *object,
@@ -681,6 +729,8 @@ g_application_class_init (GApplicationClass *class)
   class->command_line = g_application_real_command_line;
   class->local_command_line = g_application_real_local_command_line;
   class->add_platform_data = g_application_real_add_platform_data;
+  class->dbus_register = g_application_real_dbus_register;
+  class->dbus_unregister = g_application_real_dbus_unregister;
 
   g_object_class_install_property (object_class, PROP_APPLICATION_ID,
     g_param_spec_string ("application-id",
@@ -1085,7 +1135,7 @@ g_application_set_inactivity_timeout (GApplication *application,
       g_object_notify (G_OBJECT (application), "inactivity-timeout");
     }
 }
-/* Read-only property getters (is registered, is remote) {{{1 */
+/* Read-only property getters (is registered, is remote, dbus stuff) {{{1 */
 /**
  * g_application_get_is_registered:
  * @application: a #GApplication
@@ -1133,6 +1183,69 @@ g_application_get_is_remote (GApplication *application)
   g_return_val_if_fail (application->priv->is_registered, FALSE);
 
   return application->priv->is_remote;
+}
+
+/**
+ * g_application_get_dbus_connection:
+ * @application: a #GApplication
+ *
+ * Gets the #GDBusConnection being used by the application, or %NULL.
+ *
+ * If #GApplication is using its D-Bus backend then this function will
+ * return the #GDBusConnection being used for uniqueness and
+ * communication with the desktop environment and other instances of the
+ * application.
+ *
+ * If #GApplication is not using D-Bus then this function will return
+ * %NULL.  This includes the situation where the D-Bus backend would
+ * normally be in use but we were unable to connect to the bus.
+ *
+ * This function must not be called before the application has been
+ * registered.  See g_application_get_is_registered().
+ *
+ * Returns: (transfer none): a #GDBusConnection, or %NULL
+ *
+ * Since: 2.34
+ **/
+GDBusConnection *
+g_application_get_dbus_connection (GApplication *application)
+{
+  g_return_val_if_fail (G_IS_APPLICATION (application), FALSE);
+  g_return_val_if_fail (application->priv->is_registered, FALSE);
+
+  return g_application_impl_get_dbus_connection (application->priv->impl);
+}
+
+/**
+ * g_application_get_dbus_object_path:
+ * @application: a #GApplication
+ *
+ * Gets the D-Bus object path being used by the application, or %NULL.
+ *
+ * If #GApplication is using its D-Bus backend then this function will
+ * return the D-Bus object path that #GApplication is using.  If the
+ * application is the primary instance then there is an object published
+ * at this path.  If the application is not the primary instance then
+ * the result of this function is undefined.
+ *
+ * If #GApplication is not using D-Bus then this function will return
+ * %NULL.  This includes the situation where the D-Bus backend would
+ * normally be in use but we were unable to connect to the bus.
+ *
+ * This function must not be called before the application has been
+ * registered.  See g_application_get_is_registered().
+ *
+ * Returns: the object path, or %NULL
+ *
+ * Since: 2.34
+ **/
+const gchar *
+g_application_get_dbus_object_path (GApplication *application)
+{
+  g_return_val_if_fail (G_IS_APPLICATION (application), FALSE);
+  g_return_val_if_fail (application->priv->is_registered, FALSE);
+
+  return g_application_impl_get_dbus_object_path (application->priv->impl);
 }
 
 /* Register {{{1 */

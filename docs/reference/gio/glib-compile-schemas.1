@@ -1,13 +1,13 @@
 '\" t
 .\"     Title: glib-compile-schemas
-.\"    Author: [FIXME: author] [see http://docbook.sf.net/el/author]
-.\" Generator: DocBook XSL Stylesheets v1.76.1 <http://docbook.sf.net/>
-.\"      Date: 05/14/2012
+.\"    Author: Ryan Lortie
+.\" Generator: DocBook XSL Stylesheets v1.77.1 <http://docbook.sf.net/>
+.\"      Date: 09/23/2012
 .\"    Manual: User Commands
-.\"    Source: User Commands
+.\"    Source: GIO
 .\"  Language: English
 .\"
-.TH "GLIB\-COMPILE\-SCHEM" "1" "05/14/2012" "User Commands" "User Commands"
+.TH "GLIB\-COMPILE\-SCHEM" "1" "" "GIO" "User Commands"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -31,12 +31,12 @@
 glib-compile-schemas \- GSettings schema compiler
 .SH "SYNOPSIS"
 .HP \w'\fBglib\-compile\-schemas\fR\ 'u
-\fBglib\-compile\-schemas\fR [option...] {directory}
+\fBglib\-compile\-schemas\fR [OPTION...] {DIRECTORY}
 .SH "DESCRIPTION"
 .PP
 \fBglib\-compile\-schemas\fR
 compiles all the GSettings XML schema files in
-\fIdirectory\fR
+\fIDIRECTORY\fR
 into a binary file with the name
 gschemas\&.compiled
 that can be used by
@@ -60,21 +60,21 @@ nn_
 where
 nn
 is a number from 00 to 99\&. Higher numbered files have higher priority (eg: if the same override is made in a file numbered 10 and then again in a file numbered 20, the override from 20 will take precedence)\&.
-.SS "Options"
+.SH "OPTIONS"
 .PP
 \fB\-h\fR, \fB\-\-help\fR
 .RS 4
 Print help and exit
 .RE
 .PP
-\fB\-\-targetdir=\fR\fB\fITARGETDIR\fR\fR
+\fB\-\-targetdir=\fR\fB\fITARGET\fR\fR
 .RS 4
 Store
 gschemas\&.compiled
-in
-\fITARGETDIR\fR
-instead of
-\fIdirectory\fR\&.
+in the
+\fITARGET\fR
+directory instead of
+\fIDIRECTORY\fR\&.
 .RE
 .PP
 \fB\-\-dry\-run\fR
@@ -89,4 +89,3 @@ sources for errors\&.
 .RS 4
 Do not enforce restrictions on key names\&. Note that this option is purely to facility the transition from GConf, and will be removed at some time in the future\&.
 .RE
-.SH "SEE ALSO"

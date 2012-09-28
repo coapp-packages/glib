@@ -6,6 +6,7 @@
 <ANCHOR id="glib-cross-compiling" href="glib/glib-cross-compiling.html">
 <ANCHOR id="cross" href="glib/glib-cross-compiling.html#cross">
 <ANCHOR id="cache-file-variables" href="glib/glib-cross-compiling.html#cache-file-variables">
+<ANCHOR id="glib-programming" href="glib/glib-programming.html">
 <ANCHOR id="glib-compiling" href="glib/glib-compiling.html">
 <ANCHOR id="glib-running" href="glib/glib-running.html">
 <ANCHOR id="setlocale" href="glib/glib-running.html#setlocale">
@@ -31,6 +32,7 @@
 <ANCHOR id="GLIB-VERSION-2-32:CAPS" href="glib/glib-Version-Information.html#GLIB-VERSION-2-32:CAPS">
 <ANCHOR id="GLIB-VERSION-MIN-REQUIRED:CAPS" href="glib/glib-Version-Information.html#GLIB-VERSION-MIN-REQUIRED:CAPS">
 <ANCHOR id="GLIB-VERSION-MAX-ALLOWED:CAPS" href="glib/glib-Version-Information.html#GLIB-VERSION-MAX-ALLOWED:CAPS">
+<ANCHOR id="GLIB-DISABLE-DEPRECATION-WARNINGS:CAPS" href="glib/glib-Version-Information.html#GLIB-DISABLE-DEPRECATION-WARNINGS:CAPS">
 <ANCHOR id="glib-Basic-Types" href="glib/glib-Basic-Types.html">
 <ANCHOR id="glib-Basic-Types.synopsis" href="glib/glib-Basic-Types.html#glib-Basic-Types.synopsis">
 <ANCHOR id="glib-Basic-Types.description" href="glib/glib-Basic-Types.html#glib-Basic-Types.description">
@@ -573,6 +575,7 @@
 <ANCHOR id="g-try-malloc0-n" href="glib/glib-Memory-Allocation.html#g-try-malloc0-n">
 <ANCHOR id="g-try-realloc-n" href="glib/glib-Memory-Allocation.html#g-try-realloc-n">
 <ANCHOR id="g-free" href="glib/glib-Memory-Allocation.html#g-free">
+<ANCHOR id="g-clear-pointer" href="glib/glib-Memory-Allocation.html#g-clear-pointer">
 <ANCHOR id="g-mem-gc-friendly" href="glib/glib-Memory-Allocation.html#g-mem-gc-friendly">
 <ANCHOR id="g-alloca" href="glib/glib-Memory-Allocation.html#g-alloca">
 <ANCHOR id="g-newa" href="glib/glib-Memory-Allocation.html#g-newa">
@@ -1148,6 +1151,7 @@
 <ANCHOR id="g-checksum-get-digest" href="glib/glib-Data-Checksums.html#g-checksum-get-digest">
 <ANCHOR id="g-compute-checksum-for-data" href="glib/glib-Data-Checksums.html#g-compute-checksum-for-data">
 <ANCHOR id="g-compute-checksum-for-string" href="glib/glib-Data-Checksums.html#g-compute-checksum-for-string">
+<ANCHOR id="g-compute-checksum-for-bytes" href="glib/glib-Data-Checksums.html#g-compute-checksum-for-bytes">
 <ANCHOR id="glib-Data-HMACs" href="glib/glib-Data-HMACs.html">
 <ANCHOR id="glib-Data-HMACs.synopsis" href="glib/glib-Data-HMACs.html#glib-Data-HMACs.synopsis">
 <ANCHOR id="glib-Data-HMACs.description" href="glib/glib-Data-HMACs.html#glib-Data-HMACs.description">
@@ -1595,10 +1599,12 @@
 <ANCHOR id="G-SPAWN-STDERR-TO-DEV-NULL:CAPS" href="glib/glib-Spawning-Processes.html#G-SPAWN-STDERR-TO-DEV-NULL:CAPS">
 <ANCHOR id="G-SPAWN-CHILD-INHERITS-STDIN:CAPS" href="glib/glib-Spawning-Processes.html#G-SPAWN-CHILD-INHERITS-STDIN:CAPS">
 <ANCHOR id="G-SPAWN-FILE-AND-ARGV-ZERO:CAPS" href="glib/glib-Spawning-Processes.html#G-SPAWN-FILE-AND-ARGV-ZERO:CAPS">
+<ANCHOR id="G-SPAWN-SEARCH-PATH-FROM-ENVP:CAPS" href="glib/glib-Spawning-Processes.html#G-SPAWN-SEARCH-PATH-FROM-ENVP:CAPS">
 <ANCHOR id="GSpawnChildSetupFunc" href="glib/glib-Spawning-Processes.html#GSpawnChildSetupFunc">
 <ANCHOR id="g-spawn-async-with-pipes" href="glib/glib-Spawning-Processes.html#g-spawn-async-with-pipes">
 <ANCHOR id="g-spawn-async" href="glib/glib-Spawning-Processes.html#g-spawn-async">
 <ANCHOR id="g-spawn-sync" href="glib/glib-Spawning-Processes.html#g-spawn-sync">
+<ANCHOR id="g-spawn-check-exit-status" href="glib/glib-Spawning-Processes.html#g-spawn-check-exit-status">
 <ANCHOR id="g-spawn-command-line-async" href="glib/glib-Spawning-Processes.html#g-spawn-command-line-async">
 <ANCHOR id="g-spawn-command-line-sync" href="glib/glib-Spawning-Processes.html#g-spawn-command-line-sync">
 <ANCHOR id="g-spawn-close-pid" href="glib/glib-Spawning-Processes.html#g-spawn-close-pid">
@@ -1664,6 +1670,7 @@
 <ANCHOR id="g-mapped-file-free" href="glib/glib-File-Utilities.html#g-mapped-file-free">
 <ANCHOR id="g-mapped-file-get-length" href="glib/glib-File-Utilities.html#g-mapped-file-get-length">
 <ANCHOR id="g-mapped-file-get-contents" href="glib/glib-File-Utilities.html#g-mapped-file-get-contents">
+<ANCHOR id="g-mapped-file-get-bytes" href="glib/glib-File-Utilities.html#g-mapped-file-get-bytes">
 <ANCHOR id="g-open" href="glib/glib-File-Utilities.html#g-open">
 <ANCHOR id="g-rename" href="glib/glib-File-Utilities.html#g-rename">
 <ANCHOR id="g-mkdir" href="glib/glib-File-Utilities.html#g-mkdir">
@@ -1835,6 +1842,21 @@
 <ANCHOR id="G-REGEX-ERROR-DEFINE-REPETION:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-ERROR-DEFINE-REPETION:CAPS">
 <ANCHOR id="G-REGEX-ERROR-INCONSISTENT-NEWLINE-OPTIONS:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-ERROR-INCONSISTENT-NEWLINE-OPTIONS:CAPS">
 <ANCHOR id="G-REGEX-ERROR-MISSING-BACK-REFERENCE:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-ERROR-MISSING-BACK-REFERENCE:CAPS">
+<ANCHOR id="G-REGEX-ERROR-INVALID-RELATIVE-REFERENCE:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-ERROR-INVALID-RELATIVE-REFERENCE:CAPS">
+<ANCHOR id="G-REGEX-ERROR-BACKTRACKING-CONTROL-VERB-ARGUMENT-FORBIDDEN:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-ERROR-BACKTRACKING-CONTROL-VERB-ARGUMENT-FORBIDDEN:CAPS">
+<ANCHOR id="G-REGEX-ERROR-UNKNOWN-BACKTRACKING-CONTROL-VERB:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-ERROR-UNKNOWN-BACKTRACKING-CONTROL-VERB:CAPS">
+<ANCHOR id="G-REGEX-ERROR-NUMBER-TOO-BIG:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-ERROR-NUMBER-TOO-BIG:CAPS">
+<ANCHOR id="G-REGEX-ERROR-MISSING-SUBPATTERN-NAME:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-ERROR-MISSING-SUBPATTERN-NAME:CAPS">
+<ANCHOR id="G-REGEX-ERROR-MISSING-DIGIT:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-ERROR-MISSING-DIGIT:CAPS">
+<ANCHOR id="G-REGEX-ERROR-INVALID-DATA-CHARACTER:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-ERROR-INVALID-DATA-CHARACTER:CAPS">
+<ANCHOR id="G-REGEX-ERROR-EXTRA-SUBPATTERN-NAME:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-ERROR-EXTRA-SUBPATTERN-NAME:CAPS">
+<ANCHOR id="G-REGEX-ERROR-BACKTRACKING-CONTROL-VERB-ARGUMENT-REQUIRED:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-ERROR-BACKTRACKING-CONTROL-VERB-ARGUMENT-REQUIRED:CAPS">
+<ANCHOR id="G-REGEX-ERROR-INVALID-CONTROL-CHAR:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-ERROR-INVALID-CONTROL-CHAR:CAPS">
+<ANCHOR id="G-REGEX-ERROR-MISSING-NAME:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-ERROR-MISSING-NAME:CAPS">
+<ANCHOR id="G-REGEX-ERROR-NOT-SUPPORTED-IN-CLASS:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-ERROR-NOT-SUPPORTED-IN-CLASS:CAPS">
+<ANCHOR id="G-REGEX-ERROR-TOO-MANY-FORWARD-REFERENCES:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-ERROR-TOO-MANY-FORWARD-REFERENCES:CAPS">
+<ANCHOR id="G-REGEX-ERROR-NAME-TOO-LONG:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-ERROR-NAME-TOO-LONG:CAPS">
+<ANCHOR id="G-REGEX-ERROR-CHARACTER-VALUE-TOO-LARGE:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-ERROR-CHARACTER-VALUE-TOO-LARGE:CAPS">
 <ANCHOR id="G-REGEX-ERROR:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-ERROR:CAPS">
 <ANCHOR id="GRegexCompileFlags" href="glib/glib-Perl-compatible-regular-expressions.html#GRegexCompileFlags">
 <ANCHOR id="G-REGEX-CASELESS:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-CASELESS:CAPS">
@@ -1847,10 +1869,14 @@
 <ANCHOR id="G-REGEX-RAW:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-RAW:CAPS">
 <ANCHOR id="G-REGEX-NO-AUTO-CAPTURE:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-NO-AUTO-CAPTURE:CAPS">
 <ANCHOR id="G-REGEX-OPTIMIZE:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-OPTIMIZE:CAPS">
+<ANCHOR id="G-REGEX-FIRSTLINE:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-FIRSTLINE:CAPS">
 <ANCHOR id="G-REGEX-DUPNAMES:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-DUPNAMES:CAPS">
 <ANCHOR id="G-REGEX-NEWLINE-CR:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-NEWLINE-CR:CAPS">
 <ANCHOR id="G-REGEX-NEWLINE-LF:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-NEWLINE-LF:CAPS">
 <ANCHOR id="G-REGEX-NEWLINE-CRLF:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-NEWLINE-CRLF:CAPS">
+<ANCHOR id="G-REGEX-NEWLINE-ANYCRLF:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-NEWLINE-ANYCRLF:CAPS">
+<ANCHOR id="G-REGEX-BSR-ANYCRLF:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-BSR-ANYCRLF:CAPS">
+<ANCHOR id="G-REGEX-JAVASCRIPT-COMPAT:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-JAVASCRIPT-COMPAT:CAPS">
 <ANCHOR id="GRegexMatchFlags" href="glib/glib-Perl-compatible-regular-expressions.html#GRegexMatchFlags">
 <ANCHOR id="G-REGEX-MATCH-ANCHORED:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-MATCH-ANCHORED:CAPS">
 <ANCHOR id="G-REGEX-MATCH-NOTBOL:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-MATCH-NOTBOL:CAPS">
@@ -1861,6 +1887,12 @@
 <ANCHOR id="G-REGEX-MATCH-NEWLINE-LF:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-MATCH-NEWLINE-LF:CAPS">
 <ANCHOR id="G-REGEX-MATCH-NEWLINE-CRLF:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-MATCH-NEWLINE-CRLF:CAPS">
 <ANCHOR id="G-REGEX-MATCH-NEWLINE-ANY:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-MATCH-NEWLINE-ANY:CAPS">
+<ANCHOR id="G-REGEX-MATCH-NEWLINE-ANYCRLF:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-MATCH-NEWLINE-ANYCRLF:CAPS">
+<ANCHOR id="G-REGEX-MATCH-BSR-ANYCRLF:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-MATCH-BSR-ANYCRLF:CAPS">
+<ANCHOR id="G-REGEX-MATCH-BSR-ANY:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-MATCH-BSR-ANY:CAPS">
+<ANCHOR id="G-REGEX-MATCH-PARTIAL-SOFT:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-MATCH-PARTIAL-SOFT:CAPS">
+<ANCHOR id="G-REGEX-MATCH-PARTIAL-HARD:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-MATCH-PARTIAL-HARD:CAPS">
+<ANCHOR id="G-REGEX-MATCH-NOTEMPTY-ATSTART:CAPS" href="glib/glib-Perl-compatible-regular-expressions.html#G-REGEX-MATCH-NOTEMPTY-ATSTART:CAPS">
 <ANCHOR id="GRegex" href="glib/glib-Perl-compatible-regular-expressions.html#GRegex">
 <ANCHOR id="GRegexEvalCallback" href="glib/glib-Perl-compatible-regular-expressions.html#GRegexEvalCallback">
 <ANCHOR id="g-regex-new" href="glib/glib-Perl-compatible-regular-expressions.html#g-regex-new">
@@ -1869,6 +1901,7 @@
 <ANCHOR id="g-regex-get-pattern" href="glib/glib-Perl-compatible-regular-expressions.html#g-regex-get-pattern">
 <ANCHOR id="g-regex-get-max-backref" href="glib/glib-Perl-compatible-regular-expressions.html#g-regex-get-max-backref">
 <ANCHOR id="g-regex-get-capture-count" href="glib/glib-Perl-compatible-regular-expressions.html#g-regex-get-capture-count">
+<ANCHOR id="g-regex-get-has-cr-or-lf" href="glib/glib-Perl-compatible-regular-expressions.html#g-regex-get-has-cr-or-lf">
 <ANCHOR id="g-regex-get-string-number" href="glib/glib-Perl-compatible-regular-expressions.html#g-regex-get-string-number">
 <ANCHOR id="g-regex-get-compile-flags" href="glib/glib-Perl-compatible-regular-expressions.html#g-regex-get-compile-flags">
 <ANCHOR id="g-regex-get-match-flags" href="glib/glib-Perl-compatible-regular-expressions.html#g-regex-get-match-flags">
@@ -2104,6 +2137,7 @@
 <ANCHOR id="g-test-add-func" href="glib/glib-Testing.html#g-test-add-func">
 <ANCHOR id="GTestDataFunc" href="glib/glib-Testing.html#GTestDataFunc">
 <ANCHOR id="g-test-add-data-func" href="glib/glib-Testing.html#g-test-add-data-func">
+<ANCHOR id="g-test-add-data-func-full" href="glib/glib-Testing.html#g-test-add-data-func-full">
 <ANCHOR id="g-test-add" href="glib/glib-Testing.html#g-test-add">
 <ANCHOR id="g-test-fail" href="glib/glib-Testing.html#g-test-fail">
 <ANCHOR id="g-test-message" href="glib/glib-Testing.html#g-test-message">
@@ -2117,6 +2151,8 @@
 <ANCHOR id="g-test-queue-free" href="glib/glib-Testing.html#g-test-queue-free">
 <ANCHOR id="g-test-queue-destroy" href="glib/glib-Testing.html#g-test-queue-destroy">
 <ANCHOR id="g-test-queue-unref" href="glib/glib-Testing.html#g-test-queue-unref">
+<ANCHOR id="g-test-expect-message" href="glib/glib-Testing.html#g-test-expect-message">
+<ANCHOR id="g-test-assert-expected-messages" href="glib/glib-Testing.html#g-test-assert-expected-messages">
 <ANCHOR id="GTestTrapFlags" href="glib/glib-Testing.html#GTestTrapFlags">
 <ANCHOR id="G-TEST-TRAP-SILENCE-STDOUT:CAPS" href="glib/glib-Testing.html#G-TEST-TRAP-SILENCE-STDOUT:CAPS">
 <ANCHOR id="G-TEST-TRAP-SILENCE-STDERR:CAPS" href="glib/glib-Testing.html#G-TEST-TRAP-SILENCE-STDERR:CAPS">
@@ -2200,6 +2236,7 @@
 <ANCHOR id="g-list-free1" href="glib/glib-Doubly-Linked-Lists.html#g-list-free1">
 <ANCHOR id="g-list-length" href="glib/glib-Doubly-Linked-Lists.html#g-list-length">
 <ANCHOR id="g-list-copy" href="glib/glib-Doubly-Linked-Lists.html#g-list-copy">
+<ANCHOR id="g-list-copy-deep" href="glib/glib-Doubly-Linked-Lists.html#g-list-copy-deep">
 <ANCHOR id="g-list-reverse" href="glib/glib-Doubly-Linked-Lists.html#g-list-reverse">
 <ANCHOR id="g-list-sort" href="glib/glib-Doubly-Linked-Lists.html#g-list-sort">
 <ANCHOR id="GCompareFunc" href="glib/glib-Doubly-Linked-Lists.html#GCompareFunc">
@@ -2241,6 +2278,7 @@
 <ANCHOR id="g-slist-free1" href="glib/glib-Singly-Linked-Lists.html#g-slist-free1">
 <ANCHOR id="g-slist-length" href="glib/glib-Singly-Linked-Lists.html#g-slist-length">
 <ANCHOR id="g-slist-copy" href="glib/glib-Singly-Linked-Lists.html#g-slist-copy">
+<ANCHOR id="g-slist-copy-deep" href="glib/glib-Singly-Linked-Lists.html#g-slist-copy-deep">
 <ANCHOR id="g-slist-reverse" href="glib/glib-Singly-Linked-Lists.html#g-slist-reverse">
 <ANCHOR id="g-slist-insert-sorted-with-data" href="glib/glib-Singly-Linked-Lists.html#g-slist-insert-sorted-with-data">
 <ANCHOR id="g-slist-sort" href="glib/glib-Singly-Linked-Lists.html#g-slist-sort">
@@ -2438,6 +2476,7 @@
 <ANCHOR id="g-string-truncate" href="glib/glib-Strings.html#g-string-truncate">
 <ANCHOR id="g-string-set-size" href="glib/glib-Strings.html#g-string-set-size">
 <ANCHOR id="g-string-free" href="glib/glib-Strings.html#g-string-free">
+<ANCHOR id="g-string-free-to-bytes" href="glib/glib-Strings.html#g-string-free-to-bytes">
 <ANCHOR id="g-string-up" href="glib/glib-Strings.html#g-string-up">
 <ANCHOR id="g-string-down" href="glib/glib-Strings.html#g-string-down">
 <ANCHOR id="g-string-hash" href="glib/glib-Strings.html#g-string-hash">
@@ -2622,6 +2661,7 @@
 <ANCHOR id="glib-Quarks.description" href="glib/glib-Quarks.html#glib-Quarks.description">
 <ANCHOR id="glib-Quarks.details" href="glib/glib-Quarks.html#glib-Quarks.details">
 <ANCHOR id="GQuark" href="glib/glib-Quarks.html#GQuark">
+<ANCHOR id="G-DEFINE-QUARK:CAPS" href="glib/glib-Quarks.html#G-DEFINE-QUARK:CAPS">
 <ANCHOR id="g-quark-from-string" href="glib/glib-Quarks.html#g-quark-from-string">
 <ANCHOR id="g-quark-from-static-string" href="glib/glib-Quarks.html#g-quark-from-static-string">
 <ANCHOR id="g-quark-to-string" href="glib/glib-Quarks.html#g-quark-to-string">
@@ -2639,6 +2679,9 @@
 <ANCHOR id="g-datalist-id-get-data" href="glib/glib-Keyed-Data-Lists.html#g-datalist-id-get-data">
 <ANCHOR id="g-datalist-id-remove-data" href="glib/glib-Keyed-Data-Lists.html#g-datalist-id-remove-data">
 <ANCHOR id="g-datalist-id-remove-no-notify" href="glib/glib-Keyed-Data-Lists.html#g-datalist-id-remove-no-notify">
+<ANCHOR id="GDuplicateFunc" href="glib/glib-Keyed-Data-Lists.html#GDuplicateFunc">
+<ANCHOR id="g-datalist-id-dup-data" href="glib/glib-Keyed-Data-Lists.html#g-datalist-id-dup-data">
+<ANCHOR id="g-datalist-id-replace-data" href="glib/glib-Keyed-Data-Lists.html#g-datalist-id-replace-data">
 <ANCHOR id="g-datalist-set-data" href="glib/glib-Keyed-Data-Lists.html#g-datalist-set-data">
 <ANCHOR id="g-datalist-set-data-full" href="glib/glib-Keyed-Data-Lists.html#g-datalist-set-data-full">
 <ANCHOR id="g-datalist-get-data" href="glib/glib-Keyed-Data-Lists.html#g-datalist-get-data">
@@ -2767,6 +2810,7 @@
 <ANCHOR id="G-VARIANT-CLASS-ARRAY:CAPS" href="glib/glib-GVariant.html#G-VARIANT-CLASS-ARRAY:CAPS">
 <ANCHOR id="G-VARIANT-CLASS-TUPLE:CAPS" href="glib/glib-GVariant.html#G-VARIANT-CLASS-TUPLE:CAPS">
 <ANCHOR id="G-VARIANT-CLASS-DICT-ENTRY:CAPS" href="glib/glib-GVariant.html#G-VARIANT-CLASS-DICT-ENTRY:CAPS">
+<ANCHOR id="g-variant-check-format-string" href="glib/glib-GVariant.html#g-variant-check-format-string">
 <ANCHOR id="g-variant-get" href="glib/glib-GVariant.html#g-variant-get">
 <ANCHOR id="g-variant-get-va" href="glib/glib-GVariant.html#g-variant-get-va">
 <ANCHOR id="g-variant-new" href="glib/glib-GVariant.html#g-variant-new">
@@ -3009,6 +3053,7 @@
 <ANCHOR id="glib-gettextize" href="glib/glib-gettextize.html">
 <ANCHOR id="gtester" href="glib/gtester.html">
 <ANCHOR id="gtester-report" href="glib/gtester-report.html">
+<ANCHOR id="annotation-glossterm-out caller-allocates" href="glib/annotation-glossary.html#annotation-glossterm-out caller-allocates">
 <ANCHOR id="annotation-glossterm-out" href="glib/annotation-glossary.html#annotation-glossterm-out">
 <ANCHOR id="annotation-glossterm-scope async" href="glib/annotation-glossary.html#annotation-glossterm-scope async">
 <ANCHOR id="annotation-glossterm-allow-none" href="glib/annotation-glossary.html#annotation-glossterm-allow-none">

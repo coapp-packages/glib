@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Commandline option parser</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-Shell-related-Utilities.html" title="Shell-related Utilities">
 <link rel="next" href="glib-Glob-style-pattern-matching.html" title="Glob-style pattern matching">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -136,7 +136,7 @@ as shown in the following example:
 The example demonstrates a number of features of the GOption
 commandline parser
 </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem"><p>
   Options can be single letters, prefixed by a single dash. Multiple
   short options can be grouped behind a single dash.
@@ -199,7 +199,7 @@ GOption groups options in <a class="link" href="glib-Commandline-option-parser.h
 incorporate options from multiple sources. The intended use for this is
 to let applications collect option groups from the libraries it uses,
 add them to their <a class="link" href="glib-Commandline-option-parser.html#GOptionContext" title="GOptionContext"><span class="type">GOptionContext</span></a>, and parse all options by a single call
-to <a class="link" href="glib-Commandline-option-parser.html#g-option-context-parse" title="g_option_context_parse ()"><code class="function">g_option_context_parse()</code></a>. See <a href="http://developer.gnome.org/devel/gtk/gtk3-General.html#gtk-get-option-group"><code class="function">gtk_get_option_group()</code></a> for an example.
+to <a class="link" href="glib-Commandline-option-parser.html#g-option-context-parse" title="g_option_context_parse ()"><code class="function">g_option_context_parse()</code></a>. See <a href="http://library.gnome.org/devel/gtk3/gtk-General.html#gtk-get-option-group"><code class="function">gtk_get_option_group()</code></a> for an example.
 </p>
 <p>
 If an option is declared to be of type string or filename, GOption takes
@@ -276,7 +276,7 @@ commandline above and produce the example help output.
 
 <span class="normal">  context </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="glib-Commandline-option-parser.html#g-option-context-new">g_option_context_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"- test tree model performance"</span><span class="symbol">);</span>
 <span class="normal">  </span><span class="function"><a href="glib-Commandline-option-parser.html#g-option-context-add-main-entries">g_option_context_add_main_entries</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">,</span><span class="normal"> entries</span><span class="symbol">,</span><span class="normal"> GETTEXT_PACKAGE</span><span class="symbol">);</span>
-<span class="normal">  </span><span class="function"><a href="glib-Commandline-option-parser.html#g-option-context-add-group">g_option_context_add_group</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">,</span><span class="normal"> </span><span class="function"><a href="http://developer.gnome.org/devel/gtk/gtk3-General.html#gtk-get-option-group">gtk_get_option_group</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">));</span>
+<span class="normal">  </span><span class="function"><a href="glib-Commandline-option-parser.html#g-option-context-add-group">g_option_context_add_group</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">,</span><span class="normal"> </span><span class="function"><a href="http://library.gnome.org/devel/gtk3/gtk-General.html#gtk-get-option-group">gtk_get_option_group</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">));</span>
 <span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(!</span><span class="function"><a href="glib-Commandline-option-parser.html#g-option-context-parse">g_option_context_parse</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">argc</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">argv</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">error</span><span class="symbol">))</span>
 <span class="normal">    </span><span class="cbracket">{</span>
 <span class="normal">      </span><span class="function"><a href="glib-Warnings-and-Assertions.html#g-print">g_print</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"option parsing failed: %s</span><span class="specialchar">\n</span><span class="string">"</span><span class="symbol">,</span><span class="normal"> error</span><span class="symbol">-&gt;</span><span class="normal">message</span><span class="symbol">);</span>
@@ -307,8 +307,11 @@ commandline above and produce the example help output.
 <p>
 Error codes returned by option parsing.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-OPTION-ERROR-UNKNOWN-OPTION:CAPS"></a><span class="term"><code class="literal">G_OPTION_ERROR_UNKNOWN_OPTION</code></span></p></td>
@@ -352,8 +355,11 @@ error domains.
 The type of function to be passed as callback for <a class="link" href="glib-Commandline-option-parser.html#G-OPTION-ARG-CALLBACK:CAPS"><code class="literal">G_OPTION_ARG_CALLBACK</code></a>
 options.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>option_name</code></em> :</span></p></td>
@@ -424,8 +430,11 @@ Note that the <em class="parameter"><code>parameter_string</code></em> is transl
 function set with <a class="link" href="glib-Commandline-option-parser.html#g-option-context-set-translate-func" title="g_option_context_set_translate_func ()"><code class="function">g_option_context_set_translate_func()</code></a>, so
 it should normally be passed untranslated.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>parameter_string</code></em> :</span></p></td>
@@ -459,8 +468,11 @@ Note that the summary is translated (see
 <a class="link" href="glib-Commandline-option-parser.html#g-option-context-set-translate-func" title="g_option_context_set_translate_func ()"><code class="function">g_option_context_set_translate_func()</code></a> and
 <a class="link" href="glib-Commandline-option-parser.html#g-option-context-set-translation-domain" title="g_option_context_set_translation_domain ()"><code class="function">g_option_context_set_translation_domain()</code></a>).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -484,8 +496,11 @@ before the list of options, or <a class="link" href="glib-Standard-Macros.html#N
 <p>
 Returns the summary. See <a class="link" href="glib-Commandline-option-parser.html#g-option-context-set-summary" title="g_option_context_set_summary ()"><code class="function">g_option_context_set_summary()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -514,8 +529,11 @@ address.
 Note that the summary is translated (see
 <a class="link" href="glib-Commandline-option-parser.html#g-option-context-set-translate-func" title="g_option_context_set_translate_func ()"><code class="function">g_option_context_set_translate_func()</code></a>).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -539,8 +557,11 @@ after the list of options, or <a class="link" href="glib-Standard-Macros.html#NU
 <p>
 Returns the description. See <a class="link" href="glib-Commandline-option-parser.html#g-option-context-set-description" title="g_option_context_set_description ()"><code class="function">g_option_context_set_description()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -564,8 +585,11 @@ Returns the description. See <a class="link" href="glib-Commandline-option-parse
 The type of functions which are used to translate user-visible
 strings, for <code class="option">--help</code> output.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -607,8 +631,11 @@ the summary (see <a class="link" href="glib-Commandline-option-parser.html#g-opt
 If you are using <code class="function">gettext()</code>, you only need to set the translation
 domain, see <a class="link" href="glib-Commandline-option-parser.html#g-option-context-set-translation-domain" title="g_option_context_set_translation_domain ()"><code class="function">g_option_context_set_translation_domain()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -644,8 +671,11 @@ domain, see <a class="link" href="glib-Commandline-option-parser.html#g-option-c
 A convenience function to use <code class="function">gettext()</code> for translating
 user-visible strings.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -672,8 +702,11 @@ added to it.
 Please note that parsed arguments need to be freed separately (see
 <a class="link" href="glib-Commandline-option-parser.html#GOptionEntry" title="struct GOptionEntry"><span class="type">GOptionEntry</span></a>).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Commandline-option-parser.html#GOptionContext" title="GOptionContext"><span class="type">GOptionContext</span></a>
@@ -716,8 +749,11 @@ Note that function depends on the
 automatic character set conversion of string and filename
 arguments.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -761,8 +797,11 @@ output. By default, <a class="link" href="glib-Commandline-option-parser.html#g-
 and <code class="option">--help-</code><em class="replaceable"><code>groupname</code></em> and creates
 suitable output to stdout.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -786,8 +825,11 @@ suitable output to stdout.
 Returns whether automatic <code class="option">--help</code> generation
 is turned on for <em class="parameter"><code>context</code></em>. See <a class="link" href="glib-Commandline-option-parser.html#g-option-context-set-help-enabled" title="g_option_context_set_help_enabled ()"><code class="function">g_option_context_set_help_enabled()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -819,8 +861,11 @@ This setting does not affect non-option arguments (i.e. arguments
 which don't start with a dash). But note that GOption cannot reliably
 determine whether a non-option belongs to a preceding unknown option.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -846,8 +891,11 @@ an error when unknown options are met</td>
 Returns whether unknown options are ignored or not. See
 <a class="link" href="glib-Commandline-option-parser.html#g-option-context-set-ignore-unknown-options" title="g_option_context_set_ignore_unknown_options ()"><code class="function">g_option_context_set_ignore_unknown_options()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -878,8 +926,11 @@ To obtain the text produced by <code class="option">--help-all</code>, call
 To obtain the help text for an option group, call
 <code class="literal">g_option_context_get_help (context, FALSE, group)</code>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -925,8 +976,11 @@ can be specified in several ways; with a short option:
 <code class="option">-x arg</code>, with a long option: <code class="option">--name arg</code>
 or combined in a single argument: <code class="option">--name=arg</code>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-OPTION-ARG-NONE:CAPS"></a><span class="term"><code class="literal">G_OPTION_ARG_NONE</code></span></p></td>
@@ -999,8 +1053,11 @@ or combined in a single argument: <code class="option">--name=arg</code>.
 <p>
 Flags which modify individual options.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-OPTION-FLAG-HIDDEN:CAPS"></a><span class="term"><code class="literal">G_OPTION_FLAG_HIDDEN</code></span></p></td>
@@ -1093,8 +1150,11 @@ A <span class="structname">GOptionEntry</span> defines a single option.
 To have an effect, they must be added to a <a class="link" href="glib-Commandline-option-parser.html#GOptionGroup" title="GOptionGroup"><span class="type">GOptionGroup</span></a> with
 <a class="link" href="glib-Commandline-option-parser.html#g-option-context-add-main-entries" title="g_option_context_add_main_entries ()"><code class="function">g_option_context_add_main_entries()</code></a> or <a class="link" href="glib-Commandline-option-parser.html#g-option-group-add-entries" title="g_option_group_add_entries ()"><code class="function">g_option_group_add_entries()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GOptionEntry.long-name"></a>long_name</code></em>;</span></p></td>
@@ -1126,8 +1186,11 @@ short name.</td>
 point to a <a class="link" href="glib-Commandline-option-parser.html#GOptionArgFunc" title="GOptionArgFunc ()"><span class="type">GOptionArgFunc</span></a> callback function, which will be called to handle
 the extra argument. Otherwise, <em class="parameter"><code>arg_data</code></em> is a pointer to a location to store
 the value, the required type of the location depends on the <em class="parameter"><code>arg</code></em> type:
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="glib-Commandline-option-parser.html#G-OPTION-ARG-NONE:CAPS"><code class="literal">G_OPTION_ARG_NONE</code></a></span></p></td>
@@ -1191,8 +1254,11 @@ group, see <a class="link" href="glib-Commandline-option-parser.html#g-option-gr
 A convenience function which creates a main group if it doesn't
 exist, adds the <em class="parameter"><code>entries</code></em> to it and sets the translation domain.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -1241,8 +1307,11 @@ be freed together with the context when <a class="link" href="glib-Commandline-o
 called, so you must not free the group yourself after adding it
 to a context.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -1268,8 +1337,11 @@ This has the same effect as calling <a class="link" href="glib-Commandline-optio
 the only difference is that the options in the main group are
 treated differently when generating <code class="option">--help</code> output.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -1291,8 +1363,11 @@ treated differently when generating <code class="option">--help</code> output.
 <p>
 Returns a pointer to the main group of <em class="parameter"><code>context</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -1320,8 +1395,11 @@ not be modified or freed.</td>
 <p>
 Creates a new <a class="link" href="glib-Commandline-option-parser.html#GOptionGroup" title="GOptionGroup"><span class="type">GOptionGroup</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -1369,8 +1447,11 @@ to a <a class="link" href="glib-Commandline-option-parser.html#GOptionContext" t
 Frees a <a class="link" href="glib-Commandline-option-parser.html#GOptionGroup" title="GOptionGroup"><span class="type">GOptionGroup</span></a>. Note that you must <span class="emphasis"><em>not</em></span>
 free groups which have been added to a <a class="link" href="glib-Commandline-option-parser.html#GOptionContext" title="GOptionContext"><span class="type">GOptionContext</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Commandline-option-parser.html#GOptionGroup" title="GOptionGroup"><span class="type">GOptionGroup</span></a>
@@ -1387,8 +1468,11 @@ free groups which have been added to a <a class="link" href="glib-Commandline-op
 <p>
 Adds the options specified in <em class="parameter"><code>entries</code></em> to <em class="parameter"><code>group</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
@@ -1413,8 +1497,11 @@ Adds the options specified in <em class="parameter"><code>entries</code></em> to
 <p>
 The type of function that can be called before and after parsing.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -1461,8 +1548,11 @@ Note that the user data to be passed to <em class="parameter"><code>pre_parse_fu
 <em class="parameter"><code>post_parse_func</code></em> can be specified when constructing the group
 with <a class="link" href="glib-Commandline-option-parser.html#g-option-group-new" title="g_option_group_new ()"><code class="function">g_option_group_new()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
@@ -1493,8 +1583,11 @@ with <a class="link" href="glib-Commandline-option-parser.html#g-option-group-ne
 <p>
 The type of function to be used as callback when a parse error occurs.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -1531,8 +1624,11 @@ from <a class="link" href="glib-Commandline-option-parser.html#g-option-context-
 Note that the user data to be passed to <em class="parameter"><code>error_func</code></em> can be
 specified when constructing the group with <a class="link" href="glib-Commandline-option-parser.html#g-option-group-new" title="g_option_group_new ()"><code class="function">g_option_group_new()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
@@ -1564,8 +1660,11 @@ is <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code
 If you are using <code class="function">gettext()</code>, you only need to set the translation
 domain, see <a class="link" href="glib-Commandline-option-parser.html#g-option-group-set-translation-domain" title="g_option_group_set_translation_domain ()"><code class="function">g_option_group_set_translation_domain()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
@@ -1601,8 +1700,11 @@ domain, see <a class="link" href="glib-Commandline-option-parser.html#g-option-g
 A convenience function to use <code class="function">gettext()</code> for translating
 user-visible strings.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
@@ -1621,6 +1723,6 @@ user-visible strings.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

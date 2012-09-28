@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GTypeModule</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GObject Reference Manual">
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="GTypePlugin.html" title="GTypePlugin">
 <link rel="next" href="gobject-The-Base-Object-Type.html" title="GObject">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -136,8 +136,11 @@ in <a class="link" href="GTypeModule.html#GTypeModuleClass" title="struct GTypeM
 The members of the <span class="structname">GTypeModule</span> structure should not 
 be accessed directly, except for the <em class="parameter"><code>name</code></em> field.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GTypeModule-struct.name"></a>name</code></em>;</span></p></td>
 <td>the name of the module</td>
@@ -158,8 +161,11 @@ be accessed directly, except for the <em class="parameter"><code>name</code></em
 In order to implement dynamic loading of types based on <a class="link" href="GTypeModule.html" title="GTypeModule"><span class="type">GTypeModule</span></a>, 
 the <em class="parameter"><code>load</code></em> and <em class="parameter"><code>unload</code></em> functions in <a class="link" href="GTypeModule.html#GTypeModuleClass" title="struct GTypeModuleClass"><span class="type">GTypeModuleClass</span></a> must be implemented.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="gobject-The-Base-Object-Type.html#GObjectClass" title="struct GObjectClass"><span class="type">GObjectClass</span></a> <em class="structfield"><code><a name="GTypeModuleClass.parent-class"></a>parent_class</code></em>;</span></p></td>
@@ -187,8 +193,11 @@ use count was zero before, the plugin will be loaded.
 If loading the plugin fails, the use count is reset to 
 its prior value.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>module</code></em> :</span></p></td>
@@ -215,8 +224,11 @@ result is zero, the module will be unloaded. (However, the
 <a class="link" href="GTypeModule.html" title="GTypeModule"><span class="type">GTypeModule</span></a> are not unregistered. Once a <a class="link" href="GTypeModule.html" title="GTypeModule"><span class="type">GTypeModule</span></a> is
 initialized, it must exist forever.)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>module</code></em> :</span></p></td>
 <td>a <a class="link" href="GTypeModule.html" title="GTypeModule"><span class="type">GTypeModule</span></a>
@@ -232,8 +244,11 @@ initialized, it must exist forever.)
 <p>
 Sets the name for a <a class="link" href="GTypeModule.html" title="GTypeModule"><span class="type">GTypeModule</span></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>module</code></em> :</span></p></td>
@@ -269,8 +284,11 @@ be the same as they were previously.
 As long as any instances of the type exist, the type plugin will
 not be unloaded.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>module</code></em> :</span></p></td>
@@ -316,8 +334,11 @@ for the type in this plugin, nothing will be done.
 As long as any instances of the type exist, the type plugin will
 not be unloaded.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>module</code></em> :</span></p></td>
@@ -355,8 +376,11 @@ is newly registered, and the resulting <a class="link" href="gobject-Type-Inform
 As long as any instances of the type exist, the type plugin will
 not be unloaded.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>module</code></em> :</span></p></td>
@@ -398,8 +422,11 @@ is newly registered, and the resulting <a class="link" href="gobject-Type-Inform
 As long as any instances of the type exist, the type plugin will
 not be unloaded.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>module</code></em> :</span></p></td>
@@ -440,8 +467,11 @@ it defines a <code class="function">*_get_type()</code> and a static
 <code class="function"><code class="function">module_init()</code></code>.
 See <a class="link" href="GTypeModule.html#G-DEFINE-DYNAMIC-TYPE-EXTENDED:CAPS" title="G_DEFINE_DYNAMIC_TYPE_EXTENDED()"><code class="function">G_DEFINE_DYNAMIC_TYPE_EXTENDED()</code></a> for an example.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>TN</code></em> :</span></p></td>
@@ -580,7 +610,7 @@ expands to
 <span class="normal">  </span><span class="cbracket">}</span><span class="symbol">;</span>
 <span class="normal">  gtk_gadget_type_id </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GTypeModule.html#g-type-module-register-type">g_type_module_register_type</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">type_module</span><span class="symbol">,</span>
 <span class="normal">                                                    GTK_TYPE_THING</span><span class="symbol">,</span>
-<span class="normal">                                                    GtkGadget</span><span class="symbol">,</span>
+<span class="normal">                                                    </span><span class="string">"GtkGadget"</span><span class="symbol">,</span>
 <span class="normal">                                                    </span><span class="symbol">&amp;</span><span class="normal">g_define_type_info</span><span class="symbol">,</span>
 <span class="normal">                                                    </span><span class="symbol">(</span><span class="normal"><a href="gobject-Type-Information.html#GTypeFlags">GTypeFlags</a></span><span class="symbol">)</span><span class="normal"> flags</span><span class="symbol">);</span>
 <span class="normal">  </span><span class="cbracket">{</span>
@@ -597,8 +627,11 @@ expands to
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>TypeName</code></em> :</span></p></td>
@@ -641,8 +674,11 @@ Note that this macro can only be used together with the
 G_DEFINE_DYNAMIC_TYPE_EXTENDED macros, since it depends on variable
 names from that macro.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>TYPE_IFACE</code></em> :</span></p></td>
@@ -659,8 +695,11 @@ names from that macro.
 </div>
 <div class="refsect1">
 <a name="GTypeModule.see-also"></a><h2>See Also</h2>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="type">GTypePlugin</span></a></span></p></td>
@@ -676,6 +715,6 @@ names from that macro.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GFileEnumerator</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="file_ops.html" title="File Operations">
 <link rel="prev" href="GFileInfo.html" title="GFileInfo">
 <link rel="next" href="gio-GIOError.html" title="GIOError">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -136,8 +136,11 @@ On error, returns <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><
 enumerator is at the end, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> will be returned and <em class="parameter"><code>error</code></em> will
 be unset.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>enumerator</code></em> :</span></p></td>
@@ -176,8 +179,11 @@ This will be automatically called when the last reference
 is dropped, but you might want to call this function to make 
 sure resources are released as early as possible.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>enumerator</code></em> :</span></p></td>
@@ -230,8 +236,11 @@ Any outstanding i/o request with higher priority (lower numerical value) will
 be executed before an outstanding request with lower priority. Default
 priority is <a href="./../glib/glib/glib-The-Main-Event-Loop.html#G-PRIORITY-DEFAULT:CAPS"><code class="literal">G_PRIORITY_DEFAULT</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>enumerator</code></em> :</span></p></td>
@@ -273,8 +282,11 @@ of the request.</td>
 <p>
 Finishes the asynchronous operation started with <a class="link" href="GFileEnumerator.html#g-file-enumerator-next-files-async" title="g_file_enumerator_next_files_async ()"><code class="function">g_file_enumerator_next_files_async()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>enumerator</code></em> :</span></p></td>
@@ -316,8 +328,11 @@ triggering the cancellable object from another thread. If the operation
 was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCELLED:CAPS"><code class="literal">G_IO_ERROR_CANCELLED</code></a> will be returned in 
 <a class="link" href="GFileEnumerator.html#g-file-enumerator-close-finish" title="g_file_enumerator_close_finish ()"><code class="function">g_file_enumerator_close_finish()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>enumerator</code></em> :</span></p></td>
@@ -365,8 +380,11 @@ cancelled by triggering the cancellable object from another thread. If the opera
 was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCELLED:CAPS"><code class="literal">G_IO_ERROR_CANCELLED</code></a> will be set, and <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> will be 
 returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>enumerator</code></em> :</span></p></td>
@@ -396,8 +414,11 @@ ignore.</td>
 <p>
 Checks if the file enumerator has been closed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>enumerator</code></em> :</span></p></td>
@@ -418,8 +439,11 @@ Checks if the file enumerator has been closed.
 <p>
 Checks if the file enumerator has pending operations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>enumerator</code></em> :</span></p></td>
@@ -441,8 +465,11 @@ Checks if the file enumerator has pending operations.
 <p>
 Sets the file enumerator as having pending operations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>enumerator</code></em> :</span></p></td>
@@ -462,8 +489,11 @@ Sets the file enumerator as having pending operations.
 <p>
 Get the <a class="link" href="GFile.html" title="GFile"><span class="type">GFile</span></a> container which is being enumerated.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>enumerator</code></em> :</span></p></td>
@@ -491,6 +521,6 @@ Get the <a class="link" href="GFile.html" title="GFile"><span class="type">GFile
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

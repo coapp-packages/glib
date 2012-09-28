@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Enumeration and Flag Types</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GObject Reference Manual">
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="gobject-The-Base-Object-Type.html" title="GObject">
 <link rel="next" href="gobject-Boxed-Types.html" title="Boxed Types">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -115,8 +115,11 @@ definitions.
 The class of an enumeration type holds information about its 
 possible values.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="gobject-Type-Information.html#GTypeClass" title="struct GTypeClass"><span class="type">GTypeClass</span></a> <em class="structfield"><code><a name="GEnumClass.g-type-class"></a>g_type_class</code></em>;</span></p></td>
@@ -157,8 +160,11 @@ individual values.</td>
 The class of a flags type holds information about its 
 possible values.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="gobject-Type-Information.html#GTypeClass" title="struct GTypeClass"><span class="type">GTypeClass</span></a> <em class="structfield"><code><a name="GFlagsClass.g-type-class"></a>g_type_class</code></em>;</span></p></td>
@@ -188,8 +194,11 @@ individual values.</td>
 <p>
 Get the type identifier from a given <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GEnumClass" title="struct GEnumClass"><span class="type">GEnumClass</span></a> structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>class</code></em> :</span></p></td>
@@ -212,8 +221,11 @@ Get the type identifier from a given <a class="link" href="gobject-Enumeration-a
 <p>
 Get the static type name from a given <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GEnumClass" title="struct GEnumClass"><span class="type">GEnumClass</span></a> structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>class</code></em> :</span></p></td>
@@ -235,8 +247,11 @@ Get the static type name from a given <a class="link" href="gobject-Enumeration-
 <p>
 Checks whether <em class="parameter"><code>type</code></em> "is a" <a class="link" href="gobject-Type-Information.html#G-TYPE-ENUM:CAPS" title="G_TYPE_ENUM"><code class="literal">G_TYPE_ENUM</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -258,8 +273,11 @@ Checks whether <em class="parameter"><code>type</code></em> "is a" <a class="lin
 <p>
 Casts a derived <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GEnumClass" title="struct GEnumClass"><span class="type">GEnumClass</span></a> structure into a <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GEnumClass" title="struct GEnumClass"><span class="type">GEnumClass</span></a> structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>class</code></em> :</span></p></td>
 <td>a valid <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GEnumClass" title="struct GEnumClass"><span class="type">GEnumClass</span></a>
@@ -276,8 +294,11 @@ Casts a derived <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GE
 Checks whether <em class="parameter"><code>class</code></em> "is a" valid <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GEnumClass" title="struct GEnumClass"><span class="type">GEnumClass</span></a> structure of type <a class="link" href="gobject-Type-Information.html#G-TYPE-ENUM:CAPS" title="G_TYPE_ENUM"><code class="literal">G_TYPE_ENUM</code></a>
 or derived.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>class</code></em> :</span></p></td>
 <td>a <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GEnumClass" title="struct GEnumClass"><span class="type">GEnumClass</span></a>
@@ -293,8 +314,11 @@ or derived.
 <p>
 Checks whether <em class="parameter"><code>type</code></em> "is a" <a class="link" href="gobject-Type-Information.html#G-TYPE-FLAGS:CAPS" title="G_TYPE_FLAGS"><code class="literal">G_TYPE_FLAGS</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -316,8 +340,11 @@ Checks whether <em class="parameter"><code>type</code></em> "is a" <a class="lin
 <p>
 Casts a derived <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GFlagsClass" title="struct GFlagsClass"><span class="type">GFlagsClass</span></a> structure into a <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GFlagsClass" title="struct GFlagsClass"><span class="type">GFlagsClass</span></a> structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>class</code></em> :</span></p></td>
 <td>a valid <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GFlagsClass" title="struct GFlagsClass"><span class="type">GFlagsClass</span></a>
@@ -334,8 +361,11 @@ Casts a derived <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GF
 Checks whether <em class="parameter"><code>class</code></em> "is a" valid <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GFlagsClass" title="struct GFlagsClass"><span class="type">GFlagsClass</span></a> structure of type <a class="link" href="gobject-Type-Information.html#G-TYPE-FLAGS:CAPS" title="G_TYPE_FLAGS"><code class="literal">G_TYPE_FLAGS</code></a>
 or derived.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>class</code></em> :</span></p></td>
 <td>a <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GFlagsClass" title="struct GFlagsClass"><span class="type">GFlagsClass</span></a>
@@ -351,8 +381,11 @@ or derived.
 <p>
 Get the type identifier from a given <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GFlagsClass" title="struct GFlagsClass"><span class="type">GFlagsClass</span></a> structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>class</code></em> :</span></p></td>
@@ -375,8 +408,11 @@ Get the type identifier from a given <a class="link" href="gobject-Enumeration-a
 <p>
 Get the static type name from a given <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GFlagsClass" title="struct GFlagsClass"><span class="type">GFlagsClass</span></a> structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>class</code></em> :</span></p></td>
@@ -403,8 +439,11 @@ Get the static type name from a given <a class="link" href="gobject-Enumeration-
 A structure which contains a single enum value, its name, and its
 nickname.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="./../glib/glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> <em class="structfield"><code><a name="GEnumValue.value"></a>value</code></em>;</span></p></td>
@@ -434,8 +473,11 @@ nickname.
 A structure which contains a single flags value, its name, and its
 nickname.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GFlagsValue.value"></a>value</code></em>;</span></p></td>
@@ -460,8 +502,11 @@ nickname.
 <p>
 Returns the <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GEnumValue" title="struct GEnumValue"><span class="type">GEnumValue</span></a> for a value.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>enum_class</code></em> :</span></p></td>
@@ -488,8 +533,11 @@ member of the enumeration</td>
 <p>
 Looks up a <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GEnumValue" title="struct GEnumValue"><span class="type">GEnumValue</span></a> by name.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>enum_class</code></em> :</span></p></td>
@@ -516,8 +564,11 @@ enumeration doesn't have a member with that name</td>
 <p>
 Looks up a <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GEnumValue" title="struct GEnumValue"><span class="type">GEnumValue</span></a> by nickname.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>enum_class</code></em> :</span></p></td>
@@ -544,8 +595,11 @@ enumeration doesn't have a member with that nickname</td>
 <p>
 Returns the first <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GFlagsValue" title="struct GFlagsValue"><span class="type">GFlagsValue</span></a> which is set in <em class="parameter"><code>value</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>flags_class</code></em> :</span></p></td>
@@ -572,8 +626,11 @@ none is set</td>
 <p>
 Looks up a <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GFlagsValue" title="struct GFlagsValue"><span class="type">GFlagsValue</span></a> by name.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>flags_class</code></em> :</span></p></td>
@@ -600,8 +657,11 @@ flag with that name</td>
 <p>
 Looks up a <a class="link" href="gobject-Enumeration-and-Flag-Types.html#GFlagsValue" title="struct GFlagsValue"><span class="type">GFlagsValue</span></a> by nickname.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>flags_class</code></em> :</span></p></td>
@@ -633,8 +693,11 @@ It is normally more convenient to let <a href="glib-mkenums.html">glib-mkenums</
 <code class="function">my_enum_get_type()</code> function from a usual C enumeration definition
 than to write one yourself using <a class="link" href="gobject-Enumeration-and-Flag-Types.html#g-enum-register-static" title="g_enum_register_static ()"><code class="function">g_enum_register_static()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -667,8 +730,11 @@ It is normally more convenient to let <a href="glib-mkenums.html">glib-mkenums</
 <code class="function">my_flags_get_type()</code> function from a usual C enumeration definition
 than to write one yourself using <a class="link" href="gobject-Enumeration-and-Flag-Types.html#g-flags-register-static" title="g_flags_register_static ()"><code class="function">g_flags_register_static()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -739,8 +805,11 @@ example:
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>g_enum_type</code></em> :</span></p></td>
@@ -770,8 +839,11 @@ This function is meant to be called from the <code class="function">complete_typ
 function of a <a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="type">GTypePlugin</span></a> implementation, see the example for
 <a class="link" href="gobject-Enumeration-and-Flag-Types.html#g-enum-complete-type-info" title="g_enum_complete_type_info ()"><code class="function">g_enum_complete_type_info()</code></a> above.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>g_flags_type</code></em> :</span></p></td>
@@ -799,6 +871,6 @@ members being 0.</td>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

@@ -30,7 +30,7 @@
     <ClCompile Include="..\..\..\gio\gbufferedoutputstream.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gio\gcancellable.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gio\gcharsetconverter.c"><Filter>Source Files</Filter></ClCompile>
-    <ClCompile Include="..\..\..\gio\gcontenttype.c"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\..\gio\gcontenttype-win32.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gio\gconverter.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gio\gconverterinputstream.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gio\gconverteroutputstream.c"><Filter>Source Files</Filter></ClCompile>
@@ -127,6 +127,7 @@
     <ClCompile Include="..\..\..\gio\gpermission.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gio\gpollableinputstream.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gio\gpollableoutputstream.c"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\..\gio\gpollableutils.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gio\gpollfilemonitor.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gio\gproxyaddress.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gio\gproxyaddressenumerator.c"><Filter>Source Files</Filter></ClCompile>
@@ -163,6 +164,7 @@
     <ClCompile Include="..\..\..\gio\gsrvtarget.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gio\gtcpconnection.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gio\gtcpwrapperconnection.c"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\..\gio\gtestdbus.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gio\gthemedicon.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gio\gthreadedresolver.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gio\gthreadedsocketservice.c"><Filter>Source Files</Filter></ClCompile>

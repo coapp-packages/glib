@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GIOModule</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="extending.html" title="Extending GIO">
 <link rel="prev" href="GVfs.html" title="GVfs">
 <link rel="next" href="gio-Extension-Points.html" title="Extension Points">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -121,8 +121,11 @@ or <a class="link" href="GIOModule.html#g-io-modules-scan-all-in-directory-with-
 <p>
 Flags for use with <a class="link" href="GIOModule.html#g-io-module-scope-new" title="g_io_module_scope_new ()"><code class="function">g_io_module_scope_new()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-IO-MODULE-SCOPE-NONE:CAPS"></a><span class="term"><code class="literal">G_IO_MODULE_SCOPE_NONE</code></span></p></td>
@@ -148,8 +151,11 @@ Flags for use with <a class="link" href="GIOModule.html#g-io-module-scope-new" t
 Creates a new GIOModule that will load the specific
 shared library when in use.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
@@ -173,8 +179,11 @@ Block modules with the given <em class="parameter"><code>basename</code></em> fr
 this scope is used with <a class="link" href="GIOModule.html#g-io-modules-scan-all-in-directory-with-scope" title="g_io_modules_scan_all_in_directory_with_scope ()"><code class="function">g_io_modules_scan_all_in_directory_with_scope()</code></a>
 or <a class="link" href="GIOModule.html#g-io-modules-load-all-in-directory-with-scope" title="g_io_modules_load_all_in_directory_with_scope ()"><code class="function">g_io_modules_load_all_in_directory_with_scope()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scope</code></em> :</span></p></td>
@@ -195,8 +204,11 @@ or <a class="link" href="GIOModule.html#g-io-modules-load-all-in-directory-with-
 <p>
 Free a module scope.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>scope</code></em> :</span></p></td>
 <td>a module loading scope</td>
@@ -217,8 +229,11 @@ Specify the <a class="link" href="GIOModule.html#G-IO-MODULE-SCOPE-BLOCK-DUPLICA
 which have the same base name as a module that has already been seen
 in this scope.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
@@ -245,8 +260,11 @@ If don't require all modules to be initialized (and thus registering
 all gtypes) then you can use <a class="link" href="GIOModule.html#g-io-modules-scan-all-in-directory" title="g_io_modules_scan_all_in_directory ()"><code class="function">g_io_modules_scan_all_in_directory()</code></a>
 which allows delayed/lazy loading of modules.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dirname</code></em> :</span></p></td>
@@ -279,8 +297,11 @@ If don't require all modules to be initialized (and thus registering
 all gtypes) then you can use <a class="link" href="GIOModule.html#g-io-modules-scan-all-in-directory" title="g_io_modules_scan_all_in_directory ()"><code class="function">g_io_modules_scan_all_in_directory()</code></a>
 which allows delayed/lazy loading of modules.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dirname</code></em> :</span></p></td>
@@ -323,8 +344,11 @@ an extension point it implementes is used with e.g.
 If you need to guarantee that all types are loaded in all the modules,
 use <a class="link" href="GIOModule.html#g-io-modules-load-all-in-directory" title="g_io_modules_load_all_in_directory ()"><code class="function">g_io_modules_load_all_in_directory()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>dirname</code></em> :</span></p></td>
 <td>pathname for a directory containing modules to scan.</td>
@@ -353,8 +377,11 @@ an extension point it implementes is used with e.g.
 If you need to guarantee that all types are loaded in all the modules,
 use <a class="link" href="GIOModule.html#g-io-modules-load-all-in-directory" title="g_io_modules_load_all_in_directory ()"><code class="function">g_io_modules_load_all_in_directory()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dirname</code></em> :</span></p></td>
@@ -377,8 +404,11 @@ Required API for GIO modules to implement.
 This function is ran after the module has been loaded into GIO,
 to initialize the module.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>module</code></em> :</span></p></td>
 <td>a <a class="link" href="GIOModule.html" title="GIOModule"><span class="type">GIOModule</span></a>.</td>
@@ -394,8 +424,11 @@ Required API for GIO modules to implement.
 This function is ran when the module is being unloaded from GIO,
 to finalize the module.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>module</code></em> :</span></p></td>
 <td>a <a class="link" href="GIOModule.html" title="GIOModule"><span class="type">GIOModule</span></a>.</td>
@@ -435,8 +468,11 @@ When installing a module that implements g_io_module_query you must
 run gio-querymodules in order to build the cache files required for
 lazy loading.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>A <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of strings, listing the supported
@@ -451,6 +487,6 @@ freeing with <a href="./../glib/glib/glib-String-Utility-Functions.html#g-strfre
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

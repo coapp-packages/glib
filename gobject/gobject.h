@@ -28,6 +28,7 @@
 #include        <gobject/gparam.h>
 #include        <gobject/gclosure.h>
 #include        <gobject/gsignal.h>
+#include        <gobject/gboxed.h>
 
 G_BEGIN_DECLS
 
@@ -490,6 +491,20 @@ void        g_object_set_qdata_full           (GObject        *object,
 					       GDestroyNotify  destroy);
 gpointer    g_object_steal_qdata              (GObject        *object,
 					       GQuark          quark);
+
+GLIB_AVAILABLE_IN_2_34
+gpointer    g_object_dup_qdata                (GObject        *object,
+                                               GQuark          quark,
+                                               GDuplicateFunc  dup_func,
+					       gpointer         user_data);
+GLIB_AVAILABLE_IN_2_34
+gboolean    g_object_replace_qdata            (GObject        *object,
+                                               GQuark          quark,
+                                               gpointer        oldval,
+                                               gpointer        newval,
+                                               GDestroyNotify  destroy,
+					       GDestroyNotify *old_destroy);
+
 gpointer    g_object_get_data                 (GObject        *object,
 					       const gchar    *key);
 void        g_object_set_data                 (GObject        *object,
@@ -501,6 +516,21 @@ void        g_object_set_data_full            (GObject        *object,
 					       GDestroyNotify  destroy);
 gpointer    g_object_steal_data               (GObject        *object,
 					       const gchar    *key);
+
+GLIB_AVAILABLE_IN_2_34
+gpointer    g_object_dup_data                 (GObject        *object,
+                                               const gchar    *key,
+                                               GDuplicateFunc  dup_func,
+					       gpointer         user_data);
+GLIB_AVAILABLE_IN_2_34
+gboolean    g_object_replace_data             (GObject        *object,
+                                               const gchar    *key,
+                                               gpointer        oldval,
+                                               gpointer        newval,
+                                               GDestroyNotify  destroy,
+					       GDestroyNotify *old_destroy);
+
+
 void        g_object_watch_closure            (GObject        *object,
 					       GClosure       *closure);
 GClosure*   g_cclosure_new_object             (GCallback       callback_func,
@@ -561,21 +591,7 @@ G_STMT_START { \
     G_OBJECT_WARN_INVALID_PSPEC ((object), "property", (property_id), (pspec))
 
 void    g_clear_object (volatile GObject **object_ptr);
-#define g_clear_object(object_ptr) \
-  G_STMT_START {                                                             \
-    G_STATIC_ASSERT (sizeof *(object_ptr) == sizeof (gpointer));             \
-    /* Only one access, please */                                            \
-    gpointer *_p = (gpointer *) (object_ptr);                                \
-    gpointer _o;                                                             \
-                                                                             \
-    (void) (0 ? (gpointer) *(object_ptr) : 0);                               \
-    do                                                                       \
-      _o = g_atomic_pointer_get (_p);                                        \
-    while G_UNLIKELY (!g_atomic_pointer_compare_and_exchange (_p, _o, NULL));\
-                                                                             \
-    if (_o)                                                                  \
-      g_object_unref (_o);                                                   \
-  } G_STMT_END
+#define g_clear_object(object_ptr) g_clear_pointer ((object_ptr), g_object_unref)
 
 typedef struct {
     /*<private>*/

@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Lexical Scanner</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-Miscellaneous-Utility-Functions.html" title="Miscellaneous Utility Functions">
 <link rel="next" href="glib-Timers.html" title="Timers">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -180,8 +180,11 @@ If you want to use your own message handler you can set the
 <em class="parameter"><code>msg_handler</code></em> field. The type of the message handler function
 is declared by <a class="link" href="glib-Lexical-Scanner.html#GScannerMsgFunc" title="GScannerMsgFunc ()"><span class="type">GScannerMsgFunc</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> <em class="structfield"><code><a name="GScanner.user-data"></a>user_data</code></em>;</span></p></td>
@@ -300,8 +303,11 @@ Specifies the <a class="link" href="glib-Lexical-Scanner.html#GScanner" title="s
 be changed during the parsing phase and will affect the lexical
 parsing of the next unpeeked token.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GScannerConfig.cset-skip-characters"></a>cset_skip_characters</code></em>;</span></p></td>
@@ -455,8 +461,11 @@ of the scanner, which are copied into the <a class="link" href="glib-Lexical-Sca
 <em class="parameter"><code>config</code></em> field. If you pass <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> then the default settings
 are used.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>config_templ</code></em> :</span></p></td>
@@ -477,8 +486,11 @@ are used.
 <p>
 Frees all memory used by the <a class="link" href="glib-Lexical-Scanner.html#GScanner" title="struct GScanner"><span class="type">GScanner</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Lexical-Scanner.html#GScanner" title="struct GScanner"><span class="type">GScanner</span></a>
@@ -494,8 +506,11 @@ Frees all memory used by the <a class="link" href="glib-Lexical-Scanner.html#GSc
 <p>
 Prepares to scan a file.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -519,8 +534,11 @@ and blows the file read ahead buffer. This is useful for
 third party uses of the scanners filedescriptor, which hooks
 onto the current scanning position.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Lexical-Scanner.html#GScanner" title="struct GScanner"><span class="type">GScanner</span></a>
@@ -537,8 +555,11 @@ onto the current scanning position.
 <p>
 Prepares to scan a text buffer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -574,8 +595,11 @@ the next token. Getting the next token after switching the scope or
 configuration will return whatever was peeked before, regardless of
 any symbols that may have been added or removed in the new scope.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -599,8 +623,11 @@ and also removes it from the input stream. The token data is
 placed in the <em class="parameter"><code>token</code></em>, <em class="parameter"><code>value</code></em>, <em class="parameter"><code>line</code></em>, and <em class="parameter"><code>position</code></em> fields of
 the <a class="link" href="glib-Lexical-Scanner.html#GScanner" title="struct GScanner"><span class="type">GScanner</span></a> structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -622,8 +649,11 @@ the <a class="link" href="glib-Lexical-Scanner.html#GScanner" title="struct GSca
 Returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if the scanner has reached the end of
 the file or text buffer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -648,8 +678,11 @@ Returns the current line in the input stream (counting
 from 1). This is the line of the last token parsed via
 <a class="link" href="glib-Lexical-Scanner.html#g-scanner-get-next-token" title="g_scanner_get_next_token ()"><code class="function">g_scanner_get_next_token()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -672,8 +705,11 @@ Returns the current position in the current line (counting
 from 0). This is the position of the last token parsed via
 <a class="link" href="glib-Lexical-Scanner.html#g-scanner-get-next-token" title="g_scanner_get_next_token ()"><code class="function">g_scanner_get_next_token()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -695,8 +731,11 @@ from 0). This is the position of the last token parsed via
 Gets the current token type. This is simply the <em class="parameter"><code>token</code></em>
 field in the <a class="link" href="glib-Lexical-Scanner.html#GScanner" title="struct GScanner"><span class="type">GScanner</span></a> structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -718,8 +757,11 @@ field in the <a class="link" href="glib-Lexical-Scanner.html#GScanner" title="st
 Gets the current token value. This is simply the <em class="parameter"><code>value</code></em>
 field in the <a class="link" href="glib-Lexical-Scanner.html#GScanner" title="struct GScanner"><span class="type">GScanner</span></a> structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -741,8 +783,11 @@ field in the <a class="link" href="glib-Lexical-Scanner.html#GScanner" title="st
 <p>
 Sets the current scope.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -770,8 +815,11 @@ Sets the current scope.
 <p>
 Adds a symbol to the given scope.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -806,8 +854,11 @@ in the given scope of the <a class="link" href="glib-Lexical-Scanner.html#GScann
 the symbol and value of each pair, and the given <em class="parameter"><code>user_data</code></em>
 parameter.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -839,8 +890,11 @@ parameter.
 Looks up a symbol in a scope and return its value. If the
 symbol is not bound in the scope, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -872,8 +926,11 @@ if <em class="parameter"><code>symbol</code></em> is not bound in the given scop
 <p>
 Removes a symbol from a scope.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -902,8 +959,11 @@ Removes a symbol from a scope.
 <p>
 Adds a symbol to the default scope.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -932,8 +992,11 @@ Adds a symbol to the default scope.
 <p>
 Removes a symbol from the default scope.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -958,8 +1021,11 @@ Removes a symbol from the default scope.
 <p>
 Calls a function for each symbol in the default scope.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -988,8 +1054,11 @@ Calls a function for each symbol in the default scope.
 <p>
 There is no reason to use this macro, since it does nothing.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Lexical-Scanner.html#GScanner" title="struct GScanner"><span class="type">GScanner</span></a>
@@ -1008,8 +1077,11 @@ There is no reason to use this macro, since it does nothing.
 <p>
 There is no reason to use this macro, since it does nothing.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Lexical-Scanner.html#GScanner" title="struct GScanner"><span class="type">GScanner</span></a>
@@ -1027,8 +1099,11 @@ Looks up a symbol in the current scope and return its value.
 If the symbol is not bound in the current scope, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is
 returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -1056,8 +1131,11 @@ if <em class="parameter"><code>symbol</code></em> is not bound in the current sc
 <p>
 Outputs a warning message, via the <a class="link" href="glib-Lexical-Scanner.html#GScanner" title="struct GScanner"><span class="type">GScanner</span></a> message handler.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -1084,8 +1162,11 @@ Outputs a warning message, via the <a class="link" href="glib-Lexical-Scanner.ht
 <p>
 Outputs an error message, via the <a class="link" href="glib-Lexical-Scanner.html#GScanner" title="struct GScanner"><span class="type">GScanner</span></a> message handler.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -1122,8 +1203,11 @@ call to <a class="link" href="glib-Lexical-Scanner.html#g-scanner-get-next-token
 evaluates the scanner's current token (not the peeked token)
 to construct part of the message.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -1175,8 +1259,11 @@ output as a warning.</td>
 <p>
 Specifies the type of the message handler function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>scanner</code></em> :</span></p></td>
@@ -1285,8 +1372,11 @@ in <a class="link" href="glib-Lexical-Scanner.html#GScannerConfig" title="struct
 The possible types of token returned from each
 <a class="link" href="glib-Lexical-Scanner.html#g-scanner-get-next-token" title="g_scanner_get_next_token ()"><code class="function">g_scanner_get_next_token()</code></a> call.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-TOKEN-EOF:CAPS"></a><span class="term"><code class="literal">G_TOKEN_EOF</code></span></p></td>
@@ -1338,8 +1428,11 @@ The possible types of token returned from each
 <p>
 A union holding the value of the token.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> <em class="structfield"><code><a name="GTokenValue.v-symbol"></a>v_symbol</code></em>;</span></p></td>
@@ -1410,8 +1503,11 @@ A union holding the value of the token.
 The possible errors, used in the <em class="parameter"><code>v_error</code></em> field
 of <a class="link" href="glib-Lexical-Scanner.html#GTokenValue" title="union GTokenValue"><span class="type">GTokenValue</span></a>, when the token is a <code class="literal">G_TOKEN_ERROR</code>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-ERR-UNKNOWN:CAPS"></a><span class="term"><code class="literal">G_ERR_UNKNOWN</code></span></p></td>
@@ -1460,6 +1556,6 @@ of <a class="link" href="glib-Lexical-Scanner.html#GTokenValue" title="union GTo
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

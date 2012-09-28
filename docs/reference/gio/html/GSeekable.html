@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GSeekable</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="streaming.html" title="Streaming I/O">
 <link rel="prev" href="streaming.html" title="Streaming I/O">
 <link rel="next" href="GInputStream.html" title="GInputStream">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -79,7 +79,7 @@ GSeekable requires
 <a name="GSeekable.implementations"></a><h2>Known Implementations</h2>
 <p>
 GSeekable is implemented by
- <a class="link" href="GFileIOStream.html" title="GFileIOStream">GFileIOStream</a>,  <a class="link" href="GFileInputStream.html" title="GFileInputStream">GFileInputStream</a>,  <a class="link" href="GFileOutputStream.html" title="GFileOutputStream">GFileOutputStream</a>,  <a class="link" href="GMemoryInputStream.html" title="GMemoryInputStream">GMemoryInputStream</a> and  <a class="link" href="GMemoryOutputStream.html" title="GMemoryOutputStream">GMemoryOutputStream</a>.</p>
+ <a class="link" href="GBufferedInputStream.html" title="GBufferedInputStream">GBufferedInputStream</a>,  <a class="link" href="GBufferedOutputStream.html" title="GBufferedOutputStream">GBufferedOutputStream</a>,  <a class="link" href="GDataInputStream.html" title="GDataInputStream">GDataInputStream</a>,  <a class="link" href="GDataOutputStream.html" title="GDataOutputStream">GDataOutputStream</a>,  <a class="link" href="GFileIOStream.html" title="GFileIOStream">GFileIOStream</a>,  <a class="link" href="GFileInputStream.html" title="GFileInputStream">GFileInputStream</a>,  <a class="link" href="GFileOutputStream.html" title="GFileOutputStream">GFileOutputStream</a>,  <a class="link" href="GMemoryInputStream.html" title="GMemoryInputStream">GMemoryInputStream</a> and  <a class="link" href="GMemoryOutputStream.html" title="GMemoryOutputStream">GMemoryOutputStream</a>.</p>
 </div>
 <div class="refsect1">
 <a name="GSeekable.description"></a><h2>Description</h2>
@@ -126,8 +126,11 @@ Seek object for streaming operations.
 <p>
 Provides an interface for implementing seekable functionality on I/O Streams.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="./../gobject/gobject/gobject-Type-Information.html#GTypeInterface"><span class="type">GTypeInterface</span></a> <em class="structfield"><code><a name="GSeekableIface.g-iface"></a>g_iface</code></em>;</span></p></td>
@@ -163,8 +166,11 @@ Provides an interface for implementing seekable functionality on I/O Streams.
 <p>
 Tells the current position within the stream.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seekable</code></em> :</span></p></td>
@@ -184,8 +190,11 @@ Tells the current position within the stream.
 <p>
 Tests if the stream supports the <a class="link" href="GSeekable.html#GSeekableIface" title="struct GSeekableIface"><span class="type">GSeekableIface</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seekable</code></em> :</span></p></td>
@@ -215,8 +224,11 @@ If <em class="parameter"><code>cancellable</code></em> is not <a href="./../glib
 triggering the cancellable object from another thread. If the operation
 was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCELLED:CAPS"><code class="literal">G_IO_ERROR_CANCELLED</code></a> will be returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seekable</code></em> :</span></p></td>
@@ -257,8 +269,11 @@ appropriately if present.</td>
 <p>
 Tests if the stream can be truncated.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seekable</code></em> :</span></p></td>
@@ -292,8 +307,11 @@ partial result will be returned, without an error.
 <p>
 Virtual: truncate_fn
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seekable</code></em> :</span></p></td>
@@ -331,6 +349,6 @@ appropriately if present.</td>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

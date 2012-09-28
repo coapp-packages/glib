@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GDateTime</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-GTimeZone.html" title="GTimeZone">
 <link rel="next" href="glib-Random-Numbers.html" title="Random Numbers">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -271,8 +271,11 @@ Atomically decrements the reference count of <em class="parameter"><code>datetim
 When the reference count reaches zero, the resources allocated by
 <em class="parameter"><code>datetime</code></em> are freed
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a>
@@ -288,8 +291,11 @@ When the reference count reaches zero, the resources allocated by
 <p>
 Atomically increments the reference count of <em class="parameter"><code>datetime</code></em> by one.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -322,8 +328,11 @@ year 9999).
 You should release the return value by calling <a class="link" href="glib-GDateTime.html#g-date-time-unref" title="g_date_time_unref ()"><code class="function">g_date_time_unref()</code></a>
 when you are done with it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>tz</code></em> :</span></p></td>
@@ -351,8 +360,11 @@ time zone.
 This is equivalent to calling <a class="link" href="glib-GDateTime.html#g-date-time-new-now" title="g_date_time_new_now ()"><code class="function">g_date_time_new_now()</code></a> with the time
 zone returned by <a class="link" href="glib-GTimeZone.html#g-time-zone-new-local" title="g_time_zone_new_local ()"><code class="function">g_time_zone_new_local()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a new <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
@@ -372,8 +384,11 @@ Creates a <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"
 This is equivalent to calling <a class="link" href="glib-GDateTime.html#g-date-time-new-now" title="g_date_time_new_now ()"><code class="function">g_date_time_new_now()</code></a> with the time
 zone returned by <a class="link" href="glib-GTimeZone.html#g-time-zone-new-utc" title="g_time_zone_new_utc ()"><code class="function">g_time_zone_new_utc()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a new <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
@@ -402,8 +417,11 @@ of the supported range of <a class="link" href="glib-GDateTime.html#GDateTime" t
 You should release the return value by calling <a class="link" href="glib-GDateTime.html#g-date-time-unref" title="g_date_time_unref ()"><code class="function">g_date_time_unref()</code></a>
 when you are done with it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>t</code></em> :</span></p></td>
@@ -437,8 +455,11 @@ of the supported range of <a class="link" href="glib-GDateTime.html#GDateTime" t
 You should release the return value by calling <a class="link" href="glib-GDateTime.html#g-date-time-unref" title="g_date_time_unref ()"><code class="function">g_date_time_unref()</code></a>
 when you are done with it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>t</code></em> :</span></p></td>
@@ -474,8 +495,11 @@ of the supported range of <a class="link" href="glib-GDateTime.html#GDateTime" t
 You should release the return value by calling <a class="link" href="glib-GDateTime.html#g-date-time-unref" title="g_date_time_unref ()"><code class="function">g_date_time_unref()</code></a>
 when you are done with it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>tv</code></em> :</span></p></td>
@@ -510,8 +534,11 @@ of the supported range of <a class="link" href="glib-GDateTime.html#GDateTime" t
 You should release the return value by calling <a class="link" href="glib-GDateTime.html#g-date-time-unref" title="g_date_time_unref ()"><code class="function">g_date_time_unref()</code></a>
 when you are done with it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>tv</code></em> :</span></p></td>
@@ -574,8 +601,11 @@ return <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><
 You should release the return value by calling <a class="link" href="glib-GDateTime.html#g-date-time-unref" title="g_date_time_unref ()"><code class="function">g_date_time_unref()</code></a>
 when you are done with it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>tz</code></em> :</span></p></td>
@@ -632,8 +662,11 @@ the local time zone.
 This call is equivalent to calling <a class="link" href="glib-GDateTime.html#g-date-time-new" title="g_date_time_new ()"><code class="function">g_date_time_new()</code></a> with the time
 zone returned by <a class="link" href="glib-GTimeZone.html#g-time-zone-new-local" title="g_time_zone_new_local ()"><code class="function">g_time_zone_new_local()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>year</code></em> :</span></p></td>
@@ -666,7 +699,7 @@ zone returned by <a class="link" href="glib-GTimeZone.html#g-time-zone-new-local
 </tr>
 </tbody>
 </table></div>
-<p class="since">Since 2.26.</p>
+<p class="since">Since 2.26</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -685,8 +718,11 @@ UTC.
 This call is equivalent to calling <a class="link" href="glib-GDateTime.html#g-date-time-new" title="g_date_time_new ()"><code class="function">g_date_time_new()</code></a> with the time
 zone returned by <a class="link" href="glib-GTimeZone.html#g-time-zone-new-utc" title="g_time_zone_new_utc ()"><code class="function">g_time_zone_new_utc()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>year</code></em> :</span></p></td>
@@ -719,7 +755,7 @@ zone returned by <a class="link" href="glib-GTimeZone.html#g-time-zone-new-utc" 
 </tr>
 </tbody>
 </table></div>
-<p class="since">Since 2.26.</p>
+<p class="since">Since 2.26</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -729,8 +765,11 @@ zone returned by <a class="link" href="glib-GTimeZone.html#g-time-zone-new-utc" 
 <p>
 Creates a copy of <em class="parameter"><code>datetime</code></em> and adds the specified timespan to the copy.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -760,8 +799,11 @@ Creates a copy of <em class="parameter"><code>datetime</code></em> and adds the 
 Creates a copy of <em class="parameter"><code>datetime</code></em> and adds the specified number of years to the
 copy.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -790,8 +832,11 @@ copy.
 Creates a copy of <em class="parameter"><code>datetime</code></em> and adds the specified number of months to the
 copy.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -820,8 +865,11 @@ copy.
 Creates a copy of <em class="parameter"><code>datetime</code></em> and adds the specified number of weeks to the
 copy.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -850,8 +898,11 @@ copy.
 Creates a copy of <em class="parameter"><code>datetime</code></em> and adds the specified number of days to the
 copy.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -879,8 +930,11 @@ copy.
 <p>
 Creates a copy of <em class="parameter"><code>datetime</code></em> and adds the specified number of hours
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -908,8 +962,11 @@ Creates a copy of <em class="parameter"><code>datetime</code></em> and adds the 
 <p>
 Creates a copy of <em class="parameter"><code>datetime</code></em> adding the specified number of minutes.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -937,8 +994,11 @@ Creates a copy of <em class="parameter"><code>datetime</code></em> adding the sp
 <p>
 Creates a copy of <em class="parameter"><code>datetime</code></em> and adds the specified number of seconds.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -972,8 +1032,11 @@ Creates a copy of <em class="parameter"><code>datetime</code></em> and adds the 
 Creates a new <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> adding the specified values to the current date and
 time in <em class="parameter"><code>datetime</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1022,8 +1085,11 @@ time in <em class="parameter"><code>datetime</code></em>.
 A comparison function for <a href="glib-GDateTime.html#GDateTime"><span class="type">GDateTimes</span></a> that is suitable
 as a <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareFunc" title="GCompareFunc ()"><span class="type">GCompareFunc</span></a>. Both <a href="glib-GDateTime.html#GDateTime"><span class="type">GDateTimes</span></a> must be non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dt1</code></em> :</span></p></td>
@@ -1052,8 +1118,11 @@ Calculates the difference in time between <em class="parameter"><code>end</code>
 <a class="link" href="glib-GDateTime.html#GTimeSpan" title="GTimeSpan"><span class="type">GTimeSpan</span></a> that is returned is effectively <em class="parameter"><code>end</code></em> - <em class="parameter"><code>begin</code></em> (ie:
 positive if the first simparameter is larger).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>end</code></em> :</span></p></td>
@@ -1081,8 +1150,11 @@ span expressed in microseconds.</td>
 <p>
 Hashes <em class="parameter"><code>datetime</code></em> into a <a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="type">guint</span></a>, suitable for use within <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1109,8 +1181,11 @@ Checks to see if <em class="parameter"><code>dt1</code></em> and <em class="para
 Equal here means that they represent the same moment after converting
 them to the same time zone.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dt1</code></em> :</span></p></td>
@@ -1141,8 +1216,11 @@ them to the same time zone.
 <p>
 Retrieves the Gregorian day, month, and year of a given <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1174,8 +1252,11 @@ Retrieves the Gregorian day, month, and year of a given <a class="link" href="gl
 <p>
 Retrieves the year represented by <em class="parameter"><code>datetime</code></em> in the Gregorian calendar.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1199,8 +1280,11 @@ Retrieves the year represented by <em class="parameter"><code>datetime</code></e
 Retrieves the month of the year represented by <em class="parameter"><code>datetime</code></em> in the Gregorian
 calendar.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1224,8 +1308,11 @@ calendar.
 Retrieves the day of the month represented by <em class="parameter"><code>datetime</code></em> in the gregorian
 calendar.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1284,8 +1371,11 @@ week (Monday to Sunday).
 Note that January 1 0001 in the proleptic Gregorian calendar is a
 Monday, so this function never returns 0.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1324,8 +1414,11 @@ previous year.  Similarly, the final days of a calendar year may be
 considered as being part of the first ISO 8601 week of the next year
 if 4 or more days of that week are contained within the new year.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1348,8 +1441,11 @@ if 4 or more days of that week are contained within the new year.
 Retrieves the ISO 8601 day of the week on which <em class="parameter"><code>datetime</code></em> falls (1 is
 Monday, 2 is Tuesday... 7 is Sunday).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1372,8 +1468,11 @@ Monday, 2 is Tuesday... 7 is Sunday).
 Retrieves the day of the year represented by <em class="parameter"><code>datetime</code></em> in the Gregorian
 calendar.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1395,8 +1494,11 @@ calendar.
 <p>
 Retrieves the hour of the day represented by <em class="parameter"><code>datetime</code></em>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1418,8 +1520,11 @@ Retrieves the hour of the day represented by <em class="parameter"><code>datetim
 <p>
 Retrieves the minute of the hour represented by <em class="parameter"><code>datetime</code></em>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1441,8 +1546,11 @@ Retrieves the minute of the hour represented by <em class="parameter"><code>date
 <p>
 Retrieves the second of the minute represented by <em class="parameter"><code>datetime</code></em>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1465,8 +1573,11 @@ Retrieves the second of the minute represented by <em class="parameter"><code>da
 <p>
 Retrieves the microsecond of the date represented by <em class="parameter"><code>datetime</code></em>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1489,8 +1600,11 @@ Retrieves the microsecond of the date represented by <em class="parameter"><code
 Retrieves the number of seconds since the start of the last minute,
 including the fractional part.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1517,8 +1631,11 @@ nearest second.
 Unix time is the number of seconds that have elapsed since 1970-01-01
 00:00:00 UTC, regardless of the time zone associated with <em class="parameter"><code>datetime</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1557,8 +1674,11 @@ out of range.
 <p>
 On systems where 'long' is 64bit, this function never fails.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1595,8 +1715,11 @@ zones west of GMT, positive numbers for east).
 <p>
 If <em class="parameter"><code>datetime</code></em> represents UTC time, then the offset is always zero.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1626,8 +1749,11 @@ For example, in Toronto this is currently "EST" during the winter
 months and "EDT" during the summer months when daylight savings
 time is in effect.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1653,8 +1779,11 @@ modified or freed. <span class="annotation">[<acronym title="Don't free data aft
 Determines if daylight savings time is in effect at the time and in
 the time zone of <em class="parameter"><code>datetime</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1688,8 +1817,11 @@ Greenwich will fail (due to the year 0 being out of range).
 You should release the return value by calling <a class="link" href="glib-GDateTime.html#g-date-time-unref" title="g_date_time_unref ()"><code class="function">g_date_time_unref()</code></a>
 when you are done with it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1722,8 +1854,11 @@ Creates a new <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateT
 This call is equivalent to calling <a class="link" href="glib-GDateTime.html#g-date-time-to-timezone" title="g_date_time_to_timezone ()"><code class="function">g_date_time_to_timezone()</code></a> with the
 time zone returned by <a class="link" href="glib-GTimeZone.html#g-time-zone-new-local" title="g_time_zone_new_local ()"><code class="function">g_time_zone_new_local()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1751,8 +1886,11 @@ Creates a new <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateT
 This call is equivalent to calling <a class="link" href="glib-GDateTime.html#g-date-time-to-timezone" title="g_date_time_to_timezone ()"><code class="function">g_date_time_to_timezone()</code></a> with the
 time zone returned by <a class="link" href="glib-GTimeZone.html#g-time-zone-new-utc" title="g_time_zone_new_utc ()"><code class="function">g_time_zone_new_utc()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -1794,8 +1932,11 @@ The following format specifiers are supported:
 </p>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">
@@ -2121,8 +2262,11 @@ conversion specifier by one or more modifier characters. The
 following modifiers are supported for many of the numeric
 conversions:
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">O</span></p></td>
@@ -2156,8 +2300,11 @@ conversions:
 </table></div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
@@ -2188,6 +2335,6 @@ should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" t
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

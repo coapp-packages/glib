@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Version Information</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-fundamentals.html" title="GLib Fundamentals">
 <link rel="prev" href="glib-fundamentals.html" title="GLib Fundamentals">
 <link rel="next" href="glib-Basic-Types.html" title="Basic Types">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -62,6 +62,7 @@ const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span cla
 #define             <a class="link" href="glib-Version-Information.html#GLIB-VERSION-2-32:CAPS" title="GLIB_VERSION_2_32">GLIB_VERSION_2_32</a>
 #define             <a class="link" href="glib-Version-Information.html#GLIB-VERSION-MIN-REQUIRED:CAPS" title="GLIB_VERSION_MIN_REQUIRED">GLIB_VERSION_MIN_REQUIRED</a>
 #define             <a class="link" href="glib-Version-Information.html#GLIB-VERSION-MAX-ALLOWED:CAPS" title="GLIB_VERSION_MAX_ALLOWED">GLIB_VERSION_MAX_ALLOWED</a>
+#define             <a class="link" href="glib-Version-Information.html#GLIB-DISABLE-DEPRECATION-WARNINGS:CAPS" title="GLIB_DISABLE_DEPRECATION_WARNINGS">GLIB_DISABLE_DEPRECATION_WARNINGS</a>
 </pre>
 </div>
 <div class="refsect1">
@@ -74,7 +75,7 @@ not typically use the features described here.
 <p>
 The GLib headers annotate deprecated APIs in a way that produces
 compiler warnings if these deprecated APIs are used. The warnings
-can be turned off by defining the macro <code class="literal">GLIB_DISABLE_DEPRECATION_WARNINGS</code>
+can be turned off by defining the macro <a class="link" href="glib-Version-Information.html#GLIB-DISABLE-DEPRECATION-WARNINGS:CAPS" title="GLIB_DISABLE_DEPRECATION_WARNINGS"><code class="literal">GLIB_DISABLE_DEPRECATION_WARNINGS</code></a>
 before including the glib.h header.
 </p>
 <p>
@@ -140,8 +141,11 @@ the running library must be binary compatible with the
 version <em class="parameter"><code>required_major.required_minor</code></em>.<em class="parameter"><code>required_micro</code></em>
 (same major version.)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>required_major</code></em> :</span></p></td>
@@ -184,13 +188,13 @@ linked against at application run time.
 <hr>
 <div class="refsect2">
 <a name="GLIB-MINOR-VERSION:CAPS"></a><h3>GLIB_MINOR_VERSION</h3>
-<pre class="programlisting">#define GLIB_MINOR_VERSION 32
+<pre class="programlisting">#define GLIB_MINOR_VERSION 34
 </pre>
 <p>
 The minor version number of the GLib library.
 </p>
 <p>
-Like <span class="type">gtk_minor_version</span>, but from the headers used at
+Like <a href="http://library.gnome.org/devel/gtk3/gtk-Feature-Test-Macros.html#gtk-minor-version"><span class="type">gtk_minor_version</span></a>, but from the headers used at
 application compile time, rather than from the library
 linked against at application run time.
 </p>
@@ -198,13 +202,13 @@ linked against at application run time.
 <hr>
 <div class="refsect2">
 <a name="GLIB-MICRO-VERSION:CAPS"></a><h3>GLIB_MICRO_VERSION</h3>
-<pre class="programlisting">#define GLIB_MICRO_VERSION 3
+<pre class="programlisting">#define GLIB_MICRO_VERSION 0
 </pre>
 <p>
 The micro version number of the GLib library.
 </p>
 <p>
-Like <span class="type">gtk_micro_version</span>, but from the headers used at
+Like <a href="http://library.gnome.org/devel/gtk3/gtk-Feature-Test-Macros.html#gtk-micro-version"><span class="type">gtk_micro_version</span></a>, but from the headers used at
 application compile time, rather than from the library
 linked against at application run time.
 </p>
@@ -220,7 +224,7 @@ against.
 <p>
 </p>
 <div class="example">
-<a name="id487470"></a><p class="title"><b>Example 1. Checking the version of the GLib library</b></p>
+<a name="idp7549408"></a><p class="title"><b>Example 1. Checking the version of the GLib library</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -240,8 +244,11 @@ against.
 <p>
 See <a class="link" href="glib-Version-Information.html#glib-check-version" title="glib_check_version ()"><code class="function">glib_check_version()</code></a> for a runtime check.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>major</code></em> :</span></p></td>
@@ -311,7 +318,7 @@ that can be used by the C pre-processor.
 <hr>
 <div class="refsect2">
 <a name="GLIB-VERSION-MIN-REQUIRED:CAPS"></a><h3>GLIB_VERSION_MIN_REQUIRED</h3>
-<pre class="programlisting"># define GLIB_VERSION_MIN_REQUIRED      (GLIB_VERSION_PREV_STABLE)
+<pre class="programlisting"># define GLIB_VERSION_MIN_REQUIRED      (GLIB_VERSION_CUR_STABLE)
 </pre>
 <p>
 A macro that should be defined by the user prior to including
@@ -320,19 +327,21 @@ The definition should be one of the predefined GLib version
 macros: <a class="link" href="glib-Version-Information.html#GLIB-VERSION-2-26:CAPS" title="GLIB_VERSION_2_26"><code class="literal">GLIB_VERSION_2_26</code></a>, <a class="link" href="glib-Version-Information.html#GLIB-VERSION-2-28:CAPS" title="GLIB_VERSION_2_28"><code class="literal">GLIB_VERSION_2_28</code></a>,...
 </p>
 <p>
-This macro defines the lower bound for the GLib API to use.
+This macro defines the earliest version of GLib that the package is
+required to be able to compile against.
 </p>
 <p>
-If a function has been deprecated in a newer version of GLib,
-it is possible to use this symbol to avoid the compiler warnings
-without disabling warning for every deprecated function.
+If the compiler is configured to warn about the use of deprecated
+functions, then using functions that were deprecated in version
+<a class="link" href="glib-Version-Information.html#GLIB-VERSION-MIN-REQUIRED:CAPS" title="GLIB_VERSION_MIN_REQUIRED"><code class="literal">GLIB_VERSION_MIN_REQUIRED</code></a> or earlier will cause warnings (but
+using functions deprecated in later releases will not).
 </p>
 <p class="since">Since 2.32</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GLIB-VERSION-MAX-ALLOWED:CAPS"></a><h3>GLIB_VERSION_MAX_ALLOWED</h3>
-<pre class="programlisting">#  define GLIB_VERSION_MAX_ALLOWED      GLIB_VERSION_MIN_REQUIRED
+<pre class="programlisting"># define GLIB_VERSION_MAX_ALLOWED      (GLIB_VERSION_CUR_STABLE)
 </pre>
 <p>
 A macro that should be defined by the user prior to including
@@ -341,19 +350,36 @@ The definition should be one of the predefined GLib version
 macros: <a class="link" href="glib-Version-Information.html#GLIB-VERSION-2-26:CAPS" title="GLIB_VERSION_2_26"><code class="literal">GLIB_VERSION_2_26</code></a>, <a class="link" href="glib-Version-Information.html#GLIB-VERSION-2-28:CAPS" title="GLIB_VERSION_2_28"><code class="literal">GLIB_VERSION_2_28</code></a>,...
 </p>
 <p>
-This macro defines the upper bound for the GLib API to use.
+This macro defines the latest version of the GLib API that the
+package is allowed to make use of.
 </p>
 <p>
-If a function has been introduced in a newer version of GLib,
-it is possible to use this symbol to get compiler warnings when
-trying to use that function.
+If the compiler is configured to warn about the use of deprecated
+functions, then using functions added after version
+<a class="link" href="glib-Version-Information.html#GLIB-VERSION-MAX-ALLOWED:CAPS" title="GLIB_VERSION_MAX_ALLOWED"><code class="literal">GLIB_VERSION_MAX_ALLOWED</code></a> will cause warnings.
+</p>
+<p>
+Unless you are using <a class="link" href="glib-Version-Information.html#GLIB-CHECK-VERSION:CAPS" title="GLIB_CHECK_VERSION()"><code class="function">GLIB_CHECK_VERSION()</code></a> or the like to compile
+different code depending on the GLib version, then this should be
+set to the same value as <a class="link" href="glib-Version-Information.html#GLIB-VERSION-MIN-REQUIRED:CAPS" title="GLIB_VERSION_MIN_REQUIRED"><code class="literal">GLIB_VERSION_MIN_REQUIRED</code></a>.
 </p>
 <p class="since">Since 2.32</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GLIB-DISABLE-DEPRECATION-WARNINGS:CAPS"></a><h3>GLIB_DISABLE_DEPRECATION_WARNINGS</h3>
+<pre class="programlisting">#ifdef GLIB_DISABLE_DEPRECATION_WARNINGS
+</pre>
+<p>
+A macro that should be defined before including the glib.h header.
+If it is defined, no compiler warnings will be produced for uses
+of deprecated GLib APIs.
+</p>
 </div>
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

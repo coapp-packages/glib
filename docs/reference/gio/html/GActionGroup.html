@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GActionGroup</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="application.html" title="Application support">
 <link rel="prev" href="GApplicationCommandLine.html" title="GApplicationCommandLine">
 <link rel="next" href="GActionMap.html" title="GActionMap">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -252,8 +252,11 @@ calls to <a class="link" href="GActionGroup.html#g-action-group-query-action" ti
 <p>
 The virtual function table for <a class="link" href="GActionGroup.html" title="GActionGroup"><span class="type">GActionGroup</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="./../gobject/gobject/gobject-Type-Information.html#GTypeInterface"><span class="type">GTypeInterface</span></a> <em class="structfield"><code><a name="GActionGroupInterface.g-iface"></a>g_iface</code></em>;</span></p></td>
@@ -340,8 +343,11 @@ Lists the actions contained within <em class="parameter"><code>action_group</cod
 The caller is responsible for freeing the list with <a href="./../glib/glib/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a> when
 it is no longer required.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action_group</code></em> :</span></p></td>
@@ -402,8 +408,11 @@ fields (as indicated by having a non-<a href="./../glib/glib/glib-Standard-Macro
 filled.  If the action doesn't exist, <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> is returned and the
 fields may or may not have been modified.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action_group</code></em> :</span></p></td>
@@ -457,8 +466,11 @@ fields may or may not have been modified.
 <p>
 Checks if the named action exists within <em class="parameter"><code>action_group</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action_group</code></em> :</span></p></td>
@@ -489,8 +501,11 @@ Checks if the named action within <em class="parameter"><code>action_group</code
 An action must be enabled in order to be activated or in order to
 have its state changed from outside callers.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action_group</code></em> :</span></p></td>
@@ -533,8 +548,11 @@ The parameter type of a particular action will never change but it is
 possible for an action to be removed and for a new action to be added
 with the same name but a different parameter type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action_group</code></em> :</span></p></td>
@@ -580,8 +598,11 @@ The state type of a particular action will never change but it is
 possible for an action to be removed and for a new action to be added
 with the same name but a different state type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action_group</code></em> :</span></p></td>
@@ -631,8 +652,11 @@ within the range may fail.
 The return value (if non-<a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>) should be freed with
 <a href="./../glib/glib/glib-GVariant.html#g-variant-unref"><code class="function">g_variant_unref()</code></a> when it is no longer required.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action_group</code></em> :</span></p></td>
@@ -669,8 +693,11 @@ given by <a class="link" href="GActionGroup.html#g-action-group-get-action-state
 The return value (if non-<a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>) should be freed with
 <a href="./../glib/glib/glib-GVariant.html#g-variant-unref"><code class="function">g_variant_unref()</code></a> when it is no longer required.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action_group</code></em> :</span></p></td>
@@ -712,8 +739,11 @@ See <a class="link" href="GActionGroup.html#g-action-group-get-action-state-hint
 <p>
 If the <em class="parameter"><code>value</code></em> GVariant is floating, it is consumed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action_group</code></em> :</span></p></td>
@@ -747,8 +777,11 @@ parameter must be given as <em class="parameter"><code>parameter</code></em>.  I
 parameters then <em class="parameter"><code>parameter</code></em> must be <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.  See
 <a class="link" href="GActionGroup.html#g-action-group-get-action-parameter-type" title="g_action_group_get_action_parameter_type ()"><code class="function">g_action_group_get_action_parameter_type()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action_group</code></em> :</span></p></td>
@@ -779,8 +812,11 @@ Emits the <a class="link" href="GActionGroup.html#GActionGroup-action-added" tit
 <p>
 This function should only be called by <a class="link" href="GActionGroup.html" title="GActionGroup"><span class="type">GActionGroup</span></a> implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action_group</code></em> :</span></p></td>
@@ -806,8 +842,11 @@ Emits the <a class="link" href="GActionGroup.html#GActionGroup-action-removed" t
 <p>
 This function should only be called by <a class="link" href="GActionGroup.html" title="GActionGroup"><span class="type">GActionGroup</span></a> implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action_group</code></em> :</span></p></td>
@@ -835,8 +874,11 @@ Emits the <a class="link" href="GActionGroup.html#GActionGroup-action-enabled-ch
 <p>
 This function should only be called by <a class="link" href="GActionGroup.html" title="GActionGroup"><span class="type">GActionGroup</span></a> implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action_group</code></em> :</span></p></td>
@@ -867,8 +909,11 @@ Emits the <a class="link" href="GActionGroup.html#GActionGroup-action-state-chan
 <p>
 This function should only be called by <a class="link" href="GActionGroup.html" title="GActionGroup"><span class="type">GActionGroup</span></a> implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action_group</code></em> :</span></p></td>
@@ -900,8 +945,11 @@ Signals that a new action was just added to the group.
 This signal is emitted after the action has been added
 and is now visible.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action_group</code></em> :</span></p></td>
@@ -930,8 +978,11 @@ and is now visible.
 <p>
 Signals that the enabled status of the named action has changed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action_group</code></em> :</span></p></td>
@@ -965,8 +1016,11 @@ Signals that an action is just about to be removed from the group.
 This signal is emitted before the action is removed, so the action
 is still visible and can be queried from the signal handler.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action_group</code></em> :</span></p></td>
@@ -995,8 +1049,11 @@ is still visible and can be queried from the signal handler.
 <p>
 Signals that the state of the named action has changed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action_group</code></em> :</span></p></td>
@@ -1027,6 +1084,6 @@ Signals that the state of the named action has changed.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

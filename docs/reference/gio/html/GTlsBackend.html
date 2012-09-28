@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GTlsBackend</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="tls.html" title="TLS (SSL) support">
 <link rel="prev" href="GTlsServerConnection.html" title="GTlsServerConnection">
 <link rel="next" href="GTlsDatabase.html" title="GTlsDatabase">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -115,8 +115,11 @@ by a TLS backend.
 <p>
 Provides an interface for describing TLS-related types.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="./../gobject/gobject/gobject-Type-Information.html#GTypeInterface"><span class="type">GTypeInterface</span></a> <em class="structfield"><code><a name="GTlsBackendInterface.g-iface"></a>g_iface</code></em>;</span></p></td>
@@ -157,8 +160,11 @@ Provides an interface for describing TLS-related types.
 <p>
 Gets the default <a class="link" href="GTlsBackend.html" title="GTlsBackend"><span class="type">GTlsBackend</span></a> for the system.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a <a class="link" href="GTlsBackend.html" title="GTlsBackend"><span class="type">GTlsBackend</span></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
@@ -175,8 +181,11 @@ Gets the default <a class="link" href="GTlsBackend.html" title="GTlsBackend"><sp
 Checks if TLS is supported; if this returns <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> for the default
 <a class="link" href="GTlsBackend.html" title="GTlsBackend"><span class="type">GTlsBackend</span></a>, it means no "real" TLS backend is available.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
@@ -198,8 +207,11 @@ Checks if TLS is supported; if this returns <a href="./../glib/glib/glib-Standar
 <p>
 Gets the default <a class="link" href="GTlsDatabase.html" title="GTlsDatabase"><span class="type">GTlsDatabase</span></a> used to verify TLS connections.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
@@ -223,8 +235,11 @@ unreffed when done. <span class="annotation">[<acronym title="Free data after th
 <p>
 Gets the <a href="./../gobject/gobject/gobject-Type-Information.html#GType"><span class="type">GType</span></a> of <em class="parameter"><code>backend</code></em>'s <a class="link" href="GTlsCertificate.html" title="GTlsCertificate"><span class="type">GTlsCertificate</span></a> implementation.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
@@ -248,8 +263,11 @@ implementation.</td>
 <p>
 Gets the <a href="./../gobject/gobject/gobject-Type-Information.html#GType"><span class="type">GType</span></a> of <em class="parameter"><code>backend</code></em>'s <a class="link" href="GTlsClientConnection.html" title="GTlsClientConnection"><span class="type">GTlsClientConnection</span></a> implementation.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
@@ -273,8 +291,11 @@ implementation.</td>
 <p>
 Gets the <a href="./../gobject/gobject/gobject-Type-Information.html#GType"><span class="type">GType</span></a> of <em class="parameter"><code>backend</code></em>'s <a class="link" href="GTlsServerConnection.html" title="GTlsServerConnection"><span class="type">GTlsServerConnection</span></a> implementation.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
@@ -298,8 +319,11 @@ implementation.</td>
 <p>
 Gets the <a href="./../gobject/gobject/gobject-Type-Information.html#GType"><span class="type">GType</span></a> of <em class="parameter"><code>backend</code></em>'s <a class="link" href="GTlsFileDatabase.html" title="GTlsFileDatabase"><span class="type">GTlsFileDatabase</span></a> implementation.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
@@ -318,6 +342,6 @@ Gets the <a href="./../gobject/gobject/gobject-Type-Information.html#GType"><spa
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

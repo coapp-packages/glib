@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GDBusInterfaceSkeleton</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="gdbus-convenience.html" title="Highlevel D-Bus Support">
 <link rel="prev" href="GDBusInterface.html" title="GDBusInterface">
 <link rel="next" href="GDBusProxy.html" title="GDBusProxy">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -45,7 +45,7 @@
 </tr></table></div>
 <div class="refsynopsisdiv">
 <a name="GDBusInterfaceSkeleton.synopsis"></a><h2>Synopsis</h2>
-<pre class="synopsis">
+<a name="GDBusInterfaceSkeletonFlags"></a><pre class="synopsis">
 #include &lt;gio/gio.h&gt;
 
                     <a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeleton-struct" title="GDBusInterfaceSkeleton">GDBusInterfaceSkeleton</a>;
@@ -73,11 +73,11 @@ struct              <a class="link" href="GDBusInterfaceSkeleton.html#GDBusInter
                                                          <em class="parameter"><code><a class="link" href="GDBusConnection.html" title="GDBusConnection"><span class="type">GDBusConnection</span></a> *connection</code></em>);
 const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="GDBusInterfaceSkeleton.html#g-dbus-interface-skeleton-get-object-path" title="g_dbus_interface_skeleton_get_object_path ()">g_dbus_interface_skeleton_get_object_path</a>
                                                         (<em class="parameter"><code><a class="link" href="GDBusInterfaceSkeleton.html" title="GDBusInterfaceSkeleton"><span class="type">GDBusInterfaceSkeleton</span></a> *interface_</code></em>);
-enum                <a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags" title="enum GDBusInterfaceSkeletonFlags">GDBusInterfaceSkeletonFlags</a>;
-<a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags" title="enum GDBusInterfaceSkeletonFlags"><span class="returnvalue">GDBusInterfaceSkeletonFlags</span></a> <a class="link" href="GDBusInterfaceSkeleton.html#g-dbus-interface-skeleton-get-flags" title="g_dbus_interface_skeleton_get_flags ()">g_dbus_interface_skeleton_get_flags</a>
+enum                <a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags-enum" title="enum GDBusInterfaceSkeletonFlags">GDBusInterfaceSkeletonFlags</a>;
+<a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags"><span class="returnvalue">GDBusInterfaceSkeletonFlags</span></a> <a class="link" href="GDBusInterfaceSkeleton.html#g-dbus-interface-skeleton-get-flags" title="g_dbus_interface_skeleton_get_flags ()">g_dbus_interface_skeleton_get_flags</a>
                                                         (<em class="parameter"><code><a class="link" href="GDBusInterfaceSkeleton.html" title="GDBusInterfaceSkeleton"><span class="type">GDBusInterfaceSkeleton</span></a> *interface_</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GDBusInterfaceSkeleton.html#g-dbus-interface-skeleton-set-flags" title="g_dbus_interface_skeleton_set_flags ()">g_dbus_interface_skeleton_set_flags</a> (<em class="parameter"><code><a class="link" href="GDBusInterfaceSkeleton.html" title="GDBusInterfaceSkeleton"><span class="type">GDBusInterfaceSkeleton</span></a> *interface_</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags" title="enum GDBusInterfaceSkeletonFlags"><span class="type">GDBusInterfaceSkeletonFlags</span></a> flags</code></em>);
+                                                         <em class="parameter"><code><a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags"><span class="type">GDBusInterfaceSkeletonFlags</span></a> flags</code></em>);
 </pre>
 </div>
 <div class="refsect1">
@@ -85,6 +85,10 @@ enum                <a class="link" href="GDBusInterfaceSkeleton.html#GDBusInter
 <pre class="synopsis">
   <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
    +----GDBusInterfaceSkeleton
+</pre>
+<pre class="synopsis">
+  GFlags
+   +----GDBusInterfaceSkeletonFlags
 </pre>
 </div>
 <div class="refsect1">
@@ -96,7 +100,7 @@ GDBusInterfaceSkeleton implements
 <div class="refsect1">
 <a name="GDBusInterfaceSkeleton.properties"></a><h2>Properties</h2>
 <pre class="synopsis">
-  "<a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeleton--g-flags" title='The "g-flags" property'>g-flags</a>"                  <a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags" title="enum GDBusInterfaceSkeletonFlags"><span class="type">GDBusInterfaceSkeletonFlags</span></a>  : Read / Write
+  "<a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeleton--g-flags" title='The "g-flags" property'>g-flags</a>"                  <a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags"><span class="type">GDBusInterfaceSkeletonFlags</span></a>  : Read / Write
 </pre>
 </div>
 <div class="refsect1">
@@ -143,8 +147,11 @@ only be accessed using the provided API.
 <p>
 Class structure for <a class="link" href="GDBusInterfaceSkeleton.html" title="GDBusInterfaceSkeleton"><span class="type">GDBusInterfaceSkeleton</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObjectClass"><span class="type">GObjectClass</span></a> <em class="structfield"><code><a name="GDBusInterfaceSkeletonClass.parent-class"></a>parent_class</code></em>;</span></p></td>
@@ -189,8 +196,11 @@ changes and emit the
 signal later (e.g. in an idle handler). This technique is useful
 for collapsing multiple property changes into one.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>interface_</code></em> :</span></p></td>
 <td>A <a class="link" href="GDBusInterfaceSkeleton.html" title="GDBusInterfaceSkeleton"><span class="type">GDBusInterfaceSkeleton</span></a>.</td>
@@ -206,8 +216,11 @@ for collapsing multiple property changes into one.
 Gets D-Bus introspection information for the D-Bus interface
 implemented by <em class="parameter"><code>interface_</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>interface_</code></em> :</span></p></td>
@@ -232,8 +245,11 @@ Gets the interface vtable for the D-Bus interface implemented by
 <em class="parameter"><code>interface_</code></em>. The returned function pointers should expect <em class="parameter"><code>interface_</code></em>
 itself to be passed as <em class="parameter"><code>user_data</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>interface_</code></em> :</span></p></td>
@@ -255,8 +271,11 @@ itself to be passed as <em class="parameter"><code>user_data</code></em>.
 <p>
 Gets all D-Bus properties for <em class="parameter"><code>interface_</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>interface_</code></em> :</span></p></td>
@@ -289,8 +308,11 @@ the same for all connections.
 <p>
 Use <a class="link" href="GDBusInterfaceSkeleton.html#g-dbus-interface-skeleton-unexport" title="g_dbus_interface_skeleton_unexport ()"><code class="function">g_dbus_interface_skeleton_unexport()</code></a> to unexport the object.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>interface_</code></em> :</span></p></td>
@@ -329,8 +351,11 @@ Stops exporting <em class="parameter"><code>interface_</code></em> on all connec
 To unexport <em class="parameter"><code>interface_</code></em> from only a single connection, use
 <a class="link" href="GDBusInterfaceSkeleton.html#g-dbus-interface-skeleton-unexport-from-connection" title="g_dbus_interface_skeleton_unexport_from_connection ()"><code class="function">g_dbus_interface_skeleton_unexport_from_connection()</code></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>interface_</code></em> :</span></p></td>
 <td>A <a class="link" href="GDBusInterfaceSkeleton.html" title="GDBusInterfaceSkeleton"><span class="type">GDBusInterfaceSkeleton</span></a>.</td>
@@ -351,8 +376,11 @@ Stops exporting <em class="parameter"><code>interface_</code></em> on <em class=
 To stop exporting on all connections the interface is exported on,
 use <a class="link" href="GDBusInterfaceSkeleton.html#g-dbus-interface-skeleton-unexport" title="g_dbus_interface_skeleton_unexport ()"><code class="function">g_dbus_interface_skeleton_unexport()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>interface_</code></em> :</span></p></td>
@@ -374,8 +402,11 @@ use <a class="link" href="GDBusInterfaceSkeleton.html#g-dbus-interface-skeleton-
 <p>
 Gets the first connection that <em class="parameter"><code>interface_</code></em> is exported on, if any.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>interface_</code></em> :</span></p></td>
@@ -399,8 +430,11 @@ not exported anywhere. Do not free, the object belongs to <em class="parameter">
 <p>
 Gets a list of the connections that <em class="parameter"><code>interface_</code></em> is exported on.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>interface_</code></em> :</span></p></td>
@@ -427,8 +461,11 @@ been freed with <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#
 <p>
 Checks if <em class="parameter"><code>interface_</code></em> is export on <em class="parameter"><code>connection</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>interface_</code></em> :</span></p></td>
@@ -455,8 +492,11 @@ Checks if <em class="parameter"><code>interface_</code></em> is export on <em cl
 <p>
 Gets the object path that <em class="parameter"><code>interface_</code></em> is exported on, if any.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>interface_</code></em> :</span></p></td>
@@ -473,7 +513,7 @@ anywhere. Do not free, the string belongs to <em class="parameter"><code>interfa
 </div>
 <hr>
 <div class="refsect2">
-<a name="GDBusInterfaceSkeletonFlags"></a><h3>enum GDBusInterfaceSkeletonFlags</h3>
+<a name="GDBusInterfaceSkeletonFlags-enum"></a><h3>enum GDBusInterfaceSkeletonFlags</h3>
 <pre class="programlisting">typedef enum {
   G_DBUS_INTERFACE_SKELETON_FLAGS_NONE = 0,
   G_DBUS_INTERFACE_SKELETON_FLAGS_HANDLE_METHOD_INVOCATIONS_IN_THREAD = (1&lt;&lt;0)
@@ -482,8 +522,11 @@ anywhere. Do not free, the string belongs to <em class="parameter"><code>interfa
 <p>
 Flags describing the behavior of a <a class="link" href="GDBusInterfaceSkeleton.html" title="GDBusInterfaceSkeleton"><span class="type">GDBusInterfaceSkeleton</span></a> instance.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-DBUS-INTERFACE-SKELETON-FLAGS-NONE:CAPS"></a><span class="term"><code class="literal">G_DBUS_INTERFACE_SKELETON_FLAGS_NONE</code></span></p></td>
@@ -505,14 +548,17 @@ Flags describing the behavior of a <a class="link" href="GDBusInterfaceSkeleton.
 <hr>
 <div class="refsect2">
 <a name="g-dbus-interface-skeleton-get-flags"></a><h3>g_dbus_interface_skeleton_get_flags ()</h3>
-<pre class="programlisting"><a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags" title="enum GDBusInterfaceSkeletonFlags"><span class="returnvalue">GDBusInterfaceSkeletonFlags</span></a> g_dbus_interface_skeleton_get_flags
+<pre class="programlisting"><a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags"><span class="returnvalue">GDBusInterfaceSkeletonFlags</span></a> g_dbus_interface_skeleton_get_flags
                                                         (<em class="parameter"><code><a class="link" href="GDBusInterfaceSkeleton.html" title="GDBusInterfaceSkeleton"><span class="type">GDBusInterfaceSkeleton</span></a> *interface_</code></em>);</pre>
 <p>
-Gets the <a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags" title="enum GDBusInterfaceSkeletonFlags"><span class="type">GDBusInterfaceSkeletonFlags</span></a> that describes what the behavior
+Gets the <a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags"><span class="type">GDBusInterfaceSkeletonFlags</span></a> that describes what the behavior
 of <em class="parameter"><code>interface_</code></em>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>interface_</code></em> :</span></p></td>
@@ -520,7 +566,7 @@ of <em class="parameter"><code>interface_</code></em>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>One or more flags from the <a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags" title="enum GDBusInterfaceSkeletonFlags"><span class="type">GDBusInterfaceSkeletonFlags</span></a> enumeration.</td>
+<td>One or more flags from the <a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags"><span class="type">GDBusInterfaceSkeletonFlags</span></a> enumeration.</td>
 </tr>
 </tbody>
 </table></div>
@@ -530,12 +576,15 @@ of <em class="parameter"><code>interface_</code></em>
 <div class="refsect2">
 <a name="g-dbus-interface-skeleton-set-flags"></a><h3>g_dbus_interface_skeleton_set_flags ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_dbus_interface_skeleton_set_flags (<em class="parameter"><code><a class="link" href="GDBusInterfaceSkeleton.html" title="GDBusInterfaceSkeleton"><span class="type">GDBusInterfaceSkeleton</span></a> *interface_</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags" title="enum GDBusInterfaceSkeletonFlags"><span class="type">GDBusInterfaceSkeletonFlags</span></a> flags</code></em>);</pre>
+                                                         <em class="parameter"><code><a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags"><span class="type">GDBusInterfaceSkeletonFlags</span></a> flags</code></em>);</pre>
 <p>
 Sets flags describing what the behavior of <em class="parameter"><code>skeleton</code></em> should be.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>interface_</code></em> :</span></p></td>
@@ -543,7 +592,7 @@ Sets flags describing what the behavior of <em class="parameter"><code>skeleton<
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
-<td>Flags from the <a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags" title="enum GDBusInterfaceSkeletonFlags"><span class="type">GDBusInterfaceSkeletonFlags</span></a> enumeration.</td>
+<td>Flags from the <a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags"><span class="type">GDBusInterfaceSkeletonFlags</span></a> enumeration.</td>
 </tr>
 </tbody>
 </table></div>
@@ -554,9 +603,9 @@ Sets flags describing what the behavior of <em class="parameter"><code>skeleton<
 <a name="GDBusInterfaceSkeleton.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GDBusInterfaceSkeleton--g-flags"></a><h3>The <code class="literal">"g-flags"</code> property</h3>
-<pre class="programlisting">  "g-flags"                  <a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags" title="enum GDBusInterfaceSkeletonFlags"><span class="type">GDBusInterfaceSkeletonFlags</span></a>  : Read / Write</pre>
+<pre class="programlisting">  "g-flags"                  <a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags"><span class="type">GDBusInterfaceSkeletonFlags</span></a>  : Read / Write</pre>
 <p>
-Flags from the <a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags" title="enum GDBusInterfaceSkeletonFlags"><span class="type">GDBusInterfaceSkeletonFlags</span></a> enumeration.
+Flags from the <a class="link" href="GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags"><span class="type">GDBusInterfaceSkeletonFlags</span></a> enumeration.
 </p>
 <p class="since">Since 2.30</p>
 </div>
@@ -606,8 +655,11 @@ flags set, no dedicated thread is ever used and the call will be
 handled in the same thread as the object that <em class="parameter"><code>interface</code></em> belongs
 to was exported in.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>interface</code></em> :</span></p></td>
@@ -634,6 +686,6 @@ to was exported in.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

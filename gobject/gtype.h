@@ -1206,12 +1206,12 @@ struct _GTypeValueTable
 				  GValue       *dest_value);
   /* varargs functionality (optional) */
   gpointer (*value_peek_pointer) (const GValue *value);
-  gchar	    *collect_format;
+  const gchar *collect_format;
   gchar*   (*collect_value)      (GValue       *value,
 				  guint         n_collect_values,
 				  GTypeCValue  *collect_values,
 				  guint		collect_flags);
-  gchar	    *lcopy_format;
+  const gchar *lcopy_format;
   gchar*   (*lcopy_value)        (const GValue *value,
 				  guint         n_collect_values,
 				  GTypeCValue  *collect_values,
@@ -1258,6 +1258,8 @@ void      g_type_add_class_private      (GType    		     class_type,
 gpointer  g_type_class_get_private      (GTypeClass 		    *klass,
 					 GType			     private_type);
 
+GLIB_AVAILABLE_IN_2_34
+void      g_type_ensure                 (GType                       type);
 
 /* --- GType boilerplate --- */
 /**

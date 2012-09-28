@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GSocket</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="networking.html" title="Low-level network support">
 <link rel="prev" href="networking.html" title="Low-level network support">
 <link rel="next" href="GInetAddress.html" title="GInetAddress">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -309,8 +309,11 @@ A lowlevel network socket object.
 This is the function type of the callback used for the <a href="./../glib/glib/glib-The-Main-Event-Loop.html#GSource"><span class="type">GSource</span></a>
 returned by <a class="link" href="GSocket.html#g-socket-create-source" title="g_socket_create_source ()"><code class="function">g_socket_create_source()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -347,8 +350,11 @@ returned by <a class="link" href="GSocket.html#g-socket-create-source" title="g_
 Flags used when creating a <a class="link" href="GSocket.html" title="GSocket"><span class="type">GSocket</span></a>. Some protocols may not implement
 all the socket types.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-SOCKET-TYPE-INVALID:CAPS"></a><span class="term"><code class="literal">G_SOCKET_TYPE_INVALID</code></span></p></td>
@@ -397,8 +403,11 @@ This enum contains a set of commonly available and used protocols. You
 can also pass any other identifiers handled by the platform in order to
 use protocols not listed here.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-SOCKET-PROTOCOL-UNKNOWN:CAPS"></a><span class="term"><code class="literal">G_SOCKET_PROTOCOL_UNKNOWN</code></span></p></td>
@@ -446,8 +455,11 @@ values used for them are the same as on the platform, and any other flags
 are passed in/out as is. So to use a platform specific flag, just include
 the right system header and pass in the flag.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-SOCKET-MSG-NONE:CAPS"></a><span class="term"><code class="literal">G_SOCKET_MSG_NONE</code></span></p></td>
@@ -489,8 +501,11 @@ You generally pass in an array of <a class="link" href="GSocket.html#GInputVecto
 and the operation will store the read data starting in the
 first buffer, switching to the next as needed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> <em class="structfield"><code><a name="GInputVector.buffer"></a>buffer</code></em>;</span></p></td>
@@ -518,8 +533,11 @@ You generally pass in an array of <a class="link" href="GSocket.html#GOutputVect
 and the operation will use all the buffers as if they were
 one buffer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="./../glib/glib/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> <em class="structfield"><code><a name="GOutputVector.buffer"></a>buffer</code></em>;</span></p></td>
@@ -557,8 +575,11 @@ The protocol id is passed directly to the operating
 system, so you can use protocols not listed in <a class="link" href="GSocket.html#GSocketProtocol" title="enum GSocketProtocol"><span class="type">GSocketProtocol</span></a> if you
 know the protocol number used for it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>family</code></em> :</span></p></td>
@@ -601,8 +622,11 @@ all properties should work. Note that the file descriptor
 will be set to non-blocking mode, independent on the blocking
 mode of the <a class="link" href="GSocket.html" title="GSocket"><span class="type">GSocket</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>fd</code></em> :</span></p></td>
@@ -650,8 +674,11 @@ fully cleaned-up by the kernel. Failing to set this flag on a server
 socket may cause the bind call to return <a class="link" href="gio-GIOError.html#G-IO-ERROR-ADDRESS-IN-USE:CAPS"><code class="literal">G_IO_ERROR_ADDRESS_IN_USE</code></a> if
 the server program is stopped and then immediately restarted.)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -696,8 +723,11 @@ Before calling this the socket must be bound to a local address using
 To set the maximum amount of outstanding clients, use
 <a class="link" href="GSocket.html#g-socket-set-listen-backlog" title="g_socket_set_listen_backlog ()"><code class="function">g_socket_set_listen_backlog()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -737,8 +767,11 @@ If there are no outstanding connections then the operation will block
 or return <a class="link" href="gio-GIOError.html#G-IO-ERROR-WOULD-BLOCK:CAPS"><code class="literal">G_IO_ERROR_WOULD_BLOCK</code></a> if non-blocking I/O is enabled.
 To be notified of an incoming connection, wait for the <a href="./../glib/glib/glib-IO-Channels.html#G-IO-IN:CAPS"><code class="literal">G_IO_IN</code></a> condition.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -792,8 +825,11 @@ and the user can be notified of the connection finishing by waiting
 for the G_IO_OUT condition. The result of the connection must then be
 checked with <a class="link" href="GSocket.html#g-socket-check-connect-result" title="g_socket_check_connect_result ()"><code class="function">g_socket_check_connect_result()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -832,8 +868,11 @@ Checks and resets the pending connect error for the socket.
 This is used to check for errors when <a class="link" href="GSocket.html#g-socket-connect" title="g_socket_connect ()"><code class="function">g_socket_connect()</code></a> is
 used in non-blocking mode.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -891,8 +930,11 @@ returned. To be notified when data is available, wait for the
 <p>
 On error -1 is returned and <em class="parameter"><code>error</code></em> is set accordingly.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -947,8 +989,11 @@ source address of the received packet.
 <p>
 See <a class="link" href="GSocket.html#g-socket-receive" title="g_socket_receive ()"><code class="function">g_socket_receive()</code></a> for additional information.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -1071,8 +1116,11 @@ returned. To be notified when data is available, wait for the
 <p>
 On error -1 is returned and <em class="parameter"><code>error</code></em> is set accordingly.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -1143,8 +1191,11 @@ This behaves exactly the same as <a class="link" href="GSocket.html#g-socket-rec
 the choice of blocking or non-blocking behavior is determined by
 the <em class="parameter"><code>blocking</code></em> argument rather than by <em class="parameter"><code>socket</code></em>'s properties.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -1209,8 +1260,11 @@ very common due to the way the underlying APIs work.)
 <p>
 On error -1 is returned and <em class="parameter"><code>error</code></em> is set accordingly.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -1263,8 +1317,11 @@ Tries to send <em class="parameter"><code>size</code></em> bytes from <em class=
 <p>
 See <a class="link" href="GSocket.html#g-socket-send" title="g_socket_send ()"><code class="function">g_socket_send()</code></a> for additional information.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -1362,8 +1419,11 @@ very common due to the way the underlying APIs work.)
 <p>
 On error -1 is returned and <em class="parameter"><code>error</code></em> is set accordingly.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -1431,8 +1491,11 @@ This behaves exactly the same as <a class="link" href="GSocket.html#g-socket-sen
 the choice of blocking or non-blocking behavior is determined by
 the <em class="parameter"><code>blocking</code></em> argument rather than by <em class="parameter"><code>socket</code></em>'s properties.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -1512,8 +1575,11 @@ connection, after which the server can safely call <a class="link" href="GSocket
 only works if the client will close its connection after the server
 does.)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -1541,8 +1607,11 @@ does.)
 <p>
 Checks whether a socket is closed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -1584,8 +1653,11 @@ One example where this is used is graceful disconnect for TCP connections
 where you close the sending side, then wait for the other side to close
 the connection, thus ensuring that the other side saw all sent data.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -1622,8 +1694,11 @@ the connection, thus ensuring that the other side saw all sent data.
 Check whether the socket is connected. This is only useful for
 connection-oriented sockets.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -1669,8 +1744,11 @@ occurs, the source will then trigger anyway, reporting <a href="./../glib/glib/g
 marked as having had a timeout, and so the next <a class="link" href="GSocket.html" title="GSocket"><span class="type">GSocket</span></a> I/O method
 you call will then fail with a <a class="link" href="gio-GIOError.html#G-IO-ERROR-TIMED-OUT:CAPS"><code class="literal">G_IO_ERROR_TIMED_OUT</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -1722,8 +1800,11 @@ these conditions will always be set in the output if they are true.
 <p>
 This call never blocks.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -1763,8 +1844,11 @@ the appropriate value (<a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCEL
 <p>
 See also <a class="link" href="GSocket.html#g-socket-condition-timed-wait" title="g_socket_condition_timed_wait ()"><code class="function">g_socket_condition_timed_wait()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -1823,8 +1907,11 @@ other GLib APIs, this function actually only has millisecond
 resolution, and the behavior is undefined if <em class="parameter"><code>timeout</code></em> is not an
 exact number of milliseconds.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -1865,8 +1952,11 @@ exact number of milliseconds.
 <p>
 Get the amount of data pending in the OS input buffer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -1897,8 +1987,11 @@ on time then the new connections will be refused.
 Note that this must be called before <a class="link" href="GSocket.html#g-socket-listen" title="g_socket_listen ()"><code class="function">g_socket_listen()</code></a> and has no
 effect if called after that.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -1920,8 +2013,11 @@ effect if called after that.
 Gets the listen backlog setting of the socket. For details on this,
 see <a class="link" href="GSocket.html#g-socket-set-listen-backlog" title="g_socket_set_listen_backlog ()"><code class="function">g_socket_set_listen_backlog()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -1943,8 +2039,11 @@ see <a class="link" href="GSocket.html#g-socket-set-listen-backlog" title="g_soc
 Gets the blocking mode of the socket. For details on blocking I/O,
 see <a class="link" href="GSocket.html#g-socket-set-blocking" title="g_socket_set_blocking ()"><code class="function">g_socket_set_blocking()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -1975,8 +2074,11 @@ All sockets are created in blocking mode. However, note that the
 platform level socket is always non-blocking, and blocking mode
 is a GSocket level feature.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -1998,8 +2100,11 @@ is a GSocket level feature.
 Gets the keepalive mode of the socket. For details on this,
 see <a class="link" href="GSocket.html#g-socket-set-keepalive" title="g_socket_set_keepalive ()"><code class="function">g_socket_set_keepalive()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2038,8 +2143,11 @@ on a server socket if you want to allow clients to remain idle for long
 periods of time, but also want to ensure that connections are eventually
 garbage-collected if clients crash or become unreachable.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2061,8 +2169,11 @@ garbage-collected if clients crash or become unreachable.
 Gets the timeout setting of the socket. For details on this, see
 <a class="link" href="GSocket.html#g-socket-set-timeout" title="g_socket_set_timeout ()"><code class="function">g_socket_set_timeout()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2107,8 +2218,11 @@ on their own.
 Note that if an I/O operation is interrupted by a signal, this may
 cause the timeout to be reset.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2131,8 +2245,11 @@ cause the timeout to be reset.
 Sets the time-to-live for outgoing unicast packets on <em class="parameter"><code>socket</code></em>.
 By default the platform-specific default value is used.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2155,8 +2272,11 @@ By default the platform-specific default value is used.
 Gets the unicast time-to-live setting on <em class="parameter"><code>socket</code></em>; see
 <a class="link" href="GSocket.html#g-socket-set-ttl" title="g_socket_set_ttl ()"><code class="function">g_socket_set_ttl()</code></a> for more details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2180,8 +2300,11 @@ Gets the broadcast setting on <em class="parameter"><code>socket</code></em>; if
 it is possible to send packets to broadcast
 addresses or receive from broadcast addresses.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2205,8 +2328,11 @@ addresses or receive from broadcast addresses.
 Sets whether <em class="parameter"><code>socket</code></em> should allow sending to and receiving from
 broadcast addresses. This is <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> by default.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2228,8 +2354,11 @@ from broadcast addresses</td>
 <p>
 Gets the socket family of the socket.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2250,13 +2379,16 @@ Gets the socket family of the socket.
 <pre class="programlisting"><span class="returnvalue">int</span>                 g_socket_get_fd                     (<em class="parameter"><code><a class="link" href="GSocket.html" title="GSocket"><span class="type">GSocket</span></a> *socket</code></em>);</pre>
 <p>
 Returns the underlying OS socket object. On unix this
-is a socket file descriptor, and on windows this is
+is a socket file descriptor, and on Windows this is
 a Winsock2 SOCKET handle. This may be useful for
 doing platform specific or otherwise unusual operations
 on the socket.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2280,8 +2412,11 @@ Try to get the local address of a bound socket. This is only
 useful if the socket has been bound to a local address,
 either explicitly or implicitly when connecting.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2310,8 +2445,11 @@ Free the returned object with <a href="./../gobject/gobject/gobject-The-Base-Obj
 Gets the socket protocol id the socket was created with.
 In case the protocol is unknown, -1 is returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2334,8 +2472,11 @@ In case the protocol is unknown, -1 is returned.
 Try to get the remove address of a connected socket. This is only
 useful for connection oriented sockets that have been connected.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2363,8 +2504,11 @@ Free the returned object with <a href="./../gobject/gobject/gobject-The-Base-Obj
 <p>
 Gets the socket type of the socket.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2396,8 +2540,11 @@ information.
 No other types of sockets are currently considered as being capable
 of speaking IPv4.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2434,8 +2581,11 @@ Other ways to obtain credentials from a foreign peer includes the
 <a class="link" href="GUnixConnection.html#g-unix-connection-send-credentials" title="g_unix_connection_send_credentials ()"><code class="function">g_unix_connection_send_credentials()</code></a> /
 <a class="link" href="GUnixConnection.html#g-unix-connection-receive-credentials" title="g_unix_connection_receive_credentials ()"><code class="function">g_unix_connection_receive_credentials()</code></a> functions.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2480,8 +2630,11 @@ If <em class="parameter"><code>source_specific</code></em> is <a href="./../glib
 in RFC 4604 is used. Note that on older platforms this may fail
 with a <a class="link" href="gio-GIOError.html#G-IO-ERROR-NOT-SUPPORTED:CAPS"><code class="literal">G_IO_ERROR_NOT_SUPPORTED</code></a> error.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2532,8 +2685,11 @@ when you joined the group).
 <em class="parameter"><code>socket</code></em> remains bound to its address and port, and can still receive
 unicast messages after calling this.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2576,8 +2732,11 @@ Gets the multicast loopback setting on <em class="parameter"><code>socket</code>
 default), outgoing multicast packets will be looped back to
 multicast listeners on the same host.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2602,8 +2761,11 @@ Sets whether outgoing multicast packets will be received by sockets
 listening on that multicast address on the same host. This is <a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>
 by default.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2626,8 +2788,11 @@ multicast groups from the local host</td>
 Gets the multicast time-to-live setting on <em class="parameter"><code>socket</code></em>; see
 <a class="link" href="GSocket.html#g-socket-set-multicast-ttl" title="g_socket_set_multicast_ttl ()"><code class="function">g_socket_set_multicast_ttl()</code></a> for more details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2652,8 +2817,11 @@ Sets the time-to-live for outgoing multicast datagrams on <em class="parameter">
 By default, this is 1, meaning that multicast packets will not leave
 the local network.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
@@ -2790,6 +2958,6 @@ Time-to-live for outgoing unicast packets
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

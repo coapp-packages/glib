@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GSettingsBackend</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="settings.html" title="Settings">
 <link rel="prev" href="GSettings.html" title="GSettings">
 <link rel="next" href="gio-GSettingsSchema-GSettingsSchemaSource.html" title="GSettingsSchema, GSettingsSchemaSource">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -190,8 +190,11 @@ environment variable to the name of a settings backend.
 <p>
 The user gets a reference to the backend.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the default <a class="link" href="GSettingsBackend.html" title="GSettingsBackend"><span class="type">GSettingsBackend</span></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
@@ -234,8 +237,11 @@ In the case that this call is in response to a call to
 <code class="function">g_settings_backend_write()</code> then <em class="parameter"><code>origin_tag</code></em> must be set to the same
 value that was passed to that call.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
@@ -286,8 +292,11 @@ keys that were changed) but this is not strictly required.  As an
 example, if this function is called with the path of "/" then every
 single key in the application will be notified of a possible change.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
@@ -339,8 +348,11 @@ For efficiency reasons, the implementation should strive for <em class="paramete
 be as long as possible (ie: the longest common prefix of all of the
 keys that were changed) but this is not strictly required.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
@@ -377,8 +389,11 @@ changed.
 Since GSettings performs no locking operations for itself, this call
 will always be made in response to external events.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
@@ -404,8 +419,11 @@ Signals that the writability of a single key has possibly changed.
 Since GSettings performs no locking operations for itself, this call
 will always be made in response to external events.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
@@ -430,8 +448,11 @@ This call is a convenience wrapper.  It gets the list of changes from
 <em class="parameter"><code>tree</code></em>, computes the longest common prefix and calls
 <a class="link" href="GSettingsBackend.html#g-settings-backend-changed" title="g_settings_backend_changed ()"><code class="function">g_settings_backend_changed()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
@@ -466,8 +487,11 @@ You must free the value returned in <em class="parameter"><code>path</code></em>
 <a href="./../glib/glib/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>.  You should not attempt to free or unref the contents of
 <em class="parameter"><code>keys</code></em> or <em class="parameter"><code>values</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
@@ -576,8 +600,11 @@ syntax of the key file format.  For example, if you have '[' or ']'
 characters in your path names or '=' in your key names you may be in
 trouble.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
@@ -613,8 +640,11 @@ This backend allows changes to settings, but does not write them
 to any backing storage, so the next time you run your application,
 the memory backend will start out with the default values again.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a newly created <a class="link" href="GSettingsBackend.html" title="GSettingsBackend"><span class="type">GSettingsBackend</span></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
@@ -634,8 +664,11 @@ Creates a readonly <a class="link" href="GSettingsBackend.html" title="GSettings
 This backend does not allow changes to settings, so all settings
 will always have their default values.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a newly created <a class="link" href="GSettingsBackend.html" title="GSettingsBackend"><span class="type">GSettingsBackend</span></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
@@ -652,6 +685,6 @@ will always have their default values.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

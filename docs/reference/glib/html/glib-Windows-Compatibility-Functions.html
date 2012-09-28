@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Windows Compatibility Functions</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-UNIX-specific-utilities-and-integration.html" title="UNIX-specific utilities and integration">
 <link rel="next" href="glib-data-types.html" title="GLib Data Types">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -92,8 +92,11 @@ language, or US English (see docs for <code class="function">FormatMessage()</co
 returned string is in UTF-8. It should be deallocated with
 <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
@@ -119,8 +122,11 @@ and returns it as a string of the above form for use in forming
 file names etc. The returned string should be deallocated with
 <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>newly-allocated locale name.</td>
@@ -188,8 +194,11 @@ If both <em class="parameter"><code>package</code></em> and <em class="parameter
 the main executable of the process was loaded is used instead in
 the same way as above.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>package</code></em> :</span></p></td>
@@ -244,8 +253,11 @@ saves the handle for the DLL. Then when code in the DLL needs to
 construct names of files in the installation tree it calls this
 function passing the DLL handle.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hmodule</code></em> :</span></p></td>
@@ -291,8 +303,11 @@ subdirectory <em class="parameter"><code>subdir</code></em> in the return value 
 particular, note that it is deprecated to pass anything except NULL
 as <em class="parameter"><code>package</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>package</code></em> :</span></p></td>
@@ -334,8 +349,11 @@ Windows NT 4, and 5 on Windows XP. Software that needs really
 detailed version and feature information should use Win32 API like
 <code class="function">GetVersionEx()</code> and <code class="function">VerifyVersionInfo()</code>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>The version information.</td>
@@ -371,8 +389,11 @@ possible, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL
 The return value is dynamically allocated and should be freed with
 <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> when no longer needed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>utf8filename</code></em> :</span></p></td>
@@ -403,8 +424,11 @@ the actual DLL name that the code being compiled will be included in.
 <p>
 On non-Windows platforms, expands to nothing.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>static</code></em> :</span></p></td>
@@ -455,6 +479,6 @@ On non-Windows platforms, it is not defined.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

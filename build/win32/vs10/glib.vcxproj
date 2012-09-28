@@ -375,6 +375,7 @@
     <ClCompile Include="..\..\..\glib\gpoll.c" />
     <ClCompile Include="..\..\..\glib\gprimes.c" />
     <ClCompile Include="..\..\..\glib\gqsort.c" />
+    <ClCompile Include="..\..\..\glib\gquark.c" />
     <ClCompile Include="..\..\..\glib\gqueue.c" />
     <ClCompile Include="..\..\..\glib\grand.c" />
     <ClCompile Include="..\..\..\glib\gregex.c" />

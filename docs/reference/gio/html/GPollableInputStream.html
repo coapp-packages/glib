@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GPollableInputStream</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="streaming.html" title="Streaming I/O">
 <link rel="prev" href="gio-GConverterOutputstream.html" title="GConverterOutputstream">
 <link rel="next" href="GPollableOutputStream.html" title="GPollableOutputStream">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -57,13 +57,9 @@ struct              <a class="link" href="GPollableInputStream.html#GPollableInp
 <a href="./../glib/glib/glib-Basic-Types.html#gssize"><span class="returnvalue">gssize</span></a>              <a class="link" href="GPollableInputStream.html#g-pollable-input-stream-read-nonblocking" title="g_pollable_input_stream_read_nonblocking ()">g_pollable_input_stream_read_nonblocking</a>
                                                         (<em class="parameter"><code><a class="link" href="GPollableInputStream.html" title="GPollableInputStream"><span class="type">GPollableInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><span class="type">void</span> *buffer</code></em>,
-                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> size</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> count</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-
-<a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            (<a class="link" href="GPollableInputStream.html#GPollableSourceFunc" title="GPollableSourceFunc ()">*GPollableSourceFunc</a>)              (<em class="parameter"><code><a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *pollable_stream</code></em>,
-                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
-<a href="./../glib/glib/glib-The-Main-Event-Loop.html#GSource"><span class="returnvalue">GSource</span></a> *           <a class="link" href="GPollableInputStream.html#g-pollable-source-new" title="g_pollable_source_new ()">g_pollable_source_new</a>               (<em class="parameter"><code><a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *pollable_stream</code></em>);
 </pre>
 </div>
 <div class="refsect1">
@@ -83,12 +79,12 @@ GPollableInputStream requires
 <a name="GPollableInputStream.implementations"></a><h2>Known Implementations</h2>
 <p>
 GPollableInputStream is implemented by
- <a class="link" href="GUnixInputStream.html" title="GUnixInputStream">GUnixInputStream</a>.</p>
+ <a class="link" href="gio-GConverterInputstream.html#GConverterInputStream">GConverterInputStream</a>,  <a class="link" href="GMemoryInputStream.html" title="GMemoryInputStream">GMemoryInputStream</a> and  <a class="link" href="GUnixInputStream.html" title="GUnixInputStream">GUnixInputStream</a>.</p>
 </div>
 <div class="refsect1">
 <a name="GPollableInputStream.description"></a><h2>Description</h2>
 <p>
-<a class="link" href="GPollableInputStream.html" title="GPollableInputStream"><span class="type">GPollableInputStream</span></a> is implemented by <a class="link" href="GInputStream.html" title="GInputStream"><span class="type">GInputStream</span></a>s that
+<a class="link" href="GPollableInputStream.html" title="GPollableInputStream"><span class="type">GPollableInputStream</span></a> is implemented by <a href="GInputStream.html"><span class="type">GInputStreams</span></a> that
 can be polled for readiness to read. This can be used when
 interfacing with a non-GIO API that expects
 UNIX-file-descriptor-style asynchronous I/O rather than GIO-style.
@@ -118,7 +114,7 @@ An interface for a <a class="link" href="GInputStream.html" title="GInputStream"
 				    GCancellable          *cancellable);
   gssize       (*read_nonblocking) (GPollableInputStream  *stream,
 				    void                  *buffer,
-				    gsize                  size,
+				    gsize                  count,
 				    GError               **error);
 };
 </pre>
@@ -136,8 +132,11 @@ to override it if it is possible that your <em class="parameter"><code>is_readab
 implementation may return <a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> when the stream is not actually
 readable.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="./../gobject/gobject/gobject-Type-Information.html#GTypeInterface"><span class="type">GTypeInterface</span></a> <em class="structfield"><code><a name="GPollableInputStreamInterface.g-iface"></a>g_iface</code></em>;</span></p></td>
@@ -179,8 +178,11 @@ other <a class="link" href="GPollableInputStream.html" title="GPollableInputStre
 For any given stream, the value returned by this method is constant;
 a stream cannot switch from pollable to non-pollable or vice versa.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -210,8 +212,11 @@ non-blocking behavior, you should always use
 <a class="link" href="GPollableInputStream.html#g-pollable-input-stream-read-nonblocking" title="g_pollable_input_stream_read_nonblocking ()"><code class="function">g_pollable_input_stream_read_nonblocking()</code></a>, which will return a
 <a class="link" href="gio-GIOError.html#G-IO-ERROR-WOULD-BLOCK:CAPS"><code class="literal">G_IO_ERROR_WOULD_BLOCK</code></a> error rather than blocking.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -238,7 +243,7 @@ next attempt to read will return the error.</td>
 <p>
 Creates a <a href="./../glib/glib/glib-The-Main-Event-Loop.html#GSource"><span class="type">GSource</span></a> that triggers when <em class="parameter"><code>stream</code></em> can be read, or
 <em class="parameter"><code>cancellable</code></em> is triggered or an error occurs. The callback on the
-source is of the <a class="link" href="GPollableInputStream.html#GPollableSourceFunc" title="GPollableSourceFunc ()"><span class="type">GPollableSourceFunc</span></a> type.
+source is of the <a class="link" href="gio-gpollableutils.html#GPollableSourceFunc" title="GPollableSourceFunc ()"><span class="type">GPollableSourceFunc</span></a> type.
 </p>
 <p>
 As with <a class="link" href="GPollableInputStream.html#g-pollable-input-stream-is-readable" title="g_pollable_input_stream_is_readable ()"><code class="function">g_pollable_input_stream_is_readable()</code></a>, it is possible that
@@ -246,8 +251,11 @@ the stream may not actually be readable even after the source
 triggers, so you should use <a class="link" href="GPollableInputStream.html#g-pollable-input-stream-read-nonblocking" title="g_pollable_input_stream_read_nonblocking ()"><code class="function">g_pollable_input_stream_read_nonblocking()</code></a>
 rather than <a class="link" href="GInputStream.html#g-input-stream-read" title="g_input_stream_read ()"><code class="function">g_input_stream_read()</code></a> from the callback.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -273,11 +281,11 @@ rather than <a class="link" href="GInputStream.html#g-input-stream-read" title="
 <pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gssize"><span class="returnvalue">gssize</span></a>              g_pollable_input_stream_read_nonblocking
                                                         (<em class="parameter"><code><a class="link" href="GPollableInputStream.html" title="GPollableInputStream"><span class="type">GPollableInputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><span class="type">void</span> *buffer</code></em>,
-                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> size</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> count</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
-Attempts to read up to <em class="parameter"><code>size</code></em> bytes from <em class="parameter"><code>stream</code></em> into <em class="parameter"><code>buffer</code></em>, as
+Attempts to read up to <em class="parameter"><code>count</code></em> bytes from <em class="parameter"><code>stream</code></em> into <em class="parameter"><code>buffer</code></em>, as
 with <a class="link" href="GInputStream.html#g-input-stream-read" title="g_input_stream_read ()"><code class="function">g_input_stream_read()</code></a>. If <em class="parameter"><code>stream</code></em> is not currently readable,
 this will immediately return <a class="link" href="gio-GIOError.html#G-IO-ERROR-WOULD-BLOCK:CAPS"><code class="literal">G_IO_ERROR_WOULD_BLOCK</code></a>, and you can
 use <a class="link" href="GPollableInputStream.html#g-pollable-input-stream-create-source" title="g_pollable_input_stream_create_source ()"><code class="function">g_pollable_input_stream_create_source()</code></a> to create a <a href="./../glib/glib/glib-The-Main-Event-Loop.html#GSource"><span class="type">GSource</span></a>
@@ -293,8 +301,11 @@ to having been cancelled.
 <p>
 Virtual: read_nonblocking
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -303,11 +314,11 @@ Virtual: read_nonblocking
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
-<td>a buffer to read data into (which should be at least <em class="parameter"><code>size</code></em>
+<td>a buffer to read data into (which should be at least <em class="parameter"><code>count</code></em>
 bytes long).</td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>size</code></em> :</span></p></td>
+<td><p><span class="term"><em class="parameter"><code>count</code></em> :</span></p></td>
 <td>the number of bytes you want to read</td>
 </tr>
 <tr>
@@ -328,63 +339,6 @@ bytes long).</td>
 </tbody>
 </table></div>
 </div>
-<hr>
-<div class="refsect2">
-<a name="GPollableSourceFunc"></a><h3>GPollableSourceFunc ()</h3>
-<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            (*GPollableSourceFunc)              (<em class="parameter"><code><a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *pollable_stream</code></em>,
-                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
-<p>
-This is the function type of the callback used for the <a href="./../glib/glib/glib-The-Main-Event-Loop.html#GSource"><span class="type">GSource</span></a>
-returned by <a class="link" href="GPollableInputStream.html#g-pollable-input-stream-create-source" title="g_pollable_input_stream_create_source ()"><code class="function">g_pollable_input_stream_create_source()</code></a> and
-<a class="link" href="GPollableOutputStream.html#g-pollable-output-stream-create-source" title="g_pollable_output_stream_create_source ()"><code class="function">g_pollable_output_stream_create_source()</code></a>.
-</p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>pollable_stream</code></em> :</span></p></td>
-<td>the <a class="link" href="GPollableInputStream.html" title="GPollableInputStream"><span class="type">GPollableInputStream</span></a> or <a class="link" href="GPollableOutputStream.html" title="GPollableOutputStream"><span class="type">GPollableOutputStream</span></a>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
-<td>data passed in by the user.</td>
-</tr>
-<tr>
-<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>it should return <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> if the source should be removed.</td>
-</tr>
-</tbody>
-</table></div>
-<p class="since">Since 2.28</p>
-</div>
-<hr>
-<div class="refsect2">
-<a name="g-pollable-source-new"></a><h3>g_pollable_source_new ()</h3>
-<pre class="programlisting"><a href="./../glib/glib/glib-The-Main-Event-Loop.html#GSource"><span class="returnvalue">GSource</span></a> *           g_pollable_source_new               (<em class="parameter"><code><a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *pollable_stream</code></em>);</pre>
-<p>
-Utility method for <a class="link" href="GPollableInputStream.html" title="GPollableInputStream"><span class="type">GPollableInputStream</span></a> and <a class="link" href="GPollableOutputStream.html" title="GPollableOutputStream"><span class="type">GPollableOutputStream</span></a>
-implementations. Creates a new <a href="./../glib/glib/glib-The-Main-Event-Loop.html#GSource"><span class="type">GSource</span></a> that expects a callback of
-type <a class="link" href="GPollableInputStream.html#GPollableSourceFunc" title="GPollableSourceFunc ()"><span class="type">GPollableSourceFunc</span></a>. The new source does not actually do
-anything on its own; use <a href="./../glib/glib/glib-The-Main-Event-Loop.html#g-source-add-child-source"><code class="function">g_source_add_child_source()</code></a> to add other
-sources to it to cause it to trigger.
-</p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>pollable_stream</code></em> :</span></p></td>
-<td>the stream associated with the new source</td>
-</tr>
-<tr>
-<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the new <a href="./../glib/glib/glib-The-Main-Event-Loop.html#GSource"><span class="type">GSource</span></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
-</td>
-</tr>
-</tbody>
-</table></div>
-<p class="since">Since 2.28</p>
-</div>
 </div>
 <div class="refsect1">
 <a name="GPollableInputStream.see-also"></a><h2>See Also</h2>
@@ -393,6 +347,6 @@ sources to it to cause it to trigger.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GUnixSocketAddress</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="networking.html" title="Low-level network support">
 <link rel="prev" href="GInetSocketAddress.html" title="GInetSocketAddress">
 <link rel="next" href="GSocketControlMessage.html" title="GSocketControlMessage">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -146,8 +146,11 @@ instead just use a portion of <code class="literal">sun_path</code>, and pass an
 smaller length to <code class="function">bind()</code> or <code class="function">connect()</code>. This is
 <a class="link" href="GUnixSocketAddress.html#G-UNIX-SOCKET-ADDRESS-ABSTRACT:CAPS"><code class="literal">G_UNIX_SOCKET_ADDRESS_ABSTRACT</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-UNIX-SOCKET-ADDRESS-INVALID:CAPS"></a><span class="term"><code class="literal">G_UNIX_SOCKET_ADDRESS_INVALID</code></span></p></td>
@@ -190,8 +193,11 @@ Creates a new <a class="link" href="GUnixSocketAddress.html" title="GUnixSocketA
 To create abstract socket addresses, on systems that support that,
 use <a class="link" href="GUnixSocketAddress.html#g-unix-socket-address-new-abstract" title="g_unix_socket_address_new_abstract ()"><code class="function">g_unix_socket_address_new_abstract()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
@@ -219,8 +225,11 @@ use <a class="link" href="GUnixSocketAddress.html#g-unix-socket-address-new-abst
 Creates a new <a class="link" href="GUnixSocketAddress.html#G-UNIX-SOCKET-ADDRESS-ABSTRACT-PADDED:CAPS"><code class="literal">G_UNIX_SOCKET_ADDRESS_ABSTRACT_PADDED</code></a>
 <a class="link" href="GUnixSocketAddress.html" title="GUnixSocketAddress"><span class="type">GUnixSocketAddress</span></a> for <em class="parameter"><code>path</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
@@ -279,8 +288,11 @@ when connecting to a server created by another process, you must
 use the appropriate type corresponding to how that process created
 its listening socket.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
@@ -317,8 +329,11 @@ its listening socket.
 <p>
 Tests if <em class="parameter"><code>address</code></em> is abstract.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -342,8 +357,11 @@ Tests if <em class="parameter"><code>address</code></em> is abstract.
 <p>
 Gets <em class="parameter"><code>address</code></em>'s type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -372,8 +390,11 @@ may contain embedded zeros, and thus you should use
 <a class="link" href="GUnixSocketAddress.html#g-unix-socket-address-get-path-len" title="g_unix_socket_address_get_path_len ()"><code class="function">g_unix_socket_address_get_path_len()</code></a> to get the true length
 of this string.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -399,8 +420,11 @@ Gets the length of <em class="parameter"><code>address</code></em>'s path.
 <p>
 For details, see <a class="link" href="GUnixSocketAddress.html#g-unix-socket-address-get-path" title="g_unix_socket_address_get_path ()"><code class="function">g_unix_socket_address_get_path()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -421,10 +445,13 @@ For details, see <a class="link" href="GUnixSocketAddress.html#g-unix-socket-add
 <pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_unix_socket_address_abstract_names_supported
                                                         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>
-Checks if abstract unix domain socket names are supported.
+Checks if abstract UNIX domain socket names are supported.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
@@ -474,6 +501,6 @@ Whether or not this is an abstract address
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

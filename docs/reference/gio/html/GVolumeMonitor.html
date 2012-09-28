@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GVolumeMonitor</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="volume_mon.html" title="Volumes and Drives">
 <link rel="prev" href="volume_mon.html" title="Volumes and Drives">
 <link rel="next" href="GVolume.html" title="GVolume">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -122,8 +122,11 @@ See Extending GIO.
 <p>
 Gets the volume monitor used by gio.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a reference to the <a class="link" href="GVolumeMonitor.html" title="GVolumeMonitor"><span class="type">GVolumeMonitor</span></a> used by gio. Call
@@ -144,8 +147,11 @@ Gets a list of drives connected to the system.
 The returned list should be freed with <a href="./../glib/glib/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a>, after
 its elements have been unreffed with <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>volume_monitor</code></em> :</span></p></td>
@@ -170,8 +176,11 @@ Gets a list of the volumes on the system.
 The returned list should be freed with <a href="./../glib/glib/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a>, after
 its elements have been unreffed with <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>volume_monitor</code></em> :</span></p></td>
@@ -196,8 +205,11 @@ Gets a list of the mounts on the system.
 The returned list should be freed with <a href="./../glib/glib/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a>, after
 its elements have been unreffed with <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>volume_monitor</code></em> :</span></p></td>
@@ -258,8 +270,11 @@ The other is for implementing a <a class="link" href="GVolumeMonitor.html" title
 is to return <a class="link" href="GVolume.html" title="GVolume"><span class="type">GVolume</span></a> objects representing entries in the users
 "favorite servers" list or similar.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount</code></em> :</span></p></td>
@@ -282,8 +297,11 @@ if no wants to adopt the <a class="link" href="GMount.html" title="GMount"><span
 <p>
 Finds a <a class="link" href="GMount.html" title="GMount"><span class="type">GMount</span></a> object by its UUID (see <a class="link" href="GMount.html#g-mount-get-uuid" title="g_mount_get_uuid ()"><code class="function">g_mount_get_uuid()</code></a>)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>volume_monitor</code></em> :</span></p></td>
@@ -311,8 +329,11 @@ Free the returned object with <a href="./../gobject/gobject/gobject-The-Base-Obj
 <p>
 Finds a <a class="link" href="GVolume.html" title="GVolume"><span class="type">GVolume</span></a> object by its UUID (see <a class="link" href="GVolume.html#g-volume-get-uuid" title="g_volume_get_uuid ()"><code class="function">g_volume_get_uuid()</code></a>)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>volume_monitor</code></em> :</span></p></td>
@@ -342,8 +363,11 @@ Free the returned object with <a href="./../gobject/gobject/gobject-The-Base-Obj
 <p>
 Emitted when a drive changes.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>volume_monitor</code></em> :</span></p></td>
@@ -369,8 +393,11 @@ Emitted when a drive changes.
 <p>
 Emitted when a drive is connected to the system.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>volume_monitor</code></em> :</span></p></td>
@@ -396,8 +423,11 @@ Emitted when a drive is connected to the system.
 <p>
 Emitted when a drive is disconnected from the system.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>volume_monitor</code></em> :</span></p></td>
@@ -423,8 +453,11 @@ Emitted when a drive is disconnected from the system.
 <p>
 Emitted when the eject button is pressed on <em class="parameter"><code>drive</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>volume_monitor</code></em> :</span></p></td>
@@ -451,8 +484,11 @@ Emitted when the eject button is pressed on <em class="parameter"><code>drive</c
 <p>
 Emitted when the stop button is pressed on <em class="parameter"><code>drive</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>volume_monitor</code></em> :</span></p></td>
@@ -479,8 +515,11 @@ Emitted when the stop button is pressed on <em class="parameter"><code>drive</co
 <p>
 Emitted when a mount is added.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>volume_monitor</code></em> :</span></p></td>
@@ -506,8 +545,11 @@ Emitted when a mount is added.
 <p>
 Emitted when a mount changes.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>volume_monitor</code></em> :</span></p></td>
@@ -533,8 +575,11 @@ Emitted when a mount changes.
 <p>
 Emitted when a mount is about to be removed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>volume_monitor</code></em> :</span></p></td>
@@ -560,8 +605,11 @@ Emitted when a mount is about to be removed.
 <p>
 Emitted when a mount is removed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>volume_monitor</code></em> :</span></p></td>
@@ -587,8 +635,11 @@ Emitted when a mount is removed.
 <p>
 Emitted when a mountable volume is added to the system.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>volume_monitor</code></em> :</span></p></td>
@@ -614,8 +665,11 @@ Emitted when a mountable volume is added to the system.
 <p>
 Emitted when mountable volume is changed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>volume_monitor</code></em> :</span></p></td>
@@ -641,8 +695,11 @@ Emitted when mountable volume is changed.
 <p>
 Emitted when a mountable volume is removed from the system.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>volume_monitor</code></em> :</span></p></td>
@@ -667,6 +724,6 @@ Emitted when a mountable volume is removed from the system.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

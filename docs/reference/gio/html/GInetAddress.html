@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GInetAddress</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="networking.html" title="Low-level network support">
 <link rel="prev" href="GSocket.html" title="GSocket">
 <link rel="next" href="gio-GInetAddressMask.html" title="GInetAddressMask">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -121,8 +121,11 @@ An IPv4 or IPv6 internet address.
 <p>
 Parses <em class="parameter"><code>string</code></em> as an IP address and creates a new <a class="link" href="GInetAddress.html" title="GInetAddress"><span class="type">GInetAddress</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -147,8 +150,11 @@ Creates a new <a class="link" href="GInetAddress.html" title="GInetAddress"><spa
 <em class="parameter"><code>bytes</code></em> should be 4 bytes for <a class="link" href="GSocketAddress.html#G-SOCKET-FAMILY-IPV4:CAPS"><code class="literal">G_SOCKET_FAMILY_IPV4</code></a> and 16 bytes for
 <a class="link" href="GSocketAddress.html#G-SOCKET-FAMILY-IPV6:CAPS"><code class="literal">G_SOCKET_FAMILY_IPV6</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bytes</code></em> :</span></p></td>
@@ -176,8 +182,11 @@ Creates a new <a class="link" href="GInetAddress.html" title="GInetAddress"><spa
 Creates a <a class="link" href="GInetAddress.html" title="GInetAddress"><span class="type">GInetAddress</span></a> for the "any" address (unassigned/"don't
 care") for <em class="parameter"><code>family</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>family</code></em> :</span></p></td>
@@ -199,8 +208,11 @@ for <em class="parameter"><code>family</code></em>.</td>
 <p>
 Creates a <a class="link" href="GInetAddress.html" title="GInetAddress"><span class="type">GInetAddress</span></a> for the loopback address for <em class="parameter"><code>family</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>family</code></em> :</span></p></td>
@@ -223,8 +235,11 @@ for <em class="parameter"><code>family</code></em>.</td>
 <p>
 Checks if two <a class="link" href="GInetAddress.html" title="GInetAddress"><span class="type">GInetAddress</span></a> instances are equal, e.g. the same address.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -250,8 +265,11 @@ Checks if two <a class="link" href="GInetAddress.html" title="GInetAddress"><spa
 <p>
 Gets the raw binary address data from <em class="parameter"><code>address</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -276,8 +294,11 @@ array can be gotten with <a class="link" href="GInetAddress.html#g-inet-address-
 Gets the size of the native raw binary address for <em class="parameter"><code>address</code></em>. This
 is the size of the data that you get from <a class="link" href="GInetAddress.html#g-inet-address-to-bytes" title="g_inet_address_to_bytes ()"><code class="function">g_inet_address_to_bytes()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -299,8 +320,11 @@ is the size of the data that you get from <a class="link" href="GInetAddress.htm
 <p>
 Converts <em class="parameter"><code>address</code></em> to string form.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -323,8 +347,11 @@ freed after use.</td>
 <p>
 Gets <em class="parameter"><code>address</code></em>'s family
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -347,8 +374,11 @@ Gets <em class="parameter"><code>address</code></em>'s family
 <p>
 Tests whether <em class="parameter"><code>address</code></em> is the "any" address for its family.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -371,8 +401,11 @@ Tests whether <em class="parameter"><code>address</code></em> is the "any" addre
 <p>
 Tests whether <em class="parameter"><code>address</code></em> is the loopback address for its family.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -397,8 +430,11 @@ Tests whether <em class="parameter"><code>address</code></em> is a link-local ad
 identifies a host on a local network that is not connected to the
 Internet).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -424,8 +460,11 @@ Tests whether <em class="parameter"><code>address</code></em> is a site-local ad
 not be reached directly from the Internet, but which may have
 outgoing Internet connectivity via a NAT or firewall).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -448,8 +487,11 @@ outgoing Internet connectivity via a NAT or firewall).
 <p>
 Tests whether <em class="parameter"><code>address</code></em> is a multicast address.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -472,8 +514,11 @@ Tests whether <em class="parameter"><code>address</code></em> is a multicast add
 <p>
 Tests whether <em class="parameter"><code>address</code></em> is a link-local multicast address.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -496,8 +541,11 @@ Tests whether <em class="parameter"><code>address</code></em> is a link-local mu
 <p>
 Tests whether <em class="parameter"><code>address</code></em> is a node-local multicast address.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -520,8 +568,11 @@ Tests whether <em class="parameter"><code>address</code></em> is a node-local mu
 <p>
 Tests whether <em class="parameter"><code>address</code></em> is a site-local multicast address.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -544,8 +595,11 @@ Tests whether <em class="parameter"><code>address</code></em> is a site-local mu
 <p>
 Tests whether <em class="parameter"><code>address</code></em> is an organization-local multicast address.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -568,8 +622,11 @@ Tests whether <em class="parameter"><code>address</code></em> is an organization
 <p>
 Tests whether <em class="parameter"><code>address</code></em> is a global multicast address.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -714,6 +771,6 @@ See <a class="link" href="GInetAddress.html#g-inet-address-get-is-loopback" titl
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

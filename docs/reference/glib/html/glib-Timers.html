@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Timers</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-Lexical-Scanner.html" title="Lexical Scanner">
 <link rel="next" href="glib-Spawning-Processes.html" title="Spawning Processes">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -77,8 +77,11 @@ Opaque datatype that records a start time.
 Creates a new timer, and starts timing (i.e. <a class="link" href="glib-Timers.html#g-timer-start" title="g_timer_start ()"><code class="function">g_timer_start()</code></a> is
 implicitly called for you).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a new <a class="link" href="glib-Timers.html#GTimer" title="GTimer"><span class="type">GTimer</span></a>.</td>
@@ -95,8 +98,11 @@ report the time since <a class="link" href="glib-Timers.html#g-timer-start" titl
 automatically marks the start time, so no need to call
 <a class="link" href="glib-Timers.html#g-timer-start" title="g_timer_start ()"><code class="function">g_timer_start()</code></a> immediately after creating the timer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>timer</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Timers.html#GTimer" title="GTimer"><span class="type">GTimer</span></a>.</td>
@@ -111,8 +117,11 @@ automatically marks the start time, so no need to call
 Marks an end time, so calls to <a class="link" href="glib-Timers.html#g-timer-elapsed" title="g_timer_elapsed ()"><code class="function">g_timer_elapsed()</code></a> will return the
 difference between this end time and the start time.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>timer</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Timers.html#GTimer" title="GTimer"><span class="type">GTimer</span></a>.</td>
@@ -128,8 +137,11 @@ Resumes a timer that has previously been stopped with
 <a class="link" href="glib-Timers.html#g-timer-stop" title="g_timer_stop ()"><code class="function">g_timer_stop()</code></a>. <a class="link" href="glib-Timers.html#g-timer-stop" title="g_timer_stop ()"><code class="function">g_timer_stop()</code></a> must be called before using this
 function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>timer</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Timers.html#GTimer" title="GTimer"><span class="type">GTimer</span></a>.</td>
@@ -150,8 +162,11 @@ stopped. The return value is the number of seconds elapsed,
 including any fractional part. The <em class="parameter"><code>microseconds</code></em> out parameter is
 essentially useless.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>timer</code></em> :</span></p></td>
@@ -181,8 +196,11 @@ This function is useless; it's fine to call <a class="link" href="glib-Timers.ht
 already-started timer to reset the start time, so <a class="link" href="glib-Timers.html#g-timer-reset" title="g_timer_reset ()"><code class="function">g_timer_reset()</code></a>
 serves no purpose.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>timer</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Timers.html#GTimer" title="GTimer"><span class="type">GTimer</span></a>.</td>
@@ -196,8 +214,11 @@ serves no purpose.
 <p>
 Destroys a timer, freeing associated resources.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>timer</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Timers.html#GTimer" title="GTimer"><span class="type">GTimer</span></a> to destroy.</td>
@@ -208,6 +229,6 @@ Destroys a timer, freeing associated resources.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

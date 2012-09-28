@@ -174,7 +174,7 @@
    <File RelativePath="..\..\..\gio\gbufferedoutputstream.c" />
    <File RelativePath="..\..\..\gio\gcancellable.c" />
    <File RelativePath="..\..\..\gio\gcharsetconverter.c" />
-   <File RelativePath="..\..\..\gio\gcontenttype.c" />
+   <File RelativePath="..\..\..\gio\gcontenttype-win32.c" />
    <File RelativePath="..\..\..\gio\gconverter.c" />
    <File RelativePath="..\..\..\gio\gconverterinputstream.c" />
    <File RelativePath="..\..\..\gio\gconverteroutputstream.c" />
@@ -271,6 +271,7 @@
    <File RelativePath="..\..\..\gio\gpermission.c" />
    <File RelativePath="..\..\..\gio\gpollableinputstream.c" />
    <File RelativePath="..\..\..\gio\gpollableoutputstream.c" />
+   <File RelativePath="..\..\..\gio\gpollableutils.c" />
    <File RelativePath="..\..\..\gio\gpollfilemonitor.c" />
    <File RelativePath="..\..\..\gio\gproxyaddress.c" />
    <File RelativePath="..\..\..\gio\gproxyaddressenumerator.c" />
@@ -307,6 +308,7 @@
    <File RelativePath="..\..\..\gio\gsrvtarget.c" />
    <File RelativePath="..\..\..\gio\gtcpconnection.c" />
    <File RelativePath="..\..\..\gio\gtcpwrapperconnection.c" />
+   <File RelativePath="..\..\..\gio\gtestdbus.c" />
    <File RelativePath="..\..\..\gio\gthemedicon.c" />
    <File RelativePath="..\..\..\gio\gthreadedresolver.c" />
    <File RelativePath="..\..\..\gio\gthreadedsocketservice.c" />

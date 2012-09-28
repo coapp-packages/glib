@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Asynchronous Queues</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-core.html" title="GLib Core Application Support">
 <link rel="prev" href="glib-Thread-Pools.html" title="Thread Pools">
 <link rel="next" href="glib-Dynamic-Loading-of-Modules.html" title="Dynamic Loading of Modules">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -155,8 +155,11 @@ an asynchronous queue. It should only be accessed through the
 <p>
 Creates a new asynchronous queue.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a new <a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>. Free with <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-unref" title="g_async_queue_unref ()"><code class="function">g_async_queue_unref()</code></a>
@@ -173,8 +176,11 @@ Creates a new asynchronous queue and sets up a destroy notify
 function that is used to free any remaining queue items when
 the queue is destroyed after the final unref.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>item_free_func</code></em> :</span></p></td>
@@ -197,8 +203,11 @@ the queue is destroyed after the final unref.
 Increases the reference count of the asynchronous <em class="parameter"><code>queue</code></em> by 1.
 You do not need to hold the lock to call this function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -225,8 +234,11 @@ and the memory allocated will be freed. So you are not allowed
 to use the <em class="parameter"><code>queue</code></em> afterwards, as it might have disappeared.
 You do not need to hold the lock to call this function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>.</td>
@@ -241,8 +253,11 @@ You do not need to hold the lock to call this function.
 <p>
 Pushes the <em class="parameter"><code>data</code></em> into the <em class="parameter"><code>queue</code></em>. <em class="parameter"><code>data</code></em> must not be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -280,8 +295,11 @@ it when it is finished.
 <p>
 For an example of <em class="parameter"><code>func</code></em> see <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-sort" title="g_async_queue_sort ()"><code class="function">g_async_queue_sort()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -314,8 +332,11 @@ For an example of <em class="parameter"><code>func</code></em> see <a class="lin
 Pops data from the <em class="parameter"><code>queue</code></em>. If <em class="parameter"><code>queue</code></em> is empty, this function
 blocks until data becomes available.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -337,8 +358,11 @@ blocks until data becomes available.
 Tries to pop data from the <em class="parameter"><code>queue</code></em>. If no data is available,
 <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -365,8 +389,11 @@ Pops data from the <em class="parameter"><code>queue</code></em>. If the queue i
 <p>
 If no data is received before the timeout, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -400,8 +427,11 @@ entries in the <em class="parameter"><code>queue</code></em>. A return value of 
 in the queue and n threads waiting. This can happen due to locking
 of the queue or due to scheduling.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -464,8 +494,11 @@ lowest priority would be at the top of the queue, you could use:
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -503,8 +536,11 @@ While holding the lock, you can only call the
 <code class="function">g_async_queue_*_unlocked()</code> functions
 on <em class="parameter"><code>queue</code></em>. Otherwise, deadlock may occur.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
@@ -524,8 +560,11 @@ Calling this function when you have not acquired
 the with <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-lock" title="g_async_queue_lock ()"><code class="function">g_async_queue_lock()</code></a> leads to undefined
 behaviour.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
@@ -546,8 +585,11 @@ lock.</p>
 <p>
 Increases the reference count of the asynchronous <em class="parameter"><code>queue</code></em> by 1.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
@@ -571,8 +613,11 @@ and releases the lock. This function must be called while holding
 the <em class="parameter"><code>queue</code></em>'s lock. If the reference count went to 0, the <em class="parameter"><code>queue</code></em>
 will be destroyed and the memory allocated will be freed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
@@ -591,8 +636,11 @@ Pushes the <em class="parameter"><code>data</code></em> into the <em class="para
 <p>
 This function must be called while holding the <em class="parameter"><code>queue</code></em>'s lock.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -636,8 +684,11 @@ This function must be called while holding the <em class="parameter"><code>queue
 <p>
 For an example of <em class="parameter"><code>func</code></em> see <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-sort" title="g_async_queue_sort ()"><code class="function">g_async_queue_sort()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -673,8 +724,11 @@ blocks until data becomes available.
 <p>
 This function must be called while holding the <em class="parameter"><code>queue</code></em>'s lock.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -699,8 +753,11 @@ Tries to pop data from the <em class="parameter"><code>queue</code></em>. If no 
 <p>
 This function must be called while holding the <em class="parameter"><code>queue</code></em>'s lock.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -730,8 +787,11 @@ If no data is received before the timeout, <a class="link" href="glib-Standard-M
 <p>
 This function must be called while holding the <em class="parameter"><code>queue</code></em>'s lock.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -768,8 +828,11 @@ of the queue or due to scheduling.
 <p>
 This function must be called while holding the <em class="parameter"><code>queue</code></em>'s lock.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -802,8 +865,11 @@ element.
 <p>
 This function must be called while holding the <em class="parameter"><code>queue</code></em>'s lock.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -844,8 +910,11 @@ If no data is received before <em class="parameter"><code>end_time</code></em>, 
 To easily calculate <em class="parameter"><code>end_time</code></em>, a combination of <a class="link" href="glib-Date-and-Time-Functions.html#g-get-current-time" title="g_get_current_time ()"><code class="function">g_get_current_time()</code></a>
 and <a class="link" href="glib-Date-and-Time-Functions.html#g-time-val-add" title="g_time_val_add ()"><code class="function">g_time_val_add()</code></a> can be used.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -887,8 +956,11 @@ and <a class="link" href="glib-Date-and-Time-Functions.html#g-time-val-add" titl
 <p>
 This function must be called while holding the <em class="parameter"><code>queue</code></em>'s lock.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -915,6 +987,6 @@ received before <em class="parameter"><code>end_time</code></em>.</td>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

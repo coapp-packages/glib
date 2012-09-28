@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Message Output and Debugging Functions</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-core.html" title="GLib Core Application Support">
 <link rel="prev" href="glib-Error-Reporting.html" title="Error Reporting">
 <link rel="next" href="glib-Message-Logging.html" title="Message Logging">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -97,8 +97,11 @@ purpose message windows or even files. Instead, libraries should
 use <a class="link" href="glib-Message-Logging.html#g-log" title="g_log ()"><code class="function">g_log()</code></a>, or the convenience functions <a class="link" href="glib-Message-Logging.html#g-message" title="g_message()"><code class="function">g_message()</code></a>, <a class="link" href="glib-Message-Logging.html#g-warning" title="g_warning()"><code class="function">g_warning()</code></a>
 and <a class="link" href="glib-Message-Logging.html#g-error" title="g_error()"><code class="function">g_error()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
@@ -125,8 +128,11 @@ the message to stdout. By providing your own handler
 you can redirect the output, to a GTK+ widget or a
 log file for example.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
@@ -147,8 +153,11 @@ log file for example.
 Specifies the type of the print handler functions.
 These are called with the complete formatted string to output.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
 <td>the message to output</td>
@@ -169,8 +178,11 @@ The default handler simply outputs the message to stderr.
 Instead <a class="link" href="glib-Message-Logging.html#g-log" title="g_log ()"><code class="function">g_log()</code></a> should be used, or the convenience functions
 <a class="link" href="glib-Message-Logging.html#g-message" title="g_message()"><code class="function">g_message()</code></a>, <a class="link" href="glib-Message-Logging.html#g-warning" title="g_warning()"><code class="function">g_warning()</code></a> and <a class="link" href="glib-Message-Logging.html#g-error" title="g_error()"><code class="function">g_error()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
@@ -197,8 +209,11 @@ message to stderr. By providing your own handler you can
 redirect the output, to a GTK+ widget or a log file for
 example.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
@@ -225,8 +240,11 @@ return a value.
 If G_DISABLE_CHECKS is defined then the check is not performed.  You
 should therefore not depend on any side effects of <em class="parameter"><code>expr</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>expr</code></em> :</span></p></td>
 <td>the expression to check</td>
@@ -246,8 +264,11 @@ returned from the current function.
 If G_DISABLE_CHECKS is defined then the check is not performed.  You
 should therefore not depend on any side effects of <em class="parameter"><code>expr</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>expr</code></em> :</span></p></td>
@@ -277,8 +298,11 @@ This can only be used in functions which do not return a value.
 <p>
 Logs a critical message and returns <em class="parameter"><code>val</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
 <td>the value to return from the current function</td>
@@ -292,8 +316,11 @@ Logs a critical message and returns <em class="parameter"><code>val</code></em>.
 <p>
 Logs a warning if the expression is not true.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>expr</code></em> :</span></p></td>
 <td>the expression to check</td>
@@ -395,14 +422,17 @@ If [P]roceed is selected, the function returns.
 <p>
 This function may cause different actions on non-UNIX platforms.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>prg_name</code></em> :</span></p></td>
 <td>the program name, needed by <span class="command"><strong>gdb</strong></span>
 for the [S]tack trace option. If <em class="parameter"><code>prg_name</code></em> is <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>, <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-prgname" title="g_get_prgname ()"><code class="function">g_get_prgname()</code></a>
 is called to get the program name (which will work correctly if
-<a href="http://developer.gnome.org/devel/gdk/gdk3-General.html#gdk-init"><code class="function">gdk_init()</code></a> or <a href="http://developer.gnome.org/devel/gtk/gtk3-General.html#gtk-init"><code class="function">gtk_init()</code></a> has been called)</td>
+<a href="http://library.gnome.org/devel/gdk3/gdk-General.html#gdk-init"><code class="function">gdk_init()</code></a> or <a href="http://library.gnome.org/devel/gtk3/gtk-General.html#gtk-init"><code class="function">gtk_init()</code></a> has been called)</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -415,13 +445,16 @@ Invokes <span class="command"><strong>gdb</strong></span>, which attaches to the
 process and shows a stack trace. Called by <a class="link" href="glib-Warnings-and-Assertions.html#g-on-error-query" title="g_on_error_query ()"><code class="function">g_on_error_query()</code></a>
 when the [S]tack trace option is selected. You can get the current
 process's "program name" with <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-prgname" title="g_get_prgname ()"><code class="function">g_get_prgname()</code></a>, assuming that you
-have called <a href="http://developer.gnome.org/devel/gtk/gtk3-General.html#gtk-init"><code class="function">gtk_init()</code></a> or <a href="http://developer.gnome.org/devel/gdk/gdk3-General.html#gdk-init"><code class="function">gdk_init()</code></a>.
+have called <a href="http://library.gnome.org/devel/gtk3/gtk-General.html#gtk-init"><code class="function">gtk_init()</code></a> or <a href="http://library.gnome.org/devel/gdk3/gdk-General.html#gdk-init"><code class="function">gdk_init()</code></a>.
 </p>
 <p>
 This function may cause different actions on non-UNIX platforms.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>prg_name</code></em> :</span></p></td>
 <td>the program name, needed by <span class="command"><strong>gdb</strong></span>
@@ -446,6 +479,6 @@ and on other architectures it raises a <code class="literal">SIGTRAP</code> sign
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

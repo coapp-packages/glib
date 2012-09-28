@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GAsyncInitable</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="failable_initialization.html" title="Failable Initialization">
 <link rel="prev" href="GInitable.html" title="GInitable">
 <link rel="next" href="networking.html" title="Low-level network support">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -346,8 +346,11 @@ Interface for asynchronously initializable objects.
 Provides an interface for asynchronous initializing object such that
 initialization may fail.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="./../gobject/gobject/gobject-Type-Information.html#GTypeInterface"><span class="type">GTypeInterface</span></a> <em class="structfield"><code><a name="GAsyncInitableIface.g-iface"></a>g_iface</code></em>;</span></p></td>
@@ -395,8 +398,11 @@ the object doesn't support cancellable initialization, the error
 <p>
 As with <a class="link" href="GInitable.html" title="GInitable"><span class="type">GInitable</span></a>, if the object is not initialized, or initialization
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>initable</code></em> :</span></p></td>
@@ -450,8 +456,11 @@ any interface methods.</td>
 Finishes asynchronous initialization and returns the result.
 See <a class="link" href="GAsyncInitable.html#g-async-initable-init-async" title="g_async_initable_init_async ()"><code class="function">g_async_initable_init_async()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>initable</code></em> :</span></p></td>
@@ -495,8 +504,11 @@ When the initialization is finished, <em class="parameter"><code>callback</code>
 then call <a class="link" href="GAsyncInitable.html#g-async-initable-new-finish" title="g_async_initable_new_finish ()"><code class="function">g_async_initable_new_finish()</code></a> to get the new object and check
 for any errors.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object_type</code></em> :</span></p></td>
@@ -545,8 +557,11 @@ value pairs, and ended by <a href="./../glib/glib/glib-Standard-Macros.html#NULL
 Finishes the async construction for the various g_async_initable_new
 calls, returning the created object or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on error.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>initable</code></em> :</span></p></td>
@@ -590,8 +605,11 @@ When the initialization is finished, <em class="parameter"><code>callback</code>
 then call <a class="link" href="GAsyncInitable.html#g-async-initable-new-finish" title="g_async_initable_new_finish ()"><code class="function">g_async_initable_new_finish()</code></a> to get the new object and check
 for any errors.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object_type</code></em> :</span></p></td>
@@ -647,8 +665,11 @@ When the initialization is finished, <em class="parameter"><code>callback</code>
 then call <a class="link" href="GAsyncInitable.html#g-async-initable-new-finish" title="g_async_initable_new_finish ()"><code class="function">g_async_initable_new_finish()</code></a> to get the new object and check
 for any errors.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object_type</code></em> :</span></p></td>
@@ -693,6 +714,6 @@ finished</td>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

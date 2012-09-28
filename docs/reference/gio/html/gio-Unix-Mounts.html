@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Unix Mounts</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="volume_mon.html" title="Volumes and Drives">
 <link rel="prev" href="GDrive.html" title="GDrive">
 <link rel="next" href="icons.html" title="Icons">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -56,6 +56,7 @@ const <span class="returnvalue">char</span> *        <a class="link" href="gio-U
 <a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gio-Unix-Mounts.html#g-unix-mount-is-readonly" title="g_unix_mount_is_readonly ()">g_unix_mount_is_readonly</a>            (<em class="parameter"><code><a class="link" href="gio-Unix-Mounts.html#GUnixMountEntry" title="GUnixMountEntry"><span class="type">GUnixMountEntry</span></a> *mount_entry</code></em>);
 <a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gio-Unix-Mounts.html#g-unix-mount-is-system-internal" title="g_unix_mount_is_system_internal ()">g_unix_mount_is_system_internal</a>     (<em class="parameter"><code><a class="link" href="gio-Unix-Mounts.html#GUnixMountEntry" title="GUnixMountEntry"><span class="type">GUnixMountEntry</span></a> *mount_entry</code></em>);
 <a class="link" href="GIcon.html" title="GIcon"><span class="returnvalue">GIcon</span></a> *             <a class="link" href="gio-Unix-Mounts.html#g-unix-mount-guess-icon" title="g_unix_mount_guess_icon ()">g_unix_mount_guess_icon</a>             (<em class="parameter"><code><a class="link" href="gio-Unix-Mounts.html#GUnixMountEntry" title="GUnixMountEntry"><span class="type">GUnixMountEntry</span></a> *mount_entry</code></em>);
+<a class="link" href="GIcon.html" title="GIcon"><span class="returnvalue">GIcon</span></a> *             <a class="link" href="gio-Unix-Mounts.html#g-unix-mount-guess-symbolic-icon" title="g_unix_mount_guess_symbolic_icon ()">g_unix_mount_guess_symbolic_icon</a>    (<em class="parameter"><code><a class="link" href="gio-Unix-Mounts.html#GUnixMountEntry" title="GUnixMountEntry"><span class="type">GUnixMountEntry</span></a> *mount_entry</code></em>);
 <span class="returnvalue">char</span> *              <a class="link" href="gio-Unix-Mounts.html#g-unix-mount-guess-name" title="g_unix_mount_guess_name ()">g_unix_mount_guess_name</a>             (<em class="parameter"><code><a class="link" href="gio-Unix-Mounts.html#GUnixMountEntry" title="GUnixMountEntry"><span class="type">GUnixMountEntry</span></a> *mount_entry</code></em>);
 <a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gio-Unix-Mounts.html#g-unix-mount-guess-can-eject" title="g_unix_mount_guess_can_eject ()">g_unix_mount_guess_can_eject</a>        (<em class="parameter"><code><a class="link" href="gio-Unix-Mounts.html#GUnixMountEntry" title="GUnixMountEntry"><span class="type">GUnixMountEntry</span></a> *mount_entry</code></em>);
 <a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gio-Unix-Mounts.html#g-unix-mount-guess-should-display" title="g_unix_mount_guess_should_display ()">g_unix_mount_guess_should_display</a>   (<em class="parameter"><code><a class="link" href="gio-Unix-Mounts.html#GUnixMountEntry" title="GUnixMountEntry"><span class="type">GUnixMountEntry</span></a> *mount_entry</code></em>);
@@ -71,6 +72,8 @@ const <span class="returnvalue">char</span> *        <a class="link" href="gio-U
                                                         (<em class="parameter"><code><a class="link" href="gio-Unix-Mounts.html#GUnixMountPoint" title="GUnixMountPoint"><span class="type">GUnixMountPoint</span></a> *mount_point</code></em>);
 <a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gio-Unix-Mounts.html#g-unix-mount-point-is-loopback" title="g_unix_mount_point_is_loopback ()">g_unix_mount_point_is_loopback</a>      (<em class="parameter"><code><a class="link" href="gio-Unix-Mounts.html#GUnixMountPoint" title="GUnixMountPoint"><span class="type">GUnixMountPoint</span></a> *mount_point</code></em>);
 <a class="link" href="GIcon.html" title="GIcon"><span class="returnvalue">GIcon</span></a> *             <a class="link" href="gio-Unix-Mounts.html#g-unix-mount-point-guess-icon" title="g_unix_mount_point_guess_icon ()">g_unix_mount_point_guess_icon</a>       (<em class="parameter"><code><a class="link" href="gio-Unix-Mounts.html#GUnixMountPoint" title="GUnixMountPoint"><span class="type">GUnixMountPoint</span></a> *mount_point</code></em>);
+<a class="link" href="GIcon.html" title="GIcon"><span class="returnvalue">GIcon</span></a> *             <a class="link" href="gio-Unix-Mounts.html#g-unix-mount-point-guess-symbolic-icon" title="g_unix_mount_point_guess_symbolic_icon ()">g_unix_mount_point_guess_symbolic_icon</a>
+                                                        (<em class="parameter"><code><a class="link" href="gio-Unix-Mounts.html#GUnixMountPoint" title="GUnixMountPoint"><span class="type">GUnixMountPoint</span></a> *mount_point</code></em>);
 <span class="returnvalue">char</span> *              <a class="link" href="gio-Unix-Mounts.html#g-unix-mount-point-guess-name" title="g_unix_mount_point_guess_name ()">g_unix_mount_point_guess_name</a>       (<em class="parameter"><code><a class="link" href="gio-Unix-Mounts.html#GUnixMountPoint" title="GUnixMountPoint"><span class="type">GUnixMountPoint</span></a> *mount_point</code></em>);
 <a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gio-Unix-Mounts.html#g-unix-mount-point-guess-can-eject" title="g_unix_mount_point_guess_can_eject ()">g_unix_mount_point_guess_can_eject</a>  (<em class="parameter"><code><a class="link" href="gio-Unix-Mounts.html#GUnixMountPoint" title="GUnixMountPoint"><span class="type">GUnixMountPoint</span></a> *mount_point</code></em>);
 <a href="./../glib/glib/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="gio-Unix-Mounts.html#g-unix-mount-points-get" title="g_unix_mount_points_get ()">g_unix_mount_points_get</a>             (<em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> *time_read</code></em>);
@@ -145,8 +148,11 @@ Watches <span class="type">GUnixMount</span>s for changes.
 <p>
 Frees a unix mount.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>mount_entry</code></em> :</span></p></td>
 <td>a <a class="link" href="gio-Unix-Mounts.html#GUnixMountEntry" title="GUnixMountEntry"><span class="type">GUnixMountEntry</span></a>.</td>
@@ -161,8 +167,11 @@ Frees a unix mount.
 <p>
 Compares two unix mounts.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount1</code></em> :</span></p></td>
@@ -187,8 +196,11 @@ or less than <em class="parameter"><code>mount2</code></em>, respectively.</td>
 <p>
 Gets the mount path for a unix mount.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_entry</code></em> :</span></p></td>
@@ -208,8 +220,11 @@ Gets the mount path for a unix mount.
 <p>
 Gets the device path for a unix mount.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_entry</code></em> :</span></p></td>
@@ -229,8 +244,11 @@ Gets the device path for a unix mount.
 <p>
 Gets the filesystem type for the unix mount.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_entry</code></em> :</span></p></td>
@@ -250,8 +268,11 @@ Gets the filesystem type for the unix mount.
 <p>
 Checks if a unix mount is mounted read only.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_entry</code></em> :</span></p></td>
@@ -272,8 +293,11 @@ Checks if a unix mount is mounted read only.
 <p>
 Checks if a unix mount is a system path.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_entry</code></em> :</span></p></td>
@@ -294,8 +318,11 @@ Checks if a unix mount is a system path.
 <p>
 Guesses the icon of a Unix mount.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_entry</code></em> :</span></p></td>
@@ -312,14 +339,44 @@ Guesses the icon of a Unix mount.
 </div>
 <hr>
 <div class="refsect2">
+<a name="g-unix-mount-guess-symbolic-icon"></a><h3>g_unix_mount_guess_symbolic_icon ()</h3>
+<pre class="programlisting"><a class="link" href="GIcon.html" title="GIcon"><span class="returnvalue">GIcon</span></a> *             g_unix_mount_guess_symbolic_icon    (<em class="parameter"><code><a class="link" href="gio-Unix-Mounts.html#GUnixMountEntry" title="GUnixMountEntry"><span class="type">GUnixMountEntry</span></a> *mount_entry</code></em>);</pre>
+<p>
+Guesses the symbolic icon of a Unix mount.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mount_entry</code></em> :</span></p></td>
+<td>a <a class="link" href="gio-Unix-Mounts.html#GUnixMountEntry" title="GUnixMountEntry"><span class="type">GUnixMountEntry</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a class="link" href="GIcon.html" title="GIcon"><span class="type">GIcon</span></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.34</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="g-unix-mount-guess-name"></a><h3>g_unix_mount_guess_name ()</h3>
 <pre class="programlisting"><span class="returnvalue">char</span> *              g_unix_mount_guess_name             (<em class="parameter"><code><a class="link" href="gio-Unix-Mounts.html#GUnixMountEntry" title="GUnixMountEntry"><span class="type">GUnixMountEntry</span></a> *mount_entry</code></em>);</pre>
 <p>
 Guesses the name of a Unix mount. 
 The result is a translated string.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_entry</code></em> :</span></p></td>
@@ -342,8 +399,11 @@ be freed with <a href="./../glib/glib/glib-Memory-Allocation.html#g-free"><code 
 <p>
 Guesses whether a Unix mount can be ejected.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_entry</code></em> :</span></p></td>
@@ -365,8 +425,11 @@ Guesses whether a Unix mount can be ejected.
 <p>
 Guesses whether a Unix mount should be displayed in the UI.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_entry</code></em> :</span></p></td>
@@ -388,8 +451,11 @@ Guesses whether a Unix mount should be displayed in the UI.
 <p>
 Frees a unix mount point.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>mount_point</code></em> :</span></p></td>
 <td>unix mount point to free.</td>
@@ -404,8 +470,11 @@ Frees a unix mount point.
 <p>
 Compares two unix mount points.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount1</code></em> :</span></p></td>
@@ -430,8 +499,11 @@ or less than <em class="parameter"><code>mount2</code></em>, respectively.</td>
 <p>
 Gets the mount path for a unix mount point.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_point</code></em> :</span></p></td>
@@ -451,8 +523,11 @@ Gets the mount path for a unix mount point.
 <p>
 Gets the device path for a unix mount point.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_point</code></em> :</span></p></td>
@@ -472,8 +547,11 @@ Gets the device path for a unix mount point.
 <p>
 Gets the file system type for the mount point.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_point</code></em> :</span></p></td>
@@ -493,8 +571,11 @@ Gets the file system type for the mount point.
 <p>
 Gets the options for the mount point.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_point</code></em> :</span></p></td>
@@ -515,8 +596,11 @@ Gets the options for the mount point.
 <p>
 Checks if a unix mount point is read only.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_point</code></em> :</span></p></td>
@@ -538,8 +622,11 @@ Checks if a unix mount point is read only.
 <p>
 Checks if a unix mount point is mountable by the user.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_point</code></em> :</span></p></td>
@@ -560,8 +647,11 @@ Checks if a unix mount point is mountable by the user.
 <p>
 Checks if a unix mount point is a loopback device.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_point</code></em> :</span></p></td>
@@ -582,8 +672,11 @@ Checks if a unix mount point is a loopback device.
 <p>
 Guesses the icon of a Unix mount point.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_point</code></em> :</span></p></td>
@@ -600,14 +693,45 @@ Guesses the icon of a Unix mount point.
 </div>
 <hr>
 <div class="refsect2">
+<a name="g-unix-mount-point-guess-symbolic-icon"></a><h3>g_unix_mount_point_guess_symbolic_icon ()</h3>
+<pre class="programlisting"><a class="link" href="GIcon.html" title="GIcon"><span class="returnvalue">GIcon</span></a> *             g_unix_mount_point_guess_symbolic_icon
+                                                        (<em class="parameter"><code><a class="link" href="gio-Unix-Mounts.html#GUnixMountPoint" title="GUnixMountPoint"><span class="type">GUnixMountPoint</span></a> *mount_point</code></em>);</pre>
+<p>
+Guesses the symbolic icon of a Unix mount point.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mount_point</code></em> :</span></p></td>
+<td>a <a class="link" href="gio-Unix-Mounts.html#GUnixMountPoint" title="GUnixMountPoint"><span class="type">GUnixMountPoint</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a class="link" href="GIcon.html" title="GIcon"><span class="type">GIcon</span></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.34</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="g-unix-mount-point-guess-name"></a><h3>g_unix_mount_point_guess_name ()</h3>
 <pre class="programlisting"><span class="returnvalue">char</span> *              g_unix_mount_point_guess_name       (<em class="parameter"><code><a class="link" href="gio-Unix-Mounts.html#GUnixMountPoint" title="GUnixMountPoint"><span class="type">GUnixMountPoint</span></a> *mount_point</code></em>);</pre>
 <p>
 Guesses the name of a Unix mount point. 
 The result is a translated string.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_point</code></em> :</span></p></td>
@@ -630,8 +754,11 @@ be freed with <a href="./../glib/glib/glib-Memory-Allocation.html#g-free"><code 
 <p>
 Guesses whether a Unix mount point can be ejected.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_point</code></em> :</span></p></td>
@@ -656,8 +783,11 @@ If <em class="parameter"><code>time_read</code></em> is set, it will be filled w
 allowing for checking if the mounts have changed with
 <a class="link" href="gio-Unix-Mounts.html#g-unix-mount-points-changed-since" title="g_unix_mount_points_changed_since ()"><code class="function">g_unix_mount_points_changed_since()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>time_read</code></em> :</span></p></td>
@@ -682,8 +812,11 @@ If <em class="parameter"><code>time_read</code></em> is set, it will be filled w
 timestamp, allowing for checking if the mounts have changed
 with <a class="link" href="gio-Unix-Mounts.html#g-unix-mounts-changed-since" title="g_unix_mounts_changed_since ()"><code class="function">g_unix_mounts_changed_since()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>time_read</code></em> :</span></p></td>
@@ -708,8 +841,11 @@ Gets a <a class="link" href="gio-Unix-Mounts.html#GUnixMountEntry" title="GUnixM
 is set, it will be filled with a unix timestamp for checking
 if the mounts have changed since with <a class="link" href="gio-Unix-Mounts.html#g-unix-mounts-changed-since" title="g_unix_mounts_changed_since ()"><code class="function">g_unix_mounts_changed_since()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_path</code></em> :</span></p></td>
@@ -735,8 +871,11 @@ if the mounts have changed since with <a class="link" href="gio-Unix-Mounts.html
 <p>
 Checks if the unix mounts have changed since a given unix time.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>time</code></em> :</span></p></td>
@@ -757,8 +896,11 @@ Checks if the unix mounts have changed since a given unix time.
 <p>
 Checks if the unix mount points have changed since a given unix time.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>time</code></em> :</span></p></td>
@@ -782,8 +924,11 @@ monitor will report consecutive changes for the mount and mount
 point entry files is the default for a <a class="link" href="GFileMonitor.html" title="GFileMonitor"><span class="type">GFileMonitor</span></a>. Use
 <a class="link" href="gio-Unix-Mounts.html#g-unix-mount-monitor-set-rate-limit" title="g_unix_mount_monitor_set_rate_limit ()"><code class="function">g_unix_mount_monitor_set_rate_limit()</code></a> to change this.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a <a class="link" href="gio-Unix-Mounts.html#GUnixMountMonitor"><span class="type">GUnixMountMonitor</span></a>.</td>
@@ -799,8 +944,11 @@ point entry files is the default for a <a class="link" href="GFileMonitor.html" 
 Sets the rate limit to which the <em class="parameter"><code>mount_monitor</code></em> will report
 consecutive change events to the mount and mount point entry files.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_monitor</code></em> :</span></p></td>
@@ -827,8 +975,11 @@ OS. This is primarily used for hiding mountable and mounted volumes
 that only are used in the OS and has little to no relevance to the
 casual user.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mount_path</code></em> :</span></p></td>
@@ -855,8 +1006,11 @@ of the OS.</td>
 <p>
 Emitted when the unix mount points have changed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>monitor</code></em> :</span></p></td>
@@ -877,8 +1031,11 @@ Emitted when the unix mount points have changed.
 <p>
 Emitted when the unix mounts have changed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>monitor</code></em> :</span></p></td>
@@ -895,6 +1052,6 @@ Emitted when the unix mounts have changed.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

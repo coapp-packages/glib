@@ -1,13 +1,13 @@
 '\" t
 .\"     Title: gdbus-codegen
-.\"    Author: [see the "Author" section]
-.\" Generator: DocBook XSL Stylesheets v1.76.1 <http://docbook.sf.net/>
-.\"      Date: 05/14/2012
+.\"    Author: David Zeuthen <zeuthen@gmail.com>
+.\" Generator: DocBook XSL Stylesheets v1.77.1 <http://docbook.sf.net/>
+.\"      Date: 09/23/2012
 .\"    Manual: User Commands
-.\"    Source: User Commands
+.\"    Source: GIO
 .\"  Language: English
 .\"
-.TH "GDBUS\-CODEGEN" "1" "05/14/2012" "User Commands" "User Commands"
+.TH "GDBUS\-CODEGEN" "1" "" "GIO" "User Commands"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -606,7 +606,8 @@ on_handle_hello_world (MyAppFrobber           *interface,
     }
   else
     {
-      g_dbus_method_invocation_return_error (MY_APP_ERROR,
+      g_dbus_method_invocation_return_error (invocation,
+                 MY_APP_ERROR,
                  MY_APP_ERROR_NO_WHINING,
                  "Hey, %s, there will be no whining!",
                  g_dbus_method_invocation_get_sender (invocation));
@@ -640,32 +641,32 @@ on_handle_hello_world (MyAppFrobber           *interface,
 .\}
 .PP
 To facilitate atomic changesets (multiple properties changing at the same time), #GObject::notify signals are queued up when received\&. The queue is drained in an idle handler (which is called from the
-thread\-default main loop
+thread-default main loop
 of the thread where the skeleton object was contructed) and will cause emissions of the
 \m[blue]\fBorg\&.freedesktop\&.DBus\&.Properties::PropertiesChanged\fR\m[]\&\s-2\u[8]\d\s+2
 signal with all the properties that have changed\&. Use g_dbus_interface_skeleton_flush() or g_dbus_object_skeleton_flush() to empty the queue immediately\&. Use g_object_freeze_notify() and g_object_thaw_notify() for atomic changesets if on a different thread\&.
 .SH "C TYPE MAPPING"
 .PP
 Scalar types (type\-strings
-\*(Aqb\*(Aq,
-\*(Aqy\*(Aq,
-\*(Aqn\*(Aq,
-\*(Aqq\*(Aq,
-\*(Aqi\*(Aq,
-\*(Aqu\*(Aq,
-\*(Aqx\*(Aq,
-\*(Aqt\*(Aq
+'b',
+'y',
+'n',
+'q',
+'i',
+'u',
+'x',
+'t'
 and
-\*(Aqd\*(Aq) ), strings (type\-strings
-\*(Aqs\*(Aq,
-\*(Aqay\*(Aq,
-\*(Aqo\*(Aq
+'d') ), strings (type\-strings
+'s',
+'ay',
+'o'
 and
-\*(Aqg\*(Aq) and arrays of string (type\-strings
-\*(Aqas\*(Aq,
-\*(Aqao\*(Aq
+'g') and arrays of string (type\-strings
+'as',
+'ao'
 and
-\*(Aqaay\*(Aq) are mapped to the natural types, e\&.g\&. #gboolean, #gdouble, #gint,
+'aay') are mapped to the natural types, e\&.g\&. #gboolean, #gdouble, #gint,
 gchar*,
 gchar**
 and so on\&. Everything else is mapped to the #GVariant type\&.
@@ -673,7 +674,7 @@ and so on\&. Everything else is mapped to the #GVariant type\&.
 This automatic mapping can be turned off by using the annotation
 org\&.gtk\&.GDBus\&.C\&.ForceGVariant
 \- if used then a #GVariant is always exchanged instead of the corresponding native C type\&. This annotation may be convenient to use when using bytestrings (type\-string
-\*(Aqay\*(Aq) for data that could have embedded NUL bytes\&.
+'ay') for data that could have embedded NUL bytes\&.
 .SH "STABILITY GUARANTEES"
 .PP
 The generated C functions are guaranteed to not change their ABI that is, if a method, signal or property does not change its signature in the introspection XML, the generated C functions will not change its C ABI either\&.
@@ -694,11 +695,6 @@ SECTION
 usage etc\&. is given\&.
 .PP
 While the generated Docbook for D\-Bus interfaces isn\*(Aqt expected to change, no guarantees are given at this point\&.
-.SH "AUTHOR"
-.PP
-Written by David Zeuthen
-zeuthen@gmail\&.com
-with a lot of help from many others\&.
 .SH "BUGS"
 .PP
 Please send bug reports to either the distribution bug tracker or the upstream bug tracker at

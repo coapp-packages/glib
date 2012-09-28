@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GSimpleAction</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="application.html" title="Application support">
 <link rel="prev" href="GAction.html" title="GAction">
 <link rel="next" href="GRemoteActionGroup.html" title="GRemoteActionGroup">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -97,7 +97,7 @@ interface. This is the easiest way to create an action for purposes of
 adding it to a <a class="link" href="GSimpleActionGroup.html" title="GSimpleActionGroup"><span class="type">GSimpleActionGroup</span></a>.
 </p>
 <p>
-See also <a href="http://developer.gnome.org/devel/gtk/GtkAction.html"><span class="type">GtkAction</span></a>.
+See also <a href="http://library.gnome.org/devel/gtk3/GtkAction.html"><span class="type">GtkAction</span></a>.
 </p>
 </div>
 <div class="refsect1">
@@ -117,8 +117,11 @@ Creates a new action.
 <p>
 The created action is stateless.  See <a class="link" href="GSimpleAction.html#g-simple-action-new-stateful" title="g_simple_action_new_stateful ()"><code class="function">g_simple_action_new_stateful()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -154,8 +157,11 @@ must have the same <a href="./../glib/glib/glib-GVariantType.html#GVariantType">
 <p>
 If the <em class="parameter"><code>state</code></em> GVariant is floating, it is consumed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -195,8 +201,11 @@ have its state changed from outside callers.
 This should only be called by the implementor of the action.  Users
 of the action should not attempt to modify its enabled flag.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
@@ -228,8 +237,11 @@ of the action should not attempt to directly modify the 'state'
 property.  Instead, they should call <a class="link" href="GAction.html#g-action-change-state" title="g_action_change_state ()"><code class="function">g_action_change_state()</code></a> to
 request the change.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
@@ -317,8 +329,11 @@ Indicates that the action was just activated.
 <em class="parameter"><code>parameter</code></em> will always be of the expected type.  In the event that
 an incorrect type was given, no signal will be emitted.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
@@ -362,7 +377,7 @@ call <a class="link" href="GSimpleAction.html#g-simple-action-set-state" title="
 <p>
 </p>
 <div class="example">
-<a name="id1017661"></a><p class="title"><b>Example 21. Example 'change-state' handler</b></p>
+<a name="idp66873056"></a><p class="title"><b>Example 22. Example 'change-state' handler</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -403,8 +418,11 @@ call <a class="link" href="GSimpleAction.html#g-simple-action-set-state" title="
 The handler need not set the state to the requested value.  It
 could set it to any value at all, or take some other action.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
@@ -428,6 +446,6 @@ could set it to any value at all, or take some other action.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

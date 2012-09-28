@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GTlsClientConnection</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="tls.html" title="TLS (SSL) support">
 <link rel="prev" href="GTlsConnection.html" title="GTlsConnection">
 <link rel="next" href="GTlsServerConnection.html" title="GTlsServerConnection">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -58,8 +58,8 @@ struct              <a class="link" href="GTlsClientConnection.html#GTlsClientCo
                                                         (<em class="parameter"><code><a class="link" href="GTlsClientConnection.html" title="GTlsClientConnection"><span class="type">GTlsClientConnection</span></a> *conn</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GTlsClientConnection.html#g-tls-client-connection-set-validation-flags" title="g_tls_client_connection_set_validation_flags ()">g_tls_client_connection_set_validation_flags</a>
                                                         (<em class="parameter"><code><a class="link" href="GTlsClientConnection.html" title="GTlsClientConnection"><span class="type">GTlsClientConnection</span></a> *conn</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags" title="enum GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a> flags</code></em>);
-<a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags" title="enum GTlsCertificateFlags"><span class="returnvalue">GTlsCertificateFlags</span></a> <a class="link" href="GTlsClientConnection.html#g-tls-client-connection-get-validation-flags" title="g_tls_client_connection_get_validation_flags ()">g_tls_client_connection_get_validation_flags</a>
+                                                         <em class="parameter"><code><a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a> flags</code></em>);
+<a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags"><span class="returnvalue">GTlsCertificateFlags</span></a> <a class="link" href="GTlsClientConnection.html#g-tls-client-connection-get-validation-flags" title="g_tls_client_connection_get_validation_flags ()">g_tls_client_connection_get_validation_flags</a>
                                                         (<em class="parameter"><code><a class="link" href="GTlsClientConnection.html" title="GTlsClientConnection"><span class="type">GTlsClientConnection</span></a> *conn</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GTlsClientConnection.html#g-tls-client-connection-set-use-ssl3" title="g_tls_client_connection_set_use_ssl3 ()">g_tls_client_connection_set_use_ssl3</a>
                                                         (<em class="parameter"><code><a class="link" href="GTlsClientConnection.html" title="GTlsClientConnection"><span class="type">GTlsClientConnection</span></a> *conn</code></em>,
@@ -89,7 +89,7 @@ GTlsClientConnection requires
   "<a class="link" href="GTlsClientConnection.html#GTlsClientConnection--accepted-cas" title='The "accepted-cas" property'>accepted-cas</a>"             <a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>              : Read
   "<a class="link" href="GTlsClientConnection.html#GTlsClientConnection--server-identity" title='The "server-identity" property'>server-identity</a>"          <a class="link" href="GSocketConnectable.html" title="GSocketConnectable"><span class="type">GSocketConnectable</span></a>*   : Read / Write / Construct
   "<a class="link" href="GTlsClientConnection.html#GTlsClientConnection--use-ssl3" title='The "use-ssl3" property'>use-ssl3</a>"                 <a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct
-  "<a class="link" href="GTlsClientConnection.html#GTlsClientConnection--validation-flags" title='The "validation-flags" property'>validation-flags</a>"         <a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags" title="enum GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a>  : Read / Write / Construct
+  "<a class="link" href="GTlsClientConnection.html#GTlsClientConnection--validation-flags" title='The "validation-flags" property'>validation-flags</a>"         <a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a>  : Read / Write / Construct
 </pre>
 </div>
 <div class="refsect1">
@@ -129,8 +129,11 @@ Creates a new <a class="link" href="GTlsClientConnection.html" title="GTlsClient
 must have pollable input and output streams) which is assumed to
 communicate with the server identified by <em class="parameter"><code>server_identity</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>base_io_stream</code></em> :</span></p></td>
@@ -149,7 +152,7 @@ communicate with the server identified by <em class="parameter"><code>server_ide
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the new
-<a class="link" href="GTlsClientConnection.html" title="GTlsClientConnection"><span class="type">GTlsClientConnection</span></a>, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on error. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GTlsClientConnection]</span>
+<a class="link" href="GTlsClientConnection.html" title="GTlsClientConnection"><span class="type">GTlsClientConnection</span></a>, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on error. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GTlsClientConnection]</span>
 </td>
 </tr>
 </tbody>
@@ -168,8 +171,11 @@ servers on virtual hosts which certificate to present, and also
 to let <em class="parameter"><code>conn</code></em> know what name to look for in the certificate when
 performing <a class="link" href="gio-TLS-Overview.html#G-TLS-CERTIFICATE-BAD-IDENTITY:CAPS"><code class="literal">G_TLS_CERTIFICATE_BAD_IDENTITY</code></a> validation, if enabled.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
@@ -192,8 +198,11 @@ performing <a class="link" href="gio-TLS-Overview.html#G-TLS-CERTIFICATE-BAD-IDE
 <p>
 Gets <em class="parameter"><code>conn</code></em>'s expected server identity
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
@@ -216,14 +225,17 @@ known. <span class="annotation">[<acronym title="Don't free data after the code 
 <a name="g-tls-client-connection-set-validation-flags"></a><h3>g_tls_client_connection_set_validation_flags ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_tls_client_connection_set_validation_flags
                                                         (<em class="parameter"><code><a class="link" href="GTlsClientConnection.html" title="GTlsClientConnection"><span class="type">GTlsClientConnection</span></a> *conn</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags" title="enum GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a> flags</code></em>);</pre>
+                                                         <em class="parameter"><code><a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a> flags</code></em>);</pre>
 <p>
 Sets <em class="parameter"><code>conn</code></em>'s validation flags, to override the default set of
 checks performed when validating a server certificate. By default,
 <a class="link" href="gio-TLS-Overview.html#G-TLS-CERTIFICATE-VALIDATE-ALL:CAPS"><code class="literal">G_TLS_CERTIFICATE_VALIDATE_ALL</code></a> is used.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
@@ -232,7 +244,7 @@ checks performed when validating a server certificate. By default,
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
-<td>the <a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags" title="enum GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a> to use</td>
+<td>the <a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a> to use</td>
 </tr>
 </tbody>
 </table></div>
@@ -241,13 +253,16 @@ checks performed when validating a server certificate. By default,
 <hr>
 <div class="refsect2">
 <a name="g-tls-client-connection-get-validation-flags"></a><h3>g_tls_client_connection_get_validation_flags ()</h3>
-<pre class="programlisting"><a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags" title="enum GTlsCertificateFlags"><span class="returnvalue">GTlsCertificateFlags</span></a> g_tls_client_connection_get_validation_flags
+<pre class="programlisting"><a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags"><span class="returnvalue">GTlsCertificateFlags</span></a> g_tls_client_connection_get_validation_flags
                                                         (<em class="parameter"><code><a class="link" href="GTlsClientConnection.html" title="GTlsClientConnection"><span class="type">GTlsClientConnection</span></a> *conn</code></em>);</pre>
 <p>
 Gets <em class="parameter"><code>conn</code></em>'s validation flags
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
@@ -275,8 +290,11 @@ This can be used when talking to servers that do not implement the
 fallbacks correctly and which will therefore fail to handshake with
 a "modern" TLS handshake attempt.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
@@ -301,8 +319,11 @@ Gets whether <em class="parameter"><code>conn</code></em> will use SSL 3.0 rathe
 highest-supported version of TLS; see
 <a class="link" href="GTlsClientConnection.html#g-tls-client-connection-set-use-ssl3" title="g_tls_client_connection_set_use_ssl3 ()"><code class="function">g_tls_client_connection_set_use_ssl3()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
@@ -332,8 +353,11 @@ Otherwise, it will be <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAP
 Each item in the list is a <a href="./../glib/glib/glib-Byte-Arrays.html#GByteArray"><span class="type">GByteArray</span></a> which contains the complete
 subject DN of the certificate authority.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
@@ -410,7 +434,7 @@ a "modern" TLS handshake.
 <hr>
 <div class="refsect2">
 <a name="GTlsClientConnection--validation-flags"></a><h3>The <code class="literal">"validation-flags"</code> property</h3>
-<pre class="programlisting">  "validation-flags"         <a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags" title="enum GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a>  : Read / Write / Construct</pre>
+<pre class="programlisting">  "validation-flags"         <a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a>  : Read / Write / Construct</pre>
 <p>
 What steps to perform when validating a certificate received from
 a server. Server certificates that fail to validate in all of the
@@ -424,6 +448,6 @@ overrides the default via <a class="link" href="GTlsConnection.html#GTlsConnecti
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Sequences</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-data-types.html" title="GLib Data Types">
 <link rel="prev" href="glib-Double-ended-Queues.html" title="Double-ended Queues">
 <link rel="next" href="glib-Trash-Stacks.html" title="Trash Stacks">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -207,8 +207,11 @@ A <a class="link" href="glib-Sequences.html#GSequenceIterCompareFunc" title="GSe
 It must return zero if the iterators compare equal, a negative value
 if <em class="parameter"><code>a</code></em> comes before <em class="parameter"><code>b</code></em>, and a positive value if <em class="parameter"><code>b</code></em> comes before <em class="parameter"><code>a</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
@@ -242,8 +245,11 @@ Creates a new GSequence. The <em class="parameter"><code>data_destroy</code></em
 be called on all items when the sequence is destroyed and on items that
 are removed from the sequence.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data_destroy</code></em> :</span></p></td>
@@ -268,8 +274,11 @@ Frees the memory allocated for <em class="parameter"><code>seq</code></em>. If <
 function associated with it, that function is called on all items in
 <em class="parameter"><code>seq</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>seq</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Sequences.html#GSequence" title="GSequence"><span class="type">GSequence</span></a>
@@ -285,8 +294,11 @@ function associated with it, that function is called on all items in
 <p>
 Returns the length of <em class="parameter"><code>seq</code></em>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seq</code></em> :</span></p></td>
@@ -312,8 +324,11 @@ Returns the length of <em class="parameter"><code>seq</code></em>
 Calls <em class="parameter"><code>func</code></em> for each item in the sequence passing <em class="parameter"><code>user_data</code></em>
 to the function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seq</code></em> :</span></p></td>
@@ -345,8 +360,11 @@ to the function.
 Calls <em class="parameter"><code>func</code></em> for each item in the range (<em class="parameter"><code>begin</code></em>, <em class="parameter"><code>end</code></em>) passing
 <em class="parameter"><code>user_data</code></em> to the function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>begin</code></em> :</span></p></td>
@@ -387,8 +405,11 @@ return 0 if they are equal, a negative value if the
 first comes before the second, and a positive value
 if the second comes before the first.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seq</code></em> :</span></p></td>
@@ -424,8 +445,11 @@ return 0 if the iterators are equal, a negative value if the first
 iterator comes before the second, and a positive value if the second
 iterator comes before the first.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seq</code></em> :</span></p></td>
@@ -452,8 +476,11 @@ iterator comes before the first.
 <p>
 Returns the begin iterator for <em class="parameter"><code>seq</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seq</code></em> :</span></p></td>
@@ -475,8 +502,11 @@ Returns the begin iterator for <em class="parameter"><code>seq</code></em>.
 <p>
 Returns the end iterator for <em class="parameter"><code>seg</code></em>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seq</code></em> :</span></p></td>
@@ -501,8 +531,11 @@ Returns the end iterator for <em class="parameter"><code>seg</code></em>
 Returns the iterator at position <em class="parameter"><code>pos</code></em>. If <em class="parameter"><code>pos</code></em> is negative or larger
 than the number of items in <em class="parameter"><code>seq</code></em>, the end iterator is returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seq</code></em> :</span></p></td>
@@ -530,8 +563,11 @@ than the number of items in <em class="parameter"><code>seq</code></em>, the end
 <p>
 Adds a new item to the end of <em class="parameter"><code>seq</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seq</code></em> :</span></p></td>
@@ -558,8 +594,11 @@ Adds a new item to the end of <em class="parameter"><code>seq</code></em>.
 <p>
 Adds a new item to the front of <em class="parameter"><code>seq</code></em>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seq</code></em> :</span></p></td>
@@ -586,8 +625,11 @@ Adds a new item to the front of <em class="parameter"><code>seq</code></em>
 <p>
 Inserts a new item just before the item pointed to by <em class="parameter"><code>iter</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -617,8 +659,11 @@ After calling this function <em class="parameter"><code>dest</code></em> will po
 after <em class="parameter"><code>src</code></em>. It is allowed for <em class="parameter"><code>src</code></em> and <em class="parameter"><code>dest</code></em> to point into different
 sequences.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
@@ -642,8 +687,11 @@ the item is moved.</td>
 Swaps the items pointed to by <em class="parameter"><code>a</code></em> and <em class="parameter"><code>b</code></em>. It is allowed for <em class="parameter"><code>a</code></em> and <em class="parameter"><code>b</code></em>
 to point into difference sequences.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
@@ -677,8 +725,11 @@ It should return 0 if the items are equal, a negative value
 if the first item comes before the second, and a positive value
 if the second  item comes before the first.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seq</code></em> :</span></p></td>
@@ -729,8 +780,11 @@ return 0 if the iterators are equal, a negative value if the
 first iterator comes before the second, and a positive value
 if the second iterator comes before the first.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seq</code></em> :</span></p></td>
@@ -776,8 +830,11 @@ It should return 0 if the items are equal, a negative value if
 the first item comes before the second, and a positive value if
 the second item comes before the first.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -813,8 +870,11 @@ return 0 if the iterators are equal, a negative value if the first
 iterator comes before the second, and a positive value if the second
 iterator comes before the first.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -846,8 +906,11 @@ end iterator to this function.
 If the sequence has a data destroy function associated with it, this
 function is called on the data for the removed item.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Sequences.html#GSequenceIter" title="GSequenceIter"><span class="type">GSequenceIter</span></a>
@@ -868,8 +931,11 @@ Removes all items in the (<em class="parameter"><code>begin</code></em>, <em cla
 If the sequence has a data destroy function associated with it, this
 function is called on the data for the removed items.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>begin</code></em> :</span></p></td>
@@ -902,8 +968,11 @@ If <em class="parameter"><code>dest</code></em> is NULL, the range indicated by 
 removed from the sequence. If <em class="parameter"><code>dest</code></em> iter points to a place within
 the (<em class="parameter"><code>begin</code></em>, <em class="parameter"><code>end</code></em>) range, the range does not move.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
@@ -959,8 +1028,11 @@ doing unsorted insertions.
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seq</code></em> :</span></p></td>
@@ -1023,8 +1095,11 @@ doing unsorted insertions.
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seq</code></em> :</span></p></td>
@@ -1088,8 +1163,11 @@ doing unsorted insertions.
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seq</code></em> :</span></p></td>
@@ -1148,8 +1226,11 @@ doing unsorted insertions.
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seq</code></em> :</span></p></td>
@@ -1186,8 +1267,11 @@ and <em class="parameter"><code>cmp_data</code></em>.</td>
 <p>
 Returns the data that <em class="parameter"><code>iter</code></em> points to.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -1212,8 +1296,11 @@ Changes the data for the item pointed to by <em class="parameter"><code>iter</co
 the sequence has a data destroy function associated with it, that
 function is called on the existing data that <em class="parameter"><code>iter</code></em> pointed to.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -1235,8 +1322,11 @@ function is called on the existing data that <em class="parameter"><code>iter</c
 <p>
 Returns whether <em class="parameter"><code>iter</code></em> is the begin iterator
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -1258,8 +1348,11 @@ Returns whether <em class="parameter"><code>iter</code></em> is the begin iterat
 <p>
 Returns whether <em class="parameter"><code>iter</code></em> is the end iterator
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -1282,8 +1375,11 @@ Returns whether <em class="parameter"><code>iter</code></em> is the end iterator
 Returns an iterator pointing to the next position after <em class="parameter"><code>iter</code></em>. If
 <em class="parameter"><code>iter</code></em> is the end iterator, the end iterator is returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -1306,8 +1402,11 @@ Returns an iterator pointing to the next position after <em class="parameter"><c
 Returns an iterator pointing to the previous position before <em class="parameter"><code>iter</code></em>. If
 <em class="parameter"><code>iter</code></em> is the begin iterator, the begin iterator is returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -1330,8 +1429,11 @@ Returns an iterator pointing to the previous position before <em class="paramete
 <p>
 Returns the position of <em class="parameter"><code>iter</code></em>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -1358,8 +1460,11 @@ If <em class="parameter"><code>iter</code></em> is closer than -<em class="param
 the begin iterator is returned. If <em class="parameter"><code>iter</code></em> is closer than <em class="parameter"><code>delta</code></em> positions
 to the end of the sequence, the end iterator is returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -1386,8 +1491,11 @@ from <em class="parameter"><code>iter</code></em> the returned <a class="link" h
 <p>
 Returns the <a class="link" href="glib-Sequences.html#GSequence" title="GSequence"><span class="type">GSequence</span></a> that <em class="parameter"><code>iter</code></em> points into.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -1414,8 +1522,11 @@ and a positive number if <em class="parameter"><code>a</code></em> comes after <
 <p>
 The <em class="parameter"><code>a</code></em> and <em class="parameter"><code>b</code></em> iterators must point into the same sequence.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
@@ -1450,8 +1561,11 @@ guaranteed to be <span class="emphasis"><em>exactly</em></span> in the middle.
 The <em class="parameter"><code>begin</code></em> and <em class="parameter"><code>end</code></em> iterators must both point to the same sequence and
 <em class="parameter"><code>begin</code></em> must come before or be equal to <em class="parameter"><code>end</code></em> in the sequence.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>begin</code></em> :</span></p></td>
@@ -1476,6 +1590,6 @@ The <em class="parameter"><code>begin</code></em> and <em class="parameter"><cod
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

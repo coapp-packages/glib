@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Memory Slices</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-core.html" title="GLib Core Application Support">
 <link rel="prev" href="glib-Memory-Allocation.html" title="Memory Allocation">
 <link rel="next" href="glib-IO-Channels.html" title="IO Channels">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -73,7 +73,7 @@ memory-waste, scalability and performance problems.
 <p>
 To achieve these goals, the slice allocator uses a sophisticated,
 layered design that has been inspired by Bonwick's slab allocator
-<sup>[<a name="id532679" href="#ftn.id532679" class="footnote">1</a>]</sup>.
+<a href="#ftn.idp6554976" class="footnote"><sup class="footnote"><a name="idp6554976"></a>[1]</sup></a>.
 It uses <code class="function">posix_memalign()</code> to optimize allocations of many equally-sized
 chunks, and has per-thread free lists (the so-called magazine layer)
 to quickly satisfy allocation requests of already known structure sizes.
@@ -96,7 +96,7 @@ object size used at allocation time is still available when freeing.
 <p>
 </p>
 <div class="example">
-<a name="id522066"></a><p class="title"><b>Example 8. Using the slice allocator</b></p>
+<a name="idp15991648"></a><p class="title"><b>Example 8. Using the slice allocator</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -148,7 +148,7 @@ object size used at allocation time is still available when freeing.
 <p>
 </p>
 <div class="example">
-<a name="id459219"></a><p class="title"><b>Example 9. Using the slice allocator with data structures</b></p>
+<a name="idp13870448"></a><p class="title"><b>Example 9. Using the slice allocator with data structures</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -208,8 +208,11 @@ Note that the underlying slice allocation mechanism can
 be changed with the <a class="link" href="glib-running.html#G_SLICE" title="G_SLICE">G_SLICE=always-malloc</a>
 environment variable.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>block_size</code></em> :</span></p></td>
@@ -234,8 +237,11 @@ mechanism can be changed with the
 <a class="link" href="glib-running.html#G_SLICE" title="G_SLICE">G_SLICE=always-malloc</a>
 environment variable.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>block_size</code></em> :</span></p></td>
@@ -258,8 +264,11 @@ environment variable.
 Allocates a block of memory from the slice allocator
 and copies <em class="parameter"><code>block_size</code></em> bytes into it from <em class="parameter"><code>mem_block</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>block_size</code></em> :</span></p></td>
@@ -294,8 +303,11 @@ G_DEBUG=gc-friendly environment
 variable, also see <a class="link" href="glib-running.html#G_SLICE" title="G_SLICE">G_SLICE</a> for
 related debugging options.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>block_size</code></em> :</span></p></td>
@@ -328,8 +340,11 @@ G_DEBUG=gc-friendly environment
 variable, also see <a class="link" href="glib-running.html#G_SLICE" title="G_SLICE">G_SLICE</a> for
 related debugging options.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>block_size</code></em> :</span></p></td>
@@ -363,8 +378,11 @@ Note that the underlying slice allocation mechanism can
 be changed with the <a class="link" href="glib-running.html#G_SLICE" title="G_SLICE">G_SLICE=always-malloc</a>
 environment variable.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -395,8 +413,11 @@ Note that the underlying slice allocation mechanism can
 be changed with the <a class="link" href="glib-running.html#G_SLICE" title="G_SLICE">G_SLICE=always-malloc</a>
 environment variable.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
 <td>the type to allocate, typically a structure name</td>
@@ -420,8 +441,11 @@ Note that the underlying slice allocation mechanism can
 be changed with the <a class="link" href="glib-running.html#G_SLICE" title="G_SLICE">G_SLICE=always-malloc</a>
 environment variable.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -456,8 +480,11 @@ G_DEBUG=gc-friendly environment
 variable, also see <a class="link" href="glib-running.html#G_SLICE" title="G_SLICE">G_SLICE</a> for
 related debugging options.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -486,8 +513,11 @@ G_DEBUG=gc-friendly environment
 variable, also see <a class="link" href="glib-running.html#G_SLICE" title="G_SLICE">G_SLICE</a> for
 related debugging options.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -508,8 +538,8 @@ related debugging options.
 </div>
 </div>
 <div class="footnotes">
-<br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a id="ftn.id532679" href="#id532679" class="para">1</a>] </sup>
+<br><hr style="width:100; align:left;">
+<div id="ftn.idp6554976" class="footnote"><p><a href="#idp6554976" class="para"><sup class="para">[1] </sup></a>
 <a class="ulink" href="http://citeseer.ist.psu.edu/bonwick94slab.html" target="_top">[Bonwick94]</a> Jeff Bonwick, The slab allocator: An object-caching kernel
 memory allocator. USENIX 1994, and
 <a class="ulink" href="http://citeseer.ist.psu.edu/bonwick01magazines.html" target="_top">[Bonwick01]</a> Bonwick and Jonathan Adams, Magazines and vmem: Extending the
@@ -519,6 +549,6 @@ slab allocator to many cpu's and arbitrary resources. USENIX 2001
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

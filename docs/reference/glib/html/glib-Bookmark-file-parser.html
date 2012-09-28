@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Bookmark file parser</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-Key-value-file-parser.html" title="Key-value file parser">
 <link rel="next" href="glib-Testing.html" title="Testing">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -318,8 +318,11 @@ enumeration. See <a class="link" href="glib-Error-Reporting.html#GError" title="
 <p>
 Error codes returned by bookmark file parsing.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-BOOKMARK-FILE-ERROR-INVALID-URI:CAPS"></a><span class="term"><code class="literal">G_BOOKMARK_FILE_ERROR_INVALID_URI</code></span></p></td>
@@ -378,8 +381,11 @@ Use <a class="link" href="glib-Bookmark-file-parser.html#g-bookmark-file-load-fr
 or <a class="link" href="glib-Bookmark-file-parser.html#g-bookmark-file-load-from-data-dirs" title="g_bookmark_file_load_from_data_dirs ()"><code class="function">g_bookmark_file_load_from_data_dirs()</code></a> to read an existing bookmark
 file.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>an empty <a class="link" href="glib-Bookmark-file-parser.html#GBookmarkFile" title="GBookmarkFile"><span class="type">GBookmarkFile</span></a>
@@ -395,8 +401,11 @@ file.
 <p>
 Frees a <a class="link" href="glib-Bookmark-file-parser.html#GBookmarkFile" title="GBookmarkFile"><span class="type">GBookmarkFile</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Bookmark-file-parser.html#GBookmarkFile" title="GBookmarkFile"><span class="type">GBookmarkFile</span></a>
@@ -416,8 +425,11 @@ Loads a desktop bookmark file into an empty <a class="link" href="glib-Bookmark-
 If the file could not be loaded then <em class="parameter"><code>error</code></em> is set to either a <a class="link" href="glib-File-Utilities.html#GFileError" title="enum GFileError"><span class="type">GFileError</span></a>
 or <a class="link" href="glib-Bookmark-file-parser.html#GBookmarkFileError" title="enum GBookmarkFileError"><span class="type">GBookmarkFileError</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -453,8 +465,11 @@ Loads a bookmark file from memory into an empty <a class="link" href="glib-Bookm
 structure.  If the object cannot be created then <em class="parameter"><code>error</code></em> is set to a
 <a class="link" href="glib-Bookmark-file-parser.html#GBookmarkFileError" title="enum GBookmarkFileError"><span class="type">GBookmarkFileError</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -496,8 +511,11 @@ loads the file into <em class="parameter"><code>bookmark</code></em> and returns
 <em class="parameter"><code>full_path</code></em>.  If the file could not be loaded then an <code class="literal">error</code> is
 set to either a <a class="link" href="glib-File-Utilities.html#GFileError" title="enum GFileError"><span class="type">GFileError</span></a> or <a class="link" href="glib-Bookmark-file-parser.html#GBookmarkFileError" title="enum GBookmarkFileError"><span class="type">GBookmarkFileError</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -537,8 +555,11 @@ of the file, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title
 <p>
 This function outputs <em class="parameter"><code>bookmark</code></em> as a string.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -575,8 +596,11 @@ the contents of the <a class="link" href="glib-Bookmark-file-parser.html#GBookma
 This function outputs <em class="parameter"><code>bookmark</code></em> into a file.  The write process is
 guaranteed to be atomic by using <a class="link" href="glib-File-Utilities.html#g-file-set-contents" title="g_file_set_contents ()"><code class="function">g_file_set_contents()</code></a> internally.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -609,8 +633,11 @@ guaranteed to be atomic by using <a class="link" href="glib-File-Utilities.html#
 <p>
 Looks whether the desktop bookmark has an item with its URI set to <em class="parameter"><code>uri</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -645,8 +672,11 @@ the bookmark for <em class="parameter"><code>uri</code></em> belongs to.
 In the event the URI cannot be found, <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> is returned and
 <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Bookmark-file-parser.html#G-BOOKMARK-FILE-ERROR-URI-NOT-FOUND:CAPS"><span class="type">G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -690,8 +720,11 @@ registered by application <em class="parameter"><code>name</code></em>.
 In the event the URI cannot be found, <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> is returned and
 <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Bookmark-file-parser.html#G-BOOKMARK-FILE-ERROR-URI-NOT-FOUND:CAPS"><span class="type">G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -727,8 +760,11 @@ In the event the URI cannot be found, <a class="link" href="glib-Standard-Macros
 <p>
 Gets the number of bookmarks inside <em class="parameter"><code>bookmark</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -753,8 +789,11 @@ Returns all URIs of the bookmarks in the bookmark file <em class="parameter"><co
 The array of returned URIs will be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated, so <em class="parameter"><code>length</code></em> may
 optionally be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -791,8 +830,11 @@ If <em class="parameter"><code>uri</code></em> is <a class="link" href="glib-Sta
 In the event the URI cannot be found, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned and
 <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Bookmark-file-parser.html#G-BOOKMARK-FILE-ERROR-URI-NOT-FOUND:CAPS"><span class="type">G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -831,8 +873,11 @@ Retrieves the description of the bookmark for <em class="parameter"><code>uri</c
 In the event the URI cannot be found, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned and
 <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Bookmark-file-parser.html#G-BOOKMARK-FILE-ERROR-URI-NOT-FOUND:CAPS"><span class="type">G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -872,8 +917,11 @@ In the event the URI cannot be found, <a class="link" href="glib-Standard-Macros
 event that the MIME type cannot be found, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned and
 <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Bookmark-file-parser.html#G-BOOKMARK-FILE-ERROR-INVALID-VALUE:CAPS"><span class="type">G_BOOKMARK_FILE_ERROR_INVALID_VALUE</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -913,8 +961,11 @@ In the event the URI cannot be found, <a class="link" href="glib-Standard-Macros
 event that the private flag cannot be found, <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> is returned and
 <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Bookmark-file-parser.html#G-BOOKMARK-FILE-ERROR-INVALID-VALUE:CAPS"><span class="type">G_BOOKMARK_FILE_ERROR_INVALID_VALUE</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -954,8 +1005,11 @@ Gets the icon of the bookmark for <em class="parameter"><code>uri</code></em>.
 In the event the URI cannot be found, <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> is returned and
 <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Bookmark-file-parser.html#G-BOOKMARK-FILE-ERROR-URI-NOT-FOUND:CAPS"><span class="type">G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1004,8 +1058,11 @@ Gets the time the bookmark for <em class="parameter"><code>uri</code></em> was a
 In the event the URI cannot be found, -1 is returned and
 <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Bookmark-file-parser.html#G-BOOKMARK-FILE-ERROR-URI-NOT-FOUND:CAPS"><span class="type">G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1042,8 +1099,11 @@ Gets the time when the bookmark for <em class="parameter"><code>uri</code></em> 
 In the event the URI cannot be found, -1 is returned and
 <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Bookmark-file-parser.html#G-BOOKMARK-FILE-ERROR-URI-NOT-FOUND:CAPS"><span class="type">G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1080,8 +1140,11 @@ Gets the time the bookmark for <em class="parameter"><code>uri</code></em> was l
 In the event the URI cannot be found, -1 is returned and
 <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Bookmark-file-parser.html#G-BOOKMARK-FILE-ERROR-URI-NOT-FOUND:CAPS"><span class="type">G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1123,8 +1186,11 @@ In the event the URI cannot be found, <a class="link" href="glib-Standard-Macros
 The returned array is <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> terminated, so <em class="parameter"><code>length</code></em> may optionally
 be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1169,8 +1235,11 @@ bookmark for <em class="parameter"><code>uri</code></em>.
 In the event the URI cannot be found, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned and
 <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Bookmark-file-parser.html#G-BOOKMARK-FILE-ERROR-URI-NOT-FOUND:CAPS"><span class="type">G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1227,8 +1296,11 @@ for <em class="parameter"><code>uri</code></em>,  <a class="link" href="glib-Sta
 the command line fails, an error of the <a class="link" href="glib-Shell-related-Utilities.html#G-SHELL-ERROR:CAPS" title="G_SHELL_ERROR"><span class="type">G_SHELL_ERROR</span></a> domain is
 set and <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> is returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1288,8 +1360,11 @@ If <em class="parameter"><code>uri</code></em> is <a class="link" href="glib-Sta
 <p>
 If a bookmark for <em class="parameter"><code>uri</code></em> cannot be found then it is created.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1324,8 +1399,11 @@ If <em class="parameter"><code>uri</code></em> is <a class="link" href="glib-Sta
 <p>
 If a bookmark for <em class="parameter"><code>uri</code></em> cannot be found then it is created.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1357,8 +1435,11 @@ Sets <em class="parameter"><code>mime_type</code></em> as the MIME type of the b
 <p>
 If a bookmark for <em class="parameter"><code>uri</code></em> cannot be found then it is created.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1389,8 +1470,11 @@ Sets the private flag of the bookmark for <em class="parameter"><code>uri</code>
 <p>
 If a bookmark for <em class="parameter"><code>uri</code></em> cannot be found then it is created.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1425,8 +1509,11 @@ file or the icon name following the Icon Naming specification.
 <p>
 If no bookmark for <em class="parameter"><code>uri</code></em> is found one is created.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1462,8 +1549,11 @@ Sets the time the bookmark for <em class="parameter"><code>uri</code></em> was a
 <p>
 If no bookmark for <em class="parameter"><code>uri</code></em> is found then it is created.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1496,8 +1586,11 @@ set group name list is removed.
 <p>
 If <em class="parameter"><code>uri</code></em> cannot be found then an item for it is created.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1540,8 +1633,11 @@ was actually changed.  Every function of <a class="link" href="glib-Bookmark-fil
 modifies a bookmark also changes the modification time, except for
 <a class="link" href="glib-Bookmark-file-parser.html#g-bookmark-file-set-visited" title="g_bookmark_file_set_visited ()"><code class="function">g_bookmark_file_set_visited()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1579,8 +1675,11 @@ or by the default application for the bookmark's MIME type, retrieved
 using <a class="link" href="glib-Bookmark-file-parser.html#g-bookmark-file-get-mime-type" title="g_bookmark_file_get_mime_type ()"><code class="function">g_bookmark_file_get_mime_type()</code></a>.  Changing the "visited" time
 does not affect the "modified" time.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1642,8 +1741,11 @@ for <em class="parameter"><code>uri</code></em>,  <a class="link" href="glib-Sta
 <a class="link" href="glib-Bookmark-file-parser.html#G-BOOKMARK-FILE-ERROR-APP-NOT-REGISTERED:CAPS"><span class="type">G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED</span></a>.  Otherwise, if no bookmark
 for <em class="parameter"><code>uri</code></em> is found, one is created.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1698,8 +1800,11 @@ belongs to.
 <p>
 If no bookmark for <em class="parameter"><code>uri</code></em> is found then it is created.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1753,8 +1858,11 @@ with the same <em class="parameter"><code>name</code></em> had already registere
 <p>
 If no bookmark for <em class="parameter"><code>uri</code></em> is found, one is created.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1797,8 +1905,11 @@ In the event the URI cannot be found, <a class="link" href="glib-Standard-Macros
 In the event no group was defined, <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> is returned and
 <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Bookmark-file-parser.html#G-BOOKMARK-FILE-ERROR-INVALID-VALUE:CAPS"><span class="type">G_BOOKMARK_FILE_ERROR_INVALID_VALUE</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1845,8 +1956,11 @@ In the event that no application with name <em class="parameter"><code>app_name<
 a bookmark for <em class="parameter"><code>uri</code></em>,  <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> is returned and error is set to
 <a class="link" href="glib-Bookmark-file-parser.html#G-BOOKMARK-FILE-ERROR-APP-NOT-REGISTERED:CAPS"><span class="type">G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1884,8 +1998,11 @@ a bookmark for <em class="parameter"><code>uri</code></em>,  <a class="link" hre
 <p>
 Removes the bookmark for <em class="parameter"><code>uri</code></em> from the bookmark file <em class="parameter"><code>bookmark</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1926,8 +2043,11 @@ existing bookmark for <em class="parameter"><code>new_uri</code></em> will be ov
 In the event the URI cannot be found, <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> is returned and
 <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Bookmark-file-parser.html#G-BOOKMARK-FILE-ERROR-URI-NOT-FOUND:CAPS"><span class="type">G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bookmark</code></em> :</span></p></td>
@@ -1961,6 +2081,6 @@ In the event the URI cannot be found, <a class="link" href="glib-Standard-Macros
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

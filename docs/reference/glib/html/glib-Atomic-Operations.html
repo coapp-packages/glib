@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Atomic Operations</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-fundamentals.html" title="GLib Fundamentals">
 <link rel="prev" href="glib-Miscellaneous-Macros.html" title="Miscellaneous Macros">
 <link rel="next" href="glib-core.html" title="GLib Core Application Support">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -153,8 +153,11 @@ Gets the current value of <em class="parameter"><code>atomic</code></em>.
 This call acts as a full compiler and hardware
 memory barrier (before the get).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
@@ -181,8 +184,11 @@ Sets the value of <em class="parameter"><code>atomic</code></em> to <em class="p
 This call acts as a full compiler and hardware
 memory barrier (after the set).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
@@ -211,8 +217,11 @@ Think of this operation as an atomic version of
 <p>
 This call acts as a full compiler and hardware memory barrier.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
 <td>a pointer to a <a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> or <a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="type">guint</span></a>
@@ -235,8 +244,11 @@ Think of this operation as an atomic version of
 <p>
 This call acts as a full compiler and hardware memory barrier.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
@@ -272,8 +284,11 @@ Think of this operation as an atomic version of
 <p>
 This call acts as a full compiler and hardware memory barrier.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
@@ -316,8 +331,11 @@ This call acts as a full compiler and hardware memory barrier.
 Before version 2.30, this function did not return a value
 (but <a class="link" href="glib-Atomic-Operations.html#g-atomic-int-exchange-and-add" title="g_atomic_int_exchange_and_add ()"><code class="function">g_atomic_int_exchange_and_add()</code></a> did, and had the same meaning).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
@@ -352,8 +370,11 @@ This call acts as a full compiler and hardware memory barrier.
 Think of this operation as an atomic version of
 <code class="literal">{ tmp = *atomic; *<em class="parameter"><code>atomic</code></em> &amp;= <em class="parameter"><code>val</code></em>; return tmp; }</code>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
@@ -388,8 +409,11 @@ Think of this operation as an atomic version of
 <p>
 This call acts as a full compiler and hardware memory barrier.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
@@ -424,8 +448,11 @@ Think of this operation as an atomic version of
 <p>
 This call acts as a full compiler and hardware memory barrier.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
@@ -455,8 +482,11 @@ Gets the current value of <em class="parameter"><code>atomic</code></em>.
 This call acts as a full compiler and hardware
 memory barrier (before the get).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
@@ -482,8 +512,11 @@ Sets the value of <em class="parameter"><code>atomic</code></em> to <em class="p
 This call acts as a full compiler and hardware
 memory barrier (after the set).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
@@ -518,8 +551,11 @@ Think of this operation as an atomic version of
 <p>
 This call acts as a full compiler and hardware memory barrier.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
@@ -557,8 +593,11 @@ Think of this operation as an atomic version of
 <p>
 This call acts as a full compiler and hardware memory barrier.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
@@ -592,8 +631,11 @@ Think of this operation as an atomic version of
 <p>
 This call acts as a full compiler and hardware memory barrier.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
@@ -627,8 +669,11 @@ Think of this operation as an atomic version of
 <p>
 This call acts as a full compiler and hardware memory barrier.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
@@ -662,8 +707,11 @@ Think of this operation as an atomic version of
 <p>
 This call acts as a full compiler and hardware memory barrier.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
@@ -695,8 +743,11 @@ This function existed before <a class="link" href="glib-Atomic-Operations.html#g
 value of the integer (which it now does).  It is retained only for
 compatibility reasons.  Don't use this function in new code.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
@@ -723,6 +774,6 @@ compatibility reasons.  Don't use this function in new code.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

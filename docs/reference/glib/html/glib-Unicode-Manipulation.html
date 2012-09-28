@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Unicode Manipulation</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-Character-Set-Conversion.html" title="Character Set Conversion">
 <link rel="next" href="glib-Base64-Encoding.html" title="Base64 Encoding">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -257,7 +257,7 @@ To scan, use the format string "U+%06"G_GINT32_FORMAT"X".
 </pre>
 <p>
 A type which can hold any UTF-16 code
-point<sup>[<a name="utf16_surrogate_pairs" href="#ftn.utf16_surrogate_pairs" class="footnote">4</a>]</sup>.
+point<a href="#ftn.utf16_surrogate_pairs" class="footnote"><sup class="footnote"><a name="utf16_surrogate_pairs"></a>[4]</sup></a>.
 </p>
 <p>
 To print/scan values of this type to/from text you need to convert
@@ -277,8 +277,11 @@ Checks whether <em class="parameter"><code>ch</code></em> is a valid Unicode cha
 integer values of <em class="parameter"><code>ch</code></em> will not be valid. 0 is considered a valid
 character, though it's normally a string terminator.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ch</code></em> :</span></p></td>
@@ -301,8 +304,11 @@ Determines whether a character is alphanumeric.
 Given some UTF-8 text, obtain a character value
 with <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-get-char" title="g_utf8_get_char ()"><code class="function">g_utf8_get_char()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -325,8 +331,11 @@ Determines whether a character is alphabetic (i.e. a letter).
 Given some UTF-8 text, obtain a character value with
 <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-get-char" title="g_utf8_get_char ()"><code class="function">g_utf8_get_char()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -349,8 +358,11 @@ Determines whether a character is a control character.
 Given some UTF-8 text, obtain a character value with
 <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-get-char" title="g_utf8_get_char ()"><code class="function">g_utf8_get_char()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -372,8 +384,11 @@ Given some UTF-8 text, obtain a character value with
 Determines if a given character is assigned in the Unicode
 standard.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -396,8 +411,11 @@ Determines whether a character is numeric (i.e. a digit).  This
 covers ASCII 0-9 and also digits in other languages/scripts.  Given
 some UTF-8 text, obtain a character value with <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-get-char" title="g_utf8_get_char ()"><code class="function">g_utf8_get_char()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -422,8 +440,11 @@ spaces). <a class="link" href="glib-Unicode-Manipulation.html#g-unichar-isprint"
 spaces. Given some UTF-8 text, obtain a character value with
 <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-get-char" title="g_utf8_get_char ()"><code class="function">g_utf8_get_char()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -446,8 +467,11 @@ Determines whether a character is a lowercase letter.
 Given some UTF-8 text, obtain a character value with
 <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-get-char" title="g_utf8_get_char ()"><code class="function">g_utf8_get_char()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -477,8 +501,11 @@ ismark characters should be allowed to as they are essential
 for writing most European languages as well as many non-Latin
 scripts.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -503,8 +530,11 @@ Unlike <a class="link" href="glib-Unicode-Manipulation.html#g-unichar-isgraph" t
 Given some UTF-8 text, obtain a character value with
 <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-get-char" title="g_utf8_get_char ()"><code class="function">g_utf8_get_char()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -527,8 +557,11 @@ Determines whether a character is punctuation or a symbol.
 Given some UTF-8 text, obtain a character value with
 <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-get-char" title="g_utf8_get_char ()"><code class="function">g_utf8_get_char()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -556,8 +589,11 @@ character value with <a class="link" href="glib-Unicode-Manipulation.html#g-utf8
 Pango or equivalent to get word breaking right, the algorithm
 is fairly complex.)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -583,8 +619,11 @@ form is used at the beginning of a word where only the
 first letter is capitalized. The titlecase form of the DZ
 digraph is U+01F2 LATIN CAPITAL LETTTER D WITH SMALL LETTER Z.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -605,8 +644,11 @@ digraph is U+01F2 LATIN CAPITAL LETTTER D WITH SMALL LETTER Z.
 <p>
 Determines if a character is uppercase.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -627,8 +669,11 @@ Determines if a character is uppercase.
 <p>
 Determines if a character is a hexidecimal digit.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -650,8 +695,11 @@ Determines if a character is a hexidecimal digit.
 Determines if a character is typically rendered in a double-width
 cell.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -682,8 +730,11 @@ If a character passes the <a class="link" href="glib-Unicode-Manipulation.html#g
 this test, but not the other way around.  Note that some characters may
 pas both this test and <a class="link" href="glib-Unicode-Manipulation.html#g-unichar-iszerowidth" title="g_unichar_iszerowidth ()"><code class="function">g_unichar_iszerowidth()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -714,8 +765,11 @@ A typical use of this function is with one of <a class="link" href="glib-Unicode
 when displayed on a grid display (terminals).  However, note that not all
 terminals support zero-width rendering of zero-width marks.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -737,8 +791,11 @@ terminals support zero-width rendering of zero-width marks.
 <p>
 Converts a character to uppercase.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -760,8 +817,11 @@ or has no upper case equivalent <em class="parameter"><code>c</code></em> is ret
 <p>
 Converts a character to lower case.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -783,8 +843,11 @@ or has no lowercase equivalent <em class="parameter"><code>c</code></em> is retu
 <p>
 Converts a character to the titlecase.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -807,8 +870,11 @@ If <em class="parameter"><code>c</code></em> is not an uppercase or lowercase ch
 Determines the numeric value of a character as a decimal
 digit.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -830,8 +896,11 @@ digit.
 Determines the numeric value of a character as a hexidecimal
 digit.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -871,8 +940,11 @@ If <em class="parameter"><code>a</code></em> and <em class="parameter"><code>b</
 See <a class="ulink" href="http://unicode.org/reports/tr15/" target="_top">UAX#15</a>
 for details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
@@ -929,8 +1001,11 @@ recursively call this function on <em class="parameter"><code>a</code></em>.  Or
 See <a class="ulink" href="http://unicode.org/reports/tr15/" target="_top">UAX#15</a>
 for details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ch</code></em> :</span></p></td>
@@ -984,8 +1059,11 @@ as <a class="link" href="glib-Unicode-Manipulation.html#G-UNICHAR-MAX-DECOMPOSIT
 See <a class="ulink" href="http://unicode.org/reports/tr15/" target="_top">UAX#15</a>
 for details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ch</code></em> :</span></p></td>
@@ -1068,8 +1146,11 @@ These are the possible character classifications from the
 Unicode specification.
 See <a class="ulink" href="http://www.unicode.org/Public/UNIDATA/UnicodeData.html" target="_top">http://www.unicode.org/Public/UNIDATA/UnicodeData.html</a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-UNICODE-CONTROL:CAPS"></a><span class="term"><code class="literal">G_UNICODE_CONTROL</code></span></p></td>
@@ -1244,8 +1325,11 @@ Older name for <a class="link" href="glib-Unicode-Manipulation.html#G-UNICODE-SP
 <p>
 Classifies a Unicode character by type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -1315,8 +1399,11 @@ They may be regarded as <a class="link" href="glib-Unicode-Manipulation.html#G-U
 <p>
 See <a class="ulink" href="http://www.unicode.org/unicode/reports/tr14/" target="_top">http://www.unicode.org/unicode/reports/tr14/</a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-UNICODE-BREAK-MANDATORY:CAPS"></a><span class="term"><code class="literal">G_UNICODE_BREAK_MANDATORY</code></span></p></td>
@@ -1526,10 +1613,13 @@ Determines the break type of <em class="parameter"><code>c</code></em>. <em clas
 <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-get-char" title="g_utf8_get_char ()"><code class="function">g_utf8_get_char()</code></a>). The break type is used to find word and line
 breaks ("text boundaries"), Pango implements the Unicode boundary
 resolution algorithms and normally you would use a function such
-as <a href="/usr/share/gtk-doc/html/pango/pango-Text-Processing.html#pango-break"><code class="function">pango_break()</code></a> instead of caring about break types yourself.
+as <code class="function">pango_break()</code> instead of caring about break types yourself.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -1550,8 +1640,11 @@ as <a href="/usr/share/gtk-doc/html/pango/pango-Text-Processing.html#pango-break
 <p>
 Determines the canonical combining class of a Unicode character.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>uc</code></em> :</span></p></td>
@@ -1576,8 +1669,11 @@ This rearranges decomposed characters in the string
 according to their combining classes.  See the Unicode 
 manual for more information.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -1603,8 +1699,11 @@ manual for more information.
 <p>
 Computes the canonical decomposition of a Unicode character.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ch</code></em> :</span></p></td>
@@ -1639,8 +1738,11 @@ character that typically has a glyph that is the mirror image of <em class="para
 glyph and <em class="parameter"><code>mirrored_ch</code></em> is set, it puts that character in the address
 pointed to by <em class="parameter"><code>mirrored_ch</code></em>.  Otherwise the original character is put.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ch</code></em> :</span></p></td>
@@ -1788,7 +1890,7 @@ pointed to by <em class="parameter"><code>mirrored_ch</code></em>.  Otherwise th
 The <a class="link" href="glib-Unicode-Manipulation.html#GUnicodeScript" title="enum GUnicodeScript"><span class="type">GUnicodeScript</span></a> enumeration identifies different writing
 systems. The values correspond to the names as defined in the
 Unicode standard. The enumeration has been added in GLib 2.14,
-and is interchangeable with <a href="/usr/share/gtk-doc/html/pango/pango-Scripts-and-Languages.html#PangoScript"><span class="type">PangoScript</span></a>.
+and is interchangeable with <span class="type">PangoScript</span>.
 </p>
 <p>
 Note that new types may be added in the future. Applications
@@ -1796,8 +1898,11 @@ should be ready to handle unknown values.
 See <a class="ulink" href="http://www.unicode.org/reports/tr24/" target="_top">Unicode Standard Annex
 #24: Script names</a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-UNICODE-SCRIPT-INVALID-CODE:CAPS"></a><span class="term"><code class="literal">G_UNICODE_SCRIPT_INVALID_CODE</code></span></p></td>
@@ -2293,12 +2398,12 @@ i                             base glyph to which it is attached
 <tr>
 <td><p><a name="G-UNICODE-SCRIPT-MEROITIC-CURSIVE:CAPS"></a><span class="term"><code class="literal">G_UNICODE_SCRIPT_MEROITIC_CURSIVE</code></span></p></td>
 <td>Meroitic Cursive. Since: 2.32
-<em class="parameter"><code>G_UNICODE_SCRIPT_MEROITIC_HIEROGLYPHS</code></em>, Meroitic Hieroglyphs. Since: 2.32
 </td>
 </tr>
 <tr>
 <td><p><a name="G-UNICODE-SCRIPT-MEROITIC-HIEROGLYPHS:CAPS"></a><span class="term"><code class="literal">G_UNICODE_SCRIPT_MEROITIC_HIEROGLYPHS</code></span></p></td>
-<td></td>
+<td>Meroitic Hieroglyphs. Since: 2.32
+</td>
 </tr>
 <tr>
 <td><p><a name="G-UNICODE-SCRIPT-MIAO:CAPS"></a><span class="term"><code class="literal">G_UNICODE_SCRIPT_MIAO</code></span></p></td>
@@ -2334,11 +2439,14 @@ valid Unicode character; if you pass in invalid character, the
 result is undefined.
 </p>
 <p>
-This function is equivalent to <a href="/usr/share/gtk-doc/html/pango/pango-Scripts-and-Languages.html#pango-script-for-unichar"><code class="function">pango_script_for_unichar()</code></a> and the
+This function is equivalent to <code class="function">pango_script_for_unichar()</code> and the
 two are interchangeable.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ch</code></em> :</span></p></td>
@@ -2367,8 +2475,11 @@ big-endian fashion.  That is, the code expected for Arabic is
 See <a class="ulink" href="http://unicode.org/iso15924/codelists.html" target="_top">Codes for the
 representation of names of scripts</a> for details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iso15924</code></em> :</span></p></td>
@@ -2399,8 +2510,11 @@ big-endian fashion.  That is, the code returned for Arabic is
 See <a class="ulink" href="http://unicode.org/iso15924/codelists.html" target="_top">Codes for the
 representation of names of scripts</a> for details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>script</code></em> :</span></p></td>
@@ -2428,8 +2542,11 @@ character. The macro returns the start of the next UTF-8 character.
 Before using this macro, use <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-validate" title="g_utf8_validate ()"><code class="function">g_utf8_validate()</code></a> to validate strings
 that may contain invalid UTF-8.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>p</code></em> :</span></p></td>
 <td>Pointer to the start of a valid UTF-8 character</td>
@@ -2447,8 +2564,11 @@ undefined. If you are not sure that the bytes are complete
 valid Unicode characters, you should use <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-get-char-validated" title="g_utf8_get_char_validated ()"><code class="function">g_utf8_get_char_validated()</code></a>
 instead.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>p</code></em> :</span></p></td>
@@ -2472,8 +2592,11 @@ This function checks for incomplete characters, for invalid characters
 such as characters that are out of the range of Unicode, and for
 overlong encodings of valid characters.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>p</code></em> :</span></p></td>
@@ -2526,8 +2649,11 @@ text rendering and therefore has to be as fast as possible.
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -2558,8 +2684,11 @@ character offset.
 Since 2.10, this function allows <em class="parameter"><code>pos</code></em> to be before <em class="parameter"><code>str</code></em>, and returns
 a negative offset in this case.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -2590,8 +2719,11 @@ is made to see if the character found is actually valid other than
 it starts with an appropriate byte. If <em class="parameter"><code>p</code></em> might be the first
 character of the string, you must use <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-find-prev-char" title="g_utf8_find_prev_char ()"><code class="function">g_utf8_find_prev_char()</code></a> instead.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>p</code></em> :</span></p></td>
@@ -2617,8 +2749,11 @@ Finds the start of the next UTF-8 character in the string after <em class="param
 is made to see if the character found is actually valid other than
 it starts with an appropriate byte.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>p</code></em> :</span></p></td>
@@ -2652,8 +2787,11 @@ UTF-8 characters are present in <em class="parameter"><code>str</code></em> befo
 is made to see if the character found is actually valid other than
 it starts with an appropriate byte.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -2681,8 +2819,11 @@ Computes the length of the string in characters, not including
 the terminating nul character. If the <em class="parameter"><code>max</code></em>'th byte falls in the
 middle of a character, the last (partial) character is not counted.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>p</code></em> :</span></p></td>
@@ -2716,8 +2857,11 @@ bytes. The <em class="parameter"><code>src</code></em> string must be valid UTF-
 (Use <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-validate" title="g_utf8_validate ()"><code class="function">g_utf8_validate()</code></a> on all text before trying to use UTF-8 
 utility functions with it.)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
@@ -2750,8 +2894,11 @@ Finds the leftmost occurrence of the given Unicode character
 in a UTF-8 encoded string, while limiting the search to <em class="parameter"><code>len</code></em> bytes.
 If <em class="parameter"><code>len</code></em> is -1, allow unbounded search.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>p</code></em> :</span></p></td>
@@ -2787,8 +2934,11 @@ Find the rightmost occurrence of the given Unicode character
 in a UTF-8 encoded string, while limiting the search to <em class="parameter"><code>len</code></em> bytes.
 If <em class="parameter"><code>len</code></em> is -1, allow unbounded search.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>p</code></em> :</span></p></td>
@@ -2835,8 +2985,11 @@ Note that unlike <a class="link" href="glib-String-Utility-Functions.html#g-strr
 newly-allocated memory, which should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> when
 no longer needed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -2866,8 +3019,11 @@ Copies a substring out of a UTF-8 encoded string.
 The substring will contain <em class="parameter"><code>end_pos</code></em> - <em class="parameter"><code>start_pos</code></em>
 characters.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -2917,12 +3073,16 @@ routines <span class="emphasis"><em>require</em></span> valid UTF-8 as input;
 so data read from a file or the network should be checked
 with <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-validate" title="g_utf8_validate ()"><code class="function">g_utf8_validate()</code></a> before doing anything else with it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
-<td>a pointer to character data</td>
+<td>a pointer to character data. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=max_len][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> guint8]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>max_len</code></em> :</span></p></td>
@@ -2930,7 +3090,7 @@ with <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-validate" title
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>end</code></em> :</span></p></td>
-<td>return location for end of valid data. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+<td>return location for end of valid data. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -2953,8 +3113,11 @@ on the current locale, and may result in the number of
 characters in the string increasing. (For instance, the
 German ess-zet will be changed to SS.)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -2983,8 +3146,11 @@ to lowercase. The exact manner that this is done depends
 on the current locale, and may result in the number of
 characters in the string changing.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -3021,8 +3187,11 @@ right would require a more sophisticated collation function that
 takes case sensitivity into account. GLib does not currently
 provide such a function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -3075,8 +3244,11 @@ useful if you intend to convert the string to
 a legacy encoding or pass it to a system with
 less capable Unicode handling.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -3120,8 +3292,11 @@ an accent is represented as a base character and combining
 accent or as a single precomposed character. Unicode strings
 should generally be normalized before comparing them.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-NORMALIZE-DEFAULT:CAPS"></a><span class="term"><code class="literal">G_NORMALIZE_DEFAULT</code></span></p></td>
@@ -3186,8 +3361,11 @@ faster to obtain collation keys with <a class="link" href="glib-Unicode-Manipula
 compare the keys with <code class="function">strcmp()</code> when sorting instead of sorting 
 the original strings.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str1</code></em> :</span></p></td>
@@ -3224,8 +3402,11 @@ original keys with <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-c
 Note that this function depends on the 
 <a class="link" href="glib-running.html#setlocale" title="Locale">current locale</a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -3264,8 +3445,11 @@ is sorted as "file1" "file5" "file10".
 Note that this function depends on the 
 <a class="link" href="glib-running.html#setlocale" title="Locale">current locale</a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -3296,8 +3480,11 @@ be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g
 Convert a string from UTF-8 to UTF-16. A 0 character will be
 added to the result after the converted text.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -3353,8 +3540,11 @@ Convert a string from UTF-8 to a 32-bit fixed width
 representation as UCS-4. A trailing 0 character will be added to the
 string after the converted text.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -3410,8 +3600,11 @@ This function is roughly twice as fast as <a class="link" href="glib-Unicode-Man
 but does no error checking on the input. A trailing 0 character
 will be added to the string after the converted text.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -3448,8 +3641,11 @@ This value must be freed with <a class="link" href="glib-Memory-Allocation.html#
 Convert a string from UTF-16 to UCS-4. The result will be
 nul-terminated.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -3517,8 +3713,11 @@ validation done by this function is to ensure that the input can
 be correctly interpreted as UTF-16, i.e. it doesn't contain
 things unpaired surrogates.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -3573,8 +3772,11 @@ error occurs, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="
 Convert a string from UCS-4 to UTF-16. A 0 character will be
 added to the result after the converted text.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -3627,8 +3829,11 @@ error occurs, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="
 Convert a string from a 32-bit fixed width representation as UCS-4.
 to UTF-8. The result will be terminated with a 0 byte.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -3677,8 +3882,11 @@ character.</td>
 <p>
 Converts a single character to UTF-8.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -3703,12 +3911,12 @@ and nothing will be written to <em class="parameter"><code>outbuf</code></em>.</
 g_locale_to_utf8(), <a class="link" href="glib-Character-Set-Conversion.html#g-locale-from-utf8" title="g_locale_from_utf8 ()"><code class="function">g_locale_from_utf8()</code></a>
 </div>
 <div class="footnotes">
-<br><hr width="100" align="left">
-<div class="footnote"><em class="firstterm"><sup>[<a name="ftn.utf16_surrogate_pairs" href="#utf16_surrogate_pairs" class="firstterm">4</a>] </sup>surrogate pairs</em></div>
+<br><hr style="width:100; align:left;">
+<div id="ftn.utf16_surrogate_pairs" class="footnote"><em class="firstterm"><a href="#utf16_surrogate_pairs" class="firstterm"><sup>[4] </sup></a>surrogate pairs</em></div>
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

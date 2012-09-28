@@ -63,6 +63,8 @@ GType g_emblem_origin_get_type (void) G_GNUC_CONST;
 #define G_TYPE_EMBLEM_ORIGIN (g_emblem_origin_get_type ())
 GType g_resolver_error_get_type (void) G_GNUC_CONST;
 #define G_TYPE_RESOLVER_ERROR (g_resolver_error_get_type ())
+GType g_resolver_record_type_get_type (void) G_GNUC_CONST;
+#define G_TYPE_RESOLVER_RECORD_TYPE (g_resolver_record_type_get_type ())
 GType g_resource_error_get_type (void) G_GNUC_CONST;
 #define G_TYPE_RESOURCE_ERROR (g_resource_error_get_type ())
 GType g_resource_flags_get_type (void) G_GNUC_CONST;
@@ -143,6 +145,8 @@ GType g_io_module_scope_flags_get_type (void) G_GNUC_CONST;
 #define G_TYPE_IO_MODULE_SCOPE_FLAGS (g_io_module_scope_flags_get_type ())
 GType g_socket_client_event_get_type (void) G_GNUC_CONST;
 #define G_TYPE_SOCKET_CLIENT_EVENT (g_socket_client_event_get_type ())
+GType g_test_dbus_flags_get_type (void) G_GNUC_CONST;
+#define G_TYPE_TEST_DBUS_FLAGS (g_test_dbus_flags_get_type ())
 
 /* enumerations from "gsettings.h" */
 GType g_settings_bind_flags_get_type (void) G_GNUC_CONST;

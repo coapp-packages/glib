@@ -108,6 +108,7 @@
 <ANCHOR id="g-type-remove-interface-check" href="gobject/gobject-Type-Information.html#g-type-remove-interface-check">
 <ANCHOR id="GTypeInterfaceCheckFunc" href="gobject/gobject-Type-Information.html#GTypeInterfaceCheckFunc">
 <ANCHOR id="g-type-value-table-peek" href="gobject/gobject-Type-Information.html#g-type-value-table-peek">
+<ANCHOR id="g-type-ensure" href="gobject/gobject-Type-Information.html#g-type-ensure">
 <ANCHOR id="G-DEFINE-TYPE:CAPS" href="gobject/gobject-Type-Information.html#G-DEFINE-TYPE:CAPS">
 <ANCHOR id="G-DEFINE-TYPE-WITH-CODE:CAPS" href="gobject/gobject-Type-Information.html#G-DEFINE-TYPE-WITH-CODE:CAPS">
 <ANCHOR id="G-DEFINE-ABSTRACT-TYPE:CAPS" href="gobject/gobject-Type-Information.html#G-DEFINE-ABSTRACT-TYPE:CAPS">
@@ -247,10 +248,14 @@
 <ANCHOR id="g-object-set-data" href="gobject/gobject-The-Base-Object-Type.html#g-object-set-data">
 <ANCHOR id="g-object-set-data-full" href="gobject/gobject-The-Base-Object-Type.html#g-object-set-data-full">
 <ANCHOR id="g-object-steal-data" href="gobject/gobject-The-Base-Object-Type.html#g-object-steal-data">
+<ANCHOR id="g-object-dup-data" href="gobject/gobject-The-Base-Object-Type.html#g-object-dup-data">
+<ANCHOR id="g-object-replace-data" href="gobject/gobject-The-Base-Object-Type.html#g-object-replace-data">
 <ANCHOR id="g-object-get-qdata" href="gobject/gobject-The-Base-Object-Type.html#g-object-get-qdata">
 <ANCHOR id="g-object-set-qdata" href="gobject/gobject-The-Base-Object-Type.html#g-object-set-qdata">
 <ANCHOR id="g-object-set-qdata-full" href="gobject/gobject-The-Base-Object-Type.html#g-object-set-qdata-full">
 <ANCHOR id="g-object-steal-qdata" href="gobject/gobject-The-Base-Object-Type.html#g-object-steal-qdata">
+<ANCHOR id="g-object-dup-qdata" href="gobject/gobject-The-Base-Object-Type.html#g-object-dup-qdata">
+<ANCHOR id="g-object-replace-qdata" href="gobject/gobject-The-Base-Object-Type.html#g-object-replace-qdata">
 <ANCHOR id="g-object-set-property" href="gobject/gobject-The-Base-Object-Type.html#g-object-set-property">
 <ANCHOR id="g-object-get-property" href="gobject/gobject-The-Base-Object-Type.html#g-object-get-property">
 <ANCHOR id="g-object-new-valist" href="gobject/gobject-The-Base-Object-Type.html#g-object-new-valist">
@@ -319,6 +324,7 @@
 <ANCHOR id="G-TYPE-VARIANT-TYPE:CAPS" href="gobject/gobject-Boxed-Types.html#G-TYPE-VARIANT-TYPE:CAPS">
 <ANCHOR id="G-TYPE-ERROR:CAPS" href="gobject/gobject-Boxed-Types.html#G-TYPE-ERROR:CAPS">
 <ANCHOR id="G-TYPE-DATE-TIME:CAPS" href="gobject/gobject-Boxed-Types.html#G-TYPE-DATE-TIME:CAPS">
+<ANCHOR id="G-TYPE-TIME-ZONE:CAPS" href="gobject/gobject-Boxed-Types.html#G-TYPE-TIME-ZONE:CAPS">
 <ANCHOR id="G-TYPE-IO-CHANNEL:CAPS" href="gobject/gobject-Boxed-Types.html#G-TYPE-IO-CHANNEL:CAPS">
 <ANCHOR id="G-TYPE-IO-CONDITION:CAPS" href="gobject/gobject-Boxed-Types.html#G-TYPE-IO-CONDITION:CAPS">
 <ANCHOR id="G-TYPE-VARIANT-BUILDER:CAPS" href="gobject/gobject-Boxed-Types.html#G-TYPE-VARIANT-BUILDER:CAPS">
@@ -620,6 +626,7 @@
 <ANCHOR id="GTypeCValue" href="gobject/gobject-Varargs-Value-Collection.html#GTypeCValue">
 <ANCHOR id="G-VALUE-COLLECT-INIT:CAPS" href="gobject/gobject-Varargs-Value-Collection.html#G-VALUE-COLLECT-INIT:CAPS">
 <ANCHOR id="G-VALUE-COLLECT:CAPS" href="gobject/gobject-Varargs-Value-Collection.html#G-VALUE-COLLECT:CAPS">
+<ANCHOR id="G-VALUE-COLLECT-SKIP:CAPS" href="gobject/gobject-Varargs-Value-Collection.html#G-VALUE-COLLECT-SKIP:CAPS">
 <ANCHOR id="G-VALUE-LCOPY:CAPS" href="gobject/gobject-Varargs-Value-Collection.html#G-VALUE-LCOPY:CAPS">
 <ANCHOR id="G-VALUE-COLLECT-FORMAT-MAX-LENGTH:CAPS" href="gobject/gobject-Varargs-Value-Collection.html#G-VALUE-COLLECT-FORMAT-MAX-LENGTH:CAPS">
 <ANCHOR id="gobject-Signals" href="gobject/gobject-Signals.html">
@@ -629,6 +636,7 @@
 <ANCHOR id="GSignalInvocationHint" href="gobject/gobject-Signals.html#GSignalInvocationHint">
 <ANCHOR id="GSignalAccumulator" href="gobject/gobject-Signals.html#GSignalAccumulator">
 <ANCHOR id="GSignalCMarshaller" href="gobject/gobject-Signals.html#GSignalCMarshaller">
+<ANCHOR id="GSignalCVaMarshaller" href="gobject/gobject-Signals.html#GSignalCVaMarshaller">
 <ANCHOR id="GSignalEmissionHook" href="gobject/gobject-Signals.html#GSignalEmissionHook">
 <ANCHOR id="GSignalFlags" href="gobject/gobject-Signals.html#GSignalFlags">
 <ANCHOR id="G-SIGNAL-RUN-FIRST:CAPS" href="gobject/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">
@@ -654,6 +662,7 @@
 <ANCHOR id="g-signal-new" href="gobject/gobject-Signals.html#g-signal-new">
 <ANCHOR id="g-signal-newv" href="gobject/gobject-Signals.html#g-signal-newv">
 <ANCHOR id="g-signal-new-valist" href="gobject/gobject-Signals.html#g-signal-new-valist">
+<ANCHOR id="g-signal-set-va-marshaller" href="gobject/gobject-Signals.html#g-signal-set-va-marshaller">
 <ANCHOR id="g-signal-query" href="gobject/gobject-Signals.html#g-signal-query">
 <ANCHOR id="g-signal-lookup" href="gobject/gobject-Signals.html#g-signal-lookup">
 <ANCHOR id="g-signal-name" href="gobject/gobject-Signals.html#g-signal-name">
@@ -712,6 +721,7 @@
 <ANCHOR id="G-TYPE-CLOSURE:CAPS" href="gobject/gobject-Closures.html#G-TYPE-CLOSURE:CAPS">
 <ANCHOR id="GCClosure" href="gobject/gobject-Closures.html#GCClosure">
 <ANCHOR id="GClosureMarshal" href="gobject/gobject-Closures.html#GClosureMarshal">
+<ANCHOR id="GVaClosureMarshal" href="gobject/gobject-Closures.html#GVaClosureMarshal">
 <ANCHOR id="GClosureNotify" href="gobject/gobject-Closures.html#GClosureNotify">
 <ANCHOR id="g-cclosure-new" href="gobject/gobject-Closures.html#g-cclosure-new">
 <ANCHOR id="g-cclosure-new-swap" href="gobject/gobject-Closures.html#g-cclosure-new-swap">
@@ -758,6 +768,29 @@
 <ANCHOR id="g-cclosure-marshal-BOOL--FLAGS" href="gobject/gobject-Closures.html#g-cclosure-marshal-BOOL--FLAGS">
 <ANCHOR id="g-cclosure-marshal-BOOLEAN--BOXED-BOXED" href="gobject/gobject-Closures.html#g-cclosure-marshal-BOOLEAN--BOXED-BOXED">
 <ANCHOR id="g-cclosure-marshal-BOOL--BOXED-BOXED" href="gobject/gobject-Closures.html#g-cclosure-marshal-BOOL--BOXED-BOXED">
+<ANCHOR id="g-cclosure-marshal-generic-va" href="gobject/gobject-Closures.html#g-cclosure-marshal-generic-va">
+<ANCHOR id="g-cclosure-marshal-VOID--VOIDv" href="gobject/gobject-Closures.html#g-cclosure-marshal-VOID--VOIDv">
+<ANCHOR id="g-cclosure-marshal-VOID--BOOLEANv" href="gobject/gobject-Closures.html#g-cclosure-marshal-VOID--BOOLEANv">
+<ANCHOR id="g-cclosure-marshal-VOID--CHARv" href="gobject/gobject-Closures.html#g-cclosure-marshal-VOID--CHARv">
+<ANCHOR id="g-cclosure-marshal-VOID--UCHARv" href="gobject/gobject-Closures.html#g-cclosure-marshal-VOID--UCHARv">
+<ANCHOR id="g-cclosure-marshal-VOID--INTv" href="gobject/gobject-Closures.html#g-cclosure-marshal-VOID--INTv">
+<ANCHOR id="g-cclosure-marshal-VOID--UINTv" href="gobject/gobject-Closures.html#g-cclosure-marshal-VOID--UINTv">
+<ANCHOR id="g-cclosure-marshal-VOID--LONGv" href="gobject/gobject-Closures.html#g-cclosure-marshal-VOID--LONGv">
+<ANCHOR id="g-cclosure-marshal-VOID--ULONGv" href="gobject/gobject-Closures.html#g-cclosure-marshal-VOID--ULONGv">
+<ANCHOR id="g-cclosure-marshal-VOID--ENUMv" href="gobject/gobject-Closures.html#g-cclosure-marshal-VOID--ENUMv">
+<ANCHOR id="g-cclosure-marshal-VOID--FLAGSv" href="gobject/gobject-Closures.html#g-cclosure-marshal-VOID--FLAGSv">
+<ANCHOR id="g-cclosure-marshal-VOID--FLOATv" href="gobject/gobject-Closures.html#g-cclosure-marshal-VOID--FLOATv">
+<ANCHOR id="g-cclosure-marshal-VOID--DOUBLEv" href="gobject/gobject-Closures.html#g-cclosure-marshal-VOID--DOUBLEv">
+<ANCHOR id="g-cclosure-marshal-VOID--STRINGv" href="gobject/gobject-Closures.html#g-cclosure-marshal-VOID--STRINGv">
+<ANCHOR id="g-cclosure-marshal-VOID--PARAMv" href="gobject/gobject-Closures.html#g-cclosure-marshal-VOID--PARAMv">
+<ANCHOR id="g-cclosure-marshal-VOID--BOXEDv" href="gobject/gobject-Closures.html#g-cclosure-marshal-VOID--BOXEDv">
+<ANCHOR id="g-cclosure-marshal-VOID--POINTERv" href="gobject/gobject-Closures.html#g-cclosure-marshal-VOID--POINTERv">
+<ANCHOR id="g-cclosure-marshal-VOID--OBJECTv" href="gobject/gobject-Closures.html#g-cclosure-marshal-VOID--OBJECTv">
+<ANCHOR id="g-cclosure-marshal-VOID--VARIANTv" href="gobject/gobject-Closures.html#g-cclosure-marshal-VOID--VARIANTv">
+<ANCHOR id="g-cclosure-marshal-STRING--OBJECT-POINTERv" href="gobject/gobject-Closures.html#g-cclosure-marshal-STRING--OBJECT-POINTERv">
+<ANCHOR id="g-cclosure-marshal-VOID--UINT-POINTERv" href="gobject/gobject-Closures.html#g-cclosure-marshal-VOID--UINT-POINTERv">
+<ANCHOR id="g-cclosure-marshal-BOOLEAN--FLAGSv" href="gobject/gobject-Closures.html#g-cclosure-marshal-BOOLEAN--FLAGSv">
+<ANCHOR id="g-cclosure-marshal-BOOLEAN--BOXED-BOXEDv" href="gobject/gobject-Closures.html#g-cclosure-marshal-BOOLEAN--BOXED-BOXEDv">
 <ANCHOR id="gobject-Value-arrays" href="gobject/gobject-Value-arrays.html">
 <ANCHOR id="gobject-Value-arrays.synopsis" href="gobject/gobject-Value-arrays.html#gobject-Value-arrays.synopsis">
 <ANCHOR id="gobject-Value-arrays.description" href="gobject/gobject-Value-arrays.html#gobject-Value-arrays.description">
@@ -804,6 +837,7 @@
 <ANCHOR id="glib-mkenums" href="gobject/glib-mkenums.html">
 <ANCHOR id="glib-genmarshal" href="gobject/glib-genmarshal.html">
 <ANCHOR id="gobject-query" href="gobject/gobject-query.html">
+<ANCHOR id="annotation-glossterm-out caller-allocates" href="gobject/annotation-glossary.html#annotation-glossterm-out caller-allocates">
 <ANCHOR id="annotation-glossterm-out" href="gobject/annotation-glossary.html#annotation-glossterm-out">
 <ANCHOR id="annotation-glossterm-allow-none" href="gobject/annotation-glossary.html#annotation-glossterm-allow-none">
 <ANCHOR id="annotation-glossterm-inout" href="gobject/annotation-glossary.html#annotation-glossterm-inout">

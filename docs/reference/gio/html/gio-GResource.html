@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GResource</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="resources.html" title="Resources">
 <link rel="prev" href="resources.html" title="Resources">
 <link rel="next" href="permissions.html" title="Permissions">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -93,7 +93,7 @@ enum                <a class="link" href="gio-GResource.html#GResourceError" tit
 <a name="gio-GResource.description"></a><h2>Description</h2>
 <p>
 Applications and libraries often contain binary or textual data that is really part of the
-application, rather than user data. For instance <a href="http://developer.gnome.org/devel/gtk/GtkBuilder.html"><span class="type">GtkBuilder</span></a> .ui files, splashscreen images,
+application, rather than user data. For instance <a href="http://library.gnome.org/devel/gtk3/GtkBuilder.html"><span class="type">GtkBuilder</span></a> .ui files, splashscreen images,
 GMenu markup xml, CSS files, icons, etc. These are often shipped as files in <code class="filename">$datadir/appname</code>, or
 manually included as literal strings in the code.
 </p>
@@ -228,8 +228,11 @@ A resource bundle.
 GResourceFlags give information about a particular file inside a resource
 bundle.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-RESOURCE-FLAGS-NONE:CAPS"></a><span class="term"><code class="literal">G_RESOURCE_FLAGS_NONE</code></span></p></td>
@@ -255,8 +258,11 @@ bundle.
 <p>
 GResourceLookupFlags determine how resource path lookups are handled.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><a name="G-RESOURCE-LOOKUP-FLAGS-NONE:CAPS"></a><span class="term"><code class="literal">G_RESOURCE_LOOKUP_FLAGS_NONE</code></span></p></td>
 <td>No flags set.
@@ -278,12 +284,15 @@ you to query it for data.
 If you want to use this resource in the global resource namespace you need
 to register it with <a class="link" href="gio-GResource.html#g-resources-register" title="g_resources_register ()"><code class="function">g_resources_register()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
-<td>the path of a filename to load, in the GLib filename encoding. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> filename]</span>
+<td>the path of a filename to load, in the GLib filename encoding. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span>
 </td>
 </tr>
 <tr>
@@ -314,8 +323,11 @@ the data should not be modified or freed.
 If you want to use this resource in the global resource namespace you need
 to register it with <a class="link" href="gio-GResource.html#g-resources-register" title="g_resources_register ()"><code class="function">g_resources_register()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
@@ -344,8 +356,11 @@ to register it with <a class="link" href="gio-GResource.html#g-resources-registe
 Atomically increments the reference count of <em class="parameter"><code>array</code></em> by one. This
 function is MT-safe and may be called from any thread.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>resource</code></em> :</span></p></td>
@@ -371,8 +386,11 @@ reference count drops to 0, all memory allocated by the array is
 released. This function is MT-safe and may be called from any
 thread.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>resource</code></em> :</span></p></td>
 <td>A <a class="link" href="gio-GResource.html#GResource" title="GResource"><span class="type">GResource</span></a>
@@ -407,8 +425,11 @@ the heap and automatically uncompress the data.
 <p>
 <em class="parameter"><code>lookup_flags</code></em> controls the behaviour of the lookup.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>resource</code></em> :</span></p></td>
@@ -454,8 +475,11 @@ returns a <a class="link" href="GInputStream.html" title="GInputStream"><span cl
 <p>
 <em class="parameter"><code>lookup_flags</code></em> controls the behaviour of the lookup.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>resource</code></em> :</span></p></td>
@@ -502,8 +526,11 @@ be released with <a href="./../glib/glib/glib-String-Utility-Functions.html#g-st
 <p>
 <em class="parameter"><code>lookup_flags</code></em> controls the behaviour of the lookup.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>resource</code></em> :</span></p></td>
@@ -549,8 +576,11 @@ if found returns information about it.
 <p>
 <em class="parameter"><code>lookup_flags</code></em> controls the behaviour of the lookup.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>resource</code></em> :</span></p></td>
@@ -601,8 +631,11 @@ Registers the resource with the process-global set of resources.
 Once a resource is registered the files in it can be accessed
 with the global resource lookup functions like <a class="link" href="gio-GResource.html#g-resources-lookup-data" title="g_resources_lookup_data ()"><code class="function">g_resources_lookup_data()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>resource</code></em> :</span></p></td>
 <td>A <a class="link" href="gio-GResource.html#GResource" title="GResource"><span class="type">GResource</span></a>
@@ -618,8 +651,11 @@ with the global resource lookup functions like <a class="link" href="gio-GResour
 <p>
 Unregisters the resource from the process-global set of resources.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>resource</code></em> :</span></p></td>
 <td>A <a class="link" href="gio-GResource.html#GResource" title="GResource"><span class="type">GResource</span></a>
@@ -636,7 +672,7 @@ Unregisters the resource from the process-global set of resources.
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Looks for a file at the specified <em class="parameter"><code>path</code></em> in the set of
-globally registred resources and returns a <a href="./../glib/glib/glib-Byte-Arrays.html#GBytes"><span class="type">GBytes</span></a> that
+globally registered resources and returns a <a href="./../glib/glib/glib-Byte-Arrays.html#GBytes"><span class="type">GBytes</span></a> that
 lets you directly access the data in memory.
 </p>
 <p>
@@ -653,8 +689,11 @@ the heap and automatically uncompress the data.
 <p>
 <em class="parameter"><code>lookup_flags</code></em> controls the behaviour of the lookup.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
@@ -689,14 +728,17 @@ Free the returned object with <a href="./../glib/glib/glib-Byte-Arrays.html#g-by
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Looks for a file at the specified <em class="parameter"><code>path</code></em> in the set of
-globally registred resources and returns a <a class="link" href="GInputStream.html" title="GInputStream"><span class="type">GInputStream</span></a>
+globally registered resources and returns a <a class="link" href="GInputStream.html" title="GInputStream"><span class="type">GInputStream</span></a>
 that lets you read the data.
 </p>
 <p>
 <em class="parameter"><code>lookup_flags</code></em> controls the behaviour of the lookup.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
@@ -731,15 +773,18 @@ Free the returned object with <a href="./../gobject/gobject/gobject-The-Base-Obj
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Returns all the names of children at the specified <em class="parameter"><code>path</code></em> in the set of
-globally registred resources.
+globally registered resources.
 The return result is a <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> terminated list of strings which should
 be released with <a href="./../glib/glib/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a>.
 </p>
 <p>
 <em class="parameter"><code>lookup_flags</code></em> controls the behaviour of the lookup.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
@@ -774,13 +819,16 @@ be released with <a href="./../glib/glib/glib-String-Utility-Functions.html#g-st
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Looks for a file at the specified <em class="parameter"><code>path</code></em> in the set of
-globally registred resources and if found returns information about it.
+globally registered resources and if found returns information about it.
 </p>
 <p>
 <em class="parameter"><code>lookup_flags</code></em> controls the behaviour of the lookup.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
@@ -840,8 +888,11 @@ error domains.
 An error code used with <a class="link" href="gio-GResource.html#G-RESOURCE-ERROR:CAPS" title="G_RESOURCE_ERROR"><code class="literal">G_RESOURCE_ERROR</code></a> in a <a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> returned
 from a <a class="link" href="gio-GResource.html#GResource" title="GResource"><span class="type">GResource</span></a> routine.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-RESOURCE-ERROR-NOT-FOUND:CAPS"></a><span class="term"><code class="literal">G_RESOURCE_ERROR_NOT_FOUND</code></span></p></td>
@@ -861,6 +912,6 @@ from a <a class="link" href="gio-GResource.html#GResource" title="GResource"><sp
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

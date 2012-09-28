@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GContentType</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="types.html" title="File types and applications">
 <link rel="prev" href="types.html" title="File types and applications">
 <link rel="next" href="GAppInfo.html" title="GAppInfo">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -48,6 +48,9 @@
 <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="gio-GContentType.html#g-content-type-get-description" title="g_content_type_get_description ()">g_content_type_get_description</a>      (<em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *type</code></em>);
 <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="gio-GContentType.html#g-content-type-get-mime-type" title="g_content_type_get_mime_type ()">g_content_type_get_mime_type</a>        (<em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *type</code></em>);
 <a class="link" href="GIcon.html" title="GIcon"><span class="returnvalue">GIcon</span></a> *             <a class="link" href="gio-GContentType.html#g-content-type-get-icon" title="g_content_type_get_icon ()">g_content_type_get_icon</a>             (<em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *type</code></em>);
+<a class="link" href="GIcon.html" title="GIcon"><span class="returnvalue">GIcon</span></a> *             <a class="link" href="gio-GContentType.html#g-content-type-get-symbolic-icon" title="g_content_type_get_symbolic_icon ()">g_content_type_get_symbolic_icon</a>    (<em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *type</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="gio-GContentType.html#g-content-type-get-generic-icon-name" title="g_content_type_get_generic_icon_name ()">g_content_type_get_generic_icon_name</a>
+                                                        (<em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *type</code></em>);
 <a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gio-GContentType.html#g-content-type-can-be-executable" title="g_content_type_can_be_executable ()">g_content_type_can_be_executable</a>    (<em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *type</code></em>);
 <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="gio-GContentType.html#g-content-type-from-mime-type" title="g_content_type_from_mime_type ()">g_content_type_from_mime_type</a>       (<em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *mime_type</code></em>);
 <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="gio-GContentType.html#g-content-type-guess" title="g_content_type_guess ()">g_content_type_guess</a>                (<em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *filename</code></em>,
@@ -77,8 +80,11 @@ HKEY_CLASSES_ROOT.
 <p>
 Compares two content types for equality.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type1</code></em> :</span></p></td>
@@ -105,8 +111,11 @@ Compares two content types for equality.
 <p>
 Determines if <em class="parameter"><code>type</code></em> is a subset of <em class="parameter"><code>supertype</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -134,8 +143,11 @@ Checks if the content type is the generic "unknown" type.
 On UNIX this is the "application/octet-stream" mimetype,
 while on win32 it is "*".
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -156,8 +168,11 @@ while on win32 it is "*".
 <p>
 Gets the human readable description of the content type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -179,8 +194,11 @@ returned string with <a href="./../glib/glib/glib-Memory-Allocation.html#g-free"
 <p>
 Gets the mime type for the content type, if one is registered.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -202,8 +220,11 @@ or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="lit
 <p>
 Gets the icon for a content type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -221,14 +242,76 @@ object with <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#g-ob
 </div>
 <hr>
 <div class="refsect2">
+<a name="g-content-type-get-symbolic-icon"></a><h3>g_content_type_get_symbolic_icon ()</h3>
+<pre class="programlisting"><a class="link" href="GIcon.html" title="GIcon"><span class="returnvalue">GIcon</span></a> *             g_content_type_get_symbolic_icon    (<em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *type</code></em>);</pre>
+<p>
+Gets the symbolic icon for a content type.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>a content type string</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>symbolic <a class="link" href="GIcon.html" title="GIcon"><span class="type">GIcon</span></a> corresponding to the content type.
+Free the returned object with <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.34</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-content-type-get-generic-icon-name"></a><h3>g_content_type_get_generic_icon_name ()</h3>
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             g_content_type_get_generic_icon_name
+                                                        (<em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *type</code></em>);</pre>
+<p>
+Gets the generic icon name for a content type.
+</p>
+<p>
+See the <a class="ulink" href="http://www.freedesktop.org/wiki/Specifications/shared-mime-info-spec" target="_top">shared-mime-info</a>
+specification for more on the generic icon name.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>a content type string</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the registered generic icon name for the given <em class="parameter"><code>type</code></em>,
+or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if unknown. Free with <a href="./../glib/glib/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.34</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="g-content-type-can-be-executable"></a><h3>g_content_type_can_be_executable ()</h3>
 <pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_content_type_can_be_executable    (<em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *type</code></em>);</pre>
 <p>
 Checks if a content type can be executable. Note that for instance
 things like text files can be executables (i.e. scripts and batch files).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -250,8 +333,11 @@ can be executable, <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS"
 <p>
 Tries to find a content type based on the mime type name.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mime_type</code></em> :</span></p></td>
@@ -280,8 +366,11 @@ uncertain, <em class="parameter"><code>result_uncertain</code></em> will be set 
 or <em class="parameter"><code>data</code></em> may be <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, in which case the guess will be based solely
 on the other argument.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
@@ -332,8 +421,11 @@ specification for more on x-content types.
 This function is useful in the implementation of
 <a class="link" href="GMount.html#g-mount-guess-content-type" title="g_mount_guess_content_type ()"><code class="function">g_mount_guess_content_type()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>root</code></em> :</span></p></td>
@@ -362,8 +454,11 @@ g_list_free_full (list, g_free);
 </pre>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
@@ -376,6 +471,6 @@ g_list_free_full (list, g_free);
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

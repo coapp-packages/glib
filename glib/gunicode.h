@@ -367,7 +367,7 @@ typedef enum
  * @G_UNICODE_SCRIPT_MANDAIC:    Mandaic. Since 2.28
  * @G_UNICODE_SCRIPT_CHAKMA:               Chakma. Since: 2.32
  * @G_UNICODE_SCRIPT_MEROITIC_CURSIVE:     Meroitic Cursive. Since: 2.32
- * @G_UNICODE_SCRIPT_MEROITIC_HIEROGLYPHS, Meroitic Hieroglyphs. Since: 2.32
+ * @G_UNICODE_SCRIPT_MEROITIC_HIEROGLYPHS: Meroitic Hieroglyphs. Since: 2.32
  * @G_UNICODE_SCRIPT_MIAO:                 Miao. Since: 2.32
  * @G_UNICODE_SCRIPT_SHARADA:              Sharada. Since: 2.32
  * @G_UNICODE_SCRIPT_SORA_SOMPENG:         Sora Sompeng. Since: 2.32
@@ -628,6 +628,7 @@ gchar*   g_utf8_find_prev_char    (const gchar *str,
 glong    g_utf8_strlen            (const gchar *p,
                                    gssize       max) G_GNUC_PURE;
 
+GLIB_AVAILABLE_IN_2_30
 gchar   *g_utf8_substring         (const gchar *str,
                                    glong        start_pos,
                                    glong        end_pos) G_GNUC_MALLOC;

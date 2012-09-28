@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GTimeZone</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-Date-and-Time-Functions.html" title="Date and Time Functions">
 <link rel="next" href="glib-GDateTime.html" title="GDateTime">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -111,8 +111,11 @@ directly.
 <p>
 Decreases the reference count on <em class="parameter"><code>tz</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>tz</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-GTimeZone.html#GTimeZone" title="GTimeZone"><span class="type">GTimeZone</span></a>
@@ -128,8 +131,11 @@ Decreases the reference count on <em class="parameter"><code>tz</code></em>.
 <p>
 Increases the reference count on <em class="parameter"><code>tz</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>tz</code></em> :</span></p></td>
@@ -186,8 +192,11 @@ values of the <code class="varname">TZ</code> environment variable.
 You should release the return value by calling <a class="link" href="glib-GTimeZone.html#g-time-zone-unref" title="g_time_zone_unref ()"><code class="function">g_time_zone_unref()</code></a>
 when you are done with it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>identifier</code></em> :</span></p></td>
@@ -220,8 +229,11 @@ of <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code
 You should release the return value by calling <a class="link" href="glib-GTimeZone.html#g-time-zone-unref" title="g_time_zone_unref ()"><code class="function">g_time_zone_unref()</code></a>
 when you are done with it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the local timezone</td>
@@ -244,8 +256,11 @@ This is equivalent to calling <a class="link" href="glib-GTimeZone.html#g-time-z
 You should release the return value by calling <a class="link" href="glib-GTimeZone.html#g-time-zone-unref" title="g_time_zone_unref ()"><code class="function">g_time_zone_unref()</code></a>
 when you are done with it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the universal timezone</td>
@@ -274,8 +289,11 @@ standard time or local daylight time.  This is important for the case
 where the same local time occurs twice (during daylight savings time
 transitions, for example).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-TIME-TYPE-STANDARD:CAPS"></a><span class="term"><code class="literal">G_TIME_TYPE_STANDARD</code></span></p></td>
@@ -324,8 +342,11 @@ example, 02:00 on March 14th 2010 does not exist (due to the leap
 forward to begin daylight savings time).  -1 is returned in that
 case.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>tz</code></em> :</span></p></td>
@@ -372,12 +393,15 @@ this function returns the same value, without modifying <em class="parameter"><c
 <p>
 This function may, however, modify <em class="parameter"><code>time_</code></em> in order to deal with
 non-existent times.  If the non-existent local <em class="parameter"><code>time_</code></em> of 02:30 were
-requested on March 13th 2010 in Toronto then this function would
+requested on March 14th 2010 in Toronto then this function would
 adjust <em class="parameter"><code>time_</code></em> to be 03:00 and return the interval containing the
 adjusted time.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>tz</code></em> :</span></p></td>
@@ -415,8 +439,11 @@ For example, in Toronto this is currently "EST" during the winter
 months and "EDT" during the summer months when daylight savings time
 is in effect.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>tz</code></em> :</span></p></td>
@@ -450,8 +477,11 @@ The offset is the number of seconds that you add to UTC time to
 arrive at local time for <em class="parameter"><code>tz</code></em> (ie: negative numbers for time zones
 west of GMT, positive numbers for east).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>tz</code></em> :</span></p></td>
@@ -481,8 +511,11 @@ local time in <em class="parameter"><code>tz</code></em>
 Determines if daylight savings time is in effect during a particular
 <em class="parameter"><code>interval</code></em> of time in the time zone <em class="parameter"><code>tz</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>tz</code></em> :</span></p></td>
@@ -510,6 +543,6 @@ Determines if daylight savings time is in effect during a particular
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

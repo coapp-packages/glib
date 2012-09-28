@@ -115,15 +115,15 @@
 
 struct _GDateTime
 {
-  /* 1 is 0001-01-01 in Proleptic Gregorian */
-  gint32 days;
-
   /* Microsecond timekeeping within Day */
   guint64 usec;
 
   /* TimeZone information */
   GTimeZone *tz;
   gint interval;
+
+  /* 1 is 0001-01-01 in Proleptic Gregorian */
+  gint32 days;
 
   volatile gint ref_count;
 };
@@ -989,7 +989,7 @@ g_date_time_new (GTimeZone *tz,
  *
  * Returns: a #GDateTime, or %NULL
  *
- * Since: 2.26.
+ * Since: 2.26
  **/
 GDateTime *
 g_date_time_new_local (gint    year,
@@ -1026,7 +1026,7 @@ g_date_time_new_local (gint    year,
  *
  * Returns: a #GDateTime, or %NULL
  *
- * Since: 2.26.
+ * Since: 2.26
  **/
 GDateTime *
 g_date_time_new_utc (gint    year,
