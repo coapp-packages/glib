@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GUnixConnection</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="highlevel-socket.html" title="High-level network functionallity">
 <link rel="prev" href="GSocketConnection.html" title="GSocketConnection">
 <link rel="next" href="GTcpConnection.html" title="GTcpConnection">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -124,8 +124,11 @@ As well as reading the fd this also reads a single byte from the
 stream, as this is required for fd passing to work on some
 implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
@@ -168,8 +171,11 @@ As well as sending the fd this also writes a single byte to the
 stream, as this is required for fd passing to work on some
 implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
@@ -220,8 +226,11 @@ passing to work on some implementations.
 Other ways to exchange credentials with a foreign peer includes the
 <a class="link" href="GUnixCredentialsMessage.html" title="GUnixCredentialsMessage"><span class="type">GUnixCredentialsMessage</span></a> type and <a class="link" href="GSocket.html#g-socket-get-credentials" title="g_socket_get_credentials ()"><code class="function">g_socket_get_credentials()</code></a> function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
@@ -265,8 +274,11 @@ the synchronous version of this call.
 When the operation is finished, <em class="parameter"><code>callback</code></em> will be called. You can then call
 <a class="link" href="GUnixConnection.html#g-unix-connection-receive-credentials-finish" title="g_unix_connection_receive_credentials_finish ()"><code class="function">g_unix_connection_receive_credentials_finish()</code></a> to get the result of the operation.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
@@ -302,8 +314,11 @@ When the operation is finished, <em class="parameter"><code>callback</code></em>
 Finishes an asynchronous receive credentials operation started with
 <a class="link" href="GUnixConnection.html#g-unix-connection-receive-credentials-async" title="g_unix_connection_receive_credentials_async ()"><code class="function">g_unix_connection_receive_credentials_async()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
@@ -349,8 +364,11 @@ work on some implementations.
 Other ways to exchange credentials with a foreign peer includes the
 <a class="link" href="GUnixCredentialsMessage.html" title="GUnixCredentialsMessage"><span class="type">GUnixCredentialsMessage</span></a> type and <a class="link" href="GSocket.html#g-socket-get-credentials" title="g_socket_get_credentials ()"><code class="function">g_socket_get_credentials()</code></a> function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
@@ -393,8 +411,11 @@ the synchronous version of this call.
 When the operation is finished, <em class="parameter"><code>callback</code></em> will be called. You can then call
 <a class="link" href="GUnixConnection.html#g-unix-connection-send-credentials-finish" title="g_unix_connection_send_credentials_finish ()"><code class="function">g_unix_connection_send_credentials_finish()</code></a> to get the result of the operation.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
@@ -430,8 +451,11 @@ When the operation is finished, <em class="parameter"><code>callback</code></em>
 Finishes an asynchronous send credentials operation started with
 <a class="link" href="GUnixConnection.html#g-unix-connection-send-credentials-async" title="g_unix_connection_send_credentials_async ()"><code class="function">g_unix_connection_send_credentials_async()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
@@ -463,6 +487,6 @@ Finishes an asynchronous send credentials operation started with
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

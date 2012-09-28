@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Extension Points</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="extending.html" title="Extending GIO">
 <link rel="prev" href="GIOModule.html" title="GIOModule">
 <link rel="next" href="tools.html" title="GIO Tools">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -177,8 +177,11 @@ Gets the name under which <em class="parameter"><code>extension</code></em> was 
 Note that the same type may be registered as extension
 for multiple extension points, under different names.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>extension</code></em> :</span></p></td>
@@ -199,8 +202,11 @@ for multiple extension points, under different names.
 <p>
 Gets the priority with which <em class="parameter"><code>extension</code></em> was registered.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>extension</code></em> :</span></p></td>
@@ -222,8 +228,11 @@ Gets the priority with which <em class="parameter"><code>extension</code></em> w
 <p>
 Gets the type associated with <em class="parameter"><code>extension</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>extension</code></em> :</span></p></td>
@@ -247,8 +256,11 @@ Gets the type associated with <em class="parameter"><code>extension</code></em>.
 <p>
 Finds a <a class="link" href="gio-Extension-Points.html#GIOExtension" title="GIOExtension"><span class="type">GIOExtension</span></a> for an extension point by name.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>extension_point</code></em> :</span></p></td>
@@ -276,8 +288,11 @@ given name, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><cod
 Gets a list of all extensions that implement this extension point.
 The list is sorted by priority, beginning with the highest priority.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>extension_point</code></em> :</span></p></td>
@@ -302,8 +317,11 @@ modified. <span class="annotation">[<acronym title="Generics and defining elemen
 <p>
 Gets the required type for <em class="parameter"><code>extension_point</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>extension_point</code></em> :</span></p></td>
@@ -333,8 +351,11 @@ Registers <em class="parameter"><code>type</code></em> as extension for the exte
 If <em class="parameter"><code>type</code></em> has already been registered as an extension for this 
 extension point, the existing <a class="link" href="gio-Extension-Points.html#GIOExtension" title="GIOExtension"><span class="type">GIOExtension</span></a> object is returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>extension_point_name</code></em> :</span></p></td>
@@ -367,8 +388,11 @@ extension point, the existing <a class="link" href="gio-Extension-Points.html#GI
 <p>
 Looks up an existing extension point.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -390,8 +414,11 @@ is no registered extension point with the given name. <span class="annotation">[
 <p>
 Registers an extension point.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -416,8 +443,11 @@ owned by GIO and should not be freed. <span class="annotation">[<acronym title="
 Sets the required type for <em class="parameter"><code>extension_point</code></em> to <em class="parameter"><code>type</code></em>. 
 All implementations must henceforth have this type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>extension_point</code></em> :</span></p></td>
@@ -439,8 +469,11 @@ All implementations must henceforth have this type.
 Gets a reference to the class for the type that is 
 associated with <em class="parameter"><code>extension</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>extension</code></em> :</span></p></td>
@@ -463,6 +496,6 @@ Extending GIO
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

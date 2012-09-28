@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>N-ary Trees</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-data-types.html" title="GLib Data Types">
 <link rel="prev" href="glib-Balanced-Binary-Trees.html" title="Balanced Binary Trees">
 <link rel="next" href="glib-Quarks.html" title="Quarks">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -188,8 +188,11 @@ To remove a node or subtree from a tree use <a class="link" href="glib-N-ary-Tre
 The <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> struct represents one node in a
 <a class="link" href="glib-N-ary-Trees.html" title="N-ary Trees">N-ary Tree</a>. fields
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> <em class="structfield"><code><a name="GNode.data"></a>data</code></em>;</span></p></td>
@@ -226,8 +229,11 @@ child.</td>
 Creates a new <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> containing the given data.
 Used to create the first node in a tree.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
@@ -249,8 +255,11 @@ Used to create the first node in a tree.
 Recursively copies a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> (but does not deep-copy the data inside the 
 nodes, see <a class="link" href="glib-N-ary-Trees.html#g-node-copy-deep" title="g_node_copy_deep ()"><code class="function">g_node_copy_deep()</code></a> if you need that).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -273,8 +282,11 @@ nodes, see <a class="link" href="glib-N-ary-Trees.html#g-node-copy-deep" title="
 A function of this signature is used to copy the node data 
 when doing a deep-copy of a tree.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
@@ -301,8 +313,11 @@ when doing a deep-copy of a tree.
 <p>
 Recursively copies a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> and its data.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -336,8 +351,11 @@ or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code
 <p>
 Inserts a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> beneath the parent at the given position.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
@@ -370,8 +388,11 @@ If position is -1, <em class="parameter"><code>node</code></em> is inserted as t
 <p>
 Inserts a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> beneath the parent before the given sibling.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
@@ -403,8 +424,11 @@ If sibling is <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="
 <p>
 Inserts a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> beneath the parent after the given sibling.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
@@ -434,8 +458,11 @@ If sibling is <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="
 <p>
 Inserts a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> as the last child of the given parent.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
@@ -461,8 +488,11 @@ Inserts a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode
 <p>
 Inserts a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> as the first child of the given parent.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
@@ -487,8 +517,11 @@ Inserts a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode
 <p>
 Inserts a new <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> at the given position.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
@@ -520,8 +553,11 @@ the new <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode">
 <p>
 Inserts a new <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> after the given sibling.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
@@ -551,8 +587,11 @@ Inserts a new <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct G
 <p>
 Inserts a new <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> before the given sibling.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
@@ -582,8 +621,11 @@ Inserts a new <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct G
 <p>
 Inserts a new <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> as the last child of the given parent.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
@@ -609,8 +651,11 @@ Inserts a new <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct G
 <p>
 Inserts a new <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> as the first child of the given parent.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
@@ -637,8 +682,11 @@ Inserts a new <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct G
 Reverses the order of the children of a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a>.
 (It doesn't change the order of the grandchildren.)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a>.</td>
@@ -659,8 +707,11 @@ Traverses a tree starting at the given root <a class="link" href="glib-N-ary-Tre
 It calls the given function for each node visited.
 The traversal can be halted at any point by returning <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> from <em class="parameter"><code>func</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>root</code></em> :</span></p></td>
@@ -712,8 +763,11 @@ If depth is 2, the root and its children are visited. And so on.</td>
 Specifies which nodes are visited during several of the tree
 functions, including <a class="link" href="glib-N-ary-Trees.html#g-node-traverse" title="g_node_traverse ()"><code class="function">g_node_traverse()</code></a> and <a class="link" href="glib-N-ary-Trees.html#g-node-find" title="g_node_find ()"><code class="function">g_node_find()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-TRAVERSE-LEAVES:CAPS"></a><span class="term"><code class="literal">G_TRAVERSE_LEAVES</code></span></p></td>
@@ -763,8 +817,11 @@ function is called with each of the nodes visited, together with the
 user data passed to <a class="link" href="glib-N-ary-Trees.html#g-node-traverse" title="g_node_traverse ()"><code class="function">g_node_traverse()</code></a>. If the function returns
 <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>, then the traversal is stopped.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -793,8 +850,11 @@ user data passed to <a class="link" href="glib-N-ary-Trees.html#g-node-traverse"
 Calls a function for each of the children of a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a>.
 Note that it doesn't descend beneath the child nodes.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -828,8 +888,11 @@ Specifies the type of function passed to <a class="link" href="glib-N-ary-Trees.
 The function is called with each child node, together with the user
 data passed to <a class="link" href="glib-N-ary-Trees.html#g-node-children-foreach" title="g_node_children_foreach ()"><code class="function">g_node_children_foreach()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -849,8 +912,11 @@ data passed to <a class="link" href="glib-N-ary-Trees.html#g-node-children-forea
 <p>
 Gets the root of a tree.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -874,8 +940,11 @@ Gets the root of a tree.
 <p>
 Finds a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> in a tree.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>root</code></em> :</span></p></td>
@@ -913,8 +982,11 @@ Finds a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode">
 <p>
 Finds the first child of a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> with the given data.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -947,8 +1019,11 @@ Finds the first child of a <a class="link" href="glib-N-ary-Trees.html#GNode" ti
 Gets the position of the first child of a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> 
 which contains the given data.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -977,8 +1052,11 @@ Gets the position of a <a class="link" href="glib-N-ary-Trees.html#GNode" title=
 <em class="parameter"><code>child</code></em> must be a child of <em class="parameter"><code>node</code></em>. The first child is numbered 0, 
 the second 1, and so on.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -1004,8 +1082,11 @@ the second 1, and so on.
 <p>
 Gets the first child of a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -1027,8 +1108,11 @@ or has no children</td>
 <p>
 Gets the last child of a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -1051,8 +1135,11 @@ Gets a child of a <a class="link" href="glib-N-ary-Trees.html#GNode" title="stru
 The first child is at index 0. If the index is 
 too big, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -1079,8 +1166,11 @@ too big, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"
 Gets the first sibling of a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a>.
 This could possibly be the node itself.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -1102,8 +1192,11 @@ This could possibly be the node itself.
 <p>
 Gets the next sibling of a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -1126,8 +1219,11 @@ or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code
 <p>
 Gets the previous sibling of a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -1151,8 +1247,11 @@ node or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL">
 Gets the last sibling of a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a>.
 This could possibly be the node itself.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -1175,8 +1274,11 @@ This could possibly be the node itself.
 <p>
 Returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> is a leaf node.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -1199,8 +1301,11 @@ Returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE">
 <p>
 Returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> is the root of a tree.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -1227,8 +1332,11 @@ Gets the depth of a <a class="link" href="glib-N-ary-Trees.html#GNode" title="st
 If <em class="parameter"><code>node</code></em> is <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> the depth is 0. The root node has a depth of 1.
 For the children of the root node the depth is 2. And so on.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -1251,8 +1359,11 @@ For the children of the root node the depth is 2. And so on.
 <p>
 Gets the number of nodes in a tree.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>root</code></em> :</span></p></td>
@@ -1279,8 +1390,11 @@ Gets the number of nodes in a tree.
 <p>
 Gets the number of children of a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -1305,8 +1419,11 @@ Returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE">
 This is true if node is the parent of <em class="parameter"><code>descendant</code></em>, 
 or if node is the grandparent of <em class="parameter"><code>descendant</code></em> etc.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
@@ -1339,8 +1456,11 @@ This is the maximum distance from the <a class="link" href="glib-N-ary-Trees.htm
 If <em class="parameter"><code>root</code></em> is <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>, 0 is returned. If <em class="parameter"><code>root</code></em> has no children, 
 1 is returned. If <em class="parameter"><code>root</code></em> has children, 2 is returned. And so on.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>root</code></em> :</span></p></td>
@@ -1362,8 +1482,11 @@ If <em class="parameter"><code>root</code></em> is <a class="link" href="glib-St
 <p>
 Unlinks a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> from a tree, resulting in two separate trees.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
 <td>the <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode"><span class="type">GNode</span></a> to unlink, which becomes the root of a new tree</td>
@@ -1378,8 +1501,11 @@ Unlinks a <a class="link" href="glib-N-ary-Trees.html#GNode" title="struct GNode
 Removes <em class="parameter"><code>root</code></em> and its children from the tree, freeing any memory
 allocated.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>root</code></em> :</span></p></td>
 <td>the root of the tree/subtree to destroy</td>
@@ -1390,6 +1516,6 @@ allocated.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

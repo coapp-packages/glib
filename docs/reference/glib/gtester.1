@@ -1,13 +1,13 @@
 '\" t
 .\"     Title: gtester
-.\"    Author: [FIXME: author] [see http://docbook.sf.net/el/author]
-.\" Generator: DocBook XSL Stylesheets v1.76.1 <http://docbook.sf.net/>
-.\"      Date: 05/14/2012
+.\"    Author: Tim Janik
+.\" Generator: DocBook XSL Stylesheets v1.77.1 <http://docbook.sf.net/>
+.\"      Date: 09/23/2012
 .\"    Manual: User Commands
-.\"    Source: User Commands
+.\"    Source: GLib
 .\"  Language: English
 .\"
-.TH "GTESTER" "1" "05/14/2012" "User Commands" "User Commands"
+.TH "GTESTER" "1" "" "GLib" "User Commands"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -31,7 +31,7 @@
 gtester \- test running utility
 .SH "SYNOPSIS"
 .HP \w'\fBgtester\fR\ 'u
-\fBgtester\fR [option...] [testprogram]
+\fBgtester\fR [OPTION...] [testprogram]
 .SH "DESCRIPTION"
 .PP
 \fBgtester\fR
@@ -44,7 +44,7 @@ option,
 writes an XML report of the test results, which can be converted into HTML using the
 \fBgtester\-report\fR
 utility\&.
-.SS "Options"
+.SH "OPTIONS"
 .PP
 \fB\-h\fR, \fB\-\-help\fR
 .RS 4
@@ -75,12 +75,32 @@ list paths of available test cases
 .RS 4
 run test cases in
 \fIMODE\fR, which can be one of:
-<term>\fBperf\fR</term><listitem>run performance tests
-</listitem><term>\fBslow\fR, \fBthorough\fR</term><listitem>run slow tests, or repeat non\-deterministic tests more often
-</listitem><term>\fBquick\fR</term><listitem>do not run slow or performance tests, or do extra repeats of non\-deterministic tests (default)
-</listitem><term>\fBundefined\fR</term><listitem>run test cases that deliberately provoke checks or assertion failures, if implemented (default)
-</listitem><term>\fBno\-undefined\fR</term><listitem>do not run test cases that deliberately provoke checks or assertion failures
-</listitem>.sp
+.PP
+\fBperf\fR
+.RS 4
+run performance tests
+.RE
+.PP
+\fBslow\fR, \fBthorough\fR
+.RS 4
+run slow tests, or repeat non\-deterministic tests more often
+.RE
+.PP
+\fBquick\fR
+.RS 4
+do not run slow or performance tests, or do extra repeats of non\-deterministic tests (default)
+.RE
+.PP
+\fBundefined\fR
+.RS 4
+run test cases that deliberately provoke checks or assertion failures, if implemented (default)
+.RE
+.PP
+\fBno\-undefined\fR
+.RS 4
+do not run test cases that deliberately provoke checks or assertion failures
+.RE
+.sp
 .RE
 .PP
 \fB\-p=\fR\fB\fITESTPATH\fR\fR

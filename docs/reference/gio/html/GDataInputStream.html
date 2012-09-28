@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GDataInputStream</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="streaming.html" title="Streaming I/O">
 <link rel="prev" href="GBufferedOutputStream.html" title="GBufferedOutputStream">
 <link rel="next" href="GDataOutputStream.html" title="GDataOutputStream">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -26,6 +26,8 @@
                   <a href="#GDataInputStream.description" class="shortcut">Description</a>
                    | 
                   <a href="#GDataInputStream.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GDataInputStream.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
                    | 
                   <a href="#GDataInputStream.properties" class="shortcut">Properties</a>
 </td></tr>
@@ -148,6 +150,12 @@ enum                <a class="link" href="GDataInputStream.html#GDataStreamNewli
 </pre>
 </div>
 <div class="refsect1">
+<a name="GDataInputStream.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GDataInputStream implements
+ <a class="link" href="GSeekable.html" title="GSeekable">GSeekable</a>.</p>
+</div>
+<div class="refsect1">
 <a name="GDataInputStream.properties"></a><h2>Properties</h2>
 <pre class="synopsis">
   "<a class="link" href="GDataInputStream.html#GDataInputStream--byte-order" title='The "byte-order" property'>byte-order</a>"               <a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a>  : Read / Write
@@ -184,8 +192,11 @@ data manipulation of arbitrary data (including binary operations).
 <a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a> is used to ensure proper endianness of streaming data sources
 across various machine architectures.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-DATA-STREAM-BYTE-ORDER-BIG-ENDIAN:CAPS"></a><span class="term"><code class="literal">G_DATA_STREAM_BYTE_ORDER_BIG_ENDIAN</code></span></p></td>
@@ -218,8 +229,11 @@ across various machine architectures.
 <p>
 <a class="link" href="GDataInputStream.html#GDataStreamNewlineType" title="enum GDataStreamNewlineType"><span class="type">GDataStreamNewlineType</span></a> is used when checking for or setting the line endings for a given file.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-DATA-STREAM-NEWLINE-TYPE-LF:CAPS"></a><span class="term"><code class="literal">G_DATA_STREAM_NEWLINE_TYPE_LF</code></span></p></td>
@@ -251,8 +265,11 @@ across various machine architectures.
 <p>
 Creates a new data input stream for the <em class="parameter"><code>base_stream</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>base_stream</code></em> :</span></p></td>
@@ -274,8 +291,11 @@ Creates a new data input stream for the <em class="parameter"><code>base_stream<
 This function sets the byte order for the given <em class="parameter"><code>stream</code></em>. All subsequent
 reads from the <em class="parameter"><code>stream</code></em> will be read in the given <em class="parameter"><code>order</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -295,8 +315,11 @@ reads from the <em class="parameter"><code>stream</code></em> will be read in th
 <p>
 Gets the byte order for the data input stream.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -323,8 +346,11 @@ Note that using G_DATA_STREAM_NEWLINE_TYPE_ANY is slightly unsafe. If a read
 chunk ends in "CR" we must read an additional byte to know if this is "CR" or
 "CR LF", and this might block if there is no more data available.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -345,8 +371,11 @@ chunk ends in "CR" we must read an additional byte to know if this is "CR" or
 <p>
 Gets the current newline type for the <em class="parameter"><code>stream</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -369,8 +398,11 @@ Gets the current newline type for the <em class="parameter"><code>stream</code><
 <p>
 Reads an unsigned 8-bit/1-byte value from <em class="parameter"><code>stream</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -407,8 +439,11 @@ Reads a 16-bit/2-byte value from <em class="parameter"><code>stream</code></em>.
 In order to get the correct byte order for this read operation, 
 see <a class="link" href="GDataInputStream.html#g-data-input-stream-get-byte-order" title="g_data_input_stream_get_byte_order ()"><code class="function">g_data_input_stream_get_byte_order()</code></a> and <a class="link" href="GDataInputStream.html#g-data-input-stream-set-byte-order" title="g_data_input_stream_set_byte_order ()"><code class="function">g_data_input_stream_set_byte_order()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -445,8 +480,11 @@ Reads an unsigned 16-bit/2-byte value from <em class="parameter"><code>stream</c
 In order to get the correct byte order for this read operation, 
 see <a class="link" href="GDataInputStream.html#g-data-input-stream-get-byte-order" title="g_data_input_stream_get_byte_order ()"><code class="function">g_data_input_stream_get_byte_order()</code></a> and <a class="link" href="GDataInputStream.html#g-data-input-stream-set-byte-order" title="g_data_input_stream_set_byte_order ()"><code class="function">g_data_input_stream_set_byte_order()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -488,8 +526,11 @@ If <em class="parameter"><code>cancellable</code></em> is not <a href="./../glib
 triggering the cancellable object from another thread. If the operation
 was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCELLED:CAPS"><code class="literal">G_IO_ERROR_CANCELLED</code></a> will be returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -531,8 +572,11 @@ If <em class="parameter"><code>cancellable</code></em> is not <a href="./../glib
 triggering the cancellable object from another thread. If the operation
 was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCELLED:CAPS"><code class="literal">G_IO_ERROR_CANCELLED</code></a> will be returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -574,8 +618,11 @@ If <em class="parameter"><code>cancellable</code></em> is not <a href="./../glib
 triggering the cancellable object from another thread. If the operation
 was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCELLED:CAPS"><code class="literal">G_IO_ERROR_CANCELLED</code></a> will be returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -617,8 +664,11 @@ If <em class="parameter"><code>cancellable</code></em> is not <a href="./../glib
 triggering the cancellable object from another thread. If the operation
 was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCELLED:CAPS"><code class="literal">G_IO_ERROR_CANCELLED</code></a> will be returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -659,8 +709,11 @@ If <em class="parameter"><code>cancellable</code></em> is not <a href="./../glib
 triggering the cancellable object from another thread. If the operation
 was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCELLED:CAPS"><code class="literal">G_IO_ERROR_CANCELLED</code></a> will be returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -709,8 +762,11 @@ If <em class="parameter"><code>cancellable</code></em> is not <a href="./../glib
 triggering the cancellable object from another thread. If the operation
 was cancelled, the error <a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCELLED:CAPS"><code class="literal">G_IO_ERROR_CANCELLED</code></a> will be returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -762,8 +818,11 @@ When the operation is finished, <em class="parameter"><code>callback</code></em>
 can then call <a class="link" href="GDataInputStream.html#g-data-input-stream-read-line-finish" title="g_data_input_stream_read_line_finish ()"><code class="function">g_data_input_stream_read_line_finish()</code></a> to get
 the result of the operation.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -807,8 +866,11 @@ Finish an asynchronous call started by
 string encoding in <a class="link" href="GDataInputStream.html#g-data-input-stream-read-line" title="g_data_input_stream_read_line ()"><code class="function">g_data_input_stream_read_line()</code></a> applies here as
 well.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -854,8 +916,11 @@ still return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code 
 Finish an asynchronous call started by
 <a class="link" href="GDataInputStream.html#g-data-input-stream-read-line-async" title="g_data_input_stream_read_line_async ()"><code class="function">g_data_input_stream_read_line_async()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -912,8 +977,11 @@ to use <a class="link" href="GDataInputStream.html#g-data-input-stream-read-byte
 Note that <em class="parameter"><code>stop_chars</code></em> may contain '\0' if <em class="parameter"><code>stop_chars_len</code></em> is
 specified.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -985,8 +1053,11 @@ When the operation is finished, <em class="parameter"><code>callback</code></em>
 can then call <a class="link" href="GDataInputStream.html#g-data-input-stream-read-upto-finish" title="g_data_input_stream_read_upto_finish ()"><code class="function">g_data_input_stream_read_upto_finish()</code></a> to get
 the result of the operation.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -1043,8 +1114,11 @@ Note that this function does <span class="emphasis"><em>not</em></span> consume 
 stop character. You have to use <a class="link" href="GDataInputStream.html#g-data-input-stream-read-byte" title="g_data_input_stream_read_byte ()"><code class="function">g_data_input_stream_read_byte()</code></a> to
 get it before calling <a class="link" href="GDataInputStream.html#g-data-input-stream-read-upto-async" title="g_data_input_stream_read_upto_async ()"><code class="function">g_data_input_stream_read_upto_async()</code></a> again.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -1100,8 +1174,11 @@ functions will be marked as deprecated in a future release.  Use
 <a class="link" href="GDataInputStream.html#g-data-input-stream-read-upto" title="g_data_input_stream_read_upto ()"><code class="function">g_data_input_stream_read_upto()</code></a> instead, but note that that function
 does not consume the stop character.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -1167,8 +1244,11 @@ inconsistent with <a class="link" href="GDataInputStream.html#g-data-input-strea
 will be marked as deprecated in a future release.  Use
 <a class="link" href="GDataInputStream.html#g-data-input-stream-read-upto-async" title="g_data_input_stream_read_upto_async ()"><code class="function">g_data_input_stream_read_upto_async()</code></a> instead.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -1214,8 +1294,11 @@ of the request.</td>
 Finish an asynchronous call started by
 <a class="link" href="GDataInputStream.html#g-data-input-stream-read-until-async" title="g_data_input_stream_read_until_async ()"><code class="function">g_data_input_stream_read_until_async()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -1271,6 +1354,6 @@ return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class=
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

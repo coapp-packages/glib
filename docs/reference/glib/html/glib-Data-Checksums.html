@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Data Checksums</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-Base64-Encoding.html" title="Base64 Encoding">
 <link rel="next" href="glib-Data-HMACs.html" title="Secure HMAC Digests">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -61,6 +61,8 @@ const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span cla
 <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-Data-Checksums.html#g-compute-checksum-for-string" title="g_compute_checksum_for_string ()">g_compute_checksum_for_string</a>       (<em class="parameter"><code><a class="link" href="glib-Data-Checksums.html#GChecksumType" title="enum GChecksumType"><span class="type">GChecksumType</span></a> checksum_type</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *str</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> length</code></em>);
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-Data-Checksums.html#g-compute-checksum-for-bytes" title="g_compute_checksum_for_bytes ()">g_compute_checksum_for_bytes</a>        (<em class="parameter"><code><a class="link" href="glib-Data-Checksums.html#GChecksumType" title="enum GChecksumType"><span class="type">GChecksumType</span></a> checksum_type</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Byte-Arrays.html#GBytes" title="GBytes"><span class="type">GBytes</span></a> *data</code></em>);
 </pre>
 </div>
 <div class="refsect1">
@@ -103,8 +105,11 @@ digest of some data.
 Note that the <a class="link" href="glib-Data-Checksums.html#GChecksumType" title="enum GChecksumType"><span class="type">GChecksumType</span></a> enumeration may be extended at a later
 date to include new hashing algorithm types.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-CHECKSUM-MD5:CAPS"></a><span class="term"><code class="literal">G_CHECKSUM_MD5</code></span></p></td>
@@ -132,8 +137,11 @@ date to include new hashing algorithm types.
 <p>
 Gets the length in bytes of digests of type <em class="parameter"><code>checksum_type</code></em>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>checksum_type</code></em> :</span></p></td>
@@ -180,8 +188,11 @@ vector of raw bytes. Once either <a class="link" href="glib-Data-Checksums.html#
 will be closed and it won't be possible to call <a class="link" href="glib-Data-Checksums.html#g-checksum-update" title="g_checksum_update ()"><code class="function">g_checksum_update()</code></a>
 on it anymore.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>checksum_type</code></em> :</span></p></td>
@@ -205,8 +216,11 @@ Copies a <a class="link" href="glib-Data-Checksums.html#GChecksum" title="GCheck
 <a class="link" href="glib-Data-Checksums.html#g-checksum-get-string" title="g_checksum_get_string ()"><code class="function">g_checksum_get_string()</code></a> or <a class="link" href="glib-Data-Checksums.html#g-checksum-get-digest" title="g_checksum_get_digest ()"><code class="function">g_checksum_get_digest()</code></a>, the copied
 checksum will be closed as well.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>checksum</code></em> :</span></p></td>
@@ -228,8 +242,11 @@ when finished using it.</td>
 <p>
 Frees the memory allocated for <em class="parameter"><code>checksum</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>checksum</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="type">GChecksum</span></a>
@@ -245,8 +262,11 @@ Frees the memory allocated for <em class="parameter"><code>checksum</code></em>.
 <p>
 Resets the state of the <em class="parameter"><code>checksum</code></em> back to its initial state.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>checksum</code></em> :</span></p></td>
 <td>the <a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="type">GChecksum</span></a> to reset</td>
@@ -265,8 +285,11 @@ Feeds <em class="parameter"><code>data</code></em> into an existing <a class="li
 open, that is <a class="link" href="glib-Data-Checksums.html#g-checksum-get-string" title="g_checksum_get_string ()"><code class="function">g_checksum_get_string()</code></a> or <a class="link" href="glib-Data-Checksums.html#g-checksum-get-digest" title="g_checksum_get_digest ()"><code class="function">g_checksum_get_digest()</code></a> must
 not have been called on <em class="parameter"><code>checksum</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>checksum</code></em> :</span></p></td>
@@ -299,8 +322,11 @@ updated with <a class="link" href="glib-Data-Checksums.html#g-checksum-update" t
 <p>
 The hexadecimal characters will be lower case.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>checksum</code></em> :</span></p></td>
@@ -331,8 +357,11 @@ into <em class="parameter"><code>buffer</code></em>. The size of the digest depe
 Once this function has been called, the <a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="type">GChecksum</span></a> is closed and can
 no longer be updated with <a class="link" href="glib-Data-Checksums.html#g-checksum-update" title="g_checksum_update ()"><code class="function">g_checksum_update()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>checksum</code></em> :</span></p></td>
@@ -366,8 +395,11 @@ and <a class="link" href="glib-Data-Checksums.html#g-checksum-free" title="g_che
 <p>
 The hexadecimal string returned will be in lower case.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>checksum_type</code></em> :</span></p></td>
@@ -404,8 +436,11 @@ Computes the checksum of a string.
 <p>
 The hexadecimal string returned will be in lower case.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>checksum_type</code></em> :</span></p></td>
@@ -429,10 +464,47 @@ should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" t
 </table></div>
 <p class="since">Since 2.16</p>
 </div>
+<hr>
+<div class="refsect2">
+<a name="g-compute-checksum-for-bytes"></a><h3>g_compute_checksum_for_bytes ()</h3>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_compute_checksum_for_bytes        (<em class="parameter"><code><a class="link" href="glib-Data-Checksums.html#GChecksumType" title="enum GChecksumType"><span class="type">GChecksumType</span></a> checksum_type</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Byte-Arrays.html#GBytes" title="GBytes"><span class="type">GBytes</span></a> *data</code></em>);</pre>
+<p>
+Computes the checksum for a binary <em class="parameter"><code>data</code></em>. This is a
+convenience wrapper for <a class="link" href="glib-Data-Checksums.html#g-checksum-new" title="g_checksum_new ()"><code class="function">g_checksum_new()</code></a>, <a class="link" href="glib-Data-Checksums.html#g-checksum-get-string" title="g_checksum_get_string ()"><code class="function">g_checksum_get_string()</code></a>
+and <a class="link" href="glib-Data-Checksums.html#g-checksum-free" title="g_checksum_free ()"><code class="function">g_checksum_free()</code></a>.
+</p>
+<p>
+The hexadecimal string returned will be in lower case.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>checksum_type</code></em> :</span></p></td>
+<td>a <a class="link" href="glib-Data-Checksums.html#GChecksumType" title="enum GChecksumType"><span class="type">GChecksumType</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>binary blob to compute the digest of</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the digest of the binary data as a string in hexadecimal.
+The returned string should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> when done using it.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.34</p>
+</div>
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>URI Functions</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-File-Utilities.html" title="File Utilities">
 <link rel="next" href="glib-Hostname-Utilities.html" title="Hostname Utilities">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -131,8 +131,11 @@ URI = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
 <p>
 Common schemes include "file", "http", "svn+ssh", etc.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
@@ -164,8 +167,11 @@ escaped. This is useful for the "reserved" characters in the URI
 specification, since those are allowed unescaped in some portions of
 a URI.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>unescaped</code></em> :</span></p></td>
@@ -205,8 +211,11 @@ will be returned. This is useful it you want to avoid for instance having a
 slash being expanded in an escaped path element, which might confuse pathname
 handling.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>escaped_string</code></em> :</span></p></td>
@@ -241,8 +250,11 @@ will be returned. This is useful it you want to avoid for instance having a
 slash being expanded in an escaped path element, which might confuse pathname
 handling.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>escaped_string</code></em> :</span></p></td>
@@ -279,8 +291,11 @@ Splits an URI list conforming to the text/uri-list
 mime type defined in RFC 2483 into individual URIs,
 discarding any comments. The URIs are not validated.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>uri_list</code></em> :</span></p></td>
@@ -288,9 +303,10 @@ discarding any comments. The URIs are not validated.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a newly allocated <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated list of
-strings holding the individual URIs. The array should
-be freed with <a class="link" href="glib-String-Utility-Functions.html#g-strfreev" title="g_strfreev ()"><code class="function">g_strfreev()</code></a>.</td>
+<td>a newly allocated <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated list
+of strings holding the individual URIs. The array should be freed
+with <a class="link" href="glib-String-Utility-Functions.html#g-strfreev" title="g_strfreev ()"><code class="function">g_strfreev()</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -306,8 +322,11 @@ be freed with <a class="link" href="glib-String-Utility-Functions.html#g-strfree
 Converts an escaped ASCII-encoded URI to a local filename in the
 encoding used for filenames.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
@@ -343,8 +362,11 @@ filename, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="N
 Converts an absolute filename to an escaped ASCII-encoded URI, with the path
 component following Section 3.3. of RFC 2396.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
@@ -374,6 +396,6 @@ URI, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL">
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

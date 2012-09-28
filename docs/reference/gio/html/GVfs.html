@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GVfs</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="extending.html" title="Extending GIO">
 <link rel="prev" href="extending.html" title="Extending GIO">
 <link rel="next" href="GIOModule.html" title="GIOModule">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -96,8 +96,11 @@ See Extending GIO.
 <p>
 Gets a <a class="link" href="GFile.html" title="GFile"><span class="type">GFile</span></a> for <em class="parameter"><code>path</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>vfs</code></em> :</span></p></td>
@@ -126,11 +129,14 @@ Gets a <a class="link" href="GFile.html" title="GFile"><span class="type">GFile<
 </p>
 <p>
 This operation never fails, but the returned object
-might not support any I/O operation if the URI 
+might not support any I/O operation if the URI
 is malformed or if the URI scheme is not supported.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>vfs</code></em> :</span></p></td>
@@ -155,12 +161,15 @@ Free the returned object with <a href="./../gobject/gobject/gobject-The-Base-Obj
 <pre class="programlisting"><a class="link" href="GFile.html" title="GFile"><span class="returnvalue">GFile</span></a> *             g_vfs_parse_name                    (<em class="parameter"><code><a class="link" href="GVfs.html" title="GVfs"><span class="type">GVfs</span></a> *vfs</code></em>,
                                                          <em class="parameter"><code>const <span class="type">char</span> *parse_name</code></em>);</pre>
 <p>
-This operation never fails, but the returned object might 
-not support any I/O operations if the <em class="parameter"><code>parse_name</code></em> cannot 
+This operation never fails, but the returned object might
+not support any I/O operations if the <em class="parameter"><code>parse_name</code></em> cannot
 be parsed by the <a class="link" href="GVfs.html" title="GVfs"><span class="type">GVfs</span></a> module.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>vfs</code></em> :</span></p></td>
@@ -186,8 +195,11 @@ Free the returned object with <a href="./../gobject/gobject/gobject-The-Base-Obj
 <p>
 Gets the default <a class="link" href="GVfs.html" title="GVfs"><span class="type">GVfs</span></a> for the system.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a <a class="link" href="GVfs.html" title="GVfs"><span class="type">GVfs</span></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
@@ -202,8 +214,11 @@ Gets the default <a class="link" href="GVfs.html" title="GVfs"><span class="type
 <p>
 Gets the local <a class="link" href="GVfs.html" title="GVfs"><span class="type">GVfs</span></a> for the system.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a <a class="link" href="GVfs.html" title="GVfs"><span class="type">GVfs</span></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
@@ -218,8 +233,11 @@ Gets the local <a class="link" href="GVfs.html" title="GVfs"><span class="type">
 <p>
 Checks if the VFS is active.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>vfs</code></em> :</span></p></td>
@@ -228,7 +246,8 @@ Checks if the VFS is active.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if construction of the <em class="parameter"><code>vfs</code></em> was successful and it is now active.</td>
+<a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if construction of the <em class="parameter"><code>vfs</code></em> was successful
+and it is now active.</td>
 </tr>
 </tbody>
 </table></div>
@@ -240,8 +259,11 @@ Checks if the VFS is active.
 <p>
 Gets a list of URI schemes supported by <em class="parameter"><code>vfs</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>vfs</code></em> :</span></p></td>
@@ -261,6 +283,6 @@ not be freed or modified. <span class="annotation">[<acronym title="Don't free d
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

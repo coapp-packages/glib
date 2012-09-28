@@ -636,6 +636,29 @@ g_resolver_error_get_type (void)
 }
 
 GType
+g_resolver_record_type_get_type (void)
+{
+  static volatile gsize g_define_type_id__volatile = 0;
+
+  if (g_once_init_enter (&g_define_type_id__volatile))
+    {
+      static const GEnumValue values[] = {
+        { G_RESOLVER_RECORD_SRV, "G_RESOLVER_RECORD_SRV", "srv" },
+        { G_RESOLVER_RECORD_MX, "G_RESOLVER_RECORD_MX", "mx" },
+        { G_RESOLVER_RECORD_TXT, "G_RESOLVER_RECORD_TXT", "txt" },
+        { G_RESOLVER_RECORD_SOA, "G_RESOLVER_RECORD_SOA", "soa" },
+        { G_RESOLVER_RECORD_NS, "G_RESOLVER_RECORD_NS", "ns" },
+        { 0, NULL, NULL }
+      };
+      GType g_define_type_id =
+        g_enum_register_static (g_intern_static_string ("GResolverRecordType"), values);
+      g_once_init_leave (&g_define_type_id__volatile, g_define_type_id);
+    }
+
+  return g_define_type_id__volatile;
+}
+
+GType
 g_resource_error_get_type (void)
 {
   static volatile gsize g_define_type_id__volatile = 0;
@@ -1533,6 +1556,25 @@ g_socket_client_event_get_type (void)
       };
       GType g_define_type_id =
         g_enum_register_static (g_intern_static_string ("GSocketClientEvent"), values);
+      g_once_init_leave (&g_define_type_id__volatile, g_define_type_id);
+    }
+
+  return g_define_type_id__volatile;
+}
+
+GType
+g_test_dbus_flags_get_type (void)
+{
+  static volatile gsize g_define_type_id__volatile = 0;
+
+  if (g_once_init_enter (&g_define_type_id__volatile))
+    {
+      static const GFlagsValue values[] = {
+        { G_TEST_DBUS_NONE, "G_TEST_DBUS_NONE", "none" },
+        { 0, NULL, NULL }
+      };
+      GType g_define_type_id =
+        g_flags_register_static (g_intern_static_string ("GTestDBusFlags"), values);
       g_once_init_leave (&g_define_type_id__volatile, g_define_type_id);
     }
 

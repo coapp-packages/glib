@@ -50,36 +50,36 @@ g_dbus_action_group_sync (GDBusActionGroup  *group,
  */
 static const gchar org_gtk_Application_xml[] =
   "<node>"
-  "  <interface name='org.gtk.Application'>"
-  "    <method name='Activate'>"
-  "      <arg type='a{sv}' name='platform-data' direction='in'/>"
-  "    </method>"
-  "    <method name='Open'>"
-  "      <arg type='as' name='uris' direction='in'/>"
-  "      <arg type='s' name='hint' direction='in'/>"
-  "      <arg type='a{sv}' name='platform-data' direction='in'/>"
-  "    </method>"
-  "    <method name='CommandLine'>"
-  "      <arg type='o' name='path' direction='in'/>"
-  "      <arg type='aay' name='arguments' direction='in'/>"
-  "      <arg type='a{sv}' name='platform-data' direction='in'/>"
-  "      <arg type='i' name='exit-status' direction='out'/>"
-  "    </method>"
-  "  </interface>"
+    "<interface name='org.gtk.Application'>"
+      "<method name='Activate'>"
+        "<arg type='a{sv}' name='platform-data' direction='in'/>"
+      "</method>"
+      "<method name='Open'>"
+        "<arg type='as' name='uris' direction='in'/>"
+        "<arg type='s' name='hint' direction='in'/>"
+        "<arg type='a{sv}' name='platform-data' direction='in'/>"
+      "</method>"
+      "<method name='CommandLine'>"
+        "<arg type='o' name='path' direction='in'/>"
+        "<arg type='aay' name='arguments' direction='in'/>"
+        "<arg type='a{sv}' name='platform-data' direction='in'/>"
+        "<arg type='i' name='exit-status' direction='out'/>"
+      "</method>"
+    "</interface>"
   "</node>";
 
 static GDBusInterfaceInfo *org_gtk_Application;
 
 static const gchar org_gtk_private_CommandLine_xml[] =
   "<node>"
-  "  <interface name='org.gtk.private.CommandLine'>"
-  "    <method name='Print'>"
-  "      <arg type='s' name='message' direction='in'/>"
-  "    </method>"
-  "    <method name='PrintError'>"
-  "      <arg type='s' name='message' direction='in'/>"
-  "    </method>"
-  "  </interface>"
+    "<interface name='org.gtk.private.CommandLine'>"
+      "<method name='Print'>"
+        "<arg type='s' name='message' direction='in'/>"
+      "</method>"
+      "<method name='PrintError'>"
+        "<arg type='s' name='message' direction='in'/>"
+      "</method>"
+    "</interface>"
   "</node>";
 
 static GDBusInterfaceInfo *org_gtk_private_CommandLine;
@@ -97,7 +97,7 @@ struct _GApplicationImpl
 
   gboolean         properties_live;
   gboolean         primary;
-  gpointer         app;
+  GApplication    *app;
 };
 
 
@@ -228,6 +228,7 @@ g_application_impl_attempt_primary (GApplicationImpl  *impl,
   const static GDBusInterfaceVTable vtable = {
     g_application_impl_method_call,
   };
+  GApplicationClass *app_class = G_APPLICATION_GET_CLASS (impl->app);
   GVariant *reply;
   guint32 rval;
 
@@ -269,6 +270,12 @@ g_application_impl_attempt_primary (GApplicationImpl  *impl,
                                                             impl->exported_actions, error);
 
   if (impl->actions_id == 0)
+    return FALSE;
+
+  if (!app_class->dbus_register (impl->app,
+                                 impl->session_bus,
+                                 impl->object_path,
+                                 error))
     return FALSE;
 
   if (impl->bus_name == NULL)
@@ -315,6 +322,12 @@ g_application_impl_attempt_primary (GApplicationImpl  *impl,
 static void
 g_application_impl_stop_primary (GApplicationImpl *impl)
 {
+  GApplicationClass *app_class = G_APPLICATION_GET_CLASS (impl->app);
+
+  app_class->dbus_unregister (impl->app,
+                              impl->session_bus,
+                              impl->object_path);
+
   if (impl->object_id)
     {
       g_dbus_connection_unregister_object (impl->session_bus, impl->object_id);
@@ -597,6 +610,17 @@ g_application_impl_flush (GApplicationImpl *impl)
     g_dbus_connection_flush_sync (impl->session_bus, NULL, NULL);
 }
 
+GDBusConnection *
+g_application_impl_get_dbus_connection (GApplicationImpl *impl)
+{
+  return impl->session_bus;
+}
+
+const gchar *
+g_application_impl_get_dbus_object_path (GApplicationImpl *impl)
+{
+  return impl->object_path;
+}
 
 /* GDBusCommandLine implementation {{{1 */
 

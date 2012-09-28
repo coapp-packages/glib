@@ -1,7 +1,7 @@
 General Information
 ===================
 
-This is GLib version 2.32.3. GLib is the low-level core
+This is GLib version 2.34.0. GLib is the low-level core
 library that forms the basis for projects such as GTK+ and GNOME. It
 provides data structure handling for C, portability wrappers, and
 interfaces for such runtime functionality as an event loop, threads,
@@ -66,6 +66,16 @@ Otherwise, enter a new bug report that describes the patch,
 and attach the patch to that bug report.
 
 Patches should be in unified diff form. (The -up option to GNU diff.)
+
+Notes about GLib 2.34
+=====================
+
+* GIO now looks for thumbnails in XDG_CACHE_HOME, following a
+  recent alignment of the thumbnail spec with the basedir spec.
+
+* The default values for GThreadPools max_unused_threads and
+  max_idle_time settings have been changed to 2 and 15*1000,
+  respectively.
 
 Notes about GLib 2.32
 =====================

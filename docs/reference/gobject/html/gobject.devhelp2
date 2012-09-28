@@ -5,7 +5,7 @@
     <sub name="Introduction" link="pr01.html"/>
     <sub name="Concepts" link="pt01.html">
       <sub name="Background" link="chapter-intro.html">
-        <sub name="Data types and programming" link="chapter-intro.html#id577272"/>
+        <sub name="Data types and programming" link="chapter-intro.html#idp9895024"/>
         <sub name="Exporting a C API" link="ch01s02.html"/>
       </sub>
       <sub name="The GLib Dynamic Type System" link="chapter-gtype.html">
@@ -56,10 +56,11 @@
         <sub name="Chaining up" link="howto-gobject-chainup.html"/>
       </sub>
       <sub name="How to define and implement interfaces" link="howto-interface.html">
-        <sub name="How to define interfaces" link="howto-interface.html#howto-interface-define"/>
-        <sub name="How To define implement an Interface?" link="howto-interface-implement.html"/>
-        <sub name="Interface definition prerequisites" link="ch06s03.html"/>
-        <sub name="Interface Properties" link="howto-interface-properties.html"/>
+        <sub name="How to define an interface" link="howto-interface.html#howto-interface-define"/>
+        <sub name="How to implement an interface" link="howto-interface-implement.html"/>
+        <sub name="Interface definition prerequisites" link="howto-interface-prerequisite.html"/>
+        <sub name="Interface properties" link="howto-interface-properties.html"/>
+        <sub name="Overriding interface methods" link="howto-interface-override.html"/>
       </sub>
       <sub name="How to create and use signals" link="howto-signals.html">
         <sub name="Simple use of signals" link="howto-signals.html#howto-simple-signals"/>
@@ -88,6 +89,7 @@
     <sub name="Index of new symbols in 2.28" link="api-index-2-28.html"/>
     <sub name="Index of new symbols in 2.30" link="api-index-2-30.html"/>
     <sub name="Index of new symbols in 2.32" link="api-index-2-32.html"/>
+    <sub name="Index of new symbols in 2.34" link="api-index-2-34.html"/>
     <sub name="Annotation Glossary" link="annotation-glossary.html"/>
   </chapters>
   <functions>
@@ -186,6 +188,7 @@
     <keyword type="function" name="g_type_remove_interface_check ()" link="gobject-Type-Information.html#g-type-remove-interface-check" since="2.4"/>
     <keyword type="function" name="GTypeInterfaceCheckFunc ()" link="gobject-Type-Information.html#GTypeInterfaceCheckFunc" since="2.4"/>
     <keyword type="function" name="g_type_value_table_peek ()" link="gobject-Type-Information.html#g-type-value-table-peek"/>
+    <keyword type="function" name="g_type_ensure ()" link="gobject-Type-Information.html#g-type-ensure" since="2.34"/>
     <keyword type="macro" name="G_DEFINE_TYPE()" link="gobject-Type-Information.html#G-DEFINE-TYPE:CAPS" since="2.4"/>
     <keyword type="macro" name="G_DEFINE_TYPE_WITH_CODE()" link="gobject-Type-Information.html#G-DEFINE-TYPE-WITH-CODE:CAPS" since="2.4"/>
     <keyword type="macro" name="G_DEFINE_ABSTRACT_TYPE()" link="gobject-Type-Information.html#G-DEFINE-ABSTRACT-TYPE:CAPS" since="2.4"/>
@@ -304,10 +307,14 @@
     <keyword type="function" name="g_object_set_data ()" link="gobject-The-Base-Object-Type.html#g-object-set-data"/>
     <keyword type="function" name="g_object_set_data_full ()" link="gobject-The-Base-Object-Type.html#g-object-set-data-full"/>
     <keyword type="function" name="g_object_steal_data ()" link="gobject-The-Base-Object-Type.html#g-object-steal-data"/>
+    <keyword type="function" name="g_object_dup_data ()" link="gobject-The-Base-Object-Type.html#g-object-dup-data" since="2.34"/>
+    <keyword type="function" name="g_object_replace_data ()" link="gobject-The-Base-Object-Type.html#g-object-replace-data" since="2.34"/>
     <keyword type="function" name="g_object_get_qdata ()" link="gobject-The-Base-Object-Type.html#g-object-get-qdata"/>
     <keyword type="function" name="g_object_set_qdata ()" link="gobject-The-Base-Object-Type.html#g-object-set-qdata"/>
     <keyword type="function" name="g_object_set_qdata_full ()" link="gobject-The-Base-Object-Type.html#g-object-set-qdata-full"/>
     <keyword type="function" name="g_object_steal_qdata ()" link="gobject-The-Base-Object-Type.html#g-object-steal-qdata"/>
+    <keyword type="function" name="g_object_dup_qdata ()" link="gobject-The-Base-Object-Type.html#g-object-dup-qdata" since="2.34"/>
+    <keyword type="function" name="g_object_replace_qdata ()" link="gobject-The-Base-Object-Type.html#g-object-replace-qdata" since="2.34"/>
     <keyword type="function" name="g_object_set_property ()" link="gobject-The-Base-Object-Type.html#g-object-set-property"/>
     <keyword type="function" name="g_object_get_property ()" link="gobject-The-Base-Object-Type.html#g-object-get-property"/>
     <keyword type="function" name="g_object_new_valist ()" link="gobject-The-Base-Object-Type.html#g-object-new-valist"/>
@@ -365,6 +372,7 @@
     <keyword type="macro" name="G_TYPE_VARIANT_TYPE" link="gobject-Boxed-Types.html#G-TYPE-VARIANT-TYPE:CAPS" since="2.24"/>
     <keyword type="macro" name="G_TYPE_ERROR" link="gobject-Boxed-Types.html#G-TYPE-ERROR:CAPS" since="2.26"/>
     <keyword type="macro" name="G_TYPE_DATE_TIME" link="gobject-Boxed-Types.html#G-TYPE-DATE-TIME:CAPS" since="2.26"/>
+    <keyword type="macro" name="G_TYPE_TIME_ZONE" link="gobject-Boxed-Types.html#G-TYPE-TIME-ZONE:CAPS" since="2.34"/>
     <keyword type="macro" name="G_TYPE_IO_CHANNEL" link="gobject-Boxed-Types.html#G-TYPE-IO-CHANNEL:CAPS"/>
     <keyword type="macro" name="G_TYPE_IO_CONDITION" link="gobject-Boxed-Types.html#G-TYPE-IO-CONDITION:CAPS"/>
     <keyword type="macro" name="G_TYPE_VARIANT_BUILDER" link="gobject-Boxed-Types.html#G-TYPE-VARIANT-BUILDER:CAPS" since="2.30"/>
@@ -636,11 +644,13 @@
     <keyword type="union" name="union GTypeCValue" link="gobject-Varargs-Value-Collection.html#GTypeCValue"/>
     <keyword type="macro" name="G_VALUE_COLLECT_INIT()" link="gobject-Varargs-Value-Collection.html#G-VALUE-COLLECT-INIT:CAPS" since="2.24"/>
     <keyword type="macro" name="G_VALUE_COLLECT()" link="gobject-Varargs-Value-Collection.html#G-VALUE-COLLECT:CAPS"/>
+    <keyword type="macro" name="G_VALUE_COLLECT_SKIP()" link="gobject-Varargs-Value-Collection.html#G-VALUE-COLLECT-SKIP:CAPS"/>
     <keyword type="macro" name="G_VALUE_LCOPY()" link="gobject-Varargs-Value-Collection.html#G-VALUE-LCOPY:CAPS"/>
     <keyword type="macro" name="G_VALUE_COLLECT_FORMAT_MAX_LENGTH" link="gobject-Varargs-Value-Collection.html#G-VALUE-COLLECT-FORMAT-MAX-LENGTH:CAPS"/>
     <keyword type="struct" name="struct GSignalInvocationHint" link="gobject-Signals.html#GSignalInvocationHint"/>
     <keyword type="function" name="GSignalAccumulator ()" link="gobject-Signals.html#GSignalAccumulator"/>
     <keyword type="typedef" name="GSignalCMarshaller" link="gobject-Signals.html#GSignalCMarshaller"/>
+    <keyword type="typedef" name="GSignalCVaMarshaller" link="gobject-Signals.html#GSignalCVaMarshaller"/>
     <keyword type="function" name="GSignalEmissionHook ()" link="gobject-Signals.html#GSignalEmissionHook"/>
     <keyword type="enum" name="enum GSignalFlags" link="gobject-Signals.html#GSignalFlags"/>
     <keyword type="enum" name="enum GSignalMatchType" link="gobject-Signals.html#GSignalMatchType"/>
@@ -651,6 +661,7 @@
     <keyword type="function" name="g_signal_new ()" link="gobject-Signals.html#g-signal-new"/>
     <keyword type="function" name="g_signal_newv ()" link="gobject-Signals.html#g-signal-newv"/>
     <keyword type="function" name="g_signal_new_valist ()" link="gobject-Signals.html#g-signal-new-valist"/>
+    <keyword type="function" name="g_signal_set_va_marshaller ()" link="gobject-Signals.html#g-signal-set-va-marshaller"/>
     <keyword type="function" name="g_signal_query ()" link="gobject-Signals.html#g-signal-query"/>
     <keyword type="function" name="g_signal_lookup ()" link="gobject-Signals.html#g-signal-lookup"/>
     <keyword type="function" name="g_signal_name ()" link="gobject-Signals.html#g-signal-name"/>
@@ -703,6 +714,7 @@
     <keyword type="macro" name="G_TYPE_CLOSURE" link="gobject-Closures.html#G-TYPE-CLOSURE:CAPS"/>
     <keyword type="struct" name="struct GCClosure" link="gobject-Closures.html#GCClosure"/>
     <keyword type="function" name="GClosureMarshal ()" link="gobject-Closures.html#GClosureMarshal"/>
+    <keyword type="function" name="GVaClosureMarshal ()" link="gobject-Closures.html#GVaClosureMarshal"/>
     <keyword type="function" name="GClosureNotify ()" link="gobject-Closures.html#GClosureNotify"/>
     <keyword type="function" name="g_cclosure_new ()" link="gobject-Closures.html#g-cclosure-new"/>
     <keyword type="function" name="g_cclosure_new_swap ()" link="gobject-Closures.html#g-cclosure-new-swap"/>
@@ -749,6 +761,29 @@
     <keyword type="macro" name="g_cclosure_marshal_BOOL__FLAGS" link="gobject-Closures.html#g-cclosure-marshal-BOOL--FLAGS"/>
     <keyword type="function" name="g_cclosure_marshal_BOOLEAN__BOXED_BOXED ()" link="gobject-Closures.html#g-cclosure-marshal-BOOLEAN--BOXED-BOXED"/>
     <keyword type="macro" name="g_cclosure_marshal_BOOL__BOXED_BOXED" link="gobject-Closures.html#g-cclosure-marshal-BOOL--BOXED-BOXED"/>
+    <keyword type="function" name="g_cclosure_marshal_generic_va ()" link="gobject-Closures.html#g-cclosure-marshal-generic-va"/>
+    <keyword type="function" name="g_cclosure_marshal_VOID__VOIDv ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--VOIDv"/>
+    <keyword type="function" name="g_cclosure_marshal_VOID__BOOLEANv ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--BOOLEANv"/>
+    <keyword type="function" name="g_cclosure_marshal_VOID__CHARv ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--CHARv"/>
+    <keyword type="function" name="g_cclosure_marshal_VOID__UCHARv ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--UCHARv"/>
+    <keyword type="function" name="g_cclosure_marshal_VOID__INTv ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--INTv"/>
+    <keyword type="function" name="g_cclosure_marshal_VOID__UINTv ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--UINTv"/>
+    <keyword type="function" name="g_cclosure_marshal_VOID__LONGv ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--LONGv"/>
+    <keyword type="function" name="g_cclosure_marshal_VOID__ULONGv ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--ULONGv"/>
+    <keyword type="function" name="g_cclosure_marshal_VOID__ENUMv ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--ENUMv"/>
+    <keyword type="function" name="g_cclosure_marshal_VOID__FLAGSv ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--FLAGSv"/>
+    <keyword type="function" name="g_cclosure_marshal_VOID__FLOATv ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--FLOATv"/>
+    <keyword type="function" name="g_cclosure_marshal_VOID__DOUBLEv ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--DOUBLEv"/>
+    <keyword type="function" name="g_cclosure_marshal_VOID__STRINGv ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--STRINGv"/>
+    <keyword type="function" name="g_cclosure_marshal_VOID__PARAMv ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--PARAMv"/>
+    <keyword type="function" name="g_cclosure_marshal_VOID__BOXEDv ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--BOXEDv"/>
+    <keyword type="function" name="g_cclosure_marshal_VOID__POINTERv ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--POINTERv"/>
+    <keyword type="function" name="g_cclosure_marshal_VOID__OBJECTv ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--OBJECTv"/>
+    <keyword type="function" name="g_cclosure_marshal_VOID__VARIANTv ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--VARIANTv"/>
+    <keyword type="function" name="g_cclosure_marshal_STRING__OBJECT_POINTERv ()" link="gobject-Closures.html#g-cclosure-marshal-STRING--OBJECT-POINTERv"/>
+    <keyword type="function" name="g_cclosure_marshal_VOID__UINT_POINTERv ()" link="gobject-Closures.html#g-cclosure-marshal-VOID--UINT-POINTERv"/>
+    <keyword type="function" name="g_cclosure_marshal_BOOLEAN__FLAGSv ()" link="gobject-Closures.html#g-cclosure-marshal-BOOLEAN--FLAGSv"/>
+    <keyword type="function" name="g_cclosure_marshal_BOOLEAN__BOXED_BOXEDv ()" link="gobject-Closures.html#g-cclosure-marshal-BOOLEAN--BOXED-BOXEDv"/>
     <keyword type="struct" name="struct GValueArray" link="gobject-Value-arrays.html#GValueArray"/>
     <keyword type="function" name="g_value_array_get_nth ()" link="gobject-Value-arrays.html#g-value-array-get-nth" deprecated="2.32: Use g_array_index() instead."/>
     <keyword type="function" name="g_value_array_new ()" link="gobject-Value-arrays.html#g-value-array-new" deprecated="2.32: Use #GArray and g_array_sized_new() instead."/>
@@ -776,13 +811,10 @@
     <keyword type="property" name="The &quot;source-property&quot; property" link="GBinding.html#GBinding--source-property"/>
     <keyword type="property" name="The &quot;target&quot; property" link="GBinding.html#GBinding--target"/>
     <keyword type="property" name="The &quot;target-property&quot; property" link="GBinding.html#GBinding--target-property"/>
-    <keyword type="" name="Options" link="glib-mkenums.html#id583670"/>
-    <keyword type="" name="Production text substitutions" link="glib-mkenums.html#id591323"/>
-    <keyword type="" name="Trigraph extensions" link="glib-mkenums.html#id560698"/>
-    <keyword type="" name="Options" link="glib-genmarshal.html#id572390"/>
-    <keyword type="" name="Marshaller list format" link="glib-genmarshal.html#id578736"/>
-    <keyword type="" name="Parameter types" link="glib-genmarshal.html#id569403"/>
-    <keyword type="" name="Options" link="gobject-query.html#id582857"/>
+    <keyword type="" name="Production text substitutions" link="glib-mkenums.html#idp6478064"/>
+    <keyword type="" name="Trigraph extensions" link="glib-mkenums.html#idp10551120"/>
+    <keyword type="" name="Marshaller list format" link="glib-genmarshal.html#idp13250448"/>
+    <keyword type="" name="Parameter types" link="glib-genmarshal.html#idp5812480"/>
     <keyword type="constant" name="G_TYPE_DEBUG_NONE" link="gobject-Type-Information.html#G-TYPE-DEBUG-NONE:CAPS"/>
     <keyword type="constant" name="G_TYPE_DEBUG_OBJECTS" link="gobject-Type-Information.html#G-TYPE-DEBUG-OBJECTS:CAPS"/>
     <keyword type="constant" name="G_TYPE_DEBUG_SIGNALS" link="gobject-Type-Information.html#G-TYPE-DEBUG-SIGNALS:CAPS"/>

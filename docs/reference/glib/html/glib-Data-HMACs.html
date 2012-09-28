@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Secure HMAC Digests</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-Data-Checksums.html" title="Data Checksums">
 <link rel="next" href="glib-I18N.html" title="Internationalization">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -118,8 +118,11 @@ array of raw bytes. Once either <a class="link" href="glib-Data-HMACs.html#g-hma
 will be closed and it won't be possible to call <a class="link" href="glib-Data-HMACs.html#g-hmac-update" title="g_hmac_update ()"><code class="function">g_hmac_update()</code></a>
 on it anymore.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>digest_type</code></em> :</span></p></td>
@@ -152,8 +155,11 @@ Copies a <a class="link" href="glib-Data-HMACs.html#GHmac" title="GHmac"><span c
 <a class="link" href="glib-Data-HMACs.html#g-hmac-get-string" title="g_hmac_get_string ()"><code class="function">g_hmac_get_string()</code></a> or <a class="link" href="glib-Data-HMACs.html#g-hmac-get-digest" title="g_hmac_get_digest ()"><code class="function">g_hmac_get_digest()</code></a>, the copied
 HMAC will be closed as well.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hmac</code></em> :</span></p></td>
@@ -178,8 +184,11 @@ Atomically increments the reference count of <em class="parameter"><code>hmac</c
 <p>
 This function is MT-safe and may be called from any thread.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hmac</code></em> :</span></p></td>
@@ -207,8 +216,11 @@ destroyed, and all memory allocated by the hash table is released.
 This function is MT-safe and may be called from any thread.
 Frees the memory allocated for <em class="parameter"><code>hmac</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>hmac</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Data-HMACs.html#GHmac" title="GHmac"><span class="type">GHmac</span></a>
@@ -230,8 +242,11 @@ Feeds <em class="parameter"><code>data</code></em> into an existing <a class="li
 The HMAC must still be open, that is <a class="link" href="glib-Data-HMACs.html#g-hmac-get-string" title="g_hmac_get_string ()"><code class="function">g_hmac_get_string()</code></a> or
 <a class="link" href="glib-Data-HMACs.html#g-hmac-get-digest" title="g_hmac_get_digest ()"><code class="function">g_hmac_get_digest()</code></a> must not have been called on <em class="parameter"><code>hmac</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hmac</code></em> :</span></p></td>
@@ -265,8 +280,11 @@ updated with <a class="link" href="glib-Data-HMACs.html#g-hmac-update" title="g_
 <p>
 The hexadecimal characters will be lower case.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hmac</code></em> :</span></p></td>
@@ -297,8 +315,11 @@ into <em class="parameter"><code>buffer</code></em>. The size of the digest depe
 Once this function has been called, the <a class="link" href="glib-Data-HMACs.html#GHmac" title="GHmac"><span class="type">GHmac</span></a> is closed and can
 no longer be updated with <a class="link" href="glib-Data-Checksums.html#g-checksum-update" title="g_checksum_update ()"><code class="function">g_checksum_update()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hmac</code></em> :</span></p></td>
@@ -334,8 +355,11 @@ and <a class="link" href="glib-Data-HMACs.html#g-hmac-unref" title="g_hmac_unref
 <p>
 The hexadecimal string returned will be in lower case.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>digest_type</code></em> :</span></p></td>
@@ -382,8 +406,11 @@ Computes the HMAC for a string.
 <p>
 The hexadecimal string returned will be in lower case.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>digest_type</code></em> :</span></p></td>
@@ -420,6 +447,6 @@ when done using it.</td>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

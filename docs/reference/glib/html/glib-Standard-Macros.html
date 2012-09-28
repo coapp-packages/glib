@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Standard Macros</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-fundamentals.html" title="GLib Fundamentals">
 <link rel="prev" href="glib-Basic-Types.html" title="Basic Types">
 <link rel="next" href="glib-Type-Conversion-Macros.html" title="Type Conversion Macros">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -147,8 +147,11 @@ Checks whether a character is a directory
 separator. It returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> for '/' on UNIX
 machines and for '\' or '/' under Windows.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
 <td>a character</td>
@@ -211,8 +214,11 @@ Defines the standard <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" 
 <p>
 Calculates the minimum of <em class="parameter"><code>a</code></em> and <em class="parameter"><code>b</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
@@ -237,8 +243,11 @@ Calculates the minimum of <em class="parameter"><code>a</code></em> and <em clas
 <p>
 Calculates the maximum of <em class="parameter"><code>a</code></em> and <em class="parameter"><code>b</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
@@ -267,14 +276,17 @@ The absolute value is simply the number with any negative sign taken away.
 <p>
 For example,
 </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem"><p>ABS(-10) is 10.</p></li>
 <li class="listitem"><p>ABS(10) is also 10.</p></li>
 </ul></div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
@@ -299,15 +311,18 @@ greater than <em class="parameter"><code>high</code></em> the result is undefine
 <p>
 For example,
 </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem"><p>CLAMP(5, 10, 15) is 10.</p></li>
 <li class="listitem"><p>CLAMP(15, 5, 10) is 10.</p></li>
 <li class="listitem"><p>CLAMP(20, 15, 25) is 20.</p></li>
 </ul></div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
@@ -336,8 +351,11 @@ For example,
 <p>
 Returns a member of a structure at a given offset, using the given type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>member_type</code></em> :</span></p></td>
@@ -366,8 +384,11 @@ in bytes</td>
 <p>
 Returns an untyped pointer to a given offset of a struct.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>struct_p</code></em> :</span></p></td>
@@ -391,8 +412,11 @@ Returns an untyped pointer to a given offset of a struct.
 <p>
 Returns the offset, in bytes, of a member of a struct.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>struct_type</code></em> :</span></p></td>
@@ -456,8 +480,11 @@ declared so the compiler knows its size at compile-time; this
 macro will not work on an array allocated on the heap, only static
 arrays or arrays on the stack.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>arr</code></em> :</span></p></td>
 <td>the array</td>
@@ -468,6 +495,6 @@ arrays or arrays on the stack.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

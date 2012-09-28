@@ -197,7 +197,7 @@
     <ClCompile Include="..\..\..\gio\gbufferedoutputstream.c" />
     <ClCompile Include="..\..\..\gio\gcancellable.c" />
     <ClCompile Include="..\..\..\gio\gcharsetconverter.c" />
-    <ClCompile Include="..\..\..\gio\gcontenttype.c" />
+    <ClCompile Include="..\..\..\gio\gcontenttype-win32.c" />
     <ClCompile Include="..\..\..\gio\gconverter.c" />
     <ClCompile Include="..\..\..\gio\gconverterinputstream.c" />
     <ClCompile Include="..\..\..\gio\gconverteroutputstream.c" />
@@ -294,6 +294,7 @@
     <ClCompile Include="..\..\..\gio\gpermission.c" />
     <ClCompile Include="..\..\..\gio\gpollableinputstream.c" />
     <ClCompile Include="..\..\..\gio\gpollableoutputstream.c" />
+    <ClCompile Include="..\..\..\gio\gpollableutils.c" />
     <ClCompile Include="..\..\..\gio\gpollfilemonitor.c" />
     <ClCompile Include="..\..\..\gio\gproxyaddress.c" />
     <ClCompile Include="..\..\..\gio\gproxyaddressenumerator.c" />
@@ -330,6 +331,7 @@
     <ClCompile Include="..\..\..\gio\gsrvtarget.c" />
     <ClCompile Include="..\..\..\gio\gtcpconnection.c" />
     <ClCompile Include="..\..\..\gio\gtcpwrapperconnection.c" />
+    <ClCompile Include="..\..\..\gio\gtestdbus.c" />
     <ClCompile Include="..\..\..\gio\gthemedicon.c" />
     <ClCompile Include="..\..\..\gio\gthreadedresolver.c" />
     <ClCompile Include="..\..\..\gio\gthreadedsocketservice.c" />

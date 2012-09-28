@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GPollableOutputStream</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="streaming.html" title="Streaming I/O">
 <link rel="prev" href="GPollableInputStream.html" title="GPollableInputStream">
-<link rel="next" href="types.html" title="File types and applications">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="next" href="gio-gpollableutils.html" title="gpollableutils">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -18,7 +18,7 @@
 <td><a accesskey="u" href="streaming.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">GIO Reference Manual</th>
-<td><a accesskey="n" href="types.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="gio-gpollableutils.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
 <a href="#GPollableOutputStream.synopsis" class="shortcut">Top</a>
@@ -58,7 +58,7 @@ struct              <a class="link" href="GPollableOutputStream.html#GPollableOu
 <a href="./../glib/glib/glib-Basic-Types.html#gssize"><span class="returnvalue">gssize</span></a>              <a class="link" href="GPollableOutputStream.html#g-pollable-output-stream-write-nonblocking" title="g_pollable_output_stream_write_nonblocking ()">g_pollable_output_stream_write_nonblocking</a>
                                                         (<em class="parameter"><code><a class="link" href="GPollableOutputStream.html" title="GPollableOutputStream"><span class="type">GPollableOutputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code>const <span class="type">void</span> *buffer</code></em>,
-                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> size</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> count</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
 </pre>
@@ -80,12 +80,12 @@ GPollableOutputStream requires
 <a name="GPollableOutputStream.implementations"></a><h2>Known Implementations</h2>
 <p>
 GPollableOutputStream is implemented by
- <a class="link" href="GUnixOutputStream.html" title="GUnixOutputStream">GUnixOutputStream</a>.</p>
+ <a class="link" href="gio-GConverterOutputstream.html#GConverterOutputStream">GConverterOutputStream</a>,  <a class="link" href="GMemoryOutputStream.html" title="GMemoryOutputStream">GMemoryOutputStream</a> and  <a class="link" href="GUnixOutputStream.html" title="GUnixOutputStream">GUnixOutputStream</a>.</p>
 </div>
 <div class="refsect1">
 <a name="GPollableOutputStream.description"></a><h2>Description</h2>
 <p>
-<a class="link" href="GPollableOutputStream.html" title="GPollableOutputStream"><span class="type">GPollableOutputStream</span></a> is implemented by <a class="link" href="GOutputStream.html" title="GOutputStream"><span class="type">GOutputStream</span></a>s that
+<a class="link" href="GPollableOutputStream.html" title="GPollableOutputStream"><span class="type">GPollableOutputStream</span></a> is implemented by <a href="GOutputStream.html"><span class="type">GOutputStreams</span></a> that
 can be polled for readiness to write. This can be used when
 interfacing with a non-GIO API that expects
 UNIX-file-descriptor-style asynchronous I/O rather than GIO-style.
@@ -115,7 +115,7 @@ An interface for a <a class="link" href="GOutputStream.html" title="GOutputStrea
 				     GCancellable           *cancellable);
   gssize       (*write_nonblocking) (GPollableOutputStream  *stream,
 				     const void             *buffer,
-				     gsize                   size,
+				     gsize                   count,
 				     GError                **error);
 };
 </pre>
@@ -133,8 +133,11 @@ need to override it if it is possible that your <em class="parameter"><code>is_w
 implementation may return <a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> when the stream is not actually
 writable.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="./../gobject/gobject/gobject-Type-Information.html#GTypeInterface"><span class="type">GTypeInterface</span></a> <em class="structfield"><code><a name="GPollableOutputStreamInterface.g-iface"></a>g_iface</code></em>;</span></p></td>
@@ -176,8 +179,11 @@ of other <a class="link" href="GPollableOutputStream.html" title="GPollableOutpu
 For any given stream, the value returned by this method is constant;
 a stream cannot switch from pollable to non-pollable or vice versa.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -208,8 +214,11 @@ non-blocking behavior, you should always use
 <a class="link" href="GPollableOutputStream.html#g-pollable-output-stream-write-nonblocking" title="g_pollable_output_stream_write_nonblocking ()"><code class="function">g_pollable_output_stream_write_nonblocking()</code></a>, which will return a
 <a class="link" href="gio-GIOError.html#G-IO-ERROR-WOULD-BLOCK:CAPS"><code class="literal">G_IO_ERROR_WOULD_BLOCK</code></a> error rather than blocking.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -236,7 +245,7 @@ next attempt to write will return the error.</td>
 <p>
 Creates a <a href="./../glib/glib/glib-The-Main-Event-Loop.html#GSource"><span class="type">GSource</span></a> that triggers when <em class="parameter"><code>stream</code></em> can be written, or
 <em class="parameter"><code>cancellable</code></em> is triggered or an error occurs. The callback on the
-source is of the <a class="link" href="GPollableInputStream.html#GPollableSourceFunc" title="GPollableSourceFunc ()"><span class="type">GPollableSourceFunc</span></a> type.
+source is of the <a class="link" href="gio-gpollableutils.html#GPollableSourceFunc" title="GPollableSourceFunc ()"><span class="type">GPollableSourceFunc</span></a> type.
 </p>
 <p>
 As with <a class="link" href="GPollableOutputStream.html#g-pollable-output-stream-is-writable" title="g_pollable_output_stream_is_writable ()"><code class="function">g_pollable_output_stream_is_writable()</code></a>, it is possible that
@@ -244,8 +253,11 @@ the stream may not actually be writable even after the source
 triggers, so you should use <a class="link" href="GPollableOutputStream.html#g-pollable-output-stream-write-nonblocking" title="g_pollable_output_stream_write_nonblocking ()"><code class="function">g_pollable_output_stream_write_nonblocking()</code></a>
 rather than <a class="link" href="GOutputStream.html#g-output-stream-write" title="g_output_stream_write ()"><code class="function">g_output_stream_write()</code></a> from the callback.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -271,11 +283,11 @@ rather than <a class="link" href="GOutputStream.html#g-output-stream-write" titl
 <pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gssize"><span class="returnvalue">gssize</span></a>              g_pollable_output_stream_write_nonblocking
                                                         (<em class="parameter"><code><a class="link" href="GPollableOutputStream.html" title="GPollableOutputStream"><span class="type">GPollableOutputStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code>const <span class="type">void</span> *buffer</code></em>,
-                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> size</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> count</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCancellable.html" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
-Attempts to write up to <em class="parameter"><code>size</code></em> bytes from <em class="parameter"><code>buffer</code></em> to <em class="parameter"><code>stream</code></em>, as
+Attempts to write up to <em class="parameter"><code>count</code></em> bytes from <em class="parameter"><code>buffer</code></em> to <em class="parameter"><code>stream</code></em>, as
 with <a class="link" href="GOutputStream.html#g-output-stream-write" title="g_output_stream_write ()"><code class="function">g_output_stream_write()</code></a>. If <em class="parameter"><code>stream</code></em> is not currently writable,
 this will immediately return <a class="link" href="gio-GIOError.html#G-IO-ERROR-WOULD-BLOCK:CAPS"><code class="literal">G_IO_ERROR_WOULD_BLOCK</code></a>, and you can
 use <a class="link" href="GPollableOutputStream.html#g-pollable-output-stream-create-source" title="g_pollable_output_stream_create_source ()"><code class="function">g_pollable_output_stream_create_source()</code></a> to create a <a href="./../glib/glib/glib-The-Main-Event-Loop.html#GSource"><span class="type">GSource</span></a>
@@ -291,8 +303,11 @@ to having been cancelled.
 <p>
 Virtual: write_nonblocking
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -302,11 +317,11 @@ Virtual: write_nonblocking
 <tr>
 <td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
 <td>a buffer to write
-data from. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=size][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> guint8]</span>
+data from. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=count][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> guint8]</span>
 </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>size</code></em> :</span></p></td>
+<td><p><span class="term"><em class="parameter"><code>count</code></em> :</span></p></td>
 <td>the number of bytes you want to write</td>
 </tr>
 <tr>
@@ -335,6 +350,6 @@ data from. <span class="annotation">[<acronym title="Parameter points to an arra
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

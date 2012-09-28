@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GDBusObjectManagerServer</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="gdbus-convenience.html" title="Highlevel D-Bus Support">
 <link rel="prev" href="GDBusObjectManager.html" title="GDBusObjectManager">
 <link rel="next" href="GDBusObjectManagerClient.html" title="GDBusObjectManagerClient">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -58,6 +58,9 @@ struct              <a class="link" href="GDBusObjectManagerServer.html#GDBusObj
 <span class="returnvalue">void</span>                <a class="link" href="GDBusObjectManagerServer.html#g-dbus-object-manager-server-export" title="g_dbus_object_manager_server_export ()">g_dbus_object_manager_server_export</a> (<em class="parameter"><code><a class="link" href="GDBusObjectManagerServer.html" title="GDBusObjectManagerServer"><span class="type">GDBusObjectManagerServer</span></a> *manager</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GDBusObjectSkeleton.html" title="GDBusObjectSkeleton"><span class="type">GDBusObjectSkeleton</span></a> *object</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GDBusObjectManagerServer.html#g-dbus-object-manager-server-export-uniquely" title="g_dbus_object_manager_server_export_uniquely ()">g_dbus_object_manager_server_export_uniquely</a>
+                                                        (<em class="parameter"><code><a class="link" href="GDBusObjectManagerServer.html" title="GDBusObjectManagerServer"><span class="type">GDBusObjectManagerServer</span></a> *manager</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GDBusObjectSkeleton.html" title="GDBusObjectSkeleton"><span class="type">GDBusObjectSkeleton</span></a> *object</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GDBusObjectManagerServer.html#g-dbus-object-manager-server-is-exported" title="g_dbus_object_manager_server_is_exported ()">g_dbus_object_manager_server_is_exported</a>
                                                         (<em class="parameter"><code><a class="link" href="GDBusObjectManagerServer.html" title="GDBusObjectManagerServer"><span class="type">GDBusObjectManagerServer</span></a> *manager</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GDBusObjectSkeleton.html" title="GDBusObjectSkeleton"><span class="type">GDBusObjectSkeleton</span></a> *object</code></em>);
 <a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GDBusObjectManagerServer.html#g-dbus-object-manager-server-unexport" title="g_dbus_object_manager_server_unexport ()">g_dbus_object_manager_server_unexport</a>
@@ -124,8 +127,11 @@ only be accessed using the provided API.
 <p>
 Class structure for <a class="link" href="GDBusObjectManagerServer.html" title="GDBusObjectManagerServer"><span class="type">GDBusObjectManagerServer</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObjectClass"><span class="type">GObjectClass</span></a> <em class="structfield"><code><a name="GDBusObjectManagerServerClass.parent-class"></a>parent_class</code></em>;</span></p></td>
 <td>The parent class.</td>
@@ -147,8 +153,11 @@ use <a class="link" href="GDBusObjectManagerServer.html#g-dbus-object-manager-se
 want to export all of your objects before doing so to avoid <a class="ulink" href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-objectmanager" target="_top">InterfacesAdded</a>
 signals being emitted.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object_path</code></em> :</span></p></td>
@@ -170,8 +179,11 @@ signals being emitted.
 <p>
 Gets the <a class="link" href="GDBusConnection.html" title="GDBusConnection"><span class="type">GDBusConnection</span></a> used by <em class="parameter"><code>manager</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>manager</code></em> :</span></p></td>
@@ -199,8 +211,11 @@ be freed with <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#g-
 Exports all objects managed by <em class="parameter"><code>manager</code></em> on <em class="parameter"><code>connection</code></em>. If
 <em class="parameter"><code>connection</code></em> is <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, stops exporting objects.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>manager</code></em> :</span></p></td>
@@ -234,8 +249,11 @@ object path for <em class="parameter"><code>manager</code></em>.
 Note that <em class="parameter"><code>manager</code></em> will take a reference on <em class="parameter"><code>object</code></em> for as long as
 it is exported.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>manager</code></em> :</span></p></td>
@@ -262,8 +280,11 @@ the form <code class="literal">_N</code> (with N being a natural number) to
 already exists. As such, the <a class="link" href="GDBusObjectProxy.html#GDBusObjectProxy--g-object-path" title='The "g-object-path" property'><span class="type">"g-object-path"</span></a> property
 of <em class="parameter"><code>object</code></em> may be modified.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>manager</code></em> :</span></p></td>
@@ -279,6 +300,38 @@ of <em class="parameter"><code>object</code></em> may be modified.
 </div>
 <hr>
 <div class="refsect2">
+<a name="g-dbus-object-manager-server-is-exported"></a><h3>g_dbus_object_manager_server_is_exported ()</h3>
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_dbus_object_manager_server_is_exported
+                                                        (<em class="parameter"><code><a class="link" href="GDBusObjectManagerServer.html" title="GDBusObjectManagerServer"><span class="type">GDBusObjectManagerServer</span></a> *manager</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GDBusObjectSkeleton.html" title="GDBusObjectSkeleton"><span class="type">GDBusObjectSkeleton</span></a> *object</code></em>);</pre>
+<p>
+Returns whether <em class="parameter"><code>object</code></em> is currently exported on <em class="parameter"><code>manager</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>manager</code></em> :</span></p></td>
+<td>A <a class="link" href="GDBusObjectManagerServer.html" title="GDBusObjectManagerServer"><span class="type">GDBusObjectManagerServer</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>An object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>object</code></em> is exported</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.34</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="g-dbus-object-manager-server-unexport"></a><h3>g_dbus_object_manager_server_unexport ()</h3>
 <pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_dbus_object_manager_server_unexport
                                                         (<em class="parameter"><code><a class="link" href="GDBusObjectManagerServer.html" title="GDBusObjectManagerServer"><span class="type">GDBusObjectManagerServer</span></a> *manager</code></em>,
@@ -291,8 +344,11 @@ does nothing.
 Note that <em class="parameter"><code>object_path</code></em> must be in the hierarchy rooted by the
 object path for <em class="parameter"><code>manager</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>manager</code></em> :</span></p></td>
@@ -336,6 +392,6 @@ The object path to register the manager object at.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

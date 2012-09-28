@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Relations and Tuples</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="deprecated.html" title="Deprecated APIs">
 <link rel="prev" href="glib-Caches.html" title="Caches">
 <link rel="next" href="glib-Automatic-String-Completion.html" title="Automatic String Completion">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -149,8 +149,11 @@ only be accessed via the following functions.
 Creates a new <a class="link" href="glib-Relations-and-Tuples.html#GRelation" title="GRelation"><span class="type">GRelation</span></a> with the given number of fields. Note that
 currently the number of fields must be 2.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>fields</code></em> :</span></p></td>
@@ -178,8 +181,11 @@ currently the number of fields must be 2.
 Creates an index on the given field. Note that this must be called
 before any records are added to the <a class="link" href="glib-Relations-and-Tuples.html#GRelation" title="GRelation"><span class="type">GRelation</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>relation</code></em> :</span></p></td>
@@ -212,8 +218,11 @@ before any records are added to the <a class="link" href="glib-Relations-and-Tup
 <p>
 Inserts a record into a <a class="link" href="glib-Relations-and-Tuples.html#GRelation" title="GRelation"><span class="type">GRelation</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>relation</code></em> :</span></p></td>
@@ -242,8 +251,11 @@ Returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE">
 <a class="link" href="glib-Relations-and-Tuples.html#GRelation" title="GRelation"><span class="type">GRelation</span></a>. Note that the values are compared directly, so that, for
 example, two copies of the same string will not match.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>relation</code></em> :</span></p></td>
@@ -276,8 +288,11 @@ the number of fields in the <a class="link" href="glib-Relations-and-Tuples.html
 Returns the number of tuples in a <a class="link" href="glib-Relations-and-Tuples.html#GRelation" title="GRelation"><span class="type">GRelation</span></a> that have the given
 value in the given field.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>relation</code></em> :</span></p></td>
@@ -313,8 +328,11 @@ Returns all of the tuples which have the given key in the given
 field. Use <a class="link" href="glib-Relations-and-Tuples.html#g-tuples-index" title="g_tuples_index ()"><code class="function">g_tuples_index()</code></a> to access the returned records. The
 returned records should be freed with <a class="link" href="glib-Relations-and-Tuples.html#g-tuples-destroy" title="g_tuples_destroy ()"><code class="function">g_tuples_destroy()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>relation</code></em> :</span></p></td>
@@ -349,8 +367,11 @@ returned records should be freed with <a class="link" href="glib-Relations-and-T
 Deletes any records from a <a class="link" href="glib-Relations-and-Tuples.html#GRelation" title="GRelation"><span class="type">GRelation</span></a> that have the given key value
 in the given field.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>relation</code></em> :</span></p></td>
@@ -384,8 +405,11 @@ Destroys the <a class="link" href="glib-Relations-and-Tuples.html#GRelation" tit
 does not free memory allocated for the tuple data, so you should
 free that first if appropriate.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>relation</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Relations-and-Tuples.html#GRelation" title="GRelation"><span class="type">GRelation</span></a>.</td>
@@ -404,8 +428,11 @@ free that first if appropriate.
 Outputs information about all records in a <a class="link" href="glib-Relations-and-Tuples.html#GRelation" title="GRelation"><span class="type">GRelation</span></a>, as well as
 the indexes. It is for debugging.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>relation</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Relations-and-Tuples.html#GRelation" title="GRelation"><span class="type">GRelation</span></a>.</td>
@@ -425,8 +452,11 @@ The <a class="link" href="glib-Relations-and-Tuples.html#GTuples" title="struct 
 member - the number of records that matched. To access the matched
 records, you must use <a class="link" href="glib-Relations-and-Tuples.html#g-tuples-index" title="g_tuples_index ()"><code class="function">g_tuples_index()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GTuples.len"></a>len</code></em>;</span></p></td>
 <td>the number of records that matched.</td>
@@ -447,8 +477,11 @@ should always be called after <a class="link" href="glib-Relations-and-Tuples.ht
 finished with the records. The records are not removed from the
 <a class="link" href="glib-Relations-and-Tuples.html#GRelation" title="GRelation"><span class="type">GRelation</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>tuples</code></em> :</span></p></td>
 <td>the tuple data to free.</td>
@@ -470,8 +503,11 @@ Gets a field from the records returned by <a class="link" href="glib-Relations-a
 returns the given field of the record at the given index. The
 returned value should not be changed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>tuples</code></em> :</span></p></td>
@@ -496,6 +532,6 @@ returned value should not be changed.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

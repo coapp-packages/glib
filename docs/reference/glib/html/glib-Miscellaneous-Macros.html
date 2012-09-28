@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Miscellaneous Macros</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-fundamentals.html" title="GLib Fundamentals">
 <link rel="prev" href="glib-Numerical-Definitions.html" title="Numerical Definitions">
 <link rel="next" href="glib-Atomic-Operations.html" title="Atomic Operations">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -178,8 +178,11 @@ In order to use this function, you must include
 use <code class="function">memmove()</code> and GLib does not include <code class="filename">string.h</code>
 for you.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ap1</code></em> :</span></p></td>
@@ -237,8 +240,11 @@ is transformed by the preprocessor into (code equivalent to):
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>macro_or_string</code></em> :</span></p></td>
 <td>a macro or a string</td>
@@ -295,8 +301,11 @@ is transformed by the preprocessor into:
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>identifier1</code></em> :</span></p></td>
@@ -338,8 +347,11 @@ blocks of code.
 <p>
 The macro should only be used once per source code line.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>expr</code></em> :</span></p></td>
 <td>a constant expression</td>
@@ -381,8 +393,11 @@ the first argument of a comma expression.
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>expr</code></em> :</span></p></td>
 <td>a constant expression</td>
@@ -411,7 +426,13 @@ Expands to the GNU C <code class="literal">const</code> function attribute if
 the compiler is <span class="command"><strong>gcc</strong></span>. Declaring a function as const
 enables better optimization of calls to the function. A const function
 doesn't examine any values except its parameters, and has no effects
-except its return value. See the GNU C documentation for details.
+except its return value.
+</p>
+<p>
+Place the attribute after the declaration, just before the semicolon.
+</p>
+<p>
+See the GNU C documentation for more details.
 </p>
 <p>
 </p>
@@ -436,8 +457,13 @@ Expands to the GNU C <code class="literal">pure</code> function attribute if the
 compiler is <span class="command"><strong>gcc</strong></span>. Declaring a function as pure enables
 better optimization of calls to the function. A pure function has no
 effects except its return value and the return value depends only on
-the parameters and/or global variables. See the GNU C documentation
-for details.
+the parameters and/or global variables.
+</p>
+<p>
+Place the attribute after the declaration, just before the semicolon.
+</p>
+<p>
+See the GNU C documentation for more details.
 </p>
 </div>
 <hr>
@@ -450,7 +476,13 @@ compiler is <span class="command"><strong>gcc</strong></span>. Declaring a funct
 better optimization of the function. A function can have the malloc
 attribute if it returns a pointer which is guaranteed to not alias with
 any other pointer when the function returns (in practice, this means newly
-allocated memory). See the GNU C documentation for details.
+allocated memory).
+</p>
+<p>
+Place the attribute after the declaration, just before the semicolon.
+</p>
+<p>
+See the GNU C documentation for more details.
 </p>
 <p class="since">Since 2.6</p>
 </div>
@@ -464,10 +496,19 @@ Expands to the GNU C <code class="literal">alloc_size</code> function attribute
 if the compiler is a new enough <span class="command"><strong>gcc</strong></span>. This attribute
 tells the compiler that the function returns a pointer to memory of a
 size that is specified by the <em class="parameter"><code>x</code></em>th function parameter.
-See the GNU C documentation for details.
 </p>
-<div class="variablelist"><table border="0">
+<p>
+Place the attribute after the function declaration, just before the
+semicolon.
+</p>
+<p>
+See the GNU C documentation for more details.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
 <td>the index of the argument specifying the allocation size</td>
@@ -485,10 +526,19 @@ Expands to the GNU C <code class="literal">alloc_size</code> function attribute
 if the compiler is a new enough <span class="command"><strong>gcc</strong></span>. This attribute
 tells the compiler that the function returns a pointer to memory of a
 size that is specified by the product of two function parameters.
-See the GNU C documentation for details.
 </p>
-<div class="variablelist"><table border="0">
+<p>
+Place the attribute after the function declaration, just before the
+semicolon.
+</p>
+<p>
+See the GNU C documentation for more details.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
@@ -512,7 +562,12 @@ compiler is <span class="command"><strong>gcc</strong></span>. It can be used to
 variables and functions as deprecated. When called with the
 <code class="option">-Wdeprecated-declarations</code> option, the compiler will
 generate warnings when deprecated interfaces are used.
-See the GNU C documentation for details.
+</p>
+<p>
+Place the attribute after the declaration, just before the semicolon.
+</p>
+<p>
+See the GNU C documentation for more details.
 </p>
 <p class="since">Since 2.2</p>
 </div>
@@ -524,15 +579,23 @@ See the GNU C documentation for details.
 Like <a class="link" href="glib-Miscellaneous-Macros.html#G-GNUC-DEPRECATED:CAPS" title="G_GNUC_DEPRECATED"><code class="literal">G_GNUC_DEPRECATED</code></a>, but names the intended replacement for the
 deprecated symbol if the version of <span class="command"><strong>gcc</strong></span> in use is
 new enough to support custom deprecation messages.
-See the GNU C documentation for details.
+</p>
+<p>
+Place the attribute after the declaration, just before the semicolon.
+</p>
+<p>
+See the GNU C documentation for more details.
 </p>
 <p>
 Note that if <em class="parameter"><code>f</code></em> is a macro, it will be expanded in the warning message.
 You can enclose it in quotes to prevent this. (The quotes will show up
 in the warning, but it's better than showing the macro expansion.)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>f</code></em> :</span></p></td>
 <td>the intended replacement for the deprecated symbol,
@@ -587,8 +650,13 @@ but must appear on a line by itself.
 Expands to the GNU C <code class="literal">noreturn</code> function attribute
 if the compiler is <span class="command"><strong>gcc</strong></span>. It is used for declaring
 functions which never return. It enables optimization of the function,
-and avoids possible compiler warnings. See the GNU C documentation for
-details.
+and avoids possible compiler warnings.
+</p>
+<p>
+Place the attribute after the declaration, just before the semicolon.
+</p>
+<p>
+See the GNU C documentation for more details.
 </p>
 </div>
 <hr>
@@ -598,8 +666,33 @@ details.
 <p>
 Expands to the GNU C <code class="literal">unused</code> function attribute if
 the compiler is <span class="command"><strong>gcc</strong></span>. It is used for declaring
-functions which may never be used. It avoids possible compiler warnings.
-See the GNU C documentation for details.
+functions and arguments which may never be used. It avoids possible compiler
+warnings.
+</p>
+<p>
+For functions, place the attribute after the declaration, just before the
+semicolon. For arguments, place the attribute at the beginning of the
+argument declaration.
+</p>
+<p>
+</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="type">void</span><span class="normal"> </span><span class="function">my_unused_function</span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="glib-Miscellaneous-Macros.html#G-GNUC-UNUSED:CAPS">G_GNUC_UNUSED</a> </span><span class="usertype">gint</span><span class="normal"> unused_argument</span><span class="symbol">,</span>
+<span class="normal">                         </span><span class="usertype">gint</span><span class="normal"> other_argument</span><span class="symbol">)</span><span class="normal"> <a href="glib-Miscellaneous-Macros.html#G-GNUC-UNUSED:CAPS">G_GNUC_UNUSED</a></span><span class="symbol">;</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+</p>
+<p>
+See the GNU C documentation for more details.
 </p>
 </div>
 <hr>
@@ -611,7 +704,14 @@ Expands to the GNU C <code class="literal">format</code> function attribute
 if the compiler is <span class="command"><strong>gcc</strong></span>. This is used for declaring
 functions which take a variable number of arguments, with the same
 syntax as <code class="function">printf()</code>. It allows the compiler to type-check the arguments
-passed to the function. See the GNU C documentation for details.
+passed to the function.
+</p>
+<p>
+Place the attribute after the function declaration, just before the
+semicolon.
+</p>
+<p>
+See the GNU C documentation for more details.
 </p>
 <p>
 </p>
@@ -634,8 +734,11 @@ passed to the function. See the GNU C documentation for details.
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format_idx</code></em> :</span></p></td>
@@ -660,8 +763,11 @@ functions which take a variable number of arguments, with the same
 syntax as <code class="function">scanf()</code>. It allows the compiler to type-check the arguments
 passed to the function. See the GNU C documentation for details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format_idx</code></em> :</span></p></td>
@@ -687,7 +793,14 @@ specifies that a function takes a format string for a <code class="function">pri
 so that the result can be passed to a <code class="function">printf()</code>, <code class="function">scanf()</code>, <code class="function">strftime()</code>
 or <code class="function">strfmon()</code> style function (with the remaining arguments to the
 format function the same as they would have been for the unmodified
-string). See the GNU C documentation for details.
+string).
+</p>
+<p>
+Place the attribute after the function declaration, just after the
+semicolon.
+</p>
+<p>
+See the GNU C documentation for more details.
 </p>
 <p>
 </p>
@@ -704,8 +817,11 @@ string). See the GNU C documentation for details.
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>arg_idx</code></em> :</span></p></td>
 <td>the index of the argument</td>
@@ -722,7 +838,13 @@ Expands to the GNU C <code class="literal">sentinel</code> function attribute
 if the compiler is <span class="command"><strong>gcc</strong></span>, or "" if it isn't. This
 function attribute only applies to variadic functions and instructs
 the compiler to check that the argument list is terminated with an
-explicit <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. See the GNU C documentation for details.
+explicit <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
+</p>
+<p>
+Place the attribute after the declaration, just before the semicolon.
+</p>
+<p>
+See the GNU C documentation for more details.
 </p>
 <p class="since">Since 2.8</p>
 </div>
@@ -734,7 +856,13 @@ explicit <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"
 Expands to the GNU C <code class="literal">warn_unused_result</code> function
 attribute if the compiler is <span class="command"><strong>gcc</strong></span>, or "" if it isn't.
 This function attribute makes the compiler emit a warning if the result
-of a function call is ignored. See the GNU C documentation for details.
+of a function call is ignored.
+</p>
+<p>
+Place the attribute after the declaration, just before the semicolon.
+</p>
+<p>
+See the GNU C documentation for more details.
 </p>
 <p class="since">Since 2.10</p>
 </div>
@@ -777,7 +905,12 @@ Expands to the GNU C <code class="literal">no_instrument_function</code> functio
 attribute if the compiler is <span class="command"><strong>gcc</strong></span>. Functions with this
 attribute will not be instrumented for profiling, when the compiler is
 called with the <code class="option">-finstrument-functions</code> option.
-See the GNU C documentation for details.
+</p>
+<p>
+Place the attribute after the declaration, just before the semicolon.
+</p>
+<p>
+See the GNU C documentation for more details.
 </p>
 </div>
 <hr>
@@ -871,6 +1004,16 @@ functions declarations as deprecated. Unlike <a class="link" href="glib-Miscella
 meant to be portable across different compilers and must be placed
 before the function declaration.
 </p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>f</code></em> :</span></p></td>
+<td>the name of the function that this function was deprecated for</td>
+</tr></tbody>
+</table></div>
 <p class="since">Since 2.32</p>
 </div>
 <hr>
@@ -883,6 +1026,22 @@ This macro can be used to mark a function declaration as unavailable.
 It must be placed before the function declaration. Use of a function
 that has been annotated with this macros will produce a compiler warning.
 </p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>maj</code></em> :</span></p></td>
+<td>the major version that introduced the symbol</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>min</code></em> :</span></p></td>
+<td>the minor version that introduced the symbol</td>
+</tr>
+</tbody>
+</table></div>
 <p class="since">Since 2.32</p>
 </div>
 <hr>
@@ -911,8 +1070,11 @@ a true value. The compiler may use this information for optimizations.
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>expr</code></em> :</span></p></td>
@@ -953,8 +1115,11 @@ a true value. The compiler may use this information for optimizations.
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>expr</code></em> :</span></p></td>
@@ -992,6 +1157,6 @@ Expands to a string identifying the current function.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

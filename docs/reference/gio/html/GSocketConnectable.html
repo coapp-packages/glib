@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GSocketConnectable</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="resolver.html" title="DNS resolution">
 <link rel="prev" href="GProxyResolver.html" title="GProxyResolver">
 <link rel="next" href="GNetworkAddress.html" title="GNetworkAddress">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -260,8 +260,11 @@ Interface for objects that contain or generate <a class="link" href="GSocketAddr
 Provides an interface for returning a <a class="link" href="GSocketConnectable.html#GSocketAddressEnumerator"><span class="type">GSocketAddressEnumerator</span></a>
 and <a class="link" href="GSocketConnectable.html#GProxyAddressEnumerator"><span class="type">GProxyAddressEnumerator</span></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="./../gobject/gobject/gobject-Type-Information.html#GTypeInterface"><span class="type">GTypeInterface</span></a> <em class="structfield"><code><a name="GSocketConnectableIface.g-iface"></a>g_iface</code></em>;</span></p></td>
@@ -288,8 +291,11 @@ and <a class="link" href="GSocketConnectable.html#GProxyAddressEnumerator"><span
 <p>
 Creates a <a class="link" href="GSocketConnectable.html#GSocketAddressEnumerator"><span class="type">GSocketAddressEnumerator</span></a> for <em class="parameter"><code>connectable</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>connectable</code></em> :</span></p></td>
@@ -320,8 +326,11 @@ If <em class="parameter"><code>connectable</code></em> does not implement
 <a class="link" href="GSocketConnectable.html#g-socket-connectable-proxy-enumerate" title="g_socket_connectable_proxy_enumerate ()"><code class="function">g_socket_connectable_proxy_enumerate()</code></a>, this will fall back to
 calling <a class="link" href="GSocketConnectable.html#g-socket-connectable-enumerate" title="g_socket_connectable_enumerate ()"><code class="function">g_socket_connectable_enumerate()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>connectable</code></em> :</span></p></td>
@@ -368,8 +377,11 @@ in *<em class="parameter"><code>error</code></em>. However, if the first call to
 internal errors (other than <em class="parameter"><code>cancellable</code></em> being triggered) will be
 ignored.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>enumerator</code></em> :</span></p></td>
@@ -408,8 +420,11 @@ Asynchronously retrieves the next <a class="link" href="GSocketAddress.html" tit
 and then calls <em class="parameter"><code>callback</code></em>, which must call
 <a class="link" href="GSocketConnectable.html#g-socket-address-enumerator-next-finish" title="g_socket_address_enumerator_next_finish ()"><code class="function">g_socket_address_enumerator_next_finish()</code></a> to get the result.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>enumerator</code></em> :</span></p></td>
@@ -448,8 +463,11 @@ Retrieves the result of a completed call to
 <a class="link" href="GSocketConnectable.html#g-socket-address-enumerator-next" title="g_socket_address_enumerator_next ()"><code class="function">g_socket_address_enumerator_next()</code></a> for more information about
 error handling.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>enumerator</code></em> :</span></p></td>
@@ -505,6 +523,6 @@ directed by the default <a class="link" href="GProxyResolver.html" title="GProxy
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

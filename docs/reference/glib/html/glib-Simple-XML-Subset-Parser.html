@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Simple XML Subset Parser</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-regex-syntax.html" title="Regular expression syntax">
 <link rel="next" href="glib-Key-value-file-parser.html" title="Key-value file parser">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -101,13 +101,13 @@ time if the need arises.
 <p>
 GMarkup is not guaranteed to signal an error on all invalid XML;
 the parser may accept documents that an XML parser would not.
-However, XML documents which are not well-formed<sup>[<a name="wellformed" href="#ftn.wellformed" class="footnote">6</a>]</sup>
+However, XML documents which are not well-formed<a href="#ftn.wellformed" class="footnote"><sup class="footnote"><a name="wellformed"></a>[6]</sup></a>
 are not considered valid GMarkup documents.
 </p>
 <p>
 Simplifications to XML include:
 </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">Only UTF-8 encoding is allowed</li>
 <li class="listitem">No user-defined entities</li>
 <li class="listitem">Processing instructions, comments and the doctype declaration
@@ -119,7 +119,7 @@ are "passed through" but are not interpreted in any way</li>
 <p>
 The markup format does support:
 </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">Elements</li>
 <li class="listitem">Attributes</li>
 <li class="listitem">5 standard entities:
@@ -151,8 +151,11 @@ The markup format does support:
 <p>
 Error codes returned by markup parsing.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-MARKUP-ERROR-BAD-UTF8:CAPS"></a><span class="term"><code class="literal">G_MARKUP_ERROR_BAD_UTF8</code></span></p></td>
@@ -219,8 +222,11 @@ See <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError
 <p>
 Flags that affect the behaviour of the parser.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-MARKUP-DO-NOT-USE-THIS-UNSUPPORTED-FLAG:CAPS"></a><span class="term"><code class="literal">G_MARKUP_DO_NOT_USE_THIS_UNSUPPORTED_FLAG</code></span></p></td>
@@ -315,8 +321,11 @@ errors are intended to be set from these callbacks. If you set an error
 from a callback, <a class="link" href="glib-Simple-XML-Subset-Parser.html#g-markup-parse-context-parse" title="g_markup_parse_context_parse ()"><code class="function">g_markup_parse_context_parse()</code></a> will report that error
 back to its caller.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="structfield"><code><a name="GMarkupParser.start-element"></a>start_element</code></em> ()</span></p></td>
@@ -375,8 +384,11 @@ except for tabstop, newline and carriage return.  The character
 references in this range are not valid XML 1.0, but they are
 valid XML 1.1 and will be accepted by the GMarkup parser.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
@@ -437,8 +449,11 @@ might themselves contain markup.
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
@@ -467,8 +482,11 @@ Formats the data in <em class="parameter"><code>args</code></em> according to <e
 all string and character arguments in the fashion
 of <a class="link" href="glib-Simple-XML-Subset-Parser.html#g-markup-escape-text" title="g_markup_escape_text ()"><code class="function">g_markup_escape_text()</code></a>. See <a class="link" href="glib-Simple-XML-Subset-Parser.html#g-markup-printf-escaped" title="g_markup_printf_escaped ()"><code class="function">g_markup_printf_escaped()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
@@ -501,8 +519,11 @@ fed into the parse context with <a class="link" href="glib-Simple-XML-Subset-Par
 This function reports an error if the document isn't complete,
 for example if elements are still open.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -533,8 +554,11 @@ Frees a <a class="link" href="glib-Simple-XML-Subset-Parser.html#GMarkupParseCon
 This function can't be called from inside one of the
 <a class="link" href="glib-Simple-XML-Subset-Parser.html#GMarkupParser" title="struct GMarkupParser"><span class="type">GMarkupParser</span></a> functions or while a subparser is pushed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Simple-XML-Subset-Parser.html#GMarkupParseContext" title="GMarkupParseContext"><span class="type">GMarkupParseContext</span></a>
@@ -554,8 +578,11 @@ that line. Intended for use in error messages; there are no strict
 semantics for what constitutes the "current" line number other than
 "the best number we could come up with for error messages."
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -587,8 +614,11 @@ If called from the start_element or end_element handlers this will
 give the element_name as passed to those functions. For the parent
 elements, see <a class="link" href="glib-Simple-XML-Subset-Parser.html#g-markup-parse-context-get-element-stack" title="g_markup_parse_context_get_element_stack ()"><code class="function">g_markup_parse_context_get_element_stack()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -624,8 +654,11 @@ end_element handlers where <a class="link" href="glib-Simple-XML-Subset-Parser.h
 would merely return the name of the element that is being
 processed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -653,8 +686,11 @@ This will either be the user_data that was provided to
 <a class="link" href="glib-Simple-XML-Subset-Parser.html#g-markup-parse-context-new" title="g_markup_parse_context_new ()"><code class="function">g_markup_parse_context_new()</code></a> or to the most recent call
 of <a class="link" href="glib-Simple-XML-Subset-Parser.html#g-markup-parse-context-push" title="g_markup_parse_context_push ()"><code class="function">g_markup_parse_context_push()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -685,8 +721,11 @@ a context, as long as no errors occur; once an error occurs,
 the parse context can't continue to parse text (you have to
 free it and create a new parse context).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>parser</code></em> :</span></p></td>
@@ -735,8 +774,11 @@ function, aborting the process if an error occurs. Once an error
 is reported, no further data may be fed to the <a class="link" href="glib-Simple-XML-Subset-Parser.html#GMarkupParseContext" title="GMarkupParseContext"><span class="type">GMarkupParseContext</span></a>;
 all errors are fatal.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -994,8 +1036,11 @@ The subparser would then be used as follows:
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -1036,8 +1081,11 @@ interested in invoking subparsers. Instead, it is intended to
 be used by the subparsers themselves to implement a higher-level
 interface.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -1075,8 +1123,11 @@ bitwise OR the type with the flag <a class="link" href="glib-Simple-XML-Subset-P
 It is likely that this enum will be extended in the future to
 support other types.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-MARKUP-COLLECT-INVALID:CAPS"></a><span class="term"><code class="literal">G_MARKUP_COLLECT_INVALID</code></span></p></td>
@@ -1177,8 +1228,11 @@ as parse errors for boolean-valued attributes (again of type
 <a class="link" href="glib-Simple-XML-Subset-Parser.html#G-MARKUP-ERROR-INVALID-CONTENT:CAPS"><code class="literal">G_MARKUP_ERROR_INVALID_CONTENT</code></a>). In all of these cases <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a>
 will be returned and <em class="parameter"><code>error</code></em> will be set as appropriate.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>element_name</code></em> :</span></p></td>
@@ -1228,13 +1282,13 @@ with <a class="link" href="glib-Simple-XML-Subset-Parser.html#G-MARKUP-COLLECT-I
     Specification</a>
 </div>
 <div class="footnotes">
-<br><hr width="100" align="left">
-<div class="footnote"><a class="ulink" href="http://www.w3.org/TR/REC-xml/" target="_top"><sup>[<a name="ftn.wellformed" href="#wellformed" class="ulink">6</a>] </sup>XML
+<br><hr style="width:100; align:left;">
+<div id="ftn.wellformed" class="footnote"><a class="ulink" href="http://www.w3.org/TR/REC-xml/" target="_top"><a href="#wellformed" class="ulink"><sup>[6] </sup></a>XML
 specification</a></div>
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

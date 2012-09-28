@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Internationalization</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-Data-HMACs.html" title="Secure HMAC Digests">
 <link rel="next" href="glib-Date-and-Time-Functions.html" title="Date and Time Functions">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -116,8 +116,11 @@ with xgettext.
 Marks a string for translation, gets replaced with the translated string
 at runtime.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>String</code></em> :</span></p></td>
 <td>the string to be translated</td>
@@ -158,8 +161,11 @@ string off into a msgctxt line in the po file.</p>
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>String</code></em> :</span></p></td>
@@ -210,8 +216,11 @@ gettext &gt;= 0.15.</p>
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>Context</code></em> :</span></p></td>
@@ -276,8 +285,11 @@ at runtime.
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>String</code></em> :</span></p></td>
 <td>the string to be translated</td>
@@ -348,8 +360,11 @@ Intltool has support for the <a class="link" href="glib-I18N.html#NC-:CAPS" titl
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>Context</code></em> :</span></p></td>
@@ -387,7 +402,7 @@ precede any <a class="link" href="glib-I18N.html#g-dgettext" title="g_dgettext (
 This function disables translations if and only if upon its first
 call all the following conditions hold:
 </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
 <em class="parameter"><code>domain</code></em> is not <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
 </li>
@@ -409,8 +424,11 @@ cases the application should call <code class="function">textdomain()</code> aft
 Applications should normally not use this function directly,
 but use the <a class="link" href="glib-I18N.html#gettext-macro" title="_()"><code class="function">_()</code></a> macro for translations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>domain</code></em> :</span></p></td>
@@ -442,8 +460,11 @@ category instead of always using <code class="envar">LC_MESSAGES</code>. See <a 
 more information about how this functions differs from calling
 <code class="function">dcgettext()</code> directly.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>domain</code></em> :</span></p></td>
@@ -483,8 +504,11 @@ translations for the current locale.
 See <a class="link" href="glib-I18N.html#g-dgettext" title="g_dgettext ()"><code class="function">g_dgettext()</code></a> for details of how this differs from <code class="function">dngettext()</code>
 proper.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>domain</code></em> :</span></p></td>
@@ -535,8 +559,11 @@ with <code class="function">dgettext()</code> proper.
 Applications should normally not use this function directly,
 but use the <a class="link" href="glib-I18N.html#C-:CAPS" title="C_()"><code class="function">C_()</code></a> macro for translations with context.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>domain</code></em> :</span></p></td>
@@ -582,8 +609,11 @@ with <code class="function">dgettext()</code> proper.
 This function differs from <a class="link" href="glib-I18N.html#C-:CAPS" title="C_()"><code class="function">C_()</code></a> in that it is not a macro and
 thus you may use non-string-literals as context and msgid arguments.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>domain</code></em> :</span></p></td>
@@ -615,8 +645,11 @@ the domain set with <code class="function">textdomain()</code>. <span class="ann
 <p>
 An auxiliary function for <code class="function">gettext()</code> support (see <a class="link" href="glib-I18N.html#Q-:CAPS" title="Q_()"><code class="function">Q_()</code></a>).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>msgid</code></em> :</span></p></td>
@@ -656,8 +689,11 @@ This function consults the environment variables <code class="envar">LANGUAGE</c
 <code class="envar">LC_ALL</code>, <code class="envar">LC_MESSAGES</code> and <code class="envar">LANG</code>
 to find the list of locales specified by the user.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated array of strings owned by GLib
@@ -685,8 +721,11 @@ is "fr_BE", "fr".
 If you need the list of variants for the <span class="emphasis"><em>current locale</em></span>,
 use <a class="link" href="glib-I18N.html#g-get-language-names" title="g_get_language_names ()"><code class="function">g_get_language_names()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>locale</code></em> :</span></p></td>
@@ -711,6 +750,6 @@ the gettext manual
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

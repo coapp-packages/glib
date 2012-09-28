@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GApplicationCommandLine</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="application.html" title="Application support">
 <link rel="prev" href="GApplication.html" title="GApplication">
 <link rel="next" href="GActionGroup.html" title="GActionGroup">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -94,7 +94,7 @@ commandline to this process).
 The GApplicationCommandLine object can provide the <em class="parameter"><code>argc</code></em> and <em class="parameter"><code>argv</code></em>
 parameters for use with the <a href="./../glib/glib/glib-Commandline-option-parser.html#GOptionContext"><span class="type">GOptionContext</span></a> command-line parsing API,
 with the <a class="link" href="GApplicationCommandLine.html#g-application-command-line-get-arguments" title="g_application_command_line_get_arguments ()"><code class="function">g_application_command_line_get_arguments()</code></a> function. See
-<a class="xref" href="GApplicationCommandLine.html#gapplication-example-cmdline3" title="Example 19. Deferred commandline handling">Example 19, “Deferred commandline handling”</a> for an example.
+<a class="xref" href="GApplicationCommandLine.html#gapplication-example-cmdline3" title="Example 20. Deferred commandline handling">Example 20, “Deferred commandline handling”</a> for an example.
 </p>
 <p>
 The exit status of the originally-invoked process may be set and
@@ -116,7 +116,7 @@ does not return until the editing is done.
 <p>
 </p>
 <div class="example">
-<a name="gapplication-example-cmdline"></a><p class="title"><b>Example 17. Handling commandline arguments with GApplication</b></p>
+<a name="gapplication-example-cmdline"></a><p class="title"><b>Example 18. Handling commandline arguments with GApplication</b></p>
 <div class="example-contents">
 <p>
 A simple example where the commandline is completely handled
@@ -178,7 +178,7 @@ main (int argc, char **argv)
 <p>
 </p>
 <div class="example">
-<a name="gapplication-example-cmdline2"></a><p class="title"><b>Example 18. Split commandline handling</b></p>
+<a name="gapplication-example-cmdline2"></a><p class="title"><b>Example 19. Split commandline handling</b></p>
 <div class="example-contents">
 <p>
 An example of split commandline handling. Options that start with
@@ -304,7 +304,7 @@ main (int argc, char **argv)
 <p>
 </p>
 <div class="example">
-<a name="gapplication-example-cmdline3"></a><p class="title"><b>Example 19. Deferred commandline handling</b></p>
+<a name="gapplication-example-cmdline3"></a><p class="title"><b>Example 20. Deferred commandline handling</b></p>
 <div class="example-contents">
 <p>
 An example of deferred commandline handling. Here, the commandline is
@@ -469,8 +469,11 @@ The strings in the array may contain non-utf8 data.
 The return value is <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated and should be freed using
 <a href="./../glib/glib/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmdline</code></em> :</span></p></td>
@@ -508,8 +511,11 @@ directory, so this may be <a href="./../glib/glib/glib-Standard-Macros.html#NULL
 The return value should not be modified or freed and is valid for as
 long as <em class="parameter"><code>cmdline</code></em> exists.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmdline</code></em> :</span></p></td>
@@ -550,8 +556,11 @@ long as <em class="parameter"><code>cmdline</code></em> exists.
 See <a class="link" href="GApplicationCommandLine.html#g-application-command-line-getenv" title="g_application_command_line_getenv ()"><code class="function">g_application_command_line_getenv()</code></a> if you are only interested
 in the value of a single environment variable.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmdline</code></em> :</span></p></td>
@@ -588,8 +597,11 @@ to invocation messages from other applications).
 The return value should not be modified or freed and is valid for as
 long as <em class="parameter"><code>cmdline</code></em> exists.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmdline</code></em> :</span></p></td>
@@ -616,8 +628,11 @@ long as <em class="parameter"><code>cmdline</code></em> exists.
 <p>
 Determines if <em class="parameter"><code>cmdline</code></em> represents a remote invocation.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmdline</code></em> :</span></p></td>
@@ -650,8 +665,11 @@ notification ID.
 <p>
 For local invocation, it will be <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmdline</code></em> :</span></p></td>
@@ -698,8 +716,11 @@ have been 'successful' in a certain sense, and the exit status is
 always zero.  If the application use count is zero, though, the exit
 status of the local <a class="link" href="GApplicationCommandLine.html" title="GApplicationCommandLine"><span class="type">GApplicationCommandLine</span></a> is used.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmdline</code></em> :</span></p></td>
@@ -723,8 +744,11 @@ status of the local <a class="link" href="GApplicationCommandLine.html" title="G
 Gets the exit status of <em class="parameter"><code>cmdline</code></em>.  See
 <a class="link" href="GApplicationCommandLine.html#g-application-command-line-set-exit-status" title="g_application_command_line_set_exit_status ()"><code class="function">g_application_command_line_set_exit_status()</code></a> for more information.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmdline</code></em> :</span></p></td>
@@ -754,8 +778,11 @@ If <em class="parameter"><code>cmdline</code></em> is a local invocation then th
 <a href="./../glib/glib/glib-Warnings-and-Assertions.html#g-print"><code class="function">g_print()</code></a>.  If <em class="parameter"><code>cmdline</code></em> is remote then this is equivalent to calling
 <a href="./../glib/glib/glib-Warnings-and-Assertions.html#g-print"><code class="function">g_print()</code></a> in the invoking process.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmdline</code></em> :</span></p></td>
@@ -790,8 +817,11 @@ If <em class="parameter"><code>cmdline</code></em> is a local invocation then th
 <a href="./../glib/glib/glib-Warnings-and-Assertions.html#g-printerr"><code class="function">g_printerr()</code></a>.  If <em class="parameter"><code>cmdline</code></em> is remote then this is equivalent to
 calling <a href="./../glib/glib/glib-Warnings-and-Assertions.html#g-printerr"><code class="function">g_printerr()</code></a> in the invoking process.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmdline</code></em> :</span></p></td>
@@ -819,6 +849,6 @@ calling <a href="./../glib/glib/glib-Warnings-and-Assertions.html#g-printerr"><c
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

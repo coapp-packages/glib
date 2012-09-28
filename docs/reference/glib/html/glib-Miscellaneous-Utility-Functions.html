@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Miscellaneous Utility Functions</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-Hook-Functions.html" title="Hook Functions">
 <link rel="next" href="glib-Lexical-Scanner.html" title="Lexical Scanner">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -145,8 +145,11 @@ possible, and is intended for display to the user.  Contrast with
 <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-prgname" title="g_get_prgname ()"><code class="function">g_get_prgname()</code></a> (which may be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> if <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-set-prgname" title="g_set_prgname ()"><code class="function">g_set_prgname()</code></a> has also not
 been called).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>human-readable application name. may return <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
@@ -163,7 +166,7 @@ been called).
 Sets a human-readable name for the application. This name should be
 localized if possible, and is intended for display to the user.
 Contrast with <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-set-prgname" title="g_set_prgname ()"><code class="function">g_set_prgname()</code></a>, which sets a non-localized name.
-<a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-set-prgname" title="g_set_prgname ()"><code class="function">g_set_prgname()</code></a> will be called automatically by <a href="http://developer.gnome.org/devel/gtk/gtk3-General.html#gtk-init"><code class="function">gtk_init()</code></a>,
+<a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-set-prgname" title="g_set_prgname ()"><code class="function">g_set_prgname()</code></a> will be called automatically by <a href="http://library.gnome.org/devel/gtk3/gtk-General.html#gtk-init"><code class="function">gtk_init()</code></a>,
 but <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-set-application-name" title="g_set_application_name ()"><code class="function">g_set_application_name()</code></a> will not.
 </p>
 <p>
@@ -174,8 +177,11 @@ be called once.
 The application name will be used in contexts such as error messages,
 or when displaying an application's name in the task list.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>application_name</code></em> :</span></p></td>
 <td>localized name of the application</td>
@@ -190,12 +196,15 @@ or when displaying an application's name in the task list.
 <p>
 Gets the name of the program. This name should <span class="emphasis"><em>not</em></span> 
 be localized, contrast with <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-application-name" title="g_get_application_name ()"><code class="function">g_get_application_name()</code></a>.
-(If you are using GDK or GTK+ the program name is set in <a href="http://developer.gnome.org/devel/gdk/gdk3-General.html#gdk-init"><code class="function">gdk_init()</code></a>, 
-which is called by <a href="http://developer.gnome.org/devel/gtk/gtk3-General.html#gtk-init"><code class="function">gtk_init()</code></a>. The program name is found by taking 
+(If you are using GDK or GTK+ the program name is set in <a href="http://library.gnome.org/devel/gdk3/gdk-General.html#gdk-init"><code class="function">gdk_init()</code></a>, 
+which is called by <a href="http://library.gnome.org/devel/gtk3/gtk-General.html#gtk-init"><code class="function">gtk_init()</code></a>. The program name is found by taking 
 the last component of <code class="literal">argv[0]</code>.)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the name of the program. The returned string belongs
@@ -212,8 +221,11 @@ Sets the name of the program. This name should <span class="emphasis"><em>not</e
 be localized, contrast with <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-set-application-name" title="g_set_application_name ()"><code class="function">g_set_application_name()</code></a>. Note that for 
 thread-safety reasons this function can only be called once.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>prgname</code></em> :</span></p></td>
 <td>the name of the program.</td>
@@ -239,8 +251,11 @@ except portable.
 The return value is freshly allocated and it should be freed with
 <a class="link" href="glib-String-Utility-Functions.html#g-strfreev" title="g_strfreev ()"><code class="function">g_strfreev()</code></a> when it is no longer needed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the list of
@@ -267,13 +282,17 @@ it is in UTF-8. On Windows, in case the environment variable's
 value contains references to other environment variables, they
 are expanded.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>envp</code></em> :</span></p></td>
 <td>an environment
-list (eg, as returned from <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-environ" title="g_get_environ ()"><code class="function">g_get_environ()</code></a>). <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+list (eg, as returned from <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-environ" title="g_get_environ ()"><code class="function">g_get_environ()</code></a>), or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+for an empty environment list. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -308,13 +327,17 @@ Both the variable's name and value should be in the GLib
 file name encoding. On UNIX, this means that they can be
 arbitrary byte strings. On Windows, they should be in UTF-8.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>envp</code></em> :</span></p></td>
 <td>an environment
-list that can be freed using <a class="link" href="glib-String-Utility-Functions.html#g-strfreev" title="g_strfreev ()"><code class="function">g_strfreev()</code></a> (e.g., as returned from <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-environ" title="g_get_environ ()"><code class="function">g_get_environ()</code></a>). <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+list that can be freed using <a class="link" href="glib-String-Utility-Functions.html#g-strfreev" title="g_strfreev ()"><code class="function">g_strfreev()</code></a> (e.g., as returned from <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-environ" title="g_get_environ ()"><code class="function">g_get_environ()</code></a>), or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+for an empty environment list. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -348,13 +371,17 @@ updated environment list. Free it using <a class="link" href="glib-String-Utilit
 Removes the environment variable <em class="parameter"><code>variable</code></em> from the provided
 environment <em class="parameter"><code>envp</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>envp</code></em> :</span></p></td>
 <td>an environment
-list that can be freed using <a class="link" href="glib-String-Utility-Functions.html#g-strfreev" title="g_strfreev ()"><code class="function">g_strfreev()</code></a> (e.g., as returned from <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-environ" title="g_get_environ ()"><code class="function">g_get_environ()</code></a>). <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+list that can be freed using <a class="link" href="glib-String-Utility-Functions.html#g-strfreev" title="g_strfreev ()"><code class="function">g_strfreev()</code></a> (e.g., as returned from <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-environ" title="g_get_environ ()"><code class="function">g_get_environ()</code></a>),
+or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> for an empty environment list. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -385,8 +412,11 @@ consistent character set and encoding. On Windows, it is in UTF-8.
 On Windows, in case the environment variable's value contains
 references to other environment variables, they are expanded.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>variable</code></em> :</span></p></td>
@@ -441,8 +471,11 @@ array directly to <code class="function">execvpe()</code>, <a class="link" href=
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>variable</code></em> :</span></p></td>
@@ -498,8 +531,11 @@ array directly to <code class="function">execvpe()</code>, <a class="link" href=
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>variable</code></em> :</span></p></td>
 <td>the environment variable to remove, must not contain '='</td>
@@ -522,8 +558,11 @@ array are in system codepage encoding, while in most of the typical
 use cases for environment variables in GLib-using programs you want
 the UTF-8 encoding that this function and <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-getenv" title="g_getenv ()"><code class="function">g_getenv()</code></a> provide.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated
@@ -543,8 +582,11 @@ string is system-defined. On UNIX, it might be the preferred file name
 encoding, or something else, and there is no guarantee that it is even
 consistent on a machine. On Windows, it is always UTF-8.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the user name of the current user.</td>
@@ -562,8 +604,11 @@ string is system-defined. (On Windows, it is, however, always UTF-8.)
 If the real user name cannot be determined, the string "Unknown" is 
 returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the user's real name.</td>
@@ -590,8 +635,11 @@ temporary Internet files. A typical path is
 C:\Documents and Settings\username\Local Settings\Temporary Internet Files.
 See documentation for CSIDL_INTERNET_CACHE.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a string owned by GLib that must not be modified
@@ -620,8 +668,11 @@ roaming) application data. See documentation for
 CSIDL_LOCAL_APPDATA. Note that on Windows it thus is the same as
 what <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-user-config-dir" title="g_get_user_config_dir ()"><code class="function">g_get_user_config_dir()</code></a> returns.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a string owned by GLib that must not be modified
@@ -650,8 +701,11 @@ roaming) application data. See documentation for
 CSIDL_LOCAL_APPDATA. Note that on Windows it thus is the same as
 what <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-user-data-dir" title="g_get_user_data_dir ()"><code class="function">g_get_user_data_dir()</code></a> returns.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a string owned by GLib that must not be modified
@@ -682,8 +736,11 @@ roaming) application data. See documentation for
 CSIDL_LOCAL_APPDATA.  Note that on Windows it thus is the same as
 what <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-user-config-dir" title="g_get_user_config_dir ()"><code class="function">g_get_user_config_dir()</code></a> returns.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a string owned by GLib that must not be modified or freed.</td>
@@ -717,8 +774,11 @@ The <a class="link" href="glib-Miscellaneous-Utility-Functions.html#GUserDirecto
 every platform has a directory for every logical id in this
 enumeration.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-USER-DIRECTORY-DESKTOP:CAPS"></a><span class="term"><code class="literal">G_USER_DIRECTORY_DESKTOP</code></span></p></td>
@@ -787,8 +847,11 @@ Depending on the platform, the user might be able to change the path
 of the special directory without requiring the session to restart; GLib
 will not reflect any change once the special directories are loaded.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>directory</code></em> :</span></p></td>
@@ -845,8 +908,11 @@ itself.
 Note that on Windows the returned list can vary depending on where
 this function is called.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated array of strings owned by GLib that must
@@ -878,8 +944,11 @@ For example, an application can store a spell-check dictionary, a database
 of clip art, or a log file in the CSIDL_COMMON_APPDATA folder.
 This information will not roam and is available to anyone using the computer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated array of strings owned by GLib that must
@@ -925,8 +994,11 @@ string is owned by GLib and should not be modified or freed. If no
 name can be determined, a default fixed string "localhost" is
 returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the host name of the machine.</td>
@@ -981,8 +1053,11 @@ want to pay attention to <code class="envar">HOME</code>, they can do:
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the current user's home directory</td>
@@ -1001,8 +1076,11 @@ of those are defined "/tmp" is returned on UNIX and "C:\" on Windows.
 The encoding of the returned string is system-defined. On Windows, 
 it is always UTF-8. The return value is never <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> or the empty string.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the directory to use for temporary files.</td>
@@ -1021,8 +1099,11 @@ The returned string should be freed when no longer needed.
 The encoding of the returned string is system defined.
 On Windows, it is always UTF-8.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the current directory</td>
@@ -1045,8 +1126,11 @@ Gets the name of the file without any leading directory
 components. It returns a pointer into the given file name
 string.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>file_name</code></em> :</span></p></td>
@@ -1075,8 +1159,11 @@ Gets the directory components of a file name.
 If the file name has no directory components "." is returned.
 The returned string should be freed when no longer needed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>file_name</code></em> :</span></p></td>
@@ -1123,8 +1210,11 @@ directory as returned by <code class="function">getcwd()</code> or <a class="lin
 either. Such paths should be avoided, or need to be handled using
 Windows-specific code.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>file_name</code></em> :</span></p></td>
@@ -1147,8 +1237,11 @@ Returns a pointer into <em class="parameter"><code>file_name</code></em> after t
 i.e. after the "/" in UNIX or "C:\" under Windows. If <em class="parameter"><code>file_name</code></em>
 is not an absolute path it returns <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>file_name</code></em> :</span></p></td>
@@ -1174,8 +1267,11 @@ before the last slash. If <em class="parameter"><code>file_name</code></em> cons
 separators (and on Windows, possibly a drive letter), a single
 separator is returned. If <em class="parameter"><code>file_name</code></em> is empty, it gets ".".
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>file_name</code></em> :</span></p></td>
@@ -1200,8 +1296,11 @@ Gets the directory components of a file name.
 If the file name has no directory components "." is returned.
 The returned string should be freed when no longer needed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>file_name</code></em> :</span></p></td>
@@ -1240,8 +1339,11 @@ No attempt is made to force the resulting filename to be an absolute
 path. If the first element is a relative path, the result will
 be a relative path.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>first_element</code></em> :</span></p></td>
@@ -1268,8 +1370,11 @@ Behaves exactly like <a class="link" href="glib-Miscellaneous-Utility-Functions.
 as a string array, instead of varargs. This function is mainly
 meant for language bindings.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>args</code></em> :</span></p></td>
@@ -1325,8 +1430,11 @@ Other than for determination of the number of leading and trailing
 copies of the separator, elements consisting only of copies
 of the separator are ignored.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>separator</code></em> :</span></p></td>
@@ -1358,8 +1466,11 @@ Behaves exactly like <a class="link" href="glib-Miscellaneous-Utility-Functions.
 as a string array, instead of varargs. This function is mainly
 meant for language bindings.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>separator</code></em> :</span></p></td>
@@ -1399,8 +1510,11 @@ This string should be freed with <a class="link" href="glib-Memory-Allocation.ht
 See <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-format-size-full" title="g_format_size_full ()"><code class="function">g_format_size_full()</code></a> for more options about how the size might be
 formatted.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>size</code></em> :</span></p></td>
@@ -1427,8 +1541,11 @@ file size</td>
 <p>
 Flags to modify the format of the string returned by <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-format-size-full" title="g_format_size_full ()"><code class="function">g_format_size_full()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-FORMAT-SIZE-DEFAULT:CAPS"></a><span class="term"><code class="literal">G_FORMAT_SIZE_DEFAULT</code></span></p></td>
@@ -1464,8 +1581,11 @@ Formats a size.
 This function is similar to <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-format-size" title="g_format_size ()"><code class="function">g_format_size()</code></a> but allows for flags
 that modify the output. See <a class="link" href="glib-Miscellaneous-Utility-Functions.html#GFormatSizeFlags" title="enum GFormatSizeFlags"><span class="type">GFormatSizeFlags</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>size</code></em> :</span></p></td>
@@ -1507,8 +1627,11 @@ The prefix units base is 1024 (i.e. 1 KB is 1024 bytes).
 <p>
 This string should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> when not needed any longer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>size</code></em> :</span></p></td>
@@ -1547,8 +1670,11 @@ finally in the directories in the <code class="envar">PATH</code> environment
 variable. If the program is found, the return value contains the 
 full name including the type suffix.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>program</code></em> :</span></p></td>
@@ -1556,7 +1682,7 @@ full name including the type suffix.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>absolute path, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>a newly-allocated string with the absolute path, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
 </td>
 </tr>
 </tbody>
@@ -1573,8 +1699,11 @@ from (but not including) <em class="parameter"><code>nth_bit</code></em> upwards
 from 0 (least significant) to sizeof(<a class="link" href="glib-Basic-Types.html#gulong" title="gulong"><span class="type">gulong</span></a>) * 8 - 1 (31 or 63,
 usually). To start searching from the 0th bit, set <em class="parameter"><code>nth_bit</code></em> to -1.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mask</code></em> :</span></p></td>
@@ -1604,8 +1733,11 @@ from 0 (least significant) to sizeof(<a class="link" href="glib-Basic-Types.html
 usually). To start searching from the last bit, set <em class="parameter"><code>nth_bit</code></em> to
 -1 or GLIB_SIZEOF_LONG * 8.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mask</code></em> :</span></p></td>
@@ -1631,8 +1763,11 @@ usually). To start searching from the last bit, set <em class="parameter"><code>
 Gets the number of bits used to hold <em class="parameter"><code>number</code></em>,
 e.g. if <em class="parameter"><code>number</code></em> is 4, 3 bits are needed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>number</code></em> :</span></p></td>
@@ -1660,8 +1795,11 @@ size of a <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTa
 The built-in array of primes ranges from 11 to 13845163 such that
 each prime is approximately 1.5-2 times the previous prime.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>num</code></em> :</span></p></td>
@@ -1723,8 +1861,11 @@ As can be seen from the above, for portability it's best to avoid
 calling <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-atexit" title="g_atexit ()"><code class="function">g_atexit()</code></a> (or <code class="function">atexit()</code>) except in the main executable of a
 program.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
 <td>the function to call on normal program termination. <span class="annotation">[<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>]</span>
@@ -1754,8 +1895,11 @@ except those corresponding to <code class="code">"foo"</code> and <code class="c
 If <em class="parameter"><code>string</code></em> is equal to <code class="code">"help"</code>, all the available keys in <em class="parameter"><code>keys</code></em>
 are printed out to standard error.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -1792,8 +1936,11 @@ strings with bit flags. <span class="annotation">[<acronym title="Parameter poin
 Associates a string with a bit flag.
 Used in <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-parse-debug-string" title="g_parse_debug_string ()"><code class="function">g_parse_debug_string()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GDebugKey.key"></a>key</code></em>;</span></p></td>
@@ -1829,8 +1976,11 @@ Declares a type of function which takes an arbitrary
 data pointer argument and has no return value. It is
 not currently used in GLib or GTK+.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
 <td>a data pointer</td>
@@ -1852,8 +2002,11 @@ the comparison routine accepts a user data argument.
 <p>
 This is guaranteed to be a stable sort since version 2.32.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>pbase</code></em> :</span></p></td>
@@ -1886,8 +2039,11 @@ This is guaranteed to be a stable sort since version 2.32.
 <p>
 Set the pointer at the specified location to <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>nullify_location</code></em> :</span></p></td>
 <td>the memory address of the pointer.</td>
@@ -1898,6 +2054,6 @@ Set the pointer at the specified location to <a class="link" href="glib-Standard
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

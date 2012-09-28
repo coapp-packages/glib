@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>D-Bus Utilities</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="gdbus-lowlevel.html" title="Lowlevel D-Bus Support">
 <link rel="prev" href="gdbus-lowlevel.html" title="Lowlevel D-Bus Support">
 <link rel="next" href="gio-D-Bus-Addresses.html" title="D-Bus Addresses">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -71,8 +71,11 @@ e.g. <a class="link" href="GDBusConnection.html#g-dbus-connection-new" title="g_
 See the D-Bus specification regarding what strings are valid D-Bus
 GUID (for example, D-Bus GUIDs are not RFC-4122 compliant).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>A valid D-Bus GUID. Free with <a href="./../glib/glib/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>.</td>
@@ -91,8 +94,11 @@ Checks if <em class="parameter"><code>string</code></em> is a D-Bus GUID.
 See the D-Bus specification regarding what strings are valid D-Bus
 GUID (for example, D-Bus GUIDs are not RFC-4122 compliant).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -114,8 +120,11 @@ GUID (for example, D-Bus GUIDs are not RFC-4122 compliant).
 <p>
 Checks if <em class="parameter"><code>string</code></em> is a valid D-Bus bus name (either unique or well-known).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -137,8 +146,11 @@ Checks if <em class="parameter"><code>string</code></em> is a valid D-Bus bus na
 <p>
 Checks if <em class="parameter"><code>string</code></em> is a valid D-Bus unique bus name.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -160,8 +172,11 @@ Checks if <em class="parameter"><code>string</code></em> is a valid D-Bus unique
 <p>
 Checks if <em class="parameter"><code>string</code></em> is a valid D-Bus member (e.g. signal or method) name.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -183,8 +198,11 @@ Checks if <em class="parameter"><code>string</code></em> is a valid D-Bus member
 <p>
 Checks if <em class="parameter"><code>string</code></em> is a valid D-Bus interface name.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -211,7 +229,7 @@ Converts a <a href="./../gobject/gobject/gobject-Generic-values.html#GValue"><sp
 The conversion is using the following rules:
 </p>
 <div class="table">
-<a name="id863625"></a><p class="title"><b>Table 4. <a href="./../gobject/gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> / <a href="./../glib/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> conversion rules</b></p>
+<a name="idp48675712"></a><p class="title"><b>Table 4. <a href="./../gobject/gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> / <a href="./../glib/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> conversion rules</b></p>
 <div class="table-contents"><table summary="GValue / GVariant conversion rules" border="1">
 <colgroup>
 <col>
@@ -291,8 +309,11 @@ types, the empty array for any array type and so on).
 See the <a class="link" href="gio-D-Bus-Utilities.html#g-dbus-gvariant-to-gvalue" title="g_dbus_gvariant_to_gvalue ()"><code class="function">g_dbus_gvariant_to_gvalue()</code></a> function for how to convert a
 <a href="./../glib/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> to a <a href="./../gobject/gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>gvalue</code></em> :</span></p></td>
@@ -328,8 +349,11 @@ used - this function is essentially its reverse form.
 The conversion never fails - a valid <a href="./../gobject/gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> is always returned in
 <em class="parameter"><code>out_gvalue</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -337,7 +361,8 @@ The conversion never fails - a valid <a href="./../gobject/gobject/gobject-Gener
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>out_gvalue</code></em> :</span></p></td>
-<td>Return location pointing to a zero-filled (uninitialized) <a href="./../gobject/gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a>.</td>
+<td>Return location pointing to a zero-filled (uninitialized) <a href="./../gobject/gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -347,6 +372,6 @@ The conversion never fails - a valid <a href="./../gobject/gobject/gobject-Gener
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GAction</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="application.html" title="Application support">
 <link rel="prev" href="GSimpleActionGroup.html" title="GSimpleActionGroup">
 <link rel="next" href="GSimpleAction.html" title="GSimpleAction">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -116,7 +116,7 @@ range.
 <p>
 <a class="link" href="GAction.html" title="GAction"><span class="type">GAction</span></a> is merely the interface to the concept of an action, as
 described above.  Various implementations of actions exist, including
-<a class="link" href="GSimpleAction.html" title="GSimpleAction"><span class="type">GSimpleAction</span></a> and <a href="http://developer.gnome.org/devel/gtk/GtkAction.html"><span class="type">GtkAction</span></a>.
+<a class="link" href="GSimpleAction.html" title="GSimpleAction"><span class="type">GSimpleAction</span></a> and <a href="http://library.gnome.org/devel/gtk3/GtkAction.html"><span class="type">GtkAction</span></a>.
 </p>
 <p>
 In all cases, the implementing class is responsible for storing the
@@ -161,8 +161,11 @@ inside of a <a class="link" href="GSimpleActionGroup.html" title="GSimpleActionG
 <p>
 The virtual function table for <a class="link" href="GAction.html" title="GAction"><span class="type">GAction</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="./../gobject/gobject/gobject-Type-Information.html#GTypeInterface"><span class="type">GTypeInterface</span></a> <em class="structfield"><code><a name="GActionInterface.g-iface"></a>g_iface</code></em>;</span></p></td>
@@ -219,8 +222,11 @@ The virtual function table for <a class="link" href="GAction.html" title="GActio
 <p>
 Queries the name of <em class="parameter"><code>action</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action</code></em> :</span></p></td>
@@ -251,8 +257,11 @@ given to that function must be of the type returned by this function.
 In the case that this function returns <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, you must not give any
 <a href="./../glib/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a>, but <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> instead.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action</code></em> :</span></p></td>
@@ -288,8 +297,11 @@ If the action is not stateful (e.g. created with <a class="link" href="GSimpleAc
 then this function will return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. In that case, <a class="link" href="GAction.html#g-action-get-state" title="g_action_get_state ()"><code class="function">g_action_get_state()</code></a>
 will return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> and you must not call <a class="link" href="GAction.html#g-action-change-state" title="g_action_change_state ()"><code class="function">g_action_change_state()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action</code></em> :</span></p></td>
@@ -333,8 +345,11 @@ within the range may fail.
 The return value (if non-<a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>) should be freed with
 <a href="./../glib/glib/glib-GVariant.html#g-variant-unref"><code class="function">g_variant_unref()</code></a> when it is no longer required.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action</code></em> :</span></p></td>
@@ -361,8 +376,11 @@ Checks if <em class="parameter"><code>action</code></em> is currently enabled.
 An action must be enabled in order to be activated or in order to
 have its state changed from outside callers.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action</code></em> :</span></p></td>
@@ -393,8 +411,11 @@ given by <a class="link" href="GAction.html#g-action-get-state-type" title="g_ac
 The return value (if non-<a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>) should be freed with
 <a href="./../glib/glib/glib-GVariant.html#g-variant-unref"><code class="function">g_variant_unref()</code></a> when it is no longer required.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action</code></em> :</span></p></td>
@@ -430,8 +451,11 @@ See <a class="link" href="GAction.html#g-action-get-state-hint" title="g_action_
 <p>
 If the <em class="parameter"><code>value</code></em> GVariant is floating, it is consumed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action</code></em> :</span></p></td>
@@ -459,8 +483,11 @@ Activates the action.
 the parameter type given at construction time).  If the parameter
 type was <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> then <em class="parameter"><code>parameter</code></em> must also be <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>action</code></em> :</span></p></td>
@@ -538,6 +565,6 @@ action is stateless.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

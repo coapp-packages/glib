@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GPermission</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="permissions.html" title="Permissions">
 <link rel="prev" href="permissions.html" title="Permissions">
 <link rel="next" href="GSimplePermission.html" title="GSimplePermission">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -132,8 +132,11 @@ Gets the value of the 'allowed' property.  This property is <a href="./../glib/g
 the caller currently has permission to perform the action that
 <em class="parameter"><code>permission</code></em> represents the permission to perform.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>permission</code></em> :</span></p></td>
@@ -156,8 +159,11 @@ Gets the value of the 'can-acquire' property.  This property is <a href="./../gl
 if it is generally possible to acquire the permission by calling
 <a class="link" href="GPermission.html#g-permission-acquire" title="g_permission_acquire ()"><code class="function">g_permission_acquire()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>permission</code></em> :</span></p></td>
@@ -180,8 +186,11 @@ Gets the value of the 'can-release' property.  This property is <a href="./../gl
 if it is generally possible to release the permission by calling
 <a class="link" href="GPermission.html#g-permission-release" title="g_permission_release ()"><code class="function">g_permission_release()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>permission</code></em> :</span></p></td>
@@ -222,8 +231,11 @@ This call is blocking, likely for a very long time (in the case that
 user interaction is required).  See <a class="link" href="GPermission.html#g-permission-acquire-async" title="g_permission_acquire_async ()"><code class="function">g_permission_acquire_async()</code></a> for
 the non-blocking version.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>permission</code></em> :</span></p></td>
@@ -262,8 +274,11 @@ Attempts to acquire the permission represented by <em class="parameter"><code>pe
 This is the first half of the asynchronous version of
 <a class="link" href="GPermission.html#g-permission-acquire" title="g_permission_acquire ()"><code class="function">g_permission_acquire()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>permission</code></em> :</span></p></td>
@@ -301,8 +316,11 @@ represented by <em class="parameter"><code>permission</code></em>.
 This is the second half of the asynchronous version of
 <a class="link" href="GPermission.html#g-permission-acquire" title="g_permission_acquire ()"><code class="function">g_permission_acquire()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>permission</code></em> :</span></p></td>
@@ -354,8 +372,11 @@ This call is blocking, likely for a very long time (in the case that
 user interaction is required).  See <a class="link" href="GPermission.html#g-permission-release-async" title="g_permission_release_async ()"><code class="function">g_permission_release_async()</code></a> for
 the non-blocking version.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>permission</code></em> :</span></p></td>
@@ -394,8 +415,11 @@ Attempts to release the permission represented by <em class="parameter"><code>pe
 This is the first half of the asynchronous version of
 <a class="link" href="GPermission.html#g-permission-release" title="g_permission_release ()"><code class="function">g_permission_release()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>permission</code></em> :</span></p></td>
@@ -433,8 +457,11 @@ represented by <em class="parameter"><code>permission</code></em>.
 This is the second half of the asynchronous version of
 <a class="link" href="GPermission.html#g-permission-release" title="g_permission_release ()"><code class="function">g_permission_release()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>permission</code></em> :</span></p></td>
@@ -474,8 +501,11 @@ function except from a <a class="link" href="GPermission.html" title="GPermissio
 <p>
 GObject notify signals are generated, as appropriate.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>permission</code></em> :</span></p></td>
@@ -533,6 +563,6 @@ GObject notify signals are generated, as appropriate.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

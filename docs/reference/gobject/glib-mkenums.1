@@ -1,13 +1,13 @@
 '\" t
 .\"     Title: glib-mkenums
-.\"    Author: [FIXME: author] [see http://docbook.sf.net/el/author]
-.\" Generator: DocBook XSL Stylesheets v1.76.1 <http://docbook.sf.net/>
-.\"      Date: 05/14/2012
+.\"    Author: Owen Taylor
+.\" Generator: DocBook XSL Stylesheets v1.77.1 <http://docbook.sf.net/>
+.\"      Date: 09/23/2012
 .\"    Manual: User Commands
-.\"    Source: User Commands
+.\"    Source: GObject
 .\"  Language: English
 .\"
-.TH "GLIB\-MKENUMS" "1" "05/14/2012" "User Commands" "User Commands"
+.TH "GLIB\-MKENUMS" "1" "" "GObject" "User Commands"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -31,118 +31,14 @@
 glib-mkenums \- C language enum description generation utility
 .SH "SYNOPSIS"
 .HP \w'\fBglib\-mkenums\fR\ 'u
-\fBglib\-mkenums\fR [options...] [files...]
+\fBglib\-mkenums\fR [OPTION...] [FILE...]
 .SH "DESCRIPTION"
 .PP
 \fBglib\-mkenums\fR
 is a small perl\-script utility that parses C code to extract enum definitions and produces enum descriptions based on text templates specified by the user\&. Most frequently this script is used to produce C code that contains enum values as strings so programs can provide value name strings for introspection\&.
-.SH "INVOCATION"
 .PP
 \fBglib\-mkenums\fR
 takes a list of valid C code files as input\&. The options specified control the text that is output, certain substitutions are performed on the text templates for keywords enclosed in @ characters\&.
-.SS "Options"
-.PP
-\fB\-\-fhead\fR \fItext\fR
-.RS 4
-Put out
-\fItext\fR
-prior to processing input files\&.
-.RE
-.PP
-\fB\-\-fprod\fR \fItext\fR
-.RS 4
-Put out
-\fItext\fR
-everytime a new input file is being processed\&.
-.RE
-.PP
-\fB\-\-ftail\fR \fItext\fR
-.RS 4
-Put out
-\fItext\fR
-after all input files have been processed\&.
-.RE
-.PP
-\fB\-\-eprod\fR \fItext\fR
-.RS 4
-Put out
-\fItext\fR
-everytime an enum is encountered in the input files\&.
-.RE
-.PP
-\fB\-\-vhead\fR \fItext\fR
-.RS 4
-Put out
-\fItext\fR
-before iterating over the set of values of an enum\&.
-.RE
-.PP
-\fB\-\-vprod\fR \fItext\fR
-.RS 4
-Put out
-\fItext\fR
-for every value of an enum\&.
-.RE
-.PP
-\fB\-\-vtail\fR \fItext\fR
-.RS 4
-Put out
-\fItext\fR
-after iterating over all values of an enum\&.
-.RE
-.PP
-\fB\-\-comments\fR \fItext\fR
-.RS 4
-Template for auto\-generated comments, the default (for C code generations) is
-"/* @comment@ */"\&.
-.RE
-.PP
-\fB\-\-template\fR \fIfile\fR
-.RS 4
-Read templates from the given file\&. The templates are enclosed in specially\-formatted C comments
-.sp
-.if n \{\
-.RS 4
-.\}
-.nf
-/*** BEGIN section ***/
-/*** END section ***/
-.fi
-.if n \{\
-.RE
-.\}
-.sp
-where section may be
-file\-header,
-file\-production,
-file\-tail,
-enumeration\-production,
-value\-header,
-value\-production,
-value\-tail
-or
-comment\&.
-.RE
-.PP
-\fB\-\-identifier\-prefix\fR \fIprefix\fR
-.RS 4
-Indicates what portion of the enum name should be intepreted as the prefix (eg, the "Gtk" in "GtkDirectionType")\&. Normally this will be figured out automatically, but you may need to override the default if your namespace is capitalized oddly\&.
-.RE
-.PP
-\fB\-\-symbol\-prefix\fR \fIprefix\fR
-.RS 4
-Indicates what prefix should be used to correspond to the identifier prefix in related C function names (eg, the "gtk" in "gtk_direction_type_get_type"\&. Equivalently, this is the lowercase version of the prefix component of the enum value names (eg, the "GTK" in "GTK_DIR_UP"\&. The default value is the identifier prefix, converted to lowercase\&.
-.RE
-.PP
-\fB\-\-help\fR
-.RS 4
-Print brief help and exit\&.
-.RE
-.PP
-\fB\-\-version\fR
-.RS 4
-Print version and exit\&.
-.RE
 .SS "Production text substitutions"
 .PP
 Certain keywords enclosed in @ characters will be substituted in the emitted text\&. For the substitution examples of the keywords below, the following example enum definition is assumed:
@@ -259,6 +155,109 @@ typedef enum /*< flags,prefix=PREFIX >*/
 .RE
 .\}
 .sp
+.SH "OPTIONS"
+.PP
+\fB\-\-fhead\fR \fITEXT\fR
+.RS 4
+Put out
+\fITEXT\fR
+prior to processing input files\&.
+.RE
+.PP
+\fB\-\-fprod\fR \fITEXT\fR
+.RS 4
+Put out
+\fITEXT\fR
+everytime a new input file is being processed\&.
+.RE
+.PP
+\fB\-\-ftail\fR \fITEXT\fR
+.RS 4
+Put out
+\fITEXT\fR
+after all input files have been processed\&.
+.RE
+.PP
+\fB\-\-eprod\fR \fITEXT\fR
+.RS 4
+Put out
+\fITEXT\fR
+everytime an enum is encountered in the input files\&.
+.RE
+.PP
+\fB\-\-vhead\fR \fITEXT\fR
+.RS 4
+Put out
+\fITEXT\fR
+before iterating over the set of values of an enum\&.
+.RE
+.PP
+\fB\-\-vprod\fR \fITEXT\fR
+.RS 4
+Put out
+\fITEXT\fR
+for every value of an enum\&.
+.RE
+.PP
+\fB\-\-vtail\fR \fITEXT\fR
+.RS 4
+Put out
+\fITEXT\fR
+after iterating over all values of an enum\&.
+.RE
+.PP
+\fB\-\-comments\fR \fITEXT\fR
+.RS 4
+Template for auto\-generated comments, the default (for C code generations) is
+"/* @comment@ */"\&.
+.RE
+.PP
+\fB\-\-template\fR \fIFILE\fR
+.RS 4
+Read templates from the given file\&. The templates are enclosed in specially\-formatted C comments
+.sp
+.if n \{\
+.RS 4
+.\}
+.nf
+/*** BEGIN section ***/
+/*** END section ***/
+.fi
+.if n \{\
+.RE
+.\}
+.sp
+where section may be
+file\-header,
+file\-production,
+file\-tail,
+enumeration\-production,
+value\-header,
+value\-production,
+value\-tail
+or
+comment\&.
+.RE
+.PP
+\fB\-\-identifier\-prefix\fR \fIPREFIX\fR
+.RS 4
+Indicates what portion of the enum name should be intepreted as the prefix (eg, the "Gtk" in "GtkDirectionType")\&. Normally this will be figured out automatically, but you may need to override the default if your namespace is capitalized oddly\&.
+.RE
+.PP
+\fB\-\-symbol\-prefix\fR \fIPREFIX\fR
+.RS 4
+Indicates what prefix should be used to correspond to the identifier prefix in related C function names (eg, the "gtk" in "gtk_direction_type_get_type"\&. Equivalently, this is the lowercase version of the prefix component of the enum value names (eg, the "GTK" in "GTK_DIR_UP"\&. The default value is the identifier prefix, converted to lowercase\&.
+.RE
+.PP
+\fB\-\-help\fR
+.RS 4
+Print brief help and exit\&.
+.RE
+.PP
+\fB\-\-version\fR
+.RS 4
+Print version and exit\&.
+.RE
 .SH "SEE ALSO"
 .PP
 

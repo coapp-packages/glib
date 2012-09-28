@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Signals</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GObject Reference Manual">
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="gobject-Varargs-Value-Collection.html" title="Varargs Value Collection">
 <link rel="next" href="gobject-Closures.html" title="Closures">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -47,6 +47,7 @@ struct              <a class="link" href="gobject-Signals.html#GSignalInvocation
                                                          <em class="parameter"><code>const <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> *handler_return</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);
 typedef             <a class="link" href="gobject-Signals.html#GSignalCMarshaller" title="GSignalCMarshaller">GSignalCMarshaller</a>;
+typedef             <a class="link" href="gobject-Signals.html#GSignalCVaMarshaller" title="GSignalCVaMarshaller">GSignalCVaMarshaller</a>;
 <a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            (<a class="link" href="gobject-Signals.html#GSignalEmissionHook" title="GSignalEmissionHook ()">*GSignalEmissionHook</a>)              (<em class="parameter"><code><a class="link" href="gobject-Signals.html#GSignalInvocationHint" title="struct GSignalInvocationHint"><span class="type">GSignalInvocationHint</span></a> *ihint</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_param_values</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> *param_values</code></em>,
@@ -87,6 +88,9 @@ struct              <a class="link" href="gobject-Signals.html#GSignalQuery" tit
                                                          <em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> return_type</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_params</code></em>,
                                                          <em class="parameter"><code><span class="type">va_list</span> args</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gobject-Signals.html#g-signal-set-va-marshaller" title="g_signal_set_va_marshaller ()">g_signal_set_va_marshaller</a>          (<em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> signal_id</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> instance_type</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gobject-Signals.html#GSignalCVaMarshaller" title="GSignalCVaMarshaller"><span class="type">GSignalCVaMarshaller</span></a> va_marshaller</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gobject-Signals.html#g-signal-query" title="g_signal_query ()">g_signal_query</a>                      (<em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> signal_id</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gobject-Signals.html#GSignalQuery" title="struct GSignalQuery"><span class="type">GSignalQuery</span></a> *query</code></em>);
 <a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="gobject-Signals.html#g-signal-lookup" title="g_signal_lookup ()">g_signal_lookup</a>                     (<em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
@@ -256,7 +260,7 @@ basically they are a per-type facility that is inherited.  A signal
 emission mainly involves invocation of a certain set of callbacks
 in precisely defined manner. There are two main categories of such
 callbacks, per-object 
-<sup>[<a name="id670905" href="#ftn.id670905" class="footnote">10</a>]</sup>
+<a href="#ftn.idp21478384" class="footnote"><sup class="footnote"><a name="idp21478384"></a>[10]</sup></a>
 ones and user provided ones.
 The per-object callbacks are most often referred to as "object method
 handler" or "default (signal) handler", while user provided callbacks are
@@ -269,8 +273,11 @@ signal on certain object instances.
 <p>
 A signal emission consists of five stages, unless prematurely stopped:
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"></span></p></td>
@@ -338,8 +345,11 @@ wildcard and matches any detail argument passed in to emission.
 The <a class="link" href="gobject-Signals.html#GSignalInvocationHint" title="struct GSignalInvocationHint"><span class="type">GSignalInvocationHint</span></a> structure is used to pass on additional information
 to callbacks during a signal emission.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GSignalInvocationHint.signal-id"></a>signal_id</code></em>;</span></p></td>
@@ -373,8 +383,11 @@ creation time, if it is left <a href="./../glib/glib/glib-Standard-Macros.html#N
 values is performed. The return value of signal emissions is then the
 value returned by the last callback.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ihint</code></em> :</span></p></td>
@@ -417,6 +430,17 @@ signal system.
 </div>
 <hr>
 <div class="refsect2">
+<a name="GSignalCVaMarshaller"></a><h3>GSignalCVaMarshaller</h3>
+<pre class="programlisting">typedef GVaClosureMarshal		 GSignalCVaMarshaller;
+</pre>
+<p>
+This is the signature of va_list marshaller functions, an optional
+marshaller that can be used in some situations to avoid
+marshalling the signal argument into GValues.
+</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="GSignalEmissionHook"></a><h3>GSignalEmissionHook ()</h3>
 <pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            (*GSignalEmissionHook)              (<em class="parameter"><code><a class="link" href="gobject-Signals.html#GSignalInvocationHint" title="struct GSignalInvocationHint"><span class="type">GSignalInvocationHint</span></a> *ihint</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_param_values</code></em>,
@@ -430,8 +454,11 @@ emissions of that signal, from any object.
 <p>
 You may not attach these to signals created with the <a class="link" href="gobject-Signals.html#G-SIGNAL-NO-HOOKS:CAPS"><span class="type">G_SIGNAL_NO_HOOKS</span></a> flag.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ihint</code></em> :</span></p></td>
@@ -480,8 +507,11 @@ The signal flags are used to specify a signal's behaviour, the overall
 signal description outlines how especially the RUN flags control the
 stages of a signal emission.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-SIGNAL-RUN-FIRST:CAPS"></a><span class="term"><code class="literal">G_SIGNAL_RUN_FIRST</code></span></p></td>
@@ -559,8 +589,11 @@ The match types specify what <a class="link" href="gobject-Signals.html#g-signal
 <a class="link" href="gobject-Signals.html#g-signal-handlers-unblock-matched" title="g_signal_handlers_unblock_matched ()"><code class="function">g_signal_handlers_unblock_matched()</code></a> and <a class="link" href="gobject-Signals.html#g-signal-handlers-disconnect-matched" title="g_signal_handlers_disconnect_matched ()"><code class="function">g_signal_handlers_disconnect_matched()</code></a>
 match signals by.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-SIGNAL-MATCH-ID:CAPS"></a><span class="term"><code class="literal">G_SIGNAL_MATCH_ID</code></span></p></td>
@@ -612,8 +645,11 @@ match signals by.
 A structure holding in-depth information for a specific signal. It is
 filled in by the <a class="link" href="gobject-Signals.html#g-signal-query" title="g_signal_query ()"><code class="function">g_signal_query()</code></a> function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GSignalQuery.signal-id"></a>signal_id</code></em>;</span></p></td>
@@ -684,7 +720,7 @@ of <a class="link" href="gobject-Signals.html#g-signal-new" title="g_signal_new 
         <td class="listing_code"><pre class="programlisting"><span class="function"><a href="gobject-Signals.html#g-signal-new">g_signal_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"size_request"</span><span class="symbol">,</span>
 <span class="normal">  </span><span class="function"><a href="gobject-Type-Information.html#G-TYPE-FROM-CLASS:CAPS">G_TYPE_FROM_CLASS</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">gobject_class</span><span class="symbol">),</span>
 <span class="normal">     <a href="gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">G_SIGNAL_RUN_FIRST</a></span><span class="symbol">,</span>
-<span class="normal">     </span><span class="function"><a href="./../glib/glib/glib-Standard-Macros.html#G-STRUCT-OFFSET:CAPS">G_STRUCT_OFFSET</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="http://developer.gnome.org/devel/gtk/GtkWidget.html#GtkWidgetClass">GtkWidgetClass</a></span><span class="symbol">,</span><span class="normal"> size_request</span><span class="symbol">),</span>
+<span class="normal">     </span><span class="function"><a href="./../glib/glib/glib-Standard-Macros.html#G-STRUCT-OFFSET:CAPS">G_STRUCT_OFFSET</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="http://library.gnome.org/devel/gtk3/GtkWidget.html#GtkWidgetClass">GtkWidgetClass</a></span><span class="symbol">,</span><span class="normal"> size_request</span><span class="symbol">),</span>
 <span class="normal">     <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span>
 <span class="normal">     _gtk_marshal_VOID__BOXED</span><span class="symbol">,</span>
 <span class="normal">     <a href="gobject-Type-Information.html#G-TYPE-NONE:CAPS">G_TYPE_NONE</a></span><span class="symbol">,</span><span class="normal"> </span><span class="number">1</span><span class="symbol">,</span>
@@ -751,8 +787,11 @@ will have to use <a class="link" href="gobject-Signals.html#g-signal-override-cl
 If c_marshaller is <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, <a class="link" href="gobject-Closures.html#g-cclosure-marshal-generic" title="g_cclosure_marshal_generic ()"><code class="function">g_cclosure_marshal_generic()</code></a> will be used as
 the marshaller for this signal.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>signal_name</code></em> :</span></p></td>
@@ -832,8 +871,11 @@ See <a class="link" href="gobject-Signals.html#g-signal-new" title="g_signal_new
 If c_marshaller is <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> <em class="parameter"><code>g_cclosure_marshal_generic</code></em> will be used as
 the marshaller for this signal.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>signal_name</code></em> :</span></p></td>
@@ -920,8 +962,11 @@ See <a class="link" href="gobject-Signals.html#g-signal-new" title="g_signal_new
 If c_marshaller is <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, <a class="link" href="gobject-Closures.html#g-cclosure-marshal-generic" title="g_cclosure_marshal_generic ()"><code class="function">g_cclosure_marshal_generic()</code></a> will be used as
 the marshaller for this signal.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>signal_name</code></em> :</span></p></td>
@@ -978,6 +1023,13 @@ without a return value.</td>
 </div>
 <hr>
 <div class="refsect2">
+<a name="g-signal-set-va-marshaller"></a><h3>g_signal_set_va_marshaller ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_signal_set_va_marshaller          (<em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> signal_id</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> instance_type</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gobject-Signals.html#GSignalCVaMarshaller" title="GSignalCVaMarshaller"><span class="type">GSignalCVaMarshaller</span></a> va_marshaller</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
 <a name="g-signal-query"></a><h3>g_signal_query ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_signal_query                      (<em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> signal_id</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gobject-Signals.html#GSignalQuery" title="struct GSignalQuery"><span class="type">GSignalQuery</span></a> *query</code></em>);</pre>
@@ -989,8 +1041,11 @@ signal id is passed in, the <em class="parameter"><code>signal_id</code></em> me
 is 0. All members filled into the <a class="link" href="gobject-Signals.html#GSignalQuery" title="struct GSignalQuery"><span class="type">GSignalQuery</span></a> structure should
 be considered constant and have to be left untouched.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>signal_id</code></em> :</span></p></td>
@@ -999,7 +1054,7 @@ be considered constant and have to be left untouched.
 <tr>
 <td><p><span class="term"><em class="parameter"><code>query</code></em> :</span></p></td>
 <td>A user provided structure that is
-filled in with constant values upon success. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym> caller-allocates]</span>
+filled in with constant values upon success. <span class="annotation">[<acronym title="Out parameter, where caller must allocate storage."><span class="acronym">out caller-allocates</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1021,8 +1076,11 @@ Also tries the ancestors of the given type.
 <p>
 See <a class="link" href="gobject-Signals.html#g-signal-new" title="g_signal_new ()"><code class="function">g_signal_new()</code></a> for details on allowed signal names.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -1049,8 +1107,11 @@ Given the signal's identifier, finds its name.
 <p>
 Two different signals may have the same name, if they have differing types.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>signal_id</code></em> :</span></p></td>
@@ -1073,8 +1134,11 @@ Lists the signals by id that a certain instance or interface type
 created. Further information about the signals can be acquired through
 <a class="link" href="gobject-Signals.html#g-signal-query" title="g_signal_query ()"><code class="function">g_signal_query()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>itype</code></em> :</span></p></td>
@@ -1106,8 +1170,11 @@ Emits a signal.
 Note that <a class="link" href="gobject-Signals.html#g-signal-emit" title="g_signal_emit ()"><code class="function">g_signal_emit()</code></a> resets the return value to the default
 if no handlers are connected, in contrast to <a class="link" href="gobject-Signals.html#g-signal-emitv" title="g_signal_emitv ()"><code class="function">g_signal_emitv()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1143,8 +1210,11 @@ Emits a signal.
 Note that <a class="link" href="gobject-Signals.html#g-signal-emit-by-name" title="g_signal_emit_by_name ()"><code class="function">g_signal_emit_by_name()</code></a> resets the return value to the default
 if no handlers are connected, in contrast to <a class="link" href="gobject-Signals.html#g-signal-emitv" title="g_signal_emitv ()"><code class="function">g_signal_emitv()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1177,8 +1247,11 @@ Emits a signal.
 Note that <a class="link" href="gobject-Signals.html#g-signal-emitv" title="g_signal_emitv ()"><code class="function">g_signal_emitv()</code></a> doesn't change <em class="parameter"><code>return_value</code></em> if no handlers are
 connected, in contrast to <a class="link" href="gobject-Signals.html#g-signal-emit" title="g_signal_emit ()"><code class="function">g_signal_emit()</code></a> and <a class="link" href="gobject-Signals.html#g-signal-emit-valist" title="g_signal_emit_valist ()"><code class="function">g_signal_emit_valist()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance_and_params</code></em> :</span></p></td>
@@ -1216,8 +1289,11 @@ Emits a signal.
 Note that <a class="link" href="gobject-Signals.html#g-signal-emit-valist" title="g_signal_emit_valist ()"><code class="function">g_signal_emit_valist()</code></a> resets the return value to the default
 if no handlers are connected, in contrast to <a class="link" href="gobject-Signals.html#g-signal-emitv" title="g_signal_emitv ()"><code class="function">g_signal_emitv()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1250,8 +1326,11 @@ Connects a <a class="link" href="gobject-Closures.html#GCallback" title="GCallba
 <p>
 The handler will be called before the default handler of the signal.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1286,8 +1365,11 @@ Connects a <a class="link" href="gobject-Closures.html#GCallback" title="GCallba
 <p>
 The handler will be called after the default handler of the signal.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1323,8 +1405,11 @@ Connects a <a class="link" href="gobject-Closures.html#GCallback" title="GCallba
 The instance on which the signal is emitted and <em class="parameter"><code>data</code></em> will be swapped when 
 calling the handler.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1394,8 +1479,11 @@ that the signal handler is still connected before disconnected it:
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1436,8 +1524,11 @@ that the signal handler is still connected before disconnected it:
 The connection flags are used to specify the behaviour of a signal's 
 connection.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-CONNECT-AFTER:CAPS"></a><span class="term"><code class="literal">G_CONNECT_AFTER</code></span></p></td>
@@ -1470,8 +1561,11 @@ which will be called when the signal handler is disconnected and no longer
 used. Specify <em class="parameter"><code>connect_flags</code></em> if you need <code class="literal">..._after()</code> or
 <code class="literal">..._swapped()</code> variants of this function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1514,8 +1608,11 @@ used. Specify <em class="parameter"><code>connect_flags</code></em> if you need 
 <p>
 Connects a closure to a signal for a particular object.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1552,8 +1649,11 @@ default handler of the signal.</td>
 <p>
 Connects a closure to a signal for a particular object.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1599,8 +1699,11 @@ blocked before to become active again.
 The <em class="parameter"><code>handler_id</code></em> has to be a valid signal handler id, connected to a
 signal of <em class="parameter"><code>instance</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1634,8 +1737,11 @@ proceeded yet).
 The <em class="parameter"><code>handler_id</code></em> has to be a valid id of a signal handler that is
 connected to a signal of <em class="parameter"><code>instance</code></em> and is currently blocked.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1662,8 +1768,11 @@ connected to. The <em class="parameter"><code>handler_id</code></em> becomes inv
 The <em class="parameter"><code>handler_id</code></em> has to be a valid signal handler id, connected to a
 signal of <em class="parameter"><code>instance</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1693,8 +1802,11 @@ flags, and the criteria values are passed as arguments.
 The match <em class="parameter"><code>mask</code></em> has to be non-0 for successful matches.
 If no handler was found, 0 is returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1752,8 +1864,11 @@ or <a class="link" href="gobject-Signals.html#G-SIGNAL-MATCH-DATA:CAPS"><code cl
 If no handlers were found, 0 is returned, the number of blocked handlers
 otherwise.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1812,8 +1927,11 @@ If no handlers were found, 0 is returned, the number of unblocked handlers
 otherwise. The match criteria should not apply to any handlers that are
 not currently blocked.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1873,8 +1991,11 @@ passed as arguments.  Passing at least one of the
 matches.  If no handlers were found, 0 is returned, the number of
 disconnected handlers otherwise.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1921,8 +2042,11 @@ and/or <em class="parameter"><code>data</code></em> the handlers have to match.<
 <p>
 Returns whether <em class="parameter"><code>handler_id</code></em> is the id of a handler connected to <em class="parameter"><code>instance</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1946,8 +2070,11 @@ Returns whether <em class="parameter"><code>handler_id</code></em> is the id of 
 <p>
 Blocks all handlers on an instance that match <em class="parameter"><code>func</code></em> and <em class="parameter"><code>data</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1975,8 +2102,11 @@ Blocks all handlers on an instance that match <em class="parameter"><code>func</
 <p>
 Unblocks all handlers on an instance that match <em class="parameter"><code>func</code></em> and <em class="parameter"><code>data</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -2004,8 +2134,11 @@ Unblocks all handlers on an instance that match <em class="parameter"><code>func
 <p>
 Disconnects all handlers on an instance that match <em class="parameter"><code>func</code></em> and <em class="parameter"><code>data</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -2033,8 +2166,11 @@ Disconnects all handlers on an instance that match <em class="parameter"><code>f
 <p>
 Disconnects all handlers on an instance that match <em class="parameter"><code>data</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -2069,8 +2205,11 @@ signal are difficult to compute. A class implementor may opt to not
 emit the signal if no one is attached anyway, thus saving the cost
 of building the arguments.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -2114,8 +2253,11 @@ flag).
 <p>
 Prints a warning if used on a signal which isn't being emitted.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -2144,8 +2286,11 @@ Stops a signal's current emission.
 This is just like <a class="link" href="gobject-Signals.html#g-signal-stop-emission" title="g_signal_stop_emission ()"><code class="function">g_signal_stop_emission()</code></a> except it will look up the
 signal id for you.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -2174,8 +2319,11 @@ See <a class="link" href="gobject-Signals.html#g-signal-chain-from-overridden" t
 <a class="link" href="gobject-Signals.html#g-signal-chain-from-overridden-handler" title="g_signal_chain_from_overridden_handler ()"><code class="function">g_signal_chain_from_overridden_handler()</code></a> for how to chain up to the
 parent class closure from inside the overridden one.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>signal_id</code></em> :</span></p></td>
@@ -2204,8 +2352,11 @@ be called from an overridden class closure; see
 <a class="link" href="gobject-Signals.html#g-signal-override-class-closure" title="g_signal_override_class_closure ()"><code class="function">g_signal_override_class_closure()</code></a> and
 <a class="link" href="gobject-Signals.html#g-signal-override-class-handler" title="g_signal_override_class_handler ()"><code class="function">g_signal_override_class_handler()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance_and_params</code></em> :</span></p></td>
@@ -2254,8 +2405,11 @@ See <a class="link" href="gobject-Signals.html#g-signal-new" title="g_signal_new
 If c_marshaller is <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> <em class="parameter"><code>g_cclosure_marshal_generic</code></em> will be used as
 the marshaller for this signal.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>signal_name</code></em> :</span></p></td>
@@ -2330,8 +2484,11 @@ See <a class="link" href="gobject-Signals.html#g-signal-chain-from-overridden" t
 <a class="link" href="gobject-Signals.html#g-signal-chain-from-overridden-handler" title="g_signal_chain_from_overridden_handler ()"><code class="function">g_signal_chain_from_overridden_handler()</code></a> for how to chain up to the
 parent class closure from inside the overridden one.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>signal_name</code></em> :</span></p></td>
@@ -2362,8 +2519,11 @@ only be called from an overridden class closure; see
 <a class="link" href="gobject-Signals.html#g-signal-override-class-closure" title="g_signal_override_class_closure ()"><code class="function">g_signal_override_class_closure()</code></a> and
 <a class="link" href="gobject-Signals.html#g-signal-override-class-handler" title="g_signal_override_class_handler ()"><code class="function">g_signal_override_class_handler()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -2392,8 +2552,11 @@ Adds an emission hook for a signal, which will get called for any emission
 of that signal, independent of the instance. This is possible only
 for signals which don't have <a class="link" href="gobject-Signals.html#G-SIGNAL-NO-HOOKS:CAPS"><span class="type">G_SIGNAL_NO_HOOKS</span></a> flag set.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>signal_id</code></em> :</span></p></td>
@@ -2430,8 +2593,11 @@ for signals which don't have <a class="link" href="gobject-Signals.html#G-SIGNAL
 <p>
 Deletes an emission hook.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>signal_id</code></em> :</span></p></td>
@@ -2458,8 +2624,11 @@ Deletes an emission hook.
 Internal function to parse a signal name into its <em class="parameter"><code>signal_id</code></em>
 and <em class="parameter"><code>detail</code></em> quark.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>detailed_signal</code></em> :</span></p></td>
@@ -2498,8 +2667,11 @@ and <em class="parameter"><code>detail</code></em> quark.
 <p>
 Returns the invocation hint of the innermost signal emission of instance.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -2523,8 +2695,11 @@ Creates a new closure which invokes the function found at the offset
 <em class="parameter"><code>struct_offset</code></em> in the class structure of the interface or classed type
 identified by <em class="parameter"><code>itype</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>itype</code></em> :</span></p></td>
@@ -2563,8 +2738,11 @@ This accumulator will use the return value from the first signal
 handler that is run as the return value for the signal and not run
 any further handlers (ie: the first handler "wins").
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ihint</code></em> :</span></p></td>
@@ -2606,8 +2784,11 @@ the emission to continue. The idea here is that a <a href="./../glib/glib/glib-S
 indicates that the callback <span class="emphasis"><em>handled</em></span> the signal,
 and no further handling is needed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ihint</code></em> :</span></p></td>
@@ -2635,8 +2816,8 @@ and no further handling is needed.
 </div>
 </div>
 <div class="footnotes">
-<br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a id="ftn.id670905" href="#id670905" class="para">10</a>] </sup>Although signals can deal with any kind of instantiatable 
+<br><hr style="width:100; align:left;">
+<div id="ftn.idp21478384" class="footnote"><p><a href="#idp21478384" class="para"><sup class="para">[10] </sup></a>Although signals can deal with any kind of instantiatable 
 type, i'm referring to those types as "object types" in the following, 
 simply because that is the context most users will encounter signals in.
 </p></div>
@@ -2644,6 +2825,6 @@ simply because that is the context most users will encounter signals in.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

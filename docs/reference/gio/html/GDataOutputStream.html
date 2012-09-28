@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GDataOutputStream</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="streaming.html" title="Streaming I/O">
 <link rel="prev" href="GDataInputStream.html" title="GDataInputStream">
 <link rel="next" href="GUnixInputStream.html" title="GUnixInputStream">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -26,6 +26,8 @@
                   <a href="#GDataOutputStream.description" class="shortcut">Description</a>
                    | 
                   <a href="#GDataOutputStream.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GDataOutputStream.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
                    | 
                   <a href="#GDataOutputStream.properties" class="shortcut">Properties</a>
 </td></tr>
@@ -94,6 +96,12 @@ struct              <a class="link" href="GDataOutputStream.html#GDataOutputStre
 </pre>
 </div>
 <div class="refsect1">
+<a name="GDataOutputStream.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GDataOutputStream implements
+ <a class="link" href="GSeekable.html" title="GSeekable">GSeekable</a>.</p>
+</div>
+<div class="refsect1">
 <a name="GDataOutputStream.properties"></a><h2>Properties</h2>
 <pre class="synopsis">
   "<a class="link" href="GDataOutputStream.html#GDataOutputStream--byte-order" title='The "byte-order" property'>byte-order</a>"               <a class="link" href="GDataInputStream.html#GDataStreamByteOrder" title="enum GDataStreamByteOrder"><span class="type">GDataStreamByteOrder</span></a>  : Read / Write
@@ -123,8 +131,11 @@ data manipulation of arbitrary data (including binary operations).
 <p>
 Creates a new data output stream for <em class="parameter"><code>base_stream</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>base_stream</code></em> :</span></p></td>
@@ -146,8 +157,11 @@ Creates a new data output stream for <em class="parameter"><code>base_stream</co
 <p>
 Sets the byte order of the data output stream to <em class="parameter"><code>order</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -168,8 +182,11 @@ Sets the byte order of the data output stream to <em class="parameter"><code>ord
 <p>
 Gets the byte order for the stream.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -192,8 +209,11 @@ Gets the byte order for the stream.
 <p>
 Puts a byte into the output stream.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -230,8 +250,11 @@ Puts a byte into the output stream.
 <p>
 Puts a signed 16-bit integer into the output stream.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -268,8 +291,11 @@ Puts a signed 16-bit integer into the output stream.
 <p>
 Puts an unsigned 16-bit integer into the output stream.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -306,8 +332,11 @@ Puts an unsigned 16-bit integer into the output stream.
 <p>
 Puts a signed 32-bit integer into the output stream.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -344,8 +373,11 @@ Puts a signed 32-bit integer into the output stream.
 <p>
 Puts an unsigned 32-bit integer into the stream.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -382,8 +414,11 @@ Puts an unsigned 32-bit integer into the stream.
 <p>
 Puts a signed 64-bit integer into the stream.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -420,8 +455,11 @@ Puts a signed 64-bit integer into the stream.
 <p>
 Puts an unsigned 64-bit integer into the stream.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -458,8 +496,11 @@ Puts an unsigned 64-bit integer into the stream.
 <p>
 Puts a string into the output stream.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
@@ -506,6 +547,6 @@ multi-byte entities (such as integers) to the stream.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

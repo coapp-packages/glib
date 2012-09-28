@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GVariant Format Strings</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-data-types.html" title="GLib Data Types">
 <link rel="prev" href="glib-GVariant.html" title="GVariant">
 <link rel="next" href="gvariant-text.html" title="GVariant Text Format">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -29,7 +29,7 @@
 <td valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsect1">
-<a name="id483216"></a><h2>Variable Argument Conversions</h2>
+<a name="idp37378432"></a><h2>Variable Argument Conversions</h2>
 <p>
    This page attempts to document how to perform variable argument
    conversions with GVariant.
@@ -46,7 +46,7 @@
   </p>
 </div>
 <div class="refsect1">
-<a name="id621873"></a><h2>Syntax</h2>
+<a name="idp35795808"></a><h2>Syntax</h2>
 <p>
    This section exhaustively describes all possibilities for GVariant format strings.  There are no valid forms of
    format strings other than those described here.  Please note that the format string syntax is likely to expand in the
@@ -55,7 +55,7 @@
 <p>
    Valid format strings have one of the following forms:
   </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem"><p>any type string</p></li>
 <li class="listitem"><p>
      a type string prefixed with a '<code class="literal">@</code>'
@@ -78,7 +78,7 @@
 </ul></div>
 </div>
 <div class="refsect1">
-<a name="id657332"></a><h2>Symbols</h2>
+<a name="idp26876880"></a><h2>Symbols</h2>
 <p>
     The following table describes the rough meaning of symbols that may appear inside a GVariant format string.  Each
     symbol is described in detail in its own section, including usage examples.
@@ -470,7 +470,7 @@
     it operates with pointers.  The pointers must always point to a memory region of exactly the correct size.
    </p>
 <div class="refsect3">
-<a name="id620659"></a><h4>Examples</h4>
+<a name="idp21901456"></a><h4>Examples</h4>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -544,7 +544,7 @@
     string should be ignored (in which case no copy is made).
    </p>
 <div class="refsect3">
-<a name="id521416"></a><h4>Examples</h4>
+<a name="idp54140496"></a><h4>Examples</h4>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -613,7 +613,7 @@
     ignored (in which case no new reference is created).
    </p>
 <div class="refsect3">
-<a name="id620998"></a><h4>Examples</h4>
+<a name="idp10178528"></a><h4>Examples</h4>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -672,7 +672,7 @@
     should be ignored.
    </p>
 <div class="refsect3">
-<a name="id465923"></a><h4>Examples</h4>
+<a name="idp11407200"></a><h4>Examples</h4>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -784,7 +784,7 @@
     but have their values set to binary zero.
    </p>
 <div class="refsect3">
-<a name="id452005"></a><h4>Examples</h4>
+<a name="idp7358608"></a><h4>Examples</h4>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -918,7 +918,7 @@
     Tuples are handled by handling each item in the tuple, in sequence.  Each item is handled in the usual way.
    </p>
 <div class="refsect3">
-<a name="id479172"></a><h4>Examples</h4>
+<a name="idp6015984"></a><h4>Examples</h4>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -972,7 +972,7 @@
     Dictionary entries are handled by handling first the key, then the value.  Each is handled in the usual way.
    </p>
 <div class="refsect3">
-<a name="id480074"></a><h4>Examples</h4>
+<a name="idp24099392"></a><h4>Examples</h4>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -1035,7 +1035,7 @@
     improvements in type safety and code self-documentation.
    </p>
 <div class="refsect3">
-<a name="id459182"></a><h4>Examples</h4>
+<a name="idp11032432"></a><h4>Examples</h4>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -1115,7 +1115,7 @@
     always be properly nul-terminated.
    </p>
 <div class="refsect3">
-<a name="id572841"></a><h4>Examples</h4>
+<a name="idp8635952"></a><h4>Examples</h4>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -1134,7 +1134,7 @@
 <span class="normal">  </span><span class="usertype">GVariant</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">value</span><span class="symbol">;</span>
 
 <span class="normal">  value </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="glib-GVariant.html#g-variant-new">g_variant_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"&amp;s"</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"hello world"</span><span class="symbol">);</span>
-<span class="normal">  str </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="glib-GVariant.html#g-variant-get">g_variant_get</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"&amp;s"</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">str</span><span class="symbol">);</span>
+<span class="normal">  str </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="glib-GVariant.html#g-variant-get">g_variant_get</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">value</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"&amp;s"</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">str</span><span class="symbol">);</span>
 <span class="normal">  </span><span class="function"><a href="glib-Warnings-and-Assertions.html#g-print">g_print</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"string is: %s</span><span class="specialchar">\n</span><span class="string">"</span><span class="symbol">,</span><span class="normal"> str</span><span class="symbol">);</span>
 <span class="normal">  </span><span class="comment">/* no need to free str */</span>
 <span class="cbracket">}</span></pre></td>
@@ -1330,6 +1330,6 @@
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

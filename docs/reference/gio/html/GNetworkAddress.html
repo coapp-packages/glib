@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GNetworkAddress</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="resolver.html" title="DNS resolution">
 <link rel="prev" href="GSocketConnectable.html" title="GSocketConnectable">
 <link rel="next" href="GNetworkService.html" title="GNetworkService">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -112,8 +112,11 @@ that host.
 Creates a new <a class="link" href="GSocketConnectable.html" title="GSocketConnectable"><span class="type">GSocketConnectable</span></a> for connecting to the given
 <em class="parameter"><code>hostname</code></em> and <em class="parameter"><code>port</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hostname</code></em> :</span></p></td>
@@ -125,7 +128,7 @@ Creates a new <a class="link" href="GSocketConnectable.html" title="GSocketConne
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the new <a class="link" href="GNetworkAddress.html" title="GNetworkAddress"><span class="type">GNetworkAddress</span></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GNetworkAddress]</span>
+<td>the new <a class="link" href="GNetworkAddress.html" title="GNetworkAddress"><span class="type">GNetworkAddress</span></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GNetworkAddress]</span>
 </td>
 </tr>
 </tbody>
@@ -140,8 +143,11 @@ Creates a new <a class="link" href="GSocketConnectable.html" title="GSocketConne
 Gets <em class="parameter"><code>addr</code></em>'s hostname. This might be either UTF-8 or ASCII-encoded,
 depending on what <em class="parameter"><code>addr</code></em> was created with.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>addr</code></em> :</span></p></td>
@@ -164,8 +170,11 @@ depending on what <em class="parameter"><code>addr</code></em> was created with.
 <p>
 Gets <em class="parameter"><code>addr</code></em>'s port number
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>addr</code></em> :</span></p></td>
@@ -188,8 +197,11 @@ Gets <em class="parameter"><code>addr</code></em>'s port number
 <p>
 Gets <em class="parameter"><code>addr</code></em>'s scheme
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>addr</code></em> :</span></p></td>
@@ -238,8 +250,11 @@ service name rather than as a numeric port, but this functionality
 is deprecated, because it depends on the contents of /etc/services,
 which is generally quite sparse on platforms other than Linux.)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>host_and_port</code></em> :</span></p></td>
@@ -279,8 +294,11 @@ Using this rather than <a class="link" href="GNetworkAddress.html#g-network-addr
 <a class="link" href="GNetworkAddress.html#g-network-address-parse" title="g_network_address_parse ()"><code class="function">g_network_address_parse()</code></a> allows <a class="link" href="GSocketClient.html" title="GSocketClient"><span class="type">GSocketClient</span></a> to determine
 when to use application-specific proxy protocols.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
@@ -332,6 +350,6 @@ when to use application-specific proxy protocols.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

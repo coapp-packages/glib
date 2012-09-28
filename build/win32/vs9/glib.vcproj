@@ -332,6 +332,7 @@
    <File RelativePath="..\..\..\glib\gpoll.c" />
    <File RelativePath="..\..\..\glib\gprimes.c" />
    <File RelativePath="..\..\..\glib\gqsort.c" />
+   <File RelativePath="..\..\..\glib\gquark.c" />
    <File RelativePath="..\..\..\glib\gqueue.c" />
    <File RelativePath="..\..\..\glib\grand.c" />
    <File RelativePath="..\..\..\glib\gregex.c" />

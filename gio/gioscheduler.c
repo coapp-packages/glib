@@ -45,7 +45,7 @@
  **/
 
 struct _GIOSchedulerJob {
-  GSList *active_link;
+  GList *active_link;
   GIOSchedulerJobFunc job_func;
   GSourceFunc cancel_func; /* Runs under job map lock */
   gpointer data;
@@ -53,11 +53,12 @@ struct _GIOSchedulerJob {
 
   gint io_priority;
   GCancellable *cancellable;
+  gulong cancellable_id;
   GMainContext *context;
 };
 
 G_LOCK_DEFINE_STATIC(active_jobs);
-static GSList *active_jobs = NULL;
+static GList *active_jobs = NULL;
 
 static GThreadPool *job_thread_pool = NULL;
 
@@ -68,7 +69,11 @@ static void
 g_io_job_free (GIOSchedulerJob *job)
 {
   if (job->cancellable)
-    g_object_unref (job->cancellable);
+    {
+      if (job->cancellable_id)
+	g_cancellable_disconnect (job->cancellable, job->cancellable_id);
+      g_object_unref (job->cancellable);
+    }
   g_main_context_unref (job->context);
   g_free (job);
 }
@@ -108,46 +113,24 @@ init_scheduler (gpointer arg)
 	  g_thread_pool_set_sort_function (job_thread_pool,
 					   g_io_job_compare,
 					   NULL);
-	  /* It's kinda weird that this is a global setting
-	   * instead of per threadpool. However, we really
-	   * want to cache some threads, but not keep around
-	   * those threads forever. */
-	  g_thread_pool_set_max_idle_time (15 * 1000);
-	  g_thread_pool_set_max_unused_threads (2);
 	}
     }
   return NULL;
 }
 
 static void
-remove_active_job (GIOSchedulerJob *job)
+on_job_canceled (GCancellable    *cancellable,
+		 gpointer         user_data)
 {
-  GIOSchedulerJob *other_job;
-  GSList *l;
-  gboolean resort_jobs;
-  
-  G_LOCK (active_jobs);
-  active_jobs = g_slist_delete_link (active_jobs, job->active_link);
-  
-  resort_jobs = FALSE;
-  for (l = active_jobs; l != NULL; l = l->next)
-    {
-      other_job = l->data;
-      if (other_job->io_priority >= 0 &&
-	  g_cancellable_is_cancelled (other_job->cancellable))
-	{
-	  other_job->io_priority = -1;
-	  resort_jobs = TRUE;
-	}
-    }
-  G_UNLOCK (active_jobs);
-  
-  if (resort_jobs &&
-      job_thread_pool != NULL)
+  GIOSchedulerJob *job = user_data;
+
+  /* This might be called more than once */
+  job->io_priority = -1;
+
+  if (job_thread_pool != NULL)
     g_thread_pool_set_sort_function (job_thread_pool,
 				     g_io_job_compare,
 				     NULL);
-
 }
 
 static void
@@ -158,7 +141,9 @@ job_destroy (gpointer data)
   if (job->destroy_notify)
     job->destroy_notify (job->data);
 
-  remove_active_job (job);
+  G_LOCK (active_jobs);
+  active_jobs = g_list_delete_link (active_jobs, job->active_link);
+  G_UNLOCK (active_jobs);
   g_io_job_free (job);
 }
 
@@ -221,12 +206,16 @@ g_io_scheduler_push_job (GIOSchedulerJobFunc  job_func,
   job->io_priority = io_priority;
     
   if (cancellable)
-    job->cancellable = g_object_ref (cancellable);
+    {
+      job->cancellable = g_object_ref (cancellable);
+      job->cancellable_id = g_cancellable_connect (job->cancellable, (GCallback)on_job_canceled,
+						   job, NULL);
+    }
 
   job->context = g_main_context_ref_thread_default ();
 
   G_LOCK (active_jobs);
-  active_jobs = g_slist_prepend (active_jobs, job);
+  active_jobs = g_list_prepend (active_jobs, job);
   job->active_link = active_jobs;
   G_UNLOCK (active_jobs);
 
@@ -245,7 +234,7 @@ g_io_scheduler_push_job (GIOSchedulerJobFunc  job_func,
 void
 g_io_scheduler_cancel_all_jobs (void)
 {
-  GSList *cancellable_list, *l;
+  GList *cancellable_list, *l;
   
   G_LOCK (active_jobs);
   cancellable_list = NULL;
@@ -253,8 +242,8 @@ g_io_scheduler_cancel_all_jobs (void)
     {
       GIOSchedulerJob *job = l->data;
       if (job->cancellable)
-	cancellable_list = g_slist_prepend (cancellable_list,
-					    g_object_ref (job->cancellable));
+	cancellable_list = g_list_prepend (cancellable_list,
+					   g_object_ref (job->cancellable));
     }
   G_UNLOCK (active_jobs);
 
@@ -264,7 +253,7 @@ g_io_scheduler_cancel_all_jobs (void)
       g_cancellable_cancel (c);
       g_object_unref (c);
     }
-  g_slist_free (cancellable_list);
+  g_list_free (cancellable_list);
 }
 
 typedef struct {

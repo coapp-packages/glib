@@ -420,6 +420,16 @@ static FooiGenMethodThreads *exported_thread_object_1 = NULL;
 static FooiGenMethodThreads *exported_thread_object_2 = NULL;
 
 static void
+unexport_objects (void)
+{
+  g_dbus_interface_skeleton_unexport (G_DBUS_INTERFACE_SKELETON (exported_bar_object));
+  g_dbus_interface_skeleton_unexport (G_DBUS_INTERFACE_SKELETON (exported_bat_object));
+  g_dbus_interface_skeleton_unexport (G_DBUS_INTERFACE_SKELETON (exported_authorize_object));
+  g_dbus_interface_skeleton_unexport (G_DBUS_INTERFACE_SKELETON (exported_thread_object_1));
+  g_dbus_interface_skeleton_unexport (G_DBUS_INTERFACE_SKELETON (exported_thread_object_2));
+}
+
+static void
 on_bus_acquired (GDBusConnection *connection,
                  const gchar     *name,
                  gpointer         user_data)
@@ -954,7 +964,7 @@ check_bar_proxy (FooiGenBar *proxy,
    * properties.
    *
    * On the first reception, y and i should both be increased by
-   * two. On the the second reception, only by one. The signal handler
+   * two. On the second reception, only by one. The signal handler
    * checks this.
    *
    * This also checks that _drain_notify() works.
@@ -1720,10 +1730,23 @@ on_object_proxy_removed (GDBusObjectManagerClient  *manager,
 }
 
 static void
+property_d_changed (GObject    *object,
+		    GParamSpec *pspec,
+		    gpointer    user_data)
+{
+  gboolean *changed = user_data;
+
+  *changed = TRUE;
+}
+
+static void
 om_check_property_and_signal_emission (GMainLoop  *loop,
                                        FooiGenBar *skeleton,
                                        FooiGenBar *proxy)
 {
+  gboolean d_changed = FALSE;
+  guint handler;
+
   /* First PropertiesChanged */
   g_assert_cmpint (foo_igen_bar_get_i (skeleton), ==, 0);
   g_assert_cmpint (foo_igen_bar_get_i (proxy), ==, 0);
@@ -1731,6 +1754,24 @@ om_check_property_and_signal_emission (GMainLoop  *loop,
   _g_assert_property_notify (proxy, "i");
   g_assert_cmpint (foo_igen_bar_get_i (skeleton), ==, 1);
   g_assert_cmpint (foo_igen_bar_get_i (proxy), ==, 1);
+
+  /* Double-check the gdouble case */
+  g_assert_cmpfloat (foo_igen_bar_get_d (skeleton), ==, 0.0);
+  g_assert_cmpfloat (foo_igen_bar_get_d (proxy), ==, 0.0);
+  foo_igen_bar_set_d (skeleton, 1.0);
+  _g_assert_property_notify (proxy, "d");
+
+  /* Verify that re-setting it to the same value doesn't cause a
+   * notify on the proxy, by taking advantage of the fact that
+   * notifications are serialized.
+   */
+  handler = g_signal_connect (proxy, "notify::d",
+			      G_CALLBACK (property_d_changed), &d_changed);
+  foo_igen_bar_set_d (skeleton, 1.0);
+  foo_igen_bar_set_i (skeleton, 2);
+  _g_assert_property_notify (proxy, "i");
+  g_assert (d_changed == FALSE);
+  g_signal_handler_disconnect (proxy, handler);
 
   /* Then just a regular signal */
   foo_igen_bar_emit_another_signal (skeleton, "word");
@@ -1740,18 +1781,18 @@ om_check_property_and_signal_emission (GMainLoop  *loop,
 static void
 check_object_manager (void)
 {
-  FooiGenObjectSkeleton *o;
-  FooiGenObjectSkeleton *o2;
-  FooiGenObjectSkeleton *o3;
+  FooiGenObjectSkeleton *o = NULL;
+  FooiGenObjectSkeleton *o2 = NULL;
+  FooiGenObjectSkeleton *o3 = NULL;
   GDBusInterfaceSkeleton *i;
   GDBusConnection *c;
-  GDBusObjectManagerServer *manager;
+  GDBusObjectManagerServer *manager = NULL;
   GDBusNodeInfo *info;
   GError *error;
   GMainLoop *loop;
-  OMData *om_data;
-  guint om_signal_id;
-  GDBusObjectManager *pm;
+  OMData *om_data = NULL;
+  guint om_signal_id = -1;
+  GDBusObjectManager *pm = NULL;
   GList *object_proxies;
   GList *proxies;
   GDBusObject *op;
@@ -1814,7 +1855,7 @@ check_object_manager (void)
   g_assert_cmpstr (path, ==, "/managed");
   g_assert (c2 == c);
   g_free (path);
-  g_object_unref (c2);
+  g_clear_object (&c2);
 
   /* Check that the manager object is visible */
   info = introspect (c, g_dbus_connection_get_unique_name (c), "/managed", loop);
@@ -1827,7 +1868,7 @@ check_object_manager (void)
   om_check_get_all (c, loop,
                     "(@a{oa{sa{sv}}} {},)");
 
-  /* Now try to create the the proxy manager again - this time it should work */
+  /* Now try to create the proxy manager again - this time it should work */
   error = NULL;
   foo_igen_object_manager_client_new (c,
                                       G_DBUS_OBJECT_MANAGER_CLIENT_FLAGS_NONE,
@@ -1839,7 +1880,7 @@ check_object_manager (void)
   g_main_loop_run (loop);
   error = NULL;
   pm = foo_igen_object_manager_client_new_finish (om_res, &error);
-  g_object_unref (om_res);
+  g_clear_object (&om_res);
   g_assert_no_error (error);
   g_assert (pm != NULL);
   g_signal_connect (pm,
@@ -1865,7 +1906,7 @@ check_object_manager (void)
   g_assert_cmpint (flags, ==, G_DBUS_OBJECT_MANAGER_CLIENT_FLAGS_NONE);
   g_assert (c2 == c);
   g_free (path);
-  g_object_unref (c2);
+  g_clear_object (&c2);
   g_free (name);
   g_free (name_owner);
 
@@ -1894,13 +1935,15 @@ check_object_manager (void)
   o2 = FOO_IGEN_OBJECT_SKELETON (g_dbus_interface_dup_object (G_DBUS_INTERFACE (i)));
   g_assert (G_DBUS_OBJECT (o2) == G_DBUS_OBJECT (o));
   g_assert_cmpint (G_OBJECT (o2)->ref_count, ==, 2);
-  g_object_unref (o2);
+  g_clear_object (&o2);
 
   g_dbus_object_manager_server_export (manager, G_DBUS_OBJECT_SKELETON (o));
 
   /* ... check we get the InterfacesAdded signal */
   om_data->state = 1;
+
   g_main_loop_run (om_data->loop);
+
   g_assert_cmpint (om_data->state, ==, 2);
   g_assert_cmpint (om_data->num_object_proxy_added_signals, ==, 1);
   g_assert_cmpint (om_data->num_object_proxy_removed_signals, ==, 0);
@@ -1915,12 +1958,12 @@ check_object_manager (void)
   /* Also check g_dbus_object_manager_get_interface */
   iface = g_dbus_object_manager_get_interface (G_DBUS_OBJECT_MANAGER (manager), "/managed/first", "org.project.Bar");
   g_assert (iface != NULL);
-  g_object_unref (iface);
+  g_clear_object (&iface);
   iface = g_dbus_object_manager_get_interface (G_DBUS_OBJECT_MANAGER (manager), "/managed/first", "org.project.Bat");
   g_assert (iface == NULL);
   iface = g_dbus_object_manager_get_interface (G_DBUS_OBJECT_MANAGER (pm), "/managed/first", "org.project.Bar");
   g_assert (iface != NULL);
-  g_object_unref (iface);
+  g_clear_object (&iface);
   iface = g_dbus_object_manager_get_interface (G_DBUS_OBJECT_MANAGER (pm), "/managed/first", "org.project.Bat");
   g_assert (iface == NULL);
 
@@ -1940,7 +1983,7 @@ check_object_manager (void)
   g_assert_cmpint (count_interfaces (info), ==, 4); /* Bar + Properties,Introspectable,Peer */
   g_assert (has_interface (info, "org.project.Bar"));
   g_dbus_node_info_unref (info);
-  g_object_unref (i);
+  g_clear_object (&i);
 
   /* check adding an interface of same type (but not same object) replaces the existing one */
   i = G_DBUS_INTERFACE_SKELETON (foo_igen_bar_skeleton_new ());
@@ -1958,12 +2001,12 @@ check_object_manager (void)
   g_assert_cmpint (count_interfaces (info), ==, 4); /* Bar + Properties,Introspectable,Peer */
   g_assert (has_interface (info, "org.project.Bar"));
   g_dbus_node_info_unref (info);
-  g_object_unref (i);
+  g_clear_object (&i);
 
   /* check adding an interface of another type doesn't replace the existing one */
   i = G_DBUS_INTERFACE_SKELETON (foo_igen_bat_skeleton_new ());
   foo_igen_object_skeleton_set_bat (o, FOO_IGEN_BAT (i));
-  g_object_unref (i);
+  g_clear_object (&i);
   /* ... check we get the InterfacesAdded */
   om_data->state = 11;
   g_main_loop_run (om_data->loop);
@@ -2024,7 +2067,7 @@ check_object_manager (void)
   /* and add an interface again */
   i = G_DBUS_INTERFACE_SKELETON (foo_igen_com_acme_coyote_skeleton_new ());
   foo_igen_object_skeleton_set_com_acme_coyote (o, FOO_IGEN_COM_ACME_COYOTE (i));
-  g_object_unref (i);
+  g_clear_object (&i);
   /* ... check we get the InterfacesAdded */
   om_data->state = 17;
   g_main_loop_run (om_data->loop);
@@ -2050,10 +2093,10 @@ check_object_manager (void)
   i = G_DBUS_INTERFACE_SKELETON (foo_igen_bar_skeleton_new ());
   bar_skeleton = FOO_IGEN_BAR (i); /* save for later test */
   foo_igen_object_skeleton_set_bar (o2, FOO_IGEN_BAR (i));
-  g_object_unref (i);
+  g_clear_object (&i);
   i = G_DBUS_INTERFACE_SKELETON (foo_igen_bat_skeleton_new ());
   foo_igen_object_skeleton_set_bat (o2, FOO_IGEN_BAT (i));
-  g_object_unref (i);
+  g_clear_object (&i);
   /* ... add it */
   g_dbus_object_manager_server_export (manager, G_DBUS_OBJECT_SKELETON (o2));
   /* ... check we get the InterfacesAdded with _two_ interfaces */
@@ -2080,6 +2123,7 @@ check_object_manager (void)
   info = introspect (c, g_dbus_connection_get_unique_name (c), "/managed", loop);
   g_assert_cmpint (count_interfaces (info), ==, 0); /* nothing */
   g_dbus_node_info_unref (info);
+
   g_dbus_object_manager_server_set_connection (manager, c);
   om_check_get_all (c, loop,
                     "({objectpath '/managed/first': {'com.acme.Coyote': {'Mood': <''>}}, '/managed/second': {'org.project.Bar': {'y': <byte 0x00>, 'b': <false>, 'n': <int16 0>, 'q': <uint16 0>, 'i': <0>, 'u': <uint32 0>, 'x': <int64 0>, 't': <uint64 0>, 'd': <0.0>, 's': <''>, 'o': <objectpath '/'>, 'g': <signature ''>, 'ay': <b''>, 'as': <@as []>, 'aay': <@aay []>, 'ao': <@ao []>, 'ag': <@ag []>, 'FinallyNormalName': <''>, 'ReadonlyProperty': <''>, 'unset_i': <0>, 'unset_d': <0.0>, 'unset_s': <''>, 'unset_o': <objectpath '/'>, 'unset_g': <signature ''>, 'unset_ay': <b''>, 'unset_as': <@as []>, 'unset_ao': <@ao []>, 'unset_ag': <@ag []>, 'unset_struct': <(0, 0.0, '', objectpath '/', signature '', @ay [], @as [], @ao [], @ag [])>}, 'org.project.Bat': {'force_i': <0>, 'force_s': <''>, 'force_ay': <@ay []>, 'force_struct': <(0,)>}}},)");
@@ -2102,10 +2146,11 @@ check_object_manager (void)
   g_assert (p != NULL);
   g_assert_cmpint (G_TYPE_FROM_INSTANCE (p), ==, FOO_IGEN_TYPE_COM_ACME_COYOTE_PROXY);
   g_assert (g_type_is_a (G_TYPE_FROM_INSTANCE (p), FOO_IGEN_TYPE_COM_ACME_COYOTE));
-  g_object_unref (p);
+  g_clear_object (&p);
   p = (GDBusProxy *) g_dbus_object_get_interface (op, "org.project.NonExisting");
   g_assert (p == NULL);
-  g_object_unref (op);
+  g_clear_object (&op);
+
   /* -- */
   op = g_dbus_object_manager_get_object (pm, "/managed/second");
   g_assert (op != NULL);
@@ -2118,7 +2163,7 @@ check_object_manager (void)
   g_assert (p != NULL);
   g_assert_cmpint (G_TYPE_FROM_INSTANCE (p), ==, FOO_IGEN_TYPE_BAT_PROXY);
   g_assert (g_type_is_a (G_TYPE_FROM_INSTANCE (p), FOO_IGEN_TYPE_BAT));
-  g_object_unref (p);
+  g_clear_object (&p);
   p = G_DBUS_PROXY (foo_igen_object_get_bar (FOO_IGEN_OBJECT (op)));
   g_assert (p != NULL);
   g_assert_cmpint (G_TYPE_FROM_INSTANCE (p), ==, FOO_IGEN_TYPE_BAR_PROXY);
@@ -2127,10 +2172,10 @@ check_object_manager (void)
    *     and property changes...
    */
   om_check_property_and_signal_emission (loop, bar_skeleton, FOO_IGEN_BAR (p));
-  g_object_unref (p);
+  g_clear_object (&p);
   p = (GDBusProxy *) g_dbus_object_get_interface (op, "org.project.NonExisting");
   g_assert (p == NULL);
-  g_object_unref (op);
+  g_clear_object (&op);
 
   /* -------------------------------------------------- */
 
@@ -2153,7 +2198,6 @@ check_object_manager (void)
   /* Check GetManagedObjects() again */
   om_check_get_all (c, loop,
                     "({objectpath '/managed/first': {'com.acme.Coyote': {'Mood': <''>}}},)");
-
   /* -------------------------------------------------- */
 
   /* Check that export_uniquely() works */
@@ -2162,7 +2206,7 @@ check_object_manager (void)
   i = G_DBUS_INTERFACE_SKELETON (foo_igen_com_acme_coyote_skeleton_new ());
   foo_igen_com_acme_coyote_set_mood (FOO_IGEN_COM_ACME_COYOTE (i), "indifferent");
   foo_igen_object_skeleton_set_com_acme_coyote (o3, FOO_IGEN_COM_ACME_COYOTE (i));
-  g_object_unref (i);
+  g_clear_object (&i);
   g_dbus_object_manager_server_export_uniquely (manager, G_DBUS_OBJECT_SKELETON (o3));
   /* ... check we get the InterfacesAdded signal */
   om_data->state = 200;
@@ -2174,21 +2218,32 @@ check_object_manager (void)
 
   //g_main_loop_run (loop); /* TODO: tmp */
 
-  g_main_loop_unref (loop);
+  /* Clean up objects */
+  g_assert (g_dbus_object_manager_server_unexport (manager, "/managed/first_1"));
+  //g_assert (g_dbus_object_manager_server_unexport (manager, "/managed/second"));
+  g_assert (g_dbus_object_manager_server_unexport (manager, "/managed/first"));
+  g_assert_cmpint (g_list_length (g_dbus_object_manager_get_objects (G_DBUS_OBJECT_MANAGER (manager))), ==, 0);
 
-  g_dbus_connection_signal_unsubscribe (c, om_signal_id);
-  g_object_unref (o3);
-  g_object_unref (o2);
-  g_object_unref (o);
-  g_object_unref (manager);
-  g_assert_cmpint (g_signal_handlers_disconnect_by_func (pm,
-                                                         G_CALLBACK (on_object_proxy_added),
-                                                         om_data), ==, 1);
-  g_assert_cmpint (g_signal_handlers_disconnect_by_func (pm,
-                                                         G_CALLBACK (on_object_proxy_removed),
-                                                         om_data), ==, 1);
-  g_object_unref (pm);
-  g_object_unref (c);
+  if (loop != NULL)
+    g_main_loop_unref (loop);
+
+  if (om_signal_id != -1)
+    g_dbus_connection_signal_unsubscribe (c, om_signal_id);
+  g_clear_object (&o3);
+  g_clear_object (&o2);
+  g_clear_object (&o);
+  g_clear_object (&manager);
+  if (pm != NULL)
+    {
+      g_assert_cmpint (g_signal_handlers_disconnect_by_func (pm,
+                                                             G_CALLBACK (on_object_proxy_added),
+                                                             om_data), ==, 1);
+      g_assert_cmpint (g_signal_handlers_disconnect_by_func (pm,
+                                                             G_CALLBACK (on_object_proxy_removed),
+                                                             om_data), ==, 1);
+      g_clear_object (&pm);
+    }
+  g_clear_object (&c);
 
   g_free (om_data);
 }
@@ -2218,6 +2273,8 @@ test_object_manager (void)
 
   /* uncomment to keep the service around (to e.g. introspect it) */
   /* g_main_loop_run (loop); */
+
+  unexport_objects ();
 
   g_bus_unown_name (id);
   g_main_loop_unref (loop);
@@ -2264,6 +2321,33 @@ test_interface_stability (void)
 
 /* ---------------------------------------------------------------------------------------------------- */
 
+/* property naming
+ *
+ * - check that a property with name "Type" is mapped into g-name "type"
+ *   with C accessors get_type_ (to avoid clashing with the GType accessor)
+ *   and set_type_ (for symmetri)
+ *   (see https://bugzilla.gnome.org/show_bug.cgi?id=679473 for details)
+ *
+ * - (could add more tests here)
+ */
+
+static void
+test_property_naming (void)
+{
+  gpointer c_getter_name = foo_igen_naming_get_type_;
+  gpointer c_setter_name = foo_igen_naming_set_type_;
+  FooiGenNaming *skel;
+
+  (void) c_getter_name;
+  (void) c_setter_name;
+
+  skel = foo_igen_naming_skeleton_new ();
+  g_assert (g_object_class_find_property (G_OBJECT_GET_CLASS (skel), "type") != NULL);
+  g_object_unref (skel);
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
+
 int
 main (int   argc,
       char *argv[])
@@ -2273,22 +2357,12 @@ main (int   argc,
   g_type_init ();
   g_test_init (&argc, &argv, NULL);
 
-  /* all the tests use a session bus with a well-known address that we can bring up and down
-   * using session_bus_up() and session_bus_down().
-   */
-  g_unsetenv ("DISPLAY");
-  g_setenv ("DBUS_SESSION_BUS_ADDRESS", session_bus_get_temporary_address (), TRUE);
-
   session_bus_up ();
-
-  /* TODO: wait a bit for the bus to come up.. ideally session_bus_up() won't return
-   * until one can connect to the bus but that's not how things work right now
-   */
-  usleep (500 * 1000);
 
   g_test_add_func ("/gdbus/codegen/annotations", test_annotations);
   g_test_add_func ("/gdbus/codegen/interface_stability", test_interface_stability);
   g_test_add_func ("/gdbus/codegen/object-manager", test_object_manager);
+  g_test_add_func ("/gdbus/codegen/property-naming", test_property_naming);
 
   ret = g_test_run();
 

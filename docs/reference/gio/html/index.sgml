@@ -1,6 +1,7 @@
 <ONLINE href="http://library.gnome.org/devel/gio/unstable/">
 <ANCHOR id="GFile" href="gio/GFile.html">
 <ANCHOR id="GFile.synopsis" href="gio/GFile.html#GFile.synopsis">
+<ANCHOR id="GFileMonitorFlags" href="gio/GFile.html#GFileMonitorFlags">
 <ANCHOR id="GFile.object-hierarchy" href="gio/GFile.html#GFile.object-hierarchy">
 <ANCHOR id="GFile.prerequisites" href="gio/GFile.html#GFile.prerequisites">
 <ANCHOR id="GFile.description" href="gio/GFile.html#GFile.description">
@@ -22,7 +23,7 @@
 <ANCHOR id="G-FILE-COPY-ALL-METADATA:CAPS" href="gio/GFile.html#G-FILE-COPY-ALL-METADATA:CAPS">
 <ANCHOR id="G-FILE-COPY-NO-FALLBACK-FOR-MOVE:CAPS" href="gio/GFile.html#G-FILE-COPY-NO-FALLBACK-FOR-MOVE:CAPS">
 <ANCHOR id="G-FILE-COPY-TARGET-DEFAULT-PERMS:CAPS" href="gio/GFile.html#G-FILE-COPY-TARGET-DEFAULT-PERMS:CAPS">
-<ANCHOR id="GFileMonitorFlags" href="gio/GFile.html#GFileMonitorFlags">
+<ANCHOR id="GFileMonitorFlags-enum" href="gio/GFile.html#GFileMonitorFlags-enum">
 <ANCHOR id="G-FILE-MONITOR-NONE:CAPS" href="gio/GFile.html#G-FILE-MONITOR-NONE:CAPS">
 <ANCHOR id="G-FILE-MONITOR-WATCH-MOUNTS:CAPS" href="gio/GFile.html#G-FILE-MONITOR-WATCH-MOUNTS:CAPS">
 <ANCHOR id="G-FILE-MONITOR-SEND-MOVED:CAPS" href="gio/GFile.html#G-FILE-MONITOR-SEND-MOVED:CAPS">
@@ -85,6 +86,8 @@
 <ANCHOR id="g-file-set-display-name-async" href="gio/GFile.html#g-file-set-display-name-async">
 <ANCHOR id="g-file-set-display-name-finish" href="gio/GFile.html#g-file-set-display-name-finish">
 <ANCHOR id="g-file-delete" href="gio/GFile.html#g-file-delete">
+<ANCHOR id="g-file-delete-async" href="gio/GFile.html#g-file-delete-async">
+<ANCHOR id="g-file-delete-finish" href="gio/GFile.html#g-file-delete-finish">
 <ANCHOR id="g-file-trash" href="gio/GFile.html#g-file-trash">
 <ANCHOR id="g-file-copy" href="gio/GFile.html#g-file-copy">
 <ANCHOR id="g-file-copy-async" href="gio/GFile.html#g-file-copy-async">
@@ -204,6 +207,7 @@
 <ANCHOR id="G-FILE-ATTRIBUTE-STANDARD-EDIT-NAME:CAPS" href="gio/GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-EDIT-NAME:CAPS">
 <ANCHOR id="G-FILE-ATTRIBUTE-STANDARD-COPY-NAME:CAPS" href="gio/GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-COPY-NAME:CAPS">
 <ANCHOR id="G-FILE-ATTRIBUTE-STANDARD-ICON:CAPS" href="gio/GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-ICON:CAPS">
+<ANCHOR id="G-FILE-ATTRIBUTE-STANDARD-SYMBOLIC-ICON:CAPS" href="gio/GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-SYMBOLIC-ICON:CAPS">
 <ANCHOR id="G-FILE-ATTRIBUTE-STANDARD-CONTENT-TYPE:CAPS" href="gio/GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-CONTENT-TYPE:CAPS">
 <ANCHOR id="G-FILE-ATTRIBUTE-STANDARD-FAST-CONTENT-TYPE:CAPS" href="gio/GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-FAST-CONTENT-TYPE:CAPS">
 <ANCHOR id="G-FILE-ATTRIBUTE-STANDARD-SIZE:CAPS" href="gio/GFileInfo.html#G-FILE-ATTRIBUTE-STANDARD-SIZE:CAPS">
@@ -310,6 +314,7 @@
 <ANCHOR id="g-file-info-get-display-name" href="gio/GFileInfo.html#g-file-info-get-display-name">
 <ANCHOR id="g-file-info-get-edit-name" href="gio/GFileInfo.html#g-file-info-get-edit-name">
 <ANCHOR id="g-file-info-get-icon" href="gio/GFileInfo.html#g-file-info-get-icon">
+<ANCHOR id="g-file-info-get-symbolic-icon" href="gio/GFileInfo.html#g-file-info-get-symbolic-icon">
 <ANCHOR id="g-file-info-get-content-type" href="gio/GFileInfo.html#g-file-info-get-content-type">
 <ANCHOR id="g-file-info-get-size" href="gio/GFileInfo.html#g-file-info-get-size">
 <ANCHOR id="g-file-info-get-modification-time" href="gio/GFileInfo.html#g-file-info-get-modification-time">
@@ -325,6 +330,7 @@
 <ANCHOR id="g-file-info-set-display-name" href="gio/GFileInfo.html#g-file-info-set-display-name">
 <ANCHOR id="g-file-info-set-edit-name" href="gio/GFileInfo.html#g-file-info-set-edit-name">
 <ANCHOR id="g-file-info-set-icon" href="gio/GFileInfo.html#g-file-info-set-icon">
+<ANCHOR id="g-file-info-set-symbolic-icon" href="gio/GFileInfo.html#g-file-info-set-symbolic-icon">
 <ANCHOR id="g-file-info-set-content-type" href="gio/GFileInfo.html#g-file-info-set-content-type">
 <ANCHOR id="g-file-info-set-size" href="gio/GFileInfo.html#g-file-info-set-size">
 <ANCHOR id="g-file-info-set-modification-time" href="gio/GFileInfo.html#g-file-info-set-modification-time">
@@ -413,12 +419,13 @@
 <ANCHOR id="g-io-error-from-win32-error" href="gio/gio-GIOError.html#g-io-error-from-win32-error">
 <ANCHOR id="GMountOperation" href="gio/GMountOperation.html">
 <ANCHOR id="GMountOperation.synopsis" href="gio/GMountOperation.html#GMountOperation.synopsis">
+<ANCHOR id="GAskPasswordFlags" href="gio/GMountOperation.html#GAskPasswordFlags">
 <ANCHOR id="GMountOperation.object-hierarchy" href="gio/GMountOperation.html#GMountOperation.object-hierarchy">
 <ANCHOR id="GMountOperation.properties" href="gio/GMountOperation.html#GMountOperation.properties">
 <ANCHOR id="GMountOperation.signals" href="gio/GMountOperation.html#GMountOperation.signals">
 <ANCHOR id="GMountOperation.description" href="gio/GMountOperation.html#GMountOperation.description">
 <ANCHOR id="GMountOperation.details" href="gio/GMountOperation.html#GMountOperation.details">
-<ANCHOR id="GAskPasswordFlags" href="gio/GMountOperation.html#GAskPasswordFlags">
+<ANCHOR id="GAskPasswordFlags-enum" href="gio/GMountOperation.html#GAskPasswordFlags-enum">
 <ANCHOR id="G-ASK-PASSWORD-NEED-PASSWORD:CAPS" href="gio/GMountOperation.html#G-ASK-PASSWORD-NEED-PASSWORD:CAPS">
 <ANCHOR id="G-ASK-PASSWORD-NEED-USERNAME:CAPS" href="gio/GMountOperation.html#G-ASK-PASSWORD-NEED-USERNAME:CAPS">
 <ANCHOR id="G-ASK-PASSWORD-NEED-DOMAIN:CAPS" href="gio/GMountOperation.html#G-ASK-PASSWORD-NEED-DOMAIN:CAPS">
@@ -460,6 +467,7 @@
 <ANCHOR id="GMountOperation-ask-question" href="gio/GMountOperation.html#GMountOperation-ask-question">
 <ANCHOR id="GMountOperation-reply" href="gio/GMountOperation.html#GMountOperation-reply">
 <ANCHOR id="GMountOperation-show-processes" href="gio/GMountOperation.html#GMountOperation-show-processes">
+<ANCHOR id="GMountOperation-show-unmount-progress" href="gio/GMountOperation.html#GMountOperation-show-unmount-progress">
 <ANCHOR id="GFileMonitor" href="gio/GFileMonitor.html">
 <ANCHOR id="GFileMonitor.synopsis" href="gio/GFileMonitor.html#GFileMonitor.synopsis">
 <ANCHOR id="GFileMonitor.object-hierarchy" href="gio/GFileMonitor.html#GFileMonitor.object-hierarchy">
@@ -535,6 +543,8 @@
 <ANCHOR id="GAsyncReadyCallback" href="gio/GAsyncResult.html#GAsyncReadyCallback">
 <ANCHOR id="g-async-result-get-user-data" href="gio/GAsyncResult.html#g-async-result-get-user-data">
 <ANCHOR id="g-async-result-get-source-object" href="gio/GAsyncResult.html#g-async-result-get-source-object">
+<ANCHOR id="g-async-result-is-tagged" href="gio/GAsyncResult.html#g-async-result-is-tagged">
+<ANCHOR id="g-async-result-legacy-propagate-error" href="gio/GAsyncResult.html#g-async-result-legacy-propagate-error">
 <ANCHOR id="GAsyncResult.see-also" href="gio/GAsyncResult.html#GAsyncResult.see-also">
 <ANCHOR id="gio-GIOScheduler" href="gio/gio-GIOScheduler.html">
 <ANCHOR id="gio-GIOScheduler.synopsis" href="gio/gio-GIOScheduler.html#gio-GIOScheduler.synopsis">
@@ -685,6 +695,9 @@
 <ANCHOR id="g-input-stream-has-pending" href="gio/GInputStream.html#g-input-stream-has-pending">
 <ANCHOR id="g-input-stream-set-pending" href="gio/GInputStream.html#g-input-stream-set-pending">
 <ANCHOR id="g-input-stream-clear-pending" href="gio/GInputStream.html#g-input-stream-clear-pending">
+<ANCHOR id="g-input-stream-read-bytes" href="gio/GInputStream.html#g-input-stream-read-bytes">
+<ANCHOR id="g-input-stream-read-bytes-async" href="gio/GInputStream.html#g-input-stream-read-bytes-async">
+<ANCHOR id="g-input-stream-read-bytes-finish" href="gio/GInputStream.html#g-input-stream-read-bytes-finish">
 <ANCHOR id="GOutputStream" href="gio/GOutputStream.html">
 <ANCHOR id="GOutputStream.synopsis" href="gio/GOutputStream.html#GOutputStream.synopsis">
 <ANCHOR id="GOutputStream.object-hierarchy" href="gio/GOutputStream.html#GOutputStream.object-hierarchy">
@@ -714,6 +727,9 @@
 <ANCHOR id="g-output-stream-has-pending" href="gio/GOutputStream.html#g-output-stream-has-pending">
 <ANCHOR id="g-output-stream-set-pending" href="gio/GOutputStream.html#g-output-stream-set-pending">
 <ANCHOR id="g-output-stream-clear-pending" href="gio/GOutputStream.html#g-output-stream-clear-pending">
+<ANCHOR id="g-output-stream-write-bytes" href="gio/GOutputStream.html#g-output-stream-write-bytes">
+<ANCHOR id="g-output-stream-write-bytes-async" href="gio/GOutputStream.html#g-output-stream-write-bytes-async">
+<ANCHOR id="g-output-stream-write-bytes-finish" href="gio/GOutputStream.html#g-output-stream-write-bytes-finish">
 <ANCHOR id="GIOStream" href="gio/GIOStream.html">
 <ANCHOR id="GIOStream.synopsis" href="gio/GIOStream.html#GIOStream.synopsis">
 <ANCHOR id="GIOStream.object-hierarchy" href="gio/GIOStream.html#GIOStream.object-hierarchy">
@@ -848,6 +864,7 @@
 <ANCHOR id="GBufferedInputStream" href="gio/GBufferedInputStream.html">
 <ANCHOR id="GBufferedInputStream.synopsis" href="gio/GBufferedInputStream.html#GBufferedInputStream.synopsis">
 <ANCHOR id="GBufferedInputStream.object-hierarchy" href="gio/GBufferedInputStream.html#GBufferedInputStream.object-hierarchy">
+<ANCHOR id="GBufferedInputStream.implemented-interfaces" href="gio/GBufferedInputStream.html#GBufferedInputStream.implemented-interfaces">
 <ANCHOR id="GBufferedInputStream.properties" href="gio/GBufferedInputStream.html#GBufferedInputStream.properties">
 <ANCHOR id="GBufferedInputStream.description" href="gio/GBufferedInputStream.html#GBufferedInputStream.description">
 <ANCHOR id="GBufferedInputStream.details" href="gio/GBufferedInputStream.html#GBufferedInputStream.details">
@@ -869,6 +886,7 @@
 <ANCHOR id="GBufferedOutputStream" href="gio/GBufferedOutputStream.html">
 <ANCHOR id="GBufferedOutputStream.synopsis" href="gio/GBufferedOutputStream.html#GBufferedOutputStream.synopsis">
 <ANCHOR id="GBufferedOutputStream.object-hierarchy" href="gio/GBufferedOutputStream.html#GBufferedOutputStream.object-hierarchy">
+<ANCHOR id="GBufferedOutputStream.implemented-interfaces" href="gio/GBufferedOutputStream.html#GBufferedOutputStream.implemented-interfaces">
 <ANCHOR id="GBufferedOutputStream.properties" href="gio/GBufferedOutputStream.html#GBufferedOutputStream.properties">
 <ANCHOR id="GBufferedOutputStream.description" href="gio/GBufferedOutputStream.html#GBufferedOutputStream.description">
 <ANCHOR id="GBufferedOutputStream.details" href="gio/GBufferedOutputStream.html#GBufferedOutputStream.details">
@@ -886,6 +904,7 @@
 <ANCHOR id="GDataInputStream" href="gio/GDataInputStream.html">
 <ANCHOR id="GDataInputStream.synopsis" href="gio/GDataInputStream.html#GDataInputStream.synopsis">
 <ANCHOR id="GDataInputStream.object-hierarchy" href="gio/GDataInputStream.html#GDataInputStream.object-hierarchy">
+<ANCHOR id="GDataInputStream.implemented-interfaces" href="gio/GDataInputStream.html#GDataInputStream.implemented-interfaces">
 <ANCHOR id="GDataInputStream.properties" href="gio/GDataInputStream.html#GDataInputStream.properties">
 <ANCHOR id="GDataInputStream.description" href="gio/GDataInputStream.html#GDataInputStream.description">
 <ANCHOR id="GDataInputStream.details" href="gio/GDataInputStream.html#GDataInputStream.details">
@@ -929,6 +948,7 @@
 <ANCHOR id="GDataOutputStream" href="gio/GDataOutputStream.html">
 <ANCHOR id="GDataOutputStream.synopsis" href="gio/GDataOutputStream.html#GDataOutputStream.synopsis">
 <ANCHOR id="GDataOutputStream.object-hierarchy" href="gio/GDataOutputStream.html#GDataOutputStream.object-hierarchy">
+<ANCHOR id="GDataOutputStream.implemented-interfaces" href="gio/GDataOutputStream.html#GDataOutputStream.implemented-interfaces">
 <ANCHOR id="GDataOutputStream.properties" href="gio/GDataOutputStream.html#GDataOutputStream.properties">
 <ANCHOR id="GDataOutputStream.description" href="gio/GDataOutputStream.html#GDataOutputStream.description">
 <ANCHOR id="GDataOutputStream.details" href="gio/GDataOutputStream.html#GDataOutputStream.details">
@@ -1003,6 +1023,7 @@
 <ANCHOR id="gio-GConverterInputstream.synopsis" href="gio/gio-GConverterInputstream.html#gio-GConverterInputstream.synopsis">
 <ANCHOR id="GConverterInputStream" href="gio/gio-GConverterInputstream.html#GConverterInputStream">
 <ANCHOR id="gio-GConverterInputstream.object-hierarchy" href="gio/gio-GConverterInputstream.html#gio-GConverterInputstream.object-hierarchy">
+<ANCHOR id="gio-GConverterInputstream.implemented-interfaces" href="gio/gio-GConverterInputstream.html#gio-GConverterInputstream.implemented-interfaces">
 <ANCHOR id="gio-GConverterInputstream.properties" href="gio/gio-GConverterInputstream.html#gio-GConverterInputstream.properties">
 <ANCHOR id="gio-GConverterInputstream.description" href="gio/gio-GConverterInputstream.html#gio-GConverterInputstream.description">
 <ANCHOR id="gio-GConverterInputstream.details" href="gio/gio-GConverterInputstream.html#gio-GConverterInputstream.details">
@@ -1016,6 +1037,7 @@
 <ANCHOR id="gio-GConverterOutputstream.synopsis" href="gio/gio-GConverterOutputstream.html#gio-GConverterOutputstream.synopsis">
 <ANCHOR id="GConverterOutputStream" href="gio/gio-GConverterOutputstream.html#GConverterOutputStream">
 <ANCHOR id="gio-GConverterOutputstream.object-hierarchy" href="gio/gio-GConverterOutputstream.html#gio-GConverterOutputstream.object-hierarchy">
+<ANCHOR id="gio-GConverterOutputstream.implemented-interfaces" href="gio/gio-GConverterOutputstream.html#gio-GConverterOutputstream.implemented-interfaces">
 <ANCHOR id="gio-GConverterOutputstream.properties" href="gio/gio-GConverterOutputstream.html#gio-GConverterOutputstream.properties">
 <ANCHOR id="gio-GConverterOutputstream.description" href="gio/gio-GConverterOutputstream.html#gio-GConverterOutputstream.description">
 <ANCHOR id="gio-GConverterOutputstream.details" href="gio/gio-GConverterOutputstream.html#gio-GConverterOutputstream.details">
@@ -1038,8 +1060,6 @@
 <ANCHOR id="g-pollable-input-stream-is-readable" href="gio/GPollableInputStream.html#g-pollable-input-stream-is-readable">
 <ANCHOR id="g-pollable-input-stream-create-source" href="gio/GPollableInputStream.html#g-pollable-input-stream-create-source">
 <ANCHOR id="g-pollable-input-stream-read-nonblocking" href="gio/GPollableInputStream.html#g-pollable-input-stream-read-nonblocking">
-<ANCHOR id="GPollableSourceFunc" href="gio/GPollableInputStream.html#GPollableSourceFunc">
-<ANCHOR id="g-pollable-source-new" href="gio/GPollableInputStream.html#g-pollable-source-new">
 <ANCHOR id="GPollableInputStream.see-also" href="gio/GPollableInputStream.html#GPollableInputStream.see-also">
 <ANCHOR id="GPollableOutputStream" href="gio/GPollableOutputStream.html">
 <ANCHOR id="GPollableOutputStream.synopsis" href="gio/GPollableOutputStream.html#GPollableOutputStream.synopsis">
@@ -1055,6 +1075,16 @@
 <ANCHOR id="g-pollable-output-stream-create-source" href="gio/GPollableOutputStream.html#g-pollable-output-stream-create-source">
 <ANCHOR id="g-pollable-output-stream-write-nonblocking" href="gio/GPollableOutputStream.html#g-pollable-output-stream-write-nonblocking">
 <ANCHOR id="GPollableOutputStream.see-also" href="gio/GPollableOutputStream.html#GPollableOutputStream.see-also">
+<ANCHOR id="gio-gpollableutils" href="gio/gio-gpollableutils.html">
+<ANCHOR id="gio-gpollableutils.synopsis" href="gio/gio-gpollableutils.html#gio-gpollableutils.synopsis">
+<ANCHOR id="gio-gpollableutils.description" href="gio/gio-gpollableutils.html#gio-gpollableutils.description">
+<ANCHOR id="gio-gpollableutils.details" href="gio/gio-gpollableutils.html#gio-gpollableutils.details">
+<ANCHOR id="GPollableSourceFunc" href="gio/gio-gpollableutils.html#GPollableSourceFunc">
+<ANCHOR id="g-pollable-source-new" href="gio/gio-gpollableutils.html#g-pollable-source-new">
+<ANCHOR id="g-pollable-source-new-full" href="gio/gio-gpollableutils.html#g-pollable-source-new-full">
+<ANCHOR id="g-pollable-stream-read" href="gio/gio-gpollableutils.html#g-pollable-stream-read">
+<ANCHOR id="g-pollable-stream-write" href="gio/gio-gpollableutils.html#g-pollable-stream-write">
+<ANCHOR id="g-pollable-stream-write-all" href="gio/gio-gpollableutils.html#g-pollable-stream-write-all">
 <ANCHOR id="gio-GContentType" href="gio/gio-GContentType.html">
 <ANCHOR id="gio-GContentType.synopsis" href="gio/gio-GContentType.html#gio-GContentType.synopsis">
 <ANCHOR id="gio-GContentType.description" href="gio/gio-GContentType.html#gio-GContentType.description">
@@ -1065,6 +1095,8 @@
 <ANCHOR id="g-content-type-get-description" href="gio/gio-GContentType.html#g-content-type-get-description">
 <ANCHOR id="g-content-type-get-mime-type" href="gio/gio-GContentType.html#g-content-type-get-mime-type">
 <ANCHOR id="g-content-type-get-icon" href="gio/gio-GContentType.html#g-content-type-get-icon">
+<ANCHOR id="g-content-type-get-symbolic-icon" href="gio/gio-GContentType.html#g-content-type-get-symbolic-icon">
+<ANCHOR id="g-content-type-get-generic-icon-name" href="gio/gio-GContentType.html#g-content-type-get-generic-icon-name">
 <ANCHOR id="g-content-type-can-be-executable" href="gio/gio-GContentType.html#g-content-type-can-be-executable">
 <ANCHOR id="g-content-type-from-mime-type" href="gio/gio-GContentType.html#g-content-type-from-mime-type">
 <ANCHOR id="g-content-type-guess" href="gio/gio-GContentType.html#g-content-type-guess">
@@ -1110,6 +1142,7 @@
 <ANCHOR id="g-app-info-add-supports-type" href="gio/GAppInfo.html#g-app-info-add-supports-type">
 <ANCHOR id="g-app-info-can-remove-supports-type" href="gio/GAppInfo.html#g-app-info-can-remove-supports-type">
 <ANCHOR id="g-app-info-remove-supports-type" href="gio/GAppInfo.html#g-app-info-remove-supports-type">
+<ANCHOR id="g-app-info-get-supported-types" href="gio/GAppInfo.html#g-app-info-get-supported-types">
 <ANCHOR id="g-app-info-get-all" href="gio/GAppInfo.html#g-app-info-get-all">
 <ANCHOR id="g-app-info-get-all-for-type" href="gio/GAppInfo.html#g-app-info-get-all-for-type">
 <ANCHOR id="g-app-info-get-default-for-type" href="gio/GAppInfo.html#g-app-info-get-default-for-type">
@@ -1143,6 +1176,7 @@
 <ANCHOR id="g-desktop-app-info-get-generic-name" href="gio/gio-Desktop-file-based-GAppInfo.html#g-desktop-app-info-get-generic-name">
 <ANCHOR id="g-desktop-app-info-get-categories" href="gio/gio-Desktop-file-based-GAppInfo.html#g-desktop-app-info-get-categories">
 <ANCHOR id="g-desktop-app-info-get-keywords" href="gio/gio-Desktop-file-based-GAppInfo.html#g-desktop-app-info-get-keywords">
+<ANCHOR id="g-desktop-app-info-get-startup-wm-class" href="gio/gio-Desktop-file-based-GAppInfo.html#g-desktop-app-info-get-startup-wm-class">
 <ANCHOR id="g-desktop-app-info-set-desktop-env" href="gio/gio-Desktop-file-based-GAppInfo.html#g-desktop-app-info-set-desktop-env">
 <ANCHOR id="GDesktopAppLaunchCallback" href="gio/gio-Desktop-file-based-GAppInfo.html#GDesktopAppLaunchCallback">
 <ANCHOR id="g-desktop-app-info-launch-uris-as-manager" href="gio/gio-Desktop-file-based-GAppInfo.html#g-desktop-app-info-launch-uris-as-manager">
@@ -1189,6 +1223,7 @@
 <ANCHOR id="g-volume-get-name" href="gio/GVolume.html#g-volume-get-name">
 <ANCHOR id="g-volume-get-uuid" href="gio/GVolume.html#g-volume-get-uuid">
 <ANCHOR id="g-volume-get-icon" href="gio/GVolume.html#g-volume-get-icon">
+<ANCHOR id="g-volume-get-symbolic-icon" href="gio/GVolume.html#g-volume-get-symbolic-icon">
 <ANCHOR id="g-volume-get-drive" href="gio/GVolume.html#g-volume-get-drive">
 <ANCHOR id="g-volume-get-mount" href="gio/GVolume.html#g-volume-get-mount">
 <ANCHOR id="g-volume-can-mount" href="gio/GVolume.html#g-volume-can-mount">
@@ -1225,6 +1260,7 @@
 <ANCHOR id="g-mount-get-name" href="gio/GMount.html#g-mount-get-name">
 <ANCHOR id="g-mount-get-uuid" href="gio/GMount.html#g-mount-get-uuid">
 <ANCHOR id="g-mount-get-icon" href="gio/GMount.html#g-mount-get-icon">
+<ANCHOR id="g-mount-get-symbolic-icon" href="gio/GMount.html#g-mount-get-symbolic-icon">
 <ANCHOR id="g-mount-get-drive" href="gio/GMount.html#g-mount-get-drive">
 <ANCHOR id="g-mount-get-root" href="gio/GMount.html#g-mount-get-root">
 <ANCHOR id="g-mount-get-volume" href="gio/GMount.html#g-mount-get-volume">
@@ -1277,6 +1313,7 @@
 <ANCHOR id="G-DRIVE-START-STOP-TYPE-PASSWORD:CAPS" href="gio/GDrive.html#G-DRIVE-START-STOP-TYPE-PASSWORD:CAPS">
 <ANCHOR id="g-drive-get-name" href="gio/GDrive.html#g-drive-get-name">
 <ANCHOR id="g-drive-get-icon" href="gio/GDrive.html#g-drive-get-icon">
+<ANCHOR id="g-drive-get-symbolic-icon" href="gio/GDrive.html#g-drive-get-symbolic-icon">
 <ANCHOR id="g-drive-has-volumes" href="gio/GDrive.html#g-drive-has-volumes">
 <ANCHOR id="g-drive-get-volumes" href="gio/GDrive.html#g-drive-get-volumes">
 <ANCHOR id="g-drive-can-eject" href="gio/GDrive.html#g-drive-can-eject">
@@ -1324,6 +1361,7 @@
 <ANCHOR id="g-unix-mount-is-readonly" href="gio/gio-Unix-Mounts.html#g-unix-mount-is-readonly">
 <ANCHOR id="g-unix-mount-is-system-internal" href="gio/gio-Unix-Mounts.html#g-unix-mount-is-system-internal">
 <ANCHOR id="g-unix-mount-guess-icon" href="gio/gio-Unix-Mounts.html#g-unix-mount-guess-icon">
+<ANCHOR id="g-unix-mount-guess-symbolic-icon" href="gio/gio-Unix-Mounts.html#g-unix-mount-guess-symbolic-icon">
 <ANCHOR id="g-unix-mount-guess-name" href="gio/gio-Unix-Mounts.html#g-unix-mount-guess-name">
 <ANCHOR id="g-unix-mount-guess-can-eject" href="gio/gio-Unix-Mounts.html#g-unix-mount-guess-can-eject">
 <ANCHOR id="g-unix-mount-guess-should-display" href="gio/gio-Unix-Mounts.html#g-unix-mount-guess-should-display">
@@ -1337,6 +1375,7 @@
 <ANCHOR id="g-unix-mount-point-is-user-mountable" href="gio/gio-Unix-Mounts.html#g-unix-mount-point-is-user-mountable">
 <ANCHOR id="g-unix-mount-point-is-loopback" href="gio/gio-Unix-Mounts.html#g-unix-mount-point-is-loopback">
 <ANCHOR id="g-unix-mount-point-guess-icon" href="gio/gio-Unix-Mounts.html#g-unix-mount-point-guess-icon">
+<ANCHOR id="g-unix-mount-point-guess-symbolic-icon" href="gio/gio-Unix-Mounts.html#g-unix-mount-point-guess-symbolic-icon">
 <ANCHOR id="g-unix-mount-point-guess-name" href="gio/gio-Unix-Mounts.html#g-unix-mount-point-guess-name">
 <ANCHOR id="g-unix-mount-point-guess-can-eject" href="gio/gio-Unix-Mounts.html#g-unix-mount-point-guess-can-eject">
 <ANCHOR id="g-unix-mount-points-get" href="gio/gio-Unix-Mounts.html#g-unix-mount-points-get">
@@ -1783,17 +1822,21 @@
 <ANCHOR id="GProxyAddress.details" href="gio/GProxyAddress.html#GProxyAddress.details">
 <ANCHOR id="GProxyAddress-struct" href="gio/GProxyAddress.html#GProxyAddress-struct">
 <ANCHOR id="GProxyAddressClass" href="gio/GProxyAddress.html#GProxyAddressClass">
+<ANCHOR id="g-proxy-address-get-destination-protocol" href="gio/GProxyAddress.html#g-proxy-address-get-destination-protocol">
 <ANCHOR id="g-proxy-address-get-destination-hostname" href="gio/GProxyAddress.html#g-proxy-address-get-destination-hostname">
 <ANCHOR id="g-proxy-address-get-destination-port" href="gio/GProxyAddress.html#g-proxy-address-get-destination-port">
 <ANCHOR id="g-proxy-address-get-password" href="gio/GProxyAddress.html#g-proxy-address-get-password">
 <ANCHOR id="g-proxy-address-get-protocol" href="gio/GProxyAddress.html#g-proxy-address-get-protocol">
 <ANCHOR id="g-proxy-address-get-username" href="gio/GProxyAddress.html#g-proxy-address-get-username">
+<ANCHOR id="g-proxy-address-get-uri" href="gio/GProxyAddress.html#g-proxy-address-get-uri">
 <ANCHOR id="g-proxy-address-new" href="gio/GProxyAddress.html#g-proxy-address-new">
 <ANCHOR id="GProxyAddress.property-details" href="gio/GProxyAddress.html#GProxyAddress.property-details">
 <ANCHOR id="GProxyAddress--destination-hostname" href="gio/GProxyAddress.html#GProxyAddress--destination-hostname">
 <ANCHOR id="GProxyAddress--destination-port" href="gio/GProxyAddress.html#GProxyAddress--destination-port">
+<ANCHOR id="GProxyAddress--destination-protocol" href="gio/GProxyAddress.html#GProxyAddress--destination-protocol">
 <ANCHOR id="GProxyAddress--password" href="gio/GProxyAddress.html#GProxyAddress--password">
 <ANCHOR id="GProxyAddress--protocol" href="gio/GProxyAddress.html#GProxyAddress--protocol">
+<ANCHOR id="GProxyAddress--uri" href="gio/GProxyAddress.html#GProxyAddress--uri">
 <ANCHOR id="GProxyAddress--username" href="gio/GProxyAddress.html#GProxyAddress--username">
 <ANCHOR id="GSocketClient" href="gio/GSocketClient.html">
 <ANCHOR id="GSocketClient.synopsis" href="gio/GSocketClient.html#GSocketClient.synopsis">
@@ -1987,6 +2030,8 @@
 <ANCHOR id="GNetworkMonitor-network-changed" href="gio/GNetworkMonitor.html#GNetworkMonitor-network-changed">
 <ANCHOR id="gio-TLS-Overview" href="gio/gio-TLS-Overview.html">
 <ANCHOR id="gio-TLS-Overview.synopsis" href="gio/gio-TLS-Overview.html#gio-TLS-Overview.synopsis">
+<ANCHOR id="GTlsCertificateFlags" href="gio/gio-TLS-Overview.html#GTlsCertificateFlags">
+<ANCHOR id="gio-TLS-Overview.object-hierarchy" href="gio/gio-TLS-Overview.html#gio-TLS-Overview.object-hierarchy">
 <ANCHOR id="gio-TLS-Overview.description" href="gio/gio-TLS-Overview.html#gio-TLS-Overview.description">
 <ANCHOR id="gio-TLS-Overview.details" href="gio/gio-TLS-Overview.html#gio-TLS-Overview.details">
 <ANCHOR id="G-TLS-ERROR:CAPS" href="gio/gio-TLS-Overview.html#G-TLS-ERROR:CAPS">
@@ -2002,7 +2047,7 @@
 <ANCHOR id="G-TLS-AUTHENTICATION-NONE:CAPS" href="gio/gio-TLS-Overview.html#G-TLS-AUTHENTICATION-NONE:CAPS">
 <ANCHOR id="G-TLS-AUTHENTICATION-REQUESTED:CAPS" href="gio/gio-TLS-Overview.html#G-TLS-AUTHENTICATION-REQUESTED:CAPS">
 <ANCHOR id="G-TLS-AUTHENTICATION-REQUIRED:CAPS" href="gio/gio-TLS-Overview.html#G-TLS-AUTHENTICATION-REQUIRED:CAPS">
-<ANCHOR id="GTlsCertificateFlags" href="gio/gio-TLS-Overview.html#GTlsCertificateFlags">
+<ANCHOR id="GTlsCertificateFlags-enum" href="gio/gio-TLS-Overview.html#GTlsCertificateFlags-enum">
 <ANCHOR id="G-TLS-CERTIFICATE-UNKNOWN-CA:CAPS" href="gio/gio-TLS-Overview.html#G-TLS-CERTIFICATE-UNKNOWN-CA:CAPS">
 <ANCHOR id="G-TLS-CERTIFICATE-BAD-IDENTITY:CAPS" href="gio/gio-TLS-Overview.html#G-TLS-CERTIFICATE-BAD-IDENTITY:CAPS">
 <ANCHOR id="G-TLS-CERTIFICATE-NOT-ACTIVATED:CAPS" href="gio/gio-TLS-Overview.html#G-TLS-CERTIFICATE-NOT-ACTIVATED:CAPS">
@@ -2024,6 +2069,7 @@
 <ANCHOR id="g-tls-certificate-list-new-from-file" href="gio/GTlsCertificate.html#g-tls-certificate-list-new-from-file">
 <ANCHOR id="g-tls-certificate-get-issuer" href="gio/GTlsCertificate.html#g-tls-certificate-get-issuer">
 <ANCHOR id="g-tls-certificate-verify" href="gio/GTlsCertificate.html#g-tls-certificate-verify">
+<ANCHOR id="g-tls-certificate-is-same" href="gio/GTlsCertificate.html#g-tls-certificate-is-same">
 <ANCHOR id="GTlsCertificate.property-details" href="gio/GTlsCertificate.html#GTlsCertificate.property-details">
 <ANCHOR id="GTlsCertificate--certificate" href="gio/GTlsCertificate.html#GTlsCertificate--certificate">
 <ANCHOR id="GTlsCertificate--certificate-pem" href="gio/GTlsCertificate.html#GTlsCertificate--certificate-pem">
@@ -2179,13 +2225,14 @@
 <ANCHOR id="g-tls-interaction-invoke-ask-password" href="gio/GTlsInteraction.html#g-tls-interaction-invoke-ask-password">
 <ANCHOR id="GTlsPassword" href="gio/GTlsPassword.html">
 <ANCHOR id="GTlsPassword.synopsis" href="gio/GTlsPassword.html#GTlsPassword.synopsis">
+<ANCHOR id="GTlsPasswordFlags" href="gio/GTlsPassword.html#GTlsPasswordFlags">
 <ANCHOR id="GTlsPassword.object-hierarchy" href="gio/GTlsPassword.html#GTlsPassword.object-hierarchy">
 <ANCHOR id="GTlsPassword.properties" href="gio/GTlsPassword.html#GTlsPassword.properties">
 <ANCHOR id="GTlsPassword.description" href="gio/GTlsPassword.html#GTlsPassword.description">
 <ANCHOR id="GTlsPassword.details" href="gio/GTlsPassword.html#GTlsPassword.details">
 <ANCHOR id="GTlsPassword-struct" href="gio/GTlsPassword.html#GTlsPassword-struct">
 <ANCHOR id="GTlsPasswordClass" href="gio/GTlsPassword.html#GTlsPasswordClass">
-<ANCHOR id="GTlsPasswordFlags" href="gio/GTlsPassword.html#GTlsPasswordFlags">
+<ANCHOR id="GTlsPasswordFlags-enum" href="gio/GTlsPassword.html#GTlsPasswordFlags-enum">
 <ANCHOR id="G-TLS-PASSWORD-NONE:CAPS" href="gio/GTlsPassword.html#G-TLS-PASSWORD-NONE:CAPS">
 <ANCHOR id="G-TLS-PASSWORD-RETRY:CAPS" href="gio/GTlsPassword.html#G-TLS-PASSWORD-RETRY:CAPS">
 <ANCHOR id="G-TLS-PASSWORD-MANY-TRIES:CAPS" href="gio/GTlsPassword.html#G-TLS-PASSWORD-MANY-TRIES:CAPS">
@@ -2224,6 +2271,9 @@
 <ANCHOR id="g-resolver-lookup-service-async" href="gio/GResolver.html#g-resolver-lookup-service-async">
 <ANCHOR id="g-resolver-lookup-service-finish" href="gio/GResolver.html#g-resolver-lookup-service-finish">
 <ANCHOR id="g-resolver-free-targets" href="gio/GResolver.html#g-resolver-free-targets">
+<ANCHOR id="g-resolver-lookup-records" href="gio/GResolver.html#g-resolver-lookup-records">
+<ANCHOR id="g-resolver-lookup-records-async" href="gio/GResolver.html#g-resolver-lookup-records-async">
+<ANCHOR id="g-resolver-lookup-records-finish" href="gio/GResolver.html#g-resolver-lookup-records-finish">
 <ANCHOR id="G-RESOLVER-ERROR:CAPS" href="gio/GResolver.html#G-RESOLVER-ERROR:CAPS">
 <ANCHOR id="GResolverError" href="gio/GResolver.html#GResolverError">
 <ANCHOR id="G-RESOLVER-ERROR-NOT-FOUND:CAPS" href="gio/GResolver.html#G-RESOLVER-ERROR-NOT-FOUND:CAPS">
@@ -2536,6 +2586,8 @@
 <ANCHOR id="GDBusMessage--locked" href="gio/GDBusMessage.html#GDBusMessage--locked">
 <ANCHOR id="GDBusConnection" href="gio/GDBusConnection.html">
 <ANCHOR id="GDBusConnection.synopsis" href="gio/GDBusConnection.html#GDBusConnection.synopsis">
+<ANCHOR id="GDBusConnectionFlags" href="gio/GDBusConnection.html#GDBusConnectionFlags">
+<ANCHOR id="GDBusCapabilityFlags" href="gio/GDBusConnection.html#GDBusCapabilityFlags">
 <ANCHOR id="GDBusConnection.object-hierarchy" href="gio/GDBusConnection.html#GDBusConnection.object-hierarchy">
 <ANCHOR id="GDBusConnection.implemented-interfaces" href="gio/GDBusConnection.html#GDBusConnection.implemented-interfaces">
 <ANCHOR id="GDBusConnection.properties" href="gio/GDBusConnection.html#GDBusConnection.properties">
@@ -2551,7 +2603,7 @@
 <ANCHOR id="g-bus-get-finish" href="gio/GDBusConnection.html#g-bus-get-finish">
 <ANCHOR id="g-bus-get-sync" href="gio/GDBusConnection.html#g-bus-get-sync">
 <ANCHOR id="GDBusConnection-struct" href="gio/GDBusConnection.html#GDBusConnection-struct">
-<ANCHOR id="GDBusConnectionFlags" href="gio/GDBusConnection.html#GDBusConnectionFlags">
+<ANCHOR id="GDBusConnectionFlags-enum" href="gio/GDBusConnection.html#GDBusConnectionFlags-enum">
 <ANCHOR id="G-DBUS-CONNECTION-FLAGS-NONE:CAPS" href="gio/GDBusConnection.html#G-DBUS-CONNECTION-FLAGS-NONE:CAPS">
 <ANCHOR id="G-DBUS-CONNECTION-FLAGS-AUTHENTICATION-CLIENT:CAPS" href="gio/GDBusConnection.html#G-DBUS-CONNECTION-FLAGS-AUTHENTICATION-CLIENT:CAPS">
 <ANCHOR id="G-DBUS-CONNECTION-FLAGS-AUTHENTICATION-SERVER:CAPS" href="gio/GDBusConnection.html#G-DBUS-CONNECTION-FLAGS-AUTHENTICATION-SERVER:CAPS">
@@ -2577,11 +2629,12 @@
 <ANCHOR id="g-dbus-connection-get-stream" href="gio/GDBusConnection.html#g-dbus-connection-get-stream">
 <ANCHOR id="g-dbus-connection-get-guid" href="gio/GDBusConnection.html#g-dbus-connection-get-guid">
 <ANCHOR id="g-dbus-connection-get-unique-name" href="gio/GDBusConnection.html#g-dbus-connection-get-unique-name">
-<ANCHOR id="GDBusCapabilityFlags" href="gio/GDBusConnection.html#GDBusCapabilityFlags">
+<ANCHOR id="GDBusCapabilityFlags-enum" href="gio/GDBusConnection.html#GDBusCapabilityFlags-enum">
 <ANCHOR id="G-DBUS-CAPABILITY-FLAGS-NONE:CAPS" href="gio/GDBusConnection.html#G-DBUS-CAPABILITY-FLAGS-NONE:CAPS">
 <ANCHOR id="G-DBUS-CAPABILITY-FLAGS-UNIX-FD-PASSING:CAPS" href="gio/GDBusConnection.html#G-DBUS-CAPABILITY-FLAGS-UNIX-FD-PASSING:CAPS">
 <ANCHOR id="g-dbus-connection-get-capabilities" href="gio/GDBusConnection.html#g-dbus-connection-get-capabilities">
 <ANCHOR id="g-dbus-connection-get-peer-credentials" href="gio/GDBusConnection.html#g-dbus-connection-get-peer-credentials">
+<ANCHOR id="g-dbus-connection-get-last-serial" href="gio/GDBusConnection.html#g-dbus-connection-get-last-serial">
 <ANCHOR id="GDBusCallFlags" href="gio/GDBusConnection.html#GDBusCallFlags">
 <ANCHOR id="G-DBUS-CALL-FLAGS-NONE:CAPS" href="gio/GDBusConnection.html#G-DBUS-CALL-FLAGS-NONE:CAPS">
 <ANCHOR id="G-DBUS-CALL-FLAGS-NO-AUTO-START:CAPS" href="gio/GDBusConnection.html#G-DBUS-CALL-FLAGS-NO-AUTO-START:CAPS">
@@ -2660,6 +2713,7 @@
 <ANCHOR id="g-dbus-method-invocation-return-value-with-unix-fd-list" href="gio/GDBusMethodInvocation.html#g-dbus-method-invocation-return-value-with-unix-fd-list">
 <ANCHOR id="GDBusServer" href="gio/GDBusServer.html">
 <ANCHOR id="GDBusServer.synopsis" href="gio/GDBusServer.html#GDBusServer.synopsis">
+<ANCHOR id="GDBusServerFlags" href="gio/GDBusServer.html#GDBusServerFlags">
 <ANCHOR id="GDBusServer.object-hierarchy" href="gio/GDBusServer.html#GDBusServer.object-hierarchy">
 <ANCHOR id="GDBusServer.implemented-interfaces" href="gio/GDBusServer.html#GDBusServer.implemented-interfaces">
 <ANCHOR id="GDBusServer.properties" href="gio/GDBusServer.html#GDBusServer.properties">
@@ -2667,7 +2721,7 @@
 <ANCHOR id="GDBusServer.description" href="gio/GDBusServer.html#GDBusServer.description">
 <ANCHOR id="GDBusServer.details" href="gio/GDBusServer.html#GDBusServer.details">
 <ANCHOR id="GDBusServer-struct" href="gio/GDBusServer.html#GDBusServer-struct">
-<ANCHOR id="GDBusServerFlags" href="gio/GDBusServer.html#GDBusServerFlags">
+<ANCHOR id="GDBusServerFlags-enum" href="gio/GDBusServer.html#GDBusServerFlags-enum">
 <ANCHOR id="G-DBUS-SERVER-FLAGS-NONE:CAPS" href="gio/GDBusServer.html#G-DBUS-SERVER-FLAGS-NONE:CAPS">
 <ANCHOR id="G-DBUS-SERVER-FLAGS-RUN-IN-THREAD:CAPS" href="gio/GDBusServer.html#G-DBUS-SERVER-FLAGS-RUN-IN-THREAD:CAPS">
 <ANCHOR id="G-DBUS-SERVER-FLAGS-AUTHENTICATION-ALLOW-ANONYMOUS:CAPS" href="gio/GDBusServer.html#G-DBUS-SERVER-FLAGS-AUTHENTICATION-ALLOW-ANONYMOUS:CAPS">
@@ -2696,7 +2750,9 @@
 <ANCHOR id="GDBusAuthObserver-struct" href="gio/GDBusAuthObserver.html#GDBusAuthObserver-struct">
 <ANCHOR id="g-dbus-auth-observer-new" href="gio/GDBusAuthObserver.html#g-dbus-auth-observer-new">
 <ANCHOR id="g-dbus-auth-observer-authorize-authenticated-peer" href="gio/GDBusAuthObserver.html#g-dbus-auth-observer-authorize-authenticated-peer">
+<ANCHOR id="g-dbus-auth-observer-allow-mechanism" href="gio/GDBusAuthObserver.html#g-dbus-auth-observer-allow-mechanism">
 <ANCHOR id="GDBusAuthObserver.signal-details" href="gio/GDBusAuthObserver.html#GDBusAuthObserver.signal-details">
+<ANCHOR id="GDBusAuthObserver-allow-mechanism" href="gio/GDBusAuthObserver.html#GDBusAuthObserver-allow-mechanism">
 <ANCHOR id="GDBusAuthObserver-authorize-authenticated-peer" href="gio/GDBusAuthObserver.html#GDBusAuthObserver-authorize-authenticated-peer">
 <ANCHOR id="gio-Owning-Bus-Names" href="gio/gio-Owning-Bus-Names.html">
 <ANCHOR id="gio-Owning-Bus-Names.synopsis" href="gio/gio-Owning-Bus-Names.html#gio-Owning-Bus-Names.synopsis">
@@ -2743,6 +2799,7 @@
 <ANCHOR id="g-dbus-interface-set-object" href="gio/GDBusInterface.html#g-dbus-interface-set-object">
 <ANCHOR id="GDBusInterfaceSkeleton" href="gio/GDBusInterfaceSkeleton.html">
 <ANCHOR id="GDBusInterfaceSkeleton.synopsis" href="gio/GDBusInterfaceSkeleton.html#GDBusInterfaceSkeleton.synopsis">
+<ANCHOR id="GDBusInterfaceSkeletonFlags" href="gio/GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags">
 <ANCHOR id="GDBusInterfaceSkeleton.object-hierarchy" href="gio/GDBusInterfaceSkeleton.html#GDBusInterfaceSkeleton.object-hierarchy">
 <ANCHOR id="GDBusInterfaceSkeleton.implemented-interfaces" href="gio/GDBusInterfaceSkeleton.html#GDBusInterfaceSkeleton.implemented-interfaces">
 <ANCHOR id="GDBusInterfaceSkeleton.properties" href="gio/GDBusInterfaceSkeleton.html#GDBusInterfaceSkeleton.properties">
@@ -2762,7 +2819,7 @@
 <ANCHOR id="g-dbus-interface-skeleton-get-connections" href="gio/GDBusInterfaceSkeleton.html#g-dbus-interface-skeleton-get-connections">
 <ANCHOR id="g-dbus-interface-skeleton-has-connection" href="gio/GDBusInterfaceSkeleton.html#g-dbus-interface-skeleton-has-connection">
 <ANCHOR id="g-dbus-interface-skeleton-get-object-path" href="gio/GDBusInterfaceSkeleton.html#g-dbus-interface-skeleton-get-object-path">
-<ANCHOR id="GDBusInterfaceSkeletonFlags" href="gio/GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags">
+<ANCHOR id="GDBusInterfaceSkeletonFlags-enum" href="gio/GDBusInterfaceSkeleton.html#GDBusInterfaceSkeletonFlags-enum">
 <ANCHOR id="G-DBUS-INTERFACE-SKELETON-FLAGS-NONE:CAPS" href="gio/GDBusInterfaceSkeleton.html#G-DBUS-INTERFACE-SKELETON-FLAGS-NONE:CAPS">
 <ANCHOR id="G-DBUS-INTERFACE-SKELETON-FLAGS-HANDLE-METHOD-INVOCATIONS-IN-THREAD:CAPS" href="gio/GDBusInterfaceSkeleton.html#G-DBUS-INTERFACE-SKELETON-FLAGS-HANDLE-METHOD-INVOCATIONS-IN-THREAD:CAPS">
 <ANCHOR id="g-dbus-interface-skeleton-get-flags" href="gio/GDBusInterfaceSkeleton.html#g-dbus-interface-skeleton-get-flags">
@@ -2773,13 +2830,14 @@
 <ANCHOR id="GDBusInterfaceSkeleton-g-authorize-method" href="gio/GDBusInterfaceSkeleton.html#GDBusInterfaceSkeleton-g-authorize-method">
 <ANCHOR id="GDBusProxy" href="gio/GDBusProxy.html">
 <ANCHOR id="GDBusProxy.synopsis" href="gio/GDBusProxy.html#GDBusProxy.synopsis">
+<ANCHOR id="GDBusProxyFlags" href="gio/GDBusProxy.html#GDBusProxyFlags">
 <ANCHOR id="GDBusProxy.object-hierarchy" href="gio/GDBusProxy.html#GDBusProxy.object-hierarchy">
 <ANCHOR id="GDBusProxy.implemented-interfaces" href="gio/GDBusProxy.html#GDBusProxy.implemented-interfaces">
 <ANCHOR id="GDBusProxy.properties" href="gio/GDBusProxy.html#GDBusProxy.properties">
 <ANCHOR id="GDBusProxy.signals" href="gio/GDBusProxy.html#GDBusProxy.signals">
 <ANCHOR id="GDBusProxy.description" href="gio/GDBusProxy.html#GDBusProxy.description">
 <ANCHOR id="GDBusProxy.details" href="gio/GDBusProxy.html#GDBusProxy.details">
-<ANCHOR id="GDBusProxyFlags" href="gio/GDBusProxy.html#GDBusProxyFlags">
+<ANCHOR id="GDBusProxyFlags-enum" href="gio/GDBusProxy.html#GDBusProxyFlags-enum">
 <ANCHOR id="G-DBUS-PROXY-FLAGS-NONE:CAPS" href="gio/GDBusProxy.html#G-DBUS-PROXY-FLAGS-NONE:CAPS">
 <ANCHOR id="G-DBUS-PROXY-FLAGS-DO-NOT-LOAD-PROPERTIES:CAPS" href="gio/GDBusProxy.html#G-DBUS-PROXY-FLAGS-DO-NOT-LOAD-PROPERTIES:CAPS">
 <ANCHOR id="G-DBUS-PROXY-FLAGS-DO-NOT-CONNECT-SIGNALS:CAPS" href="gio/GDBusProxy.html#G-DBUS-PROXY-FLAGS-DO-NOT-CONNECT-SIGNALS:CAPS">
@@ -2908,12 +2966,14 @@
 <ANCHOR id="g-dbus-object-manager-server-set-connection" href="gio/GDBusObjectManagerServer.html#g-dbus-object-manager-server-set-connection">
 <ANCHOR id="g-dbus-object-manager-server-export" href="gio/GDBusObjectManagerServer.html#g-dbus-object-manager-server-export">
 <ANCHOR id="g-dbus-object-manager-server-export-uniquely" href="gio/GDBusObjectManagerServer.html#g-dbus-object-manager-server-export-uniquely">
+<ANCHOR id="g-dbus-object-manager-server-is-exported" href="gio/GDBusObjectManagerServer.html#g-dbus-object-manager-server-is-exported">
 <ANCHOR id="g-dbus-object-manager-server-unexport" href="gio/GDBusObjectManagerServer.html#g-dbus-object-manager-server-unexport">
 <ANCHOR id="GDBusObjectManagerServer.property-details" href="gio/GDBusObjectManagerServer.html#GDBusObjectManagerServer.property-details">
 <ANCHOR id="GDBusObjectManagerServer--connection" href="gio/GDBusObjectManagerServer.html#GDBusObjectManagerServer--connection">
 <ANCHOR id="GDBusObjectManagerServer--object-path" href="gio/GDBusObjectManagerServer.html#GDBusObjectManagerServer--object-path">
 <ANCHOR id="GDBusObjectManagerClient" href="gio/GDBusObjectManagerClient.html">
 <ANCHOR id="GDBusObjectManagerClient.synopsis" href="gio/GDBusObjectManagerClient.html#GDBusObjectManagerClient.synopsis">
+<ANCHOR id="GDBusObjectManagerClientFlags" href="gio/GDBusObjectManagerClient.html#GDBusObjectManagerClientFlags">
 <ANCHOR id="GDBusObjectManagerClient.object-hierarchy" href="gio/GDBusObjectManagerClient.html#GDBusObjectManagerClient.object-hierarchy">
 <ANCHOR id="GDBusObjectManagerClient.implemented-interfaces" href="gio/GDBusObjectManagerClient.html#GDBusObjectManagerClient.implemented-interfaces">
 <ANCHOR id="GDBusObjectManagerClient.properties" href="gio/GDBusObjectManagerClient.html#GDBusObjectManagerClient.properties">
@@ -2922,7 +2982,7 @@
 <ANCHOR id="GDBusObjectManagerClient.details" href="gio/GDBusObjectManagerClient.html#GDBusObjectManagerClient.details">
 <ANCHOR id="GDBusObjectManagerClient-struct" href="gio/GDBusObjectManagerClient.html#GDBusObjectManagerClient-struct">
 <ANCHOR id="GDBusObjectManagerClientClass" href="gio/GDBusObjectManagerClient.html#GDBusObjectManagerClientClass">
-<ANCHOR id="GDBusObjectManagerClientFlags" href="gio/GDBusObjectManagerClient.html#GDBusObjectManagerClientFlags">
+<ANCHOR id="GDBusObjectManagerClientFlags-enum" href="gio/GDBusObjectManagerClient.html#GDBusObjectManagerClientFlags-enum">
 <ANCHOR id="G-DBUS-OBJECT-MANAGER-CLIENT-FLAGS-NONE:CAPS" href="gio/GDBusObjectManagerClient.html#G-DBUS-OBJECT-MANAGER-CLIENT-FLAGS-NONE:CAPS">
 <ANCHOR id="G-DBUS-OBJECT-MANAGER-CLIENT-FLAGS-DO-NOT-AUTO-START:CAPS" href="gio/GDBusObjectManagerClient.html#G-DBUS-OBJECT-MANAGER-CLIENT-FLAGS-DO-NOT-AUTO-START:CAPS">
 <ANCHOR id="GDBusProxyTypeFunc" href="gio/GDBusObjectManagerClient.html#GDBusProxyTypeFunc">
@@ -3122,6 +3182,7 @@
 <ANCHOR id="g-simple-permission-new" href="gio/GSimplePermission.html#g-simple-permission-new">
 <ANCHOR id="GApplication" href="gio/GApplication.html">
 <ANCHOR id="GApplication.synopsis" href="gio/GApplication.html#GApplication.synopsis">
+<ANCHOR id="GApplicationFlags" href="gio/GApplication.html#GApplicationFlags">
 <ANCHOR id="GApplication.object-hierarchy" href="gio/GApplication.html#GApplication.object-hierarchy">
 <ANCHOR id="GApplication.implemented-interfaces" href="gio/GApplication.html#GApplication.implemented-interfaces">
 <ANCHOR id="GApplication.properties" href="gio/GApplication.html#GApplication.properties">
@@ -3130,7 +3191,7 @@
 <ANCHOR id="GApplication.details" href="gio/GApplication.html#GApplication.details">
 <ANCHOR id="GApplication-struct" href="gio/GApplication.html#GApplication-struct">
 <ANCHOR id="GApplicationClass" href="gio/GApplication.html#GApplicationClass">
-<ANCHOR id="GApplicationFlags" href="gio/GApplication.html#GApplicationFlags">
+<ANCHOR id="GApplicationFlags-enum" href="gio/GApplication.html#GApplicationFlags-enum">
 <ANCHOR id="G-APPLICATION-FLAGS-NONE:CAPS" href="gio/GApplication.html#G-APPLICATION-FLAGS-NONE:CAPS">
 <ANCHOR id="G-APPLICATION-IS-SERVICE:CAPS" href="gio/GApplication.html#G-APPLICATION-IS-SERVICE:CAPS">
 <ANCHOR id="G-APPLICATION-IS-LAUNCHER:CAPS" href="gio/GApplication.html#G-APPLICATION-IS-LAUNCHER:CAPS">
@@ -3146,6 +3207,8 @@
 <ANCHOR id="g-application-set-inactivity-timeout" href="gio/GApplication.html#g-application-set-inactivity-timeout">
 <ANCHOR id="g-application-get-flags" href="gio/GApplication.html#g-application-get-flags">
 <ANCHOR id="g-application-set-flags" href="gio/GApplication.html#g-application-set-flags">
+<ANCHOR id="g-application-get-dbus-connection" href="gio/GApplication.html#g-application-get-dbus-connection">
+<ANCHOR id="g-application-get-dbus-object-path" href="gio/GApplication.html#g-application-get-dbus-object-path">
 <ANCHOR id="g-application-set-action-group" href="gio/GApplication.html#g-application-set-action-group">
 <ANCHOR id="g-application-get-is-registered" href="gio/GApplication.html#g-application-get-is-registered">
 <ANCHOR id="g-application-get-is-remote" href="gio/GApplication.html#g-application-get-is-remote">
@@ -3380,12 +3443,16 @@
 <ANCHOR id="g-menu-item-new" href="gio/GMenu.html#g-menu-item-new">
 <ANCHOR id="g-menu-item-new-section" href="gio/GMenu.html#g-menu-item-new-section">
 <ANCHOR id="g-menu-item-new-submenu" href="gio/GMenu.html#g-menu-item-new-submenu">
+<ANCHOR id="g-menu-item-new-from-model" href="gio/GMenu.html#g-menu-item-new-from-model">
 <ANCHOR id="g-menu-item-set-label" href="gio/GMenu.html#g-menu-item-set-label">
 <ANCHOR id="g-menu-item-set-action-and-target-value" href="gio/GMenu.html#g-menu-item-set-action-and-target-value">
 <ANCHOR id="g-menu-item-set-action-and-target" href="gio/GMenu.html#g-menu-item-set-action-and-target">
 <ANCHOR id="g-menu-item-set-detailed-action" href="gio/GMenu.html#g-menu-item-set-detailed-action">
 <ANCHOR id="g-menu-item-set-section" href="gio/GMenu.html#g-menu-item-set-section">
 <ANCHOR id="g-menu-item-set-submenu" href="gio/GMenu.html#g-menu-item-set-submenu">
+<ANCHOR id="g-menu-item-get-attribute-value" href="gio/GMenu.html#g-menu-item-get-attribute-value">
+<ANCHOR id="g-menu-item-get-attribute" href="gio/GMenu.html#g-menu-item-get-attribute">
+<ANCHOR id="g-menu-item-get-link" href="gio/GMenu.html#g-menu-item-get-link">
 <ANCHOR id="g-menu-item-set-attribute-value" href="gio/GMenu.html#g-menu-item-set-attribute-value">
 <ANCHOR id="g-menu-item-set-attribute" href="gio/GMenu.html#g-menu-item-set-attribute">
 <ANCHOR id="g-menu-item-set-link" href="gio/GMenu.html#g-menu-item-set-link">
@@ -3466,6 +3533,26 @@
 <ANCHOR id="gdbus-codegen" href="gio/gdbus-codegen.html">
 <ANCHOR id="gdbus-code-stability" href="gio/gdbus-codegen.html#gdbus-code-stability">
 <ANCHOR id="gresource-tool" href="gio/gresource-tool.html">
+<ANCHOR id="GTestDBus" href="gio/GTestDBus.html">
+<ANCHOR id="GTestDBus.synopsis" href="gio/GTestDBus.html#GTestDBus.synopsis">
+<ANCHOR id="GTestDBusFlags" href="gio/GTestDBus.html#GTestDBusFlags">
+<ANCHOR id="GTestDBus.object-hierarchy" href="gio/GTestDBus.html#GTestDBus.object-hierarchy">
+<ANCHOR id="GTestDBus.properties" href="gio/GTestDBus.html#GTestDBus.properties">
+<ANCHOR id="GTestDBus.description" href="gio/GTestDBus.html#GTestDBus.description">
+<ANCHOR id="GTestDBus.details" href="gio/GTestDBus.html#GTestDBus.details">
+<ANCHOR id="GTestDBus-struct" href="gio/GTestDBus.html#GTestDBus-struct">
+<ANCHOR id="GTestDBusFlags-enum" href="gio/GTestDBus.html#GTestDBusFlags-enum">
+<ANCHOR id="G-TEST-DBUS-NONE:CAPS" href="gio/GTestDBus.html#G-TEST-DBUS-NONE:CAPS">
+<ANCHOR id="g-test-dbus-new" href="gio/GTestDBus.html#g-test-dbus-new">
+<ANCHOR id="g-test-dbus-get-flags" href="gio/GTestDBus.html#g-test-dbus-get-flags">
+<ANCHOR id="g-test-dbus-get-bus-address" href="gio/GTestDBus.html#g-test-dbus-get-bus-address">
+<ANCHOR id="g-test-dbus-add-service-dir" href="gio/GTestDBus.html#g-test-dbus-add-service-dir">
+<ANCHOR id="g-test-dbus-up" href="gio/GTestDBus.html#g-test-dbus-up">
+<ANCHOR id="g-test-dbus-stop" href="gio/GTestDBus.html#g-test-dbus-stop">
+<ANCHOR id="g-test-dbus-down" href="gio/GTestDBus.html#g-test-dbus-down">
+<ANCHOR id="g-test-dbus-unset" href="gio/GTestDBus.html#g-test-dbus-unset">
+<ANCHOR id="GTestDBus.property-details" href="gio/GTestDBus.html#GTestDBus.property-details">
+<ANCHOR id="GTestDBus--flags" href="gio/GTestDBus.html#GTestDBus--flags">
 <ANCHOR id="gdbus-org.gtk.GDBus.Example.ObjectManager.Animal" href="gio/gdbus-org.gtk.GDBus.Example.ObjectManager.Animal.html">
 <ANCHOR id="gdbus-interface-org-gtk-GDBus-Example-ObjectManager-Animal" href="gio/gdbus-org.gtk.GDBus.Example.ObjectManager.Animal.html#gdbus-interface-org-gtk-GDBus-Example-ObjectManager-Animal">
 <ANCHOR id="gdbus-methods-org.gtk.GDBus.Example.ObjectManager.Animal" href="gio/gdbus-org.gtk.GDBus.Example.ObjectManager.Animal.html#gdbus-methods-org.gtk.GDBus.Example.ObjectManager.Animal">
@@ -3584,6 +3671,7 @@
 <ANCHOR id="example-object-manager-client-new-for-bus" href="gio/ExampleObjectManagerClient.html#example-object-manager-client-new-for-bus">
 <ANCHOR id="example-object-manager-client-new-for-bus-finish" href="gio/ExampleObjectManagerClient.html#example-object-manager-client-new-for-bus-finish">
 <ANCHOR id="example-object-manager-client-new-for-bus-sync" href="gio/ExampleObjectManagerClient.html#example-object-manager-client-new-for-bus-sync">
+<ANCHOR id="annotation-glossterm-out caller-allocates" href="gio/annotation-glossary.html#annotation-glossterm-out caller-allocates">
 <ANCHOR id="annotation-glossterm-out" href="gio/annotation-glossary.html#annotation-glossterm-out">
 <ANCHOR id="annotation-glossterm-scope async" href="gio/annotation-glossary.html#annotation-glossterm-scope async">
 <ANCHOR id="annotation-glossterm-allow-none" href="gio/annotation-glossary.html#annotation-glossterm-allow-none">

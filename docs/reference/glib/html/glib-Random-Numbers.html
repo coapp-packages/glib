@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Random Numbers</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-GDateTime.html" title="GDateTime">
 <link rel="next" href="glib-Hook-Functions.html" title="Hook Functions">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -133,8 +133,11 @@ accessed through the <code class="function">g_rand_*</code> functions.
 <p>
 Creates a new random number generator initialized with <em class="parameter"><code>seed</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seed</code></em> :</span></p></td>
@@ -155,8 +158,11 @@ Creates a new random number generator initialized with <em class="parameter"><co
 <p>
 Creates a new random number generator initialized with <em class="parameter"><code>seed</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seed</code></em> :</span></p></td>
@@ -183,8 +189,11 @@ Creates a new random number generator initialized with a seed taken
 either from <code class="filename">/dev/urandom</code> (if existing) or from 
 the current time (as a fallback).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the new <a class="link" href="glib-Random-Numbers.html#GRand" title="GRand"><span class="type">GRand</span></a>.</td>
@@ -200,8 +209,11 @@ Copies a <a class="link" href="glib-Random-Numbers.html#GRand" title="GRand"><sp
 This way you can take a snapshot of the random number generator for
 replaying later.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>rand_</code></em> :</span></p></td>
@@ -222,8 +234,11 @@ replaying later.
 <p>
 Frees the memory allocated for the <a class="link" href="glib-Random-Numbers.html#GRand" title="GRand"><span class="type">GRand</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>rand_</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Random-Numbers.html#GRand" title="GRand"><span class="type">GRand</span></a>.</td>
@@ -238,8 +253,11 @@ Frees the memory allocated for the <a class="link" href="glib-Random-Numbers.htm
 <p>
 Sets the seed for the random number generator <a class="link" href="glib-Random-Numbers.html#GRand" title="GRand"><span class="type">GRand</span></a> to <em class="parameter"><code>seed</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>rand_</code></em> :</span></p></td>
@@ -265,8 +283,11 @@ first 624 values are taken.  This function is useful
 if you have many low entropy seeds, or if you require more then
 32bits of actual entropy for your application.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>rand_</code></em> :</span></p></td>
@@ -292,8 +313,11 @@ if you have many low entropy seeds, or if you require more then
 Returns a random <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a> from <em class="parameter"><code>rand_</code></em>. This corresponds to a
 unbiased coin toss.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>rand_</code></em> :</span></p></td>
@@ -314,8 +338,11 @@ unbiased coin toss.
 Returns the next random <a class="link" href="glib-Basic-Types.html#guint32" title="guint32"><span class="type">guint32</span></a> from <em class="parameter"><code>rand_</code></em> equally distributed over
 the range [0..2^32-1].
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>rand_</code></em> :</span></p></td>
@@ -338,8 +365,11 @@ the range [0..2^32-1].
 Returns the next random <a class="link" href="glib-Basic-Types.html#gint32" title="gint32"><span class="type">gint32</span></a> from <em class="parameter"><code>rand_</code></em> equally distributed over
 the range [<em class="parameter"><code>begin</code></em>..<em class="parameter"><code>end</code></em>-1].
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>rand_</code></em> :</span></p></td>
@@ -368,8 +398,11 @@ the range [<em class="parameter"><code>begin</code></em>..<em class="parameter">
 Returns the next random <a class="link" href="glib-Basic-Types.html#gdouble" title="gdouble"><span class="type">gdouble</span></a> from <em class="parameter"><code>rand_</code></em> equally distributed over
 the range [0..1).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>rand_</code></em> :</span></p></td>
@@ -392,8 +425,11 @@ the range [0..1).
 Returns the next random <a class="link" href="glib-Basic-Types.html#gdouble" title="gdouble"><span class="type">gdouble</span></a> from <em class="parameter"><code>rand_</code></em> equally distributed over
 the range [<em class="parameter"><code>begin</code></em>..<em class="parameter"><code>end</code></em>).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>rand_</code></em> :</span></p></td>
@@ -422,8 +458,11 @@ the range [<em class="parameter"><code>begin</code></em>..<em class="parameter">
 Sets the seed for the global random number generator, which is used
 by the <code class="function">g_random_*</code> functions, to <em class="parameter"><code>seed</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>seed</code></em> :</span></p></td>
 <td>a value to reinitialize the global random number generator.</td>
@@ -437,8 +476,11 @@ by the <code class="function">g_random_*</code> functions, to <em class="paramet
 <p>
 Returns a random <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a>. This corresponds to a unbiased coin toss.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a random <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a>.</td>
@@ -453,8 +495,11 @@ Returns a random <a class="link" href="glib-Basic-Types.html#gboolean" title="gb
 Return a random <a class="link" href="glib-Basic-Types.html#guint32" title="guint32"><span class="type">guint32</span></a> equally distributed over the range
 [0..2^32-1].
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>A random number.</td>
@@ -470,8 +515,11 @@ Return a random <a class="link" href="glib-Basic-Types.html#guint32" title="guin
 Returns a random <a class="link" href="glib-Basic-Types.html#gint32" title="gint32"><span class="type">gint32</span></a> equally distributed over the range
 [<em class="parameter"><code>begin</code></em>..<em class="parameter"><code>end</code></em>-1].
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>begin</code></em> :</span></p></td>
@@ -495,8 +543,11 @@ Returns a random <a class="link" href="glib-Basic-Types.html#gint32" title="gint
 <p>
 Returns a random <a class="link" href="glib-Basic-Types.html#gdouble" title="gdouble"><span class="type">gdouble</span></a> equally distributed over the range [0..1).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>A random number.</td>
@@ -511,8 +562,11 @@ Returns a random <a class="link" href="glib-Basic-Types.html#gdouble" title="gdo
 <p>
 Returns a random <a class="link" href="glib-Basic-Types.html#gdouble" title="gdouble"><span class="type">gdouble</span></a> equally distributed over the range [<em class="parameter"><code>begin</code></em>..<em class="parameter"><code>end</code></em>).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>begin</code></em> :</span></p></td>
@@ -533,6 +587,6 @@ Returns a random <a class="link" href="glib-Basic-Types.html#gdouble" title="gdo
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GTlsCertificate</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="tls.html" title="TLS (SSL) support">
 <link rel="prev" href="gio-TLS-Overview.html" title="TLS Overview">
 <link rel="next" href="GTlsConnection.html" title="GTlsConnection">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -54,9 +54,11 @@
                                                         (<em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *file</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
 <a class="link" href="GTlsCertificate.html" title="GTlsCertificate"><span class="returnvalue">GTlsCertificate</span></a> *   <a class="link" href="GTlsCertificate.html#g-tls-certificate-get-issuer" title="g_tls_certificate_get_issuer ()">g_tls_certificate_get_issuer</a>        (<em class="parameter"><code><a class="link" href="GTlsCertificate.html" title="GTlsCertificate"><span class="type">GTlsCertificate</span></a> *cert</code></em>);
-<a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags" title="enum GTlsCertificateFlags"><span class="returnvalue">GTlsCertificateFlags</span></a> <a class="link" href="GTlsCertificate.html#g-tls-certificate-verify" title="g_tls_certificate_verify ()">g_tls_certificate_verify</a>           (<em class="parameter"><code><a class="link" href="GTlsCertificate.html" title="GTlsCertificate"><span class="type">GTlsCertificate</span></a> *cert</code></em>,
+<a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags"><span class="returnvalue">GTlsCertificateFlags</span></a> <a class="link" href="GTlsCertificate.html#g-tls-certificate-verify" title="g_tls_certificate_verify ()">g_tls_certificate_verify</a>           (<em class="parameter"><code><a class="link" href="GTlsCertificate.html" title="GTlsCertificate"><span class="type">GTlsCertificate</span></a> *cert</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GSocketConnectable.html" title="GSocketConnectable"><span class="type">GSocketConnectable</span></a> *identity</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GTlsCertificate.html" title="GTlsCertificate"><span class="type">GTlsCertificate</span></a> *trusted_ca</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GTlsCertificate.html#g-tls-certificate-is-same" title="g_tls_certificate_is_same ()">g_tls_certificate_is_same</a>           (<em class="parameter"><code><a class="link" href="GTlsCertificate.html" title="GTlsCertificate"><span class="type">GTlsCertificate</span></a> *cert_one</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GTlsCertificate.html" title="GTlsCertificate"><span class="type">GTlsCertificate</span></a> *cert_two</code></em>);
 </pre>
 </div>
 <div class="refsect1">
@@ -80,9 +82,9 @@
 <a name="GTlsCertificate.description"></a><h2>Description</h2>
 <p>
 A certificate used for TLS authentication and encryption.
-This can represent either a public key only (eg, the certificate
+This can represent either a certificate only (eg, the certificate
 received by a client from a server), or the combination of
-a public key and a private key (which is needed when acting as a
+a certificate and a private key (which is needed when acting as a
 <a class="link" href="GTlsServerConnection.html" title="GTlsServerConnection"><span class="type">GTlsServerConnection</span></a>).
 </p>
 </div>
@@ -113,8 +115,11 @@ supported formats.)
 If <em class="parameter"><code>data</code></em> includes multiple certificates, only the first one will be
 parsed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
@@ -148,8 +153,11 @@ Creates a <a class="link" href="GTlsCertificate.html" title="GTlsCertificate"><s
 set <em class="parameter"><code>error</code></em>. Otherwise, this behaves like
 <a class="link" href="GTlsCertificate.html#g-tls-certificate-new-from-pem" title="g_tls_certificate_new_from_pem ()"><code class="function">g_tls_certificate_new_from_pem()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
@@ -180,8 +188,11 @@ and <em class="parameter"><code>key_file</code></em>. If either file cannot be r
 function will return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> and set <em class="parameter"><code>error</code></em>. Otherwise, this behaves
 like <a class="link" href="GTlsCertificate.html#g-tls-certificate-new-from-pem" title="g_tls_certificate_new_from_pem ()"><code class="function">g_tls_certificate_new_from_pem()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cert_file</code></em> :</span></p></td>
@@ -217,8 +228,11 @@ return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class=
 PEM-encoded certificates, this will return an empty list and not
 set <em class="parameter"><code>error</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
@@ -247,8 +261,11 @@ and its contents when you are done with it. <span class="annotation">[<acronym t
 <p>
 Gets the <a class="link" href="GTlsCertificate.html" title="GTlsCertificate"><span class="type">GTlsCertificate</span></a> representing <em class="parameter"><code>cert</code></em>'s issuer, if known
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cert</code></em> :</span></p></td>
@@ -269,11 +286,11 @@ certificate. <span class="annotation">[<acronym title="Don't free data after the
 <hr>
 <div class="refsect2">
 <a name="g-tls-certificate-verify"></a><h3>g_tls_certificate_verify ()</h3>
-<pre class="programlisting"><a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags" title="enum GTlsCertificateFlags"><span class="returnvalue">GTlsCertificateFlags</span></a> g_tls_certificate_verify           (<em class="parameter"><code><a class="link" href="GTlsCertificate.html" title="GTlsCertificate"><span class="type">GTlsCertificate</span></a> *cert</code></em>,
+<pre class="programlisting"><a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags"><span class="returnvalue">GTlsCertificateFlags</span></a> g_tls_certificate_verify           (<em class="parameter"><code><a class="link" href="GTlsCertificate.html" title="GTlsCertificate"><span class="type">GTlsCertificate</span></a> *cert</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GSocketConnectable.html" title="GSocketConnectable"><span class="type">GSocketConnectable</span></a> *identity</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GTlsCertificate.html" title="GTlsCertificate"><span class="type">GTlsCertificate</span></a> *trusted_ca</code></em>);</pre>
 <p>
-This verifies <em class="parameter"><code>cert</code></em> and returns a set of <a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags" title="enum GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a>
+This verifies <em class="parameter"><code>cert</code></em> and returns a set of <a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a>
 indicating any problems found with it. This can be used to verify a
 certificate outside the context of making a connection, or to
 check a certificate against a CA that is not part of the system
@@ -293,11 +310,14 @@ in its chain) must be signed by it, or else
 value.
 </p>
 <p>
-(All other <a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags" title="enum GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a> values will always be set or unset
+(All other <a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a> values will always be set or unset
 as appropriate.)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cert</code></em> :</span></p></td>
@@ -316,12 +336,46 @@ as appropriate.)
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the appropriate <a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags" title="enum GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a>
+<td>the appropriate <a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a>
 </td>
 </tr>
 </tbody>
 </table></div>
 <p class="since">Since 2.28</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-tls-certificate-is-same"></a><h3>g_tls_certificate_is_same ()</h3>
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_tls_certificate_is_same           (<em class="parameter"><code><a class="link" href="GTlsCertificate.html" title="GTlsCertificate"><span class="type">GTlsCertificate</span></a> *cert_one</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GTlsCertificate.html" title="GTlsCertificate"><span class="type">GTlsCertificate</span></a> *cert_two</code></em>);</pre>
+<p>
+Check if two <a class="link" href="GTlsCertificate.html" title="GTlsCertificate"><span class="type">GTlsCertificate</span></a> objects represent the same certificate.
+The raw DER byte data of the two certificates are checked for equality.
+This has the effect that two certificates may compare equal even if
+their <a class="link" href="GTlsCertificate.html#GTlsCertificate--issuer" title='The "issuer" property'><span class="type">"issuer"</span></a>, <a class="link" href="GTlsCertificate.html#GTlsCertificate--private-key" title='The "private-key" property'><span class="type">"private-key"</span></a>, or
+<a class="link" href="GTlsCertificate.html#GTlsCertificate--private-key-pem" title='The "private-key-pem" property'><span class="type">"private-key-pem"</span></a> properties differ.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cert_one</code></em> :</span></p></td>
+<td>first certificate to compare</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cert_two</code></em> :</span></p></td>
+<td>second certificate to compare</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether the same or not</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.34</p>
 </div>
 </div>
 <div class="refsect1">
@@ -330,10 +384,9 @@ as appropriate.)
 <a name="GTlsCertificate--certificate"></a><h3>The <code class="literal">"certificate"</code> property</h3>
 <pre class="programlisting">  "certificate"              <a href="./../glib/glib/glib-Byte-Arrays.html#GByteArray"><span class="type">GByteArray</span></a>*           : Read / Write / Construct Only</pre>
 <p>
-The DER (binary) encoded representation of the certificate's
-public key. This property and the
-<a class="link" href="GTlsCertificate.html#GTlsCertificate--certificate-pem" title='The "certificate-pem" property'><span class="type">"certificate-pem"</span></a> property represent the same
-data, just in different forms.
+The DER (binary) encoded representation of the certificate.
+This property and the <a class="link" href="GTlsCertificate.html#GTlsCertificate--certificate-pem" title='The "certificate-pem" property'><span class="type">"certificate-pem"</span></a> property
+represent the same data, just in different forms.
 </p>
 <p class="since">Since 2.28</p>
 </div>
@@ -342,8 +395,8 @@ data, just in different forms.
 <a name="GTlsCertificate--certificate-pem"></a><h3>The <code class="literal">"certificate-pem"</code> property</h3>
 <pre class="programlisting">  "certificate-pem"          <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write / Construct Only</pre>
 <p>
-The PEM (ASCII) encoded representation of the certificate's
-public key. This property and the <a class="link" href="GTlsCertificate.html#GTlsCertificate--certificate" title='The "certificate" property'><span class="type">"certificate"</span></a>
+The PEM (ASCII) encoded representation of the certificate.
+This property and the <a class="link" href="GTlsCertificate.html#GTlsCertificate--certificate" title='The "certificate" property'><span class="type">"certificate"</span></a>
 property represent the same data, just in different forms.
 </p>
 <p>Default value: NULL</p>
@@ -407,6 +460,6 @@ tool to convert PKCS#8 keys to PKCS#1.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>String Utility Functions</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-utilities.html" title="GLib Utilities">
 <link rel="next" href="glib-Character-Set-Conversion.html" title="Character Set Conversion">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -245,8 +245,11 @@ Duplicates a string. If <em class="parameter"><code>str</code></em> is <a class=
 The returned string should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a>
 when no longer needed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -283,8 +286,11 @@ To copy a number of characters from a UTF-8 encoded string, use
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -313,8 +319,11 @@ the new array should be freed by first freeing each string, then
 the array itself. <a class="link" href="glib-String-Utility-Functions.html#g-strfreev" title="g_strfreev ()"><code class="function">g_strfreev()</code></a> does this for you. If called
 on a <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> value, <a class="link" href="glib-String-Utility-Functions.html#g-strdupv" title="g_strdupv ()"><code class="function">g_strdupv()</code></a> simply returns <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str_array</code></em> :</span></p></td>
@@ -336,8 +345,11 @@ on a <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><co
 Creates a new string <em class="parameter"><code>length</code></em> bytes long filled with <em class="parameter"><code>fill_char</code></em>.
 The returned string should be freed when no longer needed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
@@ -366,8 +378,11 @@ trailing nul, and return a pointer to the trailing nul byte.
 This is useful for concatenating multiple strings together
 without having to repeatedly scan for the end.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
@@ -395,8 +410,11 @@ Searches the string <em class="parameter"><code>haystack</code></em> for the fir
 of the string <em class="parameter"><code>needle</code></em>, limiting the length of the search
 to <em class="parameter"><code>haystack_len</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>haystack</code></em> :</span></p></td>
@@ -429,8 +447,11 @@ search through the whole string.</td>
 Searches the string <em class="parameter"><code>haystack</code></em> for the last occurrence
 of the string <em class="parameter"><code>needle</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>haystack</code></em> :</span></p></td>
@@ -459,8 +480,11 @@ Searches the string <em class="parameter"><code>haystack</code></em> for the las
 of the string <em class="parameter"><code>needle</code></em>, limiting the length of the search
 to <em class="parameter"><code>haystack_len</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>haystack</code></em> :</span></p></td>
@@ -491,8 +515,11 @@ to <em class="parameter"><code>haystack_len</code></em>.
 <p>
 Looks whether the string <em class="parameter"><code>str</code></em> begins with <em class="parameter"><code>prefix</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -519,8 +546,11 @@ Looks whether the string <em class="parameter"><code>str</code></em> begins with
 <p>
 Looks whether the string <em class="parameter"><code>str</code></em> ends with <em class="parameter"><code>suffix</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -549,8 +579,11 @@ Compares <em class="parameter"><code>str1</code></em> and <em class="parameter">
 gracefully by sorting it before non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> strings.
 Comparing two <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> pointers returns 0.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str1</code></em> :</span></p></td>
@@ -599,8 +632,11 @@ strlen (src), so if <em class="parameter"><code>retval</code></em> &gt;= <em cla
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
@@ -651,8 +687,11 @@ to mess up.</p>
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
@@ -687,8 +726,11 @@ calculates the maximum space required and allocates memory to hold
 the result. The returned string should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> when no
 longer needed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
@@ -722,8 +764,11 @@ no longer needed.
 See also <a class="link" href="glib-String-Utility-Functions.html#g-vasprintf" title="g_vasprintf ()"><code class="function">g_vasprintf()</code></a>, which offers the same functionality, but
 additionally returns the length of the allocated string.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
@@ -751,8 +796,11 @@ additionally returns the length of the allocated string.
 An implementation of the standard <code class="function">printf()</code> function which supports 
 positional parameters, as specified in the Single Unix Specification.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
@@ -780,8 +828,11 @@ positional parameters, as specified in the Single Unix Specification.
 An implementation of the standard <code class="function">vprintf()</code> function which supports 
 positional parameters, as specified in the Single Unix Specification.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
@@ -810,8 +861,11 @@ positional parameters, as specified in the Single Unix Specification.
 An implementation of the standard <code class="function">fprintf()</code> function which supports 
 positional parameters, as specified in the Single Unix Specification.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
@@ -844,8 +898,11 @@ positional parameters, as specified in the Single Unix Specification.
 An implementation of the standard <code class="function">fprintf()</code> function which supports 
 positional parameters, as specified in the Single Unix Specification.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
@@ -885,8 +942,11 @@ risk of buffer overflow.
 <p>
 See also <a class="link" href="glib-String-Utility-Functions.html#g-strdup-printf" title="g_strdup_printf ()"><code class="function">g_strdup_printf()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -921,8 +981,11 @@ enough to hold the formatted result</td>
 An implementation of the standard <code class="function">vsprintf()</code> function which supports 
 positional parameters, as specified in the Single Unix Specification.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -975,8 +1038,11 @@ traditional <code class="function">snprintf()</code>, which returns the length o
 The format string may contain positional parameters, as specified in
 the Single Unix Specification.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -1034,8 +1100,11 @@ as standardized in ISO C99. Note that this is different from traditional
 The format string may contain positional parameters, as specified in 
 the Single Unix Specification.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -1076,8 +1145,11 @@ This function is similar to <a class="link" href="glib-String-Utility-Functions.
 string to hold the output, instead of putting the output in a buffer 
 you allocate in advance.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -1109,8 +1181,11 @@ you allocate in advance.
 Calculates the maximum space needed to store the output
 of the <code class="function">sprintf()</code> function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
@@ -1142,8 +1217,11 @@ the standard library function, this takes a <span class="type">char</span>,
 not an <span class="type">int</span>, so don't call it on <code class="literal">EOF</code>, but no need to
 cast to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a possibly non-ASCII character in.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -1172,8 +1250,11 @@ the standard library function, this takes a <span class="type">char</span>,
 not an <span class="type">int</span>, so don't call it on <code class="literal">EOF</code>, but no need to
 cast to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a possibly non-ASCII character in.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -1202,8 +1283,11 @@ unlike the standard library function, this takes a <span class="type">char</span
 not an <span class="type">int</span>, so don't call it on <code class="literal">EOF</code>, but no need to
 cast to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a possibly non-ASCII character in.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -1230,8 +1314,11 @@ a <span class="type">char</span>, not an <span class="type">int</span>, so don't
 on <code class="literal">EOF</code>, but no need to cast to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a possibly
 non-ASCII character in.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -1260,8 +1347,11 @@ the standard library function, this takes a <span class="type">char</span>,
 not an <span class="type">int</span>, so don't call it on <code class="literal">EOF</code>, but no need
 to cast to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a possibly non-ASCII character in.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -1291,8 +1381,11 @@ not an <span class="type">int</span>, so don't call it on <code class="literal">
 to worry about casting to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a possibly
 non-ASCII character in.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -1321,8 +1414,11 @@ the standard library function, this takes a <span class="type">char</span>,
 not an <span class="type">int</span>, so don't call it on <code class="literal">EOF</code>, but no need
 to cast to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a possibly non-ASCII character in.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -1351,8 +1447,11 @@ the standard library function, this takes a <span class="type">char</span>,
 not an <span class="type">int</span>, so don't call it on <code class="literal">EOF</code>, but no need to
 cast to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a possibly non-ASCII character in.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -1381,8 +1480,11 @@ the standard library function, this takes a <span class="type">char</span>,
 not an <span class="type">int</span>, so don't call it on <code class="literal">EOF</code>, but no need to
 cast to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a possibly non-ASCII character in.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -1412,8 +1514,11 @@ not an <span class="type">int</span>, so don't call it on <code class="literal">
 worry about casting to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a possibly non-ASCII
 character in.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -1440,8 +1545,11 @@ a <span class="type">char</span>, not an <span class="type">int</span>, so don't
 on <code class="literal">EOF</code>, but no need to cast to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a
 possibly non-ASCII character in.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -1465,8 +1573,11 @@ digit. Differs from <a class="link" href="glib-Unicode-Manipulation.html#g-unich
 a char, so there's no worry about sign extension if characters
 are signed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -1490,8 +1601,11 @@ digit. Differs from <a class="link" href="glib-Unicode-Manipulation.html#g-unich
 a char, so there's no worry about sign extension if characters
 are signed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -1527,8 +1641,11 @@ Windows Codepage 932, where the trailing bytes of double-byte
 characters include all ASCII letters. If you compare two CP932
 strings using this function, you will get false matches.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>s1</code></em> :</span></p></td>
@@ -1566,8 +1683,11 @@ The same warning as in <a class="link" href="glib-String-Utility-Functions.html#
 function only on strings known to be in encodings where bytes
 corresponding to ASCII letters always represent themselves.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>s1</code></em> :</span></p></td>
@@ -1597,8 +1717,11 @@ or a positive value if <em class="parameter"><code>s1</code></em> &gt; <em class
 <p>
 Converts all lower case ASCII letters to upper case ASCII letters.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -1627,8 +1750,11 @@ the string in place.)</td>
 <p>
 Converts all upper case ASCII letters to lower case ASCII letters.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
@@ -1665,8 +1791,11 @@ library function, this takes and returns a char, not an int, so
 don't call it on <code class="literal">EOF</code> but no need to worry about casting to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a>
 before passing a possibly non-ASCII character in.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -1697,8 +1826,11 @@ library function, this takes and returns a char, not an int, so
 don't call it on <code class="literal">EOF</code> but no need to worry about casting to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a>
 before passing a possibly non-ASCII character in.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
@@ -1720,8 +1852,11 @@ If <em class="parameter"><code>c</code></em> is not an ASCII lower case letter,
 <p>
 Converts all lowercase ASCII letters to uppercase ASCII letters.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -1743,8 +1878,11 @@ with semantics that exactly match <a class="link" href="glib-String-Utility-Func
 <p>
 Converts all uppercase ASCII letters to lowercase ASCII letters.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -1771,8 +1909,11 @@ in the <a class="link" href="glib-String-Utility-Functions.html#g-strncasecmp" t
 <p>
 Converts a string to upper case.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -1798,8 +1939,11 @@ instead.</p>
 <p>
 Converts a string to lower case.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -1826,8 +1970,11 @@ Converts a string to lower case.
 A case-insensitive string comparison, corresponding to the standard
 <code class="function">strcasecmp()</code> function on platforms which support it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>s1</code></em> :</span></p></td>
@@ -1874,8 +2021,11 @@ A case-insensitive string comparison, corresponding to the standard
 It is similar to <a class="link" href="glib-String-Utility-Functions.html#g-strcasecmp" title="g_strcasecmp ()"><code class="function">g_strcasecmp()</code></a> except it only compares the first <em class="parameter"><code>n</code></em>
 characters of the strings.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>s1</code></em> :</span></p></td>
@@ -1911,8 +2061,11 @@ Note that <a class="link" href="glib-String-Utility-Functions.html#g-strreverse"
 containing multibyte characters. For that purpose, use
 <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-strreverse" title="g_utf8_strreverse ()"><code class="function">g_utf8_strreverse()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -1953,8 +2106,11 @@ If the base is outside the valid range, zero is returned, and
 string conversion fails, zero is returned, and <em class="parameter"><code>endptr</code></em> returns <em class="parameter"><code>nptr</code></em>
 (if <em class="parameter"><code>endptr</code></em> is non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>nptr</code></em> :</span></p></td>
@@ -2004,8 +2160,11 @@ If the base is outside the valid range, zero is returned, and
 If the string conversion fails, zero is returned, and <em class="parameter"><code>endptr</code></em> returns
 <em class="parameter"><code>nptr</code></em> (if <em class="parameter"><code>endptr</code></em> is non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>nptr</code></em> :</span></p></td>
@@ -2094,8 +2253,11 @@ zero is returned and <code class="literal">ERANGE</code> is stored in <code clas
 This function resets <code class="literal">errno</code> before calling <code class="function">strtod()</code> so that
 you can reliably detect overflow and underflow.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>nptr</code></em> :</span></p></td>
@@ -2130,8 +2292,11 @@ the string back using <a class="link" href="glib-String-Utility-Functions.html#g
 guaranteed that the size of the resulting string will never
 be larger than <em class="parameter"><code>G_ASCII_DTOSTR_BUF_SIZE</code></em> bytes.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
@@ -2169,8 +2334,11 @@ specifiers are 'e', 'E', 'f', 'F', 'g' and 'G'.
 If you just want to want to serialize the value into a
 string, use <a class="link" href="glib-String-Utility-Functions.html#g-ascii-dtostr" title="g_ascii_dtostr ()"><code class="function">g_ascii_dtostr()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
@@ -2215,8 +2383,11 @@ should you use this. Make sure that you don't pass strings such as comma
 separated lists of values, since the commas may be interpreted as a decimal
 point in some locales, causing unexpected results.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>nptr</code></em> :</span></p></td>
@@ -2250,8 +2421,11 @@ returned to allow the nesting of functions.
 <p>
 Also see <a class="link" href="glib-String-Utility-Functions.html#g-strchomp" title="g_strchomp ()"><code class="function">g_strchomp()</code></a> and <a class="link" href="glib-String-Utility-Functions.html#g-strstrip" title="g_strstrip()"><code class="function">g_strstrip()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -2279,8 +2453,11 @@ returned to allow the nesting of functions.
 <p>
 Also see <a class="link" href="glib-String-Utility-Functions.html#g-strchug" title="g_strchug ()"><code class="function">g_strchug()</code></a> and <a class="link" href="glib-String-Utility-Functions.html#g-strstrip" title="g_strstrip()"><code class="function">g_strstrip()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -2302,8 +2479,11 @@ Also see <a class="link" href="glib-String-Utility-Functions.html#g-strchug" tit
 Removes leading and trailing whitespace from a string.
 See <a class="link" href="glib-String-Utility-Functions.html#g-strchomp" title="g_strchomp ()"><code class="function">g_strchomp()</code></a> and <a class="link" href="glib-String-Utility-Functions.html#g-strchug" title="g_strchug ()"><code class="function">g_strchug()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -2342,8 +2522,11 @@ allow nesting such as
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -2391,8 +2574,11 @@ Characters supplied in <em class="parameter"><code>exceptions</code></em> are no
 <p>
 <a class="link" href="glib-String-Utility-Functions.html#g-strcompress" title="g_strcompress ()"><code class="function">g_strcompress()</code></a> does the reverse conversion.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
@@ -2421,8 +2607,11 @@ Replaces all escaped characters with their one byte equivalent.
 <p>
 This function does the reverse conversion of <a class="link" href="glib-String-Utility-Functions.html#g-strescape" title="g_strescape ()"><code class="function">g_strescape()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
@@ -2461,8 +2650,11 @@ a copy. The return value is to allow nesting such as
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -2503,8 +2695,11 @@ more useful than consistent handling of empty elements. If you do need
 to represent empty elements, you'll need to check for the empty string
 before calling <a class="link" href="glib-String-Utility-Functions.html#g-strsplit" title="g_strsplit ()"><code class="function">g_strsplit()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -2562,8 +2757,11 @@ before calling <a class="link" href="glib-String-Utility-Functions.html#g-strspl
 Note that this function works on bytes not characters, so it can't be used
 to delimit UTF-8 strings for anything but ASCII characters.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
@@ -2596,8 +2794,11 @@ If this is less than 1, the string is split completely</td>
 Frees a <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated array of strings, and the array itself.
 If called on a <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> value, <a class="link" href="glib-String-Utility-Functions.html#g-strfreev" title="g_strfreev ()"><code class="function">g_strfreev()</code></a> simply returns.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>str_array</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated array of strings to free</td>
@@ -2628,8 +2829,11 @@ random memory junk to your string.</p>
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string1</code></em> :</span></p></td>
@@ -2657,8 +2861,11 @@ Joins a number of strings together to form one long string, with the
 optional <em class="parameter"><code>separator</code></em> inserted between each of them. The returned string
 should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>separator</code></em> :</span></p></td>
@@ -2687,8 +2894,11 @@ Joins a number of strings together to form one long string, with the
 optional <em class="parameter"><code>separator</code></em> inserted between each of them. The returned string
 should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>separator</code></em> :</span></p></td>
@@ -2715,8 +2925,11 @@ together, with <em class="parameter"><code>separator</code></em> between them</t
 Returns the length of the given <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated
 string array <em class="parameter"><code>str_array</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str_array</code></em> :</span></p></td>
@@ -2740,8 +2953,11 @@ Returns a string corresponding to the given error code, e.g.
 <code class="function">strerror()</code>, because it returns a string in UTF-8 encoding, and since
 not all platforms support the <code class="function">strerror()</code> function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>errnum</code></em> :</span></p></td>
@@ -2761,13 +2977,14 @@ is unknown, it returns "unknown error (&lt;code&gt;)".</td>
 <a name="g-strsignal"></a><h3>g_strsignal ()</h3>
 <pre class="programlisting">const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *       g_strsignal                         (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> signum</code></em>);</pre>
 <p>
-Returns a string describing the given signal, e.g. "Segmentation fault".
-You should use this function in preference to <code class="function">strsignal()</code>, because it
 returns a string in UTF-8 encoding, and since not all platforms support
 the <code class="function">strsignal()</code> function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>signum</code></em> :</span></p></td>
@@ -2786,6 +3003,6 @@ it returns "unknown signal (&lt;signum&gt;)".</td>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

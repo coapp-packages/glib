@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Dynamic Loading of Modules</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-core.html" title="GLib Core Application Support">
 <link rel="prev" href="glib-Asynchronous-Queues.html" title="Asynchronous Queues">
 <link rel="next" href="glib-Memory-Allocation.html" title="Memory Allocation">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -44,12 +44,13 @@
 <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-supported" title="g_module_supported ()">g_module_supported</a>                  (<em class="parameter"><code><span class="type">void</span></code></em>);
 <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-build-path" title="g_module_build_path ()">g_module_build_path</a>                 (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *directory</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *module_name</code></em>);
-#define             <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-open" title="g_module_open">g_module_open</a>
+<a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModule" title="GModule"><span class="returnvalue">GModule</span></a> *           <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-open" title="g_module_open ()">g_module_open</a>                       (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *file_name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModuleFlags" title="enum GModuleFlags"><span class="type">GModuleFlags</span></a> flags</code></em>);
 enum                <a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModuleFlags" title="enum GModuleFlags">GModuleFlags</a>;
 <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-symbol" title="g_module_symbol ()">g_module_symbol</a>                     (<em class="parameter"><code><a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModule" title="GModule"><span class="type">GModule</span></a> *module</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *symbol_name</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> *symbol</code></em>);
-#define             <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-name" title="g_module_name">g_module_name</a>
+const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-name" title="g_module_name ()">g_module_name</a>                       (<em class="parameter"><code><a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModule" title="GModule"><span class="type">GModule</span></a> *module</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-make-resident" title="g_module_make_resident ()">g_module_make_resident</a>              (<em class="parameter"><code><a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModule" title="GModule"><span class="type">GModule</span></a> *module</code></em>);
 <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-close" title="g_module_close ()">g_module_close</a>                      (<em class="parameter"><code><a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModule" title="GModule"><span class="type">GModule</span></a> *module</code></em>);
 const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-error" title="g_module_error ()">g_module_error</a>                      (<em class="parameter"><code><span class="type">void</span></code></em>);
@@ -77,10 +78,10 @@ libraries output by the command
 <p>
 To use them you must first determine whether dynamic loading
 is supported on the platform by calling <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-supported" title="g_module_supported ()"><code class="function">g_module_supported()</code></a>.
-If it is, you can open a module with <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-open" title="g_module_open"><code class="function">g_module_open()</code></a>,
+If it is, you can open a module with <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-open" title="g_module_open ()"><code class="function">g_module_open()</code></a>,
 find the module's symbols (e.g. function names) with <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-symbol" title="g_module_symbol ()"><code class="function">g_module_symbol()</code></a>,
 and later close the module with <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-close" title="g_module_close ()"><code class="function">g_module_close()</code></a>.
-<a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-name" title="g_module_name"><code class="function">g_module_name()</code></a> will return the file name of a currently opened module.
+<a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-name" title="g_module_name ()"><code class="function">g_module_name()</code></a> will return the file name of a currently opened module.
 </p>
 <p>
 If any of the above functions fail, the error status can be found with
@@ -100,7 +101,7 @@ it must ensure that it is never unloaded, by calling <a class="link" href="glib-
 <p>
 </p>
 <div class="example">
-<a name="id482646"></a><p class="title"><b>Example 7. Calling a function defined in a <span class="structname">GModule</span></b></p>
+<a name="idp10048208"></a><p class="title"><b>Example 7. Calling a function defined in a <span class="structname">GModule</span></b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -216,8 +217,11 @@ Module</a>. It should only be accessed via the following functions.
 <p>
 Checks if modules are supported on the current platform.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
@@ -248,8 +252,11 @@ will return <code class="filename">/lib/libmylibrary.so</code>. On a Windows sys
 using <code class="filename">\Windows</code> as the directory it will return
 <code class="filename">\Windows\mylibrary.dll</code>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>directory</code></em> :</span></p></td>
@@ -271,25 +278,29 @@ prefix and suffix. This should be freed when no longer needed</td>
 </div>
 <hr>
 <div class="refsect2">
-<a name="g-module-open"></a><h3>g_module_open</h3>
-<pre class="programlisting">#define             g_module_open</pre>
+<a name="g-module-open"></a><h3>g_module_open ()</h3>
+<pre class="programlisting"><a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModule" title="GModule"><span class="returnvalue">GModule</span></a> *           g_module_open                       (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *file_name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModuleFlags" title="enum GModuleFlags"><span class="type">GModuleFlags</span></a> flags</code></em>);</pre>
 <p>
 Opens a module. If the module has already been opened,
 its reference count is incremented.
 </p>
 <p>
-First of all <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-open" title="g_module_open"><code class="function">g_module_open()</code></a> tries to open <em class="parameter"><code>file_name</code></em> as a module.
+First of all <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-open" title="g_module_open ()"><code class="function">g_module_open()</code></a> tries to open <em class="parameter"><code>file_name</code></em> as a module.
 If that fails and <em class="parameter"><code>file_name</code></em> has the ".la"-suffix (and is a libtool
 archive) it tries to open the corresponding module. If that fails
 and it doesn't have the proper module suffix for the platform
 (<a class="link" href="glib-Dynamic-Loading-of-Modules.html#G-MODULE-SUFFIX:CAPS" title="G_MODULE_SUFFIX"><span class="type">G_MODULE_SUFFIX</span></a>), this suffix will be appended and the corresponding
 module will be opended. If that fails and <em class="parameter"><code>file_name</code></em> doesn't have the
-".la"-suffix, this suffix is appended and <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-open" title="g_module_open"><code class="function">g_module_open()</code></a> tries to open
+".la"-suffix, this suffix is appended and <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-open" title="g_module_open ()"><code class="function">g_module_open()</code></a> tries to open
 the corresponding module. If eventually that fails as well, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is
 returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>file_name</code></em> :</span></p></td>
@@ -320,11 +331,14 @@ logical OR of any of the <a class="link" href="glib-Dynamic-Loading-of-Modules.h
 } GModuleFlags;
 </pre>
 <p>
-Flags passed to <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-open" title="g_module_open"><code class="function">g_module_open()</code></a>.
+Flags passed to <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-open" title="g_module_open ()"><code class="function">g_module_open()</code></a>.
 Note that these flags are not supported on all platforms.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-MODULE-BIND-LAZY:CAPS"></a><span class="term"><code class="literal">G_MODULE_BIND_LAZY</code></span></p></td>
@@ -359,8 +373,11 @@ Note that these flags are not supported on all platforms.
 Gets a symbol pointer from a module, such as one exported
 by <a class="link" href="glib-Dynamic-Loading-of-Modules.html#G-MODULE-EXPORT:CAPS" title="G_MODULE_EXPORT"><span class="type">G_MODULE_EXPORT</span></a>. Note that a valid symbol can be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>module</code></em> :</span></p></td>
@@ -385,14 +402,46 @@ by <a class="link" href="glib-Dynamic-Loading-of-Modules.html#G-MODULE-EXPORT:CA
 </div>
 <hr>
 <div class="refsect2">
-<a name="g-module-name"></a><h3>g_module_name</h3>
-<pre class="programlisting">#define             g_module_name</pre>
+<a name="g-module-name"></a><h3>g_module_name ()</h3>
+<pre class="programlisting">const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *       g_module_name                       (<em class="parameter"><code><a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModule" title="GModule"><span class="type">GModule</span></a> *module</code></em>);</pre>
+<p>
+Returns the filename that the module was opened with.
+</p>
+<p>
+If <em class="parameter"><code>module</code></em> refers to the application itself, "main" is returned.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>module</code></em> :</span></p></td>
+<td>a <a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModule" title="GModule"><span class="type">GModule</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the filename of the module. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-module-make-resident"></a><h3>g_module_make_resident ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_module_make_resident              (<em class="parameter"><code><a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModule" title="GModule"><span class="type">GModule</span></a> *module</code></em>);</pre>
 <p>
 Ensures that a module will never be unloaded.
 Any future <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-close" title="g_module_close ()"><code class="function">g_module_close()</code></a> calls on the module will be ignored.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>module</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModule" title="GModule"><span class="type">GModule</span></a> to make permanently resident</td>
@@ -401,18 +450,16 @@ Any future <a class="link" href="glib-Dynamic-Loading-of-Modules.html#g-module-c
 </div>
 <hr>
 <div class="refsect2">
-<a name="g-module-make-resident"></a><h3>g_module_make_resident ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                g_module_make_resident              (<em class="parameter"><code><a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModule" title="GModule"><span class="type">GModule</span></a> *module</code></em>);</pre>
-</div>
-<hr>
-<div class="refsect2">
 <a name="g-module-close"></a><h3>g_module_close ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            g_module_close                      (<em class="parameter"><code><a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModule" title="GModule"><span class="type">GModule</span></a> *module</code></em>);</pre>
 <p>
 Closes a module.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>module</code></em> :</span></p></td>
@@ -433,8 +480,11 @@ Closes a module.
 <p>
 Gets a string describing the last module error.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a string describing the last module error</td>
@@ -453,8 +503,11 @@ automatically when the module is loaded. It is passed the <a class="link" href="
 and should return <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> on success or a string describing the initialization
 error.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>module</code></em> :</span></p></td>
@@ -479,8 +532,11 @@ If a module contains a function named <code class="function">g_module_unload()</
 automatically when the module is unloaded.
 It is passed the <a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModule" title="GModule"><span class="type">GModule</span></a> structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>module</code></em> :</span></p></td>
 <td>the <a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModule" title="GModule"><span class="type">GModule</span></a> about to be unloaded</td>
@@ -522,6 +578,6 @@ Used to declare functions imported from modules.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

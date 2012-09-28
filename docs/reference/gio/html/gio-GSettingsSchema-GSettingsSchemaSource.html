@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GSettingsSchema, GSettingsSchemaSource</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="settings.html" title="Settings">
 <link rel="prev" href="GSettingsBackend.html" title="GSettingsBackend">
 <link rel="next" href="resources.html" title="Resources">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -34,7 +34,7 @@
 <td valign="top">
 <h2><span class="refentrytitle"><a name="gio-GSettingsSchema-GSettingsSchemaSource.top_of_page"></a>GSettingsSchema, GSettingsSchemaSource</span></h2>
 <p>GSettingsSchema, GSettingsSchemaSource — introspecting and controlling the loading of
-                    <a class="link" href="GSettings.html" title="GSettings"><span class="type">GSettings</span></a> schemas</p>
+                    GSettings schemas</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -290,8 +290,11 @@ in <code class="envar">XDG_DATA_DIRS</code> and
 performed against the default source should probably be done
 recursively.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the default schema source. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
@@ -307,8 +310,11 @@ recursively.
 <p>
 Increase the reference count of <em class="parameter"><code>source</code></em>, returning a new reference.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
@@ -331,8 +337,11 @@ Increase the reference count of <em class="parameter"><code>source</code></em>, 
 <p>
 Decrease the reference count of <em class="parameter"><code>source</code></em>, possibly freeing it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
 <td>a <a class="link" href="gio-GSettingsSchema-GSettingsSchemaSource.html#GSettingsSchemaSource" title="GSettingsSchemaSource"><span class="type">GSettingsSchemaSource</span></a>
@@ -380,7 +389,7 @@ source, the lookup will recurse to the parent.
 </p>
 <p>
 Second, any references to other schemas specified within this
-source (ie: <code class="literal">child</code> or <code class="literal">extents</code>)
+source (ie: <code class="literal">child</code> or <code class="literal">extends</code>)
 references may be resolved from the <em class="parameter"><code>parent</code></em>.
 </p>
 <p>
@@ -388,8 +397,11 @@ For this second reason, except in very unusual situations, the
 <em class="parameter"><code>parent</code></em> should probably be given as the default schema source, as
 returned by <a class="link" href="gio-GSettingsSchema-GSettingsSchemaSource.html#g-settings-schema-source-get-default" title="g_settings_schema_source_get_default ()"><code class="function">g_settings_schema_source_get_default()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>directory</code></em> :</span></p></td>
@@ -435,8 +447,11 @@ then the parent sources will also be checked.
 <p>
 If the schema isn't found, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
@@ -487,8 +502,11 @@ A boxed <a href="./../gobject/gobject/gobject-Type-Information.html#GType"><span
 <p>
 Increase the reference count of <em class="parameter"><code>schema</code></em>, returning a new reference.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>schema</code></em> :</span></p></td>
@@ -511,8 +529,11 @@ Increase the reference count of <em class="parameter"><code>schema</code></em>, 
 <p>
 Decrease the reference count of <em class="parameter"><code>schema</code></em>, possibly freeing it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>schema</code></em> :</span></p></td>
 <td>a <a class="link" href="gio-GSettingsSchema-GSettingsSchemaSource.html#GSettingsSchema"><span class="type">GSettingsSchema</span></a>
@@ -528,8 +549,11 @@ Decrease the reference count of <em class="parameter"><code>schema</code></em>, 
 <p>
 Get the ID of <em class="parameter"><code>schema</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>schema</code></em> :</span></p></td>
@@ -561,8 +585,11 @@ Relocatable schemas can be referenced by other schemas and can
 threfore describe multiple sets of keys at different locations.  For
 relocatable schemas, this function will return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>schema</code></em> :</span></p></td>
@@ -582,6 +609,6 @@ relocatable schemas, this function will return <a href="./../glib/glib/glib-Stan
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

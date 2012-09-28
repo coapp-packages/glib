@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GMemoryOutputStream</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="streaming.html" title="Streaming I/O">
 <link rel="prev" href="GMemoryInputStream.html" title="GMemoryInputStream">
 <link rel="next" href="GBufferedInputStream.html" title="GBufferedInputStream">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -72,7 +72,7 @@
 <a name="GMemoryOutputStream.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
 <p>
 GMemoryOutputStream implements
- <a class="link" href="GSeekable.html" title="GSeekable">GSeekable</a>.</p>
+ <a class="link" href="GSeekable.html" title="GSeekable">GSeekable</a> and  <a class="link" href="GPollableOutputStream.html" title="GPollableOutputStream">GPollableOutputStream</a>.</p>
 </div>
 <div class="refsect1">
 <a name="GMemoryOutputStream.properties"></a><h2>Properties</h2>
@@ -90,6 +90,10 @@ GMemoryOutputStream implements
 <a class="link" href="GMemoryOutputStream.html" title="GMemoryOutputStream"><span class="type">GMemoryOutputStream</span></a> is a class for using arbitrary
 memory chunks as output for GIO streaming output operations.
 </p>
+<p>
+As of GLib 2.34, <a class="link" href="GMemoryOutputStream.html" title="GMemoryOutputStream"><span class="type">GMemoryOutputStream</span></a> implements
+<a class="link" href="GPollableOutputStream.html" title="GPollableOutputStream"><span class="type">GPollableOutputStream</span></a>.
+</p>
 </div>
 <div class="refsect1">
 <a name="GMemoryOutputStream.details"></a><h2>Details</h2>
@@ -104,8 +108,11 @@ Changes the size of the memory block pointed to by <em class="parameter"><code>d
 <p>
 The function should have the same semantics as <code class="function">realloc()</code>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
@@ -177,8 +184,11 @@ pass <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="l
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
@@ -220,8 +230,11 @@ Gets any loaded data from the <em class="parameter"><code>ostream</code></em>.
 Note that the returned pointer may become invalid on the next
 write or truncate operation on the stream.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ostream</code></em> :</span></p></td>
@@ -255,8 +268,11 @@ the next write or truncate operation on the stream.
 If you want the number of bytes currently written to the stream, use
 <a class="link" href="GMemoryOutputStream.html#g-memory-output-stream-get-data-size" title="g_memory_output_stream_get_data_size ()"><code class="function">g_memory_output_stream_get_data_size()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ostream</code></em> :</span></p></td>
@@ -280,8 +296,11 @@ Returns the number of bytes from the start up
 to including the last byte written in the stream
 that has not been truncated away.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ostream</code></em> :</span></p></td>
@@ -309,8 +328,11 @@ freed using the free function set in <em class="parameter"><code>ostream</code><
 <p>
 <em class="parameter"><code>ostream</code></em> must be closed before calling this function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ostream</code></em> :</span></p></td>
@@ -381,6 +403,6 @@ Current size of the data buffer.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

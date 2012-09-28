@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GSettings</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="settings.html" title="Settings">
 <link rel="prev" href="settings.html" title="Settings">
 <link rel="next" href="GSettingsBackend.html" title="GSettingsBackend">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -604,7 +604,7 @@ and flags keys.
 <p>
 </p>
 <div class="refsect2">
-<a name="id966428"></a><h3>Vendor overrides</h3>
+<a name="idp60023216"></a><h3>Vendor overrides</h3>
 <p>
     Default values are defined in the schemas that get installed by
     an application. Sometimes, it is necessary for a vendor or distributor
@@ -643,7 +643,7 @@ and flags keys.
 <p>
 </p>
 <div class="refsect2">
-<a name="id966471"></a><h3>Binding</h3>
+<a name="idp60028448"></a><h3>Binding</h3>
 <p>
     A very convenient feature of GSettings lets you bind <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> properties
     directly to settings, using <a class="link" href="GSettings.html#g-settings-bind" title="g_settings_bind ()"><code class="function">g_settings_bind()</code></a>. Once a GObject property
@@ -684,8 +684,11 @@ via the thread-default <a href="./../glib/glib/glib-The-Main-Event-Loop.html#GMa
 call to <a class="link" href="GSettings.html#g-settings-new" title="g_settings_new ()"><code class="function">g_settings_new()</code></a>.  The new <a class="link" href="GSettings.html" title="GSettings"><span class="type">GSettings</span></a> will hold a reference
 on the context.  See <a href="./../glib/glib/glib-The-Main-Event-Loop.html#g-main-context-push-thread-default"><code class="function">g_main_context_push_thread_default()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>schema_id</code></em> :</span></p></td>
@@ -717,8 +720,11 @@ That's quite rare.
 It is a programmer error to call this function for a schema that
 has an explicitly specified path.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>schema_id</code></em> :</span></p></td>
@@ -752,8 +758,11 @@ sense to pass a backend corresponding to the "defaults" settings database on
 the system to get a settings object that modifies the system default
 settings instead of the settings for this user.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>schema_id</code></em> :</span></p></td>
@@ -786,8 +795,11 @@ Creates a new <a class="link" href="GSettings.html" title="GSettings"><span clas
 This is a mix of <a class="link" href="GSettings.html#g-settings-new-with-backend" title="g_settings_new_with_backend ()"><code class="function">g_settings_new_with_backend()</code></a> and
 <a class="link" href="GSettings.html#g-settings-new-with-path" title="g_settings_new_with_path ()"><code class="function">g_settings_new_with_path()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>schema_id</code></em> :</span></p></td>
@@ -845,8 +857,11 @@ error f <em class="parameter"><code>path</code></em> is <a href="./../glib/glib/
 <em class="parameter"><code>path</code></em> is non-<a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> and not equal to the path that the schema does
 have.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>schema</code></em> :</span></p></td>
@@ -903,8 +918,11 @@ Gets the value that is stored in <em class="parameter"><code>settings</code></em
 It is a programmer error to give a <em class="parameter"><code>key</code></em> that isn't contained in the
 schema for <em class="parameter"><code>settings</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -940,8 +958,11 @@ the schema.
 <p>
 If <em class="parameter"><code>value</code></em> is floating then this function consumes the reference.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -973,8 +994,11 @@ If <em class="parameter"><code>value</code></em> is floating then this function 
 <p>
 Finds out if a key can be written or not
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1002,8 +1026,11 @@ Changes the <a class="link" href="GSettings.html" title="GSettings"><span class=
 mode, changes to <em class="parameter"><code>settings</code></em> are not immediately propagated to the
 backend, but kept locally until <a class="link" href="GSettings.html#g-settings-apply" title="g_settings_apply ()"><code class="function">g_settings_apply()</code></a> is called.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
 <td>a <a class="link" href="GSettings.html" title="GSettings"><span class="type">GSettings</span></a> object</td>
@@ -1021,8 +1048,11 @@ function does nothing unless <em class="parameter"><code>settings</code></em> is
 see <a class="link" href="GSettings.html#g-settings-delay" title="g_settings_delay ()"><code class="function">g_settings_delay()</code></a>.  In the normal case settings are always
 applied immediately.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
 <td>a <a class="link" href="GSettings.html" title="GSettings"><span class="type">GSettings</span></a> instance</td>
@@ -1042,8 +1072,11 @@ immediately.
 <p>
 Change notifications will be emitted for affected keys.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
 <td>a <a class="link" href="GSettings.html" title="GSettings"><span class="type">GSettings</span></a> instance</td>
@@ -1058,8 +1091,11 @@ Change notifications will be emitted for affected keys.
 Returns whether the <a class="link" href="GSettings.html" title="GSettings"><span class="type">GSettings</span></a> object has any unapplied
 changes.  This can only be the case if it is in 'delayed-apply' mode.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1088,8 +1124,11 @@ Creates a 'child' settings object which has a base path of
 The schema for the child settings object must have been declared
 in the schema of <em class="parameter"><code>settings</code></em> using a <code class="sgmltag-starttag">&lt;child&gt;</code> element.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1121,8 +1160,11 @@ This call resets the key, as much as possible, to its default value.
 That might the value specified in the schema or the one set by the
 administrator.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1150,8 +1192,11 @@ paths (ie: schemas for which you must use
 <a class="link" href="GSettings.html#g-settings-new-with-path" title="g_settings_new_with_path ()"><code class="function">g_settings_new_with_path()</code></a>).  See
 <a class="link" href="GSettings.html#g-settings-list-relocatable-schemas" title="g_settings_list_relocatable_schemas ()"><code class="function">g_settings_list_relocatable_schemas()</code></a> for that.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a list of <a class="link" href="GSettings.html" title="GSettings"><span class="type">GSettings</span></a>
@@ -1178,8 +1223,11 @@ The output of this function, taken together with the output of
 <a class="link" href="GSettings.html#g-settings-list-schemas" title="g_settings_list_schemas ()"><code class="function">g_settings_list_schemas()</code></a> represents the complete list of all
 installed schemas.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a list of relocatable
@@ -1206,8 +1254,11 @@ function is intended for introspection reasons.
 You should free the return value with <a href="./../glib/glib/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a> when you are done
 with it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1250,8 +1301,11 @@ useful there for introspection reasons, however.
 You should free the return value with <a href="./../glib/glib/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a> when you are done
 with it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1323,8 +1377,11 @@ schema for <em class="parameter"><code>settings</code></em>.
 You should free the returned value with <a href="./../glib/glib/glib-GVariant.html#g-variant-unref"><code class="function">g_variant_unref()</code></a> when it is
 no longer needed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1362,8 +1419,11 @@ meant to be used by programs such as editors or commandline tools.
 It is a programmer error to give a <em class="parameter"><code>key</code></em> that isn't contained in the
 schema for <em class="parameter"><code>settings</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1407,8 +1467,11 @@ It is a programmer error to give a <em class="parameter"><code>key</code></em> t
 schema for <em class="parameter"><code>settings</code></em> or for the <a href="./../glib/glib/glib-GVariantType.html#GVariantType"><span class="type">GVariantType</span></a> of <em class="parameter"><code>format</code></em> to mismatch
 the type given in the schema.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1450,8 +1513,11 @@ It is a programmer error to give a <em class="parameter"><code>key</code></em> t
 schema for <em class="parameter"><code>settings</code></em> or for the <a href="./../glib/glib/glib-GVariantType.html#GVariantType"><span class="type">GVariantType</span></a> of <em class="parameter"><code>format</code></em> to mismatch
 the type given in the schema.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1495,8 +1561,11 @@ A convenience variant of <a class="link" href="GSettings.html#g-settings-get" ti
 It is a programmer error to give a <em class="parameter"><code>key</code></em> that isn't specified as
 having a boolean type in the schema for <em class="parameter"><code>settings</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1530,8 +1599,11 @@ A convenience variant of <a class="link" href="GSettings.html#g-settings-set" ti
 It is a programmer error to give a <em class="parameter"><code>key</code></em> that isn't specified as
 having a boolean type in the schema for <em class="parameter"><code>settings</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1570,8 +1642,11 @@ A convenience variant of <a class="link" href="GSettings.html#g-settings-get" ti
 It is a programmer error to give a <em class="parameter"><code>key</code></em> that isn't specified as
 having a int32 type in the schema for <em class="parameter"><code>settings</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1605,8 +1680,11 @@ A convenience variant of <a class="link" href="GSettings.html#g-settings-set" ti
 It is a programmer error to give a <em class="parameter"><code>key</code></em> that isn't specified as
 having a int32 type in the schema for <em class="parameter"><code>settings</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1646,8 +1724,11 @@ integers.
 It is a programmer error to give a <em class="parameter"><code>key</code></em> that isn't specified as
 having a uint32 type in the schema for <em class="parameter"><code>settings</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1682,8 +1763,11 @@ integers.
 It is a programmer error to give a <em class="parameter"><code>key</code></em> that isn't specified as
 having a uint32 type in the schema for <em class="parameter"><code>settings</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1722,8 +1806,11 @@ A convenience variant of <a class="link" href="GSettings.html#g-settings-get" ti
 It is a programmer error to give a <em class="parameter"><code>key</code></em> that isn't specified as
 having a 'double' type in the schema for <em class="parameter"><code>settings</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1757,8 +1844,11 @@ A convenience variant of <a class="link" href="GSettings.html#g-settings-set" ti
 It is a programmer error to give a <em class="parameter"><code>key</code></em> that isn't specified as
 having a 'double' type in the schema for <em class="parameter"><code>settings</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1797,8 +1887,11 @@ A convenience variant of <a class="link" href="GSettings.html#g-settings-get" ti
 It is a programmer error to give a <em class="parameter"><code>key</code></em> that isn't specified as
 having a string type in the schema for <em class="parameter"><code>settings</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1832,8 +1925,11 @@ A convenience variant of <a class="link" href="GSettings.html#g-settings-set" ti
 It is a programmer error to give a <em class="parameter"><code>key</code></em> that isn't specified as
 having a string type in the schema for <em class="parameter"><code>settings</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1869,8 +1965,11 @@ A convenience variant of <a class="link" href="GSettings.html#g-settings-get" ti
 It is a programmer error to give a <em class="parameter"><code>key</code></em> that isn't specified as
 having an array of strings type in the schema for <em class="parameter"><code>settings</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1908,8 +2007,11 @@ A convenience variant of <a class="link" href="GSettings.html#g-settings-set" ti
 It is a programmer error to give a <em class="parameter"><code>key</code></em> that isn't specified as
 having an array of strings type in the schema for <em class="parameter"><code>settings</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1956,8 +2058,11 @@ If the value stored in the configuration database is not a valid
 value for the enumerated type then this function will return the
 default value.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -1995,8 +2100,11 @@ After performing the write, accessing <em class="parameter"><code>key</code></em
 <a class="link" href="GSettings.html#g-settings-get-string" title="g_settings_get_string ()"><code class="function">g_settings_get_string()</code></a> will return the 'nick' associated with
 <em class="parameter"><code>value</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -2041,8 +2149,11 @@ If the value stored in the configuration database is not a valid
 value for the flags type then this function will return the default
 value.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -2081,8 +2192,11 @@ After performing the write, accessing <em class="parameter"><code>key</code></em
 <a class="link" href="GSettings.html#g-settings-get-strv" title="g_settings_get_strv ()"><code class="function">g_settings_get_strv()</code></a> will return an array of 'nicks'; one for each
 bit in <em class="parameter"><code>value</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -2125,8 +2239,11 @@ If <em class="parameter"><code>value</code></em> is <a href="./../glib/glib/glib
 given a "last chance" to successfully return a valid value.  <a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>
 must be returned in this case.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -2193,8 +2310,11 @@ to each invocation of <em class="parameter"><code>mapping</code></em>.  The fina
 what is returned by this function.  <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is valid; it is returned
 just as any other value would be.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -2240,8 +2360,11 @@ Flags used when creating a binding. These flags determine in which
 direction the binding works. The default is to synchronize in both
 directions.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-SETTINGS-BIND-DEFAULT:CAPS"></a><span class="term"><code class="literal">G_SETTINGS_BIND_DEFAULT</code></span></p></td>
@@ -2314,8 +2437,11 @@ and that you can have only one binding per object property.
 If you bind the same property twice on the same object, the second
 binding overrides the first one.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -2327,7 +2453,7 @@ binding overrides the first one.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
-<td>a <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
+<td>a <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.Object]</span>
 </td>
 </tr>
 <tr>
@@ -2368,8 +2494,11 @@ and that you can have only one binding per object property.
 If you bind the same property twice on the same object, the second
 binding overrides the first one.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -2381,7 +2510,7 @@ binding overrides the first one.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
-<td>a <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
+<td>a <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.Object]</span>
 </td>
 </tr>
 <tr>
@@ -2448,8 +2577,11 @@ and that you can have only one binding per object property.
 If you bind the same property twice on the same object, the second
 binding overrides the first one.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -2461,7 +2593,7 @@ binding overrides the first one.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
-<td>a <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
+<td>a <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.Object]</span>
 </td>
 </tr>
 <tr>
@@ -2489,8 +2621,11 @@ Note that bindings are automatically removed when the
 object is finalized, so it is rarely necessary to call this
 function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -2514,8 +2649,11 @@ function.
 The type for the function that is used to convert an object property
 value to a <a href="./../glib/glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> for storing it in <a class="link" href="GSettings.html" title="GSettings"><span class="type">GSettings</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -2548,8 +2686,11 @@ The type for the function that is used to convert from <a class="link" href="GSe
 an object property. The <em class="parameter"><code>value</code></em> is already initialized to hold values
 of the appropriate type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -2596,8 +2737,11 @@ result in the toggling of the value.  For all other types,
 activations take the new value for the key (which must have the
 correct type).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -2732,8 +2876,11 @@ The default handler for this signal invokes the "changed" signal
 for each affected key.  If any other connected handler returns
 <a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> then this default functionality will be suppressed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -2777,8 +2924,11 @@ This signal supports detailed connections.  You can connect to the
 detailed signal "changed::x" in order to only receive callbacks
 when key "x" changes.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -2823,8 +2973,11 @@ example, a new mandatory setting is introduced).  If any other
 connected handler returns <a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> then this default functionality
 will be suppressed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -2863,8 +3016,11 @@ This signal supports detailed connections.  You can connect to the
 detailed signal "writable-changed::x" in order to only receive
 callbacks when the writability of "x" changes.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
@@ -2885,6 +3041,6 @@ callbacks when the writability of "x" changes.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

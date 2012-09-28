@@ -1089,8 +1089,7 @@ signal_cb (GDBusConnection *connection,
     }
 
  out:
-  if (object_proxy != NULL)
-    g_object_ref (object_proxy);
+  g_clear_object (&object_proxy);
 }
 
 static void
@@ -1329,7 +1328,7 @@ initable_init (GInitable     *initable,
 
   proxy_flags = G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES;
   if (manager->priv->flags & G_DBUS_OBJECT_MANAGER_CLIENT_FLAGS_DO_NOT_AUTO_START)
-    proxy_flags |= G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START;;
+    proxy_flags |= G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START;
 
   manager->priv->control_proxy = g_dbus_proxy_new_sync (manager->priv->connection,
                                                         proxy_flags,

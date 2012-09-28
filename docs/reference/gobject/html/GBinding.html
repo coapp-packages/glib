@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GBinding</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GObject Reference Manual">
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="gobject-Value-arrays.html" title="Value arrays">
 <link rel="next" href="rn02.html" title="Tools Reference">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -268,8 +268,11 @@ Flags to be passed to <a class="link" href="GBinding.html#g-object-bind-property
 <p>
 This enumeration can be extended at later date.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-BINDING-DEFAULT:CAPS"></a><span class="term"><code class="literal">G_BINDING_DEFAULT</code></span></p></td>
@@ -311,8 +314,11 @@ This enumeration can be extended at later date.
 <p>
 Retrieves the <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> instance used as the source of the binding
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>binding</code></em> :</span></p></td>
@@ -336,8 +342,11 @@ Retrieves the <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><
 Retrieves the name of the property of <a class="link" href="GBinding.html#GBinding--source" title='The "source" property'><span class="type">"source"</span></a> used as the source
 of the binding
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>binding</code></em> :</span></p></td>
@@ -359,8 +368,11 @@ of the binding
 <p>
 Retrieves the <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> instance used as the target of the binding
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>binding</code></em> :</span></p></td>
@@ -384,8 +396,11 @@ Retrieves the <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><
 Retrieves the name of the property of <a class="link" href="GBinding.html#GBinding--target" title='The "target" property'><span class="type">"target"</span></a> used as the target
 of the binding
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>binding</code></em> :</span></p></td>
@@ -407,8 +422,11 @@ of the binding
 <p>
 Retrieves the flags passed when constructing the <a class="link" href="GBinding.html" title="GBinding"><span class="type">GBinding</span></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>binding</code></em> :</span></p></td>
@@ -471,12 +489,15 @@ The binding will automatically be removed when either the <em class="parameter">
 <p>
 A <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> can have multiple bindings.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
-<td>the source <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
+<td>the source <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.Object]</span>
 </td>
 </tr>
 <tr>
@@ -485,7 +506,7 @@ A <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
-<td>the target <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
+<td>the target <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.Object]</span>
 </td>
 </tr>
 <tr>
@@ -520,8 +541,11 @@ A function to be called to transform the source property of <em class="parameter
 from <em class="parameter"><code>source_value</code></em> into the target property of <em class="parameter"><code>target</code></em>
 using <em class="parameter"><code>target_value</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>binding</code></em> :</span></p></td>
@@ -595,12 +619,15 @@ for each transformation function, please use
 <a class="link" href="GBinding.html#g-object-bind-property-with-closures" title="g_object_bind_property_with_closures ()"><code class="function">g_object_bind_property_with_closures()</code></a> instead.</div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
-<td>the source <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
+<td>the source <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.Object]</span>
 </td>
 </tr>
 <tr>
@@ -609,7 +636,7 @@ for each transformation function, please use
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
-<td>the target <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
+<td>the target <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.Object]</span>
 </td>
 </tr>
 <tr>
@@ -679,12 +706,15 @@ function pointers.
 <p>
 Rename to: g_object_bind_property_full
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
-<td>the source <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
+<td>the source <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.Object]</span>
 </td>
 </tr>
 <tr>
@@ -693,7 +723,7 @@ Rename to: g_object_bind_property_full
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
-<td>the target <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
+<td>the target <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.Object]</span>
 </td>
 </tr>
 <tr>
@@ -781,6 +811,6 @@ as the target of the binding
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Type Information</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GObject Reference Manual">
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="rn01.html" title="API Reference">
 <link rel="next" href="GTypePlugin.html" title="GTypePlugin">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -196,6 +196,7 @@ enum                <a class="link" href="gobject-Type-Information.html#GTypeFun
 <span class="returnvalue">void</span>                (<a class="link" href="gobject-Type-Information.html#GTypeInterfaceCheckFunc" title="GTypeInterfaceCheckFunc ()">*GTypeInterfaceCheckFunc</a>)          (<em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> check_data</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> g_iface</code></em>);
 <a class="link" href="gobject-Type-Information.html#GTypeValueTable" title="struct GTypeValueTable"><span class="returnvalue">GTypeValueTable</span></a> *   <a class="link" href="gobject-Type-Information.html#g-type-value-table-peek" title="g_type_value_table_peek ()">g_type_value_table_peek</a>             (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> type</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gobject-Type-Information.html#g-type-ensure" title="g_type_ensure ()">g_type_ensure</a>                       (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> type</code></em>);
 #define             <a class="link" href="gobject-Type-Information.html#G-DEFINE-TYPE:CAPS" title="G_DEFINE_TYPE()">G_DEFINE_TYPE</a>                       (TN,
                                                          t_n,
                                                          T_P)
@@ -335,8 +336,11 @@ The fundamental type which is the ancestor of <em class="parameter"><code>type</
 Fundamental types are types that serve as ultimate bases for the derived types, 
 thus they are the roots of distinct inheritance hierarchies.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
 <td>A <a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> value.</td>
@@ -363,8 +367,11 @@ Get the type ID for the fundamental type number <em class="parameter"><code>x</c
 Use <a class="link" href="gobject-Type-Information.html#g-type-fundamental-next" title="g_type_fundamental_next ()"><code class="function">g_type_fundamental_next()</code></a> instead of this macro to create new fundamental 
 types.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
@@ -387,8 +394,11 @@ Checks if <em class="parameter"><code>type</code></em> is an abstract type.  An 
 instantiated and is normally used as an abstract base class for
 derived classes.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -412,8 +422,11 @@ Checks if <em class="parameter"><code>type</code></em> is derived (or in object-
 inherited) from another type (this holds true for all non-fundamental
 types).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -435,8 +448,11 @@ types).
 <p>
 Checks if <em class="parameter"><code>type</code></em> is a fundamental type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -458,8 +474,11 @@ Checks if <em class="parameter"><code>type</code></em> is a fundamental type.
 <p>
 Checks if <em class="parameter"><code>type</code></em> is a value type and can be used with <a class="link" href="gobject-Generic-values.html#g-value-init" title="g_value_init ()"><code class="function">g_value_init()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -481,8 +500,11 @@ Checks if <em class="parameter"><code>type</code></em> is a value type and can b
 <p>
 Checks if <em class="parameter"><code>type</code></em> has a <a class="link" href="gobject-Type-Information.html#GTypeValueTable" title="struct GTypeValueTable"><span class="type">GTypeValueTable</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -504,8 +526,11 @@ Checks if <em class="parameter"><code>type</code></em> has a <a class="link" hre
 <p>
 Checks if <em class="parameter"><code>type</code></em> is a classed type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -528,8 +553,11 @@ Checks if <em class="parameter"><code>type</code></em> is a classed type.
 Checks if <em class="parameter"><code>type</code></em> can be instantiated.  Instantiation is the
 process of creating an instance (object) of this type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -552,8 +580,11 @@ process of creating an instance (object) of this type.
 Checks if <em class="parameter"><code>type</code></em> is a derivable type.  A derivable type can
 be used as the base class of a flat (single-level) class hierarchy.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -576,8 +607,11 @@ be used as the base class of a flat (single-level) class hierarchy.
 Checks if <em class="parameter"><code>type</code></em> is a deep derivable type.  A deep derivable type
 can be used as the base class of a deep (multi-level) class hierarchy.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -605,8 +639,11 @@ interfaces and C++ classes containing only pure virtual functions,
 with the difference that GType interfaces are not derivable (but see
 <a class="link" href="gobject-Type-Information.html#g-type-interface-add-prerequisite" title="g_type_interface_add_prerequisite ()"><code class="function">g_type_interface_add_prerequisite()</code></a> for an alternative).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -684,8 +721,11 @@ The initialized structure is passed to the <a class="link" href="gobject-Type-In
 copy of this structure, so its memory does not need to be persistent
 across invocation of <a class="link" href="gobject-Type-Information.html#g-type-register-static" title="g_type_register_static ()"><code class="function">g_type_register_static()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="./../glib/glib/glib-Basic-Types.html#guint16"><span class="type">guint16</span></a> <em class="structfield"><code><a name="GTypeInfo.class-size"></a>class_size</code></em>;</span></p></td>
@@ -749,8 +789,11 @@ useful for fundamental types).</td>
 A structure that provides information to the type system which is
 used specifically for managing fundamental types.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><a class="link" href="gobject-Type-Information.html#GTypeFundamentalFlags" title="enum GTypeFundamentalFlags"><span class="type">GTypeFundamentalFlags</span></a> <em class="structfield"><code><a name="GTypeFundamentalInfo.type-flags"></a>type_flags</code></em>;</span></p></td>
 <td>
@@ -771,8 +814,11 @@ used specifically for managing fundamental types.
 A structure that provides information to the type system which is
 used specifically for managing interface types.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="gobject-Type-Information.html#GInterfaceInitFunc" title="GInterfaceInitFunc ()"><span class="type">GInterfaceInitFunc</span></a> <em class="structfield"><code><a name="GInterfaceInfo.interface-init"></a>interface_init</code></em>;</span></p></td>
@@ -799,24 +845,23 @@ used specifically for managing interface types.
 				  GValue       *dest_value);
   /* varargs functionality (optional) */
   gpointer (*value_peek_pointer) (const GValue *value);
-  gchar	    *collect_format;
+  const gchar *collect_format;
   gchar*   (*collect_value)      (GValue       *value,
 				  guint         n_collect_values,
 				  GTypeCValue  *collect_values,
 				  guint		collect_flags);
-  gchar	    *lcopy_format;
+  const gchar *lcopy_format;
   gchar*   (*lcopy_value)        (const GValue *value,
 				  guint         n_collect_values,
 				  GTypeCValue  *collect_values,
 				  guint		collect_flags);
 };
 </pre>
-<p>
-The <a class="link" href="gobject-Type-Information.html#GTypeValueTable" title="struct GTypeValueTable"><span class="type">GTypeValueTable</span></a> provides the functions required by the <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> implementation,
-to serve as a container for values of a type.
-</p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="structfield"><code><a name="GTypeValueTable.value-init"></a>value_init</code></em> ()</span></p></td>
@@ -906,13 +951,16 @@ the current contents. To extend on our above string example:
 </td>
 </tr>
 <tr>
-<td><p><span class="term"><a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GTypeValueTable.collect-format"></a>collect_format</code></em>;</span></p></td>
+<td><p><span class="term">const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GTypeValueTable.collect-format"></a>collect_format</code></em>;</span></p></td>
 <td>A string format describing how to collect the contents of
 this value bit-by-bit. Each character in the format represents
 an argument to be collected, and the characters themselves indicate
 the type of the argument. Currently supported arguments are:
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"></span></p></td>
@@ -1036,94 +1084,15 @@ a look at an exemplary implementation for <code class="function">collect_value()
 </div>
 
 The reference count for valid objects is always incremented,
-regardless of <em class="parameter"><code>collect_flags</code></em>. For invalid objects, the example
-returns a newly allocated string without altering <em class="parameter"><code>value</code></em>.
-Upon success, <code class="function">collect_value()</code> needs to return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. If, however,
-an error condition occurred, <code class="function">collect_value()</code> may spew an
-error by returning a newly allocated non-<a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> string, giving
-a suitable description of the error condition.
-The calling code makes no assumptions about the <em class="parameter"><code>value</code></em>
-contents being valid upon error returns, <em class="parameter"><code>value</code></em>
-is simply thrown away without further freeing. As such, it is
-a good idea to not allocate <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> contents, prior to returning
-an error, however, <code class="function">collect_values()</code> is not obliged to return
-a correctly setup <em class="parameter"><code>value</code></em> for error returns, simply because
-any non-<a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> return is considered a fatal condition so further
-program behaviour is undefined.</td>
+regardless of <em class="parameter"><code>collect_flags</code></em>. For invalid objects, the example</td>
 </tr>
 <tr>
-<td><p><span class="term"><a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GTypeValueTable.lcopy-format"></a>lcopy_format</code></em>;</span></p></td>
-<td>Format description of the arguments to collect for <em class="parameter"><code>lcopy_value</code></em>,
-analogous to <em class="parameter"><code>collect_format</code></em>. Usually, <em class="parameter"><code>lcopy_format</code></em> string consists
-only of 'p's to provide <code class="function">lcopy_value()</code> with pointers to storage locations.</td>
+<td><p><span class="term">const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GTypeValueTable.lcopy-format"></a>lcopy_format</code></em>;</span></p></td>
+<td></td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="structfield"><code><a name="GTypeValueTable.lcopy-value"></a>lcopy_value</code></em> ()</span></p></td>
-<td>This function is responsible for storing the <em class="parameter"><code>value</code></em> contents into
-arguments passed through a variable argument list which got
-collected into <em class="parameter"><code>collect_values</code></em> according to <em class="parameter"><code>lcopy_format</code></em>.
-<em class="parameter"><code>n_collect_values</code></em> equals the string length of <em class="parameter"><code>lcopy_format</code></em>,
-and <em class="parameter"><code>collect_flags</code></em> may contain <code class="literal">G_VALUE_NOCOPY_CONTENTS</code>.
-In contrast to <code class="function">collect_value()</code>, <code class="function">lcopy_value()</code> is obliged to
-always properly support <code class="literal">G_VALUE_NOCOPY_CONTENTS</code>.
-Similar to <code class="function">collect_value()</code> the function may prematurely abort
-by returning a newly allocated string describing an error condition.
-To complete the string example:
-<div class="informalexample">
-  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
-    <tbody>
-      <tr>
-        <td class="listing_lines" align="right"><pre>1
-2
-3
-4
-5
-6
-7</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="usertype">gchar</span><span class="normal"> </span><span class="symbol">**</span><span class="normal">string_p </span><span class="symbol">=</span><span class="normal"> collect_values</span><span class="symbol">[</span><span class="number">0</span><span class="symbol">].</span><span class="normal">v_pointer</span><span class="symbol">;</span>
-<span class="keyword">if</span><span class="normal"> </span><span class="symbol">(!</span><span class="normal">string_p</span><span class="symbol">)</span>
-<span class="keyword">return</span><span class="normal"> </span><span class="function"><a href="./../glib/glib/glib-String-Utility-Functions.html#g-strdup-printf">g_strdup_printf</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"string location passed as NULL"</span><span class="symbol">);</span>
-<span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">collect_flags </span><span class="symbol">&amp;</span><span class="normal"> G_VALUE_NOCOPY_CONTENTS</span><span class="symbol">)</span>
-<span class="symbol">*</span><span class="normal">string_p </span><span class="symbol">=</span><span class="normal"> value</span><span class="symbol">-&gt;</span><span class="normal">data</span><span class="symbol">[</span><span class="number">0</span><span class="symbol">].</span><span class="normal">v_pointer</span><span class="symbol">;</span>
-<span class="keyword">else</span>
-<span class="symbol">*</span><span class="normal">string_p </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="./../glib/glib/glib-String-Utility-Functions.html#g-strdup">g_strdup</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">value</span><span class="symbol">-&gt;</span><span class="normal">data</span><span class="symbol">[</span><span class="number">0</span><span class="symbol">].</span><span class="normal">v_pointer</span><span class="symbol">);</span></pre></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-And an illustrative version of <code class="function">lcopy_value()</code> for
-reference-counted types:
-<div class="informalexample">
-  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
-    <tbody>
-      <tr>
-        <td class="listing_lines" align="right"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="usertype">GObject</span><span class="normal"> </span><span class="symbol">**</span><span class="normal">object_p </span><span class="symbol">=</span><span class="normal"> collect_values</span><span class="symbol">[</span><span class="number">0</span><span class="symbol">].</span><span class="normal">v_pointer</span><span class="symbol">;</span>
-<span class="keyword">if</span><span class="normal"> </span><span class="symbol">(!</span><span class="normal">object_p</span><span class="symbol">)</span>
-<span class="keyword">return</span><span class="normal"> </span><span class="function"><a href="./../glib/glib/glib-String-Utility-Functions.html#g-strdup-printf">g_strdup_printf</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"object location passed as NULL"</span><span class="symbol">);</span>
-<span class="keyword">if</span><span class="normal"> </span><span class="symbol">(!</span><span class="normal">value</span><span class="symbol">-&gt;</span><span class="normal">data</span><span class="symbol">[</span><span class="number">0</span><span class="symbol">].</span><span class="normal">v_pointer</span><span class="symbol">)</span>
-<span class="symbol">*</span><span class="normal">object_p </span><span class="symbol">=</span><span class="normal"> <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
-<span class="keyword">else</span><span class="normal"> </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">collect_flags </span><span class="symbol">&amp;</span><span class="normal"> G_VALUE_NOCOPY_CONTENTS</span><span class="symbol">)</span><span class="normal"> </span><span class="comment">/* always honour */</span>
-<span class="symbol">*</span><span class="normal">object_p </span><span class="symbol">=</span><span class="normal"> value</span><span class="symbol">-&gt;</span><span class="normal">data</span><span class="symbol">[</span><span class="number">0</span><span class="symbol">].</span><span class="normal">v_pointer</span><span class="symbol">;</span>
-<span class="keyword">else</span>
-<span class="symbol">*</span><span class="normal">object_p </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gobject-The-Base-Object-Type.html#g-object-ref">g_object_ref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">value</span><span class="symbol">-&gt;</span><span class="normal">data</span><span class="symbol">[</span><span class="number">0</span><span class="symbol">].</span><span class="normal">v_pointer</span><span class="symbol">);</span>
-<span class="keyword">return</span><span class="normal"> <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span></pre></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-</td>
+<td></td>
 </tr>
 </tbody>
 </table></div>
@@ -1139,8 +1108,11 @@ Get the type identifier from a given <em class="parameter"><code>instance</code>
 <p>
 This macro should only be used in type implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1165,8 +1137,11 @@ Get the type identifier from a given <em class="parameter"><code>class</code></e
 <p>
 This macro should only be used in type implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>g_class</code></em> :</span></p></td>
@@ -1191,8 +1166,11 @@ Get the type identifier from a given <em class="parameter"><code>interface</code
 <p>
 This macro should only be used in type implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>g_iface</code></em> :</span></p></td>
@@ -1222,8 +1200,11 @@ modified, so it might not always return the expected pointer.
 <p>
 This macro should only be used in type implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1255,8 +1236,11 @@ Get the interface structure for interface <em class="parameter"><code>g_type</co
 <p>
 This macro should only be used in type implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1290,8 +1274,11 @@ class_init function with <a class="link" href="gobject-Type-Information.html#g-t
 <p>
 This macro should only be used in type implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1326,8 +1313,11 @@ The private structure must have been registered in the
 <p>
 This macro should only be used in type implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>klass</code></em> :</span></p></td>
@@ -1361,8 +1351,11 @@ otherwise issues a warning and returns <a href="./../glib/glib/glib-Standard-Mac
 <p>
 This macro should only be used in type implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1389,8 +1382,11 @@ to a pointer to <em class="parameter"><code>c_type</code></em>.
 <p>
 This macro should only be used in type implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1418,8 +1414,11 @@ Checks if <em class="parameter"><code>instance</code></em> is an instance of the
 <p>
 This macro should only be used in type implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -1450,8 +1449,11 @@ to a pointer to <em class="parameter"><code>c_type</code></em>.
 <p>
 This macro should only be used in type implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>g_class</code></em> :</span></p></td>
@@ -1480,8 +1482,11 @@ Checks if <em class="parameter"><code>g_class</code></em> is a class structure o
 <p>
 This macro should only be used in type implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>g_class</code></em> :</span></p></td>
@@ -1511,8 +1516,11 @@ of a value type.
 <p>
 This macro should only be used in type implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -1539,8 +1547,11 @@ of type <em class="parameter"><code>g_type</code></em>.
 <p>
 This macro should only be used in type implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -1579,7 +1590,11 @@ to initialize the type system and assorted other code portions
 system).
 </p>
 <p>
-This function is idempotent.
+This function is idempotent: If you call it multiple times, all but
+the first calls will be silently ignored.
+</p>
+<p>
+There is no way to undo the effect of <a class="link" href="gobject-Type-Information.html#g-type-init" title="g_type_init ()"><code class="function">g_type_init()</code></a>.
 </p>
 <p>
 Since version 2.24 this also initializes the thread system
@@ -1602,8 +1617,11 @@ Note that the messages can also be triggered by setting the
 <code class="envar">GOBJECT_DEBUG</code> environment variable to a ':'-separated list of 
 "objects" and "signals".
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-TYPE-DEBUG-NONE:CAPS"></a><span class="term"><code class="literal">G_TYPE_DEBUG_NONE</code></span></p></td>
@@ -1638,8 +1656,11 @@ Similar to <a class="link" href="gobject-Type-Information.html#g-type-init" titl
 <p>
 This function is idempotent.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>debug_flags</code></em> :</span></p></td>
 <td>Bitwise combination of <a class="link" href="gobject-Type-Information.html#GTypeDebugFlags" title="enum GTypeDebugFlags"><span class="type">GTypeDebugFlags</span></a> values for
@@ -1658,8 +1679,11 @@ IDs. <a class="link" href="gobject-Type-Information.html#G-TYPE-INVALID:CAPS" ti
 other validly registered type ID, but randomized type IDs should
 not be passed in and will most likely lead to a crash.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -1679,8 +1703,11 @@ not be passed in and will most likely lead to a crash.
 <p>
 Get the corresponding quark of the type IDs name.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -1703,8 +1730,11 @@ has been registered under this name (this is the preferred method
 to find out by name whether a specific type has been registered
 yet).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -1725,8 +1755,11 @@ yet).
 Return the direct parent type of the passed in type.  If the passed
 in type has no parent, i.e. is a fundamental type, 0 is returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -1747,8 +1780,11 @@ in type has no parent, i.e. is a fundamental type, 0 is returned.
 Returns the length of the ancestry of the passed in type. This
 includes the type itself, so that e.g. a fundamental type has depth 1.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -1775,8 +1811,11 @@ derived directly from <em class="parameter"><code>root_type</code></em> which is
 be used to determine the types and order in which the leaf type is
 descended from the root type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>leaf_type</code></em> :</span></p></td>
@@ -1803,8 +1842,11 @@ If <em class="parameter"><code>is_a_type</code></em> is a derivable type, check 
 descendant of <em class="parameter"><code>is_a_type</code></em>.  If <em class="parameter"><code>is_a_type</code></em> is an interface, check
 whether <em class="parameter"><code>type</code></em> conforms to it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -1831,8 +1873,11 @@ Increments the reference count of the class structure belonging to
 <em class="parameter"><code>type</code></em>. This function will demand-create the class if it doesn't
 exist already.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -1841,7 +1886,7 @@ exist already.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>The <a class="link" href="gobject-Type-Information.html#GTypeClass" title="struct GTypeClass"><span class="type">GTypeClass</span></a>
-structure for the given type ID. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.TypeClass][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+structure for the given type ID. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.TypeClass][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1857,8 +1902,11 @@ the classes reference count isn't incremented. As a consequence, this function
 may return <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the class of the type passed in does not currently
 exist (hasn't been referenced before).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -1868,7 +1916,7 @@ exist (hasn't been referenced before).
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>The <a class="link" href="gobject-Type-Information.html#GTypeClass" title="struct GTypeClass"><span class="type">GTypeClass</span></a>
 structure for the given type ID or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the class does not
-currently exist. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.TypeClass][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+currently exist. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.TypeClass][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1882,8 +1930,11 @@ currently exist. <span class="annotation">[<acronym title="Override the parsed C
 A more efficient version of <a class="link" href="gobject-Type-Information.html#g-type-class-peek" title="g_type_class_peek ()"><code class="function">g_type_class_peek()</code></a> which works only for
 static types.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -1893,7 +1944,7 @@ static types.
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>The <a class="link" href="gobject-Type-Information.html#GTypeClass" title="struct GTypeClass"><span class="type">GTypeClass</span></a>
 structure for the given type ID or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the class does not
-currently exist or is dynamically loaded. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.TypeClass][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+currently exist or is dynamically loaded. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.TypeClass][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1910,12 +1961,15 @@ Once the last reference count of a class has been released, classes
 may be finalized by the type system, so further dereferencing of a
 class pointer after <a class="link" href="gobject-Type-Information.html#g-type-class-unref" title="g_type_class_unref ()"><code class="function">g_type_class_unref()</code></a> are invalid.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>g_class</code></em> :</span></p></td>
 <td>The <a class="link" href="gobject-Type-Information.html#GTypeClass" title="struct GTypeClass"><span class="type">GTypeClass</span></a> structure to
-unreference. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.TypeClass]</span>
+unreference. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.TypeClass]</span>
 </td>
 </tr></tbody>
 </table></div>
@@ -1939,19 +1993,22 @@ g_type_class_peek (g_type_parent (G_TYPE_FROM_CLASS (g_class)));
 </pre>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>g_class</code></em> :</span></p></td>
 <td>The <a class="link" href="gobject-Type-Information.html#GTypeClass" title="struct GTypeClass"><span class="type">GTypeClass</span></a> structure to
-retrieve the parent class for. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.TypeClass]</span>
+retrieve the parent class for. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.TypeClass]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>The parent class
-of <em class="parameter"><code>g_class</code></em>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.TypeClass][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+of <em class="parameter"><code>g_class</code></em>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.TypeClass][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -2078,8 +2135,11 @@ of repeatedly calling <code class="function">MY_OBJECT_GET_PRIVATE()</code>.
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>g_class</code></em> :</span></p></td>
@@ -2108,8 +2168,11 @@ type's <code class="function">get_type()</code> function after the type is regis
 The private structure can be retrieved using the
 <a class="link" href="gobject-Type-Information.html#G-TYPE-CLASS-GET-PRIVATE:CAPS" title="G_TYPE_CLASS_GET_PRIVATE()"><code class="function">G_TYPE_CLASS_GET_PRIVATE()</code></a> macro.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>class_type</code></em> :</span></p></td>
@@ -2132,12 +2195,15 @@ The private structure can be retrieved using the
 Returns the <a class="link" href="gobject-Type-Information.html#GTypeInterface" title="struct GTypeInterface"><span class="type">GTypeInterface</span></a> structure of an interface to which the
 passed in class conforms.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance_class</code></em> :</span></p></td>
-<td>A <a class="link" href="gobject-Type-Information.html#GTypeClass" title="struct GTypeClass"><span class="type">GTypeClass</span></a> structure. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.TypeClass]</span>
+<td>A <a class="link" href="gobject-Type-Information.html#GTypeClass" title="struct GTypeClass"><span class="type">GTypeClass</span></a> structure. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.TypeClass]</span>
 </td>
 </tr>
 <tr>
@@ -2148,7 +2214,7 @@ passed in class conforms.
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>The GTypeInterface
 structure of iface_type if implemented by <em class="parameter"><code>instance_class</code></em>, <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
-otherwise. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.TypeInterface][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+otherwise. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.TypeInterface][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -2164,12 +2230,15 @@ of the instance type to which <em class="parameter"><code>g_iface</code></em> be
 deriving the implementation of an interface from the parent type and
 then possibly overriding some methods.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>g_iface</code></em> :</span></p></td>
-<td>A <a class="link" href="gobject-Type-Information.html#GTypeInterface" title="struct GTypeInterface"><span class="type">GTypeInterface</span></a> structure. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.TypeInterface]</span>
+<td>A <a class="link" href="gobject-Type-Information.html#GTypeInterface" title="struct GTypeInterface"><span class="type">GTypeInterface</span></a> structure. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.TypeInterface]</span>
 </td>
 </tr>
 <tr>
@@ -2177,7 +2246,7 @@ then possibly overriding some methods.
 <td>The
 corresponding <a class="link" href="gobject-Type-Information.html#GTypeInterface" title="struct GTypeInterface"><span class="type">GTypeInterface</span></a> structure of the parent type of the
 instance type to which <em class="parameter"><code>g_iface</code></em> belongs, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the parent
-type doesn't conform to the interface. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.TypeInterface]</span>
+type doesn't conform to the interface. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.TypeInterface]</span>
 </td>
 </tr>
 </tbody>
@@ -2201,8 +2270,11 @@ Calling <a class="link" href="gobject-Type-Information.html#g-type-default-inter
 want to make sure that signals and properties for an interface
 have been installed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>g_type</code></em> :</span></p></td>
@@ -2212,7 +2284,7 @@ have been installed.
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the default
 vtable for the interface; call <a class="link" href="gobject-Type-Information.html#g-type-default-interface-unref" title="g_type_default_interface_unref ()"><code class="function">g_type_default_interface_unref()</code></a>
-when you are done using the interface. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.TypeInterface][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+when you are done using the interface. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.TypeInterface][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -2227,8 +2299,11 @@ when you are done using the interface. <span class="annotation">[<acronym title=
 If the interface type <em class="parameter"><code>g_type</code></em> is currently in use, returns its
 default interface vtable.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>g_type</code></em> :</span></p></td>
@@ -2238,7 +2313,7 @@ default interface vtable.
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the default
 vtable for the interface, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the type is not currently in
-use. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.TypeInterface][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+use. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.TypeInterface][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -2257,13 +2332,16 @@ been released, the finalize function for the interface's default
 vtable (the <em class="structfield"><code>class_finalize</code></em> member of
 <a class="link" href="gobject-Type-Information.html#GTypeInfo" title="struct GTypeInfo"><span class="type">GTypeInfo</span></a>) will be called.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>g_iface</code></em> :</span></p></td>
 <td>the default vtable
 structure for a interface, as returned by
-<a class="link" href="gobject-Type-Information.html#g-type-default-interface-ref" title="g_type_default_interface_ref ()"><code class="function">g_type_default_interface_ref()</code></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.TypeInterface]</span>
+<a class="link" href="gobject-Type-Information.html#g-type-default-interface-ref" title="g_type_default_interface_ref ()"><code class="function">g_type_default_interface_ref()</code></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.TypeInterface]</span>
 </td>
 </tr></tbody>
 </table></div>
@@ -2278,8 +2356,11 @@ structure for a interface, as returned by
 Return a newly allocated and 0-terminated array of type IDs, listing the
 child types of <em class="parameter"><code>type</code></em>. The return value has to be <a href="./../glib/glib/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>ed after use.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -2310,8 +2391,11 @@ Return a newly allocated and 0-terminated array of type IDs, listing the
 interface types that <em class="parameter"><code>type</code></em> conforms to. The return value has to be
 <a href="./../glib/glib/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>ed after use.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -2340,8 +2424,11 @@ allocated and 0-terminated array of interface types. <span class="annotation">[<
 <p>
 Returns the prerequisites of an interfaces type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>interface_type</code></em> :</span></p></td>
@@ -2373,8 +2460,11 @@ the prerequisites of <em class="parameter"><code>interface_type</code></em>. <sp
 <p>
 Attaches arbitrary data to a type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -2406,8 +2496,11 @@ Note that this does not take subtyping into account; data
 attached to one type with <a class="link" href="gobject-Type-Information.html#g-type-set-qdata" title="g_type_set_qdata ()"><code class="function">g_type_set_qdata()</code></a> cannot
 be retrieved from a subtype using <a class="link" href="gobject-Type-Information.html#g-type-get-qdata" title="g_type_get_qdata ()"><code class="function">g_type_get_qdata()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -2439,8 +2532,11 @@ type-specific information. If an invalid <a class="link" href="gobject-Type-Info
 <a class="link" href="gobject-Type-Information.html#GTypeQuery" title="struct GTypeQuery"><span class="type">GTypeQuery</span></a> structure should be considered constant and have to be
 left untouched.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -2449,7 +2545,7 @@ left untouched.
 <tr>
 <td><p><span class="term"><em class="parameter"><code>query</code></em> :</span></p></td>
 <td>A user provided structure that is
-filled in with constant values upon success. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym> caller-allocates]</span>
+filled in with constant values upon success. <span class="annotation">[<acronym title="Out parameter, where caller must allocate storage."><span class="acronym">out caller-allocates</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -2469,8 +2565,11 @@ filled in with constant values upon success. <span class="annotation">[<acronym 
 A structure holding information for a specific type. It is
 filled in by the <a class="link" href="gobject-Type-Information.html#g-type-query" title="g_type_query ()"><code class="function">g_type_query()</code></a> function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> <em class="structfield"><code><a name="GTypeQuery.type"></a>type</code></em>;</span></p></td>
@@ -2505,8 +2604,11 @@ handled by a plain memory copy of the parent class into the derived class
 have to be altered. See <a class="link" href="gobject-Type-Information.html#GClassInitFunc" title="GClassInitFunc ()"><code class="function">GClassInitFunc()</code></a> for a discussion of the class
 intialization process.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>g_class</code></em> :</span></p></td>
 <td>The <a class="link" href="gobject-Type-Information.html#GTypeClass" title="struct GTypeClass"><span class="type">GTypeClass</span></a> structure to initialize.</td>
@@ -2524,8 +2626,11 @@ of a derived types class structure that were setup from the corresponding
 way in which class intialization is performed.
 See <a class="link" href="gobject-Type-Information.html#GClassInitFunc" title="GClassInitFunc ()"><code class="function">GClassInitFunc()</code></a> for a discussion of the class intialization process.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>g_class</code></em> :</span></p></td>
 <td>The <a class="link" href="gobject-Type-Information.html#GTypeClass" title="struct GTypeClass"><span class="type">GTypeClass</span></a> structure to finalize.</td>
@@ -2543,7 +2648,7 @@ of a specific type. This function should initialize all static class
 members.
 The initialization process of a class involves:
 </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem"><p>
 	1 - Copying common members from the parent class over to the
 	derived class structure.
@@ -2690,8 +2795,11 @@ Corresponding finalization counter parts to the <a class="link" href="gobject-Ty
 have to be provided to release allocated resources at class finalization
 time.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>g_class</code></em> :</span></p></td>
@@ -2718,8 +2826,11 @@ structure of a static type is invalid, because classes of static types
 will never be finalized (they are artificially kept alive when their
 reference count drops to zero).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>g_class</code></em> :</span></p></td>
@@ -2746,8 +2857,11 @@ types instance initializers, so the class member of the instance
 is altered during its initialization to always point to the class that
 belongs to the type the current initializer was introduced for.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
@@ -2770,8 +2884,11 @@ A callback function used by the type system to initialize a new
 interface.  This function should initialize all internal data and
 allocate any resources required by the interface.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>g_iface</code></em> :</span></p></td>
@@ -2794,8 +2911,11 @@ A callback function used by the type system to finalize an interface.
 This function should destroy any internal data and release any resources
 allocated by the corresponding <a class="link" href="gobject-Type-Information.html#GInterfaceInitFunc" title="GInterfaceInitFunc ()"><code class="function">GInterfaceInitFunc()</code></a> function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>g_iface</code></em> :</span></p></td>
@@ -2825,8 +2945,11 @@ The functions have to check the class id passed in to figure
 whether they actually want to cache the class of this type, since all
 classes are routed through the same <a class="link" href="gobject-Type-Information.html#GTypeClassCacheFunc" title="GTypeClassCacheFunc ()"><span class="type">GTypeClassCacheFunc</span></a> chain.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cache_data</code></em> :</span></p></td>
@@ -2856,8 +2979,11 @@ called, <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS"><code clas
 <p>
 Bit masks used to check or determine characteristics of a type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-TYPE-FLAG-ABSTRACT:CAPS"></a><span class="term"><code class="literal">G_TYPE_FLAG_ABSTRACT</code></span></p></td>
@@ -2889,8 +3015,11 @@ Bit masks used to check or determine characteristics of a type.
 Bit masks used to check or determine specific characteristics of a
 fundamental type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-TYPE-FLAG-CLASSED:CAPS"></a><span class="term"><code class="literal">G_TYPE_FLAG_CLASSED</code></span></p></td>
@@ -2929,8 +3058,11 @@ Registers <em class="parameter"><code>type_name</code></em> as the name of a new
 instances (if not abstract).  The value of <em class="parameter"><code>flags</code></em> determines the nature
 (e.g. abstract or not) of the type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>parent_type</code></em> :</span></p></td>
@@ -2971,8 +3103,11 @@ Registers <em class="parameter"><code>type_name</code></em> as the name of a new
 abstract or not) of the type. It works by filling a <a class="link" href="gobject-Type-Information.html#GTypeInfo" title="struct GTypeInfo"><span class="type">GTypeInfo</span></a>
 struct and calling <a class="link" href="gobject-Type-Information.html#g-type-register-static" title="g_type_register_static ()"><code class="function">g_type_register_static()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>parent_type</code></em> :</span></p></td>
@@ -3024,8 +3159,11 @@ Registers <em class="parameter"><code>type_name</code></em> as the name of a new
 instances (if not abstract).  The value of <em class="parameter"><code>flags</code></em> determines the nature
 (e.g. abstract or not) of the type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>parent_type</code></em> :</span></p></td>
@@ -3067,8 +3205,11 @@ by <em class="parameter"><code>info</code></em> and the <a class="link" href="go
 manage the type and its instances. The value of <em class="parameter"><code>flags</code></em> determines additional
 characteristics of the fundamental type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type_id</code></em> :</span></p></td>
@@ -3108,8 +3249,11 @@ Adds the static <em class="parameter"><code>interface_type</code></em> to <em cl
 information contained in the <a class="link" href="gobject-Type-Information.html#GInterfaceInfo" title="struct GInterfaceInfo"><span class="type">GInterfaceInfo</span></a> structure pointed to by
 <em class="parameter"><code>info</code></em> is used to manage the relationship.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance_type</code></em> :</span></p></td>
@@ -3140,8 +3284,11 @@ Adds the dynamic <em class="parameter"><code>interface_type</code></em> to <em c
 contained in the <a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="type">GTypePlugin</span></a> structure pointed to by <em class="parameter"><code>plugin</code></em>
 is used to manage the relationship.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance_type</code></em> :</span></p></td>
@@ -3170,8 +3317,11 @@ This means that any type implementing <em class="parameter"><code>interface_type
 interface derivation (which GType doesn't support). An interface can have
 at most one instantiatable prerequisite type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>interface_type</code></em> :</span></p></td>
@@ -3194,8 +3344,11 @@ at most one instantiatable prerequisite type.
 Returns the <a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="type">GTypePlugin</span></a> structure for <em class="parameter"><code>type</code></em> or
 <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>type</code></em> does not have a <a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="type">GTypePlugin</span></a> structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -3221,8 +3374,11 @@ Returns the <a class="link" href="GTypePlugin.html" title="GTypePlugin"><span cl
 <em class="parameter"><code>interface_type</code></em> has not been added to <em class="parameter"><code>instance_type</code></em> or does not
 have a <a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="type">GTypePlugin</span></a> structure. See <a class="link" href="gobject-Type-Information.html#g-type-add-interface-dynamic" title="g_type_add_interface_dynamic ()"><code class="function">g_type_add_interface_dynamic()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>instance_type</code></em> :</span></p></td>
@@ -3251,8 +3407,11 @@ register a new fundamental type with <a class="link" href="gobject-Type-Informat
 The returned type ID represents the highest currently registered
 fundamental type identifier.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>The nextmost fundamental type ID to be registered,
@@ -3268,8 +3427,11 @@ or 0 if the type system ran out of fundamental type IDs.</td>
 Internal function, used to extract the fundamental type ID portion.
 use <a class="link" href="gobject-Type-Information.html#G-TYPE-FUNDAMENTAL:CAPS" title="G_TYPE_FUNDAMENTAL()"><code class="function">G_TYPE_FUNDAMENTAL()</code></a> instead.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type_id</code></em> :</span></p></td>
@@ -3301,8 +3463,11 @@ use this function, unless you're implementing a fundamental
 type. Also language bindings should <span class="emphasis"><em>not</em></span> use
 this function but <a class="link" href="gobject-The-Base-Object-Type.html#g-object-new" title="g_object_new ()"><code class="function">g_object_new()</code></a> instead.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -3328,8 +3493,11 @@ the type, if there is one.
 Like <a class="link" href="gobject-Type-Information.html#g-type-create-instance" title="g_type_create_instance ()"><code class="function">g_type_create_instance()</code></a>, this function is reserved for
 implementors of fundamental types.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>instance</code></em> :</span></p></td>
 <td>an instance of a type.</td>
@@ -3350,8 +3518,11 @@ passed in to figure whether they actually want to cache the class of this
 type, since all classes are routed through the same <a class="link" href="gobject-Type-Information.html#GTypeClassCacheFunc" title="GTypeClassCacheFunc ()"><span class="type">GTypeClassCacheFunc</span></a>
 chain.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cache_data</code></em> :</span></p></td>
@@ -3376,8 +3547,11 @@ Removes a previously installed <a class="link" href="gobject-Type-Information.ht
 maintained by <em class="parameter"><code>cache_func</code></em> has to be empty when calling
 <a class="link" href="gobject-Type-Information.html#g-type-remove-class-cache-func" title="g_type_remove_class_cache_func ()"><code class="function">g_type_remove_class_cache_func()</code></a> to avoid leaks.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cache_data</code></em> :</span></p></td>
@@ -3402,12 +3576,15 @@ implementations. It unreferences a class without consulting the chain
 of <a class="link" href="gobject-Type-Information.html#GTypeClassCacheFunc" title="GTypeClassCacheFunc ()"><span class="type">GTypeClassCacheFunc</span></a>s, avoiding the recursion which would occur
 otherwise.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>g_class</code></em> :</span></p></td>
 <td>The <a class="link" href="gobject-Type-Information.html#GTypeClass" title="struct GTypeClass"><span class="type">GTypeClass</span></a> structure to
-unreference. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.TypeClass]</span>
+unreference. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.TypeClass]</span>
 </td>
 </tr></tbody>
 </table></div>
@@ -3429,8 +3606,11 @@ implementation of <a class="link" href="gobject-The-Base-Object-Type.html#GObjec
 object implements all of the properties that are defined on its
 interfaces.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>check_data</code></em> :</span></p></td>
@@ -3455,8 +3635,11 @@ is initialized.</td>
 Removes an interface check function added with
 <a class="link" href="gobject-Type-Information.html#g-type-add-interface-check" title="g_type_add_interface_check ()"><code class="function">g_type_add_interface_check()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>check_data</code></em> :</span></p></td>
@@ -3481,8 +3664,11 @@ Removes an interface check function added with
 A callback called after an interface vtable is initialized.
 See <a class="link" href="gobject-Type-Information.html#g-type-add-interface-check" title="g_type_add_interface_check ()"><code class="function">g_type_add_interface_check()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>check_data</code></em> :</span></p></td>
@@ -3506,8 +3692,11 @@ Returns the location of the <a class="link" href="gobject-Type-Information.html#
 that implements or has internal knowledge of the implementation of
 <em class="parameter"><code>type</code></em>.</em></span>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -3523,6 +3712,37 @@ that implements or has internal knowledge of the implementation of
 </div>
 <hr>
 <div class="refsect2">
+<a name="g-type-ensure"></a><h3>g_type_ensure ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_type_ensure                       (<em class="parameter"><code><a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> type</code></em>);</pre>
+<p>
+Ensures that the indicated <em class="parameter"><code>type</code></em> has been registered with the
+type system, and its <code class="function">_class_init()</code> method has been run.
+</p>
+<p>
+In theory, simply calling the type's <code class="function">_get_type()</code> method (or using
+the corresponding macro) is supposed take care of this. However,
+<code class="function">_get_type()</code> methods are often marked <a href="./../glib/glib/glib-Miscellaneous-Macros.html#G-GNUC-CONST:CAPS"><code class="literal">G_GNUC_CONST</code></a> for performance
+reasons, even though this is technically incorrect (since
+<a href="./../glib/glib/glib-Miscellaneous-Macros.html#G-GNUC-CONST:CAPS"><code class="literal">G_GNUC_CONST</code></a> requires that the function not have side effects,
+which <code class="function">_get_type()</code> methods do on the first call). As a result, if
+you write a bare call to a <code class="function">_get_type()</code> macro, it may get optimized
+out by the compiler. Using <a class="link" href="gobject-Type-Information.html#g-type-ensure" title="g_type_ensure ()"><code class="function">g_type_ensure()</code></a> guarantees that the
+type's <code class="function">_get_type()</code> method is called.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>a <a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a>.</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.34</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="G-DEFINE-TYPE:CAPS"></a><h3>G_DEFINE_TYPE()</h3>
 <pre class="programlisting">#define G_DEFINE_TYPE(TN, t_n, T_P)			    G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
 </pre>
@@ -3532,8 +3752,11 @@ class initialization function, an instance initialization function (see <a class
 these) and a static variable named <em class="parameter"><code>t_n</code></em>_parent_class pointing to the parent class. Furthermore, it defines 
 a *_get_type() function. See <a class="link" href="gobject-Type-Information.html#G-DEFINE-TYPE-EXTENDED:CAPS" title="G_DEFINE_TYPE_EXTENDED()"><code class="function">G_DEFINE_TYPE_EXTENDED()</code></a> for an example.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>TN</code></em> :</span></p></td>
@@ -3563,8 +3786,11 @@ Similar to <a class="link" href="gobject-Type-Information.html#G-DEFINE-TYPE:CAP
 *_get_type() function, e.g. interface implementations via <a class="link" href="gobject-Type-Information.html#G-IMPLEMENT-INTERFACE:CAPS" title="G_IMPLEMENT_INTERFACE()"><code class="function">G_IMPLEMENT_INTERFACE()</code></a>.
 See <a class="link" href="gobject-Type-Information.html#G-DEFINE-TYPE-EXTENDED:CAPS" title="G_DEFINE_TYPE_EXTENDED()"><code class="function">G_DEFINE_TYPE_EXTENDED()</code></a> for an example.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>TN</code></em> :</span></p></td>
@@ -3596,8 +3822,11 @@ A convenience macro for type implementations.
 Similar to <a class="link" href="gobject-Type-Information.html#G-DEFINE-TYPE:CAPS" title="G_DEFINE_TYPE()"><code class="function">G_DEFINE_TYPE()</code></a>, but defines an abstract type. 
 See <a class="link" href="gobject-Type-Information.html#G-DEFINE-TYPE-EXTENDED:CAPS" title="G_DEFINE_TYPE_EXTENDED()"><code class="function">G_DEFINE_TYPE_EXTENDED()</code></a> for an example.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>TN</code></em> :</span></p></td>
@@ -3627,8 +3856,11 @@ Similar to <a class="link" href="gobject-Type-Information.html#G-DEFINE-TYPE-WIT
 insert custom code into the *_get_type() function, e.g. interface implementations 
 via <a class="link" href="gobject-Type-Information.html#G-IMPLEMENT-INTERFACE:CAPS" title="G_IMPLEMENT_INTERFACE()"><code class="function">G_IMPLEMENT_INTERFACE()</code></a>. See <a class="link" href="gobject-Type-Information.html#G-DEFINE-TYPE-EXTENDED:CAPS" title="G_DEFINE_TYPE_EXTENDED()"><code class="function">G_DEFINE_TYPE_EXTENDED()</code></a> for an example.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>TN</code></em> :</span></p></td>
@@ -3666,8 +3898,11 @@ The macro expects the interface initialization function to have the
 name <code class="literal">t_n ## _default_init</code>, and the interface
 structure to have the name <code class="literal">TN ## Interface</code>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>TN</code></em> :</span></p></td>
@@ -3699,8 +3934,11 @@ via <a class="link" href="gobject-Type-Information.html#G-IMPLEMENT-INTERFACE:CA
 <a class="link" href="gobject-Type-Information.html#G-DEFINE-TYPE-EXTENDED:CAPS" title="G_DEFINE_TYPE_EXTENDED()"><code class="function">G_DEFINE_TYPE_EXTENDED()</code></a> for a similar example using
 <a class="link" href="gobject-Type-Information.html#G-DEFINE-TYPE-WITH-CODE:CAPS" title="G_DEFINE_TYPE_WITH_CODE()"><code class="function">G_DEFINE_TYPE_WITH_CODE()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>TN</code></em> :</span></p></td>
@@ -3736,8 +3974,11 @@ See <a class="link" href="gobject-Type-Information.html#G-DEFINE-TYPE-EXTENDED:C
 Note that this macro can only be used together with the G_DEFINE_TYPE_*
 macros, since it depends on variable names from those macros.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>TYPE_IFACE</code></em> :</span></p></td>
@@ -3866,8 +4107,11 @@ The only pieces which have to be manually provided are the definitions of
 the instance and class structure and the definitions of the instance and
 class init functions.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>TN</code></em> :</span></p></td>
@@ -3905,8 +4149,11 @@ separated by '_'.</td>
 A convenience macro for boxed type implementations, which defines a
 <code class="function">type_name_get_type()</code> function registering the boxed type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>TypeName</code></em> :</span></p></td>
@@ -3940,8 +4187,11 @@ Similar to <a class="link" href="gobject-Type-Information.html#G-DEFINE-BOXED-TY
 <code class="function">type_name_get_type()</code> function, e.g. to register value transformations with
 <a class="link" href="gobject-Generic-values.html#g-value-register-transform-func" title="g_value_register_transform_func ()"><code class="function">g_value_register_transform_func()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>TypeName</code></em> :</span></p></td>
@@ -3977,8 +4227,11 @@ separated by '_'.</td>
 A convenience macro for pointer type implementations, which defines a
 <code class="function">type_name_get_type()</code> function registering the pointer type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>TypeName</code></em> :</span></p></td>
@@ -4003,8 +4256,11 @@ A convenience macro for pointer type implementations.
 Similar to <a class="link" href="gobject-Type-Information.html#G-DEFINE-POINTER-TYPE:CAPS" title="G_DEFINE_POINTER_TYPE()"><code class="function">G_DEFINE_POINTER_TYPE()</code></a>, but allows to insert custom code into the
 <code class="function">type_name_get_type()</code> function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>TypeName</code></em> :</span></p></td>
@@ -4300,6 +4556,6 @@ type id with <a class="link" href="gobject-Type-Information.html#G-TYPE-MAKE-FUN
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

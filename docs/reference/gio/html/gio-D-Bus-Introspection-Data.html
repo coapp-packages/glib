@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>D-Bus Introspection Data</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="gdbus-lowlevel.html" title="Lowlevel D-Bus Support">
 <link rel="prev" href="gio-D-Bus-Addresses.html" title="D-Bus Addresses">
 <link rel="next" href="gio-GDBusError.html" title="GDBusError">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -151,8 +151,11 @@ The format of D-Bus introspection XML is specified in the
 <p>
 Information about an annotation.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">volatile <a href="./../glib/glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> <em class="structfield"><code><a name="GDBusAnnotationInfo-struct.ref-count"></a>ref_count</code></em>;</span></p></td>
@@ -188,8 +191,11 @@ Information about an annotation.
 <p>
 Information about an argument for a method or a signal.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">volatile <a href="./../glib/glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> <em class="structfield"><code><a name="GDBusArgInfo-struct.ref-count"></a>ref_count</code></em>;</span></p></td>
@@ -226,8 +232,11 @@ Information about an argument for a method or a signal.
 <p>
 Information about a method on an D-Bus interface.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">volatile <a href="./../glib/glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> <em class="structfield"><code><a name="GDBusMethodInfo-struct.ref-count"></a>ref_count</code></em>;</span></p></td>
@@ -269,8 +278,11 @@ Information about a method on an D-Bus interface.
 <p>
 Information about a signal on a D-Bus interface.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">volatile <a href="./../glib/glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> <em class="structfield"><code><a name="GDBusSignalInfo-struct.ref-count"></a>ref_count</code></em>;</span></p></td>
@@ -306,8 +318,11 @@ Information about a signal on a D-Bus interface.
 <p>
 Flags describing the access control of a D-Bus property.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-DBUS-PROPERTY-INFO-FLAGS-NONE:CAPS"></a><span class="term"><code class="literal">G_DBUS_PROPERTY_INFO_FLAGS_NONE</code></span></p></td>
@@ -342,8 +357,11 @@ Flags describing the access control of a D-Bus property.
 <p>
 Information about a D-Bus property on a D-Bus interface.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">volatile <a href="./../glib/glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> <em class="structfield"><code><a name="GDBusPropertyInfo-struct.ref-count"></a>ref_count</code></em>;</span></p></td>
@@ -385,8 +403,11 @@ Information about a D-Bus property on a D-Bus interface.
 <p>
 Information about a D-Bus interface.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">volatile <a href="./../glib/glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> <em class="structfield"><code><a name="GDBusInterfaceInfo-struct.ref-count"></a>ref_count</code></em>;</span></p></td>
@@ -434,8 +455,11 @@ Information about a D-Bus interface.
 <p>
 Information about nodes in a remote object hierarchy.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">volatile <a href="./../glib/glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> <em class="structfield"><code><a name="GDBusNodeInfo-struct.ref-count"></a>ref_count</code></em>;</span></p></td>
@@ -475,8 +499,11 @@ Looks up the value of an annotation.
 <p>
 This cost of this function is O(n) in number of annotations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>annotations</code></em> :</span></p></td>
@@ -507,8 +534,11 @@ Looks up information about a method.
 This cost of this function is O(n) in number of methods unless
 <a class="link" href="gio-D-Bus-Introspection-Data.html#g-dbus-interface-info-cache-build" title="g_dbus_interface_info_cache_build ()"><code class="function">g_dbus_interface_info_cache_build()</code></a> has been used on <em class="parameter"><code>info</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -539,8 +569,11 @@ Looks up information about a signal.
 This cost of this function is O(n) in number of signals unless
 <a class="link" href="gio-D-Bus-Introspection-Data.html#g-dbus-interface-info-cache-build" title="g_dbus_interface_info_cache_build ()"><code class="function">g_dbus_interface_info_cache_build()</code></a> has been used on <em class="parameter"><code>info</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -572,8 +605,11 @@ Looks up information about a property.
 This cost of this function is O(n) in number of properties unless
 <a class="link" href="gio-D-Bus-Introspection-Data.html#g-dbus-interface-info-cache-build" title="g_dbus_interface_info_cache_build ()"><code class="function">g_dbus_interface_info_cache_build()</code></a> has been used on <em class="parameter"><code>info</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -610,8 +646,11 @@ used and its use count is increased.
 Note that <em class="parameter"><code>info</code></em> cannot be modified until
 <a class="link" href="gio-D-Bus-Introspection-Data.html#g-dbus-interface-info-cache-release" title="g_dbus_interface_info_cache_release ()"><code class="function">g_dbus_interface_info_cache_release()</code></a> is called.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
 <td>A <a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusInterfaceInfo"><span class="type">GDBusInterfaceInfo</span></a>.</td>
@@ -628,8 +667,11 @@ Decrements the usage count for the cache for <em class="parameter"><code>info</c
 <a class="link" href="gio-D-Bus-Introspection-Data.html#g-dbus-interface-info-cache-build" title="g_dbus_interface_info_cache_build ()"><code class="function">g_dbus_interface_info_cache_build()</code></a> (if any) and frees the
 resources used by the cache if the usage count drops to zero.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
 <td>A GDBusInterfaceInfo</td>
@@ -652,8 +694,11 @@ documents at run-time for handling the
 <code class="literal">org.freedesktop.DBus.Introspectable.Introspect</code>
 method.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -682,12 +727,19 @@ method.
 Parses <em class="parameter"><code>xml_data</code></em> and returns a <a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusNodeInfo"><span class="type">GDBusNodeInfo</span></a> representing the data.
 </p>
 <p>
+The introspection XML must contain exactly one top-level
+<code class="sgmltag-starttag">&lt;node&gt;</code> element.
+</p>
+<p>
 Note that this routine is using a
 <a href="./../glib/glib/glib-Simple-XML-Subset-Parser.html#glib-Simple-XML-Subset-Parser.description">GMarkup</a>-based
 parser that only accepts a subset of valid XML documents.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>xml_data</code></em> :</span></p></td>
@@ -717,8 +769,11 @@ Looks up information about an interface.
 <p>
 This cost of this function is O(n) in number of interfaces.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -750,8 +805,11 @@ Appends an XML representation of <em class="parameter"><code>info</code></em> (a
 This function is typically used for generating introspection XML documents at run-time for
 handling the <code class="literal">org.freedesktop.DBus.Introspectable.Introspect</code> method.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -848,8 +906,11 @@ The <a href="./../gobject/gobject/gobject-Type-Information.html#GType"><span cla
 If <em class="parameter"><code>info</code></em> is statically allocated does nothing. Otherwise increases
 the reference count.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -872,8 +933,11 @@ the reference count.
 If <em class="parameter"><code>info</code></em> is statically allocated does nothing. Otherwise increases
 the reference count.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -896,8 +960,11 @@ the reference count.
 If <em class="parameter"><code>info</code></em> is statically allocated does nothing. Otherwise increases
 the reference count.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -920,8 +987,11 @@ the reference count.
 If <em class="parameter"><code>info</code></em> is statically allocated does nothing. Otherwise increases
 the reference count.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -944,8 +1014,11 @@ the reference count.
 If <em class="parameter"><code>info</code></em> is statically allocated does nothing. Otherwise increases
 the reference count.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -968,8 +1041,11 @@ the reference count.
 If <em class="parameter"><code>info</code></em> is statically allocated does nothing. Otherwise increases
 the reference count.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -992,8 +1068,11 @@ the reference count.
 If <em class="parameter"><code>info</code></em> is statically allocated does nothing. Otherwise increases
 the reference count.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
@@ -1017,8 +1096,11 @@ If <em class="parameter"><code>info</code></em> is statically allocated, does no
 the reference count of <em class="parameter"><code>info</code></em>. When its reference count drops to 0,
 the memory used is freed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
 <td>A <a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusNodeInfo"><span class="type">GDBusNodeInfo</span></a>.</td>
@@ -1035,8 +1117,11 @@ If <em class="parameter"><code>info</code></em> is statically allocated, does no
 the reference count of <em class="parameter"><code>info</code></em>. When its reference count drops to 0,
 the memory used is freed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
 <td>A <a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusInterfaceInfo"><span class="type">GDBusInterfaceInfo</span></a>.</td>
@@ -1053,8 +1138,11 @@ If <em class="parameter"><code>info</code></em> is statically allocated, does no
 the reference count of <em class="parameter"><code>info</code></em>. When its reference count drops to 0,
 the memory used is freed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
 <td>A <a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusMethodInfo"><span class="type">GDBusMethodInfo</span></a>.</td>
@@ -1071,8 +1159,11 @@ If <em class="parameter"><code>info</code></em> is statically allocated, does no
 the reference count of <em class="parameter"><code>info</code></em>. When its reference count drops to 0,
 the memory used is freed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
 <td>A <a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusSignalInfo"><span class="type">GDBusSignalInfo</span></a>.</td>
@@ -1089,8 +1180,11 @@ If <em class="parameter"><code>info</code></em> is statically allocated, does no
 the reference count of <em class="parameter"><code>info</code></em>. When its reference count drops to 0,
 the memory used is freed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
 <td>A <a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusPropertyInfo"><span class="type">GDBusPropertyInfo</span></a>.</td>
@@ -1107,8 +1201,11 @@ If <em class="parameter"><code>info</code></em> is statically allocated, does no
 the reference count of <em class="parameter"><code>info</code></em>. When its reference count drops to 0,
 the memory used is freed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
 <td>A <a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusArgInfo"><span class="type">GDBusArgInfo</span></a>.</td>
@@ -1125,8 +1222,11 @@ If <em class="parameter"><code>info</code></em> is statically allocated, does no
 the reference count of <em class="parameter"><code>info</code></em>. When its reference count drops to 0,
 the memory used is freed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
 <td>A <a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusAnnotationInfo"><span class="type">GDBusAnnotationInfo</span></a>.</td>
@@ -1138,6 +1238,6 @@ the memory used is freed.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Owning Bus Names</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="gdbus-convenience.html" title="Highlevel D-Bus Support">
 <link rel="prev" href="gdbus-convenience.html" title="Highlevel D-Bus Support">
 <link rel="next" href="gio-Watching-Bus-Names.html" title="Watching Bus Names">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -284,8 +284,11 @@ Convenience API for owning bus names.
 <p>
 Invoked when a connection to a message bus has been obtained.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
@@ -312,8 +315,11 @@ Invoked when a connection to a message bus has been obtained.
 <p>
 Invoked when the name is acquired.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
@@ -340,8 +346,11 @@ Invoked when the name is acquired.
 <p>
 Invoked when the name is lost or <em class="parameter"><code>connection</code></em> has been closed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
@@ -372,8 +381,11 @@ the connection was disconnected.</td>
 <p>
 Flags used in <a class="link" href="gio-Owning-Bus-Names.html#g-bus-own-name" title="g_bus_own_name ()"><code class="function">g_bus_own_name()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-BUS-NAME-OWNER-FLAGS-NONE:CAPS"></a><span class="term"><code class="literal">G_BUS_NAME_OWNER_FLAGS_NONE</code></span></p></td>
@@ -382,7 +394,7 @@ Flags used in <a class="link" href="gio-Owning-Bus-Names.html#g-bus-own-name" ti
 </tr>
 <tr>
 <td><p><a name="G-BUS-NAME-OWNER-FLAGS-ALLOW-REPLACEMENT:CAPS"></a><span class="term"><code class="literal">G_BUS_NAME_OWNER_FLAGS_ALLOW_REPLACEMENT</code></span></p></td>
-<td>Allow another message bus connection to claim the the name.
+<td>Allow another message bus connection to claim the name.
 </td>
 </tr>
 <tr>
@@ -417,7 +429,7 @@ You are guaranteed that one of the <em class="parameter"><code>name_acquired_han
 callbacks will be invoked after calling this function - there are three
 possible cases:
 </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem"><p>
     <em class="parameter"><code>name_lost_handler</code></em> with a <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> connection (if a connection to the bus can't be made).
   </p></li>
@@ -465,8 +477,11 @@ to own names and export objects, see <a class="xref" href="gio-Owning-Bus-Names.
 Simply register objects to be exported in <em class="parameter"><code>bus_acquired_handler</code></em> and
 unregister the objects (if any) in <em class="parameter"><code>name_lost_handler</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bus_type</code></em> :</span></p></td>
@@ -527,8 +542,11 @@ unregister the objects (if any) in <em class="parameter"><code>name_lost_handler
 Like <a class="link" href="gio-Owning-Bus-Names.html#g-bus-own-name" title="g_bus_own_name ()"><code class="function">g_bus_own_name()</code></a> but takes a <a class="link" href="GDBusConnection.html" title="GDBusConnection"><span class="type">GDBusConnection</span></a> instead of a
 <a class="link" href="GDBusConnection.html#GBusType" title="enum GBusType"><span class="type">GBusType</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
@@ -577,8 +595,11 @@ Like <a class="link" href="gio-Owning-Bus-Names.html#g-bus-own-name" title="g_bu
 <p>
 Stops owning a name.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>owner_id</code></em> :</span></p></td>
 <td>An identifier obtained from <a class="link" href="gio-Owning-Bus-Names.html#g-bus-own-name" title="g_bus_own_name ()"><code class="function">g_bus_own_name()</code></a>
@@ -600,8 +621,11 @@ Stops owning a name.
 Version of <a class="link" href="gio-Owning-Bus-Names.html#g-bus-own-name" title="g_bus_own_name ()"><code class="function">g_bus_own_name()</code></a> using closures instead of callbacks for
 easier binding in other languages.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bus_type</code></em> :</span></p></td>
@@ -659,8 +683,11 @@ Rename to: g_bus_own_name</td>
 Version of <a class="link" href="gio-Owning-Bus-Names.html#g-bus-own-name-on-connection" title="g_bus_own_name_on_connection ()"><code class="function">g_bus_own_name_on_connection()</code></a> using closures instead of callbacks for
 easier binding in other languages.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
@@ -702,6 +729,6 @@ Rename to: g_bus_own_name_on_connection</td>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

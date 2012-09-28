@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Caches</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="deprecated.html" title="Deprecated APIs">
 <link rel="prev" href="glib-Deprecated-Thread-APIs.html" title="Deprecated thread API">
 <link rel="next" href="glib-Relations-and-Tuples.html" title="Relations and Tuples">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -114,8 +114,11 @@ following functions.
 <p>
 Creates a new <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value_new_func</code></em> :</span></p></td>
@@ -183,8 +186,11 @@ exist, if is created by calling the <em class="parameter"><code>value_new_func</
 duplicated by calling <em class="parameter"><code>key_dup_func</code></em> and the duplicated key and value
 are inserted into the <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cache</code></em> :</span></p></td>
@@ -216,8 +222,11 @@ Decreases the reference count of the given value. If it drops to 0
 then the value and its corresponding key are destroyed, using the
 <em class="parameter"><code>value_destroy_func</code></em> and <em class="parameter"><code>key_destroy_func</code></em> passed to <a class="link" href="glib-Caches.html#g-cache-new" title="g_cache_new ()"><code class="function">g_cache_new()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cache</code></em> :</span></p></td>
@@ -246,8 +255,11 @@ Frees the memory allocated for the <a class="link" href="glib-Caches.html#GCache
 Note that it does not destroy the keys and values which were
 contained in the <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>cache</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a>
@@ -274,8 +286,11 @@ entry and the <em class="parameter"><code>user_data</code></em>. The order of va
 from the order in which <a class="link" href="glib-Hash-Tables.html#g-hash-table-foreach" title="g_hash_table_foreach ()"><code class="function">g_hash_table_foreach()</code></a> passes key-value
 pairs to its callback function !
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cache</code></em> :</span></p></td>
@@ -307,8 +322,11 @@ pairs to its callback function !
 <p>
 Calls the given function for each of the values in the <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cache</code></em> :</span></p></td>
@@ -336,8 +354,11 @@ functions passed to <a class="link" href="glib-Caches.html#g-cache-new" title="g
 pointer to the <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> key or <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> value and should free any
 memory and other resources associated with it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
 <td>the <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> value to destroy</td>
@@ -354,8 +375,11 @@ Specifies the type of the <em class="parameter"><code>key_dup_func</code></em> f
 (<span class="emphasis"><em>not</em></span> a value as the prototype implies) and
 should return a duplicate of the key.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -378,8 +402,11 @@ Specifies the type of the <em class="parameter"><code>value_new_func</code></em>
 <a class="link" href="glib-Caches.html#g-cache-new" title="g_cache_new ()"><code class="function">g_cache_new()</code></a>. It is passed a <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> key and should create the
 value corresponding to the key.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
@@ -396,6 +423,6 @@ value corresponding to the key.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

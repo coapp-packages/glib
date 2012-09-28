@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GDBusObjectManager</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="gdbus-convenience.html" title="Highlevel D-Bus Support">
 <link rel="prev" href="GDBusObjectProxy.html" title="GDBusObjectProxy">
 <link rel="next" href="GDBusObjectManagerServer.html" title="GDBusObjectManagerServer">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -138,8 +138,11 @@ and <a class="link" href="GDBusObjectManagerServer.html" title="GDBusObjectManag
 <p>
 Base type for D-Bus object managers.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="./../gobject/gobject/gobject-Type-Information.html#GTypeInterface"><span class="type">GTypeInterface</span></a> <em class="structfield"><code><a name="GDBusObjectManagerIface.parent-iface"></a>parent_iface</code></em>;</span></p></td>
@@ -189,8 +192,11 @@ Base type for D-Bus object managers.
 <p>
 Gets the object path that <em class="parameter"><code>manager</code></em> is for.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>manager</code></em> :</span></p></td>
@@ -211,8 +217,11 @@ Gets the object path that <em class="parameter"><code>manager</code></em> is for
 <p>
 Gets all <a class="link" href="GDBusObject.html" title="GDBusObject"><span class="type">GDBusObject</span></a> objects known to <em class="parameter"><code>manager</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>manager</code></em> :</span></p></td>
@@ -238,8 +247,11 @@ Gets all <a class="link" href="GDBusObject.html" title="GDBusObject"><span class
 <p>
 Gets the <a class="link" href="GDBusObjectProxy.html" title="GDBusObjectProxy"><span class="type">GDBusObjectProxy</span></a> at <em class="parameter"><code>object_path</code></em>, if any.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>manager</code></em> :</span></p></td>
@@ -269,8 +281,11 @@ Gets the <a class="link" href="GDBusObjectProxy.html" title="GDBusObjectProxy"><
 Gets the interface proxy for <em class="parameter"><code>interface_name</code></em> at <em class="parameter"><code>object_path</code></em>, if
 any.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>manager</code></em> :</span></p></td>
@@ -310,8 +325,11 @@ Emitted when <em class="parameter"><code>interface</code></em> is added to <em c
 This signal exists purely as a convenience to avoid having to
 connect signals to all objects managed by <em class="parameter"><code>manager</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>manager</code></em> :</span></p></td>
@@ -347,8 +365,11 @@ Emitted when <em class="parameter"><code>interface</code></em> has been removed 
 This signal exists purely as a convenience to avoid having to
 connect signals to all objects managed by <em class="parameter"><code>manager</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>manager</code></em> :</span></p></td>
@@ -379,8 +400,11 @@ connect signals to all objects managed by <em class="parameter"><code>manager</c
 <p>
 Emitted when <em class="parameter"><code>object</code></em> is added to <em class="parameter"><code>manager</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>manager</code></em> :</span></p></td>
@@ -407,8 +431,11 @@ Emitted when <em class="parameter"><code>object</code></em> is added to <em clas
 <p>
 Emitted when <em class="parameter"><code>object</code></em> is removed from <em class="parameter"><code>manager</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>manager</code></em> :</span></p></td>
@@ -430,6 +457,6 @@ Emitted when <em class="parameter"><code>object</code></em> is removed from <em 
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

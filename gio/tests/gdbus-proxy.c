@@ -733,18 +733,35 @@ test_basic (GDBusProxy *proxy)
 }
 
 static void
+kill_test_service (GDBusConnection *connection)
+{
+  guint pid;
+  GVariant *ret;
+  GError *error = NULL;
+  const gchar *name = "com.example.TestService";
+
+  ret = g_dbus_connection_call_sync (connection,
+                                     "org.freedesktop.DBus",
+                                     "/org/freedesktop/DBus",
+                                     "org.freedesktop.DBus",
+                                     "GetConnectionUnixProcessID",
+                                     g_variant_new ("(s)", name),
+                                     NULL,
+                                     G_DBUS_CALL_FLAGS_NONE,
+                                     -1,
+                                     NULL,
+                                     &error);
+  g_variant_get (ret, "(u)", &pid);
+  g_variant_unref (ret);
+  kill (pid, SIGTERM);
+}
+
+static void
 test_proxy (void)
 {
   GDBusProxy *proxy;
   GDBusConnection *connection;
   GError *error;
-
-  session_bus_up ();
-
-  /* TODO: wait a bit for the bus to come up.. ideally session_bus_up() won't return
-   * until one can connect to the bus but that's not how things work right now
-   */
-  usleep (500 * 1000);
 
   error = NULL;
   connection = g_bus_get_sync (G_BUS_TYPE_SESSION,
@@ -774,6 +791,7 @@ test_proxy (void)
   test_expected_interface (proxy);
 
   g_object_unref (proxy);
+  kill_test_service (connection);
   g_object_unref (connection);
 }
 
@@ -791,13 +809,23 @@ proxy_ready (GObject      *source,
   proxy = g_dbus_proxy_new_for_bus_finish (result, &error);
   g_assert_no_error (error);
 
+  _g_assert_property_notify (proxy, "g-name-owner");
+
   test_basic (proxy);
   test_methods (proxy);
   test_properties (proxy);
   test_signals (proxy);
   test_expected_interface (proxy);
 
+  kill_test_service (g_dbus_proxy_get_connection (proxy));
   g_object_unref (proxy);
+  g_main_loop_quit (loop);
+}
+
+static gboolean
+fail_test (gpointer user_data)
+{
+  g_assert_not_reached ();
 }
 
 static void
@@ -812,6 +840,12 @@ test_async (void)
                             NULL, /* GCancellable */
                             proxy_ready,
                             NULL);
+
+  /* this is safe; testserver will exit once the bus goes away */
+  g_assert (g_spawn_command_line_async (SRCDIR "/gdbus-testserver.py", NULL));
+
+  g_timeout_add (10000, fail_test, NULL);
+  g_main_loop_run (loop);
 }
 
 static void
@@ -834,12 +868,6 @@ test_no_properties (void)
   test_properties (proxy);
 
   g_object_unref (proxy);
-}
-
-static gboolean
-fail_test (gpointer user_data)
-{
-  g_assert_not_reached ();
 }
 
 static void
@@ -894,11 +922,7 @@ main (int   argc,
   /* all the tests rely on a shared main loop */
   loop = g_main_loop_new (NULL, FALSE);
 
-  /* all the tests use a session bus with a well-known address that we can bring up and down
-   * using session_bus_up() and session_bus_down().
-   */
-  g_unsetenv ("DISPLAY");
-  g_setenv ("DBUS_SESSION_BUS_ADDRESS", session_bus_get_temporary_address (), TRUE);
+  session_bus_up ();
 
   g_test_add_func ("/gdbus/proxy", test_proxy);
   g_test_add_func ("/gdbus/proxy/no-properties", test_no_properties);
@@ -908,5 +932,7 @@ main (int   argc,
   ret = g_test_run();
 
   g_dbus_node_info_unref (introspection_data);
+
+  session_bus_down ();
   return ret;
 }

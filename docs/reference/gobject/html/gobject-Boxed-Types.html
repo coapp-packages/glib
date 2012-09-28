@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Boxed Types</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GObject Reference Manual">
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="gobject-Enumeration-and-Flag-Types.html" title="Enumeration and Flag Types">
 <link rel="next" href="gobject-Generic-values.html" title="Generic values">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -65,6 +65,7 @@
 #define             <a class="link" href="gobject-Boxed-Types.html#G-TYPE-VARIANT-TYPE:CAPS" title="G_TYPE_VARIANT_TYPE">G_TYPE_VARIANT_TYPE</a>
 #define             <a class="link" href="gobject-Boxed-Types.html#G-TYPE-ERROR:CAPS" title="G_TYPE_ERROR">G_TYPE_ERROR</a>
 #define             <a class="link" href="gobject-Boxed-Types.html#G-TYPE-DATE-TIME:CAPS" title="G_TYPE_DATE_TIME">G_TYPE_DATE_TIME</a>
+#define             <a class="link" href="gobject-Boxed-Types.html#G-TYPE-TIME-ZONE:CAPS" title="G_TYPE_TIME_ZONE">G_TYPE_TIME_ZONE</a>
 #define             <a class="link" href="gobject-Boxed-Types.html#G-TYPE-IO-CHANNEL:CAPS" title="G_TYPE_IO_CHANNEL">G_TYPE_IO_CHANNEL</a>
 #define             <a class="link" href="gobject-Boxed-Types.html#G-TYPE-IO-CONDITION:CAPS" title="G_TYPE_IO_CONDITION">G_TYPE_IO_CONDITION</a>
 #define             <a class="link" href="gobject-Boxed-Types.html#G-TYPE-VARIANT-BUILDER:CAPS" title="G_TYPE_VARIANT_BUILDER">G_TYPE_VARIANT_BUILDER</a>
@@ -97,8 +98,11 @@ based libraries.
 This function is provided by the user and should produce a copy
 of the passed in boxed structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>boxed</code></em> :</span></p></td>
@@ -119,8 +123,11 @@ of the passed in boxed structure.
 This function is provided by the user and should free the boxed
 structure passed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>boxed</code></em> :</span></p></td>
 <td>The boxed structure to be freed.</td>
@@ -135,8 +142,11 @@ structure passed.
 <p>
 Provide a copy of a boxed structure <em class="parameter"><code>src_boxed</code></em> which is of type <em class="parameter"><code>boxed_type</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>boxed_type</code></em> :</span></p></td>
@@ -161,8 +171,11 @@ Provide a copy of a boxed structure <em class="parameter"><code>src_boxed</code>
 <p>
 Free the boxed structure <em class="parameter"><code>boxed</code></em> which is of type <em class="parameter"><code>boxed_type</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>boxed_type</code></em> :</span></p></td>
@@ -186,8 +199,11 @@ This function creates a new <a class="link" href="gobject-Type-Information.html#
 boxed type with name <em class="parameter"><code>name</code></em>. Boxed type handling functions have to be
 provided to copy and free opaque boxed structures of this type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -216,8 +232,11 @@ provided to copy and free opaque boxed structures of this type.
 Creates a new <a class="link" href="gobject-Type-Information.html#G-TYPE-POINTER:CAPS" title="G_TYPE_POINTER"><code class="literal">G_TYPE_POINTER</code></a> derived type id for a new
 pointer type with name <em class="parameter"><code>name</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -408,6 +427,16 @@ The <a class="link" href="gobject-Type-Information.html#GType" title="GType"><sp
 </div>
 <hr>
 <div class="refsect2">
+<a name="G-TYPE-TIME-ZONE:CAPS"></a><h3>G_TYPE_TIME_ZONE</h3>
+<pre class="programlisting">#define G_TYPE_TIME_ZONE (g_time_zone_get_type ())
+</pre>
+<p>
+The <a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a> for a boxed type holding a <a href="./../glib/glib/glib-GTimeZone.html#GTimeZone"><span class="type">GTimeZone</span></a>.
+</p>
+<p class="since">Since 2.34</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="G-TYPE-IO-CHANNEL:CAPS"></a><h3>G_TYPE_IO_CHANNEL</h3>
 <pre class="programlisting">#define G_TYPE_IO_CHANNEL (g_io_channel_get_type ())
 </pre>
@@ -491,6 +520,6 @@ A C representable type name for <a class="link" href="gobject-Boxed-Types.html#G
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

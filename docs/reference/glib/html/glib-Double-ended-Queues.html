@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Double-ended Queues</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-data-types.html" title="GLib Data Types">
 <link rel="prev" href="glib-Singly-Linked-Lists.html" title="Singly-Linked Lists">
 <link rel="next" href="glib-Sequences.html" title="Sequences">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -161,8 +161,11 @@ To free the entire queue, use <a class="link" href="glib-Double-ended-Queues.htm
 Contains the public fields of a
 <a class="link" href="glib-Double-ended-Queues.html" title="Double-ended Queues">Queue</a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a> *<em class="structfield"><code><a name="GQueue.head"></a>head</code></em>;</span></p></td>
@@ -186,8 +189,11 @@ Contains the public fields of a
 <p>
 Creates a new <a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a new <a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a>.</td>
@@ -215,8 +221,11 @@ first.
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a>.</td>
@@ -232,8 +241,11 @@ first.
 Convenience method, which frees all the memory used by a <a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a>, and
 calls the specified destroy function on every element's data.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -286,8 +298,11 @@ before it can be used. Alternatively you can initialize it with
 <a class="link" href="glib-Double-ended-Queues.html#G-QUEUE-INIT:CAPS" title="G_QUEUE_INIT"><span class="type">G_QUEUE_INIT</span></a>. It is not necessary to initialize queues created with
 <a class="link" href="glib-Double-ended-Queues.html#g-queue-new" title="g_queue_new ()"><code class="function">g_queue_new()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
 <td>an uninitialized <a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a>
@@ -304,8 +319,11 @@ before it can be used. Alternatively you can initialize it with
 Removes all the elements in <em class="parameter"><code>queue</code></em>. If queue elements contain
 dynamically-allocated memory, they should be freed first.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a>
@@ -321,8 +339,11 @@ dynamically-allocated memory, they should be freed first.
 <p>
 Returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if the queue is empty.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -343,8 +364,11 @@ Returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE">
 <p>
 Returns the number of items in <em class="parameter"><code>queue</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -366,8 +390,11 @@ Returns the number of items in <em class="parameter"><code>queue</code></em>.
 <p>
 Reverses the order of the items in <em class="parameter"><code>queue</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a>
@@ -385,8 +412,11 @@ Copies a <em class="parameter"><code>queue</code></em>. Note that is a shallow c
 queue consist of pointers to data, the pointers are copied, but the
 actual data is not.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -412,8 +442,11 @@ actual data is not.
 Calls <em class="parameter"><code>func</code></em> for each element in the queue passing <em class="parameter"><code>user_data</code></em> to the
 function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -441,8 +474,11 @@ function.
 <p>
 Finds the first link in <em class="parameter"><code>queue</code></em> which contains <em class="parameter"><code>data</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -474,8 +510,11 @@ which should return 0 when the desired element is found. The function
 takes two gconstpointer arguments, the <a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a> element's data as the
 first argument and the given user data as the second argument.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -509,8 +548,11 @@ when the desired element is found</td>
 <p>
 Sorts <em class="parameter"><code>queue</code></em> using <em class="parameter"><code>compare_func</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -541,8 +583,11 @@ a positive value if the second comes before the first.</td>
 <p>
 Adds a new element at the head of the queue.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -563,8 +608,11 @@ Adds a new element at the head of the queue.
 <p>
 Adds a new element at the tail of the queue.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -586,8 +634,11 @@ Adds a new element at the tail of the queue.
 <p>
 Inserts a new element into <em class="parameter"><code>queue</code></em> at the given position
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -615,8 +666,11 @@ added to the end of the queue.</td>
 <p>
 Removes the first element of the queue.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -637,8 +691,11 @@ is empty.</td>
 <p>
 Removes the last element of the queue.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -660,8 +717,11 @@ is empty.</td>
 <p>
 Removes the <em class="parameter"><code>n</code></em>'th element of <em class="parameter"><code>queue</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -687,8 +747,11 @@ Removes the <em class="parameter"><code>n</code></em>'th element of <em class="p
 <p>
 Returns the first element of the queue.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -709,8 +772,11 @@ is empty.</td>
 <p>
 Returns the last element of the queue.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -732,8 +798,11 @@ is empty.</td>
 <p>
 Returns the <em class="parameter"><code>n</code></em>'th element of <em class="parameter"><code>queue</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -761,8 +830,11 @@ off the end of <em class="parameter"><code>queue</code></em>.</td>
 <p>
 Returns the position of the first element in <em class="parameter"><code>queue</code></em> which contains <em class="parameter"><code>data</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -789,8 +861,11 @@ Returns the position of the first element in <em class="parameter"><code>queue</
 <p>
 Removes the first element in <em class="parameter"><code>queue</code></em> that contains <em class="parameter"><code>data</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -819,8 +894,11 @@ Removes the first element in <em class="parameter"><code>queue</code></em> that 
 <p>
 Remove all elements whose data equals <em class="parameter"><code>data</code></em> from <em class="parameter"><code>queue</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -852,8 +930,11 @@ Inserts <em class="parameter"><code>data</code></em> into <em class="parameter">
 <p>
 <em class="parameter"><code>sibling</code></em> must be part of <em class="parameter"><code>queue</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -885,8 +966,11 @@ Inserts <em class="parameter"><code>data</code></em> into <em class="parameter">
 <p>
 <em class="parameter"><code>sibling</code></em> must be part of <em class="parameter"><code>queue</code></em>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -916,8 +1000,11 @@ Inserts <em class="parameter"><code>data</code></em> into <em class="parameter">
 <p>
 Inserts <em class="parameter"><code>data</code></em> into <em class="parameter"><code>queue</code></em> using <em class="parameter"><code>func</code></em> to determine the new position.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -952,8 +1039,11 @@ element comes before the first.</td>
 <p>
 Adds a new element at the head of the queue.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -975,8 +1065,11 @@ more than one element.</td>
 <p>
 Adds a new element at the tail of the queue.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -999,8 +1092,11 @@ more than one element.</td>
 <p>
 Inserts <em class="parameter"><code>link</code></em> into <em class="parameter"><code>queue</code></em> at the given position.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -1029,8 +1125,11 @@ the number of elements in <em class="parameter"><code>queue</code></em>, the lin
 <p>
 Removes the first element of the queue.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -1051,8 +1150,11 @@ is empty.</td>
 <p>
 Removes the last element of the queue.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -1074,8 +1176,11 @@ is empty.</td>
 <p>
 Removes and returns the link at the given position.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -1101,8 +1206,11 @@ Removes and returns the link at the given position.
 <p>
 Returns the first link in <em class="parameter"><code>queue</code></em>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -1124,8 +1232,11 @@ Returns the first link in <em class="parameter"><code>queue</code></em>
 <p>
 Returns the last link <em class="parameter"><code>queue</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -1148,8 +1259,11 @@ Returns the last link <em class="parameter"><code>queue</code></em>.
 <p>
 Returns the link at the given position
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -1177,8 +1291,11 @@ end of the list</td>
 <p>
 Returns the position of <em class="parameter"><code>link_</code></em> in <em class="parameter"><code>queue</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -1211,8 +1328,11 @@ not freed.
 <p>
 <em class="parameter"><code>link_</code></em> must be part of <em class="parameter"><code>queue</code></em>,
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -1239,8 +1359,11 @@ Removes <em class="parameter"><code>link_</code></em> from <em class="parameter"
 <p>
 <em class="parameter"><code>link_</code></em> must be part of <em class="parameter"><code>queue</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -1260,6 +1383,6 @@ Removes <em class="parameter"><code>link_</code></em> from <em class="parameter"
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

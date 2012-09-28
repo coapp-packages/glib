@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Threads</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-core.html" title="GLib Core Application Support">
 <link rel="prev" href="glib-The-Main-Event-Loop.html" title="The Main Event Loop">
 <link rel="next" href="glib-Thread-Pools.html" title="Thread Pools">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -180,7 +180,7 @@ Originally, UNIX did not have threads, and therefore some traditional
 UNIX APIs are problematic in threaded programs. Some notable examples
 are
 </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
     C library functions that return data in statically allocated
     buffers, such as <code class="function">strtok()</code> or <code class="function">strerror()</code>. For many of these,
@@ -252,8 +252,11 @@ The error domain of the GLib thread subsystem.
 <p>
 Possible errors of thread related functions.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><a name="G-THREAD-ERROR-AGAIN:CAPS"></a><span class="term"><code class="literal">G_THREAD_ERROR_AGAIN</code></span></p></td>
 <td>a thread couldn't be created due to resource
@@ -294,8 +297,11 @@ accessed.
 Specifies the type of the <em class="parameter"><code>func</code></em> functions passed to <a class="link" href="glib-Threads.html#g-thread-new" title="g_thread_new ()"><code class="function">g_thread_new()</code></a>
 or <a class="link" href="glib-Threads.html#g-thread-try-new" title="g_thread_try_new ()"><code class="function">g_thread_try_new()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
@@ -333,8 +339,11 @@ If the thread can not be created the program aborts. See
 To free the struct returned by this function, use <a class="link" href="glib-Threads.html#g-thread-unref" title="g_thread_unref ()"><code class="function">g_thread_unref()</code></a>.
 Note that <a class="link" href="glib-Threads.html#g-thread-join" title="g_thread_join ()"><code class="function">g_thread_join()</code></a> implicitly unrefs the <a class="link" href="glib-Threads.html#GThread" title="GThread"><span class="type">GThread</span></a> as well.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -372,8 +381,11 @@ it allows for the possibility of failure.
 If a thread can not be created (due to resource limits),
 <em class="parameter"><code>error</code></em> is set and <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -407,8 +419,11 @@ If a thread can not be created (due to resource limits),
 <p>
 Increase the reference count on <em class="parameter"><code>thread</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>thread</code></em> :</span></p></td>
@@ -437,8 +452,11 @@ Note that each thread holds a reference to its <a class="link" href="glib-Thread
 it is running, so it is safe to drop your own reference to it
 if you don't need it anymore.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>thread</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Threads.html#GThread" title="GThread"><span class="type">GThread</span></a>
@@ -472,8 +490,11 @@ This will usually cause the <a class="link" href="glib-Threads.html#GThread" tit
 to be freed. Use <a class="link" href="glib-Threads.html#g-thread-ref" title="g_thread_ref ()"><code class="function">g_thread_ref()</code></a> to obtain an extra reference if you
 want to keep the GThread alive beyond the <a class="link" href="glib-Threads.html#g-thread-join" title="g_thread_join ()"><code class="function">g_thread_join()</code></a> call.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>thread</code></em> :</span></p></td>
@@ -528,8 +549,11 @@ returning <em class="parameter"><code>retval</code></em> from the function <em c
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>retval</code></em> :</span></p></td>
 <td>the return value of this thread</td>
@@ -552,8 +576,11 @@ APIs). This may be useful for thread identification purposes
 (i.e. comparisons) but you must not use GLib functions (such
 as <a class="link" href="glib-Threads.html#g-thread-join" title="g_thread_join ()"><code class="function">g_thread_join()</code></a>) on these threads.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the <a class="link" href="glib-Threads.html#GThread" title="GThread"><span class="type">GThread</span></a> representing the current thread</td>
@@ -578,7 +605,7 @@ access. Take for example the following function:
 <p>
 </p>
 <div class="example">
-<a name="id517637"></a><p class="title"><b>Example 2. A function which will not work in a threaded environment</b></p>
+<a name="idp16304992"></a><p class="title"><b>Example 2. A function which will not work in a threaded environment</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -623,7 +650,7 @@ access. A <a class="link" href="glib-Threads.html#GMutex" title="union GMutex"><
 <p>
 </p>
 <div class="example">
-<a name="id517674"></a><p class="title"><b>Example 3. Using GMutex to protected a shared variable</b></p>
+<a name="idp16309376"></a><p class="title"><b>Example 3. Using GMutex to protected a shared variable</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -687,7 +714,7 @@ Initializes a <a class="link" href="glib-Threads.html#GMutex" title="union GMute
 This function is useful to initialize a mutex that has been
 allocated on the stack, or as part of a larger structure.
 It is not necessary to initialize a mutex that has been
-created that has been statically allocated.
+statically allocated.
 </p>
 <p>
 </p>
@@ -728,8 +755,11 @@ needed, use <a class="link" href="glib-Threads.html#g-mutex-clear" title="g_mute
 Calling <a class="link" href="glib-Threads.html#g-mutex-init" title="g_mutex_init ()"><code class="function">g_mutex_init()</code></a> on an already initialized <a class="link" href="glib-Threads.html#GMutex" title="union GMutex"><span class="type">GMutex</span></a> leads
 to undefined behaviour.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>mutex</code></em> :</span></p></td>
 <td>an uninitialized <a class="link" href="glib-Threads.html#GMutex" title="union GMutex"><span class="type">GMutex</span></a>
@@ -756,8 +786,11 @@ behaviour.
 <p>
 Sine: 2.32
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>mutex</code></em> :</span></p></td>
 <td>an initialized <a class="link" href="glib-Threads.html#GMutex" title="union GMutex"><span class="type">GMutex</span></a>
@@ -784,8 +817,11 @@ already been locked by the same thread results in undefined behaviour
 (including but not limited to deadlocks).</div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>mutex</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Threads.html#GMutex" title="union GMutex"><span class="type">GMutex</span></a>
@@ -813,8 +849,11 @@ already been locked by the same thread results in undefined behaviour
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mutex</code></em> :</span></p></td>
@@ -841,8 +880,11 @@ call for <em class="parameter"><code>mutex</code></em>, it will become unblocked
 Calling <a class="link" href="glib-Threads.html#g-mutex-unlock" title="g_mutex_unlock ()"><code class="function">g_mutex_unlock()</code></a> on a mutex that is not locked by the
 current thread leads to undefined behaviour.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>mutex</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Threads.html#GMutex" title="union GMutex"><span class="type">GMutex</span></a>
@@ -869,7 +911,7 @@ of the variable you intend to protect with the lock. Look at our
 <p>
 </p>
 <div class="example">
-<a name="id518527"></a><p class="title"><b>Example 4. Using the <code class="literal">G_LOCK_*</code> convenience macros</b></p>
+<a name="idp16411792"></a><p class="title"><b>Example 4. Using the <code class="literal">G_LOCK_*</code> convenience macros</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -910,8 +952,11 @@ of the variable you intend to protect with the lock. Look at our
 </div>
 <p><br class="example-break">
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
 <td>the name of the lock</td>
@@ -926,8 +971,11 @@ of the variable you intend to protect with the lock. Look at our
 <p>
 This works like <a class="link" href="glib-Threads.html#G-LOCK-DEFINE:CAPS" title="G_LOCK_DEFINE()"><span class="type">G_LOCK_DEFINE</span></a>, but it creates a static object.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
 <td>the name of the lock</td>
@@ -943,8 +991,11 @@ This works like <a class="link" href="glib-Threads.html#G-LOCK-DEFINE:CAPS" titl
 This declares a lock, that is defined with <a class="link" href="glib-Threads.html#G-LOCK-DEFINE:CAPS" title="G_LOCK_DEFINE()"><span class="type">G_LOCK_DEFINE</span></a> in another
 module.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
 <td>the name of the lock</td>
@@ -960,8 +1011,11 @@ module.
 Works like <a class="link" href="glib-Threads.html#g-mutex-lock" title="g_mutex_lock ()"><code class="function">g_mutex_lock()</code></a>, but for a lock defined with
 <a class="link" href="glib-Threads.html#G-LOCK-DEFINE:CAPS" title="G_LOCK_DEFINE()"><span class="type">G_LOCK_DEFINE</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
 <td>the name of the lock</td>
@@ -977,8 +1031,11 @@ Works like <a class="link" href="glib-Threads.html#g-mutex-lock" title="g_mutex_
 Works like <a class="link" href="glib-Threads.html#g-mutex-trylock" title="g_mutex_trylock ()"><code class="function">g_mutex_trylock()</code></a>, but for a lock defined with
 <a class="link" href="glib-Threads.html#G-LOCK-DEFINE:CAPS" title="G_LOCK_DEFINE()"><span class="type">G_LOCK_DEFINE</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -1001,8 +1058,11 @@ Works like <a class="link" href="glib-Threads.html#g-mutex-trylock" title="g_mut
 Works like <a class="link" href="glib-Threads.html#g-mutex-unlock" title="g_mutex_unlock ()"><code class="function">g_mutex_unlock()</code></a>, but for a lock defined with
 <a class="link" href="glib-Threads.html#G-LOCK-DEFINE:CAPS" title="G_LOCK_DEFINE()"><span class="type">G_LOCK_DEFINE</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
 <td>the name of the lock</td>
@@ -1088,8 +1148,11 @@ leads to undefined behaviour.
 To undo the effect of <a class="link" href="glib-Threads.html#g-rec-mutex-init" title="g_rec_mutex_init ()"><code class="function">g_rec_mutex_init()</code></a> when a recursive mutex
 is no longer needed, use <a class="link" href="glib-Threads.html#g-rec-mutex-clear" title="g_rec_mutex_clear ()"><code class="function">g_rec_mutex_clear()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>rec_mutex</code></em> :</span></p></td>
 <td>an uninitialized <a class="link" href="glib-Threads.html#GRecMutex" title="struct GRecMutex"><span class="type">GRecMutex</span></a>
@@ -1117,8 +1180,11 @@ to undefined behaviour.
 <p>
 Sine: 2.32
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>rec_mutex</code></em> :</span></p></td>
 <td>an initialized <a class="link" href="glib-Threads.html#GRecMutex" title="struct GRecMutex"><span class="type">GRecMutex</span></a>
@@ -1138,8 +1204,11 @@ by the current thread, the 'lock count' of <em class="parameter"><code>rec_mutex
 The mutex will only become available again when it is unlocked
 as many times as it has been locked.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>rec_mutex</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Threads.html#GRecMutex" title="struct GRecMutex"><span class="type">GRecMutex</span></a>
@@ -1157,8 +1226,11 @@ Tries to lock <em class="parameter"><code>rec_mutex</code></em>. If <em class="p
 by another thread, it immediately returns <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a>. Otherwise
 it locks <em class="parameter"><code>rec_mutex</code></em> and returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>rec_mutex</code></em> :</span></p></td>
@@ -1187,8 +1259,11 @@ and can lock <em class="parameter"><code>rec_mutex</code></em> itself.
 Calling <a class="link" href="glib-Threads.html#g-rec-mutex-unlock" title="g_rec_mutex_unlock ()"><code class="function">g_rec_mutex_unlock()</code></a> on a recursive mutex that is not
 locked by the current thread leads to undefined behaviour.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>rec_mutex</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Threads.html#GRecMutex" title="struct GRecMutex"><span class="type">GRecMutex</span></a>
@@ -1219,7 +1294,7 @@ simultaneous read-only access (by holding the 'reader' lock via
 <p>
 </p>
 <div class="example">
-<a name="id519769"></a><p class="title"><b>Example 5. An array with access functions</b></p>
+<a name="idp16560800"></a><p class="title"><b>Example 5. An array with access functions</b></p>
 <div class="example-contents">
 <pre class="programlisting">
   GRWLock lock;
@@ -1332,8 +1407,11 @@ needed, use <a class="link" href="glib-Threads.html#g-rw-lock-clear" title="g_rw
 Calling <a class="link" href="glib-Threads.html#g-rw-lock-init" title="g_rw_lock_init ()"><code class="function">g_rw_lock_init()</code></a> on an already initialized <a class="link" href="glib-Threads.html#GRWLock" title="struct GRWLock"><span class="type">GRWLock</span></a> leads
 to undefined behaviour.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>rw_lock</code></em> :</span></p></td>
 <td>an uninitialized <a class="link" href="glib-Threads.html#GRWLock" title="struct GRWLock"><span class="type">GRWLock</span></a>
@@ -1360,8 +1438,11 @@ leads to undefined behaviour.
 <p>
 Sine: 2.32
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>rw_lock</code></em> :</span></p></td>
 <td>an initialized <a class="link" href="glib-Threads.html#GRWLock" title="struct GRWLock"><span class="type">GRWLock</span></a>
@@ -1378,8 +1459,11 @@ Obtain a write lock on <em class="parameter"><code>rw_lock</code></em>. If any t
 a read or write lock on <em class="parameter"><code>rw_lock</code></em>, the current thread will block
 until all other threads have dropped their locks on <em class="parameter"><code>rw_lock</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>rw_lock</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Threads.html#GRWLock" title="struct GRWLock"><span class="type">GRWLock</span></a>
@@ -1397,8 +1481,11 @@ Tries to obtain a write lock on <em class="parameter"><code>rw_lock</code></em>.
 a read or write lock on <em class="parameter"><code>rw_lock</code></em>, it immediately returns <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a>.
 Otherwise it locks <em class="parameter"><code>rw_lock</code></em> and returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>rw_lock</code></em> :</span></p></td>
@@ -1425,8 +1512,11 @@ Release a write lock on <em class="parameter"><code>rw_lock</code></em>.
 Calling <a class="link" href="glib-Threads.html#g-rw-lock-writer-unlock" title="g_rw_lock_writer_unlock ()"><code class="function">g_rw_lock_writer_unlock()</code></a> on a lock that is not held
 by the current thread leads to undefined behaviour.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>rw_lock</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Threads.html#GRWLock" title="struct GRWLock"><span class="type">GRWLock</span></a>
@@ -1448,8 +1538,11 @@ thread will block. Read locks can be taken recursively.
 It is implementation-defined how many threads are allowed to
 hold read locks on the same lock simultaneously.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>rw_lock</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Threads.html#GRWLock" title="struct GRWLock"><span class="type">GRWLock</span></a>
@@ -1467,8 +1560,11 @@ Tries to obtain a read lock on <em class="parameter"><code>rw_lock</code></em> a
 the read lock was successfully obtained. Otherwise it
 returns <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>rw_lock</code></em> :</span></p></td>
@@ -1495,8 +1591,11 @@ Release a read lock on <em class="parameter"><code>rw_lock</code></em>.
 Calling <a class="link" href="glib-Threads.html#g-rw-lock-reader-unlock" title="g_rw_lock_reader_unlock ()"><code class="function">g_rw_lock_reader_unlock()</code></a> on a lock that is not held
 by the current thread leads to undefined behaviour.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>rw_lock</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Threads.html#GRWLock" title="struct GRWLock"><span class="type">GRWLock</span></a>
@@ -1527,7 +1626,7 @@ threads to wake up to collect the data.
 <p>
 </p>
 <div class="example">
-<a name="id520922"></a><p class="title"><b>Example 6. 
+<a name="idp19289920"></a><p class="title"><b>Example 6. 
   Using GCond to block a thread until a condition is satisfied
  </b></p>
 <div class="example-contents">
@@ -1647,8 +1746,11 @@ needed, use <a class="link" href="glib-Threads.html#g-cond-clear" title="g_cond_
 Calling <a class="link" href="glib-Threads.html#g-cond-init" title="g_cond_init ()"><code class="function">g_cond_init()</code></a> on an already-initialised <a class="link" href="glib-Threads.html#GCond" title="struct GCond"><span class="type">GCond</span></a> leads
 to undefined behaviour.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>cond</code></em> :</span></p></td>
 <td>an uninitialized <a class="link" href="glib-Threads.html#GCond" title="struct GCond"><span class="type">GCond</span></a>
@@ -1672,8 +1774,11 @@ statically allocated.
 Calling <a class="link" href="glib-Threads.html#g-cond-clear" title="g_cond_clear ()"><code class="function">g_cond_clear()</code></a> for a <a class="link" href="glib-Threads.html#GCond" title="struct GCond"><span class="type">GCond</span></a> on which threads are
 blocking leads to undefined behaviour.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>cond</code></em> :</span></p></td>
 <td>an initialised <a class="link" href="glib-Threads.html#GCond" title="struct GCond"><span class="type">GCond</span></a>
@@ -1703,8 +1808,11 @@ condition is no longer met.
 For this reason, <a class="link" href="glib-Threads.html#g-cond-wait" title="g_cond_wait ()"><code class="function">g_cond_wait()</code></a> must always be used in a loop.  See
 the documentation for <a class="link" href="glib-Threads.html#GCond" title="struct GCond"><span class="type">GCond</span></a> for a complete example.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cond</code></em> :</span></p></td>
@@ -1744,8 +1852,11 @@ called, and, in that case, will immediately return <a class="link" href="glib-St
 To easily calculate <em class="parameter"><code>abs_time</code></em> a combination of <a class="link" href="glib-Date-and-Time-Functions.html#g-get-current-time" title="g_get_current_time ()"><code class="function">g_get_current_time()</code></a>
 and <a class="link" href="glib-Date-and-Time-Functions.html#g-time-val-add" title="g_time_val_add ()"><code class="function">g_time_val_add()</code></a> can be used.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cond</code></em> :</span></p></td>
@@ -1863,8 +1974,11 @@ directly to the call and a spurious wakeup occurred, the program would
 have to start over waiting again (which would lead to a total wait
 time of more than 5 seconds).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cond</code></em> :</span></p></td>
@@ -1898,8 +2012,11 @@ If no threads are waiting for <em class="parameter"><code>cond</code></em>, this
 It is good practice to hold the same lock as the waiting thread
 while calling this function, though not required.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>cond</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Threads.html#GCond" title="struct GCond"><span class="type">GCond</span></a>
@@ -1917,8 +2034,11 @@ If no threads are waiting for <em class="parameter"><code>cond</code></em>, this
 It is good practice to lock the same mutex as the waiting threads
 while calling this function, though not required.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>cond</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Threads.html#GCond" title="struct GCond"><span class="type">GCond</span></a>
@@ -2051,8 +2171,11 @@ examples below.
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>notify</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Datasets.html#GDestroyNotify" title="GDestroyNotify ()"><span class="type">GDestroyNotify</span></a>
@@ -2073,8 +2196,11 @@ If the value has not yet been set in this thread, <a class="link" href="glib-Sta
 Values are never copied between threads (when a new thread is
 created, for example).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
@@ -2101,8 +2227,11 @@ current thread.
 This function differs from <a class="link" href="glib-Threads.html#g-private-replace" title="g_private_replace ()"><code class="function">g_private_replace()</code></a> in the following way:
 the <a class="link" href="glib-Datasets.html#GDestroyNotify" title="GDestroyNotify ()"><span class="type">GDestroyNotify</span></a> for <em class="parameter"><code>key</code></em> is not called on the old value.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
@@ -2130,8 +2259,11 @@ This function differs from <a class="link" href="glib-Threads.html#g-private-set
 the previous value was non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> then the <a class="link" href="glib-Datasets.html#GDestroyNotify" title="GDestroyNotify ()"><span class="type">GDestroyNotify</span></a> handler for
 <em class="parameter"><code>key</code></em> is run on it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
@@ -2159,8 +2291,11 @@ A <a class="link" href="glib-Threads.html#GOnce" title="struct GOnce"><span clas
 one-time initialization function must have its own unique <a class="link" href="glib-Threads.html#GOnce" title="struct GOnce"><span class="type">GOnce</span></a>
 struct.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">volatile <a class="link" href="glib-Threads.html#GOnceStatus" title="enum GOnceStatus"><span class="type">GOnceStatus</span></a> <em class="structfield"><code><a name="GOnce.status"></a>status</code></em>;</span></p></td>
@@ -2190,8 +2325,11 @@ is <a class="link" href="glib-Threads.html#G-ONCE-STATUS-READY:CAPS"><code class
 The possible statuses of a one-time initialization function
 controlled by a <a class="link" href="glib-Threads.html#GOnce" title="struct GOnce"><span class="type">GOnce</span></a> struct.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-ONCE-STATUS-NOTCALLED:CAPS"></a><span class="term"><code class="literal">G_ONCE_STATUS_NOTCALLED</code></span></p></td>
@@ -2288,8 +2426,11 @@ Calling <a class="link" href="glib-Threads.html#g-once" title="g_once()"><code c
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>once</code></em> :</span></p></td>
@@ -2358,8 +2499,11 @@ like this:
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>location</code></em> :</span></p></td>
@@ -2387,8 +2531,11 @@ other than 0. Sets the variable to the initialization value, and
 releases concurrent threads blocking in <a class="link" href="glib-Threads.html#g-once-init-enter" title="g_once_init_enter ()"><code class="function">g_once_init_enter()</code></a> on this
 initialization variable.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>location</code></em> :</span></p></td>
@@ -2426,8 +2573,11 @@ This function accesses <em class="parameter"><code>address</code></em> atomicall
 <em class="parameter"><code>address</code></em> must be atomic in order for this function to work
 reliably.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -2463,8 +2613,11 @@ This function accesses <em class="parameter"><code>address</code></em> atomicall
 <em class="parameter"><code>address</code></em> must be atomic in order for this function to work
 reliably.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -2498,8 +2651,11 @@ This function accesses <em class="parameter"><code>address</code></em> atomicall
 <em class="parameter"><code>address</code></em> must be atomic in order for this function to work
 reliably.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -2526,8 +2682,11 @@ pointer-sized values).
 For portability reasons, you may only lock on the bottom 32 bits of
 the pointer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -2554,8 +2713,11 @@ other pointer-sized values).
 For portability reasons, you may only lock on the bottom 32 bits of
 the pointer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -2587,8 +2749,11 @@ pointer-sized values).
 For portability reasons, you may only lock on the bottom 32 bits of
 the pointer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -2610,6 +2775,6 @@ the pointer.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

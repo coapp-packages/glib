@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GObject</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GObject Reference Manual">
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="GTypeModule.html" title="GTypeModule">
 <link rel="next" href="gobject-Enumeration-and-Flag-Types.html" title="Enumeration and Flag Types">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -151,6 +151,16 @@ typedef             <a class="link" href="gobject-The-Base-Object-Type.html#GIni
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> destroy</code></em>);
 <a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="gobject-The-Base-Object-Type.html#g-object-steal-data" title="g_object_steal_data ()">g_object_steal_data</a>                 (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>,
                                                          <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="gobject-The-Base-Object-Type.html#g-object-dup-data" title="g_object_dup_data ()">g_object_dup_data</a>                   (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Keyed-Data-Lists.html#GDuplicateFunc"><span class="type">GDuplicateFunc</span></a> dup_func</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gobject-The-Base-Object-Type.html#g-object-replace-data" title="g_object_replace_data ()">g_object_replace_data</a>               (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> oldval</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> newval</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> destroy</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> *old_destroy</code></em>);
 <a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="gobject-The-Base-Object-Type.html#g-object-get-qdata" title="g_object_get_qdata ()">g_object_get_qdata</a>                  (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> quark</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gobject-The-Base-Object-Type.html#g-object-set-qdata" title="g_object_set_qdata ()">g_object_set_qdata</a>                  (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>,
@@ -162,6 +172,16 @@ typedef             <a class="link" href="gobject-The-Base-Object-Type.html#GIni
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> destroy</code></em>);
 <a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="gobject-The-Base-Object-Type.html#g-object-steal-qdata" title="g_object_steal_qdata ()">g_object_steal_qdata</a>                (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> quark</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="gobject-The-Base-Object-Type.html#g-object-dup-qdata" title="g_object_dup_qdata ()">g_object_dup_qdata</a>                  (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> quark</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Keyed-Data-Lists.html#GDuplicateFunc"><span class="type">GDuplicateFunc</span></a> dup_func</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gobject-The-Base-Object-Type.html#g-object-replace-qdata" title="g_object_replace_qdata ()">g_object_replace_qdata</a>              (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> quark</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> oldval</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> newval</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> destroy</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> *old_destroy</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gobject-The-Base-Object-Type.html#g-object-set-property" title="g_object_set_property ()">g_object_set_property</a>               (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>,
                                                          <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> *value</code></em>);
@@ -280,7 +300,7 @@ expose floating references in their API.
 </p>
 <p>
 Some object implementations may need to save an objects floating state
-across certain code portions (an example is <a href="http://developer.gnome.org/devel/gtk/GtkMenu.html"><span class="type">GtkMenu</span></a>), to achieve this,
+across certain code portions (an example is <a href="http://library.gnome.org/devel/gtk3/GtkMenu.html"><span class="type">GtkMenu</span></a>), to achieve this,
 the following sequence can be used:
 </p>
 <p>
@@ -364,7 +384,7 @@ The class structure for the <span class="structname">GObject</span> type.
 <p>
 </p>
 <div class="example">
-<a name="id599746"></a><p class="title"><b>Example 1. Implementing singletons using a constructor</b></p>
+<a name="idp14087248"></a><p class="title"><b>Example 1. Implementing singletons using a constructor</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -419,8 +439,11 @@ The class structure for the <span class="structname">GObject</span> type.
 </div>
 <p><br class="example-break">
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="gobject-Type-Information.html#GTypeClass" title="struct GTypeClass"><span class="type">GTypeClass</span></a> <em class="structfield"><code><a name="GObjectClass.g-type-class"></a>g_type_class</code></em>;</span></p></td>
@@ -496,8 +519,11 @@ The <span class="structname">GObjectConstructParam</span> struct is an auxiliary
 structure used to hand <a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a>/<a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> pairs to the <em class="parameter"><code>constructor</code></em> of
 a <a class="link" href="gobject-The-Base-Object-Type.html#GObjectClass" title="struct GObjectClass"><span class="type">GObjectClass</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> *<em class="structfield"><code><a name="GObjectConstructParam.pspec"></a>pspec</code></em>;</span></p></td>
@@ -520,8 +546,11 @@ a <a class="link" href="gobject-The-Base-Object-Type.html#GObjectClass" title="s
 <p>
 The type of the <em class="parameter"><code>get_property</code></em> function of <a class="link" href="gobject-The-Base-Object-Type.html#GObjectClass" title="struct GObjectClass"><span class="type">GObjectClass</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -554,8 +583,11 @@ The type of the <em class="parameter"><code>get_property</code></em> function of
 <p>
 The type of the <em class="parameter"><code>set_property</code></em> function of <a class="link" href="gobject-The-Base-Object-Type.html#GObjectClass" title="struct GObjectClass"><span class="type">GObjectClass</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -585,8 +617,11 @@ The type of the <em class="parameter"><code>set_property</code></em> function of
 <p>
 The type of the <em class="parameter"><code>finalize</code></em> function of <a class="link" href="gobject-The-Base-Object-Type.html#GObjectClass" title="struct GObjectClass"><span class="type">GObjectClass</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
 <td>the <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> being finalized</td>
@@ -601,8 +636,11 @@ The type of the <em class="parameter"><code>finalize</code></em> function of <a 
 <p>
 Check if the passed in type id is a <a class="link" href="gobject-Type-Information.html#G-TYPE-OBJECT:CAPS" title="G_TYPE_OBJECT"><code class="literal">G_TYPE_OBJECT</code></a> or derived from it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -626,8 +664,11 @@ Casts a <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span c
 Depending on the current debugging level, this function may invoke
 certain runtime checks to identify invalid casts.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
 <td>Object which is subject to casting.</td>
@@ -642,8 +683,11 @@ certain runtime checks to identify invalid casts.
 <p>
 Checks whether a valid <a class="link" href="gobject-Type-Information.html#GTypeInstance" title="struct GTypeInstance"><span class="type">GTypeInstance</span></a> pointer is of type <a class="link" href="gobject-Type-Information.html#G-TYPE-OBJECT:CAPS" title="G_TYPE_OBJECT"><code class="literal">G_TYPE_OBJECT</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
 <td>Instance to check for being a <a class="link" href="gobject-Type-Information.html#G-TYPE-OBJECT:CAPS" title="G_TYPE_OBJECT"><code class="literal">G_TYPE_OBJECT</code></a>.</td>
@@ -658,8 +702,11 @@ Checks whether a valid <a class="link" href="gobject-Type-Information.html#GType
 <p>
 Casts a derived <a class="link" href="gobject-The-Base-Object-Type.html#GObjectClass" title="struct GObjectClass"><span class="type">GObjectClass</span></a> structure into a <a class="link" href="gobject-The-Base-Object-Type.html#GObjectClass" title="struct GObjectClass"><span class="type">GObjectClass</span></a> structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>class</code></em> :</span></p></td>
 <td>a valid <a class="link" href="gobject-The-Base-Object-Type.html#GObjectClass" title="struct GObjectClass"><span class="type">GObjectClass</span></a>
@@ -676,8 +723,11 @@ Casts a derived <a class="link" href="gobject-The-Base-Object-Type.html#GObjectC
 Checks whether <em class="parameter"><code>class</code></em> "is a" valid <a class="link" href="gobject-The-Base-Object-Type.html#GObjectClass" title="struct GObjectClass"><span class="type">GObjectClass</span></a> structure of type
 <a class="link" href="gobject-Type-Information.html#G-TYPE-OBJECT:CAPS" title="G_TYPE_OBJECT"><code class="literal">G_TYPE_OBJECT</code></a> or derived.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>class</code></em> :</span></p></td>
 <td>a <a class="link" href="gobject-The-Base-Object-Type.html#GObjectClass" title="struct GObjectClass"><span class="type">GObjectClass</span></a>
@@ -693,8 +743,11 @@ Checks whether <em class="parameter"><code>class</code></em> "is a" valid <a cla
 <p>
 Get the class structure associated to a <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> instance.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -715,8 +768,11 @@ Get the class structure associated to a <a class="link" href="gobject-The-Base-O
 <p>
 Get the type id of an object.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -737,8 +793,11 @@ Get the type id of an object.
 <p>
 Get the name of an object's type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -760,8 +819,11 @@ should not be freed.</td>
 <p>
 Get the type id of a class structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>class</code></em> :</span></p></td>
@@ -783,8 +845,11 @@ Get the type id of a class structure.
 <p>
 Return the name of a class structure's type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>class</code></em> :</span></p></td>
@@ -813,8 +878,11 @@ Note that it is possible to redefine a property in a derived class,
 by installing a property with the same name. This can be useful at times,
 e.g. to change the range of allowed values or the default value.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>oclass</code></em> :</span></p></td>
@@ -958,8 +1026,11 @@ allows calling <a class="link" href="gobject-The-Base-Object-Type.html#g-object-
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>oclass</code></em> :</span></p></td>
@@ -988,8 +1059,11 @@ defining the new properties. <span class="annotation">[<acronym title="Parameter
 <p>
 Looks up the <a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a> for a property of a class.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>oclass</code></em> :</span></p></td>
@@ -1017,8 +1091,11 @@ Looks up the <a class="link" href="gobject-GParamSpec.html#GParamSpec" title="st
 <p>
 Get an array of <a class="link" href="gobject-GParamSpec.html#GParamSpec" title="struct GParamSpec"><span class="type">GParamSpec</span></a>* for all properties of a class.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>oclass</code></em> :</span></p></td>
@@ -1069,8 +1146,11 @@ need to get the overridden property, you can call
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>oclass</code></em> :</span></p></td>
@@ -1112,8 +1192,11 @@ vtable initialization function (the <em class="parameter"><code>class_init</code
 <a class="link" href="gobject-Type-Information.html#GTypeInfo" title="struct GTypeInfo"><span class="type">GTypeInfo</span></a>.) It must not be called after after <em class="parameter"><code>class_init</code></em> has
 been called for any object types implementing this interface.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>g_iface</code></em> :</span></p></td>
@@ -1140,8 +1223,11 @@ will be the default vtable from <a class="link" href="gobject-Type-Information.h
 if you know the interface has already been loaded,
 <a class="link" href="gobject-Type-Information.html#g-type-default-interface-peek" title="g_type_default_interface_peek ()"><code class="function">g_type_default_interface_peek()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>g_iface</code></em> :</span></p></td>
@@ -1174,8 +1260,11 @@ vtable passed in as <em class="parameter"><code>g_iface</code></em> will be the 
 <a class="link" href="gobject-Type-Information.html#g-type-default-interface-ref" title="g_type_default_interface_ref ()"><code class="function">g_type_default_interface_ref()</code></a>, or, if you know the interface has
 already been loaded, <a class="link" href="gobject-Type-Information.html#g-type-default-interface-peek" title="g_type_default_interface_peek ()"><code class="function">g_type_default_interface_peek()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>g_iface</code></em> :</span></p></td>
@@ -1213,8 +1302,11 @@ Creates a new instance of a <a class="link" href="gobject-The-Base-Object-Type.h
 Construction parameters (see <a class="link" href="gobject-GParamSpec.html#G-PARAM-CONSTRUCT:CAPS"><span class="type">G_PARAM_CONSTRUCT</span></a>, <a class="link" href="gobject-GParamSpec.html#G-PARAM-CONSTRUCT-ONLY:CAPS"><span class="type">G_PARAM_CONSTRUCT_ONLY</span></a>)
 which are not explicitly specified are set to their default values.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object_type</code></em> :</span></p></td>
@@ -1254,8 +1346,11 @@ which are not explicitly specified are set to their default values.
 <p>
 Rename to: g_object_new
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object_type</code></em> :</span></p></td>
@@ -1273,7 +1368,7 @@ Rename to: g_object_new
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a new instance of
-<em class="parameter"><code>object_type</code></em>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+<em class="parameter"><code>object_type</code></em>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.Object][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1291,8 +1386,11 @@ Rename to: g_object_new
 The <span class="structname">GParameter</span> struct is an auxiliary structure used
 to hand parameter name/value pairs to <a class="link" href="gobject-The-Base-Object-Type.html#g-object-newv" title="g_object_newv ()"><code class="function">g_object_newv()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GParameter.name"></a>name</code></em>;</span></p></td>
@@ -1312,17 +1410,20 @@ to hand parameter name/value pairs to <a class="link" href="gobject-The-Base-Obj
 <p>
 Increases the reference count of <em class="parameter"><code>object</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
-<td>a <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
+<td>a <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.Object]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the same <em class="parameter"><code>object</code></em>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+<td>the same <em class="parameter"><code>object</code></em>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.Object][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1336,11 +1437,14 @@ Increases the reference count of <em class="parameter"><code>object</code></em>.
 Decreases the reference count of <em class="parameter"><code>object</code></em>. When its reference count
 drops to 0, the object is finalized (i.e. its memory is freed).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
-<td>a <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
+<td>a <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.Object]</span>
 </td>
 </tr></tbody>
 </table></div>
@@ -1361,18 +1465,21 @@ reference by clearing the floating flag while leaving the reference
 count unchanged.  If the object is not floating, then this call
 adds a new normal reference increasing the reference count by one.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
-<td>a <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
+<td>a <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.Object]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<em class="parameter"><code>object</code></em>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+<em class="parameter"><code>object</code></em>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.Object][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1402,8 +1509,11 @@ using memory barriers where needed.
 A macro is also included that allows this function to be used without
 pointer casts.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>object_ptr</code></em> :</span></p></td>
 <td>a pointer to a <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> reference</td>
@@ -1448,12 +1558,15 @@ The type for <a class="link" href="gobject-The-Base-Object-Type.html#GInitiallyU
 Checks whether <em class="parameter"><code>object</code></em> has a <a class="link" href="gobject-The-Base-Object-Type.html#floating-ref">floating</a>
 reference.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
-<td>a <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
+<td>a <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.Object]</span>
 </td>
 </tr>
 <tr>
@@ -1476,8 +1589,11 @@ Doing this is seldom required: all
 <a class="link" href="gobject-The-Base-Object-Type.html#GInitiallyUnowned" title="GInitiallyUnowned"><span class="type">GInitiallyUnowned</span></a>s are created with a floating reference which
 usually just needs to be sunken by calling <a class="link" href="gobject-The-Base-Object-Type.html#g-object-ref-sink" title="g_object_ref_sink ()"><code class="function">g_object_ref_sink()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
 <td>a <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>
@@ -1497,8 +1613,11 @@ triggered when the object is finalized. Since the object is already being
 finalized when the <a class="link" href="gobject-The-Base-Object-Type.html#GWeakNotify" title="GWeakNotify ()"><span class="type">GWeakNotify</span></a> is called, there's not much you could do 
 with the object, apart from e.g. using its address as hash-index or the like.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
@@ -1530,8 +1649,11 @@ thread-safe: they cannot safely be used in one thread if the
 object's last <a class="link" href="gobject-The-Base-Object-Type.html#g-object-unref" title="g_object_unref ()"><code class="function">g_object_unref()</code></a> might happen in another thread.
 Use <a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a> if thread-safety is required.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -1558,8 +1680,11 @@ Use <a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWe
 <p>
 Removes a weak reference callback to an object.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -1594,8 +1719,11 @@ this method are not thread-safe: they cannot safely be used in one
 thread if the object's last <a class="link" href="gobject-The-Base-Object-Type.html#g-object-unref" title="g_object_unref ()"><code class="function">g_object_unref()</code></a> might happen in another
 thread. Use <a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a> if thread-safety is required.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -1619,8 +1747,11 @@ Removes a weak reference from <em class="parameter"><code>object</code></em> tha
 using <a class="link" href="gobject-The-Base-Object-Type.html#g-object-add-weak-pointer" title="g_object_add_weak_pointer ()"><code class="function">g_object_add_weak_pointer()</code></a>. The <em class="parameter"><code>weak_pointer_location</code></em> has
 to match the one used with <a class="link" href="gobject-The-Base-Object-Type.html#g-object-add-weak-pointer" title="g_object_add_weak_pointer ()"><code class="function">g_object_add_weak_pointer()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -1644,8 +1775,11 @@ to match the one used with <a class="link" href="gobject-The-Base-Object-Type.ht
 A callback function used for notification when the state
 of a toggle reference changes. See <a class="link" href="gobject-The-Base-Object-Type.html#g-object-add-toggle-ref" title="g_object_add_toggle_ref ()"><code class="function">g_object_add_toggle_ref()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
@@ -1707,8 +1841,11 @@ of them will ever be notified until all but one are removed.  For
 this reason, you should only ever use a toggle reference if there
 is important state in the proxy object.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -1740,8 +1877,11 @@ the last reference.</td>
 Removes a reference added with <a class="link" href="gobject-The-Base-Object-Type.html#g-object-add-toggle-ref" title="g_object_add_toggle_ref ()"><code class="function">g_object_add_toggle_ref()</code></a>. The
 reference count of the object is decreased by one.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -1776,8 +1916,11 @@ A convenience function to connect multiple signals at once.
 The signal specs expected by this function have the form
 "modifier::signal_name", where modifier can be one of the following:
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">signal</span></p></td>
@@ -1846,12 +1989,12 @@ equivalent to <code class="literal">g_signal_connect_object (..., G_CONNECT_SWAP
 7
 8</pre></td>
         <td class="listing_code"><pre class="programlisting"><span class="normal">menu</span><span class="symbol">-&gt;</span><span class="normal">toplevel </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gobject-The-Base-Object-Type.html#g-object-connect">g_object_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="gobject-The-Base-Object-Type.html#g-object-new">g_object_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">GTK_TYPE_WINDOW</span><span class="symbol">,</span>
-<span class="normal">                           </span><span class="string">"type"</span><span class="symbol">,</span><span class="normal"> <a href="http://developer.gnome.org/devel/gtk/gtk3-Standard-Enumerations.html#GTK-WINDOW-POPUP:CAPS">GTK_WINDOW_POPUP</a></span><span class="symbol">,</span>
+<span class="normal">                           </span><span class="string">"type"</span><span class="symbol">,</span><span class="normal"> <a href="http://library.gnome.org/devel/gtk3/gtk-Standard-Enumerations.html#GTK-WINDOW-POPUP:CAPS">GTK_WINDOW_POPUP</a></span><span class="symbol">,</span>
 <span class="normal">                           </span><span class="string">"child"</span><span class="symbol">,</span><span class="normal"> menu</span><span class="symbol">,</span>
 <span class="normal">                           <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">),</span>
 <span class="normal">                     </span><span class="string">"signal::event"</span><span class="symbol">,</span><span class="normal"> gtk_menu_window_event</span><span class="symbol">,</span><span class="normal"> menu</span><span class="symbol">,</span>
 <span class="normal">                     </span><span class="string">"signal::size_request"</span><span class="symbol">,</span><span class="normal"> gtk_menu_window_size_request</span><span class="symbol">,</span><span class="normal"> menu</span><span class="symbol">,</span>
-<span class="normal">                     </span><span class="string">"signal::destroy"</span><span class="symbol">,</span><span class="normal"> <a href="http://developer.gnome.org/devel/gtk/GtkWidget.html#gtk-widget-destroyed">gtk_widget_destroyed</a></span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">menu</span><span class="symbol">-&gt;</span><span class="normal">toplevel</span><span class="symbol">,</span>
+<span class="normal">                     </span><span class="string">"signal::destroy"</span><span class="symbol">,</span><span class="normal"> <a href="http://library.gnome.org/devel/gtk3/GtkWidget.html#gtk-widget-destroyed">gtk_widget_destroyed</a></span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">menu</span><span class="symbol">-&gt;</span><span class="normal">toplevel</span><span class="symbol">,</span>
 <span class="normal">                     <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
@@ -1860,8 +2003,11 @@ equivalent to <code class="literal">g_signal_connect_object (..., G_CONNECT_SWAP
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -1904,8 +2050,11 @@ The signal specs expected by this function have the form
 callback and data, or "any_signal::signal_name", which only
 disconnects the signal named "signal_name".
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -1936,8 +2085,11 @@ followed by <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code c
 <p>
 Sets properties on an object.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -1974,7 +2126,7 @@ the type, for instance by calling <a href="./../glib/glib/glib-Memory-Allocation
 <p>
 </p>
 <div class="example">
-<a name="id642140"></a><p class="title"><b>Example 2. Using g_object_get()</b></p>
+<a name="idp17931088"></a><p class="title"><b>Example 2. Using g_object_get()</b></p>
 <div class="example-contents">
 An example of using <a class="link" href="gobject-The-Base-Object-Type.html#g-object-get" title="g_object_get ()"><code class="function">g_object_get()</code></a> to get the contents
 of three properties - one of type <a class="link" href="gobject-Type-Information.html#G-TYPE-INT:CAPS" title="G_TYPE_INT"><span class="type">G_TYPE_INT</span></a>,
@@ -1999,8 +2151,11 @@ one of type <a class="link" href="gobject-Type-Information.html#G-TYPE-STRING:CA
 </div>
 <p><br class="example-break">
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -2033,8 +2188,11 @@ When possible, eg. when signaling a property change from within the class
 that registered the property, you should use <a class="link" href="gobject-The-Base-Object-Type.html#g-object-notify-by-pspec" title="g_object_notify_by_pspec ()"><code class="function">g_object_notify_by_pspec()</code></a>
 instead.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -2137,8 +2295,11 @@ and then notify a change on the "foo" property with:
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -2161,14 +2322,19 @@ and then notify a change on the "foo" property with:
 Increases the freeze count on <em class="parameter"><code>object</code></em>. If the freeze count is
 non-zero, the emission of "notify" signals on <em class="parameter"><code>object</code></em> is
 stopped. The signals are queued until the freeze count is decreased
-to zero.
+to zero. Duplicate notifications are squashed so that at most one
+<a class="link" href="gobject-The-Base-Object-Type.html#GObject-notify" title='The "notify" signal'><span class="type">"notify"</span></a> signal is emitted for each property modified while the
+object is frozen.
 </p>
 <p>
 This is necessary for accessors that modify multiple properties to prevent
 premature notification while the object is still being modified.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
 <td>a <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>
@@ -2183,13 +2349,20 @@ premature notification while the object is still being modified.
 <p>
 Reverts the effect of a previous call to
 <a class="link" href="gobject-The-Base-Object-Type.html#g-object-freeze-notify" title="g_object_freeze_notify ()"><code class="function">g_object_freeze_notify()</code></a>. The freeze count is decreased on <em class="parameter"><code>object</code></em>
-and when it reaches zero, all queued "notify" signals are emitted.
+and when it reaches zero, queued "notify" signals are emitted.
+</p>
+<p>
+Duplicate notifications for each property are squashed so that at most one
+<a class="link" href="gobject-The-Base-Object-Type.html#GObject-notify" title='The "notify" signal'><span class="type">"notify"</span></a> signal is emitted for each property.
 </p>
 <p>
 It is an error to call this function when the freeze count is zero.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
 <td>a <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>
@@ -2205,8 +2378,11 @@ It is an error to call this function when the freeze count is zero.
 <p>
 Gets a named field from the objects table of associations (see <a class="link" href="gobject-The-Base-Object-Type.html#g-object-set-data" title="g_object_set_data ()"><code class="function">g_object_set_data()</code></a>).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -2239,8 +2415,11 @@ strings to pointers.  This function lets you set an association.
 If the object already had an association with that name,
 the old association will be destroyed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -2273,8 +2452,11 @@ to a different value or when the object is destroyed.
 <p>
 Note that the <em class="parameter"><code>destroy</code></em> callback is not called if <em class="parameter"><code>data</code></em> is <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -2305,8 +2487,11 @@ Note that the <em class="parameter"><code>destroy</code></em> callback is not ca
 Remove a specified datum from the object's data associations,
 without invoking the association's destroy handler.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -2327,6 +2512,135 @@ without invoking the association's destroy handler.
 </div>
 <hr>
 <div class="refsect2">
+<a name="g-object-dup-data"></a><h3>g_object_dup_data ()</h3>
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            g_object_dup_data                   (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Keyed-Data-Lists.html#GDuplicateFunc"><span class="type">GDuplicateFunc</span></a> dup_func</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+This is a variant of <a class="link" href="gobject-The-Base-Object-Type.html#g-object-get-data" title="g_object_get_data ()"><code class="function">g_object_get_data()</code></a> which returns
+a 'duplicate' of the value. <em class="parameter"><code>dup_func</code></em> defines the
+meaning of 'duplicate' in this context, it could e.g.
+take a reference on a ref-counted object.
+</p>
+<p>
+If the <em class="parameter"><code>key</code></em> is not set on the object then <em class="parameter"><code>dup_func</code></em>
+will be called with a <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> argument.
+</p>
+<p>
+Note that <em class="parameter"><code>dup_func</code></em> is called while user data of <em class="parameter"><code>object</code></em>
+is locked.
+</p>
+<p>
+This function can be useful to avoid races when multiple
+threads are using object data on the same key on the same
+object.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>the <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> to store user data on</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>a string, naming the user data pointer</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dup_func</code></em> :</span></p></td>
+<td>function to dup the value. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>passed as user_data to <em class="parameter"><code>dup_func</code></em>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the result of calling <em class="parameter"><code>dup_func</code></em> on the value
+associated with <em class="parameter"><code>key</code></em> on <em class="parameter"><code>object</code></em>, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if not set.
+If <em class="parameter"><code>dup_func</code></em> is <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, the value is returned
+unmodified.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.34</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-object-replace-data"></a><h3>g_object_replace_data ()</h3>
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_object_replace_data               (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> oldval</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> newval</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> destroy</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> *old_destroy</code></em>);</pre>
+<p>
+Compares the user data for the key <em class="parameter"><code>key</code></em> on <em class="parameter"><code>object</code></em> with
+<em class="parameter"><code>oldval</code></em>, and if they are the same, replaces <em class="parameter"><code>oldval</code></em> with
+<em class="parameter"><code>newval</code></em>.
+</p>
+<p>
+This is like a typical atomic compare-and-exchange
+operation, for user data on an object.
+</p>
+<p>
+If the previous value was replaced then ownership of the
+old value (<em class="parameter"><code>oldval</code></em>) is passed to the caller, including
+the registred destroy notify for it (passed out in <em class="parameter"><code>old_destroy</code></em>).
+Its up to the caller to free this as he wishes, which may
+or may not include using <em class="parameter"><code>old_destroy</code></em> as sometimes replacement
+should not destroy the object in the normal way.
+</p>
+<p>
+Return: <a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the existing value for <em class="parameter"><code>key</code></em> was replaced
+ by <em class="parameter"><code>newval</code></em>, <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>the <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> to store user data on</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>a string, naming the user data pointer</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>oldval</code></em> :</span></p></td>
+<td>the old value to compare against. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>newval</code></em> :</span></p></td>
+<td>the new value. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>destroy</code></em> :</span></p></td>
+<td>a destroy notify for the new value. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>old_destroy</code></em> :</span></p></td>
+<td>destroy notify for the existing value. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.34</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="g-object-get-qdata"></a><h3>g_object_get_qdata ()</h3>
 <pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            g_object_get_qdata                  (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>,
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> quark</code></em>);</pre>
@@ -2334,8 +2648,11 @@ without invoking the association's destroy handler.
 This function gets back user data pointers stored via
 <a class="link" href="gobject-The-Base-Object-Type.html#g-object-set-qdata" title="g_object_set_qdata ()"><code class="function">g_object_set_qdata()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -2369,8 +2686,11 @@ Setting a previously set user data pointer, overrides (frees)
 the old pointer set, using <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><span class="type">NULL</span></a> as pointer essentially
 removes the data stored.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -2401,8 +2721,11 @@ called with <em class="parameter"><code>data</code></em> as argument when the <e
 the data is being overwritten by a call to <a class="link" href="gobject-The-Base-Object-Type.html#g-object-set-qdata" title="g_object_set_qdata ()"><code class="function">g_object_set_qdata()</code></a>
 with the same <em class="parameter"><code>quark</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -2498,8 +2821,11 @@ Using <a class="link" href="gobject-The-Base-Object-Type.html#g-object-get-qdata
 and thus the partial string list would have been freed upon
 <a class="link" href="gobject-The-Base-Object-Type.html#g-object-set-qdata-full" title="g_object_set_qdata_full ()"><code class="function">g_object_set_qdata_full()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -2519,6 +2845,135 @@ and thus the partial string list would have been freed upon
 </div>
 <hr>
 <div class="refsect2">
+<a name="g-object-dup-qdata"></a><h3>g_object_dup_qdata ()</h3>
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            g_object_dup_qdata                  (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> quark</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Keyed-Data-Lists.html#GDuplicateFunc"><span class="type">GDuplicateFunc</span></a> dup_func</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+This is a variant of <a class="link" href="gobject-The-Base-Object-Type.html#g-object-get-qdata" title="g_object_get_qdata ()"><code class="function">g_object_get_qdata()</code></a> which returns
+a 'duplicate' of the value. <em class="parameter"><code>dup_func</code></em> defines the
+meaning of 'duplicate' in this context, it could e.g.
+take a reference on a ref-counted object.
+</p>
+<p>
+If the <em class="parameter"><code>quark</code></em> is not set on the object then <em class="parameter"><code>dup_func</code></em>
+will be called with a <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> argument.
+</p>
+<p>
+Note that <em class="parameter"><code>dup_func</code></em> is called while user data of <em class="parameter"><code>object</code></em>
+is locked.
+</p>
+<p>
+This function can be useful to avoid races when multiple
+threads are using object data on the same key on the same
+object.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>the <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> to store user data on</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>quark</code></em> :</span></p></td>
+<td>a <a href="./../glib/glib/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a>, naming the user data pointer</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dup_func</code></em> :</span></p></td>
+<td>function to dup the value. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>passed as user_data to <em class="parameter"><code>dup_func</code></em>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the result of calling <em class="parameter"><code>dup_func</code></em> on the value
+associated with <em class="parameter"><code>quark</code></em> on <em class="parameter"><code>object</code></em>, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if not set.
+If <em class="parameter"><code>dup_func</code></em> is <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, the value is returned
+unmodified.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.34</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-object-replace-qdata"></a><h3>g_object_replace_qdata ()</h3>
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_object_replace_qdata              (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> quark</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> oldval</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> newval</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> destroy</code></em>,
+                                                         <em class="parameter"><code><a href="./../glib/glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> *old_destroy</code></em>);</pre>
+<p>
+Compares the user data for the key <em class="parameter"><code>quark</code></em> on <em class="parameter"><code>object</code></em> with
+<em class="parameter"><code>oldval</code></em>, and if they are the same, replaces <em class="parameter"><code>oldval</code></em> with
+<em class="parameter"><code>newval</code></em>.
+</p>
+<p>
+This is like a typical atomic compare-and-exchange
+operation, for user data on an object.
+</p>
+<p>
+If the previous value was replaced then ownership of the
+old value (<em class="parameter"><code>oldval</code></em>) is passed to the caller, including
+the registred destroy notify for it (passed out in <em class="parameter"><code>old_destroy</code></em>).
+Its up to the caller to free this as he wishes, which may
+or may not include using <em class="parameter"><code>old_destroy</code></em> as sometimes replacement
+should not destroy the object in the normal way.
+</p>
+<p>
+Return: <a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the existing value for <em class="parameter"><code>quark</code></em> was replaced
+ by <em class="parameter"><code>newval</code></em>, <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>the <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> to store user data on</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>quark</code></em> :</span></p></td>
+<td>a <a href="./../glib/glib/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a>, naming the user data pointer</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>oldval</code></em> :</span></p></td>
+<td>the old value to compare against. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>newval</code></em> :</span></p></td>
+<td>the new value. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>destroy</code></em> :</span></p></td>
+<td>a destroy notify for the new value. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>old_destroy</code></em> :</span></p></td>
+<td>destroy notify for the existing value. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.34</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="g-object-set-property"></a><h3>g_object_set_property ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_object_set_property               (<em class="parameter"><code><a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>,
                                                          <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>,
@@ -2526,8 +2981,11 @@ and thus the partial string list would have been freed upon
 <p>
 Sets a property on an object.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -2564,8 +3022,11 @@ responsible for freeing the memory by calling <a class="link" href="gobject-Gene
 Note that <a class="link" href="gobject-The-Base-Object-Type.html#g-object-get-property" title="g_object_get_property ()"><code class="function">g_object_get_property()</code></a> is really intended for language
 bindings, <a class="link" href="gobject-The-Base-Object-Type.html#g-object-get" title="g_object_get ()"><code class="function">g_object_get()</code></a> is much more convenient for C programming.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -2596,8 +3057,11 @@ Creates a new instance of a <a class="link" href="gobject-The-Base-Object-Type.h
 Construction parameters (see <a class="link" href="gobject-GParamSpec.html#G-PARAM-CONSTRUCT:CAPS"><span class="type">G_PARAM_CONSTRUCT</span></a>, <a class="link" href="gobject-GParamSpec.html#G-PARAM-CONSTRUCT-ONLY:CAPS"><span class="type">G_PARAM_CONSTRUCT_ONLY</span></a>)
 which are not explicitly specified are set to their default values.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object_type</code></em> :</span></p></td>
@@ -2630,8 +3094,11 @@ name/value pairs, followed by <a href="./../glib/glib/glib-Standard-Macros.html#
 <p>
 Sets properties on an object.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -2668,8 +3135,11 @@ the type, for instance by calling <a href="./../glib/glib/glib-Memory-Allocation
 <p>
 See <a class="link" href="gobject-The-Base-Object-Type.html#g-object-get" title="g_object_get ()"><code class="function">g_object_get()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -2705,8 +3175,11 @@ reference count is held on <em class="parameter"><code>object</code></em> during
 <em class="parameter"><code>closure</code></em>.  Usually, this function will be called on closures that
 use this <em class="parameter"><code>object</code></em> as closure data.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -2731,8 +3204,11 @@ reference cycles.
 <p>
 This functions should only be called from object system implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
 <td>a <a class="link" href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>
@@ -2748,8 +3224,11 @@ This functions should only be called from object system implementations.
 This macro should be used to emit a standard warning about unexpected 
 properties in <code class="function">set_property()</code> and <code class="function">get_property()</code> implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
@@ -2816,8 +3295,11 @@ This function should always be matched with a call to
 <a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a> in static storage because it will already be
 properly initialised.  Just use <a class="link" href="gobject-The-Base-Object-Type.html#g-weak-ref-set" title="g_weak_ref_set ()"><code class="function">g_weak_ref_set()</code></a> directly.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>weak_ref</code></em> :</span></p></td>
@@ -2846,8 +3328,11 @@ After this call, the <a class="link" href="gobject-The-Base-Object-Type.html#GWe
 You should only call this on a <a class="link" href="gobject-The-Base-Object-Type.html#GWeakRef" title="GWeakRef"><span class="type">GWeakRef</span></a> that previously had
 <a class="link" href="gobject-The-Base-Object-Type.html#g-weak-ref-init" title="g_weak_ref_init ()"><code class="function">g_weak_ref_init()</code></a> called on it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>weak_ref</code></em> :</span></p></td>
 <td>location of a weak reference, which
@@ -2874,8 +3359,11 @@ its last reference at the same time in a different thread.
 The caller should release the resulting reference in the usual way,
 by using <a class="link" href="gobject-The-Base-Object-Type.html#g-object-unref" title="g_object_unref ()"><code class="function">g_object_unref()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>weak_ref</code></em> :</span></p></td>
@@ -2885,7 +3373,7 @@ by using <a class="link" href="gobject-The-Base-Object-Type.html#g-object-unref"
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the object pointed to
-by <em class="parameter"><code>weak_ref</code></em>, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if it was empty. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> GObject.Object]</span>
+by <em class="parameter"><code>weak_ref</code></em>, or <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if it was empty. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject.Object]</span>
 </td>
 </tr>
 </tbody>
@@ -2905,8 +3393,11 @@ Change the object to which <em class="parameter"><code>weak_ref</code></em> poin
 You must own a strong reference on <em class="parameter"><code>object</code></em> while calling this
 function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>weak_ref</code></em> :</span></p></td>
@@ -2961,8 +3452,11 @@ It is important to note that you must use
 <a class="link" href="gobject-GParamSpec.html#canonical-parameter-name">canonical</a> parameter names as
 detail strings for the notify signal.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>gobject</code></em> :</span></p></td>
@@ -2987,6 +3481,6 @@ detail strings for the notify signal.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GSocketClient</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="highlevel-socket.html" title="High-level network functionallity">
 <link rel="prev" href="highlevel-socket.html" title="High-level network functionallity">
 <link rel="next" href="GSocketConnection.html" title="GSocketConnection">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -125,7 +125,7 @@ enum                <a class="link" href="GSocketClient.html#GSocketClientEvent"
                                                          <em class="parameter"><code><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> tls</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GSocketClient.html#g-socket-client-set-tls-validation-flags" title="g_socket_client_set_tls_validation_flags ()">g_socket_client_set_tls_validation_flags</a>
                                                         (<em class="parameter"><code><a class="link" href="GSocketClient.html" title="GSocketClient"><span class="type">GSocketClient</span></a> *client</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags" title="enum GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a> flags</code></em>);
+                                                         <em class="parameter"><code><a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a> flags</code></em>);
 <a class="link" href="GSocketAddress.html#GSocketFamily" title="enum GSocketFamily"><span class="returnvalue">GSocketFamily</span></a>       <a class="link" href="GSocketClient.html#g-socket-client-get-family" title="g_socket_client_get_family ()">g_socket_client_get_family</a>          (<em class="parameter"><code><a class="link" href="GSocketClient.html" title="GSocketClient"><span class="type">GSocketClient</span></a> *client</code></em>);
 <a class="link" href="GSocketAddress.html" title="GSocketAddress"><span class="returnvalue">GSocketAddress</span></a> *    <a class="link" href="GSocketClient.html#g-socket-client-get-local-address" title="g_socket_client_get_local_address ()">g_socket_client_get_local_address</a>   (<em class="parameter"><code><a class="link" href="GSocketClient.html" title="GSocketClient"><span class="type">GSocketClient</span></a> *client</code></em>);
 <a class="link" href="GSocket.html#GSocketProtocol" title="enum GSocketProtocol"><span class="returnvalue">GSocketProtocol</span></a>     <a class="link" href="GSocketClient.html#g-socket-client-get-protocol" title="g_socket_client_get_protocol ()">g_socket_client_get_protocol</a>        (<em class="parameter"><code><a class="link" href="GSocketClient.html" title="GSocketClient"><span class="type">GSocketClient</span></a> *client</code></em>);
@@ -133,7 +133,7 @@ enum                <a class="link" href="GSocketClient.html#GSocketClientEvent"
 <a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="GSocketClient.html#g-socket-client-get-timeout" title="g_socket_client_get_timeout ()">g_socket_client_get_timeout</a>         (<em class="parameter"><code><a class="link" href="GSocketClient.html" title="GSocketClient"><span class="type">GSocketClient</span></a> *client</code></em>);
 <a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GSocketClient.html#g-socket-client-get-enable-proxy" title="g_socket_client_get_enable_proxy ()">g_socket_client_get_enable_proxy</a>    (<em class="parameter"><code><a class="link" href="GSocketClient.html" title="GSocketClient"><span class="type">GSocketClient</span></a> *client</code></em>);
 <a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GSocketClient.html#g-socket-client-get-tls" title="g_socket_client_get_tls ()">g_socket_client_get_tls</a>             (<em class="parameter"><code><a class="link" href="GSocketClient.html" title="GSocketClient"><span class="type">GSocketClient</span></a> *client</code></em>);
-<a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags" title="enum GTlsCertificateFlags"><span class="returnvalue">GTlsCertificateFlags</span></a> <a class="link" href="GSocketClient.html#g-socket-client-get-tls-validation-flags" title="g_socket_client_get_tls_validation_flags ()">g_socket_client_get_tls_validation_flags</a>
+<a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags"><span class="returnvalue">GTlsCertificateFlags</span></a> <a class="link" href="GSocketClient.html#g-socket-client-get-tls-validation-flags" title="g_socket_client_get_tls_validation_flags ()">g_socket_client_get_tls_validation_flags</a>
                                                         (<em class="parameter"><code><a class="link" href="GSocketClient.html" title="GSocketClient"><span class="type">GSocketClient</span></a> *client</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GSocketClient.html#g-socket-client-add-application-proxy" title="g_socket_client_add_application_proxy ()">g_socket_client_add_application_proxy</a>
                                                         (<em class="parameter"><code><a class="link" href="GSocketClient.html" title="GSocketClient"><span class="type">GSocketClient</span></a> *client</code></em>,
@@ -156,7 +156,7 @@ enum                <a class="link" href="GSocketClient.html#GSocketClientEvent"
   "<a class="link" href="GSocketClient.html#GSocketClient--protocol" title='The "protocol" property'>protocol</a>"                 <a class="link" href="GSocket.html#GSocketProtocol" title="enum GSocketProtocol"><span class="type">GSocketProtocol</span></a>       : Read / Write / Construct
   "<a class="link" href="GSocketClient.html#GSocketClient--timeout" title='The "timeout" property'>timeout</a>"                  <a href="./../glib/glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write / Construct
   "<a class="link" href="GSocketClient.html#GSocketClient--tls" title='The "tls" property'>tls</a>"                      <a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct
-  "<a class="link" href="GSocketClient.html#GSocketClient--tls-validation-flags" title='The "tls-validation-flags" property'>tls-validation-flags</a>"     <a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags" title="enum GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a>  : Read / Write / Construct
+  "<a class="link" href="GSocketClient.html#GSocketClient--tls-validation-flags" title='The "tls-validation-flags" property'>tls-validation-flags</a>"     <a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a>  : Read / Write / Construct
   "<a class="link" href="GSocketClient.html#GSocketClient--type" title='The "type" property'>type</a>"                     <a class="link" href="GSocket.html#GSocketType" title="enum GSocketType"><span class="type">GSocketType</span></a>           : Read / Write / Construct
 </pre>
 </div>
@@ -219,8 +219,11 @@ Describes an event occurring on a <a class="link" href="GSocketClient.html" titl
 <p>
 Additional values may be added to this type in the future.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="G-SOCKET-CLIENT-RESOLVING:CAPS"></a><span class="term"><code class="literal">G_SOCKET_CLIENT_RESOLVING</code></span></p></td>
@@ -285,8 +288,11 @@ Additional values may be added to this type in the future.
 <p>
 Creates a new <a class="link" href="GSocketClient.html" title="GSocketClient"><span class="type">GSocketClient</span></a> with the default options.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a <a class="link" href="GSocketClient.html" title="GSocketClient"><span class="type">GSocketClient</span></a>.
@@ -326,8 +332,11 @@ defaults to <a class="link" href="GSocket.html#G-SOCKET-TYPE-STREAM:CAPS"><code 
 If a local address is specified with <a class="link" href="GSocketClient.html#g-socket-client-set-local-address" title="g_socket_client_set_local_address ()"><code class="function">g_socket_client_set_local_address()</code></a> the
 socket will be bound to this address before connecting.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -372,8 +381,11 @@ When the operation is finished <em class="parameter"><code>callback</code></em> 
 called. You can then call <a class="link" href="GSocketClient.html#g-socket-client-connect-finish" title="g_socket_client_connect_finish ()"><code class="function">g_socket_client_connect_finish()</code></a> to get
 the result of the operation.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -412,8 +424,11 @@ the result of the operation.
 <p>
 Finishes an async connect operation. See <a class="link" href="GSocketClient.html#g-socket-client-connect-async" title="g_socket_client_connect_async ()"><code class="function">g_socket_client_connect_async()</code></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -484,8 +499,11 @@ In the event of any failure (DNS error, service not found, no hosts
 connectable) <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is returned and <em class="parameter"><code>error</code></em> (if non-<a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>) is set
 accordingly.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -537,8 +555,11 @@ When the operation is finished <em class="parameter"><code>callback</code></em> 
 called. You can then call <a class="link" href="GSocketClient.html#g-socket-client-connect-to-host-finish" title="g_socket_client_connect_to_host_finish ()"><code class="function">g_socket_client_connect_to_host_finish()</code></a> to get
 the result of the operation.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -582,8 +603,11 @@ the result of the operation.
 <p>
 Finishes an async connect operation. See <a class="link" href="GSocketClient.html#g-socket-client-connect-to-host-async" title="g_socket_client_connect_to_host_async ()"><code class="function">g_socket_client_connect_to_host_async()</code></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -634,8 +658,11 @@ In the event of any failure (DNS error, service not found, no hosts
 connectable) <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is returned and <em class="parameter"><code>error</code></em> (if non-<a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>) is set
 accordingly.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -682,8 +709,11 @@ accordingly.
 This is the asynchronous version of
 <a class="link" href="GSocketClient.html#g-socket-client-connect-to-service" title="g_socket_client_connect_to_service ()"><code class="function">g_socket_client_connect_to_service()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -727,8 +757,11 @@ This is the asynchronous version of
 <p>
 Finishes an async connect operation. See <a class="link" href="GSocketClient.html#g-socket-client-connect-to-service-async" title="g_socket_client_connect_to_service_async ()"><code class="function">g_socket_client_connect_to_service_async()</code></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -788,8 +821,11 @@ In the event of any failure (DNS error, service not found, no hosts
 connectable) <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is returned and <em class="parameter"><code>error</code></em> (if non-<a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>) is set
 accordingly.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -841,8 +877,11 @@ When the operation is finished <em class="parameter"><code>callback</code></em> 
 called. You can then call <a class="link" href="GSocketClient.html#g-socket-client-connect-to-uri-finish" title="g_socket_client_connect_to_uri_finish ()"><code class="function">g_socket_client_connect_to_uri_finish()</code></a> to get
 the result of the operation.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -886,8 +925,11 @@ the result of the operation.
 <p>
 Finishes an async connect operation. See <a class="link" href="GSocketClient.html#g-socket-client-connect-to-uri-async" title="g_socket_client_connect_to_uri_async ()"><code class="function">g_socket_client_connect_to_uri_async()</code></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -927,8 +969,11 @@ This might be useful for instance if you want to force the local
 connection to be an ipv4 socket, even though the address might
 be an ipv6 mapped to ipv4 address.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -958,8 +1003,11 @@ This is useful if you want to ensure that the local
 side of the connection is on a specific port, or on
 a specific interface.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -988,8 +1036,11 @@ protocol.
 If <em class="parameter"><code>protocol</code></em> is <code class="literal">0</code> that means to use the default
 protocol for the socket family and type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1018,8 +1069,11 @@ type.
 It doesn't make sense to specify a type of <a class="link" href="GSocket.html#G-SOCKET-TYPE-DATAGRAM:CAPS"><code class="literal">G_SOCKET_TYPE_DATAGRAM</code></a>,
 as GSocketClient is used for connection oriented services.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1048,8 +1102,11 @@ The timeout value affects the initial connection attempt as well,
 so setting this may cause calls to <a class="link" href="GSocketClient.html#g-socket-client-connect" title="g_socket_client_connect ()"><code class="function">g_socket_client_connect()</code></a>, etc,
 to fail with <a class="link" href="gio-GIOError.html#G-IO-ERROR-TIMED-OUT:CAPS"><code class="literal">G_IO_ERROR_TIMED_OUT</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1074,8 +1131,11 @@ proxy server. When enabled (the default), <a class="link" href="GSocketClient.ht
 <a class="link" href="GProxyResolver.html" title="GProxyResolver"><span class="type">GProxyResolver</span></a> to determine if a proxy protocol such as SOCKS is
 needed, and automatically do the necessary proxy negotiation.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1116,8 +1176,11 @@ emitted with <a class="link" href="GSocketClient.html#G-SOCKET-CLIENT-TLS-HANDSH
 a chance to see the <a class="link" href="GTlsClientConnection.html" title="GTlsClientConnection"><span class="type">GTlsClientConnection</span></a> before the handshake
 starts.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1136,13 +1199,16 @@ starts.
 <a name="g-socket-client-set-tls-validation-flags"></a><h3>g_socket_client_set_tls_validation_flags ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_socket_client_set_tls_validation_flags
                                                         (<em class="parameter"><code><a class="link" href="GSocketClient.html" title="GSocketClient"><span class="type">GSocketClient</span></a> *client</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags" title="enum GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a> flags</code></em>);</pre>
+                                                         <em class="parameter"><code><a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a> flags</code></em>);</pre>
 <p>
 Sets the TLS validation flags used when creating TLS connections
 via <em class="parameter"><code>client</code></em>. The default value is <a class="link" href="gio-TLS-Overview.html#G-TLS-CERTIFICATE-VALIDATE-ALL:CAPS"><code class="literal">G_TLS_CERTIFICATE_VALIDATE_ALL</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1166,8 +1232,11 @@ Gets the socket family of the socket client.
 <p>
 See <a class="link" href="GSocketClient.html#g-socket-client-set-family" title="g_socket_client_set_family ()"><code class="function">g_socket_client_set_family()</code></a> for details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1192,8 +1261,11 @@ Gets the local address of the socket client.
 <p>
 See <a class="link" href="GSocketClient.html#g-socket-client-set-local-address" title="g_socket_client_set_local_address ()"><code class="function">g_socket_client_set_local_address()</code></a> for details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1218,8 +1290,11 @@ Gets the protocol name type of the socket client.
 <p>
 See <a class="link" href="GSocketClient.html#g-socket-client-set-protocol" title="g_socket_client_set_protocol ()"><code class="function">g_socket_client_set_protocol()</code></a> for details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1245,8 +1320,11 @@ Gets the socket type of the socket client.
 <p>
 See <a class="link" href="GSocketClient.html#g-socket-client-set-socket-type" title="g_socket_client_set_socket_type ()"><code class="function">g_socket_client_set_socket_type()</code></a> for details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1271,8 +1349,11 @@ Gets the I/O timeout time for sockets created by <em class="parameter"><code>cli
 <p>
 See <a class="link" href="GSocketClient.html#g-socket-client-set-timeout" title="g_socket_client_set_timeout ()"><code class="function">g_socket_client_set_timeout()</code></a> for details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1294,8 +1375,11 @@ See <a class="link" href="GSocketClient.html#g-socket-client-set-timeout" title=
 <p>
 Gets the proxy enable state; see <a class="link" href="GSocketClient.html#g-socket-client-set-enable-proxy" title="g_socket_client_set_enable_proxy ()"><code class="function">g_socket_client_set_enable_proxy()</code></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1317,8 +1401,11 @@ Gets the proxy enable state; see <a class="link" href="GSocketClient.html#g-sock
 Gets whether <em class="parameter"><code>client</code></em> creates TLS connections. See
 <a class="link" href="GSocketClient.html#g-socket-client-set-tls" title="g_socket_client_set_tls ()"><code class="function">g_socket_client_set_tls()</code></a> for details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1335,14 +1422,17 @@ Gets whether <em class="parameter"><code>client</code></em> creates TLS connecti
 <hr>
 <div class="refsect2">
 <a name="g-socket-client-get-tls-validation-flags"></a><h3>g_socket_client_get_tls_validation_flags ()</h3>
-<pre class="programlisting"><a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags" title="enum GTlsCertificateFlags"><span class="returnvalue">GTlsCertificateFlags</span></a> g_socket_client_get_tls_validation_flags
+<pre class="programlisting"><a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags"><span class="returnvalue">GTlsCertificateFlags</span></a> g_socket_client_get_tls_validation_flags
                                                         (<em class="parameter"><code><a class="link" href="GSocketClient.html" title="GSocketClient"><span class="type">GSocketClient</span></a> *client</code></em>);</pre>
 <p>
 Gets the TLS validation flags used creating TLS connections via
 <em class="parameter"><code>client</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1385,8 +1475,11 @@ When the proxy is detected as being an application proxy, TLS handshake
 will be skipped. This is required to let the application do the proxy
 specific handshake.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1446,7 +1539,7 @@ specific handshake.
 <hr>
 <div class="refsect2">
 <a name="GSocketClient--tls-validation-flags"></a><h3>The <code class="literal">"tls-validation-flags"</code> property</h3>
-<pre class="programlisting">  "tls-validation-flags"     <a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags" title="enum GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a>  : Read / Write / Construct</pre>
+<pre class="programlisting">  "tls-validation-flags"     <a class="link" href="gio-TLS-Overview.html#GTlsCertificateFlags"><span class="type">GTlsCertificateFlags</span></a>  : Read / Write / Construct</pre>
 <p>TLS validation flags to use.</p>
 <p>Default value: G_TLS_CERTIFICATE_UNKNOWN_CA|G_TLS_CERTIFICATE_BAD_IDENTITY|G_TLS_CERTIFICATE_NOT_ACTIVATED|G_TLS_CERTIFICATE_EXPIRED|G_TLS_CERTIFICATE_REVOKED|G_TLS_CERTIFICATE_INSECURE|G_TLS_CERTIFICATE_GENERIC_ERROR</p>
 </div>
@@ -1475,8 +1568,11 @@ the different <em class="parameter"><code>event</code></em> values are as follow
 </p>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="GSocketClient.html#G-SOCKET-CLIENT-RESOLVING:CAPS"><code class="literal">G_SOCKET_CLIENT_RESOLVING</code></a>:</span></p></td>
@@ -1565,8 +1661,11 @@ it with <a class="link" href="GSocketClient.html#G-SOCKET-CLIENT-COMPLETE:CAPS">
 Note that there may be additional <a class="link" href="GSocketClient.html#GSocketClientEvent" title="enum GSocketClientEvent"><span class="type">GSocketClientEvent</span></a> values in
 the future; unrecognized <em class="parameter"><code>event</code></em> values should be ignored.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1601,6 +1700,6 @@ the future; unrecognized <em class="parameter"><code>event</code></em> values sh
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

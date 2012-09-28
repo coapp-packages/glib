@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Hash Tables</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-data-types.html" title="GLib Data Types">
 <link rel="prev" href="glib-Trash-Stacks.html" title="Trash Stacks">
 <link rel="next" href="glib-Strings.html" title="Strings">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -179,7 +179,7 @@ To destroy a <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHas
 <p>
 </p>
 <div class="example">
-<a name="id807096"></a><p class="title"><b>Example 13. Using a GHashTable as a set</b></p>
+<a name="idp50718944"></a><p class="title"><b>Example 13. Using a GHashTable as a set</b></p>
 <div class="example-contents">
 <p>
 A common use-case for hash tables is to store information about
@@ -262,8 +262,11 @@ of keys. If <em class="parameter"><code>key_equal_func</code></em> is <a class="
 a similar fashion to <a class="link" href="glib-Hash-Tables.html#g-direct-equal" title="g_direct_equal ()"><code class="function">g_direct_equal()</code></a>, but without the overhead of
 a function call.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hash_func</code></em> :</span></p></td>
@@ -294,8 +297,11 @@ count of 1 and allows to specify functions to free the memory
 allocated for the key and value that get called when removing the
 entry from the <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hash_func</code></em> :</span></p></td>
@@ -367,8 +373,11 @@ cryptographic hashes are very easy to find collisions for when the
 remainder is taken modulo a somewhat predictable prime number.  There
 must be an element of randomness that an attacker is unable to guess.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
@@ -391,8 +400,11 @@ Specifies the type of a function used to test two values for
 equality. The function should return <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if both values are equal
 and <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> otherwise.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
@@ -427,8 +439,11 @@ value is freed using that function. If you supplied a
 <em class="parameter"><code>key_destroy_func</code></em> when creating the <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>, the passed
 key is freed using that function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
@@ -461,8 +476,11 @@ the <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><
 If you supplied a <em class="parameter"><code>key_destroy_func</code></em> when creating the
 <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>, the old key is freed using that function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
@@ -495,8 +513,11 @@ When a hash table only ever contains keys that have themselves as the
 corresponding value it is able to be stored more efficiently.  See
 the discussion in the section description.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
@@ -519,8 +540,11 @@ the discussion in the section description.
 <p>
 Checks if <em class="parameter"><code>key</code></em> is in <em class="parameter"><code>hash_table</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
@@ -542,8 +566,11 @@ Checks if <em class="parameter"><code>key</code></em> is in <em class="parameter
 <p>
 Returns the number of elements contained in the <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
@@ -568,8 +595,11 @@ distinguish between a key that is not present and one which is present
 and has the value <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. If you need this distinction, use
 <a class="link" href="glib-Hash-Tables.html#g-hash-table-lookup-extended" title="g_hash_table_lookup_extended ()"><code class="function">g_hash_table_lookup_extended()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
@@ -606,8 +636,11 @@ You can actually pass <a class="link" href="glib-Standard-Macros.html#NULL:CAPS"
 whether the <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> key exists, provided the hash and equal functions
 of <em class="parameter"><code>hash_table</code></em> are <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-safe.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
@@ -655,8 +688,11 @@ items). To remove all items matching a predicate, use
 See <a class="link" href="glib-Hash-Tables.html#g-hash-table-find" title="g_hash_table_find ()"><code class="function">g_hash_table_find()</code></a> for performance caveats for linear
 order searches in contrast to <a class="link" href="glib-Hash-Tables.html#g-hash-table-lookup" title="g_hash_table_lookup ()"><code class="function">g_hash_table_lookup()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
@@ -696,8 +732,11 @@ to use additional or different data structures for reverse lookups
 (keep in mind that an O(n) find/foreach operation issued for all n
 values in a hash table ends up needing O(n*n) operations).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
@@ -734,8 +773,11 @@ Specifies the type of the function passed to <a class="link" href="glib-Hash-Tab
 It is called with each key/value pair, together with the <em class="parameter"><code>user_data</code></em>
 parameter which is passed to <a class="link" href="glib-Hash-Tables.html#g-hash-table-foreach" title="g_hash_table_foreach ()"><code class="function">g_hash_table_foreach()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
@@ -767,8 +809,11 @@ key and value are freed using the supplied destroy functions, otherwise
 you have to make sure that any dynamically allocated values are freed
 yourself.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
@@ -797,8 +842,11 @@ yourself.
 Removes a key and its associated value from a <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a> without
 calling the key and value destroy functions.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
@@ -835,8 +883,11 @@ used to free the memory allocated for the removed keys and values.
 See <a class="link" href="glib-Hash-Tables.html#GHashTableIter" title="struct GHashTableIter"><span class="type">GHashTableIter</span></a> for an alternative way to loop over the
 key/value pairs in the hash table.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
@@ -874,8 +925,11 @@ destroy functions are called.
 See <a class="link" href="glib-Hash-Tables.html#GHashTableIter" title="struct GHashTableIter"><span class="type">GHashTableIter</span></a> for an alternative way to loop over the
 key/value pairs in the hash table.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
@@ -910,8 +964,11 @@ the keys and values are freed using the supplied destroy functions,
 otherwise you have to make sure that any dynamically allocated
 values are freed yourself.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>
@@ -928,8 +985,11 @@ values are freed yourself.
 Removes all keys and their associated values from a <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>
 without calling the key and value destroy functions.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>
@@ -946,8 +1006,11 @@ without calling the key and value destroy functions.
 Retrieves every key inside <em class="parameter"><code>hash_table</code></em>. The returned data
 is valid until <em class="parameter"><code>hash_table</code></em> is modified.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
@@ -973,8 +1036,11 @@ using the list.</td>
 Retrieves every value inside <em class="parameter"><code>hash_table</code></em>. The returned data
 is valid until <em class="parameter"><code>hash_table</code></em> is modified.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
@@ -1005,8 +1071,11 @@ pair, together with the <em class="parameter"><code>user_data</code></em> parame
 <a class="link" href="glib-Hash-Tables.html#g-hash-table-foreach-remove" title="g_hash_table_foreach_remove ()"><code class="function">g_hash_table_foreach_remove()</code></a>. It should return <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if the
 key/value pair should be removed from the <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
@@ -1043,8 +1112,11 @@ key/value pair should be removed from the <a class="link" href="glib-Hash-Tables
 This function is deprecated and will be removed in the next major
 release of GLib. It does nothing.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>
@@ -1064,8 +1136,11 @@ release of GLib. It does nothing.
 This function is deprecated and will be removed in the next major
 release of GLib. It does nothing.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>
@@ -1085,8 +1160,11 @@ notifiers using <a class="link" href="glib-Hash-Tables.html#g-hash-table-new-ful
 functions you supplied will be called on all keys and values during the
 destruction phase.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>
@@ -1102,8 +1180,11 @@ destruction phase.
 Atomically increments the reference count of <em class="parameter"><code>hash_table</code></em> by one.
 This function is MT-safe and may be called from any thread.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
@@ -1129,8 +1210,11 @@ If the reference count drops to 0, all keys and values will be
 destroyed, and all memory allocated by the hash table is released.
 This function is MT-safe and may be called from any thread.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>hash_table</code></em> :</span></p></td>
 <td>a valid <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>
@@ -1189,8 +1273,11 @@ invalidates the returned iterator.
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -1217,8 +1304,11 @@ Advances <em class="parameter"><code>iter</code></em> and retrieves the key and/
 pointed to as a result of this advancement. If <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> is returned,
 <em class="parameter"><code>key</code></em> and <em class="parameter"><code>value</code></em> are not set, and the iterator becomes invalid.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -1251,8 +1341,11 @@ pointed to as a result of this advancement. If <a class="link" href="glib-Standa
 <p>
 Returns the <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a> associated with <em class="parameter"><code>iter</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -1281,8 +1374,11 @@ from its associated <a class="link" href="glib-Hash-Tables.html#GHashTable" titl
 If you supplied a <em class="parameter"><code>value_destroy_func</code></em> when creating the
 <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>, the old value is freed using that function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -1313,8 +1409,11 @@ the key and value are freed using the supplied destroy functions,
 otherwise you have to make sure that any dynamically allocated
 values are freed yourself.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
 <td>an initialized <a class="link" href="glib-Hash-Tables.html#GHashTableIter" title="struct GHashTableIter"><span class="type">GHashTableIter</span></a>
@@ -1334,8 +1433,11 @@ the key and value destroy functions. Can only be called
 after <a class="link" href="glib-Hash-Tables.html#g-hash-table-iter-next" title="g_hash_table_iter_next ()"><code class="function">g_hash_table_iter_next()</code></a> returned <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>, and cannot
 be called more than once for the same key/value pair.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
 <td>an initialized <a class="link" href="glib-Hash-Tables.html#GHashTableIter" title="struct GHashTableIter"><span class="type">GHashTableIter</span></a>
@@ -1359,8 +1461,11 @@ in a <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable">
 This equality function is also appropriate for keys that are integers stored
 in pointers, such as <code class="literal">GINT_TO_POINTER (n)</code>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>v1</code></em> :</span></p></td>
@@ -1394,8 +1499,11 @@ when using opaque pointers compared by pointer value as keys in a
 This hash function is also appropriate for keys that are integers stored
 in pointers, such as <code class="literal">GINT_TO_POINTER (n)</code>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>v</code></em> :</span></p></td>
@@ -1426,8 +1534,11 @@ Note that this function acts on pointers to <a class="link" href="glib-Basic-Typ
 if your hash table's keys are of the form
 <code class="literal">GINT_TO_POINTER (n)</code>, use <a class="link" href="glib-Hash-Tables.html#g-direct-equal" title="g_direct_equal ()"><code class="function">g_direct_equal()</code></a> instead.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>v1</code></em> :</span></p></td>
@@ -1460,8 +1571,11 @@ Note that this function acts on pointers to <a class="link" href="glib-Basic-Typ
 if your hash table's keys are of the form
 <code class="literal">GINT_TO_POINTER (n)</code>, use <a class="link" href="glib-Hash-Tables.html#g-direct-hash" title="g_direct_hash ()"><code class="function">g_direct_hash()</code></a> instead.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>v</code></em> :</span></p></td>
@@ -1486,8 +1600,11 @@ It can be passed to <a class="link" href="glib-Hash-Tables.html#g-hash-table-new
 parameter, when using non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> pointers to 64-bit integers as keys in a
 <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>v1</code></em> :</span></p></td>
@@ -1519,8 +1636,11 @@ It can be passed to <a class="link" href="glib-Hash-Tables.html#g-hash-table-new
 when using non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> pointers to 64-bit integer values as keys in a
 <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>v</code></em> :</span></p></td>
@@ -1546,8 +1666,11 @@ It can be passed to <a class="link" href="glib-Hash-Tables.html#g-hash-table-new
 parameter, when using non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> pointers to doubles as keys in a
 <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>v1</code></em> :</span></p></td>
@@ -1577,8 +1700,11 @@ It can be passed to <a class="link" href="glib-Hash-Tables.html#g-hash-table-new
 It can be passed to <a class="link" href="glib-Hash-Tables.html#g-hash-table-new" title="g_hash_table_new ()"><code class="function">g_hash_table_new()</code></a> as the <em class="parameter"><code>hash_func</code></em> parameter,
 when using non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> pointers to doubles as keys in a <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>v</code></em> :</span></p></td>
@@ -1608,8 +1734,11 @@ Note that this function is primarily meant as a hash table comparison
 function. For a general-purpose, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-safe string comparison function,
 see <a class="link" href="glib-String-Utility-Functions.html#g-strcmp0" title="g_strcmp0 ()"><code class="function">g_strcmp0()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>v1</code></em> :</span></p></td>
@@ -1646,8 +1775,11 @@ function uses the signed value of each byte.
 It can be passed to <a class="link" href="glib-Hash-Tables.html#g-hash-table-new" title="g_hash_table_new ()"><code class="function">g_hash_table_new()</code></a> as the <em class="parameter"><code>hash_func</code></em> parameter,
 when using non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> strings as keys in a <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>v</code></em> :</span></p></td>
@@ -1664,6 +1796,6 @@ when using non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title=
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

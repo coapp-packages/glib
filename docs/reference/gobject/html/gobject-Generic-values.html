@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Generic values</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GObject Reference Manual">
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="gobject-Boxed-Types.html" title="Boxed Types">
 <link rel="next" href="gobject-Standard-Parameter-and-Value-Types.html" title="Parameters and Values">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -256,8 +256,11 @@ Checks if <em class="parameter"><code>value</code></em> holds (or contains) a va
 This macro will also check for <em class="parameter"><code>value</code></em> != <a href="./../glib/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> and issue a
 warning if the check fails.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -283,8 +286,11 @@ warning if the check fails.
 <p>
 Get the type identifier of <em class="parameter"><code>value</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -303,10 +309,13 @@ Get the type identifier of <em class="parameter"><code>value</code></em>.
 <pre class="programlisting">#define G_VALUE_TYPE_NAME(value) (g_type_name (G_VALUE_TYPE (value)))
 </pre>
 <p>
-Gets the the type name of <em class="parameter"><code>value</code></em>.
+Gets the type name of <em class="parameter"><code>value</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -329,8 +338,11 @@ Checks whether the passed in type ID can be used for <a class="link" href="gobje
 That is, this macro checks whether this type provides an implementation
 of the <a class="link" href="gobject-Type-Information.html#GTypeValueTable" title="struct GTypeValueTable"><span class="type">GTypeValueTable</span></a> functions required for a type to create a <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> of.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -353,8 +365,11 @@ Checks if <em class="parameter"><code>type</code></em> is an abstract value type
 a value table, but can't be used for <a class="link" href="gobject-Generic-values.html#g-value-init" title="g_value_init ()"><code class="function">g_value_init()</code></a> and is normally used as
 an abstract base type for derived value types.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -376,8 +391,11 @@ an abstract base type for derived value types.
 <p>
 Checks if <em class="parameter"><code>value</code></em> is a valid and initialized <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -440,8 +458,11 @@ used to pass around pointers to GValueArrays.
 <p>
 Initializes <em class="parameter"><code>value</code></em> with the default value of <em class="parameter"><code>type</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -467,8 +488,11 @@ Initializes <em class="parameter"><code>value</code></em> with the default value
 <p>
 Copies the value of <em class="parameter"><code>src_value</code></em> into <em class="parameter"><code>dest_value</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>src_value</code></em> :</span></p></td>
@@ -489,8 +513,11 @@ Copies the value of <em class="parameter"><code>src_value</code></em> into <em c
 Clears the current value in <em class="parameter"><code>value</code></em> and resets it to the default value
 (as if the value had just been initialized).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -513,8 +540,11 @@ this releases all resources associated with this GValue.
 An unset value is the same as an uninitialized (zero-filled)
 <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
 <td>An initialized <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> structure.</td>
@@ -530,8 +560,11 @@ An unset value is the same as an uninitialized (zero-filled)
 Sets <em class="parameter"><code>value</code></em> from an instantiatable type via the
 value_table's <code class="function">collect_value()</code> function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -553,8 +586,11 @@ value_table's <code class="function">collect_value()</code> function.
 Determines if <em class="parameter"><code>value</code></em> will fit inside the size of a pointer value.
 This is an internal function introduced mainly for C marshallers.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -572,8 +608,11 @@ This is an internal function introduced mainly for C marshallers.
 <div class="refsect2">
 <a name="g-value-peek-pointer"></a><h3>g_value_peek_pointer ()</h3>
 <pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            g_value_peek_pointer                (<em class="parameter"><code>const <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> *value</code></em>);</pre>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -599,8 +638,11 @@ for C marshallers. <span class="annotation">[<acronym title="Don't free data aft
 Returns whether a <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> of type <em class="parameter"><code>src_type</code></em> can be copied into
 a <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a> of type <em class="parameter"><code>dest_type</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>src_type</code></em> :</span></p></td>
@@ -627,8 +669,11 @@ a <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span
 Check whether <a class="link" href="gobject-Generic-values.html#g-value-transform" title="g_value_transform ()"><code class="function">g_value_transform()</code></a> is able to transform values
 of type <em class="parameter"><code>src_type</code></em> into values of type <em class="parameter"><code>dest_type</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>src_type</code></em> :</span></p></td>
@@ -660,8 +705,11 @@ transformations into strings might reveal seemingly arbitrary
 results and shouldn't be relied upon for production code (such
 as rcfile value or object property serialization).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>src_value</code></em> :</span></p></td>
@@ -688,8 +736,11 @@ Upon failing transformations, <em class="parameter"><code>dest_value</code></em>
 The type of value transformation functions which can be registered with
 <a class="link" href="gobject-Generic-values.html#g-value-register-transform-func" title="g_value_register_transform_func ()"><code class="function">g_value_register_transform_func()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>src_value</code></em> :</span></p></td>
@@ -713,8 +764,11 @@ Registers a value transformation function for use in <a class="link" href="gobje
 A previously registered transformation function for <em class="parameter"><code>src_type</code></em> and <em class="parameter"><code>dest_type</code></em>
 will be replaced.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>src_type</code></em> :</span></p></td>
@@ -743,8 +797,11 @@ Return a newly allocated string, which describes the contents of a
 contents for debugging output, the way in which the contents are
 described may change between different GLib versions.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -769,6 +826,6 @@ The fundamental types which all support <a class="link" href="gobject-Generic-va
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

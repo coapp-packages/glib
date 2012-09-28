@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GTypePlugin</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GObject Reference Manual">
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="gobject-Type-Information.html" title="Type Information">
 <link rel="next" href="GTypeModule.html" title="GTypeModule">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -188,8 +188,11 @@ interface.
 The <a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="type">GTypePlugin</span></a> interface is used by the type system in order to handle
 the lifecycle of dynamically loaded types.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="GTypePlugin.html#GTypePluginUse" title="GTypePluginUse ()"><span class="type">GTypePluginUse</span></a> <em class="structfield"><code><a name="GTypePluginClass.use-plugin"></a>use_plugin</code></em>;</span></p></td>
@@ -224,8 +227,11 @@ this function.</td>
 The type of the <em class="parameter"><code>use_plugin</code></em> function of <a class="link" href="GTypePlugin.html#GTypePluginClass" title="struct GTypePluginClass"><span class="type">GTypePluginClass</span></a>, which gets called
 to increase the use count of <em class="parameter"><code>plugin</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
 <td>the <a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="type">GTypePlugin</span></a> whose use count should be increased</td>
@@ -239,8 +245,11 @@ to increase the use count of <em class="parameter"><code>plugin</code></em>.
 <p>
 The type of the <em class="parameter"><code>unuse_plugin</code></em> function of <a class="link" href="GTypePlugin.html#GTypePluginClass" title="struct GTypePluginClass"><span class="type">GTypePluginClass</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
 <td>the <a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="type">GTypePlugin</span></a> whose use count should be decreased</td>
@@ -257,8 +266,11 @@ The type of the <em class="parameter"><code>unuse_plugin</code></em> function of
 <p>
 The type of the <em class="parameter"><code>complete_type_info</code></em> function of <a class="link" href="GTypePlugin.html#GTypePluginClass" title="struct GTypePluginClass"><span class="type">GTypePluginClass</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -290,8 +302,11 @@ The type of the <em class="parameter"><code>complete_type_info</code></em> funct
 <p>
 The type of the <em class="parameter"><code>complete_interface_info</code></em> function of <a class="link" href="GTypePlugin.html#GTypePluginClass" title="struct GTypePluginClass"><span class="type">GTypePluginClass</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -323,8 +338,11 @@ Calls the <em class="parameter"><code>use_plugin</code></em> function from the <
 <em class="parameter"><code>plugin</code></em>.  There should be no need to use this function outside of
 the GObject type system itself.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
 <td>a <a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="type">GTypePlugin</span></a>
@@ -341,8 +359,11 @@ Calls the <em class="parameter"><code>unuse_plugin</code></em> function from the
 <em class="parameter"><code>plugin</code></em>.  There should be no need to use this function outside of
 the GObject type system itself.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
 <td>a <a class="link" href="GTypePlugin.html" title="GTypePlugin"><span class="type">GTypePlugin</span></a>
@@ -362,8 +383,11 @@ Calls the <em class="parameter"><code>complete_type_info</code></em> function fr
 There should be no need to use this function outside of the GObject 
 type system itself.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -398,8 +422,11 @@ Calls the <em class="parameter"><code>complete_interface_info</code></em> functi
 <a class="link" href="GTypePlugin.html#GTypePluginClass" title="struct GTypePluginClass"><span class="type">GTypePluginClass</span></a> of <em class="parameter"><code>plugin</code></em>. There should be no need to use this
 function outside of the GObject type system itself.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -430,6 +457,6 @@ is added</td>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

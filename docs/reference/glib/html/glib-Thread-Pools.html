@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Thread Pools</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-core.html" title="GLib Core Application Support">
 <link rel="prev" href="glib-Threads.html" title="Threads">
 <link rel="next" href="glib-Asynchronous-Queues.html" title="Asynchronous Queues">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -126,8 +126,11 @@ The <a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThr
 public read-only members, but the underlying struct is bigger,
 so you must not copy this struct.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="glib-Doubly-Linked-Lists.html#GFunc" title="GFunc ()"><span class="type">GFunc</span></a> <em class="structfield"><code><a name="GThreadPool.func"></a>func</code></em>;</span></p></td>
@@ -179,8 +182,11 @@ not be -1 for exclusive thread pools.
 errors. An error can only occur when <em class="parameter"><code>exclusive</code></em> is set to <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>
 and not all <em class="parameter"><code>max_threads</code></em> threads could be created.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
@@ -238,8 +244,11 @@ work to do.
 <p>
 Before version 2.32, this function did not return a success status.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>pool</code></em> :</span></p></td>
@@ -296,8 +305,11 @@ created.
 <p>
 Before version 2.32, this function did not return a success status.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>pool</code></em> :</span></p></td>
@@ -329,8 +341,11 @@ or -1 for unlimited</td>
 <p>
 Returns the maximal number of threads for <em class="parameter"><code>pool</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>pool</code></em> :</span></p></td>
@@ -351,8 +366,11 @@ Returns the maximal number of threads for <em class="parameter"><code>pool</code
 <p>
 Returns the number of threads currently running in <em class="parameter"><code>pool</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>pool</code></em> :</span></p></td>
@@ -373,8 +391,11 @@ Returns the number of threads currently running in <em class="parameter"><code>p
 <p>
 Returns the number of tasks still unprocessed in <em class="parameter"><code>pool</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>pool</code></em> :</span></p></td>
@@ -413,8 +434,11 @@ Otherwise the function returns immediately.
 <p>
 After calling this function <em class="parameter"><code>pool</code></em> must not be used anymore.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>pool</code></em> :</span></p></td>
@@ -442,8 +466,14 @@ Sets the maximal number of unused threads to <em class="parameter"><code>max_thr
 If <em class="parameter"><code>max_threads</code></em> is -1, no limit is imposed on the number
 of unused threads.
 </p>
-<div class="variablelist"><table border="0">
+<p>
+The default value is 2.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>max_threads</code></em> :</span></p></td>
 <td>maximal number of unused threads</td>
@@ -458,8 +488,11 @@ of unused threads.
 <p>
 Returns the maximal allowed number of unused threads.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the maximal number of unused threads</td>
@@ -474,8 +507,11 @@ Returns the maximal allowed number of unused threads.
 <p>
 Returns the number of currently unused threads.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the number of currently unused threads</td>
@@ -510,8 +546,11 @@ scheduled by the operating system and are executed at random. It
 cannot be assumed that threads are executed in the order they are
 created.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>pool</code></em> :</span></p></td>
@@ -551,11 +590,13 @@ except this is done on a per thread basis.
 By setting <em class="parameter"><code>interval</code></em> to 0, idle threads will not be stopped.
 </p>
 <p>
-This function makes use of <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-timed-pop" title="g_async_queue_timed_pop ()"><code class="function">g_async_queue_timed_pop()</code></a> using
-<em class="parameter"><code>interval</code></em>.
+The default value is 15000 (15 seconds).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>interval</code></em> :</span></p></td>
 <td>the maximum <em class="parameter"><code>interval</code></em> (in milliseconds)
@@ -577,8 +618,11 @@ being stopped.
 If this function returns 0, threads waiting in the thread
 pool for new work are not stopped.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the maximum <em class="parameter"><code>interval</code></em> (milliseconds) to wait
@@ -596,6 +640,6 @@ thread</td>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

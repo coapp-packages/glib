@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Datasets</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GLib Reference Manual">
 <link rel="up" href="glib-data-types.html" title="GLib Data Types">
 <link rel="prev" href="glib-Keyed-Data-Lists.html" title="Keyed Data Lists">
 <link rel="next" href="glib-GVariantType.html" title="GVariantType">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -132,8 +132,11 @@ Sets the data element associated with the given <a class="link" href="glib-Quark
 previous data with the same key is removed, and its destroy function
 is called.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>l</code></em> :</span></p></td>
@@ -163,8 +166,11 @@ the function to call when the data element is destroyed. Any
 previous data with the same key is removed, and its destroy function
 is called.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dataset_location</code></em> :</span></p></td>
@@ -197,8 +203,11 @@ Specifies the type of function which is called when a data element
 is destroyed. It is passed the pointer to the data element and
 should free any memory and resources allocated for it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
 <td>the data element.</td>
@@ -213,8 +222,11 @@ should free any memory and resources allocated for it.
 <p>
 Gets the data element corresponding to a <a class="link" href="glib-Quarks.html#GQuark" title="GQuark"><span class="type">GQuark</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dataset_location</code></em> :</span></p></td>
@@ -240,8 +252,11 @@ it is not found.</td>
 Removes a data element from a dataset. The data element's destroy
 function is called if it has been set.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>l</code></em> :</span></p></td>
@@ -263,8 +278,11 @@ function is called if it has been set.
 Removes an element, without calling its destroy notification
 function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dataset_location</code></em> :</span></p></td>
@@ -288,8 +306,11 @@ function.
 <p>
 Sets the data corresponding to the given string identifier.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>l</code></em> :</span></p></td>
@@ -314,8 +335,11 @@ Sets the data corresponding to the given string identifier.
 Sets the data corresponding to the given string identifier, and the
 function to call when the data element is destroyed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>l</code></em> :</span></p></td>
@@ -345,8 +369,11 @@ free any memory allocated for it.</td>
 <p>
 Gets the data element corresponding to a string.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>l</code></em> :</span></p></td>
@@ -372,8 +399,11 @@ it is not found.</td>
 Removes a data element corresponding to a string. Its destroy
 function is called if it has been set.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>l</code></em> :</span></p></td>
@@ -393,8 +423,11 @@ function is called if it has been set.
 <p>
 Removes an element, without calling its destroy notifier.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>l</code></em> :</span></p></td>
@@ -419,8 +452,11 @@ with the given location. Note that this function is NOT thread-safe.
 So unless <em class="parameter"><code>datalist</code></em> can be protected from any modifications during
 invocation of this function, it should not be called.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dataset_location</code></em> :</span></p></td>
@@ -448,8 +484,11 @@ Specifies the type of function passed to <a class="link" href="glib-Datasets.htm
 called with each <a class="link" href="glib-Quarks.html#GQuark" title="GQuark"><span class="type">GQuark</span></a> id and associated data element, together
 with the <em class="parameter"><code>user_data</code></em> parameter supplied to <a class="link" href="glib-Datasets.html#g-dataset-foreach" title="g_dataset_foreach ()"><code class="function">g_dataset_foreach()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key_id</code></em> :</span></p></td>
@@ -474,8 +513,11 @@ with the <em class="parameter"><code>user_data</code></em> parameter supplied to
 Destroys the dataset, freeing all memory allocated, and calling any
 destroy functions set for data elements.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>dataset_location</code></em> :</span></p></td>
 <td>the location identifying the dataset.</td>
@@ -486,6 +528,6 @@ destroy functions set for data elements.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

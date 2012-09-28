@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GDBusAuthObserver</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
 <link rel="home" href="index.html" title="GIO Reference Manual">
 <link rel="up" href="gdbus-lowlevel.html" title="Lowlevel D-Bus Support">
 <link rel="prev" href="GDBusServer.html" title="GDBusServer">
 <link rel="next" href="gdbus-convenience.html" title="Highlevel D-Bus Support">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -50,6 +50,9 @@
                                                         (<em class="parameter"><code><a class="link" href="GDBusAuthObserver.html" title="GDBusAuthObserver"><span class="type">GDBusAuthObserver</span></a> *observer</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GIOStream.html" title="GIOStream"><span class="type">GIOStream</span></a> *stream</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GCredentials.html" title="GCredentials"><span class="type">GCredentials</span></a> *credentials</code></em>);
+<a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GDBusAuthObserver.html#g-dbus-auth-observer-allow-mechanism" title="g_dbus_auth_observer_allow_mechanism ()">g_dbus_auth_observer_allow_mechanism</a>
+                                                        (<em class="parameter"><code><a class="link" href="GDBusAuthObserver.html" title="GDBusAuthObserver"><span class="type">GDBusAuthObserver</span></a> *observer</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *mechanism</code></em>);
 </pre>
 </div>
 <div class="refsect1">
@@ -62,6 +65,7 @@
 <div class="refsect1">
 <a name="GDBusAuthObserver.signals"></a><h2>Signals</h2>
 <pre class="synopsis">
+  "<a class="link" href="GDBusAuthObserver.html#GDBusAuthObserver-allow-mechanism" title='The "allow-mechanism" signal'>allow-mechanism</a>"                                : <a href="./../gobject/gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
   "<a class="link" href="GDBusAuthObserver.html#GDBusAuthObserver-authorize-authenticated-peer" title='The "authorize-authenticated-peer" signal'>authorize-authenticated-peer</a>"                   : <a href="./../gobject/gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
 </pre>
 </div>
@@ -152,8 +156,11 @@ should only be accessed using the provided API.
 <p>
 Creates a new <a class="link" href="GDBusAuthObserver.html" title="GDBusAuthObserver"><span class="type">GDBusAuthObserver</span></a> object.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>A <a class="link" href="GDBusAuthObserver.html" title="GDBusAuthObserver"><span class="type">GDBusAuthObserver</span></a>. Free with <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</td>
@@ -171,8 +178,11 @@ Creates a new <a class="link" href="GDBusAuthObserver.html" title="GDBusAuthObse
 <p>
 Emits the <a class="link" href="GDBusAuthObserver.html#GDBusAuthObserver-authorize-authenticated-peer" title='The "authorize-authenticated-peer" signal'><span class="type">"authorize-authenticated-peer"</span></a> signal on <em class="parameter"><code>observer</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>observer</code></em> :</span></p></td>
@@ -196,9 +206,77 @@ Emits the <a class="link" href="GDBusAuthObserver.html#GDBusAuthObserver-authori
 </table></div>
 <p class="since">Since 2.26</p>
 </div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-auth-observer-allow-mechanism"></a><h3>g_dbus_auth_observer_allow_mechanism ()</h3>
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_dbus_auth_observer_allow_mechanism
+                                                        (<em class="parameter"><code><a class="link" href="GDBusAuthObserver.html" title="GDBusAuthObserver"><span class="type">GDBusAuthObserver</span></a> *observer</code></em>,
+                                                         <em class="parameter"><code>const <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *mechanism</code></em>);</pre>
+<p>
+Emits the <a class="link" href="GDBusAuthObserver.html#GDBusAuthObserver-allow-mechanism" title='The "allow-mechanism" signal'><span class="type">"allow-mechanism"</span></a> signal on <em class="parameter"><code>observer</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>observer</code></em> :</span></p></td>
+<td>A <a class="link" href="GDBusAuthObserver.html" title="GDBusAuthObserver"><span class="type">GDBusAuthObserver</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mechanism</code></em> :</span></p></td>
+<td>The name of the mechanism, e.g. <code class="literal">DBUS_COOKIE_SHA1</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>mechanism</code></em> can be used to authenticate the other peer, <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> if not.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.34</p>
+</div>
 </div>
 <div class="refsect1">
 <a name="GDBusAuthObserver.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="GDBusAuthObserver-allow-mechanism"></a><h3>The <code class="literal">"allow-mechanism"</code> signal</h3>
+<pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            user_function                      (<a class="link" href="GDBusAuthObserver.html" title="GDBusAuthObserver"><span class="type">GDBusAuthObserver</span></a> *observer,
+                                                        <a href="./../glib/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>             *mechanism,
+                                                        <a href="./../glib/glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>           user_data)      : <a href="./../gobject/gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+Emitted to check if <em class="parameter"><code>mechanism</code></em> is allowed to be used.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>observer</code></em> :</span></p></td>
+<td>The <a class="link" href="GDBusAuthObserver.html" title="GDBusAuthObserver"><span class="type">GDBusAuthObserver</span></a> emitting the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mechanism</code></em> :</span></p></td>
+<td>The name of the mechanism, e.g. <code class="literal">DBUS_COOKIE_SHA1</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="./../glib/glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>mechanism</code></em> can be used to authenticate the other peer, <a href="./../glib/glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> if not.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.34</p>
+</div>
+<hr>
 <div class="refsect2">
 <a name="GDBusAuthObserver-authorize-authenticated-peer"></a><h3>The <code class="literal">"authorize-authenticated-peer"</code> signal</h3>
 <pre class="programlisting"><a href="./../glib/glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            user_function                      (<a class="link" href="GDBusAuthObserver.html" title="GDBusAuthObserver"><span class="type">GDBusAuthObserver</span></a> *observer,
@@ -209,8 +287,11 @@ Emits the <a class="link" href="GDBusAuthObserver.html#GDBusAuthObserver-authori
 Emitted to check if a peer that is successfully authenticated
 is authorized.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>observer</code></em> :</span></p></td>
@@ -242,6 +323,6 @@ is authorized.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>
