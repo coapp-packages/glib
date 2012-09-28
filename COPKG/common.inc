@@ -1,4 +1,4 @@
-#define { author-version: "2.32.3"; }
+#define { author-version: "2.34.0"; }
 
 #define { outercurve-publickeytoken: "1e373a58e25250cb"; }
 

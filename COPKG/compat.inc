@@ -3,5 +3,6 @@ compatability-policy {
     maximum: "${OneLessThanCurrent}";
     versions : {
 		"2.32",
+		"2.34",
     };
 }
