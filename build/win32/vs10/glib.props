@@ -411,6 +411,8 @@ copy ..\..\..\gio\gpollableinputstream.h $(CopyDir)\include\glib-$(ApiVersion)\g
 
 copy ..\..\..\gio\gpollableoutputstream.h $(CopyDir)\include\glib-$(ApiVersion)\gio
 
+copy ..\..\..\gio\gpollableutils.h $(CopyDir)\include\glib-$(ApiVersion)\gio
+
 copy ..\..\..\gio\gproxy.h $(CopyDir)\include\glib-$(ApiVersion)\gio
 
 copy ..\..\..\gio\gproxyaddress.h $(CopyDir)\include\glib-$(ApiVersion)\gio
@@ -462,6 +464,8 @@ copy ..\..\..\gio\gsrvtarget.h $(CopyDir)\include\glib-$(ApiVersion)\gio
 copy ..\..\..\gio\gtcpconnection.h $(CopyDir)\include\glib-$(ApiVersion)\gio
 
 copy ..\..\..\gio\gtcpwrapperconnection.h $(CopyDir)\include\glib-$(ApiVersion)\gio
+
+copy ..\..\..\gio\gtestdbus.h $(CopyDir)\include\glib-$(ApiVersion)\gio
 
 copy ..\..\..\gio\gthemedicon.h $(CopyDir)\include\glib-$(ApiVersion)\gio
 
