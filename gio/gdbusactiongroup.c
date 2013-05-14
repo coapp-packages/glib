@@ -22,7 +22,7 @@
 
 #include "config.h"
 
-#include "gdbusactiongroup.h"
+#include "gdbusactiongroup-private.h"
 
 #include "gremoteactiongroup.h"
 #include "gdbusconnection.h"
@@ -92,7 +92,7 @@ action_info_free (gpointer user_data)
   g_slice_free (ActionInfo, info);
 }
 
-ActionInfo *
+static ActionInfo *
 action_info_new_from_iter (GVariantIter *iter)
 {
   const gchar *param_str;
@@ -505,7 +505,7 @@ g_dbus_action_group_get (GDBusConnection *connection,
   return group;
 }
 
-G_GNUC_INTERNAL gboolean
+gboolean
 g_dbus_action_group_sync (GDBusActionGroup  *group,
                           GCancellable      *cancellable,
                           GError           **error)

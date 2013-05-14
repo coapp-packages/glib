@@ -43,6 +43,7 @@
 
 #include "gspawn.h"
 #include "gthread.h"
+#include "glib/gstdio.h"
 
 #include "genviron.h"
 #include "gmem.h"
@@ -149,23 +150,16 @@ g_spawn_async (const gchar          *working_directory,
  * on a file descriptor twice, and another thread has
  * re-opened it since the first close)
  */
-static gint
+static void
 close_and_invalidate (gint *fd)
 {
-  gint ret;
-
   if (*fd < 0)
-    return -1;
+    return;
   else
     {
-    again:
-      ret = close (*fd);
-      if (ret == -1 && errno == EINTR)
-	goto again;
+      (void) g_close (*fd, NULL);
       *fd = -1;
     }
-
-  return ret;
 }
 
 /* Some versions of OS X define READ_OK in public headers */
@@ -415,7 +409,7 @@ g_spawn_sync (const gchar          *working_directory,
         {
           if (exit_status)
             {
-              g_warning ("In call to g_spawn_sync(), exit status of a child process was requested but SIGCHLD action was set to SIG_IGN and ECHILD was received by waitpid(), so exit status can't be returned. This is a bug in the program calling g_spawn_sync(); either don't request the exit status, or don't set the SIGCHLD action.");
+              g_warning ("In call to g_spawn_sync(), exit status of a child process was requested but ECHILD was received by waitpid(). Most likely the process is ignoring SIGCHLD, or some other thread is invoking waitpid() with a nonpositive first argument; either behavior can break applications that use g_spawn_sync either directly or indirectly.");
             }
           else
             {

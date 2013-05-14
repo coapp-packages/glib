@@ -487,7 +487,7 @@ test_uri_query_info (void)
   g_resource_unref (resource);
 }
 
-void
+static void
 test_uri_file (void)
 {
   GResource *resource;
@@ -630,7 +630,6 @@ int
 main (int   argc,
       char *argv[])
 {
-  g_type_init ();
   g_test_init (&argc, &argv, NULL);
 
   _g_test2_register_resource ();

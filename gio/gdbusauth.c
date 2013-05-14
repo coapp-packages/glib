@@ -39,14 +39,14 @@
 #include "gdataoutputstream.h"
 
 #ifdef G_OS_UNIX
-#include <sys/types.h>
-#include <sys/socket.h>
+#include "gnetworking.h"
 #include "gunixconnection.h"
 #include "gunixcredentialsmessage.h"
 #endif
 
 #include "glibintl.h"
 
+G_GNUC_PRINTF(1, 2)
 static void
 debug_print (const gchar *message, ...)
 {
@@ -1030,6 +1030,7 @@ _g_dbus_auth_run_server (GDBusAuth              *auth,
 #else
   local_error = NULL;
   byte = g_data_input_stream_read_byte (dis, cancellable, &local_error);
+  byte = byte; /* To avoid -Wunused-but-set-variable */
   if (local_error != NULL)
     {
       g_propagate_error (error, local_error);

@@ -29,6 +29,7 @@
 #include "ginitable.h"
 #include "giomodule-priv.h"
 #include "glibintl.h"
+#include "glib/gstdio.h"
 #include "gnetworkingprivate.h"
 #include "gnetworkmonitor.h"
 #include "gsocket.h"
@@ -83,13 +84,13 @@ g_network_monitor_netlink_initable_init (GInitable     *initable,
                                          GError       **error)
 {
   GNetworkMonitorNetlink *nl = G_NETWORK_MONITOR_NETLINK (initable);
-  gint sockfd, val;
+  gint sockfd;
   struct sockaddr_nl snl;
 
   /* We create the socket the old-school way because sockaddr_netlink
    * can't be represented as a GSocketAddress
    */
-  sockfd = socket (PF_NETLINK, SOCK_RAW, NETLINK_ROUTE);
+  sockfd = g_socket (PF_NETLINK, SOCK_RAW, NETLINK_ROUTE, NULL);
   if (sockfd == -1)
     {
       int errsv = errno;
@@ -108,18 +109,7 @@ g_network_monitor_netlink_initable_init (GInitable     *initable,
       g_set_error (error, G_IO_ERROR, g_io_error_from_errno (errsv),
                    _("Could not create network monitor: %s"),
                    g_strerror (errno));
-      close (sockfd);
-      return FALSE;
-    }
-
-  val = 1;
-  if (setsockopt (sockfd, SOL_SOCKET, SO_PASSCRED, &val, sizeof (val)) != 0)
-    {
-      int errsv = errno;
-      g_set_error (error, G_IO_ERROR, g_io_error_from_errno (errsv),
-                   _("Could not create network monitor: %s"),
-                   g_strerror (errno));
-      close (sockfd);
+      (void) g_close (sockfd, NULL);
       return FALSE;
     }
 
@@ -127,7 +117,17 @@ g_network_monitor_netlink_initable_init (GInitable     *initable,
   if (error)
     {
       g_prefix_error (error, "%s", _("Could not create network monitor: "));
-      close (sockfd);
+      (void) g_close (sockfd, NULL);
+      return FALSE;
+    }
+
+  if (!g_socket_set_option (nl->priv->sock, SOL_SOCKET, SO_PASSCRED,
+			    TRUE, NULL))
+    {
+      int errsv = errno;
+      g_set_error (error, G_IO_ERROR, g_io_error_from_errno (errsv),
+                   _("Could not create network monitor: %s"),
+                   g_strerror (errno));
       return FALSE;
     }
 

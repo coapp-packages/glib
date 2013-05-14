@@ -99,6 +99,7 @@ g_type_remove_interface_check
 GTypeInterfaceCheckFunc
 g_type_value_table_peek
 g_type_ensure
+g_type_get_type_registration_serial
 
 G_DEFINE_TYPE
 G_DEFINE_TYPE_WITH_CODE
@@ -372,7 +373,10 @@ G_TYPE_VARIANT_BUILDER
 G_TYPE_KEY_FILE
 G_TYPE_MAIN_CONTEXT
 G_TYPE_MAIN_LOOP
+G_TYPE_MARKUP_PARSE_CONTEXT
 G_TYPE_SOURCE
+G_TYPE_POLLFD
+G_TYPE_THREAD
 GStrv
 
 <SUBSECTION Standard>
@@ -398,6 +402,7 @@ g_gtype_get_type
 g_main_context_get_type
 g_main_loop_get_type
 g_source_get_type
+g_pollfd_get_type
 g_bytes_get_type
 g_key_file_get_type
 </SECTION>

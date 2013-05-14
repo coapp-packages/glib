@@ -35,7 +35,7 @@
 /* for g_unlink() */
 #include <glib/gstdio.h>
 
-#include <gio/gnetworkingprivate.h>
+#include <gio/gnetworking.h>
 #include <gio/gunixsocketaddress.h>
 #include <gio/gunixfdlist.h>
 
@@ -43,6 +43,13 @@
 #ifdef G_OS_UNIX
 #include <gio/gunixconnection.h>
 #include <errno.h>
+#endif
+
+#if (defined(__linux__) || \
+  defined(__FreeBSD__) || \
+  defined(__FreeBSD_kernel__) || \
+  defined(__OpenBSD__))
+#define SHOULD_HAVE_CREDENTIALS_PASSING
 #endif
 
 #include "gdbus-tests.h"
@@ -302,6 +309,20 @@ on_new_connection (GDBusServer *server,
   //         g_dbus_connection_get_capabilities (connection) & G_DBUS_CAPABILITY_FLAGS_UNIX_FD_PASSING);
 
   g_ptr_array_add (data->current_connections, g_object_ref (connection));
+
+#ifdef SHOULD_HAVE_CREDENTIALS_PASSING
+    {
+      GCredentials *credentials;
+
+      credentials = g_dbus_connection_get_peer_credentials (connection);
+
+      g_assert (credentials != NULL);
+      g_assert_cmpuint (g_credentials_get_unix_user (credentials, NULL), ==,
+                        getuid ());
+      g_assert_cmpuint (g_credentials_get_unix_pid (credentials, NULL), ==,
+                        getpid ());
+    }
+#endif
 
   /* export object on the newly established connection */
   error = NULL;
@@ -1682,7 +1703,7 @@ codegen_service_thread_func (gpointer user_data)
 }
 
 
-gboolean
+static gboolean
 codegen_quit_mainloop_timeout (gpointer data)
 {
   g_main_loop_quit (loop);
@@ -1801,7 +1822,6 @@ main (int   argc,
   GDBusNodeInfo *introspection_data = NULL;
   gchar *tmpdir = NULL;
 
-  g_type_init ();
   g_test_init (&argc, &argv, NULL);
 
   introspection_data = g_dbus_node_info_new_for_xml (test_interface_introspection_xml, NULL);

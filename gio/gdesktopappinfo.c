@@ -33,6 +33,9 @@
 
 #include "gcontenttypeprivate.h"
 #include "gdesktopappinfo.h"
+#ifdef G_OS_UNIX
+#include "glib-unix.h"
+#endif
 #include "gfile.h"
 #include "gioerror.h"
 #include "gthemedicon.h"
@@ -91,6 +94,8 @@ struct _GDesktopAppInfo
 
   char *desktop_id;
   char *filename;
+
+  GKeyFile *keyfile;
 
   char *name;
   char *generic_name;
@@ -171,6 +176,10 @@ g_desktop_app_info_finalize (GObject *object)
 
   g_free (info->desktop_id);
   g_free (info->filename);
+
+  if (info->keyfile)
+    g_key_file_unref (info->keyfile);
+
   g_free (info->name);
   g_free (info->generic_name);
   g_free (info->fullname);
@@ -213,10 +222,10 @@ g_desktop_app_info_set_property(GObject         *object,
 }
 
 static void
-g_desktop_app_info_get_property(GObject         *object,
-				guint            prop_id,
-				GValue          *value,
-				GParamSpec      *pspec)
+g_desktop_app_info_get_property (GObject    *object,
+                                 guint       prop_id,
+                                 GValue     *value,
+                                 GParamSpec *pspec)
 {
   GDesktopAppInfo *self = G_DESKTOP_APP_INFO (object);
 
@@ -280,6 +289,7 @@ g_desktop_app_info_load_from_keyfile (GDesktopAppInfo *info,
   char *start_group;
   char *type;
   char *try_exec;
+  char *exec;
 
   start_group = g_key_file_get_start_group (key_file);
   if (start_group == NULL || strcmp (start_group, G_KEY_FILE_DESKTOP_GROUP) != 0)
@@ -316,6 +326,36 @@ g_desktop_app_info_load_from_keyfile (GDesktopAppInfo *info,
       g_free (t);
     }
 
+  exec = g_key_file_get_string (key_file,
+                                G_KEY_FILE_DESKTOP_GROUP,
+                                G_KEY_FILE_DESKTOP_KEY_EXEC,
+                                NULL);
+  if (exec && exec[0] != '\0')
+    {
+      gint argc;
+      char **argv;
+      if (!g_shell_parse_argv (exec, &argc, &argv, NULL))
+        {
+          g_free (exec);
+          g_free (try_exec);
+          return FALSE;
+        }
+      else
+        {
+          char *t;
+          t = g_find_program_in_path (argv[0]);
+          g_strfreev (argv);
+
+          if (t == NULL)
+            {
+              g_free (exec);
+              g_free (try_exec);
+              return FALSE;
+            }
+          g_free (t);
+        }
+    }
+
   info->name = g_key_file_get_locale_string (key_file, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_NAME, NULL, NULL);
   info->generic_name = g_key_file_get_locale_string (key_file, G_KEY_FILE_DESKTOP_GROUP, GENERIC_NAME_KEY, NULL, NULL);
   info->fullname = g_key_file_get_locale_string (key_file, G_KEY_FILE_DESKTOP_GROUP, FULL_NAME_KEY, NULL, NULL);
@@ -326,7 +366,7 @@ g_desktop_app_info_load_from_keyfile (GDesktopAppInfo *info,
   info->only_show_in = g_key_file_get_string_list (key_file, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_ONLY_SHOW_IN, NULL, NULL);
   info->not_show_in = g_key_file_get_string_list (key_file, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_NOT_SHOW_IN, NULL, NULL);
   info->try_exec = try_exec;
-  info->exec = g_key_file_get_string (key_file, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_EXEC, NULL);
+  info->exec = exec;
   info->path = g_key_file_get_string (key_file, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_PATH, NULL);
   info->terminal = g_key_file_get_boolean (key_file, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_TERMINAL, NULL) != FALSE;
   info->startup_notify = g_key_file_get_boolean (key_file, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_STARTUP_NOTIFY, NULL) != FALSE;
@@ -371,6 +411,8 @@ g_desktop_app_info_load_from_keyfile (GDesktopAppInfo *info,
       info->path = NULL;
     }
 
+  info->keyfile = g_key_file_ref (key_file);
+
   return TRUE;
 }
 
@@ -379,11 +421,11 @@ g_desktop_app_info_load_file (GDesktopAppInfo *self)
 {
   GKeyFile *key_file;
   gboolean retval = FALSE;
-  
+
   g_return_val_if_fail (self->filename != NULL, FALSE);
 
   key_file = g_key_file_new ();
-  
+
   if (g_key_file_load_from_file (key_file,
 				 self->filename,
 				 G_KEY_FILE_NONE,
@@ -392,14 +434,14 @@ g_desktop_app_info_load_file (GDesktopAppInfo *self)
       retval = g_desktop_app_info_load_from_keyfile (self, key_file);
     }
 
-  g_key_file_free (key_file);
+  g_key_file_unref (key_file);
   return retval;
 }
 
 /**
  * g_desktop_app_info_new_from_keyfile:
  * @key_file: an opened #GKeyFile
- * 
+ *
  * Creates a new #GDesktopAppInfo.
  *
  * Returns: a new #GDesktopAppInfo or %NULL on error.
@@ -488,7 +530,7 @@ g_desktop_app_info_new (const char *desktop_id)
       while ((p = strchr (p, '-')) != NULL)
 	{
 	  *p = '/';
-	  
+
 	  filename = g_build_filename (dirs[i], basename, NULL);
 	  appinfo = g_desktop_app_info_new_from_filename (filename);
 	  g_free (filename);
@@ -498,7 +540,7 @@ g_desktop_app_info_new (const char *desktop_id)
 	  p++;
 	}
     }
-  
+
   g_free (basename);
   return NULL;
 
@@ -526,7 +568,10 @@ g_desktop_app_info_dup (GAppInfo *appinfo)
 
   new_info->filename = g_strdup (info->filename);
   new_info->desktop_id = g_strdup (info->desktop_id);
-  
+
+  if (info->keyfile)
+    new_info->keyfile = g_key_file_ref (info->keyfile);
+
   new_info->name = g_strdup (info->name);
   new_info->generic_name = g_strdup (info->generic_name);
   new_info->fullname = g_strdup (info->fullname);
@@ -1347,6 +1392,20 @@ _g_desktop_app_info_launch_uris_internal (GAppInfo                   *appinfo,
       if (pid_callback != NULL)
 	pid_callback (info, pid, pid_callback_data);
 
+      if (launch_context != NULL)
+        {
+          GVariantBuilder builder;
+          GVariant *platform_data;
+
+          g_variant_builder_init (&builder, G_VARIANT_TYPE_ARRAY);
+          g_variant_builder_add (&builder, "{sv}", "pid", g_variant_new_int32 (pid));
+          if (sn_id)
+            g_variant_builder_add (&builder, "{sv}", "startup-notification-id", g_variant_new_string (sn_id));
+          platform_data = g_variant_ref_sink (g_variant_builder_end (&builder));
+          g_signal_emit_by_name (launch_context, "launched", info, platform_data);
+          g_variant_unref (platform_data);
+        }
+
       notify_desktop_launch (session_bus,
 			     info,
 			     pid,
@@ -2075,7 +2134,8 @@ g_desktop_app_info_ensure_saved (GDesktopAppInfo  *info,
 
   desktop_id = g_path_get_basename (filename);
 
-  close (fd);
+  /* FIXME - actually handle error */
+  (void) g_close (fd, NULL);
   
   res = g_file_set_contents (filename, data, data_size, error);
   g_free (data);
@@ -3442,4 +3502,74 @@ g_desktop_app_info_get_startup_wm_class (GDesktopAppInfo *info)
   g_return_val_if_fail (G_IS_DESKTOP_APP_INFO (info), NULL);
 
   return info->startup_wm_class;
+}
+
+/**
+ * g_desktop_app_info_get_string:
+ * @info: a #GDesktopAppInfo
+ * @key: the key to look up
+ *
+ * Looks up a string value in the keyfile backing @info.
+ *
+ * The @key is looked up in the "Desktop Entry" group.
+ *
+ * Returns: a newly allocated string, or %NULL if the key
+ *     is not found
+ *
+ * Since: 2.36
+ */
+char *
+g_desktop_app_info_get_string (GDesktopAppInfo *info,
+                               const char      *key)
+{
+  g_return_val_if_fail (G_IS_DESKTOP_APP_INFO (info), NULL);
+
+  return g_key_file_get_string (info->keyfile,
+                                G_KEY_FILE_DESKTOP_GROUP, key, NULL);
+}
+
+/**
+ * g_desktop_app_info_get_boolean:
+ * @info: a #GDesktopAppInfo
+ * @key: the key to look up
+ *
+ * Looks up a boolean value in the keyfile backing @info.
+ *
+ * The @key is looked up in the "Desktop Entry" group.
+ *
+ * Returns: the boolean value, or %FALSE if the key
+ *     is not found
+ *
+ * Since: 2.36
+ */
+gboolean
+g_desktop_app_info_get_boolean (GDesktopAppInfo *info,
+                                const char      *key)
+{
+  g_return_val_if_fail (G_IS_DESKTOP_APP_INFO (info), FALSE);
+
+  return g_key_file_get_boolean (info->keyfile,
+                                 G_KEY_FILE_DESKTOP_GROUP, key, NULL);
+}
+
+/**
+ * g_desktop_app_info_has_key:
+ * @info: a #GDesktopAppInfo
+ * @key: the key to look up
+ *
+ * Returns whether @key exists in the "Desktop Entry" group
+ * of the keyfile backing @info.
+ *
+ * Returns: %TRUE if the @key exists
+ *
+ * Since: 2.26
+ */
+gboolean
+g_desktop_app_info_has_key (GDesktopAppInfo *info,
+                            const char      *key)
+{
+  g_return_val_if_fail (G_IS_DESKTOP_APP_INFO (info), FALSE);
+
+  return g_key_file_has_key (info->keyfile,
+                             G_KEY_FILE_DESKTOP_GROUP, key, NULL);
 }

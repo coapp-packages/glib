@@ -5,6 +5,15 @@
 /* Define if building universal (internal helper macro) */
 /* #undef AC_APPLE_UNIVERSAL_BUILD */
 
+/* The normal alignment of `guint32', in bytes. */
+#define ALIGNOF_GUINT32 4
+
+/* The normal alignment of `guint64', in bytes. */
+#define ALIGNOF_GUINT64 8
+
+/* The normal alignment of `unsigned long', in bytes. */
+#define ALIGNOF_UNSIGNED_LONG 4
+
 /* poll doesn't work on devices */
 #define BROKEN_POLL 1
 
@@ -80,9 +89,6 @@
    */
 /* #undef HAVE_ALLOCA_H */
 
-/* Define to 1 if you have the <arpa/nameser_compat.h> header file. */
-/* #undef HAVE_ARPA_NAMESER_COMPAT_H */
-
 /* Define to 1 if you have the `atexit' function. */
 #define HAVE_ATEXIT 1
 
@@ -109,6 +115,9 @@
 /* Define to 1 if you have the `clock_gettime' function. */
 /* #undef HAVE_CLOCK_GETTIME */
 
+/* define to 1 if Cocoa is available */
+/* #undef HAVE_COCOA */
+
 /* Have nl_langinfo (CODESET) */
 /* #undef HAVE_CODESET */
 
@@ -121,7 +130,8 @@
 /* Define to 1 if you have the `dcgettext' function. */
 #define HAVE_DCGETTEXT 1
 
-/* Define to 1 if you have the <dirent.h> header file. */
+/* Define to 1 if you have the <dirent.h> header file, and it defines `DIR'.
+   */
 #ifndef _MSC_VER
 #define HAVE_DIRENT_H 1
 #else
@@ -200,6 +210,9 @@
 /* Define to 1 if you have the `getpwuid' function. */
 /* #undef HAVE_GETPWUID */
 
+/* Define to 1 if you have the `getresuid' function. */
+/* #undef HAVE_GETRESUID */
+
 /* Define if the GNU gettext() function is already present or preinstalled. */
 #define HAVE_GETTEXT 1
 
@@ -259,6 +272,15 @@
 /* Define if we have struct ip_mreqn */
 /* #undef HAVE_IP_MREQN */
 
+/* Define to 1 if you have the `issetugid' function. */
+/* #undef HAVE_ISSETUGID */
+
+/* Define to 1 if you have the `kevent' function. */
+/* #undef HAVE_KEVENT */
+
+/* Define to 1 if you have the `kqueue' function. */
+/* #undef HAVE_KQUEUE */
+
 /* Define if you have <langinfo.h> and nl_langinfo(CODESET). */
 /* #undef HAVE_LANGINFO_CODESET */
 
@@ -276,6 +298,9 @@
 
 /* Define if your <locale.h> file defines LC_MESSAGES. */
 /* #undef HAVE_LC_MESSAGES */
+
+/* Define if you have the __libc_enable_secure variable (GNU libc, eglibc) */
+/* #undef HAVE_LIBC_ENABLE_SECURE */
 
 /* Define if libelf is available */
 /* #undef HAVE_LIBELF */
@@ -334,9 +359,6 @@
 
 /* Define to 1 if you have the <ndir.h> header file, and it defines `DIR'. */
 /* #undef HAVE_NDIR_H */
-
-/* Define to 1 if you have the <netdb.h> header file. */
-/* #undef HAVE_NETDB_H */
 
 /* We have AF_NETLINK sockets */
 /* #undef HAVE_NETLINK */
@@ -484,11 +506,14 @@
 /* #undef HAVE_STRLCPY */
 
 /* Define to 1 if you have the `strncasecmp' function. */
-#if !defined(_MSC_VER) && !defined(__DMC__)
+#if !defined(__DMC__)
+#if defined(_MSC_VER)
+#define strncasecmp _strnicmp
+#endif /* _MSC_VER uses _strnicmp, which is identical to strncasecmp */
 #define HAVE_STRNCASECMP 1
-#else /* _MSC_VER or __DMC__ */
+#else /* __DMC__ */
 /* #undef HAVE_STRNCASECMP */
-#endif /* _MSC_VER or __DMC__ */
+#endif /* __DMC__ */
 
 /* Define to 1 if you have the `strsignal' function. */
 /* #undef HAVE_STRSIGNAL */
@@ -550,12 +575,27 @@
 /* Define to 1 if you have the `symlink' function. */
 /* #undef HAVE_SYMLINK */
 
+/* Define to 1 if you have the `sysctlbyname' function. */
+/* #undef HAVE_SYSCTLBYNAME */
+
 /* Define to 1 if you have the <sys/dir.h> header file, and it defines `DIR'.
    */
 /* #undef HAVE_SYS_DIR_H */
 
+/* Define to 1 if you have the <sys/event.h> header file. */
+/* #undef HAVE_SYS_EVENT_H */
+
+/* Define to 1 if you have the <sys/event.h> header file. */
+/* #undef HAVE_SYS_EVENT_H */
+
+/* Define to 1 if you have the <sys/filio.h> header file. */
+/* #undef HAVE_SYS_FILIO_H */
+
 /* Define to 1 if you have the <sys/inotify.h> header file. */
 /* #undef HAVE_SYS_INOTIFY_H */
+
+/* Define to 1 if you have the <sys/ioctl.h> header file. */
+/* #undef HAVE_SYS_IOCTL_H */
 
 /* Define to 1 if you have the <sys/mkdev.h> header file. */
 /* #undef HAVE_SYS_MKDEV_H */
@@ -699,13 +739,6 @@
 /* Have a working bcopy */
 /* #undef HAVE_WORKING_BCOPY */
 
-/* Define to 1 if you have the <wspiapi.h> header file. */
-#ifndef _MSC_VER
-/* #undef HAVE_WSPIAPI_H */
-#else
-#define HAVE_WSPIAPI_H 1
-#endif
-
 /* Define to 1 if xattr is available */
 /* #undef HAVE_XATTR */
 
@@ -842,11 +875,17 @@
 /* Number of bits in a file offset, on hosts where this is settable. */
 /* #undef _FILE_OFFSET_BITS */
 
+/* defines how to decorate public symbols while building */
+#define _GLIB_EXTERN __declspec (dllexport)
+
 /* Make all glibc extensions visible */
 /* #undef _GNU_SOURCE */
 
 /* Define for large files, on AIX-style hosts. */
 /* #undef _LARGE_FILES */
+
+/* Target the Windows XP API */
+#define _WIN32_WINNT 0x0501
 
 /* Needed to get declarations for msg_control and msg_controllen on Solaris */
 /* #undef _XOPEN_SOURCE */
@@ -856,6 +895,9 @@
 
 /* Needed to get declarations for msg_control and msg_controllen on Solaris */
 /* #undef __EXTENSIONS__ */
+
+/* compiler supports atomic operations */
+/* #undef __GCC_HAVE_SYNC_COMPARE_AND_SWAP_4 */
 
 /* Define to empty if `const' does not conform to ANSI C. */
 /* #undef const */

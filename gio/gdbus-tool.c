@@ -31,6 +31,10 @@
 
 #include <gi18n.h>
 
+#ifdef G_OS_WIN32
+#include "glib/glib-private.h"
+#endif
+
 /* ---------------------------------------------------------------------------------------------------- */
 
 G_GNUC_UNUSED static void completion_debug (const gchar *format, ...);
@@ -1927,13 +1931,15 @@ main (gint argc, gchar *argv[])
   gboolean request_completion;
   gchar *completion_cur;
   gchar *completion_prev;
+#ifdef G_OS_WIN32
+  gchar *tmp;
+#endif
 
   setlocale (LC_ALL, "");
   textdomain (GETTEXT_PACKAGE);
 
 #ifdef G_OS_WIN32
-  extern gchar *_glib_get_locale_dir (void);
-  gchar *tmp = _glib_get_locale_dir ();
+  tmp = _glib_get_locale_dir ();
   bindtextdomain (GETTEXT_PACKAGE, tmp);
   g_free (tmp);
 #else
@@ -1947,8 +1953,6 @@ main (gint argc, gchar *argv[])
   ret = 1;
   completion_cur = NULL;
   completion_prev = NULL;
-
-  g_type_init ();
 
   if (argc < 2)
     {

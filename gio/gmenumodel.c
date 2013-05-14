@@ -19,6 +19,8 @@
  * Author: Ryan Lortie <desrt@desrt.ca>
  */
 
+#include "config.h"
+
 #include "gmenumodel.h"
 
 /**
@@ -195,6 +197,8 @@ typedef struct
 
 typedef GMenuLinkIterClass GMenuLinkHashIterClass;
 
+static GType g_menu_link_hash_iter_get_type (void);
+
 G_DEFINE_TYPE (GMenuLinkHashIter, g_menu_link_hash_iter, G_TYPE_MENU_LINK_ITER)
 
 static gboolean
@@ -249,6 +253,8 @@ typedef struct
 
 typedef GMenuAttributeIterClass GMenuAttributeHashIterClass;
 
+static GType g_menu_attribute_hash_iter_get_type (void);
+
 G_DEFINE_TYPE (GMenuAttributeHashIter, g_menu_attribute_hash_iter, G_TYPE_MENU_ATTRIBUTE_ITER)
 
 static gboolean
@@ -297,7 +303,7 @@ g_menu_attribute_hash_iter_class_init (GMenuAttributeHashIterClass *class)
 G_DEFINE_ABSTRACT_TYPE (GMenuModel, g_menu_model, G_TYPE_OBJECT)
 
 
-guint g_menu_model_items_changed_signal;
+static guint g_menu_model_items_changed_signal;
 
 static GMenuAttributeIter *
 g_menu_model_real_iterate_item_attributes (GMenuModel *model,

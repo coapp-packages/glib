@@ -24,9 +24,20 @@
 #include "gapplicationcommandline.h"
 
 #include "glibintl.h"
+#include "gfile.h"
 
 #include <string.h>
 #include <stdio.h>
+
+#ifdef G_OS_UNIX
+#include "gunixinputstream.h"
+#endif
+
+#ifdef G_OS_WIN32
+#include <windows.h>
+#undef environ
+#include "gwin32inputstream.h"
+#endif
 
 G_DEFINE_TYPE (GApplicationCommandLine, g_application_command_line, G_TYPE_OBJECT)
 
@@ -187,6 +198,16 @@ g_application_command_line_real_printerr_literal (GApplicationCommandLine *cmdli
   g_printerr ("%s", message);
 }
 
+static GInputStream *
+g_application_command_line_real_get_stdin (GApplicationCommandLine *cmdline)
+{
+#ifdef G_OS_UNIX
+  return g_unix_input_stream_new (0, FALSE);
+#else
+  return g_win32_input_stream_new (GetStdHandle (STD_INPUT_HANDLE), FALSE);
+#endif
+}
+
 static void
 g_application_command_line_get_property (GObject    *object,
                                          guint       prop_id,
@@ -295,6 +316,7 @@ g_application_command_line_class_init (GApplicationCommandLineClass *class)
 
   class->printerr_literal = g_application_command_line_real_printerr_literal;
   class->print_literal = g_application_command_line_real_print_literal;
+  class->get_stdin = g_application_command_line_real_get_stdin;
 
   g_object_class_install_property (object_class, PROP_ARGUMENTS,
     g_param_spec_variant ("arguments",
@@ -355,6 +377,31 @@ g_application_command_line_get_arguments (GApplicationCommandLine *cmdline,
     *argc = len;
 
   return argv;
+}
+
+/**
+ * g_application_command_line_get_stdin:
+ * @cmdline: a #GApplicationCommandLine
+ *
+ * Gets the stdin of the invoking process.
+ *
+ * The #GInputStream can be used to read data passed to the standard
+ * input of the invoking process.
+ * This doesn't work on all platforms.  Presently, it is only available
+ * on UNIX when using a DBus daemon capable of passing file descriptors.
+ * If stdin is not available then %NULL will be returned.  In the
+ * future, support may be expanded to other platforms.
+ *
+ * You must only call this function once per commandline invocation.
+ *
+ * Returns: (transfer full): a #GInputStream for stdin
+ *
+ * Since: 2.34
+ **/
+GInputStream *
+g_application_command_line_get_stdin (GApplicationCommandLine *cmdline)
+{
+  return G_APPLICATION_COMMAND_LINE_GET_CLASS (cmdline)->get_stdin (cmdline);
 }
 
 /**
@@ -618,4 +665,35 @@ g_application_command_line_get_platform_data (GApplicationCommandLine *cmdline)
     return g_variant_ref (cmdline->priv->platform_data);
   else
       return NULL;
+}
+
+/**
+ * g_application_command_line_create_file_for_arg:
+ * @cmdline: a #GApplicationCommandLine
+ * @arg: an argument from @cmdline
+ *
+ * Creates a #GFile corresponding to a filename that was given as part
+ * of the invocation of @cmdline.
+ *
+ * This differs from g_file_new_for_commandline_arg() in that it
+ * resolves relative pathnames using the current working directory of
+ * the invoking process rather than the local process.
+ *
+ * Returns: (transfer full): a new #GFile
+ *
+ * Since: 2.36
+ **/
+GFile *
+g_application_command_line_create_file_for_arg (GApplicationCommandLine *cmdline,
+                                                const gchar             *arg)
+{
+  g_return_val_if_fail (arg != NULL, NULL);
+
+  if (cmdline->priv->cwd)
+    return g_file_new_for_commandline_arg_and_cwd (arg, cmdline->priv->cwd);
+
+  g_warning ("Requested creation of GFile for commandline invocation that did not send cwd. "
+             "Using cwd of local process to resolve relative path names.");
+
+  return g_file_new_for_commandline_arg (arg);
 }

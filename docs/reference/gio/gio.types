@@ -135,3 +135,5 @@ g_menu_get_type
 g_menu_item_get_type
 g_test_dbus_get_type
 g_test_dbus_flags_get_type
+g_task_get_type
+g_simple_proxy_resolver_get_type

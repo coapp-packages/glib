@@ -7,13 +7,11 @@ AM_CPPFLAGS = 				\
 	@GLIB_DEBUG_FLAGS@ 		\
 	-DG_DISABLE_DEPRECATED
 
-gmodule.def: gmodule.symbols
-	$(AM_V_GEN) (echo EXPORTS; $(CPP) -P - <$(srcdir)/gmodule.symbols | sed -e '/^$$/d' -e 's/^/	/') > $(builddir)/gmodule.def
+AM_CFLAGS = $(GLIB_WARN_CFLAGS)
 
 EXTRA_DIST +=				\
 		makefile.msc.in 	\
 		gmoduleconf.h.in 	\
-		gmodule.symbols		\
 		gmodule-dl.c		\
 		gmodule-dld.c		\
 		gmodule-dyld.c		\
@@ -61,28 +59,17 @@ no_undefined = -no-undefined
 endif
 
 if OS_WIN32_AND_DLL_COMPILATION
-export_symbols = -export-symbols $(builddir)/gmodule.def
-gmodule_def = gmodule.def
-
 gmodule_win32_res = gmodule-win32-res.o
 gmodule_win32_res_ldflag = -Wl,$(gmodule_win32_res)
-
-install-def-file:
-	$(INSTALL) $(builddir)/gmodule.def $(DESTDIR)$(libdir)/gmodule-2.0.def
-
-uninstall-def-file:
-	-rm $(DESTDIR)$(libdir)/gmodule-2.0.def
-else
-install-def-file:
-uninstall-def-file:
 endif
 
+libgmodule_2_0_la_CFLAGS = $(AM_CFLAGS) $(GLIB_HIDDEN_VISIBILITY_CFLAGS)
 libgmodule_2_0_la_SOURCES = gmodule.c
 libgmodule_2_0_la_LDFLAGS = $(GLIB_LINK_FLAGS) \
 	$(gmodule_win32_res_ldflag) \
 	$(G_MODULE_LDFLAGS) \
 	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
-	-export-dynamic $(no_undefined) $(export_symbols)
+	-export-dynamic $(no_undefined)
 
 libgmodule_2_0_la_LIBADD = $(G_MODULE_LIBS_EXTRA) $(G_MODULE_LIBS) $(libglib)
 
@@ -111,9 +98,9 @@ dist-hook: $(BUILT_EXTRA_DIST)
 	  cp $$d/$$f $(distdir) || exit 1; done
 
 
-install-data-local: install-ms-lib install-def-file
+install-data-local: install-ms-lib
 
-uninstall-local: uninstall-ms-lib uninstall-def-file
+uninstall-local: uninstall-ms-lib
 
 if HAVE_GLIB_RUNTIME_LIBDIR
 install-data-hook:

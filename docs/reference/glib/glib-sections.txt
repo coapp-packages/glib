@@ -118,6 +118,8 @@ GLIB_VERSION_2_26
 GLIB_VERSION_2_28
 GLIB_VERSION_2_30
 GLIB_VERSION_2_32
+GLIB_VERSION_2_34
+GLIB_VERSION_2_36
 GLIB_VERSION_MIN_REQUIRED
 GLIB_VERSION_MAX_ALLOWED
 GLIB_DISABLE_DEPRECATION_WARNINGS
@@ -526,6 +528,12 @@ g_source_get_context
 g_source_set_callback
 GSourceFunc
 g_source_set_callback_indirect
+g_source_set_ready_time
+g_source_get_ready_time
+g_source_add_unix_fd
+g_source_remove_unix_fd
+g_source_modify_unix_fd
+g_source_query_unix_fd
 g_source_add_poll
 g_source_remove_poll
 g_source_add_child_source
@@ -647,6 +655,9 @@ g_bit_unlock
 g_pointer_bit_lock
 g_pointer_bit_trylock
 g_pointer_bit_unlock
+
+<SUBSECTION>
+g_get_num_processors
 
 <SUBSECTION Private>
 G_LOCK_NAME
@@ -897,6 +908,7 @@ g_io_channel_win32_get_fd
 g_io_channel_error_quark
 g_io_watch_funcs
 G_IO_FLAG_IS_WRITEABLE
+g_io_channel_error_quark
 </SECTION>
 
 <SECTION>
@@ -1099,6 +1111,7 @@ g_spawn_command_line_sync
 g_spawn_close_pid
 <SUBSECTION Private>
 g_spawn_error_quark
+g_spawn_exit_error_quark
 </SECTION>
 
 <SECTION>
@@ -1122,6 +1135,8 @@ g_markup_parse_context_new
 g_markup_parse_context_parse
 g_markup_parse_context_push
 g_markup_parse_context_pop
+g_markup_parse_context_ref
+g_markup_parse_context_unref
 <SUBSECTION>
 GMarkupCollectType
 g_markup_collect_attributes
@@ -1243,6 +1258,7 @@ g_access
 g_creat
 g_chdir
 g_utime
+g_close
 
 <SUBSECTION Private>
 g_file_error_quark
@@ -1994,10 +2010,18 @@ g_win32_ftruncate
 <FILE>gunix</FILE>
 G_UNIX_ERROR
 g_unix_open_pipe
+g_unix_set_fd_nonblocking
+
+<SUBSECTION>
 g_unix_signal_add
 g_unix_signal_add_full
 g_unix_signal_source_new
-g_unix_set_fd_nonblocking
+
+<SUBSECTION>
+GUnixFDSourceFunc
+g_unix_fd_add
+g_unix_fd_add_full
+g_unix_fd_source_new
 
 <SUBSECTION Private>
 g_unix_error_quark
@@ -2875,6 +2899,7 @@ g_compute_hmac_for_string
 g_test_minimized_result
 g_test_maximized_result
 g_test_init
+g_test_initialized
 g_test_quick
 g_test_slow
 g_test_thorough
@@ -3135,8 +3160,10 @@ g_variant_get_fixed_array
 <SUBSECTION>
 g_variant_get_size
 g_variant_get_data
+g_variant_get_data_as_bytes
 g_variant_store
 g_variant_new_from_data
+g_variant_new_from_bytes
 g_variant_byteswap
 g_variant_get_normal_form
 g_variant_is_normal_form

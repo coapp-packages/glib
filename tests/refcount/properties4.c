@@ -29,6 +29,7 @@ struct _MyBadgerClass
   GObjectClass parent_class;
 };
 
+static GType my_badger_get_type (void);
 G_DEFINE_TYPE (MyBadger, my_badger, G_TYPE_OBJECT);
 
 static void my_badger_dispose (GObject * object);
@@ -153,7 +154,6 @@ main (int argc, char **argv)
 
   g_print ("START: %s\n", argv[0]);
   g_log_set_always_fatal (G_LOG_LEVEL_WARNING | G_LOG_LEVEL_CRITICAL | g_log_set_always_fatal (G_LOG_FATAL_MASK));
-  g_type_init ();
 
   badger1 = g_object_new (MY_TYPE_BADGER, NULL);
   badger2 = g_object_new (MY_TYPE_BADGER, NULL);

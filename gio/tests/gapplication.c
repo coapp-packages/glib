@@ -61,6 +61,7 @@ spawn (const gchar *expected_stdout,
   gchar **args;
   va_list ap;
   GPid pid;
+  GPollFD fd;
 
   va_start (ap, first_arg);
   array = g_ptr_array_new ();
@@ -83,6 +84,14 @@ spawn (const gchar *expected_stdout,
 
   g_child_watch_add (pid, child_quit, data);
   outstanding_watches++;
+
+  /* we block until the children write to stdout to make sure
+   * they have started, as they need to be executed in order;
+   * see https://bugzilla.gnome.org/show_bug.cgi?id=664627
+   */
+  fd.fd = data->stdout_pipe;
+  fd.events = G_IO_IN | G_IO_HUP | G_IO_ERR;
+  g_poll (&fd, 1, -1);
 }
 
 static void
@@ -102,15 +111,9 @@ basic (void)
          "exit status: 0\n",
          "./app", NULL);
 
-  /* make sure it becomes the master */
-  g_usleep (100000);
-
   /* send it some files */
   spawn ("exit status: 0\n",
          "./app", "/a", "/b", NULL);
-
-  /* make sure the commandline arrives after the files */
-  g_usleep (100000);
 
   spawn ("40 + 2 = 42\n"
          "exit status: 42\n",
@@ -448,11 +451,64 @@ test_actions (void)
   g_object_unref (app);
 }
 
+typedef GApplication TestLocCmdApp;
+typedef GApplicationClass TestLocCmdAppClass;
+
+static GType test_loc_cmd_app_get_type (void);
+G_DEFINE_TYPE (TestLocCmdApp, test_loc_cmd_app, G_TYPE_APPLICATION)
+
+static void
+test_loc_cmd_app_init (TestLocCmdApp *app)
+{
+}
+
+static void
+test_loc_cmd_app_startup (GApplication *app)
+{
+  g_assert_not_reached ();
+}
+
+static void
+test_loc_cmd_app_shutdown (GApplication *app)
+{
+  g_assert_not_reached ();
+}
+
+static gboolean
+test_loc_cmd_app_local_command_line (GApplication   *application,
+                                     gchar        ***arguments,
+                                     gint           *exit_status)
+{
+  return TRUE;
+}
+
+static void
+test_loc_cmd_app_class_init (TestLocCmdAppClass *klass)
+{
+  G_APPLICATION_CLASS (klass)->startup = test_loc_cmd_app_startup;
+  G_APPLICATION_CLASS (klass)->shutdown = test_loc_cmd_app_shutdown;
+  G_APPLICATION_CLASS (klass)->local_command_line = test_loc_cmd_app_local_command_line;
+}
+
+static void
+test_local_command_line (void)
+{
+  gchar *argv[] = { "./unimportant", "-invalid", NULL };
+  GApplication *app;
+
+  g_unsetenv ("DBUS_SESSION_BUS_ADDRESS");
+
+  app = g_object_new (test_loc_cmd_app_get_type (),
+                      "application-id", "org.gtk.Unimportant",
+                      "flags", G_APPLICATION_FLAGS_NONE,
+                      NULL);
+  g_application_run (app, 1, argv);
+  g_object_unref (app);
+}
+
 int
 main (int argc, char **argv)
 {
-  g_type_init ();
-
   g_test_init (&argc, &argv, NULL);
 
   g_test_dbus_unset ();
@@ -465,6 +521,7 @@ main (int argc, char **argv)
   g_test_add_func ("/gapplication/app-id", appid);
   g_test_add_func ("/gapplication/quit", test_quit);
   g_test_add_func ("/gapplication/actions", test_actions);
+  g_test_add_func ("/gapplication/local-command-line", test_local_command_line);
 
   return g_test_run ();
 }

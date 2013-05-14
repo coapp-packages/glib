@@ -27,6 +27,10 @@
 #include <string.h>
 #include <stdlib.h>
 
+#ifdef G_OS_WIN32
+#include "glib/glib-private.h"
+#endif
+
 static gboolean
 contained (const gchar * const *items,
            const gchar         *item)
@@ -685,7 +689,6 @@ main (int argc, char **argv)
   const gchar *key;
 
 #ifdef G_OS_WIN32
-  extern gchar *_glib_get_locale_dir (void);
   gchar *tmp;
 #endif
 
@@ -719,7 +722,7 @@ main (int argc, char **argv)
 
       if (schema_source == NULL)
         {
-          g_printerr ("Could not load schemas from %s: %s\n", argv[2], error->message);
+          g_printerr (_("Could not load schemas from %s: %s\n"), argv[2], error->message);
           g_clear_error (&error);
 
           return 1;
@@ -771,8 +774,6 @@ main (int argc, char **argv)
 
   else
     return gsettings_help (FALSE, argv[1]);
-
-  g_type_init ();
 
   if (argc > 2)
     {

@@ -40,6 +40,10 @@
 #include <glib/gstdio.h>
 #include <gi18n.h>
 
+#ifdef G_OS_WIN32
+#include "glib/glib-private.h"
+#endif
+
 /* GResource functions {{{1 */
 static GResource *
 get_resource (const gchar *file)
@@ -583,7 +587,6 @@ main (int argc, char *argv[])
   void (* function) (const gchar *, const gchar *, const gchar *, gboolean);
 
 #ifdef G_OS_WIN32
-  extern gchar *_glib_get_locale_dir (void);
   gchar *tmp;
 #endif
 
@@ -601,8 +604,6 @@ main (int argc, char *argv[])
 #ifdef HAVE_BIND_TEXTDOMAIN_CODESET
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 #endif
-
-  g_type_init ();
 
   if (argc < 2)
     return cmd_help (FALSE, NULL);

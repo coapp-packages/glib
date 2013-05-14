@@ -582,13 +582,12 @@ main (int   argc,
   GError *error;
   gint ret;
 
-  g_type_init ();
   g_test_init (&argc, &argv, NULL);
 
   session_bus_up ();
 
   /* this is safe; testserver will exit once the bus goes away */
-  g_assert (g_spawn_command_line_async (SRCDIR "/gdbus-testserver.py", NULL));
+  g_assert (g_spawn_command_line_async ("./gdbus-testserver", NULL));
 
   /* wait for the service to come up */
   usleep (500 * 1000);

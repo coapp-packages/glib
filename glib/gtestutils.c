@@ -106,6 +106,16 @@
  */
 
 /**
+ * g_test_initialized:
+ *
+ * Returns %TRUE if g_test_init() has been called.
+ *
+ * Returns: %TRUE if g_test_init() has been called.
+ *
+ * Since: 2.36
+ */
+
+/**
  * g_test_quick:
  *
  * Returns %TRUE if tests are run in quick mode.
@@ -574,7 +584,12 @@ g_test_log_send (guint         n_bytes,
         {
           g_printerr (":(");
           for (ui = 0; ui < msg->n_nums; ui++)
-            g_printerr ("%s%.16Lg", ui ? ";" : "", msg->nums[ui]);
+            {
+              if ((long double) (long) msg->nums[ui] == msg->nums[ui])
+                g_printerr ("%s%ld", ui ? ";" : "", (long) msg->nums[ui]);
+              else
+                g_printerr ("%s%.16g", ui ? ";" : "", (double) msg->nums[ui]);
+            }
           g_printerr (")");
         }
       g_printerr (":LOG*}\n");
@@ -618,6 +633,7 @@ g_test_log (GTestLogType lbit,
         g_print ("(MAXPERF:%s)\n", string1);
       break;
     case G_TEST_LOG_MESSAGE:
+    case G_TEST_LOG_ERROR:
       if (g_test_verbose())
         g_print ("(MSG: %s)\n", string1);
       break;
@@ -1362,6 +1378,15 @@ g_test_create_case (const char       *test_name,
   return tc;
 }
 
+static gint
+find_suite (gconstpointer l, gconstpointer s)
+{
+  const GTestSuite *suite = l;
+  const gchar *str = s;
+
+  return strcmp (suite->name, str);
+}
+
 /**
  * GTestFixtureFunc:
  * @fixture: the test fixture
@@ -1411,8 +1436,18 @@ g_test_add_vtable (const char       *testpath,
         continue;       /* initial or duplicate slash */
       else if (!islast)
         {
-          GTestSuite *csuite = g_test_create_suite (seg);
-          g_test_suite_add_suite (suite, csuite);
+          GSList *l;
+          GTestSuite *csuite;
+          l = g_slist_find_custom (suite->suites, seg, find_suite);
+          if (l)
+            {
+              csuite = l->data;
+            }
+          else
+            {
+              csuite = g_test_create_suite (seg);
+              g_test_suite_add_suite (suite, csuite);
+            }
           suite = csuite;
         }
       else /* islast */
@@ -1901,11 +1936,12 @@ g_assertion_message_cmpnum (const char     *domain,
                             char            numtype)
 {
   char *s = NULL;
+
   switch (numtype)
     {
-    case 'i':   s = g_strdup_printf ("assertion failed (%s): (%.0Lf %s %.0Lf)", expr, arg1, cmp, arg2); break;
+    case 'i':   s = g_strdup_printf ("assertion failed (%s): (%" G_GINT64_MODIFIER "i %s %" G_GINT64_MODIFIER "i)", expr, (gint64) arg1, cmp, (gint64) arg2); break;
     case 'x':   s = g_strdup_printf ("assertion failed (%s): (0x%08" G_GINT64_MODIFIER "x %s 0x%08" G_GINT64_MODIFIER "x)", expr, (guint64) arg1, cmp, (guint64) arg2); break;
-    case 'f':   s = g_strdup_printf ("assertion failed (%s): (%.9Lg %s %.9Lg)", expr, arg1, cmp, arg2); break;
+    case 'f':   s = g_strdup_printf ("assertion failed (%s): (%.9g %s %.9g)", expr, (double) arg1, cmp, (double) arg2); break;
       /* ideally use: floats=%.7g double=%.17g */
     }
   g_assertion_message (domain, file, line, func, s);
@@ -1973,11 +2009,11 @@ g_assertion_message_error (const char     *domain,
  * @str1: (allow-none): a C string or %NULL
  * @str2: (allow-none): another C string or %NULL
  *
- * Compares @str1 and @str2 like strcmp(). Handles %NULL 
+ * Compares @str1 and @str2 like strcmp(). Handles %NULL
  * gracefully by sorting it before non-%NULL strings.
  * Comparing two %NULL pointers returns 0.
  *
- * Returns: -1, 0 or 1, if @str1 is <, == or > than @str2.
+ * Returns: an integer less than, equal to, or greater than zero, if @str1 is <, == or > than @str2.
  *
  * Since: 2.16
  */

@@ -14,20 +14,13 @@ CLEANFILES=
 
 AM_CPPFLAGS = 					\
 	-DG_LOG_DOMAIN=\"GLib-GObject\"		\
-	$(gthread_INCLUDES) 			\
+	$(glib_INCLUDES)			\
 	$(GLIB_DEBUG_FLAGS)			\
 	-DGOBJECT_COMPILATION
 
-gobject.def: gobject.symbols
-	$(AM_V_GEN) (echo EXPORTS; $(CPP) -P -DINCLUDE_VARIABLES -DINCLUDE_INTERNAL_SYMBOLS -DG_OS_WIN32 -DALL_FILES - <$(srcdir)/gobject.symbols | $(SED) -e '/^$$/d' -e 's/^/	/' -e 's/G_GNUC_[^ ]*//g' | sort) > $(builddir)/gobject.def
+AM_CFLAGS = $(GLIB_WARN_CFLAGS)
 
-if OS_LINUX
-if HAVE_GNUC_VISIBILITY
-TESTS = abicheck.sh
-endif
-endif
-
-libglib = $(top_builddir)/glib/libglib-2.0.la $(top_builddir)/gthread/libgthread-2.0.la
+libglib = $(top_builddir)/glib/libglib-2.0.la
 
 # libraries to compile and install
 lib_LTLIBRARIES = libgobject-2.0.la
@@ -52,36 +45,21 @@ no_undefined = -no-undefined
 endif
 
 if OS_WIN32_AND_DLL_COMPILATION
-export_symbols = -export-symbols $(builddir)/gobject.def
-gobject_def = gobject.def
-
 gobject_win32_res = gobject-win32-res.o
 gobject_win32_res_ldflag = -Wl,$(gobject_win32_res)
-
-install-def-file:
-	$(INSTALL) $(builddir)/gobject.def $(DESTDIR)$(libdir)/gobject-2.0.def
-
-uninstall-def-file:
-	-rm $(DESTDIR)$(libdir)/gobject-2.0.def
-else
-install-def-file:
-uninstall-def-file:
-
-export_symbols = $(LIBTOOL_EXPORT_OPTIONS)
 endif
 
-# libtool stuff: set version and export symbols for resolving
 libgobjectincludedir = $(includedir)/glib-2.0/gobject
 libgobject_2_0_la_LDFLAGS = $(GLIB_LINK_FLAGS) \
   $(gobject_win32_res_ldflag) \
   -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
-  -export-dynamic $(no_undefined) $(export_symbols)
+  -export-dynamic $(no_undefined)
 
-libgobject_2_0_la_CFLAGS = $(LIBFFI_CFLAGS)
+libgobject_2_0_la_CFLAGS = $(AM_CFLAGS) $(LIBFFI_CFLAGS) $(GLIB_HIDDEN_VISIBILITY_CFLAGS)
 
 libgobject_2_0_la_LIBADD = $(libglib) $(LIBFFI_LIBS)
 
-libgobject_2_0_la_DEPENDENCIES = $(gobject_win32_res) $(gobject_def)
+libgobject_2_0_la_DEPENDENCIES = $(gobject_win32_res)
 
 #
 # setup source file variables
@@ -159,8 +137,7 @@ endif
 # their own .lo rules and don't get publically installed
 gobject_extra_sources = \
 	gmarshal.list		\
-	gmarshal.strings	\
-	gobject.symbols
+	gmarshal.strings
 
 
 #
@@ -176,7 +153,7 @@ EXTRA_DIST += \
 
 # This is read by gobject-introspection/misc/ and gtk-doc
 gobject-public-headers.txt: Makefile
-	echo $(gobject_public_h_sources) > $@.tmp && mv $@.tmp $@
+	$(AM_V_GEN) echo $(gobject_public_h_sources) > $@.tmp && mv $@.tmp $@
 
 CLEANFILES += gobject-public-headers.txt
 
@@ -214,16 +191,13 @@ libgobject_2_0_la_SOURCES = $(gobject_target_sources)
 #
 bin_PROGRAMS = gobject-query glib-genmarshal
 bin_SCRIPTS = glib-mkenums
-noinst_PROGRAMS = testgobject
 # source files
 gobject_query_SOURCES = gobject-query.c
 glib_genmarshal_SOURCES = glib-genmarshal.c
-testgobject_SOURCES = testgobject.c
 # link programs against libgobject
 progs_LDADD = ./libgobject-2.0.la $(libglib)
 glib_genmarshal_LDADD = $(libglib)
 gobject_query_LDADD = $(progs_LDADD)
-testgobject_LDADD = $(progs_LDADD)
 
 #
 # auxillary files
@@ -232,8 +206,7 @@ EXTRA_DIST += 			\
 	makefile.msc.in 	\
 	gobject.rc.in		\
 	libgobject-gdb.py.in	\
-	glib-mkenums.in		\
-	abicheck.sh
+	glib-mkenums.in
 
 CLEANFILES += libgobject-gdb.py
 
@@ -283,9 +256,9 @@ dist-hook: $(BUILT_EXTRA_DIST) ../build/win32/vs9/gobject.vcproj ../build/win32/
 	$(CPP) -P - <$(top_srcdir)/build/win32/vs10/gobject.vcxproj.filtersin >$@
 	rm libgobject.vs10.sourcefiles.filters
 
-install-data-local: install-ms-lib install-def-file
+install-data-local: install-ms-lib
 
-uninstall-local: uninstall-ms-lib uninstall-def-file uninstall-gdb
+uninstall-local: uninstall-ms-lib uninstall-gdb
 
 distclean-local:
 	if test $(srcdir) = .; then :; else \

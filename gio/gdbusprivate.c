@@ -39,6 +39,7 @@
 #include "ginputstream.h"
 #include "gmemoryinputstream.h"
 #include "giostream.h"
+#include "glib/gstdio.h"
 #include "gsocketcontrolmessage.h"
 #include "gsocketconnection.h"
 #include "gsocketoutputstream.h"
@@ -621,7 +622,7 @@ _g_dbus_worker_do_read_cb (GInputStream  *input_stream,
                     {
                       /* TODO: really want a append_steal() */
                       g_unix_fd_list_append (worker->read_fd_list, fds[n], NULL);
-                      close (fds[n]);
+                      (void) g_close (fds[n], NULL);
                     }
                 }
               g_free (fds);
@@ -734,7 +735,7 @@ _g_dbus_worker_do_read_cb (GInputStream  *input_stream,
                                                      &error);
           if (message_len == -1)
             {
-              g_warning ("_g_dbus_worker_do_read_cb: error determing bytes needed: %s", error->message);
+              g_warning ("_g_dbus_worker_do_read_cb: error determining bytes needed: %s", error->message);
               _g_dbus_worker_emit_disconnected (worker, FALSE, error);
               g_error_free (error);
               goto out;
@@ -963,6 +964,7 @@ write_message_async_cb (GObject      *source_object,
  * write-lock is not held on entry
  * output_pending is PENDING_WRITE on entry
  */
+#ifdef G_OS_UNIX
 static gboolean
 on_socket_ready (GSocket      *socket,
                  GIOCondition  condition,
@@ -972,6 +974,7 @@ on_socket_ready (GSocket      *socket,
   write_message_continue_writing (data);
   return FALSE; /* remove source */
 }
+#endif
 
 /* called in private thread shared by all GDBusConnection instances
  *
@@ -982,15 +985,17 @@ static void
 write_message_continue_writing (MessageToWriteData *data)
 {
   GOutputStream *ostream;
-  GSimpleAsyncResult *simple;
 #ifdef G_OS_UNIX
+  GSimpleAsyncResult *simple;
   GUnixFDList *fd_list;
 #endif
 
+#ifdef G_OS_UNIX
   /* Note: we can't access data->simple after calling g_async_result_complete () because the
    * callback can free @data and we're not completing in idle. So use a copy of the pointer.
    */
   simple = data->simple;
+#endif
 
   ostream = g_io_stream_get_output_stream (data->worker->stream);
 #ifdef G_OS_UNIX
@@ -1106,7 +1111,9 @@ write_message_continue_writing (MessageToWriteData *data)
                                    write_message_async_cb,
                                    data);
     }
+#ifdef G_OS_UNIX
  out:
+#endif
   ;
 }
 
