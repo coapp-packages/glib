@@ -105,7 +105,11 @@ g_unix_open_pipe (int     *fds,
   ecode = pipe (fds);
   if (ecode == -1)
     return g_unix_set_error_from_errno (error, errno);
-  ecode = fcntl (fds[0], flags);
+
+  if (flags == 0)
+    return TRUE;
+
+  ecode = fcntl (fds[0], F_SETFD, flags);
   if (ecode == -1)
     {
       int saved_errno = errno;
@@ -113,7 +117,7 @@ g_unix_open_pipe (int     *fds,
       close (fds[1]);
       return g_unix_set_error_from_errno (error, saved_errno);
     }
-  ecode = fcntl (fds[1], flags);
+  ecode = fcntl (fds[1], F_SETFD, flags);
   if (ecode == -1)
     {
       int saved_errno = errno;
@@ -175,17 +179,20 @@ g_unix_set_fd_nonblocking (gint       fd,
 #endif
 }
 
-
 /**
  * g_unix_signal_source_new:
  * @signum: A signal number
  *
  * Create a #GSource that will be dispatched upon delivery of the UNIX
- * signal @signum.  Currently only <literal>SIGHUP</literal>,
- * <literal>SIGINT</literal>, and <literal>SIGTERM</literal> can
- * be monitored.  Note that unlike the UNIX default, all sources which
- * have created a watch will be dispatched, regardless of which
- * underlying thread invoked g_unix_signal_source_new().
+ * signal @signum.  In GLib versions before 2.36, only
+ * <literal>SIGHUP</literal>, <literal>SIGINT</literal>,
+ * <literal>SIGTERM</literal> can be monitored.  In GLib 2.36,
+ * <literal>SIGUSR1</literal> and <literal>SIGUSR2</literal> were
+ * added.
+ *
+ * Note that unlike the UNIX default, all sources which have created a
+ * watch will be dispatched, regardless of which underlying thread
+ * invoked g_unix_signal_source_new().
  *
  * For example, an effective use of this function is to handle <literal>SIGTERM</literal>
  * cleanly; flushing any outstanding files, and then calling
@@ -209,7 +216,8 @@ g_unix_set_fd_nonblocking (gint       fd,
 GSource *
 g_unix_signal_source_new (int signum)
 {
-  g_return_val_if_fail (signum == SIGHUP || signum == SIGINT || signum == SIGTERM, NULL);
+  g_return_val_if_fail (signum == SIGHUP || signum == SIGINT || signum == SIGTERM ||
+                        signum == SIGUSR1 || signum == SIGUSR2, NULL);
 
   return _g_main_create_unix_signal_watch (signum);
 }
@@ -229,6 +237,7 @@ g_unix_signal_source_new (int signum)
  *
  * Returns: An ID (greater than 0) for the event source
  *
+ * Rename to: g_unix_signal_add
  * Since: 2.30
  */
 guint
@@ -273,4 +282,143 @@ g_unix_signal_add (int         signum,
                    gpointer    user_data)
 {
   return g_unix_signal_add_full (G_PRIORITY_DEFAULT, signum, handler, user_data, NULL);
+}
+
+typedef struct
+{
+  GSource source;
+
+  gint     fd;
+  gpointer tag;
+} GUnixFDSource;
+
+static gboolean
+g_unix_fd_source_dispatch (GSource     *source,
+                           GSourceFunc  callback,
+                           gpointer     user_data)
+{
+  GUnixFDSource *fd_source = (GUnixFDSource *) source;
+  GUnixFDSourceFunc func = (GUnixFDSourceFunc) callback;
+
+  if (!callback)
+    {
+      g_warning ("GUnixFDSource dispatched without callback\n"
+                 "You must call g_source_set_callback().");
+      return FALSE;
+    }
+
+  return (* func) (fd_source->fd, g_source_query_unix_fd (source, fd_source->tag), user_data);
+}
+
+
+/**
+ * g_unix_fd_source_new:
+ * @fd: a file descriptor
+ * @condition: IO conditions to watch for on @fd
+ *
+ * Creates a #GSource to watch for a particular IO condition on a file
+ * descriptor.
+ *
+ * The source will never close the fd -- you must do it yourself.
+ *
+ * Returns: the newly created #GSource
+ *
+ * Since: 2.36
+ **/
+GSource *
+g_unix_fd_source_new (gint         fd,
+                      GIOCondition condition)
+{
+  static GSourceFuncs source_funcs = {
+    NULL, NULL, g_unix_fd_source_dispatch, NULL
+  };
+  GUnixFDSource *fd_source;
+  GSource *source;
+
+  source = g_source_new (&source_funcs, sizeof (GUnixFDSource));
+  fd_source = (GUnixFDSource *) source;
+
+  fd_source->fd = fd;
+  fd_source->tag = g_source_add_unix_fd (source, fd, condition);
+
+  return source;
+}
+
+/**
+ * g_unix_fd_add_full:
+ * @priority: the priority of the source
+ * @fd: a file descriptor
+ * @condition: IO conditions to watch for on @fd
+ * @function: a #GUnixFDSourceFunc
+ * @user_data: data to pass to @function
+ * @notify: function to call when the idle is removed, or %NULL
+ *
+ * Sets a function to be called when the IO condition, as specified by
+ * @condition becomes true for @fd.
+ *
+ * This is the same as g_unix_fd_add(), except that it allows you to
+ * specify a non-default priority and a provide a #GDestroyNotify for
+ * @user_data.
+ *
+ * Returns: the ID (greater than 0) of the event source
+ *
+ * Since: 2.36
+ **/
+guint
+g_unix_fd_add_full (gint              priority,
+                    gint              fd,
+                    GIOCondition      condition,
+                    GUnixFDSourceFunc function,
+                    gpointer          user_data,
+                    GDestroyNotify    notify)
+{
+  GSource *source;
+  guint id;
+
+  g_return_val_if_fail (function != NULL, 0);
+
+  source = g_unix_fd_source_new (fd, condition);
+
+  if (priority != G_PRIORITY_DEFAULT)
+    g_source_set_priority (source, priority);
+
+  g_source_set_callback (source, (GSourceFunc) function, user_data, notify);
+  id = g_source_attach (source, NULL);
+  g_source_unref (source);
+
+  return id;
+}
+
+/**
+ * g_unix_fd_add:
+ * @fd: a file descriptor
+ * @condition: IO conditions to watch for on @fd
+ * @function: a #GPollFDFunc
+ * @user_data: data to pass to @function
+ *
+ * Sets a function to be called when the IO condition, as specified by
+ * @condition becomes true for @fd.
+ *
+ * @function will be called when the specified IO condition becomes
+ * %TRUE.  The function is expected to clear whatever event caused the
+ * IO condition to become true and return %TRUE in order to be notified
+ * when it happens again.  If @function returns %FALSE then the watch
+ * will be cancelled.
+ *
+ * The return value of this function can be passed to g_source_remove()
+ * to cancel the watch at any time that it exists.
+ *
+ * The source will never close the fd -- you must do it yourself.
+ *
+ * Returns: the ID (greater than 0) of the event source
+ *
+ * Since: 2.36
+ **/
+guint
+g_unix_fd_add (gint              fd,
+               GIOCondition      condition,
+               GUnixFDSourceFunc function,
+               gpointer          user_data)
+{
+  return g_unix_fd_add_full (G_PRIORITY_DEFAULT, fd, condition, function, user_data, NULL);
 }

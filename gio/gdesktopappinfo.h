@@ -43,27 +43,48 @@ struct _GDesktopAppInfoClass
 };
 
 
+GLIB_AVAILABLE_IN_ALL
 GType            g_desktop_app_info_get_type          (void) G_GNUC_CONST;
 
+GLIB_AVAILABLE_IN_ALL
 GDesktopAppInfo *g_desktop_app_info_new_from_filename (const char      *filename);
+GLIB_AVAILABLE_IN_ALL
 GDesktopAppInfo *g_desktop_app_info_new_from_keyfile  (GKeyFile        *key_file);
 
+GLIB_AVAILABLE_IN_ALL
 const char *     g_desktop_app_info_get_filename      (GDesktopAppInfo *info);
 
+GLIB_AVAILABLE_IN_2_30
 const char *     g_desktop_app_info_get_generic_name  (GDesktopAppInfo *info);
+GLIB_AVAILABLE_IN_2_30
 const char *     g_desktop_app_info_get_categories    (GDesktopAppInfo *info);
+GLIB_AVAILABLE_IN_2_30
 const char * const *g_desktop_app_info_get_keywords   (GDesktopAppInfo *info);
+GLIB_AVAILABLE_IN_2_30
 gboolean         g_desktop_app_info_get_nodisplay     (GDesktopAppInfo *info);
+GLIB_AVAILABLE_IN_2_30
 gboolean         g_desktop_app_info_get_show_in       (GDesktopAppInfo *info,
                                                        const gchar     *desktop_env);
 GLIB_AVAILABLE_IN_2_34
 const char *     g_desktop_app_info_get_startup_wm_class (GDesktopAppInfo *info);
 
+GLIB_AVAILABLE_IN_ALL
 GDesktopAppInfo *g_desktop_app_info_new               (const char      *desktop_id);
+GLIB_AVAILABLE_IN_ALL
 gboolean         g_desktop_app_info_get_is_hidden     (GDesktopAppInfo *info);
 
+GLIB_AVAILABLE_IN_ALL
 void             g_desktop_app_info_set_desktop_env   (const char      *desktop_env);
 
+GLIB_AVAILABLE_IN_2_36
+gboolean         g_desktop_app_info_has_key           (GDesktopAppInfo *info,
+                                                       const char      *key);
+GLIB_AVAILABLE_IN_2_36
+char *           g_desktop_app_info_get_string        (GDesktopAppInfo *info,
+                                                       const char      *key);
+GLIB_AVAILABLE_IN_2_36
+gboolean         g_desktop_app_info_get_boolean       (GDesktopAppInfo *info,
+                                                       const char      *key);
 
 #ifndef G_DISABLE_DEPRECATED
 
@@ -120,6 +141,7 @@ typedef void (*GDesktopAppLaunchCallback) (GDesktopAppInfo  *appinfo,
 					   GPid              pid,
 					   gpointer          user_data);
 
+GLIB_AVAILABLE_IN_2_28
 gboolean    g_desktop_app_info_launch_uris_as_manager (GDesktopAppInfo            *appinfo,
 						       GList                      *uris,
 						       GAppLaunchContext          *launch_context,

@@ -36,6 +36,10 @@
 #include "gvdb/gvdb-builder.h"
 #include "strinfo.c"
 
+#ifdef G_OS_WIN32
+#include "glib/glib-private.h"
+#endif
+
 static void
 strip_string (GString *string)
 {
@@ -1885,7 +1889,7 @@ set_overrides (GHashTable  *schema_table,
                 {
                   fprintf (stderr, _("error parsing key `%s' in schema `%s' "
                                      "as specified in override file `%s': "
-                                     "%s.  "),
+                                     "%s."),
                            key, group, filename, error->message);
 
                   g_clear_error (&error);
@@ -2003,7 +2007,6 @@ main (int argc, char **argv)
   };
 
 #ifdef G_OS_WIN32
-  extern gchar *_glib_get_locale_dir (void);
   gchar *tmp;
 #endif
 

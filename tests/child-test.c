@@ -51,7 +51,7 @@ gint alive;
 char *argv0;
 #endif
 
-GPid
+static GPid
 get_a_child (gint ttl)
 {
   GPid pid;
@@ -89,7 +89,7 @@ get_a_child (gint ttl)
 #endif /* G_OS_WIN32 */
 }
 
-gboolean
+static gboolean
 child_watch_callback (GPid pid, gint status, gpointer data)
 {
 #ifdef VERBOSE
@@ -176,7 +176,7 @@ main (int argc, char *argv[])
 #endif
 
   alive = 2;
-  g_timeout_add (30000, quit_loop, main_loop);
+  g_timeout_add_seconds (30, quit_loop, main_loop);
 
 #ifdef TEST_THREAD
   g_thread_create (test_thread, GINT_TO_POINTER (10), FALSE, NULL);

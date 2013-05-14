@@ -22,22 +22,13 @@
 
 #include "config.h"
 
-#ifdef __FreeBSD__
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <string.h>
-#endif
-#ifdef __OpenBSD__
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <string.h>
-#endif
 #include <stdlib.h>
+#include <string.h>
 
 #include <gobject/gvaluecollector.h>
 
 #include "gcredentials.h"
-#include "gnetworkingprivate.h"
+#include "gnetworking.h"
 #include "gioerror.h"
 
 #include "glibintl.h"
@@ -88,7 +79,7 @@ struct _GCredentials
 
 #ifdef __linux__
   struct ucred native;
-#elif defined(__FreeBSD__)
+#elif defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
   struct cmsgcred native;
 #elif defined(__OpenBSD__)
   struct sockpeercred native;
@@ -140,7 +131,7 @@ g_credentials_init (GCredentials *credentials)
   credentials->native.pid = getpid ();
   credentials->native.uid = geteuid ();
   credentials->native.gid = getegid ();
-#elif defined(__FreeBSD__)
+#elif defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
   memset (&credentials->native, 0, sizeof (struct cmsgcred));
   credentials->native.cmcred_pid  = getpid ();
   credentials->native.cmcred_euid = geteuid ();
@@ -202,7 +193,7 @@ g_credentials_to_string (GCredentials *credentials)
     g_string_append_printf (ret, "gid=%" G_GINT64_FORMAT ",", (gint64) credentials->native.gid);
   if (ret->str[ret->len - 1] == ',')
     ret->str[ret->len - 1] = '\0';
-#elif defined(__FreeBSD__)
+#elif defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
   g_string_append (ret, "freebsd-cmsgcred:");
   if (credentials->native.cmcred_pid != -1)
     g_string_append_printf (ret, "pid=%" G_GINT64_FORMAT ",", (gint64) credentials->native.cmcred_pid);
@@ -260,7 +251,7 @@ g_credentials_is_same_user (GCredentials  *credentials,
 #ifdef __linux__
   if (credentials->native.uid == other_credentials->native.uid)
     ret = TRUE;
-#elif defined(__FreeBSD__)
+#elif defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
   if (credentials->native.cmcred_euid == other_credentials->native.cmcred_euid)
     ret = TRUE;
 #elif defined(__OpenBSD__)
@@ -316,7 +307,7 @@ g_credentials_get_native (GCredentials     *credentials,
     {
       ret = &credentials->native;
     }
-#elif defined(__FreeBSD__)
+#elif defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
   if (native_type != G_CREDENTIALS_TYPE_FREEBSD_CMSGCRED)
     {
       g_warning ("g_credentials_get_native: Trying to get credentials of type %d but only "
@@ -377,7 +368,7 @@ g_credentials_set_native (GCredentials     *credentials,
     {
       memcpy (&credentials->native, native, sizeof (struct ucred));
     }
-#elif defined(__FreeBSD__)
+#elif defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
   if (native_type != G_CREDENTIALS_TYPE_FREEBSD_CMSGCRED)
     {
       g_warning ("g_credentials_set_native: Trying to set credentials of type %d "
@@ -435,7 +426,7 @@ g_credentials_get_unix_user (GCredentials    *credentials,
 
 #ifdef __linux__
   ret = credentials->native.uid;
-#elif defined(__FreeBSD__)
+#elif defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
   ret = credentials->native.cmcred_euid;
 #elif defined(__OpenBSD__)
   ret = credentials->native.uid;
@@ -445,6 +436,48 @@ g_credentials_get_unix_user (GCredentials    *credentials,
                        G_IO_ERROR,
                        G_IO_ERROR_NOT_SUPPORTED,
                        _("There is no GCredentials support for your platform"));
+#endif
+
+  return ret;
+}
+
+/**
+ * g_credentials_get_unix_pid:
+ * @credentials: A #GCredentials
+ * @error: Return location for error or %NULL.
+ *
+ * Tries to get the UNIX process identifier from @credentials. This
+ * method is only available on UNIX platforms.
+ *
+ * This operation can fail if #GCredentials is not supported on the
+ * OS or if the native credentials type does not contain information
+ * about the UNIX process ID.
+ *
+ * Returns: The UNIX process ID, or -1 if @error is set.
+ *
+ * Since: 2.36
+ */
+pid_t
+g_credentials_get_unix_pid (GCredentials    *credentials,
+                            GError         **error)
+{
+  pid_t ret;
+
+  g_return_val_if_fail (G_IS_CREDENTIALS (credentials), -1);
+  g_return_val_if_fail (error == NULL || *error == NULL, -1);
+
+#ifdef __linux__
+  ret = credentials->native.pid;
+#elif defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
+  ret = credentials->native.cmcred_pid;
+#elif defined(__OpenBSD__)
+  ret = credentials->native.pid;
+#else
+  ret = -1;
+  g_set_error_literal (error,
+                       G_IO_ERROR,
+                       G_IO_ERROR_NOT_SUPPORTED,
+                       _("GCredentials does not contain a process ID on this OS"));
 #endif
 
   return ret;
@@ -482,7 +515,7 @@ g_credentials_set_unix_user (GCredentials    *credentials,
 #ifdef __linux__
   credentials->native.uid = uid;
   ret = TRUE;
-#elif defined(__FreeBSD__)
+#elif defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
   credentials->native.cmcred_euid = uid;
   ret = TRUE;
 #elif defined(__OpenBSD__)
@@ -497,4 +530,5 @@ g_credentials_set_unix_user (GCredentials    *credentials,
 
   return ret;
 }
+
 #endif /* G_OS_UNIX */

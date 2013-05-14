@@ -62,6 +62,10 @@
 #include <gfileinfo-priv.h>
 #include <gvfs.h>
 
+#ifndef G_OS_WIN32
+#include "glib-unix.h"
+#include "glib-private.h"
+#endif
 #include "glibintl.h"
 
 #ifdef G_OS_WIN32
@@ -1257,7 +1261,7 @@ get_content_type (const char          *basename,
 	      ssize_t res;
 	      
 	      res = read (fd, sniff_buffer, sniff_length);
-	      close (fd);
+	      (void) g_close (fd, NULL);
 	      if (res >= 0)
 		{
 		  g_free (content_type);
@@ -1292,7 +1296,7 @@ get_thumbnail_attributes (const char *path,
   g_checksum_free (checksum);
 
   filename = g_build_filename (g_get_user_cache_dir (),
-                               "thumbnails", "normal", basename,
+                               "thumbnails", "large", basename,
                                NULL);
 
   if (g_file_test (filename, G_FILE_TEST_IS_REGULAR))
@@ -1301,13 +1305,23 @@ get_thumbnail_attributes (const char *path,
     {
       g_free (filename);
       filename = g_build_filename (g_get_user_cache_dir (),
-                                   "thumbnails", "fail",
-                                   "gnome-thumbnail-factory",
-                                   basename,
+                                   "thumbnails", "normal", basename,
                                    NULL);
 
       if (g_file_test (filename, G_FILE_TEST_IS_REGULAR))
-	_g_file_info_set_attribute_boolean_by_id (info, G_FILE_ATTRIBUTE_ID_THUMBNAILING_FAILED, TRUE);
+        _g_file_info_set_attribute_byte_string_by_id (info, G_FILE_ATTRIBUTE_ID_THUMBNAIL_PATH, filename);
+      else
+        {
+          g_free (filename);
+          filename = g_build_filename (g_get_user_cache_dir (),
+                                       "thumbnails", "fail",
+                                       "gnome-thumbnail-factory",
+                                       basename,
+                                       NULL);
+
+          if (g_file_test (filename, G_FILE_TEST_IS_REGULAR))
+            _g_file_info_set_attribute_boolean_by_id (info, G_FILE_ATTRIBUTE_ID_THUMBNAILING_FAILED, TRUE);
+        }
     }
   g_free (basename);
   g_free (filename);
@@ -1404,6 +1418,109 @@ win32_get_file_user_info (const gchar  *filename,
   g_free (wfilename);
 }
 #endif /* G_OS_WIN32 */
+
+#ifndef G_OS_WIN32
+/* support for '.hidden' files */
+G_LOCK_DEFINE_STATIC (hidden_cache);
+static GHashTable *hidden_cache;
+
+static gboolean
+remove_from_hidden_cache (gpointer user_data)
+{
+  G_LOCK (hidden_cache);
+  g_hash_table_remove (hidden_cache, user_data);
+  G_UNLOCK (hidden_cache);
+
+  return FALSE;
+}
+
+static GHashTable *
+read_hidden_file (const gchar *dirname)
+{
+  gchar *contents = NULL;
+  gchar *filename;
+
+  filename = g_build_path ("/", dirname, ".hidden", NULL);
+  g_file_get_contents (filename, &contents, NULL, NULL);
+  g_free (filename);
+
+  if (contents != NULL)
+    {
+      GHashTable *table;
+      gchar **lines;
+      gint i;
+
+      table = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, NULL);
+
+      lines = g_strsplit (contents, "\n", 0);
+      g_free (contents);
+
+      for (i = 0; lines[i]; i++)
+        /* hash table takes the individual strings... */
+        g_hash_table_add (table, lines[i]);
+
+      /* ... so we only free the container. */
+      g_free (lines);
+
+      return table;
+    }
+  else
+    return NULL;
+}
+
+static void
+maybe_unref_hash_table (gpointer data)
+{
+  if (data != NULL)
+    g_hash_table_unref (data);
+}
+
+static gboolean
+file_is_hidden (const gchar *path,
+                const gchar *basename)
+{
+  gboolean result;
+  gchar *dirname;
+  gpointer table;
+
+  dirname = g_path_get_dirname (path);
+
+  G_LOCK (hidden_cache);
+
+  if G_UNLIKELY (hidden_cache == NULL)
+    hidden_cache = g_hash_table_new_full (g_str_hash, g_str_equal,
+                                          g_free, maybe_unref_hash_table);
+
+  if (!g_hash_table_lookup_extended (hidden_cache, dirname,
+                                     NULL, &table))
+    {
+      gchar *mydirname;
+      GSource *remove_from_cache_source;
+
+      g_hash_table_insert (hidden_cache,
+                           mydirname = g_strdup (dirname),
+                           table = read_hidden_file (dirname));
+
+      remove_from_cache_source = g_timeout_source_new_seconds (5);
+      g_source_set_priority (remove_from_cache_source, G_PRIORITY_DEFAULT);
+      g_source_set_callback (remove_from_cache_source, 
+                             remove_from_hidden_cache, 
+                             mydirname, 
+                             NULL);
+      g_source_attach (remove_from_cache_source, 
+                       GLIB_PRIVATE_CALL (g_get_worker_context) ());
+      g_source_unref (remove_from_cache_source);
+    }
+
+  result = table != NULL && g_hash_table_contains (table, basename);
+
+  G_UNLOCK (hidden_cache);
+
+  g_free (dirname);
+
+  return result;
+}
+#endif /* !G_OS_WIN32 */
 
 void
 _g_local_file_info_get_nostat (GFileInfo              *info,
@@ -1525,11 +1642,9 @@ get_icon (const char *path,
     }
   else
     {
-#ifdef G_OS_UNIX
       if (use_symbolic)
         icon = g_content_type_get_symbolic_icon (content_type);
       else
-#endif
         icon = g_content_type_get_icon (content_type);
 
       if (G_IS_THEMED_ICON (icon) && is_folder)
@@ -1662,9 +1777,20 @@ _g_local_file_info_get (const char             *basename,
   if (stat_ok)
     set_info_from_stat (info, &statbuf, attribute_matcher);
 
-#ifndef G_OS_WIN32
-  if (basename != NULL && basename[0] == '.')
+#ifdef G_OS_UNIX
+  if (stat_ok && _g_local_file_is_lost_found_dir (path, statbuf.st_dev))
     g_file_info_set_is_hidden (info, TRUE);
+#endif
+
+#ifndef G_OS_WIN32
+  if (_g_file_attribute_matcher_matches_id (attribute_matcher,
+					    G_FILE_ATTRIBUTE_ID_STANDARD_IS_HIDDEN))
+    {
+      if (basename != NULL &&
+          (basename[0] == '.' ||
+           file_is_hidden (path, basename)))
+        g_file_info_set_is_hidden (info, TRUE);
+    }
 
   if (basename != NULL && basename[strlen (basename) -1] == '~' &&
       (stat_ok && S_ISREG (statbuf.st_mode)))

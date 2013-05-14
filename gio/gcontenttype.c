@@ -401,13 +401,14 @@ g_content_type_get_icon_internal (const gchar *type,
   char *mimetype_icon;
   char *generic_mimetype_icon = NULL;
   char *q;
-  char *xdg_mimetype_icon;
+  char *xdg_mimetype_icon = NULL;
   char *legacy_mimetype_icon;
   char *xdg_mimetype_generic_icon;
   char *icon_names[5];
   int n = 0;
   GIcon *themed_icon;
   const char *file_template;
+  const char  *xdg_icon;
 
   g_return_val_if_fail (type != NULL, NULL);
 
@@ -421,8 +422,10 @@ g_content_type_get_icon_internal (const gchar *type,
     }
 
   G_LOCK (gio_xdgmime);
-  xdg_mimetype_icon = g_strdup_printf (file_template, xdg_mime_get_icon (type));
+  xdg_icon = xdg_mime_get_icon (type);
   G_UNLOCK (gio_xdgmime);
+  if (xdg_icon != NULL)
+    xdg_mimetype_icon = g_strdup_printf (file_template, xdg_icon);
   xdg_mimetype_generic_icon = g_content_type_get_generic_icon_name (type);
 
   mimetype_icon = g_strdup_printf (file_template, type);
@@ -663,8 +666,9 @@ g_content_type_guess (const gchar  *filename,
   /* Got an extension match, and no conflicts. This is it. */
   if (n_name_mimetypes == 1)
     {
+      gchar *s = g_strdup (name_mimetypes[0]);
       G_UNLOCK (gio_xdgmime);
-      return g_strdup (name_mimetypes[0]);
+      return s;
     }
 
   if (data)

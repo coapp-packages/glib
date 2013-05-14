@@ -23,22 +23,14 @@ install-ms-lib:
 uninstall-ms-lib:
 	$(uninstall_ms_lib_cmd)
 
-gio.def: gio.symbols
-	$(AM_V_GEN) (echo EXPORTS; $(CPP) -P -DINCLUDE_VARIABLES -DINCLUDE_INTERNAL_SYMBOLS -DG_OS_WIN32 -DALL_FILES - <$(srcdir)/gio.symbols | sed -e '/^$$/d' -e 's/^/	/' -e 's/G_GNUC_[^ ]*//g' | sort) > $(builddir)/gio.def.tmp && \
-	  mv $(builddir)/gio.def.tmp $(builddir)/gio.def
-
-if OS_LINUX
-if HAVE_GNUC_VISIBILITY
-TESTS = abicheck.sh
-endif
-endif
-
 AM_CPPFLAGS = \
 	-DG_LOG_DOMAIN=\"GLib-GIO\"			\
 	$(gmodule_INCLUDES)				\
 	$(GLIB_DEBUG_FLAGS)				\
 	-DGIO_COMPILATION				\
 	-DGIO_MODULE_DIR=\"$(GIO_MODULE_DIR)\"	
+
+AM_CFLAGS = $(GLIB_WARN_CFLAGS)
 
 lib_LTLIBRARIES = libgio-2.0.la
 
@@ -174,6 +166,7 @@ application_sources = \
 	gsimpleactiongroup.c			\
 	gremoteactiongroup.c			\
 	gactiongroupexporter.c			\
+	gdbusactiongroup-private.h		\
 	gdbusactiongroup.c			\
 	gaction.c				\
 	gsimpleaction.c				\
@@ -219,6 +212,12 @@ if HAVE_INOTIFY
 SUBDIRS += inotify
 platform_libadd += inotify/libinotify.la
 platform_deps += inotify/libinotify.la
+endif
+
+if HAVE_KQUEUE
+SUBDIRS += kqueue
+platform_libadd += kqueue/libkqueue.la
+platform_deps += kqueue/libkqueue.la
 endif
 
 if HAVE_FEN
@@ -393,6 +392,7 @@ libgio_2_0_la_SOURCES =		\
 	gnativevolumemonitor.c 	\
 	gnativevolumemonitor.h 	\
 	gnetworkaddress.c	\
+	gnetworking.c		\
 	gnetworkingprivate.h	\
 	gnetworkmonitor.c	\
 	gnetworkmonitorbase.c	\
@@ -405,6 +405,9 @@ libgio_2_0_la_SOURCES =		\
 	gpollableutils.c	\
 	gpollfilemonitor.c 	\
 	gpollfilemonitor.h 	\
+	gproxy.c		\
+	gproxyaddress.c         \
+	gproxyaddressenumerator.c \
 	gproxyresolver.c	\
 	gresolver.c		\
 	gresource.c		\
@@ -425,11 +428,10 @@ libgio_2_0_la_SOURCES =		\
 	gsocketlistener.c	\
 	gsocketoutputstream.c	\
 	gsocketoutputstream.h	\
-	gproxy.c		\
-	gproxyaddress.c         \
-	gproxyaddressenumerator.c \
 	gsocketservice.c	\
 	gsrvtarget.c		\
+	gsimpleproxyresolver.c	\
+	gtask.c			\
 	gtcpconnection.c	\
 	gtcpwrapperconnection.c \
 	gthreadedsocketservice.c\
@@ -485,37 +487,24 @@ no_undefined = -no-undefined
 endif
 
 if OS_WIN32_AND_DLL_COMPILATION
-export_symbols = -export-symbols $(builddir)/gio.def
-gio_def = gio.def
-
 gio_win32_res = gio-win32-res.o
 gio_win32_res_ldflag = -Wl,$(gio_win32_res)
-
-install-def-file:
-	$(INSTALL) $(builddir)/gio.def $(DESTDIR)$(libdir)/gio-2.0.def
-
-uninstall-def-file:
-	-rm $(DESTDIR)$(libdir)/gio-2.0.def
-else
-install-def-file:
-uninstall-def-file:
-
-export_symbols = $(LIBTOOL_EXPORT_OPTIONS)
 endif
 
-install-data-local: install-ms-lib install-def-file
+install-data-local: install-ms-lib
 	$(mkinstalldirs) $(DESTDIR)$(GIO_MODULE_DIR)
 
-uninstall-local: uninstall-ms-lib uninstall-def-file
+uninstall-local: uninstall-ms-lib
 
+libgio_2_0_la_CFLAGS = $(AM_CFLAGS) $(GLIB_HIDDEN_VISIBILITY_CFLAGS)
 libgio_2_0_la_LDFLAGS = $(GLIB_LINK_FLAGS) \
 	$(gio_win32_res_ldflag) \
 	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
-	-export-dynamic $(no_undefined) $(export_symbols)
+	-export-dynamic $(no_undefined)
 
 if OS_COCOA
 # This is dumb.  The ObjC source file should be properly named .m
-libgio_2_0_la_CFLAGS = -xobjective-c
+libgio_2_0_la_CFLAGS += -xobjective-c
 libgio_2_0_la_LDFLAGS += -Wl,-framework,Foundation
 endif
 
@@ -573,6 +562,7 @@ gio_headers =			\
 	gmountoperation.h 	\
 	gnativevolumemonitor.h 	\
 	gnetworkaddress.h	\
+	gnetworking.h		\
 	gnetworkmonitor.h	\
 	gnetworkservice.h	\
 	goutputstream.h 	\
@@ -599,6 +589,8 @@ gio_headers =			\
 	gsocketlistener.h	\
 	gsocketservice.h	\
 	gsrvtarget.h		\
+	gsimpleproxyresolver.h	\
+	gtask.h			\
 	gtcpconnection.h	\
 	gtcpwrapperconnection.h \
 	gthreadedsocketservice.h\
@@ -634,18 +626,18 @@ BUILT_SOURCES = 		\
 	gioenumtypes.c		\
 	gdbus-daemon-generated.c \
 	gdbus-daemon-generated.h \
+	gnetworking.h		\
 	$(NULL)
 
 EXTRA_DIST += 			\
 	data-to-c.pl		\
-	gio.symbols		\
 	gioenumtypes.h.template	\
 	gioenumtypes.c.template	\
 	makefile.msc		\
-	abicheck.sh		\
 	gio.rc.in		\
 	gschema.dtd		\
 	gconstructor_as_data.h	\
+	gnetworking.h.win32	\
 	$(NULL)
 
 BUILT_EXTRA_DIST = 		\
@@ -657,16 +649,19 @@ gio-public-headers.txt: Makefile
 
 CLEANFILES = gdbus-daemon-generated.c gdbus-daemon-generated.h gio-public-headers.txt gconstructor_as_data.h
 
+
+DISTCLEANFILES = 		\
+	gioenumtypes.h		\
+	gioenumtypes.c
+
 all-local: gio-public-headers.txt
 
 gioenumtypes.h: $(gio_headers) gioenumtypes.h.template
-	$(AM_V_GEN) ( top_builddir=`cd $(top_builddir) && pwd`; \
-	  cd $(srcdir) && $$top_builddir/gobject/glib-mkenums --template gioenumtypes.h.template $(gio_headers) ) > \
+	$(AM_V_GEN) $(top_builddir)/gobject/glib-mkenums --template $(filter %.template,$^) $(filter-out %.template,$^) > \
 	    gioenumtypes.h.tmp && mv gioenumtypes.h.tmp gioenumtypes.h
 
 gioenumtypes.c: $(gio_headers) gioenumtypes.c.template
-	$(AM_V_GEN) ( top_builddir=`cd $(top_builddir) && pwd`; \
-	  cd $(srcdir) && $$top_builddir/gobject/glib-mkenums --template gioenumtypes.c.template $(gio_headers) ) > \
+	$(AM_V_GEN) $(top_builddir)/gobject/glib-mkenums --template $(filter %.template,$^) $(filter-out %.template,$^) > \
 	    gioenumtypes.c.tmp && mv gioenumtypes.c.tmp gioenumtypes.c
 
 gio-2.0.lib: libgio-2.0.la gio.def

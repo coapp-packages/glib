@@ -1,9 +1,12 @@
 include $(top_srcdir)/Makefile.decl
 
 AM_CPPFLAGS = 					\
-	-DG_LOG_DOMAIN=\"GLib-GObject\"
+	-g					\
+	-DG_LOG_DOMAIN=\"GLib-GObject\"		\
+	$(gobject_INCLUDES)			\
+	$(GLIB_DEBUG_FLAGS)
 
-INCLUDES = -g $(gobject_INCLUDES) $(GLIB_DEBUG_FLAGS)
+AM_CFLAGS = $(GLIB_WARN_CFLAGS)
 
 if CROSS_COMPILING
   glib_genmarshal=$(GLIB_GENMARSHAL)
@@ -34,7 +37,7 @@ marshalers.h: Makefile.am marshalers.list
 	$(AM_V_GEN) $(glib_genmarshal) --prefix=test $(srcdir)/marshalers.list --header --valist-marshallers > marshalers.h
 
 marshalers.c: Makefile.am marshalers.list
-	$(AM_V_GEN) $(glib_genmarshal) --prefix=test $(srcdir)/marshalers.list --body --valist-marshallers > marshalers.c
+	$(AM_V_GEN) (echo "#include \"marshalers.h\""; $(glib_genmarshal) --prefix=test $(srcdir)/marshalers.list --body --valist-marshallers) > $@.tmp && mv $@.tmp $@
 
 BUILT_SOURCES = marshalers.h marshalers.c
 CLEANFILES = marshalers.h marshalers.c

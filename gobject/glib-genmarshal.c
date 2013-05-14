@@ -28,6 +28,7 @@
 #endif
 #include <sys/types.h>
 #include <sys/stat.h>
+
 #include <glib/gstdio.h>
 
 #undef G_LOG_DOMAIN

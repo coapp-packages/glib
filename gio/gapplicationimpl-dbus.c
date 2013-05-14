@@ -19,17 +19,20 @@
  * Authors: Ryan Lortie <desrt@desrt.ca>
  */
 
+#include "config.h"
+
 #include "gapplicationimpl.h"
 
 #include "gactiongroup.h"
 #include "gactiongroupexporter.h"
 #include "gremoteactiongroup.h"
-#include "gdbusactiongroup.h"
+#include "gdbusactiongroup-private.h"
 #include "gapplication.h"
 #include "gfile.h"
 #include "gdbusconnection.h"
 #include "gdbusintrospection.h"
 #include "gdbuserror.h"
+#include "glib/gstdio.h"
 
 #include <string.h>
 #include <stdio.h>
@@ -37,11 +40,10 @@
 #include "gapplicationcommandline.h"
 #include "gdbusmethodinvocation.h"
 
-G_GNUC_INTERNAL gboolean
-g_dbus_action_group_sync (GDBusActionGroup  *group,
-                          GCancellable      *cancellable,
-                          GError           **error);
-
+#ifdef G_OS_UNIX
+#include "gunixinputstream.h"
+#include "gunixfdlist.h"
+#endif
 
 /* DBus Interface definition {{{1 */
 
@@ -528,8 +530,12 @@ g_application_impl_cmdline_done (GObject      *source,
   GError *error = NULL;
   GVariant *reply;
 
-  reply = g_dbus_connection_call_finish (G_DBUS_CONNECTION (source),
-                                         result, &error);
+#ifdef G_OS_UNIX
+  reply = g_dbus_connection_call_with_unix_fd_list_finish (G_DBUS_CONNECTION (source), NULL, result, &error);
+#else
+  reply = g_dbus_connection_call_finish (G_DBUS_CONNECTION (source), result, &error);
+#endif
+
 
   if (reply != NULL)
     {
@@ -584,15 +590,31 @@ g_application_impl_command_line (GApplicationImpl  *impl,
   /* In theory we should try other paths... */
   g_assert (object_id != 0);
 
-  g_dbus_connection_call (impl->session_bus,
-                          impl->bus_name,
-                          impl->object_path,
-                          "org.gtk.Application",
-                          "CommandLine",
-                          g_variant_new ("(o^aay@a{sv})", object_path,
-                                         arguments, platform_data),
+#ifdef G_OS_UNIX
+  {
+    GError *error = NULL;
+    GUnixFDList *fd_list;
+
+    /* send along the stdin in case
+     * g_application_command_line_get_stdin_data() is called
+     */
+    fd_list = g_unix_fd_list_new ();
+    g_unix_fd_list_append (fd_list, 0, &error);
+    g_assert_no_error (error);
+
+    g_dbus_connection_call_with_unix_fd_list (impl->session_bus, impl->bus_name, impl->object_path,
+                                              "org.gtk.Application", "CommandLine",
+                                              g_variant_new ("(o^aay@a{sv})", object_path, arguments, platform_data),
+                                              G_VARIANT_TYPE ("(i)"), 0, G_MAXINT, fd_list, NULL,
+                                              g_application_impl_cmdline_done, &data);
+  }
+#else
+  g_dbus_connection_call (impl->session_bus, impl->bus_name, impl->object_path,
+                          "org.gtk.Application", "CommandLine",
+                          g_variant_new ("(o^aay@a{sv})", object_path, arguments, platform_data),
                           G_VARIANT_TYPE ("(i)"), 0, G_MAXINT, NULL,
                           g_application_impl_cmdline_done, &data);
+#endif
 
   g_main_loop_run (data.loop);
 
@@ -669,6 +691,35 @@ g_dbus_command_line_printerr_literal (GApplicationCommandLine *cmdline,
                           NULL, 0, -1, NULL, NULL, NULL);
 }
 
+static GInputStream *
+g_dbus_command_line_get_stdin (GApplicationCommandLine *cmdline)
+{
+#ifdef G_OS_UNIX
+  GDBusCommandLine *gdbcl = (GDBusCommandLine *) cmdline;
+  GInputStream *result = NULL;
+  GDBusMessage *message;
+  GUnixFDList *fd_list;
+
+  message = g_dbus_method_invocation_get_message (gdbcl->invocation);
+  fd_list = g_dbus_message_get_unix_fd_list (message);
+
+  if (fd_list && g_unix_fd_list_get_length (fd_list))
+    {
+      gint *fds, n_fds, i;
+
+      fds = g_unix_fd_list_steal_fds (fd_list, &n_fds);
+      result = g_unix_input_stream_new (fds[0], TRUE);
+      for (i = 1; i < n_fds; i++)
+        (void) g_close (fds[i], NULL);
+      g_free (fds);
+    }
+
+  return result;
+#else
+  return NULL;
+#endif
+}
+
 static void
 g_dbus_command_line_finalize (GObject *object)
 {
@@ -699,6 +750,7 @@ g_dbus_command_line_class_init (GApplicationCommandLineClass *class)
   object_class->finalize = g_dbus_command_line_finalize;
   class->printerr_literal = g_dbus_command_line_printerr_literal;
   class->print_literal = g_dbus_command_line_print_literal;
+  class->get_stdin = g_dbus_command_line_get_stdin;
 }
 
 static GApplicationCommandLine *

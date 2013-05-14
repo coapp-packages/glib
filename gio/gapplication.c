@@ -959,8 +959,6 @@ g_application_id_is_valid (const gchar *application_id)
  *
  * Creates a new #GApplication instance.
  *
- * This function calls g_type_init() for you.
- *
  * If non-%NULL, the application id must be valid.  See
  * g_application_id_is_valid().
  *
@@ -974,8 +972,6 @@ g_application_new (const gchar       *application_id,
                    GApplicationFlags  flags)
 {
   g_return_val_if_fail (application_id == NULL || g_application_id_is_valid (application_id), NULL);
-
-  g_type_init ();
 
   return g_object_new (G_TYPE_APPLICATION,
                        "application-id", application_id,
@@ -1347,6 +1343,8 @@ g_application_register (GApplication  *application,
 void
 g_application_hold (GApplication *application)
 {
+  g_return_if_fail (G_IS_APPLICATION (application));
+
   if (application->priv->inactivity_timeout_id)
     {
       g_source_remove (application->priv->inactivity_timeout_id);
@@ -1381,6 +1379,8 @@ inactivity_timeout_expired (gpointer data)
 void
 g_application_release (GApplication *application)
 {
+  g_return_if_fail (G_IS_APPLICATION (application));
+
   application->priv->use_count--;
 
   if (application->priv->use_count == 0 && application->priv->inactivity_timeout)
@@ -1531,9 +1531,12 @@ g_application_open (GApplication  *application,
  * non-zero then the default main context is iterated until the use count
  * falls to zero, at which point 0 is returned.
  *
- * If the %G_APPLICATION_IS_SERVICE flag is set, then the exiting at
- * use count of zero is delayed for a while (ie: the instance stays
- * around to provide its <emphasis>service</emphasis> to others).
+ * If the %G_APPLICATION_IS_SERVICE flag is set, then the service will
+ * run for as much as 10 seconds with a use count of zero while waiting
+ * for the message that caused the activation to arrive.  After that,
+ * if the use count falls to zero the application will exit immediately,
+ * except in the case that g_application_set_inactivity_timeout() is in
+ * use.
  *
  * Returns: the exit status
  *
@@ -1621,7 +1624,7 @@ g_application_run (GApplication  *application,
       status = 0;
     }
 
-  if (!application->priv->is_remote)
+  if (application->priv->is_registered && !application->priv->is_remote)
     {
       g_signal_emit (application, g_application_signals[SIGNAL_SHUTDOWN], 0);
 

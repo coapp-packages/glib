@@ -193,22 +193,23 @@ mounts_changed (GUnixMountMonitor *mount_monitor,
                 gpointer           user_data)
 {
   GLocalDirectoryMonitor *local_monitor = user_data;
+#ifdef G_OS_UNIX
   GUnixMountEntry *mount;
+#endif
   gboolean is_mounted;
   GFile *file;
   
   /* Emulate unmount detection */
-#ifdef G_OS_WIN32
-  mount = NULL;
-  /*claim everything was mounted */
-  is_mounted = TRUE;
-#else  
+#ifdef G_OS_UNIX
   mount = g_unix_mount_at (local_monitor->dirname, NULL);
   
   is_mounted = mount != NULL;
   
   if (mount)
     g_unix_mount_free (mount);
+#else
+  /*claim everything was mounted */
+  is_mounted = TRUE;
 #endif
 
   if (local_monitor->was_mounted != is_mounted)
@@ -225,76 +226,31 @@ mounts_changed (GUnixMountMonitor *mount_monitor,
     }
 }
 
-static gpointer
-get_default_local_directory_monitor (gpointer data)
-{
-  GLocalDirectoryMonitorClass *chosen_class;
-  GLocalDirectoryMonitorClass **ret = data;
-  GIOExtensionPoint *ep;
-  GList *extensions, *l;
-
-  _g_io_modules_ensure_loaded ();
-
-  ep = g_io_extension_point_lookup (G_LOCAL_DIRECTORY_MONITOR_EXTENSION_POINT_NAME);
-
-  extensions = g_io_extension_point_get_extensions (ep);
-  
-  chosen_class = NULL;
-  for (l = extensions; l != NULL; l = l->next)
-    {
-      GIOExtension *extension = l->data;
-      GLocalDirectoryMonitorClass *klass;
-      
-      klass = G_LOCAL_DIRECTORY_MONITOR_CLASS (g_io_extension_ref_class (extension));
-      
-      if (klass->is_supported ())
-	{
-	  chosen_class = klass;
-	  break;
-	}
-      else
-	g_type_class_unref (klass);
-    }
-  
-  if (chosen_class)
-    {
-      *ret = chosen_class;
-      return (gpointer)G_TYPE_FROM_CLASS (chosen_class);
-    }
-  else
-    return (gpointer)G_TYPE_INVALID;
-}
-
 GFileMonitor*
 _g_local_directory_monitor_new (const char         *dirname,
 				GFileMonitorFlags   flags,
+                                gboolean            is_remote_fs,
 				GError            **error)
 {
-  static GOnce once_init = G_ONCE_INIT;
-  GTypeClass *type_class;
-  GFileMonitor *monitor;
-  GType type;
+  GFileMonitor *monitor = NULL;
+  GType type = G_TYPE_INVALID;
 
-  type_class = NULL;
-  g_once (&once_init, get_default_local_directory_monitor, &type_class);
-  type = (GType)once_init.retval;
+  if (is_remote_fs)
+    type = _g_io_module_get_default_type (G_NFS_DIRECTORY_MONITOR_EXTENSION_POINT_NAME,
+                                          "GIO_USE_FILE_MONITOR",
+                                          G_STRUCT_OFFSET (GLocalDirectoryMonitorClass, is_supported));
 
-  monitor = NULL;
+  if (type == G_TYPE_INVALID)
+    type = _g_io_module_get_default_type (G_LOCAL_DIRECTORY_MONITOR_EXTENSION_POINT_NAME,
+                                          "GIO_USE_FILE_MONITOR",
+                                          G_STRUCT_OFFSET (GLocalDirectoryMonitorClass, is_supported));
+
   if (type != G_TYPE_INVALID)
     monitor = G_FILE_MONITOR (g_object_new (type, "dirname", dirname, "flags", flags, NULL));
   else
     g_set_error_literal (error, G_IO_ERROR, G_IO_ERROR_FAILED,
                          _("Unable to find default local directory monitor type"));
 
-  /* This is non-null on first pass here. Unref the class now.
-   * This is to avoid unloading the module and then loading it
-   * again which would happen if we unrefed the class
-   * before creating the monitor.
-   */
-  
-  if (type_class)
-    g_type_class_unref (type_class);
-  
   return monitor;
 }
 

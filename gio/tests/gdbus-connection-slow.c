@@ -173,7 +173,7 @@ test_connection_large_message (void)
   session_bus_up ();
 
   /* this is safe; testserver will exit once the bus goes away */
-  g_assert (g_spawn_command_line_async (SRCDIR "/gdbus-testserver.py", NULL));
+  g_assert (g_spawn_command_line_async ("./gdbus-testserver", NULL));
 
   watcher_id = g_bus_watch_name (G_BUS_TYPE_SESSION,
                                  "com.example.TestService",
@@ -194,7 +194,6 @@ int
 main (int   argc,
       char *argv[])
 {
-  g_type_init ();
   g_test_init (&argc, &argv, NULL);
 
   /* all the tests rely on a shared main loop */

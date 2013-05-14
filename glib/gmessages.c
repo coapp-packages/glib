@@ -281,7 +281,10 @@ static void
 write_string (int          fd,
 	      const gchar *string)
 {
-  write (fd, string, strlen (string));
+  int res;
+  do 
+    res = write (fd, string, strlen (string));
+  while (G_UNLIKELY (res == -1 && errno == EINTR));
 }
 
 static GLogDomain*
@@ -820,7 +823,8 @@ mklevel_prefix (gchar          level_prefix[STRING_BUFFER_SIZE],
     strcat (level_prefix, " **");
 
 #ifdef G_OS_WIN32
-  win32_keep_fatal_message = (log_level & G_LOG_FLAG_FATAL) != 0;
+  if ((log_level & G_LOG_FLAG_FATAL) != 0 && !g_test_initialized ())
+    win32_keep_fatal_message = TRUE;
 #endif
   return to_stdout ? 1 : 2;
 }
@@ -954,10 +958,13 @@ g_logv (const gchar   *log_domain,
 	  if ((test_level & G_LOG_FLAG_FATAL) && !masquerade_fatal)
             {
 #ifdef G_OS_WIN32
-	      gchar *locale_msg = g_locale_from_utf8 (fatal_msg_buf, -1, NULL, NULL, NULL);
-	      
-	      MessageBox (NULL, locale_msg, NULL,
-			  MB_ICONERROR|MB_SETFOREGROUND);
+              if (win32_keep_fatal_message)
+                {
+                  gchar *locale_msg = g_locale_from_utf8 (fatal_msg_buf, -1, NULL, NULL, NULL);
+
+                  MessageBox (NULL, locale_msg, NULL,
+                              MB_ICONERROR|MB_SETFOREGROUND);
+                }
 	      if (IsDebuggerPresent () && !(test_level & G_LOG_FLAG_RECURSION))
 		G_BREAKPOINT ();
 	      else
@@ -1082,8 +1089,8 @@ g_assert_warning (const char *log_domain,
  *    &ast; context is already owned by another thread.
  *    &ast;/
  *   g_test_expect_message (G_LOG_DOMAIN,
- *                          G_LOG_LEVEL_CRITICIAL,
- *                          "assertion.*acquired_context.*failed");
+ *                          G_LOG_LEVEL_CRITICAL,
+ *                          "assertion*acquired_context*failed");
  *   g_main_context_push_thread_default (bad_context);
  *   g_test_assert_expected_messages ();
  * ]|

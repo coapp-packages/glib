@@ -30,9 +30,9 @@ m4_define(glib_configure_ac)
 # <mclasen> on the unstable (ie master), interface age = 0
 
 m4_define([glib_major_version], [2])
-m4_define([glib_minor_version], [34])
-m4_define([glib_micro_version], [0])
-m4_define([glib_interface_age], [0])
+m4_define([glib_minor_version], [36])
+m4_define([glib_micro_version], [2])
+m4_define([glib_interface_age], [2])
 m4_define([glib_binary_age],
           [m4_eval(100 * glib_minor_version + glib_micro_version)])
 m4_define([glib_version],
@@ -56,14 +56,14 @@ m4_define([glib_debug_default],
 AC_INIT(glib, [glib_version],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=glib])
 
-AC_CONFIG_HEADER([config.h])
+AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_SRCDIR([glib/glib.h])
 AC_CONFIG_MACRO_DIR([m4macros])
 
 # Save this value here, since automake will set cflags later
 cflags_set=${CFLAGS+set}
 
-AM_INIT_AUTOMAKE([1.11 no-define no-dist-gzip dist-xz tar-ustar])
+AM_INIT_AUTOMAKE([1.11 -Wno-portability no-define no-dist-gzip dist-xz tar-ustar])
 AM_MAINTAINER_MODE([enable])
 
 # Support silent build rules. Disable
@@ -150,6 +150,8 @@ case "$host" in
       LIB_EXE_MACHINE_FLAG=X64
       ;;
     esac
+
+    AC_DEFINE([_WIN32_WINNT], [0x0501], [Target the Windows XP API])
     ;;
   *)
     glib_native_win32=no
@@ -203,19 +205,10 @@ AS_IF([test "$glib_native_win32" = "yes"], [
     AC_MSG_ERROR([*** Could not find an implementation of nm in your PATH.])
   fi
   AC_CHECK_TOOL(RANLIB, ranlib, :)
+  AC_CHECK_TOOL(DLLTOOL, dlltool, :)
   AC_CHECK_PROG(ms_librarian, [lib.exe], [yes], [no])
 ])
 AM_CONDITIONAL(MS_LIB_AVAILABLE, [test x$ms_librarian = xyes])
-
-if test "$glib_native_win32" != yes; then
-    # libtool option to control which symbols are exported
-    # right now, symbols starting with _ are not exported
-    LIBTOOL_EXPORT_OPTIONS='-export-symbols-regex "^g.*"'
-else
-    # We currently use .def files on Windows
-    LIBTOOL_EXPORT_OPTIONS=
-fi
-AC_SUBST(LIBTOOL_EXPORT_OPTIONS)
 
 AS_IF([test "x$glib_have_carbon" = "xyes"], [
   AC_DEFINE(HAVE_CARBON, 1, [define to 1 if Carbon is available])
@@ -291,7 +284,6 @@ AC_TRY_COMPILE(,[class a { int b; } c;], ,CXX=)
 AM_CONDITIONAL(HAVE_CXX, [test "$CXX" != ""])
 AC_LANG_RESTORE
 
-AM_PROG_CC_STDC
 AM_PROG_CC_C_O
 AC_PROG_INSTALL
 
@@ -379,7 +371,16 @@ if test "x$PERL_PATH" = x ; then
 fi
 AC_SUBST(PERL_PATH)
 
-# Need suitable python path for greport
+# option to specify python interpreter to use; this just sets $PYTHON, so that
+# we will fallback to reading $PYTHON if --with-python is not given, and
+# python.m4 will get the expected input
+AC_ARG_WITH(python,
+            AS_HELP_STRING([--with-python=PATH],
+                           [Path to Python interpreter; searches $PATH if only a program name is given; if not given, searches for a few standard names such as "python3" or "python2"]),
+            [PYTHON="$withval"], [])
+if test x"$PYTHON" = xyes; then
+  AC_MSG_ERROR([--with-python option requires a path or program argument])
+fi
 AM_PATH_PYTHON(2.5,,PYTHON="/usr/bin/env python2.5")
 
 
@@ -526,13 +527,6 @@ LT_INIT([disable-static win32-dll])
 dnl when using libtool 2.x create libtool early, because it's used in configure
 m4_ifdef([LT_OUTPUT], [LT_OUTPUT])
 
-
-if test "x$GCC" = "xyes"; then
-  case " $CFLAGS " in
-  *[[\ \	]]-Wall[[\ \	]]*) ;;
-  *) CFLAGS="$CFLAGS -Wall" ;;
-  esac
-fi
 
 AS_IF([test "$glib_native_win32" = "yes"], [
   if test x$enable_static = xyes -a x$enable_shared = xyes; then
@@ -852,7 +846,7 @@ __attribute__ ((visibility ("default")))
      f_default (void)
 {
 }
-int main (int argc, char **argv)
+int main (void)
 {
 	f_hidden();
 	f_internal();
@@ -905,6 +899,7 @@ AC_CHECK_HEADERS([sys/mount.h sys/sysctl.h], [], [],
  #include <sys/param.h>
  #endif
 ])
+AC_CHECK_FUNCS(sysctlbyname)
 
 AC_CHECK_HEADERS([xlocale.h])
 
@@ -1068,9 +1063,28 @@ if $glib_failed ; then
 fi
 
 AC_CHECK_FUNCS(getprotobyname_r endservent if_nametoindex)
-AC_CHECK_HEADERS([netdb.h wspiapi.h arpa/nameser_compat.h])
 
-AS_IF([test $glib_native_win32 = no], [
+AS_IF([test $glib_native_win32 = yes], [
+  # <wspiapi.h> in the Windows SDK and in mingw-w64 has wrappers for
+  # inline workarounds for getaddrinfo, getnameinfo and freeaddrinfo if
+  # they aren't present at run-time (on Windows 2000).
+  AC_CHECK_HEADER([wspiapi.h], [WSPIAPI_INCLUDE="#include <wspiapi.h>"])
+  AC_SUBST(WSPIAPI_INCLUDE)
+], [
+  AC_MSG_CHECKING([if arpa/nameser_compat.h is needed])
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([#include <sys/types.h>
+                                      #include <arpa/nameser.h>],
+                                     [int qclass = C_IN;])],
+                    [AC_MSG_RESULT([no])],
+                    [AC_COMPILE_IFELSE([AC_LANG_PROGRAM([#include <sys/types.h>
+                                                         #include <arpa/nameser.h>
+                                                         #include <arpa/nameser_compat.h>],
+                                                        [int qclass = C_IN;])],
+                                       [AC_MSG_RESULT([yes])
+                                        NAMESER_COMPAT_INCLUDE="#include <arpa/nameser_compat.h>"],
+                                       [AC_MSG_ERROR([could not compile test program either way])])])
+  AC_SUBST(NAMESER_COMPAT_INCLUDE)
+
   # We can't just use AC_CHECK_FUNC/AC_CHECK_LIB here. Bug 586150
   NETWORK_LIBS=""
   AC_MSG_CHECKING([for res_query])
@@ -1219,7 +1233,7 @@ AC_FUNC_SNPRINTF_C99
 
 # Check if bcopy can be used for overlapping copies, if memmove isn't found.
 # The check is borrowed from the PERL Configure script.
-AS_IF([test "$ac_cv_func_memmove" != "yes"],
+AS_IF([test "$ac_cv_func_memmove" != "yes"], [
   AC_CACHE_CHECK(whether bcopy can handle overlapping copies,
     glib_cv_working_bcopy,[AC_TRY_RUN([
       int main() {
@@ -1719,6 +1733,17 @@ AC_CHECK_HEADERS([sys/inotify.h],
 ])
 
 AM_CONDITIONAL(HAVE_INOTIFY, [test "$inotify_support" = "yes"])
+
+dnl ****************************
+dnl ** Check for kqueue (GIO) **
+dnl ****************************
+kqueue_support=no
+AC_CHECK_HEADERS([sys/event.h],
+[
+	AC_CHECK_FUNCS(kqueue kevent, [kqueue_support=yes])
+])
+
+AM_CONDITIONAL(HAVE_KQUEUE, [test "$kqueue_support" = "yes"])
 
 dnl *********************************
 dnl ** Check for Solaris FEN (GIO) **
@@ -2348,7 +2373,7 @@ dnl
 dnl We can currently support the atomic ops natively when building GLib
 dnl with recent versions of GCC or MSVC.  MSVC doesn't run ./configure,
 dnl so we skip that case here and define G_ATOMIC_LOCK_FREE exactly when
-dnl we are using GCC.
+dnl we are using GCC (and not mingw*).
 dnl
 dnl Note that the atomic ops are only available with GCC on x86 when
 dnl using -march=i486 or higher.  If we detect that the atomic ops are
@@ -2360,20 +2385,44 @@ dnl the user had the wrong build environment.
 dnl We may add other compilers here in the future...
 
 AC_CACHE_CHECK([for lock-free atomic intrinsics], glib_cv_g_atomic_lock_free, [
-  AC_TRY_COMPILE([],
-                 [__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4;],
-                 [glib_cv_g_atomic_lock_free=yes],
-                 [glib_cv_g_atomic_lock_free=no])])
+  case $host in
+    *-*-mingw*)
+      glib_cv_g_atomic_lock_free=yes
+      ;;
+    *)
+      AC_TRY_COMPILE([],
+                     [volatile int atomic = 2;\
+                      __sync_bool_compare_and_swap (&atomic, 2, 3);],
+                     [glib_cv_g_atomic_lock_free=yes],
+                     [glib_cv_g_atomic_lock_free=no])
+      if test "$glib_cv_g_atomic_lock_free" = "no"; then
+        SAVE_CFLAGS="${CFLAGS}"
+        CFLAGS="-march=i486"
+        AC_TRY_COMPILE([],
+                       [volatile int atomic = 2;\
+                        __sync_bool_compare_and_swap (&atomic, 2, 3);],
+                       [AC_MSG_ERROR([GLib must be build with -march=i486 or later.])],
+                       [])
+        CFLAGS="${SAVE_CFLAGS}"
+      fi
+      ;;
+  esac])
 
-if test "$glib_cv_g_atomic_lock_free" = "no"; then
-  SAVE_CFLAGS="${CFLAGS}"
-  CFLAGS="-march=i486"
-  AC_TRY_COMPILE([],
-                 [__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4;],
-                 [AC_MSG_ERROR([GLib must be build with -march=i486 or later.])],
-                 [])
-  CFLAGS="${SAVE_CFLAGS}"
-fi
+
+case $host in
+  *-*-mingw*)
+    ;;
+  *)
+    # Some compilers support atomic operations but do not define
+    # __GCC_HAVE_SYNC_COMPARE_AND_SWAP_4, like clang
+    if test x"$glib_cv_g_atomic_lock_free" = xyes; then
+      AC_TRY_COMPILE([],
+                     [__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4;],
+                     [],
+                     [AC_DEFINE(__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4, 1, [ compiler supports atomic operations])])
+    fi
+    ;;
+ esac
 
 dnl We need a more robust approach here...
 case $host_cpu in
@@ -3532,6 +3581,54 @@ fi
 
 AC_SUBST(GLIB_LINK_FLAGS)
 
+dnl
+dnl Check for -fvisibility=hidden to determine if we can do GNU-style
+dnl visibility attributes for symbol export control
+dnl
+GLIB_HIDDEN_VISIBILITY_CFLAGS=""
+case "$host" in
+  *-*-mingw*)
+    dnl on mingw32 we do -fvisibility=hidden and __declspec(dllexport)
+    AC_DEFINE([_GLIB_EXTERN], [__attribute__((visibility("default"))) __declspec(dllexport) extern],
+              [defines how to decorate public symbols while building])
+    CFLAGS="${CFLAGS} -fvisibility=hidden"
+    ;;
+  *)
+    dnl on other compilers, check if we can do -fvisibility=hidden
+    SAVED_CFLAGS="${CFLAGS}"
+    CFLAGS="-fvisibility=hidden"
+    AC_MSG_CHECKING([for -fvisibility=hidden compiler flag])
+    AC_TRY_COMPILE([], [int main (void) { return 0; }],
+                   AC_MSG_RESULT(yes)
+                   enable_fvisibility_hidden=yes,
+                   AC_MSG_RESULT(no)
+                   enable_fvisibility_hidden=no)
+    CFLAGS="${SAVED_CFLAGS}"
+
+    AS_IF([test "${enable_fvisibility_hidden}" = "yes"], [
+      AC_DEFINE([_GLIB_EXTERN], [__attribute__((visibility("default"))) extern],
+                [defines how to decorate public symbols while building])
+      GLIB_HIDDEN_VISIBILITY_CFLAGS="-fvisibility=hidden"
+    ])
+    ;;
+esac
+AC_SUBST(GLIB_HIDDEN_VISIBILITY_CFLAGS)
+
+dnl Compiler flags; macro originates from systemd
+dnl See https://bugzilla.gnome.org/show_bug.cgi?id=608953
+AC_ARG_ENABLE(compile-warnings,
+              [AS_HELP_STRING([--disable-compile-warnings],
+                              [Don't use builtin compiler warnings])],,
+			      enable_compile_warnings=yes)
+AS_IF([test "x$enable_compile_warnings" = xyes], [
+  CC_CHECK_FLAGS_APPEND([GLIB_WARN_CFLAGS], [CFLAGS], [\
+   -Wall -Wstrict-prototypes -Werror=declaration-after-statement \
+   -Werror=missing-prototypes -Werror=implicit-function-declaration \
+   -Werror=pointer-arith -Werror=init-self -Werror=format-security \
+   -Werror=format=2 -Werror=missing-include-dirs])
+])
+AC_SUBST(GLIB_WARN_CFLAGS)
+
 #
 # Define variables corresponding to the correct include paths to use for
 # in-tree building.
@@ -3549,14 +3646,9 @@ AC_SUBST(config_h_INCLUDES)
 glib_INCLUDES='$(config_h_INCLUDES) -I$(top_builddir)/glib -I$(top_srcdir)/glib -I$(top_srcdir)'
 AC_SUBST(glib_INCLUDES)
 
-# gthread:
-#   same as glib
-gthread_INCLUDES='$(glib_INCLUDES)'
-AC_SUBST(gthread_INCLUDES)
-
 # gobject:
-#   same as gthread
-gobject_INCLUDES='$(gthread_INCLUDES)'
+#   same as glib
+gobject_INCLUDES='$(glib_INCLUDES)'
 AC_SUBST(gobject_INCLUDES)
 
 # gmodule:
@@ -3589,6 +3681,7 @@ build/win32/Makefile
 build/win32/dirent/Makefile
 build/win32/vs9/Makefile
 build/win32/vs10/Makefile
+build/win32/vs11/Makefile
 glib/Makefile
 glib/glib.stp
 glib/libcharset/Makefile
@@ -3606,13 +3699,17 @@ gthread/Makefile
 gio/Makefile
 gio/gdbus-2.0/codegen/Makefile
 gio/gdbus-2.0/codegen/config.py
+gio/gnetworking.h
 gio/xdgmime/Makefile
 gio/inotify/Makefile
+gio/kqueue/Makefile
 gio/fen/Makefile
 gio/fam/Makefile
 gio/win32/Makefile
 gio/tests/Makefile
 gio/tests/gdbus-object-manager-example/Makefile
+gio/tests/services/Makefile
+gio/tests/services/org.gtk.GDBus.Examples.ObjectManager.service
 po/Makefile.in
 docs/Makefile
 docs/reference/Makefile

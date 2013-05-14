@@ -64,9 +64,11 @@
 #include "gioerror.h"
 #include <glib/gstdio.h>
 #include "glibintl.h"
+#ifdef G_OS_UNIX
+#include "glib-unix.h"
+#endif
 
 #ifdef G_OS_WIN32
-#define _WIN32_WINNT 0x0500
 #include <windows.h>
 #include <io.h>
 #include <direct.h>
@@ -230,6 +232,11 @@ canonicalize_filename (const char *filename)
       start -= i;
       memmove (start, start+i, strlen (start+i)+1);
     }
+
+  /* Make sure we're using the canonical dir separator */
+  p++;
+  while (p < start && G_IS_DIR_SEPARATOR (*p))
+    *p++ = G_DIR_SEPARATOR;
   
   p = start;
   while (*p != 0)
@@ -1362,7 +1369,7 @@ g_local_file_read (GFile         *file,
 
   if (ret == 0 && S_ISDIR (buf.st_mode))
     {
-      close (fd);
+      (void) g_close (fd, NULL);
       g_set_error_literal (error, G_IO_ERROR,
                            G_IO_ERROR_IS_DIRECTORY,
                            _("Can't open directory"));
@@ -1734,33 +1741,6 @@ try_make_relative (const char *path,
   return g_strdup (path);
 }
 
-static char *
-escape_trash_name (char *name)
-{
-  GString *str;
-  const gchar hex[16] = "0123456789ABCDEF";
-  
-  str = g_string_new ("");
-
-  while (*name != 0)
-    {
-      char c;
-
-      c = *name++;
-
-      if (g_ascii_isprint (c))
-	g_string_append_c (str, c);
-      else
-	{
-          g_string_append_c (str, '%');
-          g_string_append_c (str, hex[((guchar)c) >> 4]);
-          g_string_append_c (str, hex[((guchar)c) & 0xf]);
-	}
-    }
-
-  return g_string_free (str, FALSE);
-}
-
 gboolean
 _g_local_file_has_trash_dir (const char *dirname, dev_t dir_dev)
 {
@@ -1829,6 +1809,46 @@ _g_local_file_has_trash_dir (const char *dirname, dev_t dir_dev)
   return res;
 }
 
+#ifdef G_OS_UNIX
+gboolean
+_g_local_file_is_lost_found_dir (const char *path, dev_t path_dev)
+{
+  gboolean ret = FALSE;
+  gchar *mount_dir = NULL;
+  size_t mount_dir_len;
+  GStatBuf statbuf;
+
+  if (!g_str_has_suffix (path, "/lost+found"))
+    goto out;
+
+  mount_dir = find_mountpoint_for (path, path_dev);
+  if (mount_dir == NULL)
+    goto out;
+
+  mount_dir_len = strlen (mount_dir);
+  /* We special-case rootfs ('/') since it's the only case where
+   * mount_dir ends in '/'
+   */
+  if (mount_dir_len == 1)
+    mount_dir_len--;
+  if (mount_dir_len + strlen ("/lost+found") != strlen (path))
+    goto out;
+
+  if (g_lstat (path, &statbuf) != 0)
+    goto out;
+
+  if (!(S_ISDIR (statbuf.st_mode) &&
+        statbuf.st_uid == 0 &&
+        statbuf.st_gid == 0))
+    goto out;
+
+  ret = TRUE;
+
+ out:
+  g_free (mount_dir);
+  return ret;
+}
+#endif
 
 static gboolean
 g_local_file_trash (GFile         *file,
@@ -2039,7 +2059,7 @@ g_local_file_trash (GFile         *file,
       return FALSE;
     }
 
-  close (fd);
+  (void) g_close (fd, NULL);
 
   /* TODO: Maybe we should verify that you can delete the file from the trash
      before moving it? OTOH, that is hard, as it needs a recursive scan */
@@ -2087,7 +2107,7 @@ g_local_file_trash (GFile         *file,
     original_name = g_strdup (local->filename);
   else
     original_name = try_make_relative (local->filename, topdir);
-  original_name_escaped = escape_trash_name (original_name);
+  original_name_escaped = g_uri_escape_string (original_name, "/", FALSE);
   
   g_free (original_name);
   g_free (topdir);
@@ -2388,6 +2408,86 @@ g_local_file_move (GFile                  *source,
   return TRUE;
 }
 
+#ifdef G_OS_WIN32
+
+static gboolean
+is_remote (const gchar *filename)
+{
+  return FALSE;
+}
+
+#else
+
+static gboolean
+is_remote_fs (const gchar *filename)
+{
+  const char *fsname = NULL;
+
+#ifdef USE_STATFS
+  struct statfs statfs_buffer;
+  int statfs_result = 0;
+
+#if STATFS_ARGS == 2
+  statfs_result = statfs (filename, &statfs_buffer);
+#elif STATFS_ARGS == 4
+  statfs_result = statfs (filename, &statfs_buffer, sizeof (statfs_buffer), 0);
+#endif
+
+#elif defined(USE_STATVFS)
+  struct statvfs statfs_buffer;
+
+  statfs_result = statvfs (filename, &statfs_buffer);
+#else
+  return FALSE;
+#endif
+
+  if (statfs_result == -1)
+    return FALSE;
+
+#ifdef USE_STATFS
+#if defined(HAVE_STRUCT_STATFS_F_FSTYPENAME)
+  fsname = statfs_buffer.f_fstypename;
+#else
+  fsname = get_fs_type (statfs_buffer.f_type);
+#endif
+
+#elif defined(USE_STATVFS) && defined(HAVE_STRUCT_STATVFS_F_BASETYPE)
+  fsname = statfs_buffer.f_basetype;
+#endif
+
+  if (fsname != NULL)
+    {
+      if (strcmp (fsname, "nfs") == 0)
+        return TRUE;
+      if (strcmp (fsname, "nfs4") == 0)
+        return TRUE;
+    }
+
+  return FALSE;
+}
+
+static gboolean
+is_remote (const gchar *filename)
+{
+  static gboolean remote_home;
+  static gsize initialized;
+  const gchar *home;
+
+  home = g_get_home_dir ();
+  if (path_has_prefix (filename, home))
+    {
+      if (g_once_init_enter (&initialized))
+        {
+          remote_home = is_remote_fs (home);
+          g_once_init_leave (&initialized, TRUE);
+        }
+      return remote_home;
+    }
+
+  return FALSE;
+}
+#endif /* !G_OS_WIN32 */
+
 static GFileMonitor*
 g_local_file_monitor_dir (GFile             *file,
 			  GFileMonitorFlags  flags,
@@ -2395,7 +2495,7 @@ g_local_file_monitor_dir (GFile             *file,
 			  GError           **error)
 {
   GLocalFile* local_file = G_LOCAL_FILE(file);
-  return _g_local_directory_monitor_new (local_file->filename, flags, error);
+  return _g_local_directory_monitor_new (local_file->filename, flags, is_remote (local_file->filename), error);
 }
 
 static GFileMonitor*
@@ -2405,7 +2505,7 @@ g_local_file_monitor_file (GFile             *file,
 			   GError           **error)
 {
   GLocalFile* local_file = G_LOCAL_FILE(file);
-  return _g_local_file_monitor_new (local_file->filename, flags, error);
+  return _g_local_file_monitor_new (local_file->filename, flags, is_remote (local_file->filename), error);
 }
 
 static void

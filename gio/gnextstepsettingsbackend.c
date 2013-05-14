@@ -19,11 +19,15 @@
  * Author: William Hua <william@attente.ca>
  */
 
+#include "config.h"
+
 #include "gsettingsbackendinternal.h"
 #include "gsimplepermission.h"
 #include "giomodule.h"
 
 #import <Foundation/Foundation.h>
+
+GType g_nextstep_settings_backend_get_type (void);
 
 #define G_NEXTSTEP_SETTINGS_BACKEND(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), g_nextstep_settings_backend_get_type (), GNextstepSettingsBackend))
 

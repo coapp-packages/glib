@@ -457,6 +457,7 @@ static void test_object_c_init (TestObjectC *c) { }
  * That gives 21 (7 * 3) properties that will be installed.
  */
 typedef GTypeInterface TestInterfaceInterface;
+static GType test_interface_get_type (void);
 //typedef struct _TestInterface TestInterface;
 G_DEFINE_INTERFACE (TestInterface, test_interface, G_TYPE_OBJECT)
 static void
@@ -788,7 +789,6 @@ test_param_implement (void)
 int
 main (int argc, char *argv[])
 {
-  g_type_init ();
   g_test_init (&argc, &argv, NULL);
 
   g_test_add_func ("/param/value", test_param_value);

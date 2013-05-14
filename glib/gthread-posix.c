@@ -90,10 +90,12 @@ g_mutex_impl_new (void)
     g_thread_abort (errno, "malloc");
 
 #ifdef PTHREAD_ADAPTIVE_MUTEX_INITIALIZER_NP
-  pthread_mutexattr_t attr;
-  pthread_mutexattr_init (&attr);
-  pthread_mutexattr_settype (&attr, PTHREAD_MUTEX_ADAPTIVE_NP);
-  pattr = &attr;
+  {
+    pthread_mutexattr_t attr;
+    pthread_mutexattr_init (&attr);
+    pthread_mutexattr_settype (&attr, PTHREAD_MUTEX_ADAPTIVE_NP);
+    pattr = &attr;
+  }
 #endif
 
   if G_UNLIKELY ((status = pthread_mutex_init (mutex, pattr)) != 0)
@@ -116,7 +118,7 @@ g_mutex_impl_free (pthread_mutex_t *mutex)
 static pthread_mutex_t *
 g_mutex_get_impl (GMutex *mutex)
 {
-  pthread_mutex_t *impl = mutex->p;
+  pthread_mutex_t *impl = g_atomic_pointer_get (&mutex->p);
 
   if G_UNLIKELY (impl == NULL)
     {
@@ -285,7 +287,7 @@ g_rec_mutex_impl_free (pthread_mutex_t *mutex)
 static pthread_mutex_t *
 g_rec_mutex_get_impl (GRecMutex *rec_mutex)
 {
-  pthread_mutex_t *impl = rec_mutex->p;
+  pthread_mutex_t *impl = g_atomic_pointer_get (&rec_mutex->p);
 
   if G_UNLIKELY (impl == NULL)
     {
@@ -445,7 +447,7 @@ g_rw_lock_impl_free (pthread_rwlock_t *rwlock)
 static pthread_rwlock_t *
 g_rw_lock_get_impl (GRWLock *lock)
 {
-  pthread_rwlock_t *impl = lock->p;
+  pthread_rwlock_t *impl = g_atomic_pointer_get (&lock->p);
 
   if G_UNLIKELY (impl == NULL)
     {
@@ -662,7 +664,7 @@ g_cond_impl_free (pthread_cond_t *cond)
 static pthread_cond_t *
 g_cond_get_impl (GCond *cond)
 {
-  pthread_cond_t *impl = cond->p;
+  pthread_cond_t *impl = g_atomic_pointer_get (&cond->p);
 
   if G_UNLIKELY (impl == NULL)
     {
@@ -725,6 +727,8 @@ g_cond_clear (GCond *cond)
  * @mutex: a #GMutex that is currently locked
  *
  * Atomically releases @mutex and waits until @cond is signalled.
+ * When this function returns, @mutex is locked again and owned by the
+ * calling thread.
  *
  * When using condition variables, it is possible that a spurious wakeup
  * may occur (ie: g_cond_wait() returns even though g_cond_signal() was
@@ -969,7 +973,7 @@ g_private_impl_free (pthread_key_t *key)
 static pthread_key_t *
 g_private_get_impl (GPrivate *key)
 {
-  pthread_key_t *impl = key->p;
+  pthread_key_t *impl = g_atomic_pointer_get (&key->p);
 
   if G_UNLIKELY (impl == NULL)
     {

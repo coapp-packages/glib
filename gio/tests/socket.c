@@ -22,11 +22,10 @@
 
 #ifdef G_OS_UNIX
 #include <errno.h>
-#include <sys/types.h>
-#include <sys/socket.h>
 #include <sys/wait.h>
 #include <string.h>
 #include <stdlib.h>
+#include <gio/gnetworking.h>
 #include <gio/gunixconnection.h>
 #endif
 
@@ -106,6 +105,12 @@ create_server (GSocketFamily family,
       fd = g_socket_get_fd (server);
       v6_only = 0;
       setsockopt (fd, IPPROTO_IPV6, IPV6_V6ONLY, &v6_only, sizeof (v6_only));
+      if (! g_socket_speaks_ipv4 (data->server))
+        {
+          g_object_unref (data->server);
+          g_slice_free (IPTestData, data);
+          return NULL;
+        }
     }
 #endif
 
@@ -549,6 +554,12 @@ test_ipv6_v4mapped (void)
 
   data = create_server (G_SOCKET_FAMILY_IPV6, v4mapped_server_thread, TRUE);
 
+  if (data == NULL)
+    {
+      g_test_message ("Test not run: not supported by the OS");
+      return;
+    }
+
   client = g_socket_new (G_SOCKET_FAMILY_IPV4,
 			 G_SOCKET_TYPE_STREAM,
 			 G_SOCKET_PROTOCOL_DEFAULT,
@@ -617,7 +628,7 @@ test_timed_wait (void)
   poll_duration = g_get_monotonic_time () - start_time;
 
   g_assert_cmpint (poll_duration, >=, 98000);
-  g_assert_cmpint (poll_duration, <, 110000);
+  g_assert_cmpint (poll_duration, <, 112000);
 
   g_socket_close (client, &error);
   g_assert_no_error (error);
@@ -646,8 +657,8 @@ test_sockaddr (void)
   sin6.sin6_family = AF_INET6;
   sin6.sin6_addr = in6addr_loopback;
   sin6.sin6_port = g_htons (42);
-  sin6.sin6_scope_id = g_htonl (17);
-  sin6.sin6_flowinfo = g_htonl (1729);
+  sin6.sin6_scope_id = 17;
+  sin6.sin6_flowinfo = 1729;
 
   saddr = g_socket_address_new_from_native (&sin6, sizeof (sin6));
   g_assert (G_IS_INET_SOCKET_ADDRESS (saddr));
@@ -817,7 +828,6 @@ int
 main (int   argc,
       char *argv[])
 {
-  g_type_init ();
   g_test_init (&argc, &argv, NULL);
 
   g_test_add_func ("/socket/ipv4_sync", test_ipv4_sync);
