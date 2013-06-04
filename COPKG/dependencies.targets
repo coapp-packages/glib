@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\packages\libffi\build\native\libffi.targets" Condition="exists('$(MSBuildThisFileDirectory)..\..\..\packages\libffi\build\native\libffi.targets')"/>
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\packages\libffi.redist\build\native\libffi.redist.targets" Condition="exists('$(MSBuildThisFileDirectory)..\..\..\packages\libffi.redist\build\native\libffi.redist.targets')"/>
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\packages\libintl\build\native\libintl.targets" Condition="exists('$(MSBuildThisFileDirectory)..\..\..\packages\libintl\build\native\libintl.targets')"/>
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\packages\libintl.redist\build\native\libintl.redist.targets" Condition="exists('$(MSBuildThisFileDirectory)..\..\..\packages\libintl.redist\build\native\libintl.redist.targets')"/>
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\packages\zlib\build\native\zlib.targets" Condition="exists('$(MSBuildThisFileDirectory)..\..\..\packages\zlib\build\native\zlib.targets')"/>
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\packages\zlib.redist\build\native\zlib.redist.targets" Condition="exists('$(MSBuildThisFileDirectory)..\..\..\packages\zlib.redist\build\native\zlib.redist.targets')"/>
+</Project>

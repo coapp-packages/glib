@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Linkage-zlib>$(UsesConfigurationType)</Linkage-zlib>
+	<Linkage-zlib_redist>$(UsesConfigurationType)</Linkage-zlib_redist>
+	<Linkage-libffi>$(UsesConfigurationType)</Linkage-libffi>
+	<Linkage-libffi_redist>$(UsesConfigurationType)</Linkage-libffi_redist>
+	<Linkage-libintl>$(UsesConfigurationType)</Linkage-libintl>
+	<Linkage-libintl_redist>$(UsesConfigurationType)</Linkage-libintl_redist>
+	<CallingConvention-zlib>$(CallingConvention)</CallingConvention-zlib>
+	<CallingConvention-libffi>$(CallingConvention)</CallingConvention-libffi>
+	<CallingConvention-libintl>$(CallingConvention)</CallingConvention-libintl>
+  </PropertyGroup>
+</Project>

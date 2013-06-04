@@ -1,138 +1,90 @@
-@import "version.inc";
-@import "common.inc";
-@import "outercurve.inc";
-@import "compat.inc";
+@import @"version.inc";
 
-#define { 
-    flavor: "${comp??vc10}"; 
-    arch : "${plat??x86}";
-}
+nuget {
+	nuspec {
+		id = glib;
+		version : ${package-version};
+		title: "glib";
+		authors: {Glib contributors};
+		owners: {CoApp Project, Tim Rogers};
+		licenseUrl: "http://www.gnu.org/licenses/old-licenses/lgpl-2.0.html";
+		projectUrl: "http://github.com/coapp-packages/glib";
+		requireLicenseAcceptance:false;
+		summary: "GLib is a general-purpose utility library for C, mostly used with GTK and GNOME.";
+		description: @"GLib is a general-purpose utility library for C, mostly used with GTK and GNOME.
+Homepage: https://developer.gnome.org/glib/";
+		releaseNotes: "Release of 2.36.2 libraries and tools.";
+		copyright: Copyright 2013;
+		tags: { glib, native, CoApp };
 
-package {
-    name: "glib[${flavor}]";
-    version: "${package-version}";
-    arch : "${arch}";
-
-    display-name: "GLib";
-}
-
-requires {
-	package: "libffi[${flavor}]-${libffi-dep-version}-${arch}-${libffi-dep-publickeytoken}";
-	package: "libintl[${flavor}]-${libintl-dep-version}-${arch}-${libintl-dep-publickeytoken}";
-	package: "zlib[${flavor}]-${zlib-dep-version}-${arch}-${zlib-dep-publickeytoken}";
-}
-
-metadata {  
-    summary: "GLib"; // or a more user-friendly name
-    description: @"${general-description}";
-    stability : "0";
-    licenses : {
-        lgpl
-    };
-}
-
-signing {
-    attributes : {
-        company="Outercurve Foundation",
-        description="${general-description}",
-        product-name="GLib",
-        product-version="${package-version}",
-        file-version="${package-version}",
-    };
-
-    replace-signature: true; 
-    include: { 
-        files-to-sign
-    };    
-}
-
-manifest[glibdeps] {
-	assembly : {
-		"libintl[${flavor}]",
-		"libffi[${flavor}]",
-		"zlib[${flavor}]",
 	};
 
-	include : {
-		dlls
-	};
-}
+	files {
+		alsoInclude: {
+			#destination = ${d_include}\glib-2.0;
+			..\glib\glib.h,
+			..\glib\glib-object.h,
+			..\gmodule\gmodule.h,
+        };
 
-manifest[glib] {
-	assembly : {
-		"glib[${flavor}]",
+		alsoInclude: {
+			#destination = ${d_include}\glib-2.0\glib;
+            #excludes : { **\glib.h, **\glib-object.h };
+			..\glib\*.h,
+        };
+
+		alsoInclude: {
+			#destination = ${d_include}\glib-2.0\gio;
+			..\gio\*.h,
+        };
+
+		alsoInclude: {
+			#destination = ${d_include}\glib-2.0\gobject;
+			..\gobject\*.h,
+        };
+
+		source += {
+			..\**\*.c,
+			..\**\*.h,
+		};
+
+		("v100,v110", "Win32,x64", "release,debug", "Dynamic", "cdecl") => {
+			[${0},${1},${2},${3},${4}] {
+				lib:    {
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\gio*.lib;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\glib*.lib;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\gmodule*.lib;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\gobject*.lib;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\gthread*.lib;
+                        };
+				bin:    { 
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\gio*.dll;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\glib*.dll;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\gmodule*.dll;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\gobject*.dll;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\gthread*.dll;
+                        };
+				symbols:{ 
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\g*.pdb;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\testglib*.pdb;
+                        };
+				tools:{ 
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\*.exe;
+                        };
+			};
+		};
+        
+        /*
+		("v100,v110", "Win32,x64", "release,debug", "Static,ltcg", "cdecl") => {
+			[${0},${1},${2},${3},${4}] {
+				lib:     { ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\glib.lib };
+			};
+		};
+        */
 	};
 
-	include : {
-		gspawnhelper
-	};
-}
-
-manifest[glibandlibintl] {
-	assembly : {
-		"libintl[${flavor}]",
-		"glib[${flavor}]",
-	};
-
-	include : {
-		exes
-	};
-}
-
-assembly[glib[${flavor}]] {
-	include : {
-		dlls,
-		gspawnhelper
-	};
-}
-
-application {
-	include : {
-		exes
+	targets {
+		// Defines += ??;
 	};
 }
 
-package-composition {
-    symlinks : { 
-        exes => @"${bin}\${each.Name}" = @"${packagedir}\${each.Name}";
-    };
-}
-
-files[files-to-sign] {
-    include: { 
-        dlls,
-        exes,
-        gspawnhelper,
-    };    
-}
-
-files[dlls] {
-    root: @"..\vs10\Win32\bin";
-
-    include: {
-        "*.dll",
-    };
-
-    trim-path: all;
-};
-
-files[exes] {
-    root: @"..\vs10\Win32\bin";
-
-    include: {
-        "gsettings.exe",
-        "gresource.exe",
-    };
-
-    trim-path: all;
-};
-
-files[gspawnhelper] {
-    root: @"..\vs10\Win32\bin";
-
-    include: {
-        "gspawn-*.exe",
-    };
-
-    trim-path: all;
-};
