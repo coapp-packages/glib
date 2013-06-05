@@ -19,6 +19,14 @@ Homepage: https://developer.gnome.org/glib/";
 
 	};
 
+    dependencies {
+        packages : {
+            zlib/1.2.8.1;
+            libintl/0.18.2.9;
+            libffi/3.0.10.3;
+        };
+    }
+
 	files {
 		alsoInclude: {
 			#destination = ${d_include}\glib-2.0;
