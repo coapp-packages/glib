@@ -14,6 +14,12 @@ default {
         SourceFiles:{
                         $(MSBuildThisFileDirectory)dependencies.props;
                         $(MSBuildThisFileDirectory)dependencies.targets;
+                        $(MSBuildThisFileDirectory)glib\gio.vcxproj;
+                        $(MSBuildThisFileDirectory)glib\gio.vcxproj.filters;
+                        $(MSBuildThisFileDirectory)glib\glib.vcxproj;
+                        $(MSBuildThisFileDirectory)glib\glib.vcxproj.filters;
+                        $(MSBuildThisFileDirectory)glib\gobject.vcxproj;
+                        $(MSBuildThisFileDirectory)glib\gobject.vcxproj.filters;
                     };
         DestinationFolder=@"$(MSBuildThisFileDirectory)..\build\win32\vs10\";
     };
