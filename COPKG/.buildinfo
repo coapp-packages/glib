@@ -2,6 +2,12 @@
 
 default {
 
+    .Exec {
+        Condition="Exists('$(MSBuildThisFileDirectory)packages.config')";
+        Command = @"python build\win32\setup.py --perl perl.exe";
+        WorkingDirectory=@"$(MSBuildThisFileDirectory)..\";
+    };
+    
     .Copy {
         SourceFiles:{
                         $(MSBuildThisFileDirectory)gdbus-daemon-generated.c;
@@ -23,7 +29,12 @@ default {
                     };
         DestinationFolder=@"$(MSBuildThisFileDirectory)..\build\win32\vs10\";
     };
-        
+
+    .Exec {
+        Condition="Exists('$(MSBuildThisFileDirectory)packages.config')";
+        Command = @"nuget install $(MSBuildThisFileDirectory)packages.config -x -OutputDirectory ..\packages >nul";
+    };
+    
 	// ("v110, v100", "win32, x64", "Debug,Release", "Dynamic, Static, ltcg", "cdecl") => {
 	("v110, v100", "win32, x64", "Debug,Release", "Dynamic", "cdecl") => {
 		.PushEnvironment {};
@@ -44,13 +55,6 @@ default {
         .PopEnvironment{};
 	};
 	
-};
-
-deps {
-    .Exec {
-        Condition="Exists($(MSBuildThisFileDirectory)packages.config";
-        Command = @"nuget install $(MSBuildThisFileDirectory)packages.config -x -OutputDirectory ..\packages >nul";
-    };
 };
 
 clean {
