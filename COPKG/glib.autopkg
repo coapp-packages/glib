@@ -28,27 +28,26 @@ Homepage: https://developer.gnome.org/glib/";
     }
 
 	files {
-		alsoInclude: {
-			#destination = ${d_include}\glib-2.0;
+		include: {
 			..\glib\glib.h,
 			..\glib\glib-object.h,
 			..\gmodule\gmodule.h,
         };
 
-		alsoInclude: {
-			#destination = ${d_include}\glib-2.0\glib;
+		alsoInclude1: {
+			#destination = ${d_include}\glib;
             #excludes : { **\glib.h, **\glib-object.h };
-			..\glib\*.h,
+			..\glib\**\*.h,
         };
 
-		alsoInclude: {
-			#destination = ${d_include}\glib-2.0\gio;
-			..\gio\*.h,
+		alsoInclude2: {
+			#destination = ${d_include}\gio;
+			..\gio\**\*.h,
         };
 
-		alsoInclude: {
-			#destination = ${d_include}\glib-2.0\gobject;
-			..\gobject\*.h,
+		alsoInclude3: {
+			#destination = ${d_include}\gobject;
+			..\gobject\**\*.h,
         };
 
 		source += {
@@ -92,7 +91,7 @@ Homepage: https://developer.gnome.org/glib/";
 	};
 
 	targets {
-		// Defines += ??;
+		 Defines += HAS_GLIB;
 	};
 }
 
