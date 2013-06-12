@@ -21,9 +21,9 @@ Homepage: https://developer.gnome.org/glib/";
 
     dependencies {
         packages : {
-            zlib/1.2.8.1;
-            libintl/0.18.2.9;
-            libffi/3.0.10.3;
+            zlib/1.2;
+            libintl/0.18;
+            libffi/3.0;
         };
     }
 
@@ -55,28 +55,28 @@ Homepage: https://developer.gnome.org/glib/";
 			..\**\*.h,
 		};
 
-		("v100,v110", "Win32,x64", "release,debug", "Dynamic", "cdecl") => {
-			[${0},${1},${2},${3},${4}] {
+		("v100,v110", "Win32,x64", "release,debug", "Dynamic") => {
+			[${0},${1},${2},${3}] {
 				lib:    {
-                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\gio*.lib;
-                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\glib*.lib;
-                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\gmodule*.lib;
-                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\gobject*.lib;
-                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\gthread*.lib;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\cdecl\gio*.lib;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\cdecl\glib*.lib;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\cdecl\gmodule*.lib;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\cdecl\gobject*.lib;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\cdecl\gthread*.lib;
                         };
 				bin:    { 
-                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\gio*.dll;
-                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\glib*.dll;
-                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\gmodule*.dll;
-                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\gobject*.dll;
-                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\gthread*.dll;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\cdecl\gio*.dll;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\cdecl\glib*.dll;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\cdecl\gmodule*.dll;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\cdecl\gobject*.dll;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\cdecl\gthread*.dll;
                         };
 				symbols:{ 
-                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\g*.pdb;
-                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\testglib*.pdb;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\cdecl\g*.pdb;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\cdecl\testglib*.pdb;
                         };
 				tools:{ 
-                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\${4}\lib\*.exe;
+                            ..\build\win32\vs10\output\${0}\${1}\${2}\${3}\cdecl\*.exe;
                         };
 			};
 		};
