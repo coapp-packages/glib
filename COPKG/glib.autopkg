@@ -31,6 +31,7 @@ Homepage: https://developer.gnome.org/glib/";
 		include: {
 			..\glib\glib.h,
 			..\glib\glib-object.h,
+			..\glib\glibconfig.h,
 			..\gmodule\gmodule.h,
         };
 
